@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageId>WPF-UI.Violeta</PackageId>
+		<Product>WPF-UI.Violeta</Product>
+		<TargetFrameworks>net472;net48;net6.0-windows;net7.0-windows;net8.0-windows;</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+		<UseWinUI>false</UseWinUI>
+		<UseWindowsForms>false</UseWindowsForms>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<AssemblyVersion>3.0.5.0</AssemblyVersion>
+		<FileVersion>3.0.5.0</FileVersion>
+		<Version>$(VersionPrefix)3.0.5.0</Version>
+		<Authors>ema</Authors>
+		<Company>ema</Company>
+		<Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like `Toast`.</Description>
+		<PackageProjectUrl>https://github.com/emako/wpfui.violeta</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/emako/wpfui.violeta</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>WPF-UI .NET WPF Violeta</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>wpfui.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\Fonts\*.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Fonts\*.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+		<None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="WPF-UI" Version="3.0.5" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'disable'">
+		<PackageReference Include="PolySharp" Version="1.14.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>build; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="WpfAnalyzers" Version="4.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
