@@ -53,8 +53,8 @@ public static class FlyoutService
                 }
             }
             {
-                buttonExpected.MouseLeftButtonDown -= ShowFlyoutRequested;
-                buttonExpected.MouseLeftButtonDown += ShowFlyoutRequested;
+                buttonExpected.MouseLeftButtonUp -= ShowFlyoutRequested;
+                buttonExpected.MouseLeftButtonUp += ShowFlyoutRequested;
             }
         }
     }
@@ -91,6 +91,7 @@ public static class FlyoutService
     {
         if (GetFlyout(buttonExpected) is Flyout flyout)
         {
+            // Get the flyout popup from Flyout control default template.
             flyout.ApplyTemplate();
             if (flyout.GetTemplateChild("PART_Popup") is System.Windows.Controls.Primitives.Popup popup)
             {
@@ -107,10 +108,12 @@ public static class FlyoutService
                     parent.Children.Remove(popup);
                 }
 
-                // The flyout template will be lost after following code.
+                // Following code is based on the Flyout control default template.
+                // If default template is changed, this code will not work.
+                // Check WPF-UI v3.0.5 since.
                 if (flyout.Content is not null)
                 {
-                    (flyout.Content, popup.Child) = (null, flyout.Content as UIElement);
+                    (flyout.Content, ((System.Windows.Controls.Border)popup.Child).Child) = (null, flyout.Content as UIElement);
                 }
 
                 // Spoof the flyout opening state.
@@ -123,6 +126,7 @@ public static class FlyoutService
     {
         if (GetFlyout(buttonExpected) is Flyout flyout)
         {
+            // Get the flyout popup from Flyout control default template.
             if (flyout.GetTemplateChild("PART_Popup") is System.Windows.Controls.Primitives.Popup popup)
             {
                 // Spoof the flyout opening state.
