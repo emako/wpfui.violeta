@@ -1,4 +1,4 @@
-﻿namespace Wpf.Ui.Violeta.Controls;
+﻿namespace Wpf.Ui.Controls;
 
 /// <summary>
 /// Segoe Fluent Icons

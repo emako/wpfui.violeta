@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
