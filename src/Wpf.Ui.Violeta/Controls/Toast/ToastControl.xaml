@@ -36,9 +36,9 @@
                 VerticalAlignment="Center"
                 FontFamily="{DynamicResource SymbolThemeFontFamily}"
                 FontSize="{Binding IconSize}"
-                Foreground="{Binding ToastIcon, Converter={x:Static local:ToastIconForegroundConverter.Default}}"
-                Text="{Binding ToastIcon, Converter={x:Static local:ToastIconConverter.Default}}"
-                Visibility="{Binding ToastIcon, Converter={x:Static local:ToastIconVisibilityConverter.Default}}" />
+                Foreground="{Binding ToastIcon, Converter={x:Static local:ToastIconForegroundConverter.New}}"
+                Text="{Binding ToastIcon, Converter={x:Static local:ToastIconConverter.New}}"
+                Visibility="{Binding ToastIcon, Converter={x:Static local:ToastIconVisibilityConverter.New}}" />
             <TextBlock
                 Grid.Column="1"
                 HorizontalAlignment="{Binding HorizontalContentAlignment}"

@@ -8,7 +8,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [ValueConversion(typeof(ToastIcon), typeof(Visibility))]
 internal sealed class ToastIconVisibilityConverter : IValueConverter
 {
-    public static ToastIconVisibilityConverter Default => new();
+    public static ToastIconVisibilityConverter New => new();
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

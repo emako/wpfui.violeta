@@ -9,7 +9,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [ValueConversion(typeof(ToastIcon), typeof(SolidColorBrush))]
 internal sealed class ToastIconForegroundConverter : IValueConverter
 {
-    public static ToastIconForegroundConverter Default => new();
+    public static ToastIconForegroundConverter New => new();
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
