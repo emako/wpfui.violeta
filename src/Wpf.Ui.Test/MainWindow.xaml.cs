@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls;
+using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
 
 namespace Wpf.Ui.Test;
 
@@ -95,19 +96,19 @@ public partial class MainWindow : FluentWindow
     {
         if (self.Content.ToString() == "Information")
         {
-            Violeta.Controls.MessageBox.Information("This is a information message");
+            MessageBox.Information("This is a information message");
         }
         else if (self.Content.ToString() == "Warning")
         {
-            Violeta.Controls.MessageBox.Warning("This is a warning message");
+            MessageBox.Warning("This is a warning message");
         }
         else if (self.Content.ToString() == "Question")
         {
-            Violeta.Controls.MessageBox.Question("This is a question and do you want to click OK?");
+            MessageBox.Question("This is a question and do you want to click OK?");
         }
         else if (self.Content.ToString() == "Error")
         {
-            Violeta.Controls.MessageBox.Error("This is a error message");
+            MessageBox.Error("This is a error message");
         }
     }
 }
