@@ -45,6 +45,6 @@ public static class Toast
     {
         return Application.Current.Windows.OfType<Window>()
             .Where(win => win.IsActive)
-            .FirstOrDefault();
+            .FirstOrDefault()!;
     }
 }

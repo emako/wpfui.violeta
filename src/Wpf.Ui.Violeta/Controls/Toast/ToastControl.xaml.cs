@@ -225,7 +225,7 @@ public partial class ToastControl : UserControl
         set => SetValue(BorderBrushProperty, value);
     }
 
-    public new static readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#E1E1E1")));
+    public new static readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register("BorderBrush", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#E1E1E1")!));
 
     public new Thickness BorderThickness
     {
@@ -241,7 +241,7 @@ public partial class ToastControl : UserControl
         set => SetValue(BackgroundProperty, value);
     }
 
-    public new static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register("Background", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#FAFAFA")));
+    public new static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register("Background", typeof(Brush), typeof(ToastControl), new PropertyMetadata((Brush)new BrushConverter().ConvertFromString("#FAFAFA")!));
 
     public new HorizontalAlignment HorizontalContentAlignment
     {
