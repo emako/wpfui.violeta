@@ -23,8 +23,6 @@
     <Thickness x:Key="ContentDialogCommandSpaceMargin">0,24,0,0</Thickness>
     <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
     <Thickness x:Key="ContentDialogPadding">24</Thickness>
-    <SolidColorBrush x:Key="ContentDialogBackground" Color="#272727" />
-    <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="Transparent" />
     <GridLength x:Key="ContentDialogButtonSpacing">8</GridLength>
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 
