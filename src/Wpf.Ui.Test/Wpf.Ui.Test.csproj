@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+		<ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
 	</ItemGroup>
 
 </Project>

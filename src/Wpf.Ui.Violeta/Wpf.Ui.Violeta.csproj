@@ -35,16 +35,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Remove="Controls\MessageBox\**" />
-		<EmbeddedResource Remove="Controls\MessageBox\**" />
-		<None Remove="Controls\MessageBox\**" />
-	</ItemGroup>
-	
-	<ItemGroup>
-		<Page Remove="Controls\MessageBox\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<EmbeddedResource Update="Resources\Localization\SH.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>SH.Designer.cs</LastGenOutput>

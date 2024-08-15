@@ -73,7 +73,7 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private async Task ShowContentDialogAsync()
     {
-        ContentDialog myDialog =
+        ContentDialog dialog =
             new()
             {
                 Title = "My sample dialog",
@@ -84,9 +84,30 @@ public partial class MainWindow : FluentWindow
             };
 
         // Setting the dialog container
-        myDialog.DialogHost = ContentDialogHostService.ContentPresenterForDialogs;
+        dialog.DialogHost = ContentDialogHostService.ContentPresenterForDialogs;
 
         // Showing the dialog
-        await myDialog.ShowAsync(CancellationToken.None);
+        await dialog.ShowAsync(CancellationToken.None);
+    }
+
+    [RelayCommand]
+    private void ShowMessageBox(Button self)
+    {
+        if (self.Content.ToString() == "Information")
+        {
+            Violeta.Controls.MessageBox.Information("This is a information message");
+        }
+        else if (self.Content.ToString() == "Warning")
+        {
+            Violeta.Controls.MessageBox.Warning("This is a warning message");
+        }
+        else if (self.Content.ToString() == "Question")
+        {
+            Violeta.Controls.MessageBox.Question("This is a question and do you want to click OK?");
+        }
+        else if (self.Content.ToString() == "Error")
+        {
+            Violeta.Controls.MessageBox.Error("This is a error message");
+        }
     }
 }
