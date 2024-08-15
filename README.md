@@ -12,11 +12,51 @@ When I decided to create this project I was listening to the song `Violeta`.
 
 ### 🚀 Getting started
 
-Under construction
+The same as WPF UI.
+
+```xaml
+xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+```
 
 ### 📷 Screenshots
 
 Under construction
+
+### 👋Sample
+
+[Wpf.Ui.Test](https://github.com/emako/wpfui.violeta/tree/master/src/Wpf.Ui.Test)
+
+- Toast
+
+  ```c#
+  Toast.Information("I am information message");
+  Toast.Error("I am error message");
+  Toast.Success("I am success message");
+  Toast.Warning("I am warning message");
+  Toast.Show(owner: null!, "I am any message",  new ToastConfig());
+  ```
+
+- Flyout
+  ```xaml
+  <ui:Button Content="Show Flyout">
+      <ui:FlyoutService.Flyout>
+          <ui:Flyout Placement="Bottom">
+              <ui:Card>
+                  <StackPanel>
+                      <TextBlock
+                          HorizontalAlignment="Left"
+                          Text="Show the flyout message here" />
+                      <Button
+                         Command="{Binding GotItCommand}"
+                         Content="Got it" />
+                  </StackPanel>
+              </ui:Card>
+          </ui:Flyout>
+      </ui:FlyoutService.Flyout>
+  </ui:Button>
+  ```
+
 
 ### Thanks
 

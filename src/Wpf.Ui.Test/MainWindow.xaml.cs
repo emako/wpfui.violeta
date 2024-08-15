@@ -61,4 +61,10 @@ public partial class MainWindow : FluentWindow
             });
         }
     }
+
+    [RelayCommand]
+    private void ShowFlyoutInline()
+    {
+        Toast.Success("The cake is a lie!");
+    }
 }

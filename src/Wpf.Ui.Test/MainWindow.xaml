@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Wpf.Ui.Test"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     Title="MainWindow"
     Width="1200"
     Height="800"
@@ -390,6 +391,40 @@
                         CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                         Content="BottomRight"
                         Tag="Question" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="Flyout" />
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Bottom" />
+                        <ui:Button Content="Show Flyout">
+                            <ui:FlyoutService.Flyout>
+                                <ui:Flyout Placement="Bottom">
+                                    <ui:Card>
+                                        <StackPanel>
+                                            <TextBlock
+                                                Width="280"
+                                                HorizontalAlignment="Left"
+                                                Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
+                                                TextWrapping="WrapWithOverflow" />
+                                            <Button
+                                                Margin="0,8,0,0"
+                                                Command="{Binding ShowFlyoutInlineCommand}"
+                                                Content="The cake is a lie!" />
+                                        </StackPanel>
+                                    </ui:Card>
+                                </ui:Flyout>
+                            </ui:FlyoutService.Flyout>
+                        </ui:Button>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>
