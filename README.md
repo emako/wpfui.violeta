@@ -32,7 +32,7 @@ Similar to WPF UI.
 </Application>
 ```
 
-### 👋Example
+### 👋Examples
 
 [Wpf.Ui.Test](https://github.com/emako/wpfui.violeta/tree/master/src/Wpf.Ui.Test)
 
@@ -56,21 +56,19 @@ Similar to WPF UI.
   <ui:Button Content="Show Flyout">
       <ui:FlyoutService.Flyout>
           <ui:Flyout Placement="Bottom">
-              <ui:Card>
-                  <StackPanel>
-                      <TextBlock
-                          HorizontalAlignment="Left"
-                          Text="Show the flyout message here" />
-                      <Button
-                         Command="{Binding GotItCommand}"
-                         Content="Got it" />
-                  </StackPanel>
-              </ui:Card>
+              <StackPanel>
+                  <TextBlock
+                      HorizontalAlignment="Left"
+                      Text="Show the flyout message here" />
+                   <Button
+                     Command="{Binding GotItCommand}"
+                     Content="Got it" />
+              </StackPanel>
           </ui:Flyout>
       </ui:FlyoutService.Flyout>
   </ui:Button>
   ```
-
+  
 - **ContentDialog**
 
   > The `ContentDialogHostService` simplifies the creation and management of `ContentDialog` instances in your application.
