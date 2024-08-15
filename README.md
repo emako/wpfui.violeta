@@ -8,6 +8,8 @@
 
 WPF UI Violeta is based on [WPF UI](https://github.com/lepoco/wpfui), and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.
 
+Some idea or codes are ported from [ModernWpf](https://github.com/Kinnara/ModernWpf) and [Fischless](https://github.com/GenshinMatrix/Fischless).
+
 When I decided to create this project I was listening to the song `Violeta`.
 
 ### 🚀 Getting started
@@ -116,6 +118,7 @@ Under construction
 
 ### Thanks
 
+- [🔗 WPF-UI](https://github.com/lepoco/wpfui)
 - [🔗 Fischless](https://github.com/GenshinMatrix/Fischless)
 - [🔗 ModernWpf](https://github.com/Kinnara/ModernWpf)
 

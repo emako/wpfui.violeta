@@ -532,6 +532,12 @@ public partial class MessageBoxDialog : Window
     public new MessageBoxResult ShowDialog()
     {
         base.ShowDialog();
+
+        if (Owner != null)
+        {
+            // Inherit the topmost state from the owner window
+            Topmost = Owner.Topmost;
+        }
         return Result;
     }
 
