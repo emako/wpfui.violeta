@@ -88,7 +88,7 @@ public static partial class MessageBox
         ShowAsync(messageBoxText, caption, button, MessageBoxImage.Information, MessageBoxResult.None);
 
     public static Task<MessageBoxResult> InformationAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, MessageBoxImage.Information, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, MessageBoxImage.Information, defaultResult);
 
     public static Task<MessageBoxResult> InformationAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
         ShowAsync(owner, messageBoxText, caption, button, MessageBoxImage.Information, MessageBoxResult.None);
@@ -106,7 +106,7 @@ public static partial class MessageBox
         ShowAsync(messageBoxText, caption, button, MessageBoxImage.Warning, MessageBoxResult.None);
 
     public static Task<MessageBoxResult> WarningAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, MessageBoxImage.Warning, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, MessageBoxImage.Warning, defaultResult);
 
     public static Task<MessageBoxResult> WarningAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
         ShowAsync(owner, messageBoxText, caption, button, MessageBoxImage.Warning, MessageBoxResult.None);
@@ -124,7 +124,7 @@ public static partial class MessageBox
         ShowAsync(messageBoxText, caption, button, MessageBoxImage.Question, MessageBoxResult.None);
 
     public static Task<MessageBoxResult> QuestionAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, MessageBoxImage.Question, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, MessageBoxImage.Question, defaultResult);
 
     public static Task<MessageBoxResult> QuestionAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
         ShowAsync(owner, messageBoxText, caption, button, MessageBoxImage.Question, MessageBoxResult.None);
@@ -142,7 +142,7 @@ public static partial class MessageBox
         ShowAsync(messageBoxText, caption, button, MessageBoxImage.Error, MessageBoxResult.None);
 
     public static Task<MessageBoxResult> ErrorAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, MessageBoxImage.Error, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, MessageBoxImage.Error, defaultResult);
 
     public static Task<MessageBoxResult> ErrorAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button) =>
         ShowAsync(owner, messageBoxText, caption, button, MessageBoxImage.Error, MessageBoxResult.None);

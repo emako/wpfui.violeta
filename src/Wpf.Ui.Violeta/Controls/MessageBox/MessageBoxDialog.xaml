@@ -134,7 +134,8 @@
                                                                 Margin="0,0,16,0"
                                                                 VerticalAlignment="Center"
                                                                 Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.IconElement}"
-                                                                IsTabStop="False" />
+                                                                IsTabStop="False"
+                                                                Visibility="Collapsed" />
                                                             <TextBlock
                                                                 x:Name="UserIconBlock"
                                                                 Width="36"

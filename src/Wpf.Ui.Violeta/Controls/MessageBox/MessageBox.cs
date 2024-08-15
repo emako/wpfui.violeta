@@ -15,10 +15,10 @@ public static partial class MessageBox
         Show(messageBoxText, null!);
 
     public static MessageBoxResult Show(string messageBoxText, string caption) =>
-        Show(GetActiveWindow(), messageBoxText, caption);
+        Show(null!, messageBoxText, caption);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button) =>
-        Show(GetActiveWindow(), messageBoxText, caption, button);
+        Show(null!, messageBoxText, caption, button);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon) =>
         Show(messageBoxText, caption, button, icon, MessageBoxResult.None);
@@ -33,16 +33,16 @@ public static partial class MessageBox
         Show(messageBoxText, caption, button, icon, MessageBoxResult.None);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult) =>
-        Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        Show(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, MessageBoxSymbolGlyph icon, MessageBoxResult defaultResult) =>
-        Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        Show(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, string icon, MessageBoxResult defaultResult) =>
-        Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        Show(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static MessageBoxResult Show(string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult) =>
-        Show(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        Show(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static MessageBoxResult Show(Window owner, string messageBoxText) =>
         Show(owner, messageBoxText, null!);
@@ -76,7 +76,9 @@ public static partial class MessageBox
 
     public static MessageBoxResult Show(Window owner, string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult)
     {
-        owner ??= GetActiveWindow();
+        owner
+            ??= Application.Current.Windows.OfType<Window>().FirstOrDefault(window => window.IsActive)
+            ?? Application.Current.MainWindow;
 
         MessageBoxDialog window = new()
         {
@@ -100,13 +102,13 @@ public static partial class MessageBox
         ShowAsync(messageBoxText, null!);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption);
+        ShowAsync(null!, messageBoxText, caption);
 
     public static Task<MessageBoxResult> ShowAsync(Window owner, string messageBoxText) =>
         ShowAsync(owner, messageBoxText, null!);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption, MessageBoxButton button) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button);
+        ShowAsync(null!, messageBoxText, caption, button);
 
     public static Task<MessageBoxResult> ShowAsync(Window owner, string messageBoxText, string caption) =>
         ShowAsync(owner, messageBoxText, caption, MessageBoxButton.OK);
@@ -127,16 +129,16 @@ public static partial class MessageBox
         ShowAsync(owner, messageBoxText, caption, button, default(IconSource)!);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption, MessageBoxButton button, MessageBoxSymbolGlyph icon, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption, MessageBoxButton button, string icon, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText, string caption, MessageBoxButton button, IconSource icon, MessageBoxResult defaultResult) =>
-        ShowAsync(GetActiveWindow(), messageBoxText, caption, button, icon, defaultResult);
+        ShowAsync(null!, messageBoxText, caption, button, icon, defaultResult);
 
     public static Task<MessageBoxResult> ShowAsync(Window owner, string messageBoxText, string caption, MessageBoxButton button, MessageBoxImage icon) =>
         ShowAsync(owner, messageBoxText, caption, button, icon, MessageBoxResult.None);
@@ -165,16 +167,15 @@ public static partial class MessageBox
 
         Application.Current.Dispatcher.Invoke(() =>
         {
+            owner
+                ??= Application.Current.Windows.OfType<Window>().FirstOrDefault(window => window.IsActive)
+                ?? Application.Current.MainWindow;
+
             MessageBoxResult result = Show(owner, messageBoxText, caption, button, icon, defaultResult);
+
             taskSource.TrySetResult(result);
         });
 
         return taskSource.Task;
-    }
-
-    private static Window GetActiveWindow()
-    {
-        return Application.Current.Windows.OfType<Window>()
-            .FirstOrDefault(window => window.IsActive);
     }
 }
