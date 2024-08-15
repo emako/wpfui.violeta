@@ -119,6 +119,18 @@ public static class FlyoutService
         }
     }
 
+    public static void HideFlyout(FrameworkElement buttonExpected)
+    {
+        if (GetFlyout(buttonExpected) is Flyout flyout)
+        {
+            if (flyout.GetTemplateChild("PART_Popup") is System.Windows.Controls.Primitives.Popup popup)
+            {
+                // Spoof the flyout opening state.
+                flyout.IsOpen = popup.IsOpen = false;
+            }
+        }
+    }
+
     private static DependencyObject? GetTemplateChild(this FrameworkElement self, string childName)
     {
         MethodInfo? method = typeof(FrameworkElement)
