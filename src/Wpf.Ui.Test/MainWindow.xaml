@@ -481,6 +481,34 @@
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                             Content="Error" />
                     </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Async" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Error" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

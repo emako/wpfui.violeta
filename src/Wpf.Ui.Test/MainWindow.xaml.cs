@@ -111,4 +111,25 @@ public partial class MainWindow : FluentWindow
             MessageBox.Error("This is a error message");
         }
     }
+
+    [RelayCommand]
+    private async Task AsyncShowMessageBoxAsync(Button self)
+    {
+        if (self.Content.ToString() == "Information")
+        {
+            await MessageBox.InformationAsync("This is a information message");
+        }
+        else if (self.Content.ToString() == "Warning")
+        {
+            await MessageBox.WarningAsync("This is a warning message");
+        }
+        else if (self.Content.ToString() == "Question")
+        {
+            await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
+        }
+        else if (self.Content.ToString() == "Error")
+        {
+            await MessageBox.ErrorAsync("This is a error message");
+        }
+    }
 }
