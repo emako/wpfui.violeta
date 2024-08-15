@@ -35,6 +35,67 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Remove="Controls\MessageBox\**" />
+		<EmbeddedResource Remove="Controls\MessageBox\**" />
+		<None Remove="Controls\MessageBox\**" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Page Remove="Controls\MessageBox\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Localization\SH.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.en.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.en.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.fr.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.fr.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.id.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.id.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.ja.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.ja.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.ko.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.ko.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.pt.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.pt.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.ru.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.ru.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.vi.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.vi.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.zh-Hant.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.zh-Hant.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\Localization\SH.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>SH.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="" />
 		<None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
     </ItemGroup>
