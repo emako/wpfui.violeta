@@ -74,15 +74,14 @@ Similar to WPF UI.
   > The `ContentDialogHostService` simplifies the creation and management of `ContentDialog` instances in your application.
 
   ```c#
-  ContentDialog dialog =
-      new()
-      {
-          Title = "My sample dialog",
-          Content = "Content of the dialog",
-          CloseButtonText = "Close button",
-          PrimaryButtonText = "Primary button",
-          SecondaryButtonText = "Secondary button"
-      };
+  ContentDialog dialog = new()
+  {
+      Title = "My sample dialog",
+      Content = "Content of the dialog",
+      CloseButtonText = "Close button",
+      PrimaryButtonText = "Primary button",
+      SecondaryButtonText = "Secondary button"
+  };
   
   // Setting the dialog container
   dialog.DialogHost = ContentDialogHostService.ContentPresenterForDialogs;
@@ -90,7 +89,7 @@ Similar to WPF UI.
   // Showing the dialog
   await dialog.ShowAsync(CancellationToken.None);
   ```
-
+  
 - **MessageBox**
 
   > To utilize Win32's classic `MessageBox` methods while supporting modern UI themes like Mica and dark mode.
@@ -98,11 +97,17 @@ Similar to WPF UI.
   ```c#
   using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
   
-  MessageBox.Information("This is a information message");
-  MessageBox.Warning("This is a warning message");
-  MessageBox.Error("This is a error message");
-  
+  // Sync methods
+  _ = MessageBox.Information("This is a information message");
+  _ = MessageBox.Warning("This is a warning message");
+  _ = MessageBox.Error("This is a error message");
   MessageBoxResult result =  MessageBox.Question("This is a question and do you want to click OK?");
+  
+  // Async methods
+  _ = await MessageBox.InformationAsync("This is a information message");
+  _ = await MessageBox.WarningAsync("This is a warning message");
+  _ = await MessageBox.ErrorAsync("This is a error message");
+  MessageBoxResult result = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
   ```
 
 ### 📷 Screenshots
