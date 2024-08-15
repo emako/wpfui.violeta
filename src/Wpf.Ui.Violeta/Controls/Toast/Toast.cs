@@ -37,14 +37,11 @@ public static class Toast
 
     public static void Show(FrameworkElement owner, string message, ToastConfig? options = null)
     {
-        ToastControl toast = new(owner ?? Owner(), message, options);
+        ToastControl toast = new(
+            owner ?? Application.Current.Windows.OfType<Window>()
+                .Where(win => win.IsActive)
+                .FirstOrDefault()!,
+            message, options);
         toast.ShowCore();
-    }
-
-    public static FrameworkElement Owner()
-    {
-        return Application.Current.Windows.OfType<Window>()
-            .Where(win => win.IsActive)
-            .FirstOrDefault()!;
     }
 }

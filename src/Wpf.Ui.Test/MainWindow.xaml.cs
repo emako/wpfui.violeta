@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls;
@@ -66,5 +68,25 @@ public partial class MainWindow : FluentWindow
     private void ShowFlyoutInline()
     {
         Toast.Success("The cake is a lie!");
+    }
+
+    [RelayCommand]
+    private async Task ShowContentDialogAsync()
+    {
+        ContentDialog myDialog =
+            new()
+            {
+                Title = "My sample dialog",
+                Content = "Content of the dialog",
+                CloseButtonText = "Close button",
+                PrimaryButtonText = "Primary button",
+                SecondaryButtonText = "Secondary button"
+            };
+
+        // Setting the dialog container
+        myDialog.DialogHost = ContentDialogHostService.ContentPresenterForDialogs;
+
+        // Showing the dialog
+        await myDialog.ShowAsync(CancellationToken.None);
     }
 }

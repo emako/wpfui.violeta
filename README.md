@@ -23,7 +23,7 @@ xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
 
 Under construction
 
-### 👋Sample
+### 👋Example
 
 [Wpf.Ui.Test](https://github.com/emako/wpfui.violeta/tree/master/src/Wpf.Ui.Test)
 
