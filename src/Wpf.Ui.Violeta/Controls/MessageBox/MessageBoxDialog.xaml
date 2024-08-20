@@ -28,7 +28,7 @@
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 
     <WindowChrome
-        x:Key="AeroWindowChrome"
+        x:Key="MessageBoxAeroWindowChrome"
         x:Shared="False"
         GlassFrameThickness="-1"
         NonClientFrameEdges="None"
@@ -52,7 +52,7 @@
         <Setter Property="FontFamily" Value="{DynamicResource TextThemeFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="UseLayoutRounding" Value="True" />
-        <Setter Property="WindowChrome.WindowChrome" Value="{StaticResource AeroWindowChrome}" />
+        <Setter Property="WindowChrome.WindowChrome" Value="{StaticResource MessageBoxAeroWindowChrome}" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="Template">
@@ -130,28 +130,42 @@
                                                                 <ColumnDefinition Width="Auto" />
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
-                                                            <ContentControl
-                                                                x:Name="UserIconBox"
-                                                                Margin="0,0,16,0"
-                                                                VerticalAlignment="Center"
-                                                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.IconElement}"
-                                                                IsTabStop="False"
-                                                                Visibility="Collapsed" />
-                                                            <TextBlock
-                                                                x:Name="UserIconBlock"
-                                                                Width="36"
-                                                                Height="36"
-                                                                Margin="4,0,16,0"
-                                                                HorizontalAlignment="Center"
-                                                                VerticalAlignment="Center"
-                                                                FontFamily="{DynamicResource SymbolThemeFontFamily}"
-                                                                FontSize="36"
-                                                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}"
-                                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.New}}" />
-                                                            <ContentPresenter
-                                                                Grid.Column="1"
-                                                                VerticalAlignment="Center"
-                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                            <Grid Grid.Column="0">
+                                                                <!--  UserIconBox is not supported nowaday  -->
+                                                                <ContentControl
+                                                                    x:Name="UserIconBox"
+                                                                    Margin="0,0,16,0"
+                                                                    VerticalAlignment="Center"
+                                                                    Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.IconElement}"
+                                                                    IsTabStop="False"
+                                                                    Visibility="Collapsed" />
+                                                                <TextBlock
+                                                                    x:Name="UserIconBlock"
+                                                                    Width="36"
+                                                                    Height="36"
+                                                                    Margin="4,0,16,0"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                                                    FontSize="36"
+                                                                    Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}"
+                                                                    Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.New}}" />
+                                                            </Grid>
+                                                            <Grid Grid.Column="1" VerticalAlignment="Center">
+                                                                <Grid.Resources>
+                                                                    <DataTemplate x:Key="StringTemplate">
+                                                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                                                                    </DataTemplate>
+                                                                    <DataTemplate x:Key="DefaultTemplate">
+                                                                        <ContentPresenter Content="{Binding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                                    </DataTemplate>
+                                                                    <local:MessageBoxContentTemplateSelector
+                                                                        x:Key="TemplateSelector"
+                                                                        DefaultTemplate="{StaticResource DefaultTemplate}"
+                                                                        StringTemplate="{StaticResource StringTemplate}" />
+                                                                </Grid.Resources>
+                                                                <ContentPresenter ContentTemplateSelector="{StaticResource TemplateSelector}" />
+                                                            </Grid>
                                                         </Grid>
                                                     </Grid>
                                                 </Border>

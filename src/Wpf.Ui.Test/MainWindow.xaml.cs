@@ -88,7 +88,7 @@ public partial class MainWindow : FluentWindow
         dialog.DialogHost = ContentDialogHostService.ContentPresenterForDialogs;
 
         // Showing the dialog
-        await dialog.ShowAsync(CancellationToken.None);
+        _ = await dialog.ShowAsync(CancellationToken.None);
     }
 
     [RelayCommand]
@@ -96,19 +96,26 @@ public partial class MainWindow : FluentWindow
     {
         if (self.Content.ToString() == "Information")
         {
-            MessageBox.Information("This is a information message");
+            _ = MessageBox.Information("This is a information message");
         }
         else if (self.Content.ToString() == "Warning")
         {
-            MessageBox.Warning("This is a warning message");
+            _ = MessageBox.Warning("This is a warning message");
         }
         else if (self.Content.ToString() == "Question")
         {
-            MessageBox.Question("This is a question and do you want to click OK?");
+            _ = MessageBox.Question("This is a question and do you want to click OK?");
         }
         else if (self.Content.ToString() == "Error")
         {
-            MessageBox.Error("This is a error message");
+            _ = MessageBox.Error(
+                """
+                Dummy exception from Violeta:
+                   at Violeta.View.MainWindow.OnNotifyIconLeftDoubleClick(NotifyIcon sender, RoutedEventArgs e) in D:\GitHub\Violeta\View\MainWindow.xaml.cs:line 53
+                   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+                   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+                """
+            );
         }
     }
 
@@ -117,19 +124,19 @@ public partial class MainWindow : FluentWindow
     {
         if (self.Content.ToString() == "Information")
         {
-            await MessageBox.InformationAsync("This is a information message");
+            _ = await MessageBox.InformationAsync("This is a information message");
         }
         else if (self.Content.ToString() == "Warning")
         {
-            await MessageBox.WarningAsync("This is a warning message");
+            _ = await MessageBox.WarningAsync("This is a warning message");
         }
         else if (self.Content.ToString() == "Question")
         {
-            await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
+            _ = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
         }
         else if (self.Content.ToString() == "Error")
         {
-            await MessageBox.ErrorAsync("This is a error message");
+            _ = await MessageBox.ErrorAsync("This is a error message");
         }
     }
 }
