@@ -48,7 +48,7 @@
                 FontStretch="{Binding FontStretch}"
                 FontStyle="{Binding FontStyle}"
                 FontWeight="{Binding FontWeight}"
-                Foreground="{Binding Foreground}"
+                Foreground="{DynamicResource TextControlForeground}"
                 Text="{Binding Message}" />
         </Grid>
     </Border>
