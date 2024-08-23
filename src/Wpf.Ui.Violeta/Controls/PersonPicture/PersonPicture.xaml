@@ -19,8 +19,8 @@
 
     <Style TargetType="local:PersonPicture">
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-        <Setter Property="Width" Value="96" />
-        <Setter Property="Height" Value="96" />
+        <Setter Property="Width" Value="60" />
+        <Setter Property="Height" Value="NaN" />
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="IsTabStop" Value="False" />

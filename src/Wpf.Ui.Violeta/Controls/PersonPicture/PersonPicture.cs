@@ -103,7 +103,7 @@ public partial class PersonPicture : Control
         }
         else
         {
-            templateSettings.ActualImageBrush = null;
+            templateSettings.ActualImageBrush = null!;
         }
 
         // If the control is converted to 'Group-mode', we'll clear individual-specific information.
@@ -233,7 +233,7 @@ public partial class PersonPicture : Control
     {
         if (m_badgeImageBrush == null)
         {
-            m_badgeImageBrush = GetTemplateChild("BadgeImageBrush") as ImageBrush;
+            m_badgeImageBrush = (ImageBrush)GetTemplateChild("BadgeImageBrush");
         }
 
         if (m_badgingEllipse == null || m_badgeImageBrush == null)
