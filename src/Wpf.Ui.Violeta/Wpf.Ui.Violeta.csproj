@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<PackageId>WPF-UI.Violeta</PackageId>
 		<Product>WPF-UI.Violeta</Product>
-		<TargetFrameworks>net472;net481;net6.0-windows;net7.0-windows;net8.0-windows;</TargetFrameworks>
+		<TargetFrameworks>net472;net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<UseWinUI>false</UseWinUI>
 		<UseWindowsForms>false</UseWindowsForms>
@@ -11,9 +11,9 @@
 		<Nullable>enable</Nullable>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<AssemblyVersion>3.0.5.4</AssemblyVersion>
-		<FileVersion>3.0.5.4</FileVersion>
-		<Version>$(VersionPrefix)3.0.5.4</Version>
+		<AssemblyVersion>3.0.5.5</AssemblyVersion>
+		<FileVersion>3.0.5.5</FileVersion>
+		<Version>$(VersionPrefix)3.0.5.5</Version>
 		<Authors>ema</Authors>
 		<Company>ema</Company>
 		<Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.</Description>
