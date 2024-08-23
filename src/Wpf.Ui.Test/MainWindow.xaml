@@ -525,6 +525,48 @@
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                             Content="Error" />
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="PersonPicture" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Normal" />
+                            <Border Width="45" Height="45">
+                                <vio:PersonPicture
+                                    Width="45"
+                                    Height="45"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    BadgeGlyph="\uE765"
+                                    BadgeNumber="1"
+                                    DisplayName="James Bond"
+                                    Initials="JB" />
+                            </Border>
+                            <Border MaxWidth="45" MaxHeight="45">
+                                <vio:PersonPicture
+                                    Width="45"
+                                    Height="45"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    ProfilePicture="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/ProfilePicture.ico" />
+                            </Border>
+                            <Border MaxWidth="45" MaxHeight="45">
+                                <vio:PersonPicture
+                                    Width="45"
+                                    Height="45"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    ProfilePicture="https://docs.microsoft.com/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -6,7 +6,16 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>12.0</LangVersion>
+		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\Images\*.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Images\*.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
