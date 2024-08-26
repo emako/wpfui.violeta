@@ -49,6 +49,10 @@ public partial class MessageBoxDialog : Window
     {
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
         Loaded += OnLoaded;
+
+        RoutedCommand copyCommand = new("CopyCommand", typeof(MessageBoxDialog));
+        CommandBindings.Add(new CommandBinding(copyCommand, CopyExecuted));
+        InputBindings.Add(new KeyBinding(copyCommand, new KeyGesture(Key.C, ModifierKeys.Control)));
     }
 
     public MessageBoxIcon MessageBoxIcon
@@ -78,11 +82,7 @@ public partial class MessageBoxDialog : Window
     }
 
     public static readonly DependencyProperty OKButtonTextProperty =
-        DependencyProperty.Register(
-            nameof(OKButtonText),
-            typeof(string),
-            typeof(MessageBoxDialog),
-            new PropertyMetadata(string.Empty, OnButtonTextChanged));
+        DependencyProperty.Register(nameof(OKButtonText), typeof(string), typeof(MessageBoxDialog), new PropertyMetadata(string.Empty, OnButtonTextChanged));
 
     public string OKButtonText
     {
@@ -452,7 +452,7 @@ public partial class MessageBoxDialog : Window
 
     private void UpdateButtonTextState()
     {
-        var templateSettings = TemplateSettings;
+        MessageBoxTemplateSettings templateSettings = TemplateSettings;
         templateSettings.OKButtonText = string.IsNullOrEmpty(OKButtonText) ? GetString(User32.DialogBoxCommand.IDOK) : OKButtonText;
         templateSettings.YesButtonText = string.IsNullOrEmpty(YesButtonText) ? GetString(User32.DialogBoxCommand.IDYES) : YesButtonText;
         templateSettings.NoButtonText = string.IsNullOrEmpty(NoButtonText) ? GetString(User32.DialogBoxCommand.IDNO) : NoButtonText;
@@ -583,6 +583,18 @@ public partial class MessageBoxDialog : Window
         if (command != null && command.CanExecute(parameter))
         {
             command.Execute(parameter);
+        }
+    }
+
+    private void CopyExecuted(object sender, ExecutedRoutedEventArgs e)
+    {
+        try
+        {
+            Clipboard.SetText(Content?.ToString() ?? string.Empty);
+        }
+        catch
+        {
+            ///
         }
     }
 }
