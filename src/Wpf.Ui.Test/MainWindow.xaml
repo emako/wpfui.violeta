@@ -558,7 +558,7 @@
                         FontSize="14"
                         FontWeight="Black"
                         Text="ToggleButtonGroup" />
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                         <StackPanel.Resources>
                             <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
                         </StackPanel.Resources>
@@ -566,7 +566,25 @@
                             vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
                             Content="1st"
                             IsChecked="True" />
-                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="2nd" />
+                        <ToggleButton
+                            Margin="8,0,0,0"
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+                            Content="2nd" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        MinWidth="120"
+                        Margin="0,8,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="SimpleExpanderStyle" />
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <Expander
+                            Content="Some content"
+                            Header="SimpleExpander"
+                            IsExpanded="True"
+                            Style="{DynamicResource SimpleExpanderStyle}" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
