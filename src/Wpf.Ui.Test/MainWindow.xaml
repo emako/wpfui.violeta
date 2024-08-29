@@ -10,6 +10,7 @@
     Title="MainWindow"
     Width="1200"
     Height="800"
+    d:Background="#232323"
     ExtendsContentIntoTitleBar="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
