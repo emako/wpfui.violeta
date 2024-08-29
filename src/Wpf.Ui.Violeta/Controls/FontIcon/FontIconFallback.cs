@@ -7,7 +7,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 // TODO: Use font icon if available
 [EditorBrowsable(EditorBrowsableState.Never)]
-public class FontIconFallback : Control
+public sealed class FontIconFallback : Control
 {
     static FontIconFallback()
     {
@@ -16,11 +16,7 @@ public class FontIconFallback : Control
     }
 
     public static readonly DependencyProperty DataProperty =
-        DependencyProperty.Register(
-            nameof(Data),
-            typeof(Geometry),
-            typeof(FontIconFallback),
-            null);
+        DependencyProperty.Register(nameof(Data), typeof(Geometry), typeof(FontIconFallback), null);
 
     public Geometry Data
     {
