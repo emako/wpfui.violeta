@@ -110,6 +110,25 @@ Similar to WPF UI.
   MessageBoxResult result = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
   ```
 
+- ToggleButtonGroup
+
+  > Turn the ToggleButton under the same Group into a radio button.
+
+  ```xaml
+  <StackPanel Orientation="Horizontal">
+      <StackPanel.Resources>
+          <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
+      </StackPanel.Resources>
+      <ToggleButton
+          vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+          Content="1st"
+          IsChecked="True" />
+      <ToggleButton
+          vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+          Content="2nd" />
+  </StackPanel>
+  ```
+
 ### 📷 Screenshots
 
 Under construction

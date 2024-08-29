@@ -550,6 +550,24 @@
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        MinWidth="120"
+                        Margin="0,8,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="ToggleButtonGroup" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
+                        </StackPanel.Resources>
+                        <ToggleButton
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+                            Content="1st"
+                            IsChecked="True" />
+                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="2nd" />
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
         </Grid>
         <ui:TitleBar Title="Wpf.Ui.Test" />
