@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls;
-using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
 
 namespace Wpf.Ui.Test;
 
@@ -17,6 +16,9 @@ public partial class MainWindow : FluentWindow
     {
         DataContext = this;
         InitializeComponent();
+
+        Thread.Sleep(600);
+        Splash.CloseOnLoaded(this, minimumMilliseconds: 1800);
     }
 
     protected override void OnSourceInitialized(EventArgs e)

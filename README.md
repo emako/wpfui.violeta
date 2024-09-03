@@ -129,6 +129,24 @@ Similar to WPF UI.
   </StackPanel>
   ```
 
+- Splash
+
+  > Show the Splash Screen in another UI thread.
+
+  ```c#
+  public App()
+  {
+      Splash.ShowAsync("pack://application:,,,/Wpf.Ui.Test;component/wpfui.png");
+      InitializeComponent();
+  }
+  
+  public MainWindow()
+  {
+      InitializeComponent();
+      Splash.CloseOnLoaded(this, minimumMilliseconds: 1800);
+  }
+  ```
+
 ### 📷 Screenshots
 
 Under construction

@@ -5,6 +5,14 @@ namespace Wpf.Ui.Violeta.Win32;
 
 internal static class User32
 {
+    [DllImport("user32.dll", SetLastError = false, ExactSpelling = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetForegroundWindow(nint hWnd);
+
+    [DllImport("user32.dll", SetLastError = true, ExactSpelling = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool BringWindowToTop(nint hWnd);
+
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern nint MB_GetString(uint wBtn);
 
