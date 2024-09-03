@@ -585,6 +585,11 @@
                             Header="SimpleExpander"
                             IsExpanded="True"
                             Style="{DynamicResource SimpleExpanderStyle}" />
+                        <Button
+                            Margin="16,0,0,0"
+                            Content="SimpleButton"
+                            Style="{DynamicResource SimpleButtonStyle}"
+                            Tag="None" />
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
