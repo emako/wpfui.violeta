@@ -95,7 +95,7 @@ Similar to WPF UI.
   > To utilize Win32's classic `MessageBox` methods while supporting modern UI themes like Mica and dark mode.
 
   ```c#
-  using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
+  global using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
   
   // Sync methods
   _ = MessageBox.Information("This is a information message");
