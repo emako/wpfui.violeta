@@ -147,6 +147,107 @@ Similar to WPF UI.
   }
   ```
 
+- TreeListView
+
+  > TreeListView is a better way to display hierarchical data.
+
+  ```xaml
+  <vio:TreeListView Model="{Binding TreeTestModel}">
+    <vio:TreeListView.View>
+        <ui:GridView>
+            <ui:GridView.Columns>
+                <ui:GridViewColumn Width="400" Header="Column1">
+                    <ui:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <vio:TreeRowExpander Content="{Binding Column1}" />
+                        </DataTemplate>
+                    </ui:GridViewColumn.CellTemplate>
+                </ui:GridViewColumn>
+                <ui:GridViewColumn
+                    Width="250"
+                    DisplayMemberBinding="{Binding Column2, Mode=TwoWay}"
+                    Header="Column2" />
+                <ui:GridViewColumn
+                    Width="250"
+                    DisplayMemberBinding="{Binding Column3, Mode=TwoWay}"
+                    Header="Column3" />
+                <ui:GridViewColumn Width="250" Header="IsChecked">
+                    <ui:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                        </DataTemplate>
+                    </ui:GridViewColumn.CellTemplate>
+                </ui:GridViewColumn>
+            </ui:GridView.Columns>
+        </ui:GridView>
+    </vio:TreeListView.View>
+  </vio:TreeListView>
+  ```
+  
+  ```c#
+  public partial class ViewModel : ObservableObject
+  {
+      [ObservableProperty]
+      private TreeCollection<TreeTestModel> treeTestModel = CreateTestModel();
+      
+      public static TreeCollection<TreeTestModel> CreateTestModel()
+      {
+          return new TreeCollection<TreeTestModel>()
+          {
+              Children = new(
+              [
+                  new()
+                  {
+                      Column1 = "Test 1",
+                      Column2 = "Test 1",
+                      Column3 = "Test 1",
+                      Children = new(
+                      [
+                          new()
+                          {
+                              Column1 = "Test 1.1",
+                              Column2 = "Test 1.1",
+                              Column3 = "Test 1.1",
+                              Children = new(
+                              [
+                                  new()
+                                  {
+                                      Column1 = "Test 1.2",
+                                      Column2 = "Test 1.2",
+                                      Column3 = "Test 1.2",
+                                  },
+                              ]),
+                          },
+                      ]),
+                  },
+                  new()
+                  {
+                      Column1 = "Test 2",
+                      Column2 = "Test 2",
+                      Column3 = "Test 2",
+                  }
+              ]),
+          };
+      }
+  }
+  
+  [ObservableObject]
+  public partial class TreeTestModel : TreeObject<TreeTestModel>
+  {
+      [ObservableProperty]
+      private string? column1;
+  
+      [ObservableProperty]
+      private string? column2;
+  
+      [ObservableProperty]
+      private string? column3;
+  
+      [ObservableProperty]
+      private bool isChecked = false;
+  }
+  ```
+
 ### 📷 Screenshots
 
 Under construction
