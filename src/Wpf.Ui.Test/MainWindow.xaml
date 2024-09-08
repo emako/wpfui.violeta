@@ -601,11 +601,11 @@
                             FontSize="14"
                             FontWeight="Black"
                             Text="TreeListView" />
-                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <StackPanel Margin="0,8,0,0">
                             <vio:TreeList
-                                Width="800"
-                                Height="500"
-                                Model="{Binding TreeModel}">
+                                Height="300"
+                                Margin="0,8,90,0"
+                                Model="{Binding TreeRegistryModel}">
                                 <vio:TreeList.View>
                                     <ui:GridView>
                                         <ui:GridView.Columns>
@@ -628,6 +628,54 @@
                                     </ui:GridView>
                                 </vio:TreeList.View>
                             </vio:TreeList>
+                            <vio:TreeList
+                                Height="200"
+                                Margin="0,8,90,0"
+                                Model="{Binding TreeTestModel}">
+                                <vio:TreeList.View>
+                                    <ui:GridView>
+                                        <ui:GridView.Columns>
+                                            <ui:GridViewColumn Width="400" Header="Column1">
+                                                <ui:GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <vio:TreeRowExpander Content="{Binding Column1}" />
+                                                    </DataTemplate>
+                                                </ui:GridViewColumn.CellTemplate>
+                                            </ui:GridViewColumn>
+                                            <ui:GridViewColumn
+                                                Width="250"
+                                                DisplayMemberBinding="{Binding Column2, Mode=TwoWay}"
+                                                Header="Column2" />
+                                            <ui:GridViewColumn
+                                                Width="250"
+                                                DisplayMemberBinding="{Binding Column3, Mode=TwoWay}"
+                                                Header="Column3" />
+                                            <ui:GridViewColumn Width="250" Header="IsChecked">
+                                                <ui:GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                                    </DataTemplate>
+                                                </ui:GridViewColumn.CellTemplate>
+                                            </ui:GridViewColumn>
+                                        </ui:GridView.Columns>
+                                    </ui:GridView>
+                                </vio:TreeList.View>
+                            </vio:TreeList>
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <Button Command="{Binding AddTreeTestModelCommand}" Content="Add Row" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding RemoveTreeTestModelCommand}"
+                                    Content="Remove Row" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ChangeTreeTestModelCommand}"
+                                    Content="Change Row" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ClearTreeTestModelCommand}"
+                                    Content="Clear Row" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

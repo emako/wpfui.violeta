@@ -170,7 +170,7 @@ public class TreeList : ListView
     {
         if (Model != null)
         {
-            return Model.GetChildren(parent.Tag);
+            return Model.GetChildren(parent?.Tag!);
         }
         else
         {
@@ -186,7 +186,7 @@ public class TreeList : ListView
         }
         else if (Model != null)
         {
-            return Model.HasChildren(parent.Tag);
+            return Model.HasChildren(parent?.Tag!);
         }
         else
         {
