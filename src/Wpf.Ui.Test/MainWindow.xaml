@@ -11,492 +11,79 @@
     Width="1200"
     Height="800"
     d:Background="#232323"
+    d:Height="2000"
     ExtendsContentIntoTitleBar="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid Margin="16,42,16,16">
-            <StackPanel>
-                <TextBlock
-                    FontSize="14"
-                    FontWeight="Black"
-                    Text="Toast" />
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="None" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="None" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="Information" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="Information" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="Success" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="Success" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="Error" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="Error" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="Warning" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="Warning" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock
-                        MinWidth="80"
-                        VerticalAlignment="Center"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Center"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Left"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="Right"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopLeft"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopCenter"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="TopRight"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomLeft"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomCenter"
-                        Tag="Question" />
-                    <ui:Button
-                        Margin="16,0,0,0"
-                        Command="{Binding ShowToastCommand}"
-                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                        Content="BottomRight"
-                        Tag="Question" />
-                </StackPanel>
+            <ScrollViewer>
                 <StackPanel>
                     <TextBlock
-                        Margin="0,8,0,0"
                         FontSize="14"
                         FontWeight="Black"
-                        Text="Flyout" />
+                        Text="Toast" />
                     <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                         <TextBlock
                             MinWidth="80"
                             VerticalAlignment="Center"
                             FontSize="14"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Bottom" />
-                        <ui:Button Margin="16,0,0,0" Content="Button">
-                            <ui:FlyoutService.Flyout>
-                                <ui:Flyout Placement="Bottom">
-                                    <StackPanel>
-                                        <TextBlock
-                                            Width="280"
-                                            HorizontalAlignment="Left"
-                                            Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
-                                            TextWrapping="WrapWithOverflow" />
-                                        <Button
-                                            Margin="0,8,0,0"
-                                            Command="{Binding ShowFlyoutInlineCommand}"
-                                            Content="The cake is a lie!" />
-                                    </StackPanel>
-                                </ui:Flyout>
-                            </ui:FlyoutService.Flyout>
-                        </ui:Button>
-                        <ui:Card Margin="16,0,0,0" Padding="12,8,12,8">
-                            <ui:FlyoutService.Flyout>
-                                <ui:Flyout Placement="Bottom">
-                                    <StackPanel>
-                                        <TextBlock
-                                            Width="280"
-                                            HorizontalAlignment="Left"
-                                            Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
-                                            TextWrapping="WrapWithOverflow" />
-                                        <Button
-                                            Margin="0,8,0,0"
-                                            Command="{Binding ShowFlyoutInlineCommand}"
-                                            Content="The cake is a lie!" />
-                                    </StackPanel>
-                                </ui:Flyout>
-                            </ui:FlyoutService.Flyout>
-                            <TextBlock Text="Card" />
-                        </ui:Card>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock
-                        MinWidth="120"
-                        Margin="0,8,0,0"
-                        FontSize="14"
-                        FontWeight="Black"
-                        Text="ContentDialog" />
-                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <TextBlock
-                            MinWidth="80"
-                            VerticalAlignment="Center"
-                            FontSize="14"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="HostService" />
+                            Text="None" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding ShowContentDialogCommand}"
-                            Content="Show ContentDialog" />
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock
-                        MinWidth="120"
-                        Margin="0,8,0,0"
-                        FontSize="14"
-                        FontWeight="Black"
-                        Text="MessageBox" />
-                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <TextBlock
-                            MinWidth="80"
-                            VerticalAlignment="Center"
-                            FontSize="14"
-                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Sync" />
-                        <ui:Button
-                            Margin="16,0,0,0"
-                            Command="{Binding ShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Information" />
+                            Content="Center"
+                            Tag="None" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding ShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Warning" />
+                            Content="Left"
+                            Tag="None" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding ShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Question" />
+                            Content="Right"
+                            Tag="None" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding ShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Error" />
+                            Content="TopLeft"
+                            Tag="None" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="None" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="None" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="None" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="None" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="None" />
                     </StackPanel>
                     <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                         <TextBlock
@@ -504,27 +91,359 @@
                             VerticalAlignment="Center"
                             FontSize="14"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Async" />
+                            Text="Information" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Information" />
+                            Content="Center"
+                            Tag="Information" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Warning" />
+                            Content="Left"
+                            Tag="Information" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Question" />
+                            Content="Right"
+                            Tag="Information" />
                         <ui:Button
                             Margin="16,0,0,0"
-                            Command="{Binding AsyncShowMessageBoxCommand}"
+                            Command="{Binding ShowToastCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                            Content="Error" />
+                            Content="TopLeft"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="Information" />
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Center"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Left"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Right"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopLeft"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="Success" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="Success" />
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Center"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Left"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Right"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopLeft"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="Error" />
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Center"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Left"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Right"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopLeft"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="Warning" />
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Center"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Left"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="Right"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopLeft"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopCenter"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="TopRight"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomLeft"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomCenter"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Command="{Binding ShowToastCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                            Content="BottomRight"
+                            Tag="Question" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Flyout" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Bottom" />
+                            <ui:Button Margin="16,0,0,0" Content="Button">
+                                <ui:FlyoutService.Flyout>
+                                    <ui:Flyout Placement="Bottom">
+                                        <StackPanel>
+                                            <TextBlock
+                                                Width="280"
+                                                HorizontalAlignment="Left"
+                                                Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
+                                                TextWrapping="WrapWithOverflow" />
+                                            <Button
+                                                Margin="0,8,0,0"
+                                                Command="{Binding ShowFlyoutInlineCommand}"
+                                                Content="The cake is a lie!" />
+                                        </StackPanel>
+                                    </ui:Flyout>
+                                </ui:FlyoutService.Flyout>
+                            </ui:Button>
+                            <ui:Card Margin="16,0,0,0" Padding="12,8,12,8">
+                                <ui:FlyoutService.Flyout>
+                                    <ui:Flyout Placement="Bottom">
+                                        <StackPanel>
+                                            <TextBlock
+                                                Width="280"
+                                                HorizontalAlignment="Left"
+                                                Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
+                                                TextWrapping="WrapWithOverflow" />
+                                            <Button
+                                                Margin="0,8,0,0"
+                                                Command="{Binding ShowFlyoutInlineCommand}"
+                                                Content="The cake is a lie!" />
+                                        </StackPanel>
+                                    </ui:Flyout>
+                                </ui:FlyoutService.Flyout>
+                                <TextBlock Text="Card" />
+                            </ui:Card>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock
@@ -532,67 +451,187 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="PersonPicture" />
+                            Text="ContentDialog" />
                         <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                             <TextBlock
                                 MinWidth="80"
                                 VerticalAlignment="Center"
                                 FontSize="14"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Normal" />
-                            <vio:PersonPicture
+                                Text="HostService" />
+                            <ui:Button
                                 Margin="16,0,0,0"
-                                BadgeGlyph="\uE765"
-                                BadgeNumber="1"
-                                DisplayName="James Bond"
-                                Initials="JB" />
-                            <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/ProfilePicture.ico" />
-                            <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="https://docs.microsoft.com/zh-cn/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                                Command="{Binding ShowContentDialogCommand}"
+                                Content="Show ContentDialog" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="MessageBox" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Sync" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Information" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Warning" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Question" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Error" />
+                        </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Async" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding AsyncShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Information" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding AsyncShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Warning" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding AsyncShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Question" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding AsyncShowMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Error" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock
+                                MinWidth="120"
+                                Margin="0,8,0,0"
+                                FontSize="14"
+                                FontWeight="Black"
+                                Text="PersonPicture" />
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="80"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                    Text="Normal" />
+                                <vio:PersonPicture
+                                    Margin="16,0,0,0"
+                                    BadgeGlyph="\uE765"
+                                    BadgeNumber="1"
+                                    DisplayName="James Bond"
+                                    Initials="JB" />
+                                <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/ProfilePicture.ico" />
+                                <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="https://docs.microsoft.com/zh-cn/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="ToggleButtonGroup" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
+                            </StackPanel.Resources>
+                            <ToggleButton
+                                vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+                                Content="1st"
+                                IsChecked="True" />
+                            <ToggleButton
+                                Margin="8,0,0,0"
+                                vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+                                Content="2nd" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="SimpleExpanderStyle" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <Expander
+                                Content="Some content"
+                                Header="SimpleExpander"
+                                IsExpanded="True"
+                                Style="{DynamicResource SimpleExpanderStyle}" />
+                            <Button
+                                Margin="16,0,0,0"
+                                Content="SimpleButton"
+                                Style="{DynamicResource SimpleButtonStyle}"
+                                Tag="None" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="TreeListView" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <vio:TreeList
+                                Width="800"
+                                Height="500"
+                                Model="{Binding TreeModel}">
+                                <vio:TreeList.View>
+                                    <ui:GridView>
+                                        <ui:GridView.Columns>
+                                            <ui:GridViewColumn Width="400" Header="Name">
+                                                <ui:GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <vio:TreeRowExpander Content="{Binding Name}" />
+                                                    </DataTemplate>
+                                                </ui:GridViewColumn.CellTemplate>
+                                            </ui:GridViewColumn>
+                                            <ui:GridViewColumn
+                                                Width="50"
+                                                DisplayMemberBinding="{Binding Kind}"
+                                                Header="Type" />
+                                            <ui:GridViewColumn
+                                                Width="100"
+                                                DisplayMemberBinding="{Binding Data}"
+                                                Header="Data" />
+                                        </ui:GridView.Columns>
+                                    </ui:GridView>
+                                </vio:TreeList.View>
+                            </vio:TreeList>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel>
-                    <TextBlock
-                        MinWidth="120"
-                        Margin="0,8,0,0"
-                        FontSize="14"
-                        FontWeight="Black"
-                        Text="ToggleButtonGroup" />
-                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <StackPanel.Resources>
-                            <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
-                        </StackPanel.Resources>
-                        <ToggleButton
-                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
-                            Content="1st"
-                            IsChecked="True" />
-                        <ToggleButton
-                            Margin="8,0,0,0"
-                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
-                            Content="2nd" />
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock
-                        MinWidth="120"
-                        Margin="0,8,0,0"
-                        FontSize="14"
-                        FontWeight="Black"
-                        Text="SimpleExpanderStyle" />
-                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <Expander
-                            Content="Some content"
-                            Header="SimpleExpander"
-                            IsExpanded="True"
-                            Style="{DynamicResource SimpleExpanderStyle}" />
-                        <Button
-                            Margin="16,0,0,0"
-                            Content="SimpleButton"
-                            Style="{DynamicResource SimpleButtonStyle}"
-                            Tag="None" />
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
         <ui:TitleBar Title="Wpf.Ui.Test" />
     </Grid>

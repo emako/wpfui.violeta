@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -141,4 +143,63 @@ public partial class MainWindow : FluentWindow
             _ = await MessageBox.ErrorAsync("This is a error message");
         }
     }
+
+    [ObservableProperty]
+    private RegistryModel treeModel = new();
+}
+
+public partial class RegistryModel : ITreeModel
+{
+    public IEnumerable GetChildren(object parent)
+    {
+        if (parent == null)
+        {
+            yield return Registry.ClassesRoot;
+            yield return Registry.CurrentUser;
+            yield return Registry.LocalMachine;
+            yield return Registry.Users;
+            yield return Registry.CurrentConfig;
+        }
+        else if (parent is RegistryKey key)
+        {
+            foreach (var name in key.GetSubKeyNames())
+            {
+                RegistryKey? subKey = null;
+                try
+                {
+                    subKey = key.OpenSubKey(name);
+                }
+                catch
+                {
+                }
+
+                if (subKey != null)
+                {
+                    yield return subKey;
+                }
+            }
+
+            foreach (var name in key.GetValueNames())
+            {
+                yield return new RegValue()
+                {
+                    Name = name,
+                    Data = key.GetValue(name),
+                    Kind = key.GetValueKind(name)
+                };
+            }
+        }
+    }
+
+    public bool HasChildren(object parent)
+    {
+        return parent is RegistryKey;
+    }
+}
+
+public struct RegValue
+{
+    public string Name { get; set; }
+    public object? Data { get; set; }
+    public RegistryValueKind Kind { get; set; }
 }
