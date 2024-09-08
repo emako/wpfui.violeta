@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 public interface ITreeModel
 {

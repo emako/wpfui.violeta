@@ -602,65 +602,61 @@
                             FontWeight="Black"
                             Text="TreeListView" />
                         <StackPanel Margin="0,8,0,0">
-                            <vio:TreeListView
+                            <ui:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeRegistryModel}">
-                                <vio:TreeListView.View>
-                                    <ui:GridView>
-                                        <ui:GridView.Columns>
-                                            <ui:GridViewColumn Width="400" Header="Name">
-                                                <ui:GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <vio:TreeRowExpander Content="{Binding Name}" />
-                                                    </DataTemplate>
-                                                </ui:GridViewColumn.CellTemplate>
-                                            </ui:GridViewColumn>
-                                            <ui:GridViewColumn
-                                                Width="50"
-                                                DisplayMemberBinding="{Binding Kind}"
-                                                Header="Type" />
-                                            <ui:GridViewColumn
-                                                Width="100"
-                                                DisplayMemberBinding="{Binding Data}"
-                                                Header="Data" />
-                                        </ui:GridView.Columns>
-                                    </ui:GridView>
-                                </vio:TreeListView.View>
-                            </vio:TreeListView>
-                            <vio:TreeListView
+                                <ui:GridView>
+                                    <ui:GridView.Columns>
+                                        <ui:GridViewColumn Width="400" Header="Name">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ui:TreeRowExpander Content="{Binding Name}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
+                                        <ui:GridViewColumn
+                                            Width="50"
+                                            DisplayMemberBinding="{Binding Kind}"
+                                            Header="Type" />
+                                        <ui:GridViewColumn
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding Data}"
+                                            Header="Data" />
+                                    </ui:GridView.Columns>
+                                </ui:GridView>
+                            </ui:TreeListView>
+                            <ui:TreeListView
                                 Height="200"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeTestModel}">
-                                <vio:TreeListView.View>
-                                    <ui:GridView>
-                                        <ui:GridView.Columns>
-                                            <ui:GridViewColumn Width="400" Header="Column1">
-                                                <ui:GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <vio:TreeRowExpander Content="{Binding Column1}" />
-                                                    </DataTemplate>
-                                                </ui:GridViewColumn.CellTemplate>
-                                            </ui:GridViewColumn>
-                                            <ui:GridViewColumn
-                                                Width="250"
-                                                DisplayMemberBinding="{Binding Column2, Mode=TwoWay}"
-                                                Header="Column2" />
-                                            <ui:GridViewColumn
-                                                Width="250"
-                                                DisplayMemberBinding="{Binding Column3, Mode=TwoWay}"
-                                                Header="Column3" />
-                                            <ui:GridViewColumn Width="250" Header="IsChecked">
-                                                <ui:GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
-                                                    </DataTemplate>
-                                                </ui:GridViewColumn.CellTemplate>
-                                            </ui:GridViewColumn>
-                                        </ui:GridView.Columns>
-                                    </ui:GridView>
-                                </vio:TreeListView.View>
-                            </vio:TreeListView>
+                                <ui:GridView>
+                                    <ui:GridView.Columns>
+                                        <ui:GridViewColumn Width="400" Header="Column1">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ui:TreeRowExpander Content="{Binding Column1}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
+                                        <ui:GridViewColumn
+                                            Width="250"
+                                            DisplayMemberBinding="{Binding Column2, Mode=TwoWay}"
+                                            Header="Column2" />
+                                        <ui:GridViewColumn
+                                            Width="250"
+                                            DisplayMemberBinding="{Binding Column3, Mode=TwoWay}"
+                                            Header="Column3" />
+                                        <ui:GridViewColumn Width="250" Header="IsChecked">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
+                                    </ui:GridView.Columns>
+                                </ui:GridView>
+                            </ui:TreeListView>
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <Button Command="{Binding AddTreeTestModelCommand}" Content="Add Row" />
                                 <Button

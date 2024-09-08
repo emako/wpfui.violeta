@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 public class TreeRowExpander : ContentControl
 {

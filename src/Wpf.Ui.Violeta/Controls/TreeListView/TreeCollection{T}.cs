@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 public class TreeCollection<T> : IEnumerable<T>, IList<T>, ICollection<T>, ITreeModel where T : TreeObject<T>, new()
 {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 [ValueConversion(typeof(int), typeof(Thickness))]
 internal sealed class TreeListViewLevelToIndentConverter : IValueConverter

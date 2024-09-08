@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 public sealed class TreeNode : INotifyPropertyChanged
 {

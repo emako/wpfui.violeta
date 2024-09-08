@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Controls;
 
 public class TreeObject<T> where T : new()
 {
