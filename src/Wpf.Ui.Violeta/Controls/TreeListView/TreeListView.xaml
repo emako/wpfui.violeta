@@ -9,7 +9,7 @@
     <local:TreeListViewCanExpandConverter x:Key="TreeListViewCanExpandInverter" IsInverted="True" />
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 
-    <Style x:Key="TreeListViewStyle" TargetType="{x:Type local:TreeList}">
+    <Style x:Key="TreeListViewStyle" TargetType="{x:Type local:TreeListView}">
         <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Margin" Value="0" />
@@ -23,7 +23,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:TreeList}">
+                <ControlTemplate TargetType="{x:Type local:TreeListView}">
                     <Border
                         Name="Bd"
                         Background="Transparent"
@@ -48,7 +48,7 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource TreeListViewStyle}" TargetType="{x:Type local:TreeList}" />
+    <Style BasedOn="{StaticResource TreeListViewStyle}" TargetType="{x:Type local:TreeListView}" />
 
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
@@ -95,13 +95,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TreeRowExpander}">
-                    <Grid Margin="{Binding Node.Level, Converter={StaticResource TreeListViewLevelToIndentConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListItem}}}">
+                    <Grid Margin="{Binding Node.Level, Converter={StaticResource TreeListViewLevelToIndentConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}">
                         <ToggleButton
                             ClickMode="Press"
                             Content="{TemplateBinding Content}"
-                            IsChecked="{Binding Node.IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListItem}}}"
+                            IsChecked="{Binding Node.IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}"
                             Style="{StaticResource ExpandCollapseToggleStyle}"
-                            Visibility="{Binding Node.IsExpandable, Converter={StaticResource TreeListViewCanExpandConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListItem}}}" />
+                            Visibility="{Binding Node.IsExpandable, Converter={StaticResource TreeListViewCanExpandConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}" />
                         <ContentPresenter
                             Margin="19,0,0,0"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -109,7 +109,7 @@
                             Content="{TemplateBinding Content}"
                             TextElement.FontSize="{TemplateBinding FontSize}"
                             TextElement.Foreground="{TemplateBinding Foreground}"
-                            Visibility="{Binding Node.IsExpandable, Converter={StaticResource TreeListViewCanExpandInverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListItem}}}" />
+                            Visibility="{Binding Node.IsExpandable, Converter={StaticResource TreeListViewCanExpandInverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -118,7 +118,7 @@
 
     <Style BasedOn="{StaticResource DefaultTreeRowExpanderStyle}" TargetType="{x:Type local:TreeRowExpander}" />
 
-    <Style x:Key="DefaultTreeListItemStyle" TargetType="{x:Type local:TreeListItem}">
+    <Style x:Key="DefaultTreeListViewItemStyle" TargetType="{x:Type local:TreeListViewItem}">
         <Setter Property="Foreground" Value="{DynamicResource ListViewItemForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
@@ -161,6 +161,6 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource DefaultTreeListItemStyle}" TargetType="{x:Type local:TreeListItem}" />
+    <Style BasedOn="{StaticResource DefaultTreeListViewItemStyle}" TargetType="{x:Type local:TreeListViewItem}" />
 
 </ResourceDictionary>

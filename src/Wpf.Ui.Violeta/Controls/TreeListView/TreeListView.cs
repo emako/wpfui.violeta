@@ -10,7 +10,7 @@ using System.Windows.Controls.Primitives;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class TreeList : ListView
+public class TreeListView : ListView
 {
     /// <summary>
     /// Internal collection of rows representing visible nodes, actually displayed in the ListView
@@ -24,11 +24,11 @@ public class TreeList : ListView
     }
 
     public static readonly DependencyProperty ModelProperty =
-        DependencyProperty.Register(nameof(Model), typeof(ITreeModel), typeof(TreeList), new PropertyMetadata(null!, PropertyChangedCallback));
+        DependencyProperty.Register(nameof(Model), typeof(ITreeModel), typeof(TreeListView), new PropertyMetadata(null!, PropertyChangedCallback));
 
     public static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is TreeList self)
+        if (d is TreeListView self)
         {
             self._root.Children.Clear();
             self.Rows.Clear();
@@ -43,7 +43,7 @@ public class TreeList : ListView
     }
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeList), new PropertyMetadata(new CornerRadius(3)));
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeListView), new PropertyMetadata(new CornerRadius(3)));
 
     private TreeNode _root;
 
@@ -57,7 +57,7 @@ public class TreeList : ListView
 
     public TreeNode? SelectedNode => SelectedItems.Count > 0 ? SelectedItems[0] as TreeNode : null;
 
-    public TreeList()
+    public TreeListView()
     {
         Rows = [];
         _root = new TreeNode(this, null!)
@@ -72,7 +72,7 @@ public class TreeList : ListView
     {
         if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated && PendingFocusNode != null)
         {
-            TreeListItem? item = ItemContainerGenerator.ContainerFromItem(PendingFocusNode) as TreeListItem;
+            TreeListViewItem? item = ItemContainerGenerator.ContainerFromItem(PendingFocusNode) as TreeListViewItem;
             item?.Focus();
             PendingFocusNode = null!;
         }
@@ -80,17 +80,17 @@ public class TreeList : ListView
 
     protected override DependencyObject GetContainerForItemOverride()
     {
-        return new TreeListItem();
+        return new TreeListViewItem();
     }
 
     protected override bool IsItemItsOwnContainerOverride(object item)
     {
-        return item is TreeListItem;
+        return item is TreeListViewItem;
     }
 
     protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
     {
-        if (element is TreeListItem { } ti && item is TreeNode { } node)
+        if (element is TreeListViewItem { } ti && item is TreeNode { } node)
         {
             ti.Node = item as TreeNode;
             base.PrepareContainerForItemOverride(element, node.Tag);

@@ -602,11 +602,11 @@
                             FontWeight="Black"
                             Text="TreeListView" />
                         <StackPanel Margin="0,8,0,0">
-                            <vio:TreeList
+                            <vio:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeRegistryModel}">
-                                <vio:TreeList.View>
+                                <vio:TreeListView.View>
                                     <ui:GridView>
                                         <ui:GridView.Columns>
                                             <ui:GridViewColumn Width="400" Header="Name">
@@ -626,13 +626,13 @@
                                                 Header="Data" />
                                         </ui:GridView.Columns>
                                     </ui:GridView>
-                                </vio:TreeList.View>
-                            </vio:TreeList>
-                            <vio:TreeList
+                                </vio:TreeListView.View>
+                            </vio:TreeListView>
+                            <vio:TreeListView
                                 Height="200"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeTestModel}">
-                                <vio:TreeList.View>
+                                <vio:TreeListView.View>
                                     <ui:GridView>
                                         <ui:GridView.Columns>
                                             <ui:GridViewColumn Width="400" Header="Column1">
@@ -659,8 +659,8 @@
                                             </ui:GridViewColumn>
                                         </ui:GridView.Columns>
                                     </ui:GridView>
-                                </vio:TreeList.View>
-                            </vio:TreeList>
+                                </vio:TreeListView.View>
+                            </vio:TreeListView>
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <Button Command="{Binding AddTreeTestModelCommand}" Content="Add Row" />
                                 <Button

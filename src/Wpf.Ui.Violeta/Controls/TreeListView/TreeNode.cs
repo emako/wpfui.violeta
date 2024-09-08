@@ -75,9 +75,9 @@ public sealed class TreeNode : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
-    private TreeList _tree;
+    private TreeListView _tree;
 
-    internal TreeList Tree => _tree;
+    internal TreeListView Tree => _tree;
 
     private INotifyCollectionChanged _childrenSource = null!;
 
@@ -263,7 +263,7 @@ public sealed class TreeNode : INotifyPropertyChanged
 
     public ReadOnlyCollection<TreeNode> Nodes => _nodes;
 
-    internal TreeNode(TreeList tree, object tag)
+    internal TreeNode(TreeListView tree, object tag)
     {
         if (tree == null)
         {

@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class TreeListItem : ListViewItem, INotifyPropertyChanged
+public class TreeListViewItem : ListViewItem, INotifyPropertyChanged
 {
     private TreeNode? _node;
 
@@ -18,7 +18,7 @@ public class TreeListItem : ListViewItem, INotifyPropertyChanged
         }
     }
 
-    public TreeListItem()
+    public TreeListViewItem()
     {
     }
 
@@ -79,9 +79,9 @@ public class TreeListItem : ListViewItem, INotifyPropertyChanged
 
     private void ChangeFocus(TreeNode? node)
     {
-        if (node?.Tree is TreeList { } tree)
+        if (node?.Tree is TreeListView { } tree)
         {
-            if (tree.ItemContainerGenerator.ContainerFromItem(node) is TreeListItem item)
+            if (tree.ItemContainerGenerator.ContainerFromItem(node) is TreeListViewItem item)
             {
                 item.Focus();
             }
