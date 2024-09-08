@@ -28,10 +28,12 @@
 
 	<ItemGroup>
 		<None Remove="Resources\Fonts\*.ttf" />
+		<None Remove="Resources\Images\*.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Resource Include="Resources\Fonts\*.ttf" />
+		<Resource Include="Resources\Images\*.png" />
 	</ItemGroup>
 
 	<ItemGroup>

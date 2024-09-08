@@ -248,6 +248,14 @@ Similar to WPF UI.
   }
   ```
 
+- ImageView
+
+  > Provides a scalable image control.
+
+  ```xaml
+  <vio:ImageView Source="/wpfui.png" />
+  ```
+
 ### 📷 Screenshots
 
 Under construction

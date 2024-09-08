@@ -1,0 +1,64 @@
+﻿<UserControl
+    x:Class="Wpf.Ui.Violeta.Controls.ImageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="imagePanel"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid>
+        <Rectangle RenderOptions.BitmapScalingMode="NearestNeighbor" Visibility="{Binding BackgroundVisibility, ElementName=imagePanel}">
+            <Rectangle.Fill>
+                <ImageBrush
+                    AlignmentY="Top"
+                    ImageSource="pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Images/background-b.png"
+                    RenderOptions.BitmapScalingMode="NearestNeighbor"
+                    Stretch="UniformToFill"
+                    TileMode="Tile"
+                    Viewport="0,0,32,32"
+                    ViewportUnits="Absolute" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <ScrollViewer
+            x:Name="viewPanel"
+            BorderThickness="0"
+            Focusable="False"
+            HorizontalScrollBarVisibility="Auto"
+            IsManipulationEnabled="True"
+            VerticalScrollBarVisibility="Auto">
+            <local:AnimatedImage
+                x:Name="viewPanelImage"
+                AnimationUri="{Binding ImageUriSource, ElementName=imagePanel}"
+                RenderOptions.BitmapScalingMode="{Binding RenderMode, ElementName=imagePanel}"
+                Stretch="None" />
+        </ScrollViewer>
+        <Border
+            x:Name="zoomLevelInfo"
+            Padding="15,4,15,4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Gray"
+            CornerRadius="5"
+            IsHitTestVisible="False"
+            Opacity="0">
+            <TextBlock
+                FontSize="18"
+                Foreground="White"
+                Text="{Binding ElementName=imagePanel, Path=ZoomFactor, StringFormat={}{0:P0}}" />
+            <Border.Resources>
+                <Storyboard x:Key="StoryboardShowZoomLevelInfo">
+                    <DoubleAnimationUsingKeyFrames Storyboard.Target="{Binding Source={x:Reference zoomLevelInfo}}" Storyboard.TargetProperty="Opacity">
+                        <DoubleAnimationUsingKeyFrames.KeyFrames>
+                            <LinearDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9" />
+                            <LinearDoubleKeyFrame KeyTime="0:0:0.6" Value="0.9" />
+                            <LinearDoubleKeyFrame KeyTime="0:0:0.8" Value="0" />
+                        </DoubleAnimationUsingKeyFrames.KeyFrames>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </Border.Resources>
+        </Border>
+    </Grid>
+</UserControl>

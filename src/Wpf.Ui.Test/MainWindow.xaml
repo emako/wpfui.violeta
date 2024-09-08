@@ -678,6 +678,24 @@
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="ImageView" />
+                        <ui:Border
+                            Width="300"
+                            Height="300"
+                            Margin="0,8,0,0"
+                            HorizontalAlignment="Left"
+                            Background="AliceBlue"
+                            ClipToBounds="True"
+                            CornerRadius="8">
+                            <vio:ImageView Source="/wpfui.png" />
+                        </ui:Border>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
