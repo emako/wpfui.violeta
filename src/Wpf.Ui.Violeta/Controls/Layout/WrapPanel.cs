@@ -49,8 +49,8 @@ public class WrapPanel : Panel
 
     public double HorizontalSpacing
     {
-        get { return (double)GetValue(HorizontalSpacingProperty); }
-        set { SetValue(HorizontalSpacingProperty, value); }
+        get => (double)GetValue(HorizontalSpacingProperty);
+        set => SetValue(HorizontalSpacingProperty, value);
     }
 
     protected override Size MeasureOverride(Size availableSize)
@@ -85,13 +85,17 @@ public class WrapPanel : Panel
                 offsetX += childWidth;
 
                 if (child.Visibility != Visibility.Collapsed)
+                {
                     offsetX += horizontalSpacing;
+                }
 
                 if (offsetX - horizontalSpacing > availableSize.Width)
                 {
                     currentLineLength = offsetX - horizontalSpacing - childWidth - horizontalSpacing;
                     if (currentLineLength > maxLineLength)
+                    {
                         maxLineLength = currentLineLength;
+                    }
 
                     offsetX = childWidth + horizontalSpacing;
                     offsetY += currentLineSize;
@@ -100,12 +104,16 @@ public class WrapPanel : Panel
                 }
 
                 if (childHeight > currentLineSize)
+                {
                     currentLineSize = childHeight;
+                }
             }
 
             currentLineLength = offsetX - horizontalSpacing;
             if (currentLineLength > maxLineLength)
+            {
                 maxLineLength = currentLineLength;
+            }
 
             offsetX = 0;
             offsetY += currentLineSize;
@@ -130,13 +138,17 @@ public class WrapPanel : Panel
                 offsetY += childHeight;
 
                 if (child.Visibility != Visibility.Collapsed)
+                {
                     offsetY += verticalSpacing;
+                }
 
                 if (offsetY - verticalSpacing > availableSize.Height)
                 {
                     currentLineLength = offsetY - horizontalSpacing - childHeight - verticalSpacing;
                     if (currentLineLength > maxLineLength)
+                    {
                         maxLineLength = currentLineLength;
+                    }
 
                     offsetY = childHeight + verticalSpacing;
                     offsetX += currentLineSize;
@@ -150,7 +162,9 @@ public class WrapPanel : Panel
 
             currentLineLength = offsetY - verticalSpacing;
             if (currentLineLength > maxLineLength)
+            {
                 maxLineLength = currentLineLength;
+            }
 
             offsetY = 0;
             offsetX += currentLineSize;
@@ -190,7 +204,9 @@ public class WrapPanel : Panel
                 tempOffset += childWidth;
 
                 if (child.Visibility != Visibility.Collapsed)
+                {
                     tempOffset += horizontalSpacing;
+                }
 
                 if (tempOffset - horizontalSpacing > finalSize.Width)
                 {
@@ -215,7 +231,9 @@ public class WrapPanel : Panel
                 }
 
                 if (childHeight > currentLineSize)
+                {
                     currentLineSize = childHeight;
+                }
             }
 
             ArrangeLineHorizontal(
@@ -241,7 +259,9 @@ public class WrapPanel : Panel
                 tempOffset += childHeight;
 
                 if (child.Visibility != Visibility.Collapsed)
+                {
                     tempOffset += verticalSpacing;
+                }
 
                 if (tempOffset - verticalSpacing > finalSize.Height)
                 {
@@ -266,7 +286,9 @@ public class WrapPanel : Panel
                 }
 
                 if (childWidth > currentLineSize)
+                {
                     currentLineSize = childWidth;
+                }
             }
 
             ArrangeLineVertical(
@@ -307,7 +329,9 @@ public class WrapPanel : Panel
                 lineChildOffset += lineChildWidth;
 
                 if (lineChild.Visibility != Visibility.Collapsed)
+                {
                     lineChildOffset += spacing;
+                }
             }
         }
 
@@ -335,7 +359,9 @@ public class WrapPanel : Panel
                 lineChildOffset += lineChildHeight;
 
                 if (lineChild.Visibility != Visibility.Collapsed)
+                {
                     lineChildOffset += spacing;
+                }
             }
         }
     }
