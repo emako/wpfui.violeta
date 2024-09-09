@@ -7,7 +7,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 
 namespace Wpf.Ui.Test;
@@ -33,6 +35,14 @@ public partial class MainWindow : FluentWindow
             Background = new SolidColorBrush(Colors.Transparent);
             WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
         }
+    }
+
+    [ObservableProperty]
+    private int themeIndex = (int)ApplicationTheme.Dark;
+
+    partial void OnThemeIndexChanged(int value)
+    {
+        ThemeManager.Apply((ApplicationTheme)value);
     }
 
     [RelayCommand]
