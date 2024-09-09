@@ -110,9 +110,9 @@ Similar to WPF UI.
   MessageBoxResult result = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
   ```
 
-- ToggleButtonGroup
+- **ToggleButtonGroup** / **RadioButtonGroup**
 
-  > Turn the ToggleButton under the same Group into a radio button.
+  > Turn the ToggleButton and RadioButton under the same Group into a radio button.
 
   ```xaml
   <StackPanel Orientation="Horizontal">
@@ -128,8 +128,25 @@ Similar to WPF UI.
           Content="2nd" />
   </StackPanel>
   ```
-
-- Splash
+  ```xaml
+  <StackPanel Orientation="Horizontal">
+      <StackPanel.Resources>
+          <vio:RadioButtonGroup x:Key="RadioButtonGroup" />
+      </StackPanel.Resources>
+      <RadioButton
+                   vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
+                   Content="1st"
+                   IsChecked="True" />
+      <Grid>
+          <RadioButton
+                       Margin="8,0,0,0"
+                       vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
+                       Content="2nd" />
+      </Grid>
+  </StackPanel>
+  ```
+  
+- **Splash**
 
   > Show the Splash Screen in another UI thread.
 
@@ -147,7 +164,7 @@ Similar to WPF UI.
   }
   ```
 
-- TreeListView
+- **TreeListView**
 
   > TreeListView is a better way to display hierarchical data.
 
@@ -246,7 +263,7 @@ Similar to WPF UI.
   }
   ```
 
-- ImageView
+- **ImageView**
 
   > Provides a scalable image control.
 
