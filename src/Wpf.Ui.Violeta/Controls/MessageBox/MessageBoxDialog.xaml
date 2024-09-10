@@ -131,7 +131,7 @@
                                                                 <ColumnDefinition Width="*" />
                                                             </Grid.ColumnDefinitions>
                                                             <Grid Grid.Column="0">
-                                                                <!--  UserIconBox is not supported nowaday  -->
+                                                                <!--  UserIconBox is not supported nowadays  -->
                                                                 <ContentControl
                                                                     x:Name="UserIconBox"
                                                                     Margin="0,0,16,0"
@@ -154,7 +154,9 @@
                                                             <Grid Grid.Column="1" VerticalAlignment="Center">
                                                                 <Grid.Resources>
                                                                     <DataTemplate x:Key="StringTemplate">
-                                                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                                                                        <ScrollViewer Padding="0,0,12,0">
+                                                                            <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                                                                        </ScrollViewer>
                                                                     </DataTemplate>
                                                                     <DataTemplate x:Key="DefaultTemplate">
                                                                         <ContentPresenter Content="{Binding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
