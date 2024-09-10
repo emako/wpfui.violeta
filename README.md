@@ -271,6 +271,28 @@ Similar to WPF UI.
   <vio:ImageView Source="/wpfui.png" />
   ```
 
+- ExceptionReport
+
+  > Show a dialog to handle the `DispatcherUnhandledException` from Application.
+
+   ```c#
+  public partial class App : Application
+  {
+      public App()
+      {
+          InitializeComponent();
+  
+          DispatcherUnhandledException += (object s, DispatcherUnhandledExceptionEventArgs e) =>
+          {
+              e.Handled = true;
+              ExceptionReport.Show(e.Exception);
+          };
+      }
+  }
+   ```
+
+
+
 ### 📷 Screenshots
 
 Under construction

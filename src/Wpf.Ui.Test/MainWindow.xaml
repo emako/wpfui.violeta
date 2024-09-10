@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="MainWindow"
+    Title="Wpf.Ui.Test"
     Width="1200"
     Height="800"
     d:Background="#232323"
@@ -30,7 +30,7 @@
                     </ComboBox>
                 </ui:StackPanel>
             </Grid>
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer x:Name="ScrollViewer" Grid.Row="1">
                 <StackPanel>
                     <TextBlock
                         FontSize="14"
@@ -635,7 +635,8 @@
                             <ui:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
-                                Model="{Binding TreeRegistryModel}">
+                                Model="{Binding TreeRegistryModel}"
+                                Visibility="Collapsed">
                                 <ui:GridView>
                                     <ui:GridView.Columns>
                                         <ui:GridViewColumn Width="400" Header="Name">
@@ -721,6 +722,21 @@
                             CornerRadius="8">
                             <vio:ImageView Source="/wpfui.png" />
                         </ui:Border>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="ExceptionReport" />
+                        <ui:StackPanel
+                            Margin="0,8,0,0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <Button Command="{Binding ShowReportCommand}" Content="Show Report" />
+                            <Button Command="{Binding ThrowExceptionCommand}" Content="Throw Exception" />
+                        </ui:StackPanel>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>

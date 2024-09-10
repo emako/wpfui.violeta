@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>読み込み中</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>エラー発生</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>無視</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>例外が発生しました</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>問題を追跡するために情報をコピーするか、無視して試すか、プログラムを終了して再起動することができます。</value>
+  </data>
 </root>

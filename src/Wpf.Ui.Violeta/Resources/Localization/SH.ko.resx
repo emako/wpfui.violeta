@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>로딩</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>무시하다</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>출구</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>예외 발생</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>문제를 추적하기 위해 정보를 복사하거나 무시하고 시도하거나 프로그램을 종료하고 다시 시작할 수 있습니다.</value>
+  </data>
 </root>

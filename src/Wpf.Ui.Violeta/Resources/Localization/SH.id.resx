@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>Memuat</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>Kesalahan</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>Abaikan</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>Keluar</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>Pengecualian Diajukan</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>Anda dapat menyalin informasi untuk melacak masalah, mengabaikan dan mencoba, atau keluar dari program dan memulai ulang.</value>
+  </data>
 </root>

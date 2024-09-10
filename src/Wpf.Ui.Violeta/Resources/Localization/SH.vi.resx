@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>Đang tải</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>Bỏ qua</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>Ngoại lệ xảy ra</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>Bạn có thể sao chép thông tin để theo dõi vấn đề, bỏ qua và thử lại, hoặc thoát chương trình và khởi động lại.</value>
+  </data>
 </root>

@@ -1,0 +1,149 @@
+﻿<ui:FluentWindow
+    x:Class="Wpf.Ui.Violeta.Controls.ExceptionWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vui="clr-namespace:Wpf.Ui.Controls"
+    Width="820"
+    Height="620"
+    MinWidth="820"
+    d:Background="#1A1A1A"
+    d:Foreground="White"
+    ExtendsContentIntoTitleBar="True"
+    FontSize="13"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="SingleBorderWindow"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
+    </Window.Resources>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="Paused" ProgressValue="100" />
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Grid Margin="16,42,16,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ui:FontIcon
+                    Grid.Column="0"
+                    FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                    FontSize="28"
+                    Glyph="{x:Static vui:FontSymbols.Warning}" />
+                <Grid
+                    Grid.Column="1"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="Hint1TextBlock"
+                            VerticalAlignment="Center"
+                            FontSize="20" />
+                        <TextBlock
+                            x:Name="Hint2TextBlock"
+                            VerticalAlignment="Center"
+                            FontSize="12" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,12,0,0">
+                <StackPanel>
+                    <TextBlock VerticalAlignment="Center">
+                        <TextBlock.Inlines>
+                            <Run Text="{Binding AppName}" />
+                            <Run Text="{Binding AppVersion}" />
+                            <Run Text="|" />
+                            <Run Text="{Binding ErrorTime, Mode=OneTime}" />
+                            <Run Text="|" />
+                            <Run Text="{Binding OSVersion, Mode=OneTime}" />
+                        </TextBlock.Inlines>
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,12,0,0"
+                        VerticalAlignment="Center"
+                        FontWeight="Bold"
+                        Foreground="#B83C4B"
+                        Text="{Binding ExceptionType}" />
+                </StackPanel>
+            </Grid>
+            <Border
+                Grid.Row="2"
+                Margin="0,12,0,0"
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="3">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock
+                            Margin="12"
+                            Foreground="#FFAC58"
+                            Text="{Binding ExceptionObject.Message}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Margin="12"
+                            Foreground="#FFAC58"
+                            Text="{Binding ExceptionObject}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            <Grid Grid.Row="3" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <vui:StackPanel
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <ui:Button
+                        x:Name="TryIgnoreButton"
+                        MinWidth="120"
+                        Appearance="{x:Static ui:ControlAppearance.Primary}">
+                        <ui:Button.Content>
+                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.UpdateRestore}" />
+                                <TextBlock x:Name="IgnoreTextBlock" />
+                            </vui:StackPanel>
+                        </ui:Button.Content>
+                    </ui:Button>
+                    <ui:Button x:Name="CopyButton" MinWidth="120">
+                        <ui:Button.Content>
+                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Copy}" />
+                                <TextBlock x:Name="CopyTextBlock" />
+                            </vui:StackPanel>
+                        </ui:Button.Content>
+                    </ui:Button>
+                </vui:StackPanel>
+                <vui:StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <ui:Button x:Name="ExitButton" MinWidth="120">
+                        <ui:Button.Content>
+                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Cancel}" />
+                                <TextBlock x:Name="ExitTextBlock" />
+                            </vui:StackPanel>
+                        </ui:Button.Content>
+                    </ui:Button>
+                </vui:StackPanel>
+            </Grid>
+        </Grid>
+        <ui:TitleBar Title="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}" />
+    </Grid>
+</ui:FluentWindow>

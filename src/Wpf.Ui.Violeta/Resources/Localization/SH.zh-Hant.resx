@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>載入中</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>出错啦</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>復制</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>忽略</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>似乎遇到了一些問題</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>你可以複製信息來跟蹤問題，忽略並嘗試，或者退出程序然後重新啟動。</value>
+  </data>
 </root>

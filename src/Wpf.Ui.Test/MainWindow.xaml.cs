@@ -24,6 +24,8 @@ public partial class MainWindow : FluentWindow
 
         Thread.Sleep(600);
         Splash.CloseOnLoaded(this, minimumMilliseconds: 1800);
+
+        ScrollViewer.ScrollToEnd();
     }
 
     protected override void OnSourceInitialized(EventArgs e)
@@ -274,6 +276,28 @@ public partial class MainWindow : FluentWindow
             }
         }
         return model;
+    }
+
+    [RelayCommand]
+    private void ShowReport()
+    {
+        ExceptionReport.Show(new SystemException(
+            """
+            A critical system error occurred while attempting to perform the requested operation.
+            The system entered an unexpected state, possibly due to resource exhaustion,
+            incompatible configuration settings, or an internal logic flaw.
+            Immediate investigation is required to diagnose and rectify the issue.
+            Please check system logs, review recent changes,
+            and ensure that the environment meets all necessary requirements.
+            If the issue cannot be resolved, escalate to the technical team for further analysis.
+            """
+            ));
+    }
+
+    [RelayCommand]
+    private void ThrowException()
+    {
+        throw new InvalidOperationException("The operation could not be completed because the system encountered an unexpected state. This might be due to incorrect usage of the API or an internal error. Please ensure that all prerequisites are met and the operation is performed under the correct conditions. If the problem persists, consult the documentation or contact support for further assistance.");
     }
 }
 

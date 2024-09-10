@@ -61,6 +61,60 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 复制.
+        /// </summary>
+        internal static string ButtonCopy {
+            get {
+                return ResourceManager.GetString("ButtonCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 退出.
+        /// </summary>
+        internal static string ButtonExit {
+            get {
+                return ResourceManager.GetString("ButtonExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 忽略.
+        /// </summary>
+        internal static string ButtonIgnore {
+            get {
+                return ResourceManager.GetString("ButtonIgnore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 似乎遇到了一些问题.
+        /// </summary>
+        internal static string ExceptionWindowHint1 {
+            get {
+                return ResourceManager.GetString("ExceptionWindowHint1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 您可以复制信息便于跟踪问题，尝试忽略问题或退出程序后重新启动。.
+        /// </summary>
+        internal static string ExceptionWindowHint2 {
+            get {
+                return ResourceManager.GetString("ExceptionWindowHint2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 出错啦.
+        /// </summary>
+        internal static string ExceptionWindowTitle {
+            get {
+                return ResourceManager.GetString("ExceptionWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 错误.
         /// </summary>
         internal static string MessageBoxCaptionError {

@@ -132,4 +132,22 @@
   <data name="PendingBoxLoadingText" xml:space="preserve">
     <value>Carregando</value>
   </data>
+  <data name="ExceptionWindowTitle" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="ButtonCopy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="ButtonIgnore" xml:space="preserve">
+    <value>Ignorar</value>
+  </data>
+  <data name="ButtonExit" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="ExceptionWindowHint1" xml:space="preserve">
+    <value>Exceção Levantada</value>
+  </data>
+  <data name="ExceptionWindowHint2" xml:space="preserve">
+    <value>Você pode copiar as informações para rastrear o problema, ignorar e tentar, ou sair do programa e reiniciar.</value>
+  </data>
 </root>
