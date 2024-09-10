@@ -271,7 +271,7 @@ Similar to WPF UI.
   <vio:ImageView Source="/wpfui.png" />
   ```
 
-- ExceptionReport
+- **ExceptionReport**
 
   > Show a dialog to handle the `DispatcherUnhandledException` from Application.
 
