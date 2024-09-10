@@ -22,8 +22,25 @@ public partial class ExceptionWindow : FluentWindow
 
             if (owner != null)
             {
-                AppName ??= owner.Title;
-                AppVersion ??= "v" + owner.GetType().Assembly.GetName().Version?.ToString();
+                try
+                {
+                    // Try get title but be care the owner had been disposed.
+                    AppName ??= owner.Dispatcher.Invoke(() => owner.Title);
+                }
+                catch
+                {
+                    ///
+                }
+
+                try
+                {
+                    // Try get assembly version but be care the owner class had been unmounted.
+                    AppVersion ??= "v" + owner.GetType().Assembly.GetName().Version?.ToString();
+                }
+                catch
+                {
+                    ///
+                }
             }
         }
     }
@@ -56,8 +73,8 @@ public partial class ExceptionWindow : FluentWindow
     public ExceptionWindow(Exception e, string? appName = null, string? appVersion = null)
     {
         ExceptionObject = e ?? new Exception("<NULL>");
-        AppName = appName ?? Owner?.Title;
-        AppVersion = appVersion ?? Owner?.GetType().Assembly.GetName().Version?.ToString();
+        AppName = appName;
+        AppVersion = appVersion;
 
         DataContext = this;
         InitializeComponent();
