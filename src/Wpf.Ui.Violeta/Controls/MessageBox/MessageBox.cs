@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Wpf.Ui.Controls;
 using MessageBoxButton = System.Windows.MessageBoxButton;
 using MessageBoxResult = System.Windows.MessageBoxResult;
@@ -80,22 +81,27 @@ public static partial class MessageBox
             ??= Application.Current.Windows.OfType<Window>().FirstOrDefault(window => window.IsActive)
             ?? Application.Current.MainWindow;
 
-        MessageBoxDialog window = new()
-        {
-            Owner = owner,
-            IconSource = icon,
-            MessageBoxIcon = icon.ToMessageBoxIcon(),
-            Result = defaultResult,
-            Content = messageBoxText,
-            MessageBoxButtons = button,
-            Caption = caption ?? string.Empty,
-            Title = caption ?? string.Empty,
-            ResizeMode = ResizeMode.NoResize,
-            WindowStyle = WindowStyle.SingleBorderWindow,
-            WindowStartupLocation = owner is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner
-        };
+        Dispatcher dispatcher = owner?.Dispatcher ?? Application.Current.Dispatcher;
 
-        return window.ShowDialog();
+        return dispatcher.Invoke(() =>
+        {
+            MessageBoxDialog window = new()
+            {
+                Owner = owner,
+                IconSource = icon,
+                MessageBoxIcon = icon.ToMessageBoxIcon(),
+                Result = defaultResult,
+                Content = messageBoxText,
+                MessageBoxButtons = button,
+                Caption = caption ?? string.Empty,
+                Title = caption ?? string.Empty,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStyle = WindowStyle.SingleBorderWindow,
+                WindowStartupLocation = owner is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner
+            };
+
+            return window.ShowDialog();
+        });
     }
 
     public static Task<MessageBoxResult> ShowAsync(string messageBoxText) =>
@@ -165,13 +171,15 @@ public static partial class MessageBox
     {
         TaskCompletionSource<MessageBoxResult> taskSource = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
-        Application.Current.Dispatcher.Invoke(() =>
-        {
-            owner
-                ??= Application.Current.Windows.OfType<Window>().FirstOrDefault(window => window.IsActive)
-                ?? Application.Current.MainWindow;
+        owner
+            ??= Application.Current.Windows.OfType<Window>().FirstOrDefault(window => window.IsActive)
+            ?? Application.Current.MainWindow;
 
-            MessageBoxResult result = Show(owner, messageBoxText, caption, button, icon, defaultResult);
+        Dispatcher dispatcher = owner?.Dispatcher ?? Application.Current.Dispatcher;
+
+        dispatcher.Invoke(() =>
+        {
+            MessageBoxResult result = Show(owner!, messageBoxText, caption, button, icon, defaultResult);
 
             taskSource.TrySetResult(result);
         });
