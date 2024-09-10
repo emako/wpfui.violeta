@@ -576,7 +576,7 @@
                         <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel.Resources>
-                                    <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" />
+                                    <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" IsCanCancel="True" />
                                 </StackPanel.Resources>
                                 <ToggleButton
                                     vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"

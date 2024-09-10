@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
@@ -6,6 +7,8 @@ namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 public class ToggleButtonGroup : List<ToggleButton>
 {
+    public bool IsCanCancel { get; set; } = false;
+
     public static ToggleButtonGroup GetGroup(DependencyObject obj)
     {
         return (ToggleButtonGroup)obj.GetValue(GroupProperty);
@@ -56,9 +59,9 @@ public class ToggleButtonGroup : List<ToggleButton>
         };
         toggleButton.Unchecked += (s, e) =>
         {
-            if (!Handling && s is ToggleButton tb)
+            if (!IsCanCancel && !Handling && s is ToggleButton cb)
             {
-                tb.IsChecked = true;
+                cb.IsChecked = true;
             }
         };
         SetGroup(toggleButton, this);
