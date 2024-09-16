@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -159,6 +160,9 @@ public partial class MainWindow : FluentWindow
 
     [ObservableProperty]
     private RegistryModel treeRegistryModel = new();
+
+    [ObservableProperty]
+    private FileModel treeFileModel = new();
 
     [ObservableProperty]
     private TreeCollection<TreeTestModel> treeTestModel = CreateTestModel();
@@ -347,6 +351,42 @@ public partial class RegistryModel : ITreeModel
     public bool HasChildren(object parent)
     {
         return parent is RegistryKey;
+    }
+}
+
+public class FileModel : ITreeModel
+{
+    public IEnumerable GetChildren(object? parent)
+    {
+        if (parent == null)
+        {
+            // 返回根目录
+            yield return new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+        }
+        else if (parent is DirectoryInfo directory)
+        {
+            // 返回子目录
+            foreach (var dir in directory.GetDirectories())
+            {
+                yield return dir;
+            }
+
+            // 返回文件
+            foreach (var file in directory.GetFiles())
+            {
+                yield return file;
+            }
+        }
+    }
+
+    public bool HasChildren(object parent)
+    {
+        if (parent is DirectoryInfo directory)
+        {
+            // 检查是否有子目录或文件
+            return directory.GetDirectories().Any() || directory.GetFiles().Any();
+        }
+        return false;
     }
 }
 
