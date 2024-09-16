@@ -635,6 +635,30 @@
                             <ui:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
+                                Model="{Binding TreeFileModel}">
+                                <ui:GridView>
+                                    <ui:GridView.Columns>
+                                        <ui:GridViewColumn Width="400" Header="Name">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ui:TreeRowExpander Content="{Binding Name}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
+                                        <ui:GridViewColumn
+                                            Width="50"
+                                            DisplayMemberBinding="{Binding CreationTime}"
+                                            Header="CreationTime" />
+                                        <ui:GridViewColumn
+                                            Width="100"
+                                            DisplayMemberBinding="{Binding FullName}"
+                                            Header="FullName" />
+                                    </ui:GridView.Columns>
+                                </ui:GridView>
+                            </ui:TreeListView>
+                            <ui:TreeListView
+                                Height="300"
+                                Margin="0,8,90,0"
                                 Model="{Binding TreeRegistryModel}"
                                 Visibility="Collapsed">
                                 <ui:GridView>
