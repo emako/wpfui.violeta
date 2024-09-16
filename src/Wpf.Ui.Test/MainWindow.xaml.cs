@@ -383,8 +383,22 @@ public class FileModel : ITreeModel
     {
         if (parent is DirectoryInfo directory)
         {
-            // 检查是否有子目录或文件
-            return directory.GetDirectories().Any() || directory.GetFiles().Any();
+            try
+            {
+                // 检查是否有子目录或文件
+                return directory.GetDirectories().Any() || directory.GetFiles().Any();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                // 捕获没有权限的异常并返回 false
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // 处理其他可能的异常
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return false;
+            }
         }
         return false;
     }
