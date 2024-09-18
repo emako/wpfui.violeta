@@ -9,6 +9,81 @@
     <local:TreeListViewCanExpandConverter x:Key="TreeListViewCanExpandInverter" IsInverted="True" />
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 
+    <ControlTemplate x:Key="TreeGridViewScrollViewerTemplate" TargetType="{x:Type ScrollViewer}">
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DockPanel Margin="{TemplateBinding Control.Padding}">
+                <ScrollViewer
+                    DockPanel.Dock="Top"
+                    Focusable="False"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Hidden">
+                    <!--  margin-left matched to listviewitem.padding  -->
+                    <ui:GridViewHeaderRowPresenter
+                        Margin="4"
+                        AllowsColumnReorder="{Binding Path=View.AllowsColumnReorder, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        ColumnHeaderContainerStyle="{Binding Path=View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        ColumnHeaderContextMenu="{Binding Path=View.ColumnHeaderContextMenu, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        ColumnHeaderTemplate="{Binding Path=View.ColumnHeaderTemplate, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        ColumnHeaderToolTip="{Binding Path=View.ColumnHeaderToolTip, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        Columns="{Binding Path=View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                </ScrollViewer>
+                <ScrollContentPresenter
+                    Name="PART_ScrollContentPresenter"
+                    CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                    CanHorizontallyScroll="False"
+                    CanVerticallyScroll="False"
+                    Content="{TemplateBinding ContentControl.Content}"
+                    ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                    KeyboardNavigation.DirectionalNavigation="Local"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            </DockPanel>
+            <ScrollBar
+                Name="PART_HorizontalScrollBar"
+                Grid.Row="1"
+                Cursor="Arrow"
+                Maximum="{TemplateBinding ScrollViewer.ScrollableWidth}"
+                Minimum="0"
+                Orientation="Horizontal"
+                ViewportSize="20"
+                Visibility="{TemplateBinding ScrollViewer.ComputedHorizontalScrollBarVisibility}"
+                Value="{Binding Path=HorizontalOffset, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
+            <ScrollBar
+                Name="PART_VerticalScrollBar"
+                Grid.Column="1"
+                Cursor="Arrow"
+                Maximum="{TemplateBinding ScrollViewer.ScrollableHeight}"
+                Minimum="0"
+                Orientation="Vertical"
+                ViewportSize="20"
+                Visibility="{TemplateBinding ScrollViewer.ComputedVerticalScrollBarVisibility}"
+                Value="{Binding Path=VerticalOffset, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" />
+            <DockPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                LastChildFill="False">
+                <Rectangle
+                    Width="1"
+                    DockPanel.Dock="Left"
+                    Fill="#FFFFFFFF"
+                    Visibility="{TemplateBinding ScrollViewer.ComputedVerticalScrollBarVisibility}" />
+                <Rectangle
+                    Height="1"
+                    DockPanel.Dock="Top"
+                    Fill="#FFFFFFFF"
+                    Visibility="{TemplateBinding ScrollViewer.ComputedHorizontalScrollBarVisibility}" />
+            </DockPanel>
+        </Grid>
+    </ControlTemplate>
+
     <Style x:Key="TreeListViewStyle" TargetType="{x:Type local:TreeListView}">
         <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
         <Setter Property="CornerRadius" Value="3" />
@@ -34,7 +109,7 @@
                             Padding="{TemplateBinding Control.Padding}"
                             CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                             Focusable="False"
-                            Template="{DynamicResource GridViewScrollViewerTemplate}">
+                            Template="{DynamicResource TreeGridViewScrollViewerTemplate}">
                             <ItemsPresenter />
                         </ui:PassiveScrollViewer>
                     </Border>
