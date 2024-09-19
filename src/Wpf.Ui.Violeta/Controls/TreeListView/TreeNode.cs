@@ -181,7 +181,9 @@ public sealed class TreeNode : INotifyPropertyChanged
             {
                 int index = Index;
                 if (index > 0)
+                {
                     return _parent.Nodes[index - 1];
+                }
             }
             return null;
         }
@@ -195,7 +197,9 @@ public sealed class TreeNode : INotifyPropertyChanged
             {
                 int index = Index;
                 if (index < _parent.Nodes.Count - 1)
+                {
                     return _parent.Nodes[index + 1];
+                }
             }
             return null;
         }
@@ -265,10 +269,7 @@ public sealed class TreeNode : INotifyPropertyChanged
 
     internal TreeNode(TreeListView tree, object tag)
     {
-        if (tree == null)
-        {
-            throw new ArgumentNullException(nameof(tree));
-        }
+        _ = tree ?? throw new ArgumentNullException(nameof(tree));
 
         _tree = tree;
         _children = new NodeCollection(this);

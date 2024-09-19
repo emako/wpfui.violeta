@@ -122,7 +122,7 @@ public class TreeListView : ListView
 
     internal void CreateChildrenNodes(TreeNode node)
     {
-        var children = GetChildren(node);
+        IEnumerable? children = GetChildren(node);
         if (children != null)
         {
             int rowIndex = Rows.IndexOf(node);
