@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vui="clr-namespace:Wpf.Ui.Controls"
     Title="Splash"
     d:Opacity="1"
     AllowsTransparency="True"
@@ -102,7 +103,9 @@
                 </TransformGroup>
             </UIElement.RenderTransform>
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Source="{Binding ImageUri}" />
+                <vui:Border ClipToBounds="True" CornerRadius="{x:Static local:SplashConfig.CornerRadius}">
+                    <Image Source="{Binding ImageUri}" />
+                </vui:Border>
             </Grid>
         </Viewbox>
     </Grid>
