@@ -26,15 +26,15 @@ public class TreeListView : ListView
     }
 
     public static readonly DependencyProperty ModelProperty =
-        DependencyProperty.Register(nameof(Model), typeof(ITreeModel), typeof(TreeListView), new PropertyMetadata(null!, PropertyChangedCallback));
+        DependencyProperty.Register(nameof(Model), typeof(ITreeModel), typeof(TreeListView), new PropertyMetadata(null!, ModelChangedCallback));
 
-    public static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    public static void ModelChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is TreeListView self)
         {
-            self._root.Children.Clear();
+            self.Root.Children.Clear();
             self.Rows.Clear();
-            self.CreateChildrenNodes(self._root);
+            self.CreateChildrenNodes(self.Root);
         }
     }
 
@@ -47,13 +47,11 @@ public class TreeListView : ListView
     public static readonly DependencyProperty CornerRadiusProperty =
         DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeListView), new PropertyMetadata(new CornerRadius(3)));
 
-    private TreeNode _root;
-
-    internal TreeNode Root => _root;
+    internal TreeNode Root { get; set; } = null!;
 
     public ReadOnlyCollection<TreeNode> Nodes => Root.Nodes;
 
-    internal TreeNode? PendingFocusNode { get; set; }
+    internal TreeNode? PendingFocusNode { get; set; } = null;
 
     public ICollection<TreeNode> SelectedNodes => SelectedItems.Cast<TreeNode>().ToArray();
 
@@ -62,7 +60,7 @@ public class TreeListView : ListView
     public TreeListView()
     {
         Rows = [];
-        _root = new TreeNode(this, null!)
+        Root = new TreeNode(this, null!)
         {
             IsExpanded = true
         };
@@ -142,7 +140,7 @@ public class TreeListView : ListView
     private void CreateChildrenRows(TreeNode node)
     {
         int index = Rows.IndexOf(node);
-        if (index >= 0 || node == _root) // ignore invisible nodes
+        if (index >= 0 || node == Root) // ignore invisible nodes
         {
             var nodes = node.AllVisibleChildren.ToArray();
             Rows.InsertRange(index + 1, nodes);
@@ -152,7 +150,7 @@ public class TreeListView : ListView
     internal void DropChildrenRows(TreeNode node, bool removeParent)
     {
         int start = Rows.IndexOf(node);
-        if (start >= 0 || node == _root) // ignore invisible nodes
+        if (start >= 0 || node == Root) // ignore invisible nodes
         {
             int count = node.VisibleChildrenCount;
             if (removeParent)
