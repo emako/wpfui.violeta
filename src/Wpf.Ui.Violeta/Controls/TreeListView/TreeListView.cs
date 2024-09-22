@@ -135,6 +135,34 @@ public class TreeListView : ListView
             }
             Rows.InsertRange(rowIndex + 1, [.. node.Children]);
         }
+
+        IEnumerable? GetChildren(TreeNode parent)
+        {
+            if (Model != null)
+            {
+                return Model.GetChildren(parent?.Content!);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        bool HasChildren(TreeNode parent)
+        {
+            if (parent == Root)
+            {
+                return true;
+            }
+            else if (Model != null)
+            {
+                return Model.HasChildren(parent?.Content!);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     private void CreateChildrenRows(TreeNode node)
@@ -166,37 +194,9 @@ public class TreeListView : ListView
         }
     }
 
-    private IEnumerable? GetChildren(TreeNode parent)
+    internal void InsertNewNode(TreeNode parent, object content, int rowIndex, int index)
     {
-        if (Model != null)
-        {
-            return Model.GetChildren(parent?.Content!);
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    private bool HasChildren(TreeNode parent)
-    {
-        if (parent == Root)
-        {
-            return true;
-        }
-        else if (Model != null)
-        {
-            return Model.HasChildren(parent?.Content!);
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    internal void InsertNewNode(TreeNode parent, object tag, int rowIndex, int index)
-    {
-        TreeNode node = new(this, tag);
+        TreeNode node = new(this, content);
         if (index >= 0 && index < parent.Children.Count)
         {
             parent.Children.Insert(index, node);

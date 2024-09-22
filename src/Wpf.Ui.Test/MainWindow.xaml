@@ -681,10 +681,12 @@
                                     </ui:GridView.Columns>
                                 </ui:GridView>
                             </ui:TreeListView>-->
+                            <!--  Model="{Binding TreeTestModel}"  -->
                             <ui:TreeListView
+                                x:Name="TreeListView"
                                 Height="200"
                                 Margin="0,8,90,0"
-                                Model="{Binding TreeTestModel}">
+                                ItemsSource="{Binding TreeTestItemsSource}">
                                 <ui:GridView>
                                     <ui:GridView.Columns>
                                         <ui:GridViewColumn Width="400" Header="Column1">
@@ -726,6 +728,21 @@
                                     Margin="8,0,0,0"
                                     Command="{Binding ClearTreeTestModelCommand}"
                                     Content="Clear Row" />
+                            </StackPanel>
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <Button Command="{Binding AddTreeTestSourceCommand}" Content="Add Row Source" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding RemoveTreeTestSourceCommand}"
+                                    Content="Remove Row Source" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ChangeTreeTestSourceCommand}"
+                                    Content="Change Row Source" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ClearTreeTestSourceCommand}"
+                                    Content="Clear Row Source" />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

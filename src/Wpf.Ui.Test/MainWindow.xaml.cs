@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using System;
 using System.Collections;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -170,12 +171,12 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private void AddTreeTestModel()
     {
-        TreeTestModel.Add(new TreeTestModel()
-        {
-            Column1 = "Test Added " + DateTime.Now,
-            Column2 = "Test Added " + DateTime.Now,
-            Column3 = "Test Added " + DateTime.Now,
-        });
+        //TreeTestModel.Add(new TreeTestModel()
+        //{
+        //    Column1 = "Test Added " + DateTime.Now,
+        //    Column2 = "Test Added " + DateTime.Now,
+        //    Column3 = "Test Added " + DateTime.Now,
+        //});
 
         TreeTestModel.Children[0].Children.Add(new TreeTestModel()
         {
@@ -184,12 +185,12 @@ public partial class MainWindow : FluentWindow
             Column3 = "Test Added " + DateTime.Now,
         });
 
-        TreeTestModel.Children[0].Children[0].Children.Add(new TreeTestModel()
-        {
-            Column1 = "Test Added " + DateTime.Now,
-            Column2 = "Test Added " + DateTime.Now,
-            Column3 = "Test Added " + DateTime.Now,
-        });
+        //TreeTestModel.Children[0].Children[0].Children.Add(new TreeTestModel()
+        //{
+        //    Column1 = "Test Added " + DateTime.Now,
+        //    Column2 = "Test Added " + DateTime.Now,
+        //    Column3 = "Test Added " + DateTime.Now,
+        //});
     }
 
     [RelayCommand]
@@ -294,6 +295,67 @@ public partial class MainWindow : FluentWindow
             }
         }
         return model;
+    }
+
+    public TreeRowCollection<TreeNode> TreeTestItemsSource { get; } = [];
+
+    [RelayCommand]
+    private void AddTreeTestSource()
+    {
+        TreeNode root = new(TreeListView, null!)
+        {
+            IsExpanded = true,
+        };
+
+        TreeNode row00 = new(TreeListView, new TreeTestModel()
+        {
+            Column1 = "Test 1",
+            Column2 = "Test 1",
+            Column3 = "Test 1",
+        })
+        { HasChildren = true };
+
+        TreeNode row01 = new(TreeListView, new TreeTestModel()
+        {
+            Column1 = "Test 1.1",
+            Column2 = "Test 1.1",
+            Column3 = "Test 1.1",
+        })
+        { HasChildren = false };
+
+        row00.Children.Add(row01);
+
+        root.Children.Add(row00);
+
+        TreeTestItemsSource.InsertRange(0, root.Children);
+
+        TreeTestItemsSource.InsertRange(1, row00.AllVisibleChildren.ToArray());
+    }
+
+    [RelayCommand]
+    private void RemoveTreeTestSource()
+    {
+        if (TreeTestItemsSource.Count > 0)
+        {
+            TreeTestItemsSource.RemoveAt(0);
+        }
+    }
+
+    [RelayCommand]
+    private void ChangeTreeTestSource()
+    {
+        //if (TreeTestItemsSource.FirstOrDefault() is TreeTestModel model)
+        //{
+        //    model.Column1 = "Test Changed " + DateTime.Now;
+        //    model.Column2 = "Test Changed " + DateTime.Now;
+        //    model.Column3 = "Test Changed " + DateTime.Now;
+        //}
+    }
+
+    [RelayCommand]
+    private void ClearTreeTestSource()
+    {
+        TreeTestItemsSource.Clear();
     }
 
     [RelayCommand]

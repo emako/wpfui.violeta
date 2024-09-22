@@ -78,7 +78,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
     private INotifyCollectionChanged _childrenSource = null!;
 
-    internal INotifyCollectionChanged ChildrenSource
+    public INotifyCollectionChanged ChildrenSource
     {
         get => _childrenSource;
         set
@@ -104,7 +104,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
     /// <summary>
     /// Returns true if all parent nodes of this node are expanded.
     /// </summary>
-    internal bool IsVisible
+    public bool IsVisible
     {
         get
         {
@@ -122,9 +122,9 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    public bool IsExpandedOnce { get; internal set; }
+    public bool IsExpandedOnce { get; set; }
 
-    public bool HasChildren { get; internal set; }
+    public bool HasChildren { get; set; }
 
     private bool _isExpanded;
 
@@ -142,7 +142,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    internal void AssignIsExpanded(bool value)
+    public void AssignIsExpanded(bool value)
     {
         _isExpanded = value;
     }
@@ -202,7 +202,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    internal TreeNode? BottomNode
+    public TreeNode? BottomNode
     {
         get
         {
@@ -214,7 +214,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    internal TreeNode? NextVisibleNode
+    public TreeNode? NextVisibleNode
     {
         get
         {
@@ -235,12 +235,11 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
     {
         get
         {
-            int level = this.Level;
             TreeNode? node = this;
             while (true)
             {
                 node = node.NextVisibleNode;
-                if (node != null && node.Level > level)
+                if (node != null && node.Level > Level)
                 {
                     yield return node;
                 }
@@ -258,13 +257,13 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
     private Collection<TreeNode> _children = null!;
 
-    internal Collection<TreeNode> Children => _children;
+    public Collection<TreeNode> Children => _children;
 
     private ReadOnlyCollection<TreeNode> _nodes = null!;
 
     public ReadOnlyCollection<TreeNode> Nodes => _nodes;
 
-    internal TreeNode(TreeListView tree, object? content)
+    public TreeNode(TreeListView tree, object? content)
     {
         _ = tree ?? throw new ArgumentNullException(nameof(tree));
 
