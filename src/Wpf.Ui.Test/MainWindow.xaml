@@ -632,7 +632,7 @@
                             FontWeight="Black"
                             Text="TreeListView" />
                         <StackPanel Margin="0,8,0,0">
-                            <ui:TreeListView
+                            <!--<ui:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeFileModel}">
@@ -655,8 +655,8 @@
                                             Header="FullName" />
                                     </ui:GridView.Columns>
                                 </ui:GridView>
-                            </ui:TreeListView>
-                            <ui:TreeListView
+                            </ui:TreeListView>-->
+                            <!--<ui:TreeListView
                                 Height="300"
                                 Margin="0,8,90,0"
                                 Model="{Binding TreeRegistryModel}"
@@ -680,7 +680,7 @@
                                             Header="Data" />
                                     </ui:GridView.Columns>
                                 </ui:GridView>
-                            </ui:TreeListView>
+                            </ui:TreeListView>-->
                             <ui:TreeListView
                                 Height="200"
                                 Margin="0,8,90,0"

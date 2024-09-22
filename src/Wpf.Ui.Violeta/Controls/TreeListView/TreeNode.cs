@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Wpf.Ui.Controls;
 
-public sealed class TreeNode : INotifyPropertyChanged
+public class TreeNode : ITreeNode, INotifyPropertyChanged
 {
     private class NodeCollection(TreeNode owner) : Collection<TreeNode>
     {
@@ -58,10 +58,7 @@ public sealed class TreeNode : INotifyPropertyChanged
 
         protected override void SetItem(int index, TreeNode item)
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
+            _ = item ?? throw new ArgumentNullException(nameof(item));
 
             RemoveAt(index);
             InsertItem(index, item);
@@ -77,7 +74,7 @@ public sealed class TreeNode : INotifyPropertyChanged
 
     private TreeListView _tree;
 
-    internal TreeListView Tree => _tree;
+    public TreeListView Tree => _tree;
 
     private INotifyCollectionChanged _childrenSource = null!;
 
@@ -139,8 +136,8 @@ public sealed class TreeNode : INotifyPropertyChanged
             if (value != IsExpanded)
             {
                 Tree.SetIsExpanded(this, value);
-                OnPropertyChanged("IsExpanded");
-                OnPropertyChanged("IsExpandable");
+                OnPropertyChanged(nameof(IsExpanded));
+                OnPropertyChanged(nameof(IsExpandable));
             }
         }
     }
@@ -162,7 +159,7 @@ public sealed class TreeNode : INotifyPropertyChanged
             if (value != _isSelected)
             {
                 _isSelected = value;
-                OnPropertyChanged("IsSelected");
+                OnPropertyChanged(nameof(IsSelected));
             }
         }
     }
@@ -255,9 +252,9 @@ public sealed class TreeNode : INotifyPropertyChanged
         }
     }
 
-    private object? _tag = null;
+    private object? _content = null;
 
-    public object? Tag => _tag;
+    public object? Content => _content;
 
     private Collection<TreeNode> _children = null!;
 
@@ -267,19 +264,19 @@ public sealed class TreeNode : INotifyPropertyChanged
 
     public ReadOnlyCollection<TreeNode> Nodes => _nodes;
 
-    internal TreeNode(TreeListView tree, object tag)
+    internal TreeNode(TreeListView tree, object? content)
     {
         _ = tree ?? throw new ArgumentNullException(nameof(tree));
 
         _tree = tree;
         _children = new NodeCollection(this);
         _nodes = new ReadOnlyCollection<TreeNode>(_children);
-        _tag = tag;
+        _content = content;
     }
 
     public override string ToString()
     {
-        return Tag != null ? Tag.ToString()! : base.ToString()!;
+        return Content != null ? Content.ToString()! : base.ToString()!;
     }
 
     private void ChildrenChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -338,4 +335,19 @@ public sealed class TreeNode : INotifyPropertyChanged
             ClearChildrenSource(n);
         }
     }
+}
+
+public interface ITreeNode
+{
+    public TreeListView Tree { get; }
+
+    public bool IsExpanded { get; set; }
+
+    public bool IsExpandable { get; }
+
+    public bool IsSelected { get; set; }
+
+    public int Level { get; }
+
+    public object? Content { get; }
 }

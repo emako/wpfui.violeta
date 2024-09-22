@@ -176,6 +176,20 @@ public partial class MainWindow : FluentWindow
             Column2 = "Test Added " + DateTime.Now,
             Column3 = "Test Added " + DateTime.Now,
         });
+
+        TreeTestModel.Children[0].Children.Add(new TreeTestModel()
+        {
+            Column1 = "Test Added " + DateTime.Now,
+            Column2 = "Test Added " + DateTime.Now,
+            Column3 = "Test Added " + DateTime.Now,
+        });
+
+        TreeTestModel.Children[0].Children[0].Children.Add(new TreeTestModel()
+        {
+            Column1 = "Test Added " + DateTime.Now,
+            Column2 = "Test Added " + DateTime.Now,
+            Column3 = "Test Added " + DateTime.Now,
+        });
     }
 
     [RelayCommand]

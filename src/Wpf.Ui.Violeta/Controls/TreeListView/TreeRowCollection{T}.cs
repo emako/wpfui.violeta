@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Wpf.Ui.Controls;
 
-internal sealed class TreeRowCollection<T> : ObservableCollection<T>
+public class TreeRowCollection<T> : ObservableCollection<T>
 {
     public void RemoveRange(int index, int count)
     {
@@ -27,6 +27,10 @@ internal sealed class TreeRowCollection<T> : ObservableCollection<T>
         OnReset();
     }
 
+    /// <summary>
+    /// <see cref="ObservableCollection{T}.CountString"/>
+    /// <see cref="ObservableCollection{T}.IndexerName"/>
+    /// </summary>
     private void OnReset()
     {
         OnPropertyChanged(nameof(Count));

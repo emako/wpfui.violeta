@@ -17,7 +17,7 @@ public class TreeListView : ListView
     /// <summary>
     /// Internal collection of rows representing visible nodes, actually displayed in the ListView
     /// </summary>
-    internal TreeRowCollection<TreeNode> Rows { get; private set; }
+    public TreeRowCollection<TreeNode> Rows { get; private set; }
 
     public ITreeModel Model
     {
@@ -93,7 +93,7 @@ public class TreeListView : ListView
         if (element is TreeListViewItem { } ti && item is TreeNode { } node)
         {
             ti.Node = item as TreeNode;
-            base.PrepareContainerForItemOverride(element, node.Tag);
+            base.PrepareContainerForItemOverride(element, node.Content);
         }
     }
 
@@ -133,7 +133,7 @@ public class TreeListView : ListView
                 child.HasChildren = HasChildren(child);
                 node.Children.Add(child);
             }
-            Rows.InsertRange(rowIndex + 1, node.Children.ToArray());
+            Rows.InsertRange(rowIndex + 1, [.. node.Children]);
         }
     }
 
@@ -170,7 +170,7 @@ public class TreeListView : ListView
     {
         if (Model != null)
         {
-            return Model.GetChildren(parent?.Tag!);
+            return Model.GetChildren(parent?.Content!);
         }
         else
         {
@@ -186,7 +186,7 @@ public class TreeListView : ListView
         }
         else if (Model != null)
         {
-            return Model.HasChildren(parent?.Tag!);
+            return Model.HasChildren(parent?.Content!);
         }
         else
         {
