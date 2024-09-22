@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using System;
 using System.Collections;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -27,6 +28,8 @@ public partial class MainWindow : FluentWindow
         Splash.CloseOnLoaded(this, minimumMilliseconds: 1800);
 
         ScrollViewer.ScrollToEnd();
+
+        InitNode1Value();
     }
 
     protected override void OnSourceInitialized(EventArgs e)
@@ -165,7 +168,7 @@ public partial class MainWindow : FluentWindow
     private FileModel treeFileModel = new();
 
     [ObservableProperty]
-    private TreeCollection<TreeTestModel> treeTestModel = CreateTestModel();
+    private TreeModelCollection<TreeTestModel> treeTestModel = CreateTestModel();
 
     [RelayCommand]
     private void AddTreeTestModel()
@@ -218,9 +221,9 @@ public partial class MainWindow : FluentWindow
         TreeTestModel.Clear();
     }
 
-    public static TreeCollection<TreeTestModel> CreateTestModel()
+    public static TreeModelCollection<TreeTestModel> CreateTestModel()
     {
-        return new TreeCollection<TreeTestModel>()
+        return new TreeModelCollection<TreeTestModel>()
         {
             Children = new(
             [
@@ -258,9 +261,9 @@ public partial class MainWindow : FluentWindow
         };
     }
 
-    public static TreeCollection<TreeTestModel> CreateTestModel(int count1, int count2, int count3)
+    public static TreeModelCollection<TreeTestModel> CreateTestModel(int count1, int count2, int count3)
     {
-        TreeCollection<TreeTestModel> model = [];
+        TreeModelCollection<TreeTestModel> model = [];
 
         for (int i = 0; i < count1; i++)
         {
@@ -294,6 +297,175 @@ public partial class MainWindow : FluentWindow
             }
         }
         return model;
+    }
+
+    [ObservableProperty]
+    private ObservableCollection<Staff> staffList = [];
+
+    public void InitNode1Value()
+    {
+        Staff staff = new Staff()
+        {
+            Name = "张三",
+            Age = 30,
+            Sex = "男",
+            Duty = "经理",
+            IsExpanded = true
+        };
+        Staff staff2 = new Staff()
+        {
+            Name = "张三1",
+            Age = 21,
+            Sex = "男",
+            Duty = "员工",
+            IsExpanded = true
+        };
+        Staff staff3 = new Staff()
+        {
+            Name = "张三11",
+            Age = 21,
+            Sex = "男",
+            Duty = "员工"
+        };
+        staff2.StaffList.Add(staff3);
+        staff3 = new Staff()
+        {
+            Name = "张三22",
+            Age = 21,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff2.StaffList.Add(staff3);
+        staff.StaffList.Add(staff2);
+        staff2 = new Staff()
+        {
+            Name = "张三2",
+            Age = 22,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        staff2 = new Staff()
+        {
+            Name = "张三3",
+            Age = 23,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        StaffList.Add(staff);
+
+        staff = new Staff()
+        {
+            Name = "李四",
+            Age = 31,
+            Sex = "男",
+            Duty = "副经理"
+        };
+        staff2 = new Staff()
+        {
+            Name = "李四1",
+            Age = 24,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        staff2 = new Staff()
+        {
+            Name = "李四2",
+            Age = 25,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        staff2 = new Staff()
+        {
+            Name = "李四3",
+            Age = 26,
+            Sex = "男",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        StaffList.Add(staff);
+
+        staff = new Staff()
+        {
+            Name = "王五",
+            Age = 32,
+            Sex = "女",
+            Duty = "组长"
+        };
+        staff2 = new Staff()
+        {
+            Name = "王五1",
+            Age = 27,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        staff2 = new Staff()
+        {
+            Name = "王五2",
+            Age = 28,
+            Sex = "女",
+            Duty = "员工"
+        };
+        staff.StaffList.Add(staff2);
+        StaffList.Add(staff);
+    }
+
+    [RelayCommand]
+    public void AddNode1Value()
+    {
+        Staff staff = new Staff()
+        {
+            Name = "张三",
+            Age = 30,
+            Sex = "男",
+            Duty = "经理",
+            IsExpanded = true
+        };
+        Staff staff2 = new Staff()
+        {
+            Name = "张三1",
+            Age = 21,
+            Sex = "男",
+            Duty = "员工",
+            IsExpanded = true
+        };
+        Staff staff3 = new Staff()
+        {
+            Name = "张三11",
+            Age = 21,
+            Sex = "男",
+            Duty = "员工"
+        };
+        staff2.StaffList.Add(staff3);
+        staff.StaffList.Add(staff2);
+        StaffList.Add(staff2);
+    }
+
+    [RelayCommand]
+    public void ChangeNode1Value()
+    {
+        foreach (Staff staff in this.StaffList)
+        {
+            staff.Age += 1;
+            staff.Sex = staff.Sex == "男" ? "女" : "男";
+        }
+    }
+
+    [RelayCommand]
+    public void ChangeNode2Value()
+    {
+        foreach (Staff staff in this.StaffList)
+        {
+            foreach (Staff staff2 in staff.StaffList)
+            {
+                staff2.Age += 1;
+                staff2.Sex = staff2.Sex == "男" ? "女" : "男";
+            }
+        }
     }
 
     [RelayCommand]
@@ -426,7 +598,7 @@ public struct RegValue
 }
 
 [ObservableObject]
-public partial class TreeTestModel : TreeObject<TreeTestModel>
+public partial class TreeTestModel : TreeModelObject<TreeTestModel>
 {
     [ObservableProperty]
     private string? column1;
@@ -439,4 +611,110 @@ public partial class TreeTestModel : TreeObject<TreeTestModel>
 
     [ObservableProperty]
     private bool isChecked = false;
+}
+
+public partial class Staff : ObservableObject
+{
+    private string _Name;
+    private int _Age;
+    private string _Sex;
+    private string _Duty;
+    private bool _IsSelected;
+    private bool _IsExpanded;
+
+    private ObservableCollection<Staff> _StaffList = [];
+
+    public ObservableCollection<Staff> StaffList
+    {
+        get { return _StaffList; }
+        set
+        {
+            _StaffList = value;
+            this.OnPropertyChanged("StaffList");
+        }
+    }
+
+    /// <summary>
+    /// 姓名
+    /// </summary>
+    public string Name
+    {
+        get { return _Name; }
+        set
+        {
+            _Name = value;
+            this.OnPropertyChanged("Name");
+        }
+    }
+
+    /// <summary>
+    /// 年龄
+    /// </summary>
+    public int Age
+    {
+        get { return _Age; }
+        set
+        {
+            _Age = value;
+            this.OnPropertyChanged("Age");
+        }
+    }
+
+    /// <summary>
+    /// 性别
+    /// </summary>
+    public string Sex
+    {
+        get { return _Sex; }
+        set
+        {
+            _Sex = value;
+            this.OnPropertyChanged("Sex");
+        }
+    }
+
+    /// <summary>
+    /// 职务
+    /// </summary>
+    public string Duty
+    {
+        get { return _Duty; }
+        set
+        {
+            _Duty = value;
+            this.OnPropertyChanged("Duty");
+        }
+    }
+
+    /// <summary>
+    /// 是否选中
+    /// </summary>
+    public bool IsSelected
+    {
+        get { return _IsSelected; }
+        set
+        {
+            _IsSelected = value;
+            this.OnPropertyChanged("IsSelected");
+        }
+    }
+
+    /// <summary>
+    /// 是否展开
+    /// </summary>
+    public bool IsExpanded
+    {
+        get { return _IsExpanded; }
+        set
+        {
+            _IsExpanded = value;
+            this.OnPropertyChanged("IsExpanded");
+        }
+    }
+
+    public Staff()
+    {
+        IsSelected = false;
+        IsExpanded = false;
+    }
 }

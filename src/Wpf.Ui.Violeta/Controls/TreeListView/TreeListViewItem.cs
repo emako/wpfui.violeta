@@ -1,101 +1,33 @@
-﻿using System.ComponentModel;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows;
 
 namespace Wpf.Ui.Controls;
 
-public class TreeListViewItem : ListViewItem, INotifyPropertyChanged
+public class TreeListViewItem : TreeViewItem
 {
-    private TreeNode? _node;
+    private int _level = -1;
 
-    public TreeNode? Node
+    /// <summary>
+    /// Item's hierarchy in the tree
+    /// </summary>
+    public int Level
     {
-        get => _node;
-        internal set
+        get
         {
-            _node = value;
-            OnPropertyChanged(nameof(Node));
-        }
-    }
-
-    public TreeListViewItem()
-    {
-    }
-
-    protected override void OnKeyDown(KeyEventArgs e)
-    {
-        if (Node != null)
-        {
-            switch (e.Key)
+            if (_level == -1)
             {
-                case Key.Right:
-                    e.Handled = true;
-                    if (!Node.IsExpanded)
-                    {
-                        Node.IsExpanded = true;
-                        ChangeFocus(Node);
-                    }
-                    else if (Node.Children.Count > 0)
-                    {
-                        ChangeFocus(Node.Children[0]);
-                    }
-
-                    break;
-
-                case Key.Left:
-
-                    e.Handled = true;
-                    if (Node.IsExpanded && Node.IsExpandable)
-                    {
-                        Node.IsExpanded = false;
-                        ChangeFocus(Node);
-                    }
-                    else
-                    {
-                        ChangeFocus(Node.Parent);
-                    }
-
-                    break;
-
-                case Key.Subtract:
-                    e.Handled = true;
-                    Node.IsExpanded = false;
-                    ChangeFocus(Node);
-                    break;
-
-                case Key.Add:
-                    e.Handled = true;
-                    Node.IsExpanded = true;
-                    ChangeFocus(Node);
-                    break;
+                _level = (ItemsControlFromItemContainer(this) is TreeListViewItem parent) ? parent.Level + 1 : 0;
             }
-        }
-
-        if (!e.Handled)
-        {
-            base.OnKeyDown(e);
+            return _level;
         }
     }
 
-    private void ChangeFocus(TreeNode? node)
+    protected override DependencyObject GetContainerForItemOverride()
     {
-        if (node?.Tree is TreeListView { } tree)
-        {
-            if (tree.ItemContainerGenerator.ContainerFromItem(node) is TreeListViewItem item)
-            {
-                item.Focus();
-            }
-            else
-            {
-                tree.PendingFocusNode = node;
-            }
-        }
+        return new TreeListViewItem();
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    private void OnPropertyChanged(string name)
+    protected override bool IsItemItsOwnContainerOverride(object item)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        return item is TreeListViewItem;
     }
 }

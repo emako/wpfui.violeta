@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Wpf.Ui.Controls;
 
-public class TreeNode : ITreeNode, INotifyPropertyChanged
+public class TreeModelNode : ITreeNode, INotifyPropertyChanged
 {
-    private class NodeCollection(TreeNode owner) : Collection<TreeNode>
+    private class NodeCollection(TreeModelNode owner) : Collection<TreeModelNode>
     {
-        private TreeNode? _owner = owner;
+        private TreeModelNode? _owner = owner;
 
         protected override void ClearItems()
         {
@@ -21,7 +21,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
             }
         }
 
-        protected override void InsertItem(int index, TreeNode item)
+        protected override void InsertItem(int index, TreeModelNode item)
         {
             if (item == null)
             {
@@ -45,7 +45,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
         protected override void RemoveItem(int index)
         {
-            TreeNode item = this[index];
+            TreeModelNode item = this[index];
             item._parent = null!;
             item._index = -1;
             for (int i = index + 1; i < Count; i++)
@@ -56,7 +56,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
             base.RemoveItem(index);
         }
 
-        protected override void SetItem(int index, TreeNode item)
+        protected override void SetItem(int index, TreeModelNode item)
         {
             _ = item ?? throw new ArgumentNullException(nameof(item));
 
@@ -72,9 +72,9 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
-    private TreeListView _tree;
+    private TreeModelListView _tree;
 
-    public TreeListView Tree => _tree;
+    public TreeModelListView Tree => _tree;
 
     private INotifyCollectionChanged _childrenSource = null!;
 
@@ -108,7 +108,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
     {
         get
         {
-            TreeNode? node = _parent;
+            TreeModelNode? node = _parent;
             while (node != null)
             {
                 if (!node.IsExpanded)
@@ -164,13 +164,13 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    private TreeNode? _parent = null;
+    private TreeModelNode? _parent = null;
 
-    public TreeNode? Parent => _parent;
+    public TreeModelNode? Parent => _parent;
 
     public int Level => _parent == null ? -1 : _parent.Level + 1;
 
-    public TreeNode? PreviousNode
+    public TreeModelNode? PreviousNode
     {
         get
         {
@@ -186,7 +186,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    public TreeNode? NextNode
+    public TreeModelNode? NextNode
     {
         get
         {
@@ -202,7 +202,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    internal TreeNode? BottomNode
+    internal TreeModelNode? BottomNode
     {
         get
         {
@@ -214,7 +214,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         }
     }
 
-    internal TreeNode? NextVisibleNode
+    internal TreeModelNode? NextVisibleNode
     {
         get
         {
@@ -231,12 +231,12 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
     public int VisibleChildrenCount => AllVisibleChildren.Count();
 
-    public IEnumerable<TreeNode> AllVisibleChildren
+    public IEnumerable<TreeModelNode> AllVisibleChildren
     {
         get
         {
             int level = this.Level;
-            TreeNode? node = this;
+            TreeModelNode? node = this;
             while (true)
             {
                 node = node.NextVisibleNode;
@@ -256,21 +256,21 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
     public object? Content => _content;
 
-    private Collection<TreeNode> _children = null!;
+    private Collection<TreeModelNode> _children = null!;
 
-    internal Collection<TreeNode> Children => _children;
+    internal Collection<TreeModelNode> Children => _children;
 
-    private ReadOnlyCollection<TreeNode> _nodes = null!;
+    private ReadOnlyCollection<TreeModelNode> _nodes = null!;
 
-    public ReadOnlyCollection<TreeNode> Nodes => _nodes;
+    public ReadOnlyCollection<TreeModelNode> Nodes => _nodes;
 
-    internal TreeNode(TreeListView tree, object? content)
+    internal TreeModelNode(TreeModelListView tree, object? content)
     {
         _ = tree ?? throw new ArgumentNullException(nameof(tree));
 
         _tree = tree;
         _children = new NodeCollection(this);
-        _nodes = new ReadOnlyCollection<TreeNode>(_children);
+        _nodes = new ReadOnlyCollection<TreeModelNode>(_children);
         _content = content;
     }
 
@@ -327,10 +327,10 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
         Children.RemoveAt(index);
     }
 
-    private void ClearChildrenSource(TreeNode node)
+    private void ClearChildrenSource(TreeModelNode node)
     {
         node.ChildrenSource = null!;
-        foreach (TreeNode n in node.Children)
+        foreach (TreeModelNode n in node.Children)
         {
             ClearChildrenSource(n);
         }
@@ -339,7 +339,7 @@ public class TreeNode : ITreeNode, INotifyPropertyChanged
 
 public interface ITreeNode
 {
-    public TreeListView Tree { get; }
+    public TreeModelListView Tree { get; }
 
     public bool IsExpanded { get; set; }
 

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Wpf.Ui.Controls;
 
-public class TreeCollection<T> : IEnumerable<T>, IList<T>, ICollection<T>, ITreeModel where T : TreeObject<T>, new()
+public class TreeModelCollection<T> : IEnumerable<T>, IList<T>, ICollection<T>, ITreeModel where T : TreeModelObject<T>, new()
 {
     public virtual T Root { get; set; } = new T();
 

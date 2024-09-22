@@ -6,7 +6,7 @@ using System.Windows.Data;
 namespace Wpf.Ui.Controls;
 
 [ValueConversion(typeof(bool), typeof(Visibility))]
-internal sealed class TreeListViewCanExpandConverter : IValueConverter
+internal sealed class TreeModelCanExpandConverter : IValueConverter
 {
     public bool IsInverted { get; set; } = false;
 

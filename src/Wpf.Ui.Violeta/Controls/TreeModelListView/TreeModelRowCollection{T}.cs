@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Wpf.Ui.Controls;
 
-public class TreeRowCollection<T> : ObservableCollection<T>
+public class TreeModelRowCollection<T> : ObservableCollection<T>
 {
     public void RemoveRange(int index, int count)
     {
