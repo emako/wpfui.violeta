@@ -630,7 +630,7 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="TreeListView" />
+                            Text="TreeModelListView" />
                         <StackPanel Margin="0,8,0,0">
                             <!--<ui:TreeModelListView
                                 Height="300"
@@ -712,7 +712,10 @@
                                     </ui:GridView.Columns>
                                 </ui:GridView>
                             </ui:TreeModelListView>
-                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <StackPanel
+                                Margin="0,8,0,0"
+                                Orientation="Horizontal"
+                                Visibility="Collapsed">
                                 <Button Command="{Binding AddTreeTestModelCommand}" Content="Add Row" />
                                 <Button
                                     Margin="8,0,0,0"
@@ -727,16 +730,25 @@
                                     Command="{Binding ClearTreeTestModelCommand}"
                                     Content="Clear Row" />
                             </StackPanel>
+                            <TextBlock
+                                MinWidth="120"
+                                Margin="0,8,0,0"
+                                FontSize="14"
+                                FontWeight="Black"
+                                Text="TreeListView" />
                             <ui:TreeListView
-                                Height="200"
+                                Height="220"
                                 Margin="0,8,90,0"
                                 ItemsSource="{Binding StaffList}">
                                 <ui:TreeListView.Columns>
                                     <GridViewColumnCollection>
-                                        <ui:GridViewColumn
-                                            Width="150"
-                                            CellTemplate="{StaticResource CellTemplate_Name}"
-                                            Header="Name" />
+                                        <ui:GridViewColumn Width="400" Header="Name">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ui:TreeRowExpander Content="{Binding Name}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
                                         <ui:GridViewColumn
                                             Width="80"
                                             DisplayMemberBinding="{Binding Age}"
@@ -762,6 +774,59 @@
                                     <HierarchicalDataTemplate ItemsSource="{Binding StaffList}" />
                                 </ui:TreeListView.ItemTemplate>
                             </ui:TreeListView>
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <Button Command="{Binding AddNode1ValueCommand}" Content="Add Node" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ChangeNode1ValueCommand}"
+                                    Content="Change Node1" />
+                                <Button
+                                    Margin="8,0,0,0"
+                                    Command="{Binding ChangeNode2ValueCommand}"
+                                    Content="Change Node2" />
+                            </StackPanel>
+                            <TextBlock
+                                MinWidth="120"
+                                Margin="0,8,0,0"
+                                FontSize="14"
+                                FontWeight="Black"
+                                Text="ListView" />
+                            <ui:ListView Height="180" Margin="0,8,90,0">
+                                <ui:ListView.View>
+                                    <ui:GridView>
+                                        <GridViewColumn Width="150" Header="Name" />
+                                        <GridViewColumn Width="50" Header="Age" />
+                                        <GridViewColumn Width="150" Header="Country" />
+                                    </ui:GridView>
+                                </ui:ListView.View>
+                                <ui:ListViewItem>
+                                    <ui:ListViewItem.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Width="150" Text="John Doe" />
+                                            <TextBlock Width="50" Text="30" />
+                                            <TextBlock Width="150" Text="USA" />
+                                        </StackPanel>
+                                    </ui:ListViewItem.Content>
+                                </ui:ListViewItem>
+                                <ui:ListViewItem>
+                                    <ui:ListViewItem.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Width="150" Text="Jane Smith" />
+                                            <TextBlock Width="50" Text="28" />
+                                            <TextBlock Width="150" Text="UK" />
+                                        </StackPanel>
+                                    </ui:ListViewItem.Content>
+                                </ui:ListViewItem>
+                                <ui:ListViewItem>
+                                    <ui:ListViewItem.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Width="150" Text="Wang Wei" />
+                                            <TextBlock Width="50" Text="35" />
+                                            <TextBlock Width="150" Text="China" />
+                                        </StackPanel>
+                                    </ui:ListViewItem.Content>
+                                </ui:ListViewItem>
+                            </ui:ListView>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>

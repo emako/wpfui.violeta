@@ -7,34 +7,53 @@
     <local:TreeLevelToIndentConverter x:Key="TreeLevelToIndentConverter" />
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 
-    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Width" Value="19" />
-        <Setter Property="Height" Value="13" />
+    <Style x:Key="TreeExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border
-                        Width="19"
-                        Height="13"
-                        Background="Transparent">
-                        <Border
-                            Width="9"
-                            Height="9"
-                            BorderBrush="#FF7898B5"
-                            BorderThickness="1"
-                            CornerRadius="1"
-                            SnapsToDevicePixels="true">
-                            <Path
-                                x:Name="ExpandPath"
-                                Margin="1,1,1,1"
-                                Data="M 0 2 L 0 3 L 2 3 L 2 5 L 3 5 L 3 3 L 5 3 L 5 2 L 3 2 L 3 0 L 2 0 L 2 2 Z"
-                                Fill="Black" />
-                        </Border>
-                    </Border>
+                    <Grid
+                        x:Name="ChevronContainer"
+                        Width="15"
+                        Height="15"
+                        Background="Transparent"
+                        RenderTransformOrigin="0.5, 0.5">
+                        <Grid.RenderTransform>
+                            <RotateTransform Angle="0" />
+                        </Grid.RenderTransform>
+                        <ui:SymbolIcon
+                            x:Name="ChevronIcon"
+                            VerticalAlignment="Center"
+                            FontSize="{StaticResource TreeViewItemChevronSize}"
+                            Symbol="ChevronRight28" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="ExpandPath" Property="Data" Value="M 0 2 L 0 3 L 5 3 L 5 2 Z" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ChevronContainer"
+                                            Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                                            To="90"
+                                            Duration="0:0:0.16" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ChevronContainer"
+                                            Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                                            To="0"
+                                            Duration="0:0:0.16" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -42,26 +61,51 @@
         </Setter>
     </Style>
 
-    <DataTemplate x:Key="CellTemplate_Name">
-        <DockPanel>
-            <ToggleButton
-                x:Name="Expander"
-                Margin="{Binding Path=Level, Converter={StaticResource TreeLevelToIndentConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}"
-                ClickMode="Press"
-                IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}"
-                Style="{StaticResource ExpandCollapseToggleStyle}" />
-            <TextBlock Text="{Binding Name}" />
-        </DockPanel>
-        <DataTemplate.Triggers>
-            <DataTrigger Binding="{Binding Path=HasItems, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}" Value="False">
-                <Setter TargetName="Expander" Property="Visibility" Value="Hidden" />
-            </DataTrigger>
-        </DataTemplate.Triggers>
-    </DataTemplate>
-
-    <Style TargetType="{x:Type local:TreeListViewItem}">
-        <Setter Property="FontSize" Value="13" />
+    <Style x:Key="DefaultTreeRowExpanderStyle" TargetType="{x:Type local:TreeRowExpander}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TreeRowExpander}">
+                    <DockPanel>
+                        <ToggleButton
+                            x:Name="Expander"
+                            Margin="{Binding Path=Level, Converter={StaticResource TreeLevelToIndentConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}"
+                            ClickMode="Press"
+                            IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}"
+                            Style="{StaticResource TreeExpandCollapseToggleStyle}" />
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            TextElement.FontSize="{TemplateBinding FontSize}"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=HasItems, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}" Value="false">
+                            <Setter TargetName="Expander" Property="Visibility" Value="Hidden" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListViewItem}}}" Value="true">
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultTreeRowExpanderStyle}" TargetType="{x:Type local:TreeRowExpander}" />
+
+    <Style x:Key="DefaultTreeListViewItemStyle" TargetType="{x:Type local:TreeListViewItem}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeViewItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TreeViewItemBackground}" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontSize" Value="{StaticResource TreeViewItemFontSize}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="IsTabStop" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -72,55 +116,46 @@
                 <ControlTemplate TargetType="{x:Type local:TreeListViewItem}">
                     <StackPanel>
                         <Border
-                            x:Name="outerBorder"
+                            x:Name="PART_OuterBorder"
                             Height="30"
                             Margin="0"
                             Padding="0"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            BorderBrush="#FFFFFFFD"
-                            BorderThickness="0,0,0,1"
+                            CornerRadius="4"
                             SnapsToDevicePixels="True">
                             <Border
-                                x:Name="innerBorder"
+                                x:Name="PART_InnerBorder"
                                 Padding="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="#FFC6C6C6"
-                                BorderThickness="0,0,0,1"
+                                CornerRadius="4"
                                 SnapsToDevicePixels="True">
-                                <GridViewRowPresenter
+                                <ui:GridViewRowPresenter
                                     x:Name="PART_Header"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Columns="{Binding Path=Columns, RelativeSource={RelativeSource AncestorType={x:Type local:TreeListView}}}"
-                                    Content="{TemplateBinding Header}" />
+                                    Content="{TemplateBinding Header}"
+                                    TextElement.FontSize="{TemplateBinding FontSize}" />
                             </Border>
                         </Border>
                         <ItemsPresenter x:Name="ItemsHost" />
                     </StackPanel>
                     <ControlTemplate.Triggers>
-                        <!--<Trigger SourceName="innerBorder" Property="IsMouseOver" Value="true">
-                            <Setter Property="Foreground" Value="White" />
-                            <Setter TargetName="innerBorder" Property="Background" Value="#FFC66152" />
-                        </Trigger>-->
-                        <!--<Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Foreground" Value="White" />
-                            <Setter TargetName="innerBorder" Property="Background" Value="#FFC66152" />
-                        </Trigger>-->
+                        <Trigger SourceName="PART_InnerBorder" Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
+                            <Setter TargetName="PART_InnerBorder" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+                            <Setter TargetName="PART_InnerBorder" Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
+                        </Trigger>
                         <Trigger Property="IsExpanded" Value="false">
                             <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                         </Trigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsSelected" Value="true" />
-                                <Condition Property="IsSelectionActive" Value="false" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="innerBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-                        </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="HasHeader" Value="false" />
@@ -141,27 +176,67 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:TreeListView}">
+    <Style BasedOn="{StaticResource DefaultTreeListViewItemStyle}" TargetType="{x:Type local:TreeListViewItem}" />
+
+    <Style x:Key="DefaultTreeListViewStyle" TargetType="{x:Type local:TreeListView}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}" />
+        <Setter Property="Foreground" Value="{DynamicResource TreeViewItemForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <!--  Default BorderBrush is from WPF instead of WPF-UI  -->
+        <Setter Property="BorderBrush" Value="#828790" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TreeListView}">
                     <Border
-                        Padding="{TemplateBinding Padding}"
+                        Name="Bd"
+                        Padding="0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                             <DockPanel>
-                                <ui:GridViewHeaderRowPresenter Columns="{TemplateBinding Columns}" DockPanel.Dock="Top" />
+                                <ui:GridViewHeaderRowPresenter
+                                    Margin="4"
+                                    ColumnHeaderContainerStyle="{DynamicResource UiGridViewColumnHeaderStyle}"
+                                    Columns="{TemplateBinding Columns}"
+                                    DockPanel.Dock="Top"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                                     <ItemsPresenter />
                                 </ScrollViewer>
                             </DockPanel>
                         </ScrollViewer>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="True">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
+
+    <Style BasedOn="{StaticResource DefaultTreeListViewStyle}" TargetType="{x:Type local:TreeListView}" />
 
 </ResourceDictionary>

@@ -125,7 +125,7 @@
 
     <Style BasedOn="{StaticResource TreeModelListViewStyle}" TargetType="{x:Type local:TreeModelListView}" />
 
-    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="TreeModelExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
@@ -175,7 +175,7 @@
                             ClickMode="Press"
                             Content="{TemplateBinding Content}"
                             IsChecked="{Binding Node.IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type local:TreeModelListViewItem}}}"
-                            Style="{StaticResource ExpandCollapseToggleStyle}"
+                            Style="{StaticResource TreeModelExpandCollapseToggleStyle}"
                             Visibility="{Binding Node.IsExpandable, Converter={StaticResource TreeModelCanExpandConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:TreeModelListViewItem}}}" />
                         <ContentPresenter
                             Margin="19,0,0,0"

@@ -306,109 +306,109 @@ public partial class MainWindow : FluentWindow
     {
         Staff staff = new Staff()
         {
-            Name = "张三",
+            Name = "Alice",
             Age = 30,
-            Sex = "男",
-            Duty = "经理",
+            Sex = "Male",
+            Duty = "Manager",
             IsExpanded = true
         };
         Staff staff2 = new Staff()
         {
-            Name = "张三1",
+            Name = "Alice1",
             Age = 21,
-            Sex = "男",
-            Duty = "员工",
+            Sex = "Male",
+            Duty = "Normal",
             IsExpanded = true
         };
         Staff staff3 = new Staff()
         {
-            Name = "张三11",
+            Name = "Alice11",
             Age = 21,
-            Sex = "男",
-            Duty = "员工"
+            Sex = "Male",
+            Duty = "Normal"
         };
         staff2.StaffList.Add(staff3);
         staff3 = new Staff()
         {
-            Name = "张三22",
+            Name = "Alice22",
             Age = 21,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff2.StaffList.Add(staff3);
         staff.StaffList.Add(staff2);
         staff2 = new Staff()
         {
-            Name = "张三2",
+            Name = "Alice2",
             Age = 22,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         staff2 = new Staff()
         {
-            Name = "张三3",
+            Name = "Alice3",
             Age = 23,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         StaffList.Add(staff);
 
         staff = new Staff()
         {
-            Name = "李四",
+            Name = "Bob",
             Age = 31,
-            Sex = "男",
-            Duty = "副经理"
+            Sex = "Male",
+            Duty = "CEO"
         };
         staff2 = new Staff()
         {
-            Name = "李四1",
+            Name = "Bob1",
             Age = 24,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         staff2 = new Staff()
         {
-            Name = "李四2",
+            Name = "Bob2",
             Age = 25,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         staff2 = new Staff()
         {
-            Name = "李四3",
+            Name = "Bob3",
             Age = 26,
-            Sex = "男",
-            Duty = "员工"
+            Sex = "Male",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         StaffList.Add(staff);
 
         staff = new Staff()
         {
-            Name = "王五",
+            Name = "Cyber",
             Age = 32,
-            Sex = "女",
-            Duty = "组长"
+            Sex = "Female",
+            Duty = "Leader"
         };
         staff2 = new Staff()
         {
-            Name = "王五1",
+            Name = "Cyber1",
             Age = 27,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         staff2 = new Staff()
         {
-            Name = "王五2",
+            Name = "Cyber2",
             Age = 28,
-            Sex = "女",
-            Duty = "员工"
+            Sex = "Female",
+            Duty = "Normal"
         };
         staff.StaffList.Add(staff2);
         StaffList.Add(staff);
@@ -417,28 +417,28 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     public void AddNode1Value()
     {
-        Staff staff = new Staff()
+        Staff staff = new()
         {
-            Name = "张三",
+            Name = "Alice",
             Age = 30,
-            Sex = "男",
-            Duty = "经理",
+            Sex = "Male",
+            Duty = "Manager",
             IsExpanded = true
         };
-        Staff staff2 = new Staff()
+        Staff staff2 = new()
         {
-            Name = "张三1",
+            Name = "Alice1",
             Age = 21,
-            Sex = "男",
-            Duty = "员工",
+            Sex = "Male",
+            Duty = "Normal",
             IsExpanded = true
         };
-        Staff staff3 = new Staff()
+        Staff staff3 = new()
         {
-            Name = "张三11",
+            Name = "Alice11",
             Age = 21,
-            Sex = "男",
-            Duty = "员工"
+            Sex = "Male",
+            Duty = "Normal"
         };
         staff2.StaffList.Add(staff3);
         staff.StaffList.Add(staff2);
@@ -448,22 +448,22 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     public void ChangeNode1Value()
     {
-        foreach (Staff staff in this.StaffList)
+        foreach (Staff staff in StaffList)
         {
             staff.Age += 1;
-            staff.Sex = staff.Sex == "男" ? "女" : "男";
+            staff.Sex = staff.Sex == "Male" ? "Female" : "Male";
         }
     }
 
     [RelayCommand]
     public void ChangeNode2Value()
     {
-        foreach (Staff staff in this.StaffList)
+        foreach (Staff staff in StaffList)
         {
             foreach (Staff staff2 in staff.StaffList)
             {
                 staff2.Age += 1;
-                staff2.Sex = staff2.Sex == "男" ? "女" : "男";
+                staff2.Sex = staff2.Sex == "Male" ? "Female" : "Male";
             }
         }
     }
@@ -546,18 +546,18 @@ public class FileModel : ITreeModel
     {
         if (parent == null)
         {
-            // 返回根目录
+            // Return the root directory
             yield return new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
         }
         else if (parent is DirectoryInfo directory)
         {
-            // 返回子目录
+            // Return subdirectories
             foreach (var dir in directory.GetDirectories())
             {
                 yield return dir;
             }
 
-            // 返回文件
+            // Return files
             foreach (var file in directory.GetFiles())
             {
                 yield return file;
@@ -571,17 +571,17 @@ public class FileModel : ITreeModel
         {
             try
             {
-                // 检查是否有子目录或文件
+                // Check if there are subdirectories or files
                 return directory.GetDirectories().Any() || directory.GetFiles().Any();
             }
             catch (UnauthorizedAccessException)
             {
-                // 捕获没有权限的异常并返回 false
+                // Catch access denied exception and return false
                 return false;
             }
             catch (Exception ex)
             {
-                // 处理其他可能的异常
+                // Handle other possible exceptions
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
             }
@@ -615,102 +615,29 @@ public partial class TreeTestModel : TreeModelObject<TreeTestModel>
 
 public partial class Staff : ObservableObject
 {
-    private string _Name;
-    private int _Age;
-    private string _Sex;
-    private string _Duty;
-    private bool _IsSelected;
-    private bool _IsExpanded;
+    [ObservableProperty]
+    private string name = null!;
 
-    private ObservableCollection<Staff> _StaffList = [];
+    [ObservableProperty]
+    private int age;
 
-    public ObservableCollection<Staff> StaffList
-    {
-        get { return _StaffList; }
-        set
-        {
-            _StaffList = value;
-            this.OnPropertyChanged("StaffList");
-        }
-    }
+    [ObservableProperty]
+    private string sex = null!;
 
-    /// <summary>
-    /// 姓名
-    /// </summary>
-    public string Name
-    {
-        get { return _Name; }
-        set
-        {
-            _Name = value;
-            this.OnPropertyChanged("Name");
-        }
-    }
+    [ObservableProperty]
+    private string duty = null!;
 
-    /// <summary>
-    /// 年龄
-    /// </summary>
-    public int Age
-    {
-        get { return _Age; }
-        set
-        {
-            _Age = value;
-            this.OnPropertyChanged("Age");
-        }
-    }
+    [ObservableProperty]
+    private bool isChecked = true;
 
-    /// <summary>
-    /// 性别
-    /// </summary>
-    public string Sex
-    {
-        get { return _Sex; }
-        set
-        {
-            _Sex = value;
-            this.OnPropertyChanged("Sex");
-        }
-    }
+    [ObservableProperty]
+    private bool isSelected;
 
-    /// <summary>
-    /// 职务
-    /// </summary>
-    public string Duty
-    {
-        get { return _Duty; }
-        set
-        {
-            _Duty = value;
-            this.OnPropertyChanged("Duty");
-        }
-    }
+    [ObservableProperty]
+    private bool isExpanded;
 
-    /// <summary>
-    /// 是否选中
-    /// </summary>
-    public bool IsSelected
-    {
-        get { return _IsSelected; }
-        set
-        {
-            _IsSelected = value;
-            this.OnPropertyChanged("IsSelected");
-        }
-    }
-
-    /// <summary>
-    /// 是否展开
-    /// </summary>
-    public bool IsExpanded
-    {
-        get { return _IsExpanded; }
-        set
-        {
-            _IsExpanded = value;
-            this.OnPropertyChanged("IsExpanded");
-        }
-    }
+    [ObservableProperty]
+    private ObservableCollection<Staff> staffList = [];
 
     public Staff()
     {

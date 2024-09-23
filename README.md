@@ -169,13 +169,208 @@ Similar to WPF UI.
   > TreeListView is a better way to display hierarchical data.
 
   ```xaml
-  <ui:TreeListView Model="{Binding TreeTestModel}">
+  <ui:TreeListView ItemsSource="{Binding StaffList}">
+      <ui:TreeListView.Columns>
+          <GridViewColumnCollection>
+              <ui:GridViewColumn Width="400" Header="Name">
+                  <ui:GridViewColumn.CellTemplate>
+                      <DataTemplate>
+                          <ui:TreeRowExpander Content="{Binding Name}" />
+                      </DataTemplate>
+                  </ui:GridViewColumn.CellTemplate>
+              </ui:GridViewColumn>
+              <ui:GridViewColumn
+                                 Width="80"
+                                 DisplayMemberBinding="{Binding Age}"
+                                 Header="Age" />
+              <ui:GridViewColumn
+                                 Width="80"
+                                 DisplayMemberBinding="{Binding Sex}"
+                                 Header="Sex" />
+              <ui:GridViewColumn
+                                 Width="100"
+                                 DisplayMemberBinding="{Binding Duty}"
+                                 Header="Duty" />
+              <ui:GridViewColumn Width="250" Header="IsChecked">
+                  <ui:GridViewColumn.CellTemplate>
+                      <DataTemplate>
+                          <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                      </DataTemplate>
+                  </ui:GridViewColumn.CellTemplate>
+              </ui:GridViewColumn>
+          </GridViewColumnCollection>
+      </ui:TreeListView.Columns>
+      <ui:TreeListView.ItemTemplate>
+          <HierarchicalDataTemplate ItemsSource="{Binding StaffList}" />
+      </ui:TreeListView.ItemTemplate>
+  </ui:TreeListView>
+  ```
+
+  ```c#
+  public partial class ViewModel : ObservableObject
+  {
+      [ObservableProperty]
+      private ObservableCollection<Staff> staffList = [];
+      
+      public void InitNode1Value()
+      {
+          Staff staff = new Staff()
+          {
+              Name = "Alice",
+              Age = 30,
+              Sex = "Male",
+              Duty = "Manager",
+              IsExpanded = true
+          };
+          Staff staff2 = new Staff()
+          {
+              Name = "Alice1",
+              Age = 21,
+              Sex = "Male",
+              Duty = "Normal",
+              IsExpanded = true
+          };
+          Staff staff3 = new Staff()
+          {
+              Name = "Alice11",
+              Age = 21,
+              Sex = "Male",
+              Duty = "Normal"
+          };
+          staff2.StaffList.Add(staff3);
+          staff3 = new Staff()
+          {
+              Name = "Alice22",
+              Age = 21,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff2.StaffList.Add(staff3);
+          staff.StaffList.Add(staff2);
+          staff2 = new Staff()
+          {
+              Name = "Alice2",
+              Age = 22,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          staff2 = new Staff()
+          {
+              Name = "Alice3",
+              Age = 23,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          StaffList.Add(staff);
+  
+          staff = new Staff()
+          {
+              Name = "Bob",
+              Age = 31,
+              Sex = "Male",
+              Duty = "CEO"
+          };
+          staff2 = new Staff()
+          {
+              Name = "Bob1",
+              Age = 24,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          staff2 = new Staff()
+          {
+              Name = "Bob2",
+              Age = 25,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          staff2 = new Staff()
+          {
+              Name = "Bob3",
+              Age = 26,
+              Sex = "Male",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          StaffList.Add(staff);
+  
+          staff = new Staff()
+          {
+              Name = "Cyber",
+              Age = 32,
+              Sex = "Female",
+              Duty = "Leader"
+          };
+          staff2 = new Staff()
+          {
+              Name = "Cyber1",
+              Age = 27,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          staff2 = new Staff()
+          {
+              Name = "Cyber2",
+              Age = 28,
+              Sex = "Female",
+              Duty = "Normal"
+          };
+          staff.StaffList.Add(staff2);
+          StaffList.Add(staff);
+      }
+  }
+  
+  public partial class Staff : ObservableObject
+  {
+      [ObservableProperty]
+      private string name = null!;
+  
+      [ObservableProperty]
+      private int age;
+  
+      [ObservableProperty]
+      private string sex = null!;
+  
+      [ObservableProperty]
+      private string duty = null!;
+  
+      [ObservableProperty]
+      private bool isChecked = true;
+  
+      [ObservableProperty]
+      private bool isSelected;
+  
+      [ObservableProperty]
+      private bool isExpanded;
+  
+      [ObservableProperty]
+      private ObservableCollection<Staff> staffList = [];
+  
+      public Staff()
+      {
+          IsSelected = false;
+          IsExpanded = false;
+      }
+  }
+  ```
+
+- **TreeModelListView**
+
+  > TreeModelListView is a fast tree list view used `IEnumerable` and `ITreeModel` to display data but CURD is not fully supported.
+
+  ```xaml
+  <ui:TreeModelListView Model="{Binding TreeTestModel}">
    <ui:GridView>
        <ui:GridView.Columns>
            <ui:GridViewColumn Width="400" Header="Column1">
                <ui:GridViewColumn.CellTemplate>
                    <DataTemplate>
-                       <ui:TreeRowExpander Content="{Binding Column1}" />
+                       <ui:TreeModelRowExpander Content="{Binding Column1}" />
                    </DataTemplate>
                </ui:GridViewColumn.CellTemplate>
            </ui:GridViewColumn>
@@ -196,7 +391,7 @@ Similar to WPF UI.
            </ui:GridViewColumn>
        </ui:GridView.Columns>
    </ui:GridView>
-  </ui:TreeListView>
+  </ui:TreeModelListView>
   ```
 
   ```c#
