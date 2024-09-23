@@ -631,17 +631,11 @@ public partial class Staff : ObservableObject
     private bool isChecked = true;
 
     [ObservableProperty]
-    private bool isSelected;
+    private bool isSelected = false;
 
     [ObservableProperty]
-    private bool isExpanded;
+    private bool isExpanded = false;
 
     [ObservableProperty]
     private ObservableCollection<Staff> staffList = [];
-
-    public Staff()
-    {
-        IsSelected = false;
-        IsExpanded = false;
-    }
 }

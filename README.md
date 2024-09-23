@@ -343,22 +343,16 @@ Similar to WPF UI.
       private bool isChecked = true;
   
       [ObservableProperty]
-      private bool isSelected;
+      private bool isSelected = false;
   
       [ObservableProperty]
-      private bool isExpanded;
+      private bool isExpanded = false;
   
       [ObservableProperty]
       private ObservableCollection<Staff> staffList = [];
-  
-      public Staff()
-      {
-          IsSelected = false;
-          IsExpanded = false;
-      }
   }
   ```
-
+  
 - **TreeModelListView**
 
   > TreeModelListView is a fast tree list view used `IEnumerable` and `ITreeModel` to display data but CURD is not fully supported.
