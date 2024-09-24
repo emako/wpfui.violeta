@@ -187,6 +187,7 @@
         <!--  Default BorderBrush is from WPF instead of WPF-UI  -->
         <Setter Property="BorderBrush" Value="#828790" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="4" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
@@ -196,12 +197,12 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TreeListView}">
                     <Border
-                        Name="Bd"
+                        x:Name="Bd"
                         Padding="0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="4">
+                        CornerRadius="{TemplateBinding CornerRadius}">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                             <DockPanel>
                                 <ui:GridViewHeaderRowPresenter

@@ -14,6 +14,15 @@ public class TreeListView : TreeView
     public static readonly DependencyProperty ColumnsProperty =
         DependencyProperty.Register(nameof(Columns), typeof(GridViewColumnCollection), typeof(TreeListView), new PropertyMetadata(null));
 
+    public CornerRadius CornerRadius
+    {
+        get => (CornerRadius)GetValue(CornerRadiusProperty);
+        set => SetValue(CornerRadiusProperty, value);
+    }
+
+    public static readonly DependencyProperty CornerRadiusProperty =
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeListView), new PropertyMetadata(new CornerRadius(4d)));
+
     protected override DependencyObject GetContainerForItemOverride()
     {
         return new TreeListViewItem();
