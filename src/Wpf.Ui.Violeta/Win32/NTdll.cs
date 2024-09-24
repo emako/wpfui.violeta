@@ -6,6 +6,21 @@ namespace Wpf.Ui.Violeta.Win32;
 
 internal static class NTdll
 {
+    [SecurityCritical]
+    [DllImport("ntdll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    public static extern int RtlGetVersion(out OSVERSIONINFOEX versionInfo);
+
+    public static Version GetOSVersion()
+    {
+        if (RtlGetVersion(out OSVERSIONINFOEX osv) == 0)
+        {
+            return new Version(osv.MajorVersion, osv.MinorVersion, osv.BuildNumber, osv.PlatformId);
+        }
+
+        return Environment.OSVersion.Version;
+    }
+
     [StructLayout(LayoutKind.Sequential)]
     public struct OSVERSIONINFOEX
     {
@@ -13,7 +28,6 @@ internal static class NTdll
         public int MajorVersion;
         public int MinorVersion;
         public int BuildNumber;
-        public int Revision;
         public int PlatformId;
 
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
@@ -26,18 +40,8 @@ internal static class NTdll
         public byte Reserved;
     }
 
-    [SecurityCritical]
-    [DllImport("ntdll.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-    public static extern int RtlGetVersion(out OSVERSIONINFOEX versionInfo);
-
-    public static Version GetOSVersion()
+    public static class NTStatus
     {
-        if (RtlGetVersion(out OSVERSIONINFOEX osv) == 0)
-        {
-            return new Version(osv.MajorVersion, osv.MinorVersion, osv.BuildNumber, osv.Revision);
-        }
-
-        return Environment.OSVersion.Version;
+        public const int STATUS_SUCCESS = 0;
     }
 }

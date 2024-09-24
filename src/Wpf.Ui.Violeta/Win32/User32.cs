@@ -1,10 +1,24 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Security;
 
 namespace Wpf.Ui.Violeta.Win32;
 
 internal static class User32
 {
+    [SecurityCritical]
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    public static extern nint GetDC(nint hWnd);
+
+    [SecurityCritical]
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    public static extern int ReleaseDC(nint hWnd, nint hDC);
+
+    [DllImport("gdi32.dll", SetLastError = false, ExactSpelling = true)]
+    public static extern int GetDeviceCaps(nint hdc, DeviceCap nIndex);
+
     [DllImport("user32.dll", SetLastError = false, ExactSpelling = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool SetForegroundWindow(nint hWnd);
@@ -30,5 +44,11 @@ internal static class User32
         IDHELP = 8,
         IDTRYAGAIN = 9,
         IDCONTINUE = 10,
+    }
+
+    public enum DeviceCap
+    {
+        LOGPIXELSX = 88,
+        LOGPIXELSY = 90,
     }
 }
