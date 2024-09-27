@@ -36,7 +36,7 @@ public static class ContentDialogHostService
 
             static ContentPresenter? AttachContentDialogHost(Window window)
             {
-                if (window.Content is Grid rootGrid)
+                if (window.Content is System.Windows.Controls.Grid rootGrid)
                 {
                     if (rootGrid.ColumnDefinitions.Count != 0)
                     {
