@@ -17,11 +17,10 @@ public static class ResourcesProvider
         }
     }
 
-    public static bool HasResource(string uriString)
+    public static bool HasResource(Uri uri)
     {
         try
         {
-            Uri uri = new(uriString);
             StreamResourceInfo info = Application.GetResourceStream(uri);
             using Stream? stream = info?.Stream;
             _ = stream;
@@ -33,18 +32,44 @@ public static class ResourcesProvider
         return false;
     }
 
-    public static Stream GetStream(string uriString)
+    public static bool HasResource(string uriString)
     {
-        Uri uri = new(uriString);
+        return HasResource(new Uri(uriString));
+    }
+
+    public static Stream GetStream(Uri uri)
+    {
         StreamResourceInfo info = Application.GetResourceStream(uri);
         return info?.Stream!;
     }
 
-    public static bool TryGetStream(string uriString, out Stream? stream)
+    public static Stream GetStream(string uriString)
+    {
+        return GetStream(new Uri(uriString));
+    }
+
+    public static Stream? TryFindStream(Uri uri)
     {
         try
         {
-            stream = GetStream(uriString);
+            return GetStream(uri);
+        }
+        catch
+        {
+        }
+        return null;
+    }
+
+    public static Stream? TryFindStream(string uriString)
+    {
+        return TryFindStream(new Uri(uriString));
+    }
+
+    public static bool TryGetStream(Uri uri, out Stream? stream)
+    {
+        try
+        {
+            stream = GetStream(uri);
             return true;
         }
         catch
@@ -54,29 +79,32 @@ public static class ResourcesProvider
         return false;
     }
 
-    public static Stream? TryFindStream(string uriString)
+    public static bool TryGetStream(string uriString, out Stream? stream)
     {
-        try
-        {
-            return GetStream(uriString);
-        }
-        catch
-        {
-        }
-        return null;
+        return TryGetStream(new Uri(uriString), out stream);
     }
 
-    public static string GetString(string uriString, Encoding? encoding = null)
+    public static string GetString(Uri uri, Encoding? encoding = null)
     {
-        using Stream stream = GetStream(uriString);
+        using Stream stream = GetStream(uri);
         using StreamReader streamReader = new(stream, encoding ?? Encoding.UTF8);
         return streamReader.ReadToEnd();
     }
 
-    public static byte[] GetBytes(string uriString)
+    public static string GetString(string uriString, Encoding? encoding = null)
     {
-        using Stream stream = GetStream(uriString);
+        return GetString(uriString, encoding);
+    }
+
+    public static byte[] GetBytes(Uri uri)
+    {
+        using Stream stream = GetStream(uri);
         using BinaryReader streamReader = new(stream);
         return streamReader.ReadBytes((int)stream.Length);
+    }
+
+    public static byte[] GetBytes(string uriString)
+    {
+        return GetBytes(new Uri(uriString));
     }
 }
