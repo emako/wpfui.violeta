@@ -394,9 +394,9 @@ Similar to WPF UI.
       [ObservableProperty]
       private TreeCollection<TreeTestModel> treeTestModel = CreateTestModel();
       
-      public static TreeCollection<TreeTestModel> CreateTestModel()
+      public static TreeModelCollection<TreeTestModel> CreateTestModel()
       {
-          return new TreeCollection<TreeTestModel>()
+          return new TreeModelCollection<TreeTestModel>()
           {
               Children = new(
               [
@@ -436,7 +436,7 @@ Similar to WPF UI.
   }
   
   [ObservableObject]
-  public partial class TreeTestModel : TreeObject<TreeTestModel>
+  public partial class TreeTestModel : TreeModelObject<TreeTestModel>
   {
       [ObservableProperty]
       private string? column1;
