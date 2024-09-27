@@ -575,60 +575,65 @@
                             FontSize="14"
                             FontWeight="Black"
                             Text="ToggleButtonGroup / RadioButtonGroup / MenuItemGroup" />
-                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel.Resources>
+                        <ui:StackPanel
+                            Margin="0,8,0,0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:StackPanel.Resources>
                                     <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" IsCanCancel="True" />
-                                </StackPanel.Resources>
+                                </ui:StackPanel.Resources>
                                 <ToggleButton
                                     vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
                                     Content="1st"
                                     IsChecked="True" />
-                                <ToggleButton
-                                    Margin="8,0,0,0"
-                                    vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
-                                    Content="2nd" />
-                                <Button Content="MenuItemGroup">
-                                    <Button.Resources>
-                                        <vio:MenuItemGroup x:Key="MenuItemGroup" IsCanCancel="True" />
-                                    </Button.Resources>
-                                    <Button.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem
-                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
-                                                Header="Item 1"
-                                                IsCheckable="True" />
-                                            <MenuItem
-                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
-                                                Header="Item 2"
-                                                IsCheckable="True" />
-                                            <MenuItem
-                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
-                                                Header="Item 3"
-                                                IsCheckable="True" />
-                                        </ContextMenu>
-                                    </Button.ContextMenu>
-                                    <i:Interaction.Behaviors>
-                                        <b:LeftContextMenuBehavior />
-                                    </i:Interaction.Behaviors>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Margin="8,0,0,0" Orientation="Horizontal">
-                                <StackPanel.Resources>
+                                <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="2nd" />
+                            </ui:StackPanel>
+                            <ui:StackPanel
+                                Margin="8,0,0,0"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <ui:StackPanel.Resources>
                                     <vio:RadioButtonGroup x:Key="RadioButtonGroup" />
-                                </StackPanel.Resources>
+                                </ui:StackPanel.Resources>
                                 <RadioButton
+                                    MinWidth="0"
                                     vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
                                     Content="1st"
                                     IsChecked="True" />
                                 <Grid>
                                     <RadioButton
-                                        Margin="8,0,0,0"
+                                        MinWidth="0"
                                         vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
                                         Content="2nd" />
                                 </Grid>
-                            </StackPanel>
-                        </StackPanel>
+                            </ui:StackPanel>
+                            <Button Content="ContextMenu">
+                                <Button.Resources>
+                                    <vio:MenuItemGroup x:Key="MenuItemGroup" IsCanCancel="True" />
+                                </Button.Resources>
+                                <Button.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem
+                                            vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                            Header="1st"
+                                            IsCheckable="True"
+                                            IsChecked="True" />
+                                        <MenuItem
+                                            vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                            Header="2nd"
+                                            IsCheckable="True" />
+                                        <MenuItem
+                                            vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                            Header="3rd"
+                                            IsCheckable="True" />
+                                    </ContextMenu>
+                                </Button.ContextMenu>
+                                <i:Interaction.Behaviors>
+                                    <b:LeftContextMenuBehavior />
+                                </i:Interaction.Behaviors>
+                            </Button>
+                        </ui:StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock
@@ -816,8 +821,12 @@
                                 Margin="0,8,0,0"
                                 FontSize="14"
                                 FontWeight="Black"
-                                Text="ListView" />
-                            <ui:ListView Height="180" Margin="0,8,90,0">
+                                Text="ListView"
+                                Visibility="Collapsed" />
+                            <ui:ListView
+                                Height="180"
+                                Margin="0,8,90,0"
+                                Visibility="Collapsed">
                                 <ui:ListView.View>
                                     <ui:GridView>
                                         <GridViewColumn Width="150" Header="Name" />
