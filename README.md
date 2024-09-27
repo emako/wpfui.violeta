@@ -110,7 +110,7 @@ Similar to WPF UI.
   MessageBoxResult result = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
   ```
 
-- **ToggleButtonGroup** / **RadioButtonGroup**
+- **ToggleButtonGroup** / **RadioButtonGroup** / **MenuItemGroup**
 
   > Turn the ToggleButton and RadioButton under the same Group into a radio button.
 

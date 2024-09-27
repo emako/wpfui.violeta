@@ -2,7 +2,9 @@
     x:Class="Wpf.Ui.Test.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.github.com/computedbehaviors/2024/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Wpf.Ui.Test"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -572,7 +574,7 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="ToggleButtonGroup / RadioButtonGroup" />
+                            Text="ToggleButtonGroup / RadioButtonGroup / MenuItemGroup" />
                         <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel.Resources>
@@ -586,6 +588,30 @@
                                     Margin="8,0,0,0"
                                     vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
                                     Content="2nd" />
+                                <Button Content="MenuItemGroup">
+                                    <Button.Resources>
+                                        <vio:MenuItemGroup x:Key="MenuItemGroup" IsCanCancel="True" />
+                                    </Button.Resources>
+                                    <Button.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem
+                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                                Header="Item 1"
+                                                IsCheckable="True" />
+                                            <MenuItem
+                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                                Header="Item 2"
+                                                IsCheckable="True" />
+                                            <MenuItem
+                                                vio:MenuItemGroup.Group="{StaticResource MenuItemGroup}"
+                                                Header="Item 3"
+                                                IsCheckable="True" />
+                                        </ContextMenu>
+                                    </Button.ContextMenu>
+                                    <i:Interaction.Behaviors>
+                                        <b:LeftContextMenuBehavior />
+                                    </i:Interaction.Behaviors>
+                                </Button>
                             </StackPanel>
                             <StackPanel Margin="8,0,0,0" Orientation="Horizontal">
                                 <StackPanel.Resources>
