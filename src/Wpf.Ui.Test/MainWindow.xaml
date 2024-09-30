@@ -780,10 +780,13 @@
                                                 </DataTemplate>
                                             </ui:GridViewColumn.CellTemplate>
                                         </ui:GridViewColumn>
-                                        <ui:GridViewColumn
-                                            Width="80"
-                                            DisplayMemberBinding="{Binding Age}"
-                                            Header="Age" />
+                                        <ui:GridViewColumn Header="Age">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock VerticalAlignment="Center" Text="{Binding Age}" />
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
                                         <ui:GridViewColumn
                                             Width="80"
                                             DisplayMemberBinding="{Binding Sex}"
@@ -795,7 +798,18 @@
                                         <ui:GridViewColumn Width="250" Header="IsChecked">
                                             <ui:GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                                    <Grid>
+                                                        <ui:ToggleSwitch VerticalAlignment="Center" IsChecked="{Binding IsChecked}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ui:GridViewColumn.CellTemplate>
+                                        </ui:GridViewColumn>
+                                        <ui:GridViewColumn Header="Button">
+                                            <ui:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Button VerticalAlignment="Center" Content="Click" />
+                                                    </Grid>
                                                 </DataTemplate>
                                             </ui:GridViewColumn.CellTemplate>
                                         </ui:GridViewColumn>
