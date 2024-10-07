@@ -6,9 +6,9 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>12.0</LangVersion>
-		<AssemblyVersion>3.0.5.16</AssemblyVersion>
-		<FileVersion>3.0.5.16</FileVersion>
-		<Version>$(VersionPrefix)3.0.5.16</Version>
+		<AssemblyVersion>3.0.5.17</AssemblyVersion>
+		<FileVersion>3.0.5.17</FileVersion>
+		<Version>$(VersionPrefix)3.0.5.17</Version>
 		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
 	</PropertyGroup>
 
@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 		<PackageReference Include="WPF-UI" Version="3.0.5" />
 		<PackageReference Include="ComputedAnimations.WPF" Version="0.4.5-beta" />
 		<PackageReference Include="ComputedBehaviors.WPF" Version="0.4.5-beta" />
@@ -34,10 +34,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\Strings\" />
 	</ItemGroup>
 
 </Project>
