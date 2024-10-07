@@ -14,11 +14,13 @@
 
 	<ItemGroup>
 		<None Remove="Resources\Images\*.ico" />
+		<None Remove="Resources\Strings\*.md" />
 		<None Remove="..\..\branding\*.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Resource Include="Resources\Images\*.ico" />
+		<Resource Include="Resources\Strings\*.md" />
 		<Resource Include="..\..\branding\*.png" />
 	</ItemGroup>
 
@@ -32,6 +34,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\Strings\" />
 	</ItemGroup>
 
 </Project>

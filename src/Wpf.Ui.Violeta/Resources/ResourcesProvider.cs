@@ -17,6 +17,11 @@ public static class ResourcesProvider
         }
     }
 
+    /// <summary>
+    /// Low performance method to check if a resource exists.
+    /// </summary>
+    /// <param name="uri"></param>
+    /// <returns></returns>
     public static bool HasResource(Uri uri)
     {
         try
@@ -93,7 +98,7 @@ public static class ResourcesProvider
 
     public static string GetString(string uriString, Encoding? encoding = null)
     {
-        return GetString(uriString, encoding);
+        return GetString(new Uri(uriString), encoding);
     }
 
     public static byte[] GetBytes(Uri uri)

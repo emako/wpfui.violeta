@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Threading;
 using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Resources;
 
 namespace Wpf.Ui.Test;
 
@@ -18,5 +19,7 @@ public partial class App : Application
             ExceptionReport.Show(e.Exception!);
             e.Handled = true;
         };
+
+        string sampleMd = ResourcesProvider.GetString(@"pack://application:,,,/Resources/Strings/Sample.md");
     }
 }
