@@ -310,7 +310,8 @@ public partial class MainWindow : FluentWindow
             Age = 30,
             Sex = "Male",
             Duty = "Manager",
-            IsExpanded = true
+            IsExpanded = true,
+            Path = @"C:\Program Files\nodejs\",
         };
         Staff staff2 = new Staff()
         {
@@ -318,7 +319,8 @@ public partial class MainWindow : FluentWindow
             Age = 21,
             Sex = "Male",
             Duty = "Normal",
-            IsExpanded = true
+            IsExpanded = true,
+            Path = @"C:\Program Files\nodejs\node.exe",
         };
         Staff staff3 = new Staff()
         {
@@ -635,6 +637,9 @@ public partial class Staff : ObservableObject
 
     [ObservableProperty]
     private bool isExpanded = false;
+
+    [ObservableProperty]
+    private string path = null!;
 
     [ObservableProperty]
     private ObservableCollection<Staff> staffList = [];

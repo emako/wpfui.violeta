@@ -28,7 +28,7 @@ public static class IconManager
     /// </summary>
     /// <param name="large">16x16 or 32x32 icon</param>
     /// <returns>an icon</returns>
-    public static ImageSource FindIconForDir(bool large)
+    public static ImageSource FindIconForDir(bool large = false)
     {
         ImageSource icon = large ? LargeDirIcon : SmallDirIcon;
 
@@ -60,7 +60,7 @@ public static class IconManager
     /// <param name="fileName">any filename</param>
     /// <param name="large">16x16 or 32x32 icon</param>
     /// <returns>null if path is null, otherwise - an icon</returns>
-    public static ImageSource FindIconForFilename(string fileName, bool large)
+    public static ImageSource FindIconForFilename(string fileName, bool large = false)
     {
         string extension = Path.GetExtension(fileName);
         if (extension == null)
