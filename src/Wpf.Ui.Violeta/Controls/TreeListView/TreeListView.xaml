@@ -188,7 +188,7 @@
     <Style BasedOn="{StaticResource DefaultTreeListViewItemStyle}" TargetType="{x:Type local:TreeListViewItem}" />
 
     <Style x:Key="DefaultTreeListViewStyle" TargetType="{x:Type local:TreeListView}">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource DefaultControlFocusVisualStyle}" />
         <Setter Property="Foreground" Value="{DynamicResource TreeViewItemForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
