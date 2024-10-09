@@ -16,9 +16,6 @@ internal static class User32
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     public static extern int ReleaseDC(nint hWnd, nint hDC);
 
-    [DllImport("gdi32.dll", SetLastError = false, ExactSpelling = true)]
-    public static extern int GetDeviceCaps(nint hdc, DeviceCap nIndex);
-
     [DllImport("user32.dll", SetLastError = false, ExactSpelling = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool SetForegroundWindow(nint hWnd);
@@ -29,6 +26,9 @@ internal static class User32
 
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern nint MB_GetString(uint wBtn);
+
+    [DllImport("user32.dll")]
+    public static extern int DestroyIcon(nint hIcon);
 
     [Flags]
     public enum DialogBoxCommand : uint
@@ -44,11 +44,5 @@ internal static class User32
         IDHELP = 8,
         IDTRYAGAIN = 9,
         IDCONTINUE = 10,
-    }
-
-    public enum DeviceCap
-    {
-        LOGPIXELSX = 88,
-        LOGPIXELSY = 90,
     }
 }
