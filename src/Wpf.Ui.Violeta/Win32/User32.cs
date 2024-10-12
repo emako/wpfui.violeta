@@ -30,6 +30,14 @@ internal static class User32
     [DllImport("user32.dll")]
     public static extern int DestroyIcon(nint hIcon);
 
+    [DllImport("user32.dll", ExactSpelling = true)]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    public static extern nint GetActiveWindow();
+
+    [DllImport("user32.dll", ExactSpelling = true, SetLastError = true)]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    internal static extern bool SetWindowPos(nint hWnd, nint hWndInsertAfter, int X, int Y, int cx, int cy, SET_WINDOW_POS_FLAGS uFlags);
+
     [Flags]
     public enum DialogBoxCommand : uint
     {
@@ -44,5 +52,25 @@ internal static class User32
         IDHELP = 8,
         IDTRYAGAIN = 9,
         IDCONTINUE = 10,
+    }
+
+    [Flags]
+    internal enum SET_WINDOW_POS_FLAGS : uint
+    {
+        SWP_ASYNCWINDOWPOS = 0x00004000,
+        SWP_DEFERERASE = 0x00002000,
+        SWP_DRAWFRAME = 0x00000020,
+        SWP_FRAMECHANGED = 0x00000020,
+        SWP_HIDEWINDOW = 0x00000080,
+        SWP_NOACTIVATE = 0x00000010,
+        SWP_NOCOPYBITS = 0x00000100,
+        SWP_NOMOVE = 0x00000002,
+        SWP_NOOWNERZORDER = 0x00000200,
+        SWP_NOREDRAW = 0x00000008,
+        SWP_NOREPOSITION = 0x00000200,
+        SWP_NOSENDCHANGING = 0x00000400,
+        SWP_NOSIZE = 0x00000001,
+        SWP_NOZORDER = 0x00000004,
+        SWP_SHOWWINDOW = 0x00000040,
     }
 }

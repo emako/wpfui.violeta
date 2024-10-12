@@ -8,11 +8,11 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
+using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
 
 namespace Wpf.Ui.Test;
 
@@ -30,17 +30,6 @@ public partial class MainWindow : FluentWindow
         ScrollViewer.ScrollToEnd();
 
         InitNode1Value();
-    }
-
-    protected override void OnSourceInitialized(EventArgs e)
-    {
-        base.OnSourceInitialized(e);
-
-        if (WindowBackdrop.IsSupported(WindowBackdropType.Mica))
-        {
-            Background = new SolidColorBrush(Colors.Transparent);
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
-        }
     }
 
     [ObservableProperty]
@@ -95,7 +84,23 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private async Task ShowContentDialogAsync()
     {
-        ContentDialog dialog =
+        ContentDialog dialog = new()
+        {
+            Title = "My sample dialog",
+            Content = "Content of the dialog",
+            CloseButtonText = "Close button",
+            PrimaryButtonText = "Primary button",
+            SecondaryButtonText = "Secondary button",
+            DefaultButton = Violeta.Controls.ContentDialogButton.Primary,
+        };
+
+        _ = await dialog.ShowAsync();
+    }
+
+    [RelayCommand]
+    private async Task ShowWithContentPresenterForDialogs()
+    {
+        Wpf.Ui.Controls.ContentDialog dialog =
             new()
             {
                 Title = "My sample dialog",

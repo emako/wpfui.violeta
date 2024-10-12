@@ -25,6 +25,7 @@ Similar to WPF UI.
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
+                <vio:ThemesDictionary Theme="Dark" />
                 <vio:ControlsDictionary />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

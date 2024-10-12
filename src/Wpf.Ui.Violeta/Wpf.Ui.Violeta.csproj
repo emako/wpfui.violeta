@@ -9,6 +9,7 @@
 		<UseWindowsForms>false</UseWindowsForms>
 		<LangVersion>12.0</LangVersion>
 		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<AssemblyVersion>3.0.5.18</AssemblyVersion>

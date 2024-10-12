@@ -16,6 +16,7 @@
     d:Background="#232323"
     d:Height="2000"
     ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
@@ -475,6 +476,10 @@
                                 FontSize="14"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="HostService" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowWithContentPresenterForDialogsCommand}"
+                                Content="Show with ContentPresenterForDialogs" />
                             <ui:Button
                                 Margin="16,0,0,0"
                                 Command="{Binding ShowContentDialogCommand}"
