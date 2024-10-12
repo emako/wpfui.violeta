@@ -1,9 +1,9 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class ContentDialogButtonClickEventArgs : EventArgs
+public class ContentDialogButtonClickEventArgs : RoutedEventArgs
 {
     private ContentDialogButtonClickDeferral _deferral = null!;
     private int _deferralCount;

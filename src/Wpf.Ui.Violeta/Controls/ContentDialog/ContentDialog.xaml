@@ -17,9 +17,6 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ContentDialogBorderBrush}" />
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
-        <!--<Setter Property="PrimaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
-        <!--<Setter Property="SecondaryButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
-        <!--<Setter Property="CloseButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />-->
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -145,27 +142,6 @@
                                                     <ColumnDefinition x:Name="SecondSpacer" Width="{DynamicResource ContentDialogButtonSpacing}" />
                                                     <ColumnDefinition x:Name="CloseColumn" Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <!--<Button
-                                                    x:Name="PrimaryButton"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{TemplateBinding PrimaryButtonText}"
-                                                    IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}"
-                                                    IsTabStop="False"
-                                                    Style="{TemplateBinding PrimaryButtonStyle}" />
-                                                <Button
-                                                    x:Name="SecondaryButton"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{TemplateBinding SecondaryButtonText}"
-                                                    IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}"
-                                                    IsTabStop="False"
-                                                    Style="{TemplateBinding SecondaryButtonStyle}" />
-                                                <Button
-                                                    x:Name="CloseButton"
-                                                    Grid.Column="4"
-                                                    HorizontalAlignment="Stretch"
-                                                    Content="{TemplateBinding CloseButtonText}"
-                                                    IsTabStop="False"
-                                                    Style="{TemplateBinding CloseButtonStyle}" />-->
                                                 <ui:Button
                                                     x:Name="PrimaryButton"
                                                     HorizontalAlignment="Stretch"
@@ -422,15 +398,6 @@
                         <Trigger Property="IsShadowEnabled" Value="False">
                             <Setter TargetName="Shdw" Property="Visibility" Value="Collapsed" />
                         </Trigger>
-                        <!--<Trigger Property="DefaultButton" Value="Primary">
-                            <Setter TargetName="PrimaryButton" Property="Style" Value="{DynamicResource AccentButtonStyle}" />
-                        </Trigger>
-                        <Trigger Property="DefaultButton" Value="Secondary">
-                            <Setter TargetName="SecondaryButton" Property="Style" Value="{DynamicResource AccentButtonStyle}" />
-                        </Trigger>
-                        <Trigger Property="DefaultButton" Value="Close">
-                            <Setter TargetName="CloseButton" Property="Style" Value="{DynamicResource AccentButtonStyle}" />
-                        </Trigger>-->
                         <Trigger Property="DefaultButton" Value="Primary">
                             <Setter TargetName="PrimaryButton" Property="Appearance" Value="{x:Static ui:ControlAppearance.Primary}" />
                         </Trigger>

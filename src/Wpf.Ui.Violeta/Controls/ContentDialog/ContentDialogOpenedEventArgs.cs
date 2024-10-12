@@ -1,5 +1,5 @@
-﻿using System;
+﻿using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class ContentDialogOpenedEventArgs : EventArgs;
+public class ContentDialogOpenedEventArgs : RoutedEventArgs;

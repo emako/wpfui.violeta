@@ -1,9 +1,8 @@
-﻿using System;
-using Wpf.Ui.Controls;
+﻿using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class ContentDialogClosedEventArgs : EventArgs
+public class ContentDialogClosedEventArgs : RoutedEventArgs
 {
     internal ContentDialogClosedEventArgs(ContentDialogResult result)
     {

@@ -172,7 +172,7 @@ public class ContentPresenterEx : ContentPresenter
 
     private bool IsUsingDefaultTemplate { get; set; }
 
-    private TextBlock _textBlock;
+    private TextBlock _textBlock = null!;
 
     private TextBlock TextBlock
     {
@@ -193,7 +193,7 @@ public class ContentPresenterEx : ContentPresenter
         }
     }
 
-    private AccessText _accessText;
+    private AccessText _accessText = null!;
 
     private AccessText AccessText
     {
@@ -216,7 +216,7 @@ public class ContentPresenterEx : ContentPresenter
 
     protected override DataTemplate ChooseTemplate()
     {
-        DataTemplate template = null;
+        DataTemplate template = null!;
         object content = Content;
 
         // ContentTemplate has first stab
@@ -264,11 +264,11 @@ public class ContentPresenterEx : ContentPresenter
         {
             if (visualRemoved == TextBlock)
             {
-                TextBlock = null;
+                TextBlock = null!;
             }
             else if (visualRemoved == AccessText)
             {
-                AccessText = null;
+                AccessText = null!;
             }
         }
     }

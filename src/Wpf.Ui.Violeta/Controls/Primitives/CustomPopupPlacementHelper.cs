@@ -7,14 +7,8 @@ namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 internal static class CustomPopupPlacementHelper
 {
-    #region Placement
-
     public static readonly DependencyProperty PlacementProperty =
-        DependencyProperty.RegisterAttached(
-            "Placement",
-            typeof(CustomPlacementMode),
-            typeof(CustomPopupPlacementHelper),
-            new PropertyMetadata(CustomPlacementMode.Top));
+        DependencyProperty.RegisterAttached("Placement", typeof(CustomPlacementMode), typeof(CustomPopupPlacementHelper), new PropertyMetadata(CustomPlacementMode.Top));
 
     public static CustomPlacementMode GetPlacement(DependencyObject element)
     {
@@ -26,14 +20,12 @@ internal static class CustomPopupPlacementHelper
         element.SetValue(PlacementProperty, value);
     }
 
-    #endregion Placement
-
     internal static CustomPopupPlacement[] PositionPopup(
         CustomPlacementMode placement,
         Size popupSize,
         Size targetSize,
-    Point offset,
-        FrameworkElement child = null)
+        Point offset,
+        FrameworkElement child = null!)
     {
         Matrix transformToDevice = default;
         if (child != null)
@@ -41,13 +33,13 @@ internal static class CustomPopupPlacementHelper
             Helper.TryGetTransformToDevice(child, out transformToDevice);
         }
 
-        CustomPopupPlacement preferredPlacement = CalculatePopupPlacement(placement, popupSize, targetSize, offset, child, transformToDevice);
+        CustomPopupPlacement preferredPlacement = CalculatePopupPlacement(placement, popupSize, targetSize, offset, child!, transformToDevice);
 
         CustomPopupPlacement? alternativePlacement = null;
         var alternativePlacementMode = GetAlternativePlacementMode(placement);
         if (alternativePlacementMode.HasValue)
         {
-            alternativePlacement = CalculatePopupPlacement(alternativePlacementMode.Value, popupSize, targetSize, offset, child, transformToDevice);
+            alternativePlacement = CalculatePopupPlacement(alternativePlacementMode.Value, popupSize, targetSize, offset, child!, transformToDevice);
         }
 
         if (alternativePlacement.HasValue)
@@ -65,7 +57,7 @@ internal static class CustomPopupPlacementHelper
         Size popupSize,
         Size targetSize,
         Point offset,
-        FrameworkElement child = null,
+        FrameworkElement child = null!,
         Matrix transformToDevice = default)
     {
         Point point;

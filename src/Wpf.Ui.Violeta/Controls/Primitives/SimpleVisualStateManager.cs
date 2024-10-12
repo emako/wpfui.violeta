@@ -16,6 +16,7 @@ public class SimpleVisualStateManager : VisualStateManager
 {
     public static bool IsAnimationsEnabled => SystemParameters.ClientAreaAnimation &&
                                               RenderCapability.Tier > 0;
+
     /// <summary>
     ///     Allows subclasses to override the GoToState logic.
     /// </summary>
@@ -47,14 +48,14 @@ public class SimpleVisualStateManager : VisualStateManager
             throw new ArgumentNullException("obj");
         }
 
-        // We don't want to get the default value because it will create/return an empty colleciton.
+        // We don't want to get the default value because it will create/return an empty collection.
         BaseValueSource source = DependencyPropertyHelper.GetValueSource(obj, VisualStateGroupsProperty).BaseValueSource;
         if (source != BaseValueSource.Default)
         {
-            return obj.GetValue(VisualStateManager.VisualStateGroupsProperty) as Collection<VisualStateGroup>;
+            return (obj.GetValue(VisualStateManager.VisualStateGroupsProperty) as Collection<VisualStateGroup>)!;
         }
 
-        return null;
+        return null!;
     }
 
     #endregion VisualStateGroups
@@ -75,8 +76,8 @@ public class SimpleVisualStateManager : VisualStateManager
             }
         }
 
-        group = null;
-        state = null;
+        group = null!;
+        state = null!;
         return false;
     }
 
@@ -105,7 +106,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
         // Get the transition Storyboard. Even if there are no transitions specified, there might
         // be properties that we're rolling back to their default values.
-        VisualTransition transition = useTransitions ? GetTransition(stateGroupsRoot, group, lastState, state) : null;
+        VisualTransition transition = useTransitions ? GetTransition(stateGroupsRoot, group, lastState, state) : null!;
 
         // If the transition is null, then we want to instantly snap. The dynamicTransition will
         // consist of everything that is being moved back to the default state.
@@ -132,8 +133,8 @@ public class SimpleVisualStateManager : VisualStateManager
         {
             if (transition.Storyboard != null/* && transition.ExplicitStoryboardCompleted == true*/)
             {
-                EventHandler transitionCompleted = null;
-                transitionCompleted = new EventHandler(delegate (object sender, EventArgs e)
+                EventHandler transitionCompleted = null!;
+                transitionCompleted = new EventHandler((object? sender, EventArgs e) =>
                 {
                     if (ShouldRunStateStoryboard(control, stateGroupsRoot, state, group))
                     {
@@ -153,7 +154,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
             // Start transition and dynamicTransition Storyboards
             // Stop any previously running Storyboards
-            group.StartNewThenStopOld(stateGroupsRoot, transition.Storyboard);
+            group.StartNewThenStopOld(stateGroupsRoot, transition.Storyboard!);
 
             RaiseCurrentStateChanging(group, lastState, state, control, stateGroupsRoot);
         }
@@ -230,8 +231,8 @@ public class SimpleVisualStateManager : VisualStateManager
             throw new ArgumentNullException("to");
         }
 
-        VisualTransition best = null;
-        VisualTransition defaultTransition = null;
+        VisualTransition best = null!;
+        VisualTransition defaultTransition = null!;
         int bestScore = -1;
 
         IList<VisualTransition> transitions = (IList<VisualTransition>)group.Transitions;
@@ -276,7 +277,7 @@ public class SimpleVisualStateManager : VisualStateManager
             }
         }
 
-        return best ?? defaultTransition;
+        return (best ?? defaultTransition)!;
     }
 
     internal static bool IsDefault(VisualTransition transition)
@@ -312,14 +313,14 @@ internal static class VisualStateGroupHelper
     {
         for (int stateIndex = 0; stateIndex < group.States.Count; ++stateIndex)
         {
-            VisualState state = (VisualState)group.States[stateIndex];
+            VisualState state = (VisualState)group.States[stateIndex]!;
             if (state.Name == stateName)
             {
                 return state;
             }
         }
 
-        return null;
+        return null!;
     }
 
     #region CurrentStoryboards
@@ -341,7 +342,7 @@ internal static class VisualStateGroupHelper
         return currentStoryboards;
     }
 
-    #endregion
+    #endregion CurrentStoryboards
 
     internal static void StartNewThenStopOld(this VisualStateGroup group, FrameworkElement element, params Storyboard[] newStoryboards)
     {
@@ -380,7 +381,6 @@ internal static class VisualStateGroupHelper
             // commenting this out for now.
             // newStoryboards[index].SeekAlignedToLastTick(element, TimeSpan.Zero, TimeSeekOrigin.BeginTime);
         }
-
     }
 
     private static Action<VisualStateGroup, VisualState> CreateSetCurrentStateDelegate()
@@ -393,13 +393,13 @@ internal static class VisualStateGroupHelper
         }
         catch (Exception)
         {
-            return null;
+            return null!;
         }
     }
 
-    private static readonly Lazy<Action<VisualStateGroup, VisualState>> _setCurrentState =
-        new Lazy<Action<VisualStateGroup, VisualState>>(CreateSetCurrentStateDelegate);
+    private static readonly Lazy<Action<VisualStateGroup, VisualState>> _setCurrentState = new(CreateSetCurrentStateDelegate);
 }
+
 public static class DelegateHelper
 {
     private const BindingFlags DefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
@@ -418,13 +418,13 @@ public static class DelegateHelper
     {
         if (bindingAttr != (BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public))
         {
-            MethodInfo method2 = target.GetMethod(method, bindingAttr);
+            MethodInfo? method2 = target.GetMethod(method, bindingAttr);
             if (method2 != null)
             {
                 return CreateDelegate<T>(method2);
             }
 
-            return null;
+            return null!;
         }
 
         return (T)Delegate.CreateDelegate(typeof(T), target, method);
@@ -434,13 +434,13 @@ public static class DelegateHelper
     {
         if (bindingAttr != (BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public))
         {
-            MethodInfo method2 = target.GetType().GetMethod(method, bindingAttr);
+            MethodInfo? method2 = target.GetType().GetMethod(method, bindingAttr);
             if (method2 != null)
             {
                 return CreateDelegate<T>(target, method2);
             }
 
-            return null;
+            return null!;
         }
 
         return (T)Delegate.CreateDelegate(typeof(T), target, method);
@@ -448,31 +448,31 @@ public static class DelegateHelper
 
     public static Func<TType, TProperty> CreatePropertyGetter<TType, TProperty>(string name, BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public, bool nonPublic = false)
     {
-        PropertyInfo property = typeof(TType).GetProperty(name, bindingAttr);
+        PropertyInfo? property = typeof(TType).GetProperty(name, bindingAttr);
         if (property != null)
         {
-            MethodInfo getMethod = property.GetGetMethod(nonPublic);
+            MethodInfo? getMethod = property.GetGetMethod(nonPublic);
             if (getMethod != null)
             {
                 return CreateDelegate<Func<TType, TProperty>>(getMethod);
             }
         }
 
-        return null;
+        return null!;
     }
 
     public static Action<TType, TProperty> CreatePropertySetter<TType, TProperty>(string name, BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public, bool nonPublic = false)
     {
-        PropertyInfo property = typeof(TType).GetProperty(name, bindingAttr);
+        PropertyInfo? property = typeof(TType).GetProperty(name, bindingAttr);
         if (property != null)
         {
-            MethodInfo setMethod = property.GetSetMethod(nonPublic);
+            MethodInfo? setMethod = property.GetSetMethod(nonPublic);
             if (setMethod != null)
             {
                 return CreateDelegate<Action<TType, TProperty>>(setMethod);
             }
         }
 
-        return null;
+        return null!;
     }
 }

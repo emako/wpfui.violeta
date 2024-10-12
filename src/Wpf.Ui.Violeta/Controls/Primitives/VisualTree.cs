@@ -11,7 +11,7 @@ namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 public static class VisualTree
 {
-    public static FrameworkElement FindDescendantByName(this DependencyObject element, string name)
+    public static FrameworkElement? FindDescendantByName(this DependencyObject element, string name)
     {
         if (element == null || string.IsNullOrWhiteSpace(name))
         {
@@ -26,7 +26,7 @@ public static class VisualTree
         int childrenCount = VisualTreeHelper.GetChildrenCount(element);
         for (int i = 0; i < childrenCount; i++)
         {
-            FrameworkElement frameworkElement = VisualTreeHelper.GetChild(element, i).FindDescendantByName(name);
+            FrameworkElement? frameworkElement = VisualTreeHelper.GetChild(element, i).FindDescendantByName(name);
             if (frameworkElement != null)
             {
                 return frameworkElement;
@@ -36,9 +36,9 @@ public static class VisualTree
         return null;
     }
 
-    public static T FindDescendant<T>(this DependencyObject element) where T : DependencyObject
+    public static T? FindDescendant<T>(this DependencyObject element) where T : DependencyObject
     {
-        T val = null;
+        T? val = null;
         int childrenCount = VisualTreeHelper.GetChildrenCount(element);
         for (int i = 0; i < childrenCount; i++)
         {
@@ -59,9 +59,9 @@ public static class VisualTree
         return val;
     }
 
-    public static object FindDescendant(this DependencyObject element, Type type)
+    public static object? FindDescendant(this DependencyObject element, Type type)
     {
-        object obj = null;
+        object? obj = null;
         int childrenCount = VisualTreeHelper.GetChildrenCount(element);
         for (int i = 0; i < childrenCount; i++)
         {
@@ -100,7 +100,7 @@ public static class VisualTree
         }
     }
 
-    public static FrameworkElement FindAscendantByName(this DependencyObject element, string name)
+    public static FrameworkElement? FindAscendantByName(this DependencyObject element, string name)
     {
         if (element == null || string.IsNullOrWhiteSpace(name))
         {
@@ -121,7 +121,7 @@ public static class VisualTree
         return parent.FindAscendantByName(name);
     }
 
-    public static T FindAscendant<T>(this DependencyObject element) where T : DependencyObject
+    public static T? FindAscendant<T>(this DependencyObject element) where T : DependencyObject
     {
         DependencyObject parent = VisualTreeHelper.GetParent(element);
         if (parent == null)
@@ -137,7 +137,7 @@ public static class VisualTree
         return parent.FindAscendant<T>();
     }
 
-    public static object FindAscendant(this DependencyObject element, Type type)
+    public static object? FindAscendant(this DependencyObject element, Type type)
     {
         DependencyObject parent = VisualTreeHelper.GetParent(element);
         if (parent == null)
@@ -217,13 +217,13 @@ public static class VisualTree
                 {
                     Type type = parent.GetType();
                     BindingFlags bindingAttr = BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public;
-                    List<PropertyInfo> obj = new List<PropertyInfo>
-                    {
+                    List<PropertyInfo> obj =
+                    [
                         type.GetProperty("Children", bindingAttr),
                         type.GetProperty("Child", bindingAttr),
                         type.GetProperty("Content", bindingAttr),
                         type.GetProperty("Items", bindingAttr)
-                    };
+                    ];
                     bool flag = false;
                     foreach (PropertyInfo item in obj)
                     {
@@ -231,13 +231,13 @@ public static class VisualTree
                         {
                             case "children":
                                 {
-                                    object value = item.GetValue(parent, null);
-                                    MethodInfo[] methods = value.GetType().GetMethods();
+                                    object? value = item.GetValue(parent, null);
+                                    MethodInfo[] methods = value?.GetType().GetMethods() ?? [];
                                     foreach (MethodInfo methodInfo in methods)
                                     {
                                         if (methodInfo.Name.ToLower() == "remove")
                                         {
-                                            methodInfo.Invoke(value, new object[1] { element });
+                                            methodInfo.Invoke(value, [element]);
                                             flag = true;
                                         }
                                     }

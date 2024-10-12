@@ -39,15 +39,11 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplateVisualState(GroupName = DefaultButtonStatesGroup, Name = CloseAsDefaultButtonState)]
 [TemplateVisualState(GroupName = DialogBorderStatesGroup, Name = NoBorderState)]
 [TemplateVisualState(GroupName = DialogBorderStatesGroup, Name = AccentColorBorderState)]
-//[StyleTypedProperty(Property = nameof(PrimaryButtonStyle), StyleTargetType = typeof(Button))]
-//[StyleTypedProperty(Property = nameof(SecondaryButtonStyle), StyleTargetType = typeof(Button))]
-//[StyleTypedProperty(Property = nameof(CloseButtonStyle), StyleTargetType = typeof(Button))]
 public class ContentDialog : ContentControl
 {
     static ContentDialog()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialog),
-            new FrameworkPropertyMetadata(typeof(ContentDialog)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentDialog), new FrameworkPropertyMetadata(typeof(ContentDialog)));
     }
 
     public ContentDialog()
@@ -59,14 +55,8 @@ public class ContentDialog : ContentControl
         m_closeTimer.Tick += OnCloseTimerTick;
     }
 
-    #region Title
-
     public static readonly DependencyProperty TitleProperty =
-        DependencyProperty.Register(
-            nameof(Title),
-            typeof(object),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(Title), typeof(object), typeof(ContentDialog), null);
 
     public object Title
     {
@@ -74,16 +64,8 @@ public class ContentDialog : ContentControl
         set => SetValue(TitleProperty, value);
     }
 
-    #endregion Title
-
-    #region TitleTemplate
-
     public static readonly DependencyProperty TitleTemplateProperty =
-        DependencyProperty.Register(
-            nameof(TitleTemplate),
-            typeof(DataTemplate),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(TitleTemplate), typeof(DataTemplate), typeof(ContentDialog), null);
 
     public DataTemplate TitleTemplate
     {
@@ -91,16 +73,8 @@ public class ContentDialog : ContentControl
         set => SetValue(TitleTemplateProperty, value);
     }
 
-    #endregion TitleTemplate
-
-    #region PrimaryButtonText
-
     public static readonly DependencyProperty PrimaryButtonTextProperty =
-        DependencyProperty.Register(
-            nameof(PrimaryButtonText),
-            typeof(string),
-            typeof(ContentDialog),
-            new PropertyMetadata(null, OnButtonTextChanged));
+        DependencyProperty.Register(nameof(PrimaryButtonText), typeof(string), typeof(ContentDialog), new PropertyMetadata(null, OnButtonTextChanged));
 
     public string PrimaryButtonText
     {
@@ -108,16 +82,8 @@ public class ContentDialog : ContentControl
         set => SetValue(PrimaryButtonTextProperty, value);
     }
 
-    #endregion PrimaryButtonText
-
-    #region PrimaryButtonCommand
-
     public static readonly DependencyProperty PrimaryButtonCommandProperty =
-        DependencyProperty.Register(
-            nameof(PrimaryButtonCommand),
-            typeof(ICommand),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(PrimaryButtonCommand), typeof(ICommand), typeof(ContentDialog), null);
 
     public ICommand PrimaryButtonCommand
     {
@@ -125,16 +91,8 @@ public class ContentDialog : ContentControl
         set => SetValue(PrimaryButtonCommandProperty, value);
     }
 
-    #endregion PrimaryButtonCommand
-
-    #region PrimaryButtonCommandParameter
-
     public static readonly DependencyProperty PrimaryButtonCommandParameterProperty =
-        DependencyProperty.Register(
-            nameof(PrimaryButtonCommandParameter),
-            typeof(object),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(PrimaryButtonCommandParameter), typeof(object), typeof(ContentDialog), null);
 
     public object PrimaryButtonCommandParameter
     {
@@ -142,33 +100,8 @@ public class ContentDialog : ContentControl
         set => SetValue(PrimaryButtonCommandParameterProperty, value);
     }
 
-    #endregion PrimaryButtonCommandParameter
-
-    //#region PrimaryButtonStyle
-
-    //public static readonly DependencyProperty PrimaryButtonStyleProperty =
-    //    DependencyProperty.Register(
-    //        nameof(PrimaryButtonStyle),
-    //        typeof(Style),
-    //        typeof(ContentDialog),
-    //        null);
-
-    //public Style PrimaryButtonStyle
-    //{
-    //    get => (Style)GetValue(PrimaryButtonStyleProperty);
-    //    set => SetValue(PrimaryButtonStyleProperty, value);
-    //}
-
-    //#endregion PrimaryButtonStyle
-
-    #region IsPrimaryButtonEnabled
-
     public static readonly DependencyProperty IsPrimaryButtonEnabledProperty =
-        DependencyProperty.Register(
-            nameof(IsPrimaryButtonEnabled),
-            typeof(bool),
-            typeof(ContentDialog),
-            new PropertyMetadata(true));
+        DependencyProperty.Register(nameof(IsPrimaryButtonEnabled), typeof(bool), typeof(ContentDialog), new PropertyMetadata(true));
 
     public bool IsPrimaryButtonEnabled
     {
@@ -176,16 +109,8 @@ public class ContentDialog : ContentControl
         set => SetValue(IsPrimaryButtonEnabledProperty, value);
     }
 
-    #endregion IsPrimaryButtonEnabled
-
-    #region SecondaryButtonText
-
     public static readonly DependencyProperty SecondaryButtonTextProperty =
-        DependencyProperty.Register(
-            nameof(SecondaryButtonText),
-            typeof(string),
-            typeof(ContentDialog),
-            new PropertyMetadata(null, OnButtonTextChanged));
+        DependencyProperty.Register(nameof(SecondaryButtonText), typeof(string), typeof(ContentDialog), new PropertyMetadata(null, OnButtonTextChanged));
 
     public string SecondaryButtonText
     {
@@ -193,16 +118,8 @@ public class ContentDialog : ContentControl
         set => SetValue(SecondaryButtonTextProperty, value);
     }
 
-    #endregion SecondaryButtonText
-
-    #region SecondaryButtonCommand
-
     public static readonly DependencyProperty SecondaryButtonCommandProperty =
-        DependencyProperty.Register(
-            nameof(SecondaryButtonCommand),
-            typeof(ICommand),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(SecondaryButtonCommand), typeof(ICommand), typeof(ContentDialog), null);
 
     public ICommand SecondaryButtonCommand
     {
@@ -210,16 +127,8 @@ public class ContentDialog : ContentControl
         set => SetValue(SecondaryButtonCommandProperty, value);
     }
 
-    #endregion SecondaryButtonCommand
-
-    #region SecondaryButtonCommandParameter
-
     public static readonly DependencyProperty SecondaryButtonCommandParameterProperty =
-        DependencyProperty.Register(
-            nameof(SecondaryButtonCommandParameter),
-            typeof(object),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(SecondaryButtonCommandParameter), typeof(object), typeof(ContentDialog), null);
 
     public object SecondaryButtonCommandParameter
     {
@@ -227,33 +136,8 @@ public class ContentDialog : ContentControl
         set => SetValue(SecondaryButtonCommandParameterProperty, value);
     }
 
-    #endregion SecondaryButtonCommandParameter
-
-    //#region SecondaryButtonStyle
-
-    //public static readonly DependencyProperty SecondaryButtonStyleProperty =
-    //    DependencyProperty.Register(
-    //        nameof(SecondaryButtonStyle),
-    //        typeof(Style),
-    //        typeof(ContentDialog),
-    //        null);
-
-    //public Style SecondaryButtonStyle
-    //{
-    //    get => (Style)GetValue(SecondaryButtonStyleProperty);
-    //    set => SetValue(SecondaryButtonStyleProperty, value);
-    //}
-
-    //#endregion SecondaryButtonStyle
-
-    #region IsSecondaryButtonEnabled
-
     public static readonly DependencyProperty IsSecondaryButtonEnabledProperty =
-        DependencyProperty.Register(
-            nameof(IsSecondaryButtonEnabled),
-            typeof(bool),
-            typeof(ContentDialog),
-            new PropertyMetadata(true));
+        DependencyProperty.Register(nameof(IsSecondaryButtonEnabled), typeof(bool), typeof(ContentDialog), new PropertyMetadata(true));
 
     public bool IsSecondaryButtonEnabled
     {
@@ -261,16 +145,8 @@ public class ContentDialog : ContentControl
         set => SetValue(IsSecondaryButtonEnabledProperty, value);
     }
 
-    #endregion IsSecondaryButtonEnabled
-
-    #region CloseButtonText
-
     public static readonly DependencyProperty CloseButtonTextProperty =
-        DependencyProperty.Register(
-            nameof(CloseButtonText),
-            typeof(string),
-            typeof(ContentDialog),
-            new PropertyMetadata(null, OnButtonTextChanged));
+        DependencyProperty.Register(nameof(CloseButtonText), typeof(string), typeof(ContentDialog), new PropertyMetadata(null, OnButtonTextChanged));
 
     public string CloseButtonText
     {
@@ -278,16 +154,8 @@ public class ContentDialog : ContentControl
         set => SetValue(CloseButtonTextProperty, value);
     }
 
-    #endregion CloseButtonText
-
-    #region CloseButtonCommand
-
     public static readonly DependencyProperty CloseButtonCommandProperty =
-        DependencyProperty.Register(
-            nameof(CloseButtonCommand),
-            typeof(ICommand),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(CloseButtonCommand), typeof(ICommand), typeof(ContentDialog), null);
 
     public ICommand CloseButtonCommand
     {
@@ -295,16 +163,8 @@ public class ContentDialog : ContentControl
         set => SetValue(CloseButtonCommandProperty, value);
     }
 
-    #endregion CloseButtonCommand
-
-    #region CloseButtonCommandParameter
-
     public static readonly DependencyProperty CloseButtonCommandParameterProperty =
-        DependencyProperty.Register(
-            nameof(CloseButtonCommandParameter),
-            typeof(object),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(CloseButtonCommandParameter), typeof(object), typeof(ContentDialog), null);
 
     public object CloseButtonCommandParameter
     {
@@ -312,33 +172,8 @@ public class ContentDialog : ContentControl
         set => SetValue(CloseButtonCommandParameterProperty, value);
     }
 
-    #endregion CloseButtonCommandParameter
-
-    //#region CloseButtonStyle
-
-    //public static readonly DependencyProperty CloseButtonStyleProperty =
-    //    DependencyProperty.Register(
-    //        nameof(CloseButtonStyle),
-    //        typeof(Style),
-    //        typeof(ContentDialog),
-    //        null);
-
-    //public Style CloseButtonStyle
-    //{
-    //    get => (Style)GetValue(CloseButtonStyleProperty);
-    //    set => SetValue(CloseButtonStyleProperty, value);
-    //}
-
-    //#endregion CloseButtonStyle
-
-    #region DefaultButton
-
     public static readonly DependencyProperty DefaultButtonProperty =
-        DependencyProperty.Register(
-            nameof(DefaultButton),
-            typeof(ContentDialogButton),
-            typeof(ContentDialog),
-            new PropertyMetadata(OnDefaultButtonChanged));
+        DependencyProperty.Register(nameof(DefaultButton), typeof(ContentDialogButton), typeof(ContentDialog), new PropertyMetadata(OnDefaultButtonChanged));
 
     public ContentDialogButton DefaultButton
     {
@@ -351,16 +186,8 @@ public class ContentDialog : ContentControl
         ((ContentDialog)d).UpdateDefaultButtonStates(true);
     }
 
-    #endregion DefaultButton
-
-    #region FullSizeDesired
-
     public static readonly DependencyProperty FullSizeDesiredProperty =
-        DependencyProperty.Register(
-            nameof(FullSizeDesired),
-            typeof(bool),
-            typeof(ContentDialog),
-            new PropertyMetadata(OnFullSizeDesiredChanged));
+        DependencyProperty.Register(nameof(FullSizeDesired), typeof(bool), typeof(ContentDialog), new PropertyMetadata(OnFullSizeDesiredChanged));
 
     public bool FullSizeDesired
     {
@@ -373,16 +200,8 @@ public class ContentDialog : ContentControl
         ((ContentDialog)d).UpdateVisualStates(true);
     }
 
-    #endregion FullSizeDesired
-
-    #region CornerRadius
-
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(
-            nameof(CornerRadius),
-            typeof(CornerRadius),
-            typeof(ContentDialog),
-            null);
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(ContentDialog), null);
 
     public CornerRadius CornerRadius
     {
@@ -390,16 +209,8 @@ public class ContentDialog : ContentControl
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion CornerRadius
-
-    #region IsShadowEnabled
-
     public static readonly DependencyProperty IsShadowEnabledProperty =
-        DependencyProperty.Register(
-            nameof(IsShadowEnabled),
-            typeof(bool),
-            typeof(ContentDialog),
-            new FrameworkPropertyMetadata(false));
+        DependencyProperty.Register(nameof(IsShadowEnabled), typeof(bool), typeof(ContentDialog), new FrameworkPropertyMetadata(false));
 
     public bool IsShadowEnabled
     {
@@ -407,15 +218,8 @@ public class ContentDialog : ContentControl
         set => SetValue(IsShadowEnabledProperty, value);
     }
 
-    #endregion IsShadowEnabled
-
-    #region OpenDialog
-
     private static readonly DependencyProperty OpenDialogProperty =
-        DependencyProperty.RegisterAttached(
-            "OpenDialog",
-            typeof(ContentDialog),
-            typeof(ContentDialog));
+        DependencyProperty.RegisterAttached("OpenDialog", typeof(ContentDialog), typeof(ContentDialog));
 
     public static ContentDialog GetOpenDialog(Window window)
     {
@@ -427,21 +231,19 @@ public class ContentDialog : ContentControl
         window.SetValue(OpenDialogProperty, value);
     }
 
-    #endregion OpenDialog
+    public Window Owner { get; set; } = null!;
 
-    public Window Owner { get; set; }
+    private Window ActualOwner => Owner ?? SharedHelpers.GetActiveWindow()!;
 
-    private Window ActualOwner => Owner ?? SharedHelpers.GetActiveWindow();
+    private Border Container { get; set; } = null!;
 
-    private Border Container { get; set; }
+    private FrameworkElement LayoutRoot { get; set; } = null!;
 
-    private FrameworkElement LayoutRoot { get; set; }
+    private Button PrimaryButton { get; set; } = null!;
 
-    private Button PrimaryButton { get; set; }
+    private Button SecondaryButton { get; set; } = null!;
 
-    private Button SecondaryButton { get; set; }
-
-    private Button CloseButton { get; set; }
+    private Button CloseButton { get; set; } = null!;
 
     private bool IsShowing
     {
@@ -470,20 +272,20 @@ public class ContentDialog : ContentControl
                     else if (m_openDialogOwner != null)
                     {
                         m_openDialogOwner.ClearValue(OpenDialogProperty);
-                        m_openDialogOwner = null;
+                        m_openDialogOwner = null!;
                     }
 
                     m_closeTimer.Start();
 
                     if (m_weakRefToPreviousFocus != null)
                     {
-                        if (m_weakRefToPreviousFocus.TryGetTarget(out IInputElement previousFocus))
+                        if (m_weakRefToPreviousFocus.TryGetTarget(out IInputElement? previousFocus))
                         {
                             // Previous focused element is still alive, so return focus to it.
                             previousFocus.Focus();
                         }
 
-                        m_weakRefToPreviousFocus = null;
+                        m_weakRefToPreviousFocus = null!;
                     }
                 }
 
@@ -492,17 +294,17 @@ public class ContentDialog : ContentControl
         }
     }
 
-    public event TypedEventHandler<ContentDialog, ContentDialogOpenedEventArgs> Opened;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogOpenedEventArgs>? Opened;
 
-    public event TypedEventHandler<ContentDialog, ContentDialogClosingEventArgs> Closing;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogClosingEventArgs>? Closing;
 
-    public event TypedEventHandler<ContentDialog, ContentDialogClosedEventArgs> Closed;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogClosedEventArgs>? Closed;
 
-    public event TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs> PrimaryButtonClick;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>? PrimaryButtonClick;
 
-    public event TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs> SecondaryButtonClick;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>? SecondaryButtonClick;
 
-    public event TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs> CloseButtonClick;
+    public event Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>? CloseButtonClick;
 
     public async Task<ContentDialogResult> ShowAsync()
     {
@@ -614,11 +416,11 @@ public class ContentDialog : ContentControl
 
         base.OnApplyTemplate();
 
-        Container = GetTemplateChild(nameof(Container)) as Border;
-        LayoutRoot = GetTemplateChild(nameof(LayoutRoot)) as FrameworkElement;
-        PrimaryButton = GetTemplateChild(nameof(PrimaryButton)) as Button;
-        SecondaryButton = GetTemplateChild(nameof(SecondaryButton)) as Button;
-        CloseButton = GetTemplateChild(nameof(CloseButton)) as Button;
+        Container = (Border)GetTemplateChild(nameof(Container));
+        LayoutRoot = (FrameworkElement)GetTemplateChild(nameof(LayoutRoot));
+        PrimaryButton = (Button)GetTemplateChild(nameof(PrimaryButton));
+        SecondaryButton = (Button)GetTemplateChild(nameof(SecondaryButton));
+        CloseButton = (Button)GetTemplateChild(nameof(CloseButton));
 
         if (LayoutRoot != null)
         {
@@ -642,12 +444,12 @@ public class ContentDialog : ContentControl
             CloseButton.Click += OnButtonClick;
         }
 
-#if DEBUG
-        //if (GetTemplateChild(DialogShowingStatesGroup) is VisualStateGroup dialogShowingStates)
-        //{
-        //    dialogShowingStates.CurrentStateChanging += DialogShowingStates_CurrentStateChanging;
-        //    dialogShowingStates.CurrentStateChanged += DialogShowingStates_CurrentStateChanged;
-        //}
+#if DEBUG && false
+        if (GetTemplateChild(DialogShowingStatesGroup) is VisualStateGroup dialogShowingStates)
+        {
+            dialogShowingStates.CurrentStateChanging += DialogShowingStates_CurrentStateChanging;
+            dialogShowingStates.CurrentStateChanged += DialogShowingStates_CurrentStateChanged;
+        }
 #endif
         UpdateVisualStates(false);
     }
@@ -692,7 +494,7 @@ public class ContentDialog : ContentControl
         }
     }
 
-    private void OnButtonClick(object sender, RoutedEventArgs e)
+    private void OnButtonClick(object? sender, RoutedEventArgs e)
     {
         if (sender == PrimaryButton)
         {
@@ -721,7 +523,7 @@ public class ContentDialog : ContentControl
     }
 
     private void HandleButtonClick(
-        TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs> handler,
+        Wpf.Ui.Controls.TypedEventHandler<ContentDialog, ContentDialogButtonClickEventArgs>? handler,
         ICommand command,
         object commandParameter,
         ContentDialogResult result)
@@ -757,12 +559,12 @@ public class ContentDialog : ContentControl
         }
     }
 
-    private void OnLayoutRootLoaded(object sender, RoutedEventArgs e)
+    private void OnLayoutRootLoaded(object? sender, RoutedEventArgs e)
     {
         UpdateVisualStates(true);
     }
 
-    private void OnLayoutRootIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private void OnLayoutRootIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         if ((bool)e.NewValue)
         {
@@ -787,12 +589,12 @@ public class ContentDialog : ContentControl
         }
     }
 
-    private void OnLayoutRootKeyDown(object sender, KeyEventArgs e)
+    private void OnLayoutRootKeyDown(object? sender, KeyEventArgs e)
     {
         HandleKeyDown(e);
     }
 
-    private void OnCloseTimerTick(object sender, EventArgs e)
+    private void OnCloseTimerTick(object? sender, EventArgs e)
     {
         m_closeTimer.Stop();
         UpdateVisualStates(false);
@@ -814,14 +616,14 @@ public class ContentDialog : ContentControl
         {
             RestoreKeyboardNavigation(m_adorner.AdornedElement);
             m_adornerLayer.Remove(m_adorner);
-            m_adornerLayer = null;
+            m_adornerLayer = null!;
         }
 
         if (m_showTcs != null)
         {
             Closed?.Invoke(this, new ContentDialogClosedEventArgs(m_result));
             m_showTcs.TrySetResult(m_result);
-            m_showTcs = null;
+            m_showTcs = null!;
             m_result = ContentDialogResult.None;
         }
     }
@@ -833,7 +635,7 @@ public class ContentDialog : ContentControl
             case Key.Enter:
                 if (IsShowing)
                 {
-                    Button button = null;
+                    Button button = null!;
 
                     switch (DefaultButton)
                     {
@@ -857,7 +659,7 @@ public class ContentDialog : ContentControl
 
                     if (button != null && button.IsEnabled)
                     {
-                        OnButtonClick(button, null);
+                        OnButtonClick(button, null!);
                         e.Handled = true;
                     }
                 }
@@ -973,7 +775,7 @@ public class ContentDialog : ContentControl
     {
         if (m_adorner != null)
         {
-            m_adorner.Child = null;
+            m_adorner.Child = null!;
         }
     }
 
@@ -1004,43 +806,30 @@ public class ContentDialog : ContentControl
         if (m_popup != null && Container != null && LayoutRoot != null)
         {
             m_popup.Child = null;
-            m_popup = null;
+            m_popup = null!;
             DisconnectAdornerChild();
             Container.Child = LayoutRoot;
         }
     }
 
-    //private static void OnBackRequested(object sender, BackRequestedEventArgs e)
-    //{
-    //    if (e.Source is Window window)
-    //    {
-    //        var openDialog = GetOpenDialog(window);
-    //        if (openDialog != null)
-    //        {
-    //            e.Handled = true;
-    //            openDialog.Hide();
-    //        }
-    //    }
-    //}
-
-    private void OnApplicationActivated(object sender, EventArgs e)
+    private void OnApplicationActivated(object? sender, EventArgs e)
     {
         Application.Current.Activated -= OnApplicationActivated;
         if (m_activatedTcs != null)
         {
             m_activatedTcs.TrySetResult(true);
-            m_activatedTcs = null;
+            m_activatedTcs = null!;
         }
     }
 
-    private void OnOwnerActivated(object sender, EventArgs e)
+    private void OnOwnerActivated(object? sender, EventArgs e)
     {
-        var owner = (Window)sender;
+        var owner = (Window)sender!;
         owner.Activated -= OnOwnerActivated;
         if (m_activatedTcs != null)
         {
             m_activatedTcs.TrySetResult(true);
-            m_activatedTcs = null;
+            m_activatedTcs = null!;
         }
     }
 
@@ -1086,11 +875,11 @@ public class ContentDialog : ContentControl
 
     private static ContentPresenter FindContentPresenter(Window window)
     {
-        ContentPresenter cp = null;
+        ContentPresenter? cp = null;
 
         if (window.Content is UIElement windowContent)
         {
-            cp = VisualTreeHelper.GetParent(windowContent) as ContentPresenter;
+            cp = (VisualTreeHelper.GetParent(windowContent) as ContentPresenter)!;
         }
 
         if (cp == null)
@@ -1102,7 +891,7 @@ public class ContentDialog : ContentControl
             }
         }
 
-        return cp;
+        return cp!;
     }
 
     private Task<ContentDialogResult> CreateAsyncOperation()
@@ -1127,7 +916,7 @@ public class ContentDialog : ContentControl
 
     private class ContentDialogAdorner : Adorner
     {
-        private UIElement _child;
+        private UIElement _child = null!;
 
         public ContentDialogAdorner(UIElement adornedElement, UIElement child) : base(adornedElement)
         {
@@ -1188,7 +977,7 @@ public class ContentDialog : ContentControl
 
 #if DEBUG
 
-    private void DialogShowingStates_CurrentStateChanging(object sender, VisualStateChangedEventArgs e)
+    private void DialogShowingStates_CurrentStateChanging(object? sender, VisualStateChangedEventArgs e)
     {
         Debug.WriteLine($"CurrentState changing to {e.NewState.Name}");
         if (e.NewState.Name == DialogShowingState)
@@ -1196,7 +985,7 @@ public class ContentDialog : ContentControl
         }
     }
 
-    private void DialogShowingStates_CurrentStateChanged(object sender, VisualStateChangedEventArgs e)
+    private void DialogShowingStates_CurrentStateChanged(object? sender, VisualStateChangedEventArgs e)
     {
         Debug.WriteLine($"CurrentState changed to {e.NewState.Name}");
         if (e.NewState.Name == DialogShowingState)
@@ -1240,18 +1029,18 @@ public class ContentDialog : ContentControl
     private const string NoBorderState = "NoBorder";
     private const string AccentColorBorderState = "AccentColorBorder";
 
-    private TaskCompletionSource<ContentDialogResult> m_showTcs;
-    private TaskCompletionSource<bool> m_activatedTcs;
-    private ContentDialogAdorner m_adorner;
-    private AdornerLayer m_adornerLayer;
-    private Popup m_popup;
-    private bool m_opening;
-    private bool m_isShowing;
-    private bool m_isShowingInPlace;
-    private Window m_openDialogOwner;
+    private TaskCompletionSource<ContentDialogResult> m_showTcs = null!;
+    private TaskCompletionSource<bool> m_activatedTcs = null!;
+    private ContentDialogAdorner m_adorner = null!;
+    private AdornerLayer m_adornerLayer = null!;
+    private Popup m_popup = null!;
+    private bool m_opening = default;
+    private bool m_isShowing = default;
+    private bool m_isShowingInPlace = default;
+    private Window m_openDialogOwner = null!;
     private ContentDialogResult m_result;
-    private readonly DispatcherTimer m_closeTimer;
-    private WeakReference<IInputElement> m_weakRefToPreviousFocus; // Keep the previously focused element before ContentDialog to open
+    private readonly DispatcherTimer m_closeTimer = null!;
+    private WeakReference<IInputElement> m_weakRefToPreviousFocus = null!; // Keep the previously focused element before ContentDialog to open
 }
 
 file static class SharedHelpers

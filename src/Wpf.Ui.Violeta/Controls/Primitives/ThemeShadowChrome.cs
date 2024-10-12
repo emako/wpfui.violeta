@@ -14,10 +14,10 @@ public class ThemeShadowChrome : Decorator
 {
     static ThemeShadowChrome()
     {
-        s_bg1 = new SolidColorBrush(Colors.Black) { Opacity = 0.11 };
-        s_bg2 = new SolidColorBrush(Colors.Black) { Opacity = 0.13 };
-        s_bg3 = new SolidColorBrush(Colors.Black) { Opacity = 0.18 };
-        s_bg4 = new SolidColorBrush(Colors.Black) { Opacity = 0.22 };
+        s_bg1 = new SolidColorBrush(Colors.Black) { Opacity = 0.11d };
+        s_bg2 = new SolidColorBrush(Colors.Black) { Opacity = 0.13d };
+        s_bg3 = new SolidColorBrush(Colors.Black) { Opacity = 0.18d };
+        s_bg4 = new SolidColorBrush(Colors.Black) { Opacity = 0.22d };
 
         s_bg1.Freeze();
         s_bg2.Freeze();
@@ -28,7 +28,7 @@ public class ThemeShadowChrome : Decorator
     public ThemeShadowChrome()
     {
 #if NET462_OR_NEWER
-            _bitmapCache = new BitmapCache(VisualTreeHelper.GetDpi(this).PixelsPerDip);
+        _bitmapCache = new BitmapCache(VisualTreeHelper.GetDpi(this).PixelsPerDip);
 #else
         _bitmapCache = new BitmapCache();
 #endif
@@ -45,14 +45,8 @@ public class ThemeShadowChrome : Decorator
         Loaded += OnLoaded;
     }
 
-    #region IsShadowEnabled
-
     public static readonly DependencyProperty IsShadowEnabledProperty =
-        DependencyProperty.Register(
-            nameof(IsShadowEnabled),
-            typeof(bool),
-            typeof(ThemeShadowChrome),
-            new PropertyMetadata(true, OnIsShadowEnabledChanged));
+        DependencyProperty.Register(nameof(IsShadowEnabled), typeof(bool), typeof(ThemeShadowChrome), new PropertyMetadata(true, OnIsShadowEnabledChanged));
 
     public bool IsShadowEnabled
     {
@@ -88,10 +82,6 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion IsShadowEnabled
-
-    #region Depth
-
     public static readonly DependencyProperty DepthProperty =
         DependencyProperty.Register(
             nameof(Depth),
@@ -120,16 +110,8 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion Depth
-
-    #region CornerRadius
-
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(
-            nameof(CornerRadius),
-            typeof(CornerRadius),
-            typeof(ThemeShadowChrome),
-            new PropertyMetadata(new CornerRadius(), OnCornerRadiusChanged));
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(ThemeShadowChrome), new PropertyMetadata(new CornerRadius(), OnCornerRadiusChanged));
 
     public CornerRadius CornerRadius
     {
@@ -157,16 +139,8 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion CornerRadius
-
-    #region PopupMargin
-
     private static readonly DependencyProperty PopupMarginProperty =
-        DependencyProperty.Register(
-            nameof(PopupMargin),
-            typeof(Thickness),
-            typeof(ThemeShadowChrome),
-            new PropertyMetadata(new Thickness(), OnPopupMarginChanged));
+        DependencyProperty.Register(nameof(PopupMargin), typeof(Thickness), typeof(ThemeShadowChrome), new PropertyMetadata(new Thickness(), OnPopupMarginChanged));
 
     private Thickness PopupMargin
     {
@@ -189,8 +163,8 @@ public class ThemeShadowChrome : Decorator
         if (IsShadowEnabled)
         {
             double depth = Depth;
-            double radius = 0.9 * depth;
-            double offset = 0.4 * depth;
+            double radius = 0.9d * depth;
+            double offset = 0.4d * depth;
 
             PopupMargin = new Thickness(
                 radius,
@@ -218,8 +192,6 @@ public class ThemeShadowChrome : Decorator
             }
         }
     }
-
-    #endregion PopupMargin
 
     protected override int VisualChildrenCount =>
         IsShadowEnabled ? Child == null ? 1 : 2 : base.VisualChildrenCount;
@@ -283,19 +255,19 @@ public class ThemeShadowChrome : Decorator
     }
 
 #if NET462_OR_NEWER
-        protected override void OnDpiChanged(DpiScale oldDpi, DpiScale newDpi)
-        {
-            base.OnDpiChanged(oldDpi, newDpi);
+    protected override void OnDpiChanged(DpiScale oldDpi, DpiScale newDpi)
+    {
+        base.OnDpiChanged(oldDpi, newDpi);
 
-            _bitmapCache.RenderAtScale = newDpi.PixelsPerDip;
-        }
+        _bitmapCache.RenderAtScale = newDpi.PixelsPerDip;
+    }
 #endif
 
     private void OnVisualParentChanged()
     {
         if (IsShadowEnabled)
         {
-            PopupControl parentPopupControl = null;
+            PopupControl parentPopupControl = null!;
 
             var visualParent = VisualParent;
             if (visualParent is ContextMenu contextMenu)
@@ -311,11 +283,11 @@ public class ThemeShadowChrome : Decorator
                 parentPopupControl = new PopupControl(parentPopup);
             }
 
-            SetParentPopupControl(parentPopupControl);
+            SetParentPopupControl(parentPopupControl!);
         }
         else
         {
-            SetParentPopupControl(null);
+            SetParentPopupControl(null!);
         }
     }
 
@@ -430,7 +402,7 @@ public class ThemeShadowChrome : Decorator
         if (_popupPositioner != null)
         {
             _popupPositioner.Dispose();
-            _popupPositioner = null;
+            _popupPositioner = null!;
         }
 
         if (_parentPopupControl != null)
@@ -451,7 +423,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnParentPopupControlOpened(object sender, EventArgs e)
+    private void OnParentPopupControlOpened(object? sender, EventArgs e)
     {
         if (_popupPositioner != null)
         {
@@ -484,7 +456,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnParentPopupControlClosed(object sender, EventArgs e)
+    private void OnParentPopupControlClosed(object? sender, EventArgs e)
     {
         ClearMarginAdjustment();
         ResetTransform();
@@ -570,7 +542,7 @@ public class ThemeShadowChrome : Decorator
 
     private bool TryGetCustomPlacementMode(out CustomPlacementMode placement)
     {
-        if (TryGetCustomPlacementMode(_parentPopupControl?.Control, out placement))
+        if (TryGetCustomPlacementMode(_parentPopupControl?.Control!, out placement))
         {
             return true;
         }
@@ -736,14 +708,14 @@ public class ThemeShadowChrome : Decorator
                 return FindParentPopup(visualParent);
             }
         }
-        return null;
+        return null!;
     }
 
     private class PopupControl : IDisposable
     {
-        private ContextMenu _contextMenu;
-        private ToolTip _toolTip;
-        private Popup _popup;
+        private ContextMenu _contextMenu = null!;
+        private ToolTip _toolTip = null!;
+        private Popup _popup = null!;
 
         public PopupControl(ContextMenu contextMenu)
         {
@@ -805,10 +777,10 @@ public class ThemeShadowChrome : Decorator
                 }
                 if (_popup != null)
                 {
-                    return _popup.PlacementTarget ??
-                        VisualTreeHelper.GetParent(_popup) as UIElement;
+                    return (_popup.PlacementTarget ??
+                        VisualTreeHelper.GetParent(_popup) as UIElement)!;
                 }
-                return null;
+                return null!;
             }
         }
 
@@ -832,14 +804,14 @@ public class ThemeShadowChrome : Decorator
             }
         }
 
-        private FrameworkElement ChildAsFE =>
+        private FrameworkElement? ChildAsFE =>
             _contextMenu as FrameworkElement ??
             _toolTip as FrameworkElement ??
             _popup?.Child as FrameworkElement;
 
-        public event EventHandler Opened;
+        public event EventHandler? Opened;
 
-        public event EventHandler Closed;
+        public event EventHandler? Closed;
 
         public void SetMargin(Thickness margin)
         {
@@ -861,43 +833,43 @@ public class ThemeShadowChrome : Decorator
             {
                 _contextMenu.Opened -= OnOpened;
                 _contextMenu.Closed -= OnClosed;
-                _contextMenu = null;
+                _contextMenu = null!;
             }
             else if (_toolTip != null)
             {
                 _toolTip.Opened -= OnOpened;
                 _toolTip.Closed -= OnClosed;
-                _toolTip = null;
+                _toolTip = null!;
             }
             else if (_popup != null)
             {
                 _popup.Opened -= OnOpened;
                 _popup.Closed -= OnClosed;
-                _popup = null;
+                _popup = null!;
             }
         }
 
-        private void OnOpened(object sender, EventArgs e)
+        private void OnOpened(object? sender, EventArgs e)
         {
             Opened?.Invoke(this, e);
         }
 
-        private void OnClosed(object sender, EventArgs e)
+        private void OnClosed(object? sender, EventArgs e)
         {
             Closed?.Invoke(this, e);
         }
     }
 
-    private readonly Grid _background;
-    private readonly BitmapCache _bitmapCache;
-    private Border _shadow1;
-    private Border _shadow2;
-    private PopupControl _parentPopupControl;
-    private TranslateTransform _transform;
-    private PopupPositioner _popupPositioner;
+    private readonly Grid _background = null!;
+    private readonly BitmapCache _bitmapCache = null!;
+    private Border _shadow1 = null!;
+    private Border _shadow2 = null!;
+    private PopupControl _parentPopupControl = null!;
+    private TranslateTransform _transform = null!;
+    private PopupPositioner _popupPositioner = null!;
 
     private static readonly Brush s_bg1, s_bg2, s_bg3, s_bg4;
-    private static readonly Vector s_noTranslation = new Vector(0, 0);
+    private static readonly Vector s_noTranslation = new(0, 0);
 }
 
 internal static class PopupHelper
@@ -939,7 +911,7 @@ internal static class PopupHelper
         }
         catch
         {
-            return null;
+            return null!;
         }
     }
 

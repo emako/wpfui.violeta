@@ -1,10 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using Wpf.Ui.Controls;
+﻿using System.Diagnostics;
+using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public sealed class ContentDialogClosingEventArgs : EventArgs
+public sealed class ContentDialogClosingEventArgs : RoutedEventArgs
 {
     private ContentDialogClosingDeferral _deferral = null!;
     private int _deferralCount;

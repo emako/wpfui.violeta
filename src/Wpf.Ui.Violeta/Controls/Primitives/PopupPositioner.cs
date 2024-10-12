@@ -40,7 +40,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
         if (popup.IsOpen)
         {
-            OnPopupOpened(null, null);
+            OnPopupOpened(null, EventArgs.Empty);
         }
     }
 
@@ -60,7 +60,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
             _popup.ClearValue(PositionerProperty);
         }
 
-        OnPopupClosed(null, null);
+        OnPopupClosed(null, EventArgs.Empty);
     }
 
     public static bool IsSupported { get; }
@@ -76,14 +76,14 @@ internal class PopupPositioner : DependencyObject, IDisposable
     ///     Chooses the behavior of where the Popup should be placed on screen.
     ///     Takes into account TreatMousePlacementAsBottom to place tooltips correctly on keyboard focus.
     /// </summary>
-    internal PlacementMode PlacementInternal => Delegates.GetPlacementInternal(_popup);
+    internal PlacementMode PlacementInternal => Delegates.GetPlacementInternal!(_popup);
 
     public CustomPopupPlacementCallback CustomPopupPlacementCallback => _popup.CustomPopupPlacementCallback;
 
     public double HorizontalOffset => _popup.HorizontalOffset;
     public double VerticalOffset => _popup.VerticalOffset;
 
-    internal bool DropOpposite => Delegates.GetDropOpposite(_popup);
+    internal bool DropOpposite => Delegates.GetDropOpposite!(_popup);
 
     private void OnWindowResize(object sender, AutoResizedEventArgs e)
     {
@@ -141,6 +141,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
     {
         // The position of the upper left corner of the popup after nudging
         public int X;
+
         public int Y;
 
         // The size of the popup
@@ -179,13 +180,13 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
         // Rank possible positions
         int bestIndex = -1;
-        Vector bestTranslation = new Vector(_positionInfo.X, _positionInfo.Y);
+        Vector bestTranslation = new(_positionInfo.X, _positionInfo.Y);
         double bestScore = -1;
         PopupPrimaryAxis bestAxis = PopupPrimaryAxis.None;
 
         int positions;
 
-        CustomPopupPlacement[] customPlacements = null;
+        CustomPopupPlacement[] customPlacements = null!;
 
         // Find the number of possible positions
         if (placement == PlacementMode.Custom)
@@ -219,7 +220,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
                 // The custom callback only calculates relative to 0,0
                 // so the placementTarget's top/left need to be re-applied.
                 popupTranslation = (Vector)placementTargetInterestPoints[(int)InterestPoint.TopLeft]
-                                  + (Vector)customPlacements[i].Point;  // vector from origin
+                                  + (Vector)customPlacements![i].Point;  // vector from origin
 
                 axis = customPlacements[i].PrimaryAxis;
             }
@@ -394,7 +395,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     private Point[] GetPlacementTargetInterestPoints(PlacementMode placement)
     {
-        return Delegates.GetPlacementTargetInterestPoints(_popup, placement);
+        return Delegates.GetPlacementTargetInterestPoints!.Invoke(_popup, placement);
     }
 
     // Returns the ith possible alignment for the given PlacementMode
@@ -421,7 +422,6 @@ internal class PopupPositioner : DependencyObject, IDisposable
                 }
                 break;
 
-
             case PlacementMode.Top:
                 axis = PopupPrimaryAxis.Horizontal;
                 if (dropFromRight)
@@ -435,7 +435,6 @@ internal class PopupPositioner : DependencyObject, IDisposable
                     if (i == 1) return new PointCombination(InterestPoint.BottomLeft, InterestPoint.TopLeft);
                 }
                 break;
-
 
             case PlacementMode.Right:
             case PlacementMode.Left:
@@ -497,7 +496,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
     // Retrieves a list of the interesting points of the popups child in the popup window space
     private Point[] GetChildInterestPoints(PlacementMode placement)
     {
-        return Delegates.GetChildInterestPoints(_popup, placement);
+        return Delegates.GetChildInterestPoints!(_popup, placement);
     }
 
     // Gets the smallest rectangle that contains all points in the list
@@ -550,18 +549,18 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     private Rect GetScreenBounds(Rect boundingBox, Point p)
     {
-        return Delegates.GetScreenBounds(_popup, boundingBox, p);
+        return Delegates.GetScreenBounds!(_popup, boundingBox, p);
     }
 
     private bool IsTransparent => _popup.AllowsTransparency;
 
     internal const double Tolerance = 1.0e-2; // allow errors in double calculations
 
-    private PositionInfo _positionInfo;
+    private PositionInfo _positionInfo = null!;
 
-    private FrameworkElement _popupRoot;
+    private FrameworkElement _popupRoot = null!;
 
-    private PopupSecurityHelper _secHelper;
+    private PopupSecurityHelper _secHelper = null!;
 
     private class PopupSecurityHelper
     {
@@ -591,7 +590,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
             {
                 HwndSource hwnd = _window;
 
-                _window = null;
+                _window = null!;
 
                 hwnd.AutoResized -= onAutoResizedEventHandler;
             }
@@ -694,10 +693,10 @@ internal class PopupPositioner : DependencyObject, IDisposable
             }
         }
 
-        private HwndSource _window;
+        private HwndSource _window = null!;
     }
 
-    #endregion
+    #endregion Popup Members
 
     #region Positioner
 
@@ -726,16 +725,16 @@ internal class PopupPositioner : DependencyObject, IDisposable
         }
     }
 
-    #endregion
+    #endregion Positioner
 
-    private void OnPopupOpened(object sender, EventArgs e)
+    private void OnPopupOpened(object? sender, EventArgs e)
     {
         if (!_secHelper.AttachedToWindow &&
             _popup.Child is { } child &&
             PresentationSource.FromVisual(child) is HwndSource window)
         {
             _secHelper.AttachToWindow(window, OnWindowResize);
-            _popupRoot = window.RootVisual as FrameworkElement;
+            _popupRoot = (window.RootVisual as FrameworkElement)!;
             Debug.Assert(_popupRoot != null && _popupRoot.GetType().Name == "PopupRoot");
 
             DependencyPropertyDescriptor.FromProperty(Popup.ChildProperty, typeof(Popup)).AddValueChanged(_popup, OnPopupPropertyChanged);
@@ -748,7 +747,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
         }
     }
 
-    private void OnPopupClosed(object sender, EventArgs e)
+    private void OnPopupClosed(object? sender, EventArgs e)
     {
         if (_secHelper.AttachedToWindow)
         {
@@ -759,17 +758,17 @@ internal class PopupPositioner : DependencyObject, IDisposable
             DependencyPropertyDescriptor.FromProperty(Popup.PlacementRectangleProperty, typeof(Popup)).RemoveValueChanged(_popup, OnPopupPropertyChanged);
 
             _secHelper.DetachFromWindow(OnWindowResize);
-            _popupRoot = null;
-            _positionInfo = null;
+            _popupRoot = null!;
+            _positionInfo = null!;
         }
     }
 
-    private void OnPopupPropertyChanged(object sender, EventArgs e)
+    private void OnPopupPropertyChanged(object? sender, EventArgs e)
     {
         Reposition();
     }
 
-    private readonly Popup _popup;
+    private readonly Popup _popup = null!;
     private bool _isDisposed;
 
     private static class Delegates
@@ -803,16 +802,18 @@ internal class PopupPositioner : DependencyObject, IDisposable
                     nameof(GetScreenBounds),
                     BindingFlags.Instance | BindingFlags.NonPublic);
             }
-            catch { }
+            catch
+            {
+            }
         }
 
-        public static Func<Popup, PlacementMode> GetPlacementInternal { get; }
+        public static Func<Popup, PlacementMode>? GetPlacementInternal { get; }
 
-        public static Func<Popup, bool> GetDropOpposite { get; }
+        public static Func<Popup, bool>? GetDropOpposite { get; }
 
-        public static Func<Popup, PlacementMode, Point[]> GetPlacementTargetInterestPoints { get; }
-        public static Func<Popup, PlacementMode, Point[]> GetChildInterestPoints { get; }
-        public static Func<Popup, Rect, Point, Rect> GetScreenBounds { get; }
+        public static Func<Popup, PlacementMode, Point[]>? GetPlacementTargetInterestPoints { get; }
+        public static Func<Popup, PlacementMode, Point[]>? GetChildInterestPoints { get; }
+        public static Func<Popup, Rect, Point, Rect>? GetScreenBounds { get; }
     }
 }
 
@@ -829,9 +830,9 @@ public static class DoubleUtil
 {
     public static int DoubleToInt(double val)
     {
-        if (!(0.0 < val))
+        if (!(0d < val))
         {
-            return (int)(val - 0.5);
+            return (int)(val - 0.5d);
         }
 
         return (int)(val + 0.5);
