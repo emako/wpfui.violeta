@@ -70,12 +70,12 @@ Similar to WPF UI.
   </ui:Button>
   ```
   
-- **ContentDialog**
+- **ContentDialogHostService**
 
   > The `ContentDialogHostService` simplifies the creation and management of `ContentDialog` instances in your application.
 
   ```c#
-  ContentDialog dialog = new()
+  Wpf.Ui.Controls.ContentDialog dialog = new()
   {
       Title = "My sample dialog",
       Content = "Content of the dialog",
@@ -89,6 +89,27 @@ Similar to WPF UI.
   
   // Showing the dialog
   await dialog.ShowAsync(CancellationToken.None);
+  ```
+  
+- **ContentDialog**
+
+  > The new `ContentDialog` is easy to use with smooth transitions.
+
+  ```c#
+  global using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
+  global using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
+  
+  ContentDialog dialog = new()
+  {
+      Title = "My sample dialog",
+      Content = "Content of the dialog",
+      CloseButtonText = "Close button",
+      PrimaryButtonText = "Primary button",
+      SecondaryButtonText = "Secondary button",
+      DefaultButton = ContentDialogButton.Primary,
+  };
+  
+  _ = await dialog.ShowAsync();
   ```
   
 - **MessageBox**

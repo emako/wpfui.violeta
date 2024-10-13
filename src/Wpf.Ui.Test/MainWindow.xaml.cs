@@ -13,6 +13,7 @@ using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
+using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
 
 namespace Wpf.Ui.Test;
 
@@ -91,7 +92,7 @@ public partial class MainWindow : FluentWindow
             CloseButtonText = "Close button",
             PrimaryButtonText = "Primary button",
             SecondaryButtonText = "Secondary button",
-            DefaultButton = Violeta.Controls.ContentDialogButton.Primary,
+            DefaultButton = ContentDialogButton.Primary,
         };
 
         _ = await dialog.ShowAsync();
