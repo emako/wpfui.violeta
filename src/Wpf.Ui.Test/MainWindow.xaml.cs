@@ -307,7 +307,10 @@ public partial class MainWindow : FluentWindow
     [ObservableProperty]
     private ObservableCollection<Staff> staffList = [];
 
-    public void InitNode1Value()
+    [ObservableProperty]
+    private Staff selectedStaffItem = null!;
+
+    private void InitNode1Value()
     {
         Staff staff = new Staff()
         {
@@ -422,7 +425,7 @@ public partial class MainWindow : FluentWindow
     }
 
     [RelayCommand]
-    public void AddNode1Value()
+    private void AddNode1Value()
     {
         Staff staff = new()
         {
@@ -453,7 +456,7 @@ public partial class MainWindow : FluentWindow
     }
 
     [RelayCommand]
-    public void ChangeNode1Value()
+    private void ChangeNode1Value()
     {
         foreach (Staff staff in StaffList)
         {
@@ -463,7 +466,7 @@ public partial class MainWindow : FluentWindow
     }
 
     [RelayCommand]
-    public void ChangeNode2Value()
+    private void ChangeNode2Value()
     {
         foreach (Staff staff in StaffList)
         {
@@ -473,6 +476,13 @@ public partial class MainWindow : FluentWindow
                 staff2.Sex = staff2.Sex == "Male" ? "Female" : "Male";
             }
         }
+    }
+
+    [RelayCommand]
+    private void OpenStaff()
+    {
+        // Use `TreeListView::SelectedItem` here ...
+        _ = SelectedStaffItem;
     }
 
     [RelayCommand]
@@ -648,4 +658,9 @@ public partial class Staff : ObservableObject
 
     [ObservableProperty]
     private ObservableCollection<Staff> staffList = [];
+
+    [RelayCommand]
+    private void OnClick()
+    {
+    }
 }

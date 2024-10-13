@@ -776,7 +776,13 @@
                             <ui:TreeListView
                                 Height="220"
                                 Margin="0,8,90,0"
-                                ItemsSource="{Binding StaffList}">
+                                ItemsSource="{Binding StaffList}"
+                                SelectedItem="{Binding SelectedStaffItem}">
+                                <ui:TreeListView.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Command="{Binding OpenStaffCommand}" Header="Open Staff" />
+                                    </ContextMenu>
+                                </ui:TreeListView.ContextMenu>
                                 <ui:TreeListView.Columns>
                                     <GridViewColumnCollection>
                                         <ui:GridViewColumn Width="400" Header="Name">
@@ -825,7 +831,10 @@
                                             <ui:GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Grid>
-                                                        <Button VerticalAlignment="Center" Content="Click" />
+                                                        <Button
+                                                            VerticalAlignment="Center"
+                                                            Command="{Binding ClickCommand}"
+                                                            Content="Click" />
                                                     </Grid>
                                                 </DataTemplate>
                                             </ui:GridViewColumn.CellTemplate>
