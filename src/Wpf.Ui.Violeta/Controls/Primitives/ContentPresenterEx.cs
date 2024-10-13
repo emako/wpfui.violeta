@@ -25,8 +25,8 @@ public class ContentPresenterEx : ContentPresenter
     [Localizability(LocalizationCategory.Font)]
     public FontFamily FontFamily
     {
-        get { return (FontFamily)GetValue(FontFamilyProperty); }
-        set { SetValue(FontFamilyProperty, value); }
+        get => (FontFamily)GetValue(FontFamilyProperty);
+        set => SetValue(FontFamilyProperty, value);
     }
 
     /// <summary>
@@ -40,8 +40,8 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public FontStyle FontStyle
     {
-        get { return (FontStyle)GetValue(FontStyleProperty); }
-        set { SetValue(FontStyleProperty, value); }
+        get => (FontStyle)GetValue(FontStyleProperty);
+        set => SetValue(FontStyleProperty, value);
     }
 
     /// <summary>
@@ -55,8 +55,8 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public FontWeight FontWeight
     {
-        get { return (FontWeight)GetValue(FontWeightProperty); }
-        set { SetValue(FontWeightProperty, value); }
+        get => (FontWeight)GetValue(FontWeightProperty);
+        set => SetValue(FontWeightProperty, value);
     }
 
     /// <summary>
@@ -70,8 +70,8 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public FontStretch FontStretch
     {
-        get { return (FontStretch)GetValue(FontStretchProperty); }
-        set { SetValue(FontStretchProperty, value); }
+        get => (FontStretch)GetValue(FontStretchProperty);
+        set => SetValue(FontStretchProperty, value);
     }
 
     /// <summary>
@@ -87,8 +87,8 @@ public class ContentPresenterEx : ContentPresenter
     [Localizability(LocalizationCategory.None)]
     public double FontSize
     {
-        get { return (double)GetValue(FontSizeProperty); }
-        set { SetValue(FontSizeProperty, value); }
+        get => (double)GetValue(FontSizeProperty);
+        set => SetValue(FontSizeProperty, value);
     }
 
     /// <summary>
@@ -102,8 +102,8 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public Brush Foreground
     {
-        get { return (Brush)GetValue(ForegroundProperty); }
-        set { SetValue(ForegroundProperty, value); }
+        get => (Brush)GetValue(ForegroundProperty);
+        set => SetValue(ForegroundProperty, value);
     }
 
     /// <summary>
@@ -118,8 +118,8 @@ public class ContentPresenterEx : ContentPresenter
     [TypeConverter(typeof(LengthConverter))]
     public double LineHeight
     {
-        get { return (double)GetValue(LineHeightProperty); }
-        set { SetValue(LineHeightProperty, value); }
+        get => (double)GetValue(LineHeightProperty);
+        set => SetValue(LineHeightProperty, value);
     }
 
     /// <summary>
@@ -133,19 +133,15 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public LineStackingStrategy LineStackingStrategy
     {
-        get { return (LineStackingStrategy)GetValue(LineStackingStrategyProperty); }
-        set { SetValue(LineStackingStrategyProperty, value); }
+        get => (LineStackingStrategy)GetValue(LineStackingStrategyProperty);
+        set => SetValue(LineStackingStrategyProperty, value);
     }
 
     /// <summary>
     /// DependencyProperty for <see cref="TextWrapping" /> property.
     /// </summary>
     public static readonly DependencyProperty TextWrappingProperty =
-            TextBlock.TextWrappingProperty.AddOwner(
-                    typeof(ContentPresenterEx),
-                    new FrameworkPropertyMetadata(
-                            TextWrapping.NoWrap,
-                            new PropertyChangedCallback(OnTextWrappingChanged)));
+            TextBlock.TextWrappingProperty.AddOwner(typeof(ContentPresenterEx), new FrameworkPropertyMetadata(TextWrapping.NoWrap, new PropertyChangedCallback(OnTextWrappingChanged)));
 
     /// <summary>
     /// The TextWrapping property controls whether or not text wraps
@@ -153,8 +149,8 @@ public class ContentPresenterEx : ContentPresenter
     /// </summary>
     public TextWrapping TextWrapping
     {
-        get { return (TextWrapping)GetValue(TextWrappingProperty); }
-        set { SetValue(TextWrappingProperty, value); }
+        get => (TextWrapping)GetValue(TextWrappingProperty);
+        set => SetValue(TextWrappingProperty, value);
     }
 
     private static void OnTextWrappingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

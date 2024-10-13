@@ -30,7 +30,7 @@
                         </VisualStateManager.CustomVisualStateManager>
                         <Grid
                             x:Name="LayoutRoot"
-                            Background="{DynamicResource SystemControlPageBackgroundMediumAltMediumBrush}"
+                            Background="{DynamicResource ContentDialogLightDismissOverlayBackground}"
                             SnapsToDevicePixels="True"
                             Visibility="Collapsed">
                             <primitives:ThemeShadowChrome
@@ -59,7 +59,11 @@
                                 <Border.RenderTransform>
                                     <ScaleTransform x:Name="ScaleTransform" />
                                 </Border.RenderTransform>
-                                <Border x:Name="DialogSpace" CornerRadius="{TemplateBinding CornerRadius}">
+                                <Border
+                                    x:Name="DialogSpace"
+                                    BorderBrush="{DynamicResource ContentDialogBorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
@@ -88,37 +92,25 @@
                                                         <RowDefinition Height="Auto" />
                                                         <RowDefinition Height="*" />
                                                     </Grid.RowDefinitions>
-                                                    <ContentControl
-                                                        x:Name="Title"
+                                                    <ContentPresenter
                                                         Margin="{DynamicResource ContentDialogTitleMargin}"
                                                         HorizontalAlignment="Left"
                                                         VerticalAlignment="Top"
                                                         Content="{TemplateBinding Title}"
-                                                        ContentTemplate="{TemplateBinding TitleTemplate}"
-                                                        FontFamily="{DynamicResource ContentControlThemeFontFamily}"
-                                                        FontSize="20"
-                                                        FontWeight="SemiBold"
-                                                        Foreground="{TemplateBinding Foreground}"
-                                                        IsTabStop="False"
-                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                                        <ContentControl.Template>
-                                                            <ControlTemplate TargetType="ContentControl">
-                                                                <primitives:ContentPresenterEx
-                                                                    Margin="{TemplateBinding Padding}"
-                                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                                    Content="{TemplateBinding Content}"
-                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                    TextWrapping="Wrap" />
-                                                            </ControlTemplate>
-                                                        </ContentControl.Template>
-                                                    </ContentControl>
+                                                        ContentTemplate="{TemplateBinding TitleTemplate}">
+                                                        <ContentPresenter.Resources>
+                                                            <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="FontSize" Value="20" />
+                                                                <Setter Property="FontWeight" Value="SemiBold" />
+                                                                <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+                                                            </Style>
+                                                        </ContentPresenter.Resources>
+                                                    </ContentPresenter>
                                                     <primitives:ContentPresenterEx
                                                         x:Name="Content"
                                                         Grid.Row="1"
                                                         Content="{TemplateBinding Content}"
                                                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                        FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                         FontSize="{DynamicResource ControlContentThemeFontSize}"
                                                         Foreground="{TemplateBinding Foreground}"
                                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -379,7 +371,7 @@
                                 <VisualState x:Name="AccentColorBorder">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundElement" Storyboard.TargetProperty="BorderBrush">
-                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SystemControlForegroundAccentBrush}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SystemAccentColorBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
