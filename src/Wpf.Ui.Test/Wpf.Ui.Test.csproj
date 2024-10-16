@@ -14,12 +14,14 @@
 
 	<ItemGroup>
 		<None Remove="Resources\Images\*.ico" />
+		<None Remove="Resources\Images\*.png" />
 		<None Remove="Resources\Strings\*.md" />
 		<None Remove="..\..\branding\*.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Resource Include="Resources\Images\*.ico" />
+		<Resource Include="Resources\Images\*.png" />
 		<Resource Include="Resources\Strings\*.md" />
 		<Resource Include="..\..\branding\*.png" />
 	</ItemGroup>

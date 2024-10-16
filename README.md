@@ -502,6 +502,19 @@ Similar to WPF UI.
   }
    ```
 
+- **BitmapIcon**
+
+  > Supports to show monochrome image that match the theme color.
+
+   ```xaml
+  <ui:BitmapIcon
+                 ShowAsMonochrome="False"
+                 UriSource="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/Tiara.png" />
+  <ui:BitmapIcon
+                 ShowAsMonochrome="True"
+                 UriSource="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/Tiara.png" />
+   ```
+
 
 
 ### 📷 Screenshots

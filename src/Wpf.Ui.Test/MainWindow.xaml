@@ -555,7 +555,7 @@
                                 Margin="0,8,0,0"
                                 FontSize="14"
                                 FontWeight="Black"
-                                Text="PersonPicture" />
+                                Text="PersonPicture / BitmapIcon" />
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="80"
@@ -571,6 +571,16 @@
                                     Initials="JB" />
                                 <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/ProfilePicture.ico" />
                                 <vio:PersonPicture Margin="16,0,0,0" ProfilePicture="https://docs.microsoft.com/zh-cn/windows/uwp/contacts-and-calendar/images/shoulder-tap-static-payload.png" />
+                                <ui:BitmapIcon
+                                    Height="40"
+                                    Margin="16,0,0,0"
+                                    ShowAsMonochrome="False"
+                                    UriSource="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/Tiara.png" />
+                                <ui:BitmapIcon
+                                    Height="40"
+                                    Margin="16,0,0,0"
+                                    ShowAsMonochrome="True"
+                                    UriSource="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/Tiara.png" />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
