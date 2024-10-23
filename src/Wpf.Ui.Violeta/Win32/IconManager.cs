@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -14,6 +15,8 @@ public static class IconManager
     private static ImageSource LargeDirIcon = null!;
     private static readonly Dictionary<string, ImageSource> SmallIconCache = [];
     private static readonly Dictionary<string, ImageSource> LargeIconCache = [];
+
+    public static string[] CacheExcludeExtensions { get; set; } = [".png", ".jpg", ".jpeg", ".bmp", ".gif", ".tiff", ".ico"];
 
     public static void ClearCache()
     {
@@ -68,8 +71,10 @@ public static class IconManager
             return null!;
         }
 
+        bool needCache = !CacheExcludeExtensions.Contains(extension);
+
         Dictionary<string, ImageSource> cache = large ? LargeIconCache : SmallIconCache;
-        if (cache.TryGetValue(extension, out ImageSource? icon))
+        if (needCache && cache.TryGetValue(extension, out ImageSource? icon))
         {
             return icon;
         }
@@ -79,7 +84,11 @@ public static class IconManager
         icon = hIcon.ToImageSource();
         _ = User32.DestroyIcon(hIcon);
 
-        cache.Add(extension, icon);
+        if (needCache)
+        {
+            cache.Add(extension, icon);
+        }
+
         return icon;
     }
 
