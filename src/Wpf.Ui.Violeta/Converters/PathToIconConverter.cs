@@ -12,17 +12,19 @@ public class PathToIconConverter : IValueConverter
 {
     public static PathToIconConverter Instance { get; } = new();
 
+    public bool Large { get; set; } = false;
+
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is string path)
         {
             if (Directory.Exists(path))
             {
-                return IconManager.FindIconForDir();
+                return IconManager.FindIconForDir(Large);
             }
             else
             {
-                return IconManager.FindIconForFilename(path);
+                return IconManager.FindIconForFilename(path, Large);
             }
         }
 
