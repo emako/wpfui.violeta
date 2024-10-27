@@ -787,7 +787,7 @@
                                 Height="220"
                                 Margin="0,8,90,0"
                                 ItemsSource="{Binding StaffList}"
-                                SelectedItem="{Binding SelectedStaffItem}">
+                                SelectedItem="{Binding SelectedStaffItem, Mode=TwoWay}">
                                 <ui:TreeListView.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Command="{Binding OpenStaffCommand}" Header="Open Staff" />
