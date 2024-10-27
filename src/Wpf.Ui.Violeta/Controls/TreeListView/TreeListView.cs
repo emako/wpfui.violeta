@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Violeta.Controls.Primitives;
 
 namespace Wpf.Ui.Controls;
 
@@ -54,6 +55,17 @@ public class TreeListView : TreeView
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+        };
+
+        MouseRightButtonDown += (_, e) =>
+        {
+            if (e.OriginalSource is DependencyObject source)
+            {
+                if (source.FindAscendant<TreeViewItem>() is TreeViewItem { } treeViewItem)
+                {
+                    treeViewItem.IsSelected = true;
+                }
             }
         };
     }
