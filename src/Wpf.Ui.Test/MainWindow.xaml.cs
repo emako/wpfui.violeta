@@ -336,7 +336,8 @@ public partial class MainWindow : FluentWindow
             Name = "Alice11",
             Age = 21,
             Sex = "Male",
-            Duty = "Normal"
+            Duty = "Normal",
+            Path = @"D:\UI_MonsterSmallIcon_Eremite_Male_Standard_Crossbow.png",
         };
         staff2.StaffList.Add(staff3);
         staff3 = new Staff()
@@ -344,7 +345,8 @@ public partial class MainWindow : FluentWindow
             Name = "Alice22",
             Age = 21,
             Sex = "Female",
-            Duty = "Normal"
+            Duty = "Normal",
+            Path = @"C:\Program Files\ASUS\ARMOURY CRATE Service\GameVisualPlugin\GameVisual2.ico",
         };
         staff2.StaffList.Add(staff3);
         staff.StaffList.Add(staff2);

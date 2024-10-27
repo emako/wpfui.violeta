@@ -805,7 +805,11 @@
                                                                 Margin="8,0,0,0"
                                                                 Orientation="Horizontal"
                                                                 Spacing="8">
+                                                                <ui:StackPanel.Resources>
+                                                                    <vio:PathToIconConverter x:Key="PathToIconConverter" Large="True" />
+                                                                </ui:StackPanel.Resources>
                                                                 <Image Height="16" Source="{Binding Path, Converter={x:Static vio:PathToIconConverter.Instance}}" />
+                                                                <Image Height="32" Source="{Binding Path, Converter={StaticResource PathToIconConverter}}" />
                                                                 <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
                                                             </ui:StackPanel>
                                                         </ui:TreeRowExpander.Content>

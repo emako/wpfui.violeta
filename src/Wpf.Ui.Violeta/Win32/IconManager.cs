@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,10 @@ public static class IconManager
     private static readonly Dictionary<string, ImageSource> SmallIconCache = [];
     private static readonly Dictionary<string, ImageSource> LargeIconCache = [];
 
-    public static string[] CacheExcludeExtensions { get; set; } = [".png", ".jpg", ".jpeg", ".bmp", ".gif", ".tiff", ".ico"];
+    /// <summary>
+    /// May [".exe", ".png", ".jpg", ".jpeg", ".bmp", ".gif", ".tiff", ".ico"]
+    /// </summary>
+    public static string[] ExcludeExtensions { get; set; } = null!;
 
     public static void ClearCache()
     {
@@ -71,7 +75,7 @@ public static class IconManager
             return null!;
         }
 
-        bool needCache = !CacheExcludeExtensions.Contains(extension);
+        bool needCache = !(ExcludeExtensions?.Contains(extension) ?? false);
 
         Dictionary<string, ImageSource> cache = large ? LargeIconCache : SmallIconCache;
         if (needCache && cache.TryGetValue(extension, out ImageSource? icon))
@@ -132,19 +136,19 @@ public static class IconManager
 
             if (linkOverlay)
             {
-                flags += Shell32.ShgfiLinkoverlay;
+                flags |= Shell32.ShgfiLinkoverlay;
             }
 
             if (IconSize.Small == size)
             {
-                flags += Shell32.ShgfiSmallicon;
+                flags |= Shell32.ShgfiSmallicon;
             }
             else
             {
-                flags += Shell32.ShgfiLargeicon;
+                flags |= Shell32.ShgfiLargeicon;
             }
 
-            Shell32.SHGetFileInfo("placeholder", Shell32.FileAttributeDirectory, ref shfi, (uint)Marshal.SizeOf(shfi), flags);
+            _ = Shell32.SHGetFileInfo("placeholder", Shell32.FileAttributeDirectory, ref shfi, (uint)Marshal.SizeOf(shfi), flags);
             return shfi.hIcon;
         }
 
@@ -162,19 +166,19 @@ public static class IconManager
 
             if (linkOverlay)
             {
-                flags += Shell32.ShgfiLinkoverlay;
+                flags |= Shell32.ShgfiLinkoverlay;
             }
 
             if (IconSize.Small == size)
             {
-                flags += Shell32.ShgfiSmallicon;
+                flags |= Shell32.ShgfiSmallicon;
             }
             else
             {
-                flags += Shell32.ShgfiLargeicon;
+                flags |= Shell32.ShgfiLargeicon;
             }
 
-            Shell32.SHGetFileInfo(name, Shell32.FileAttributeNormal, ref shfi, (uint)Marshal.SizeOf(shfi), flags);
+            _ = Shell32.SHGetFileInfo(name, Shell32.FileAttributeNormal, ref shfi, (uint)Marshal.SizeOf(shfi), flags);
             return shfi.hIcon;
         }
     }
