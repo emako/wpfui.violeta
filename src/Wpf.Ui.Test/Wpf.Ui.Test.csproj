@@ -6,9 +6,9 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>12.0</LangVersion>
-		<AssemblyVersion>3.0.5.20</AssemblyVersion>
-		<FileVersion>3.0.5.20</FileVersion>
-		<Version>$(VersionPrefix)3.0.5.20</Version>
+		<AssemblyVersion>3.0.5.21</AssemblyVersion>
+		<FileVersion>3.0.5.21</FileVersion>
+		<Version>$(VersionPrefix)3.0.5.21</Version>
 		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
 	</PropertyGroup>
 
