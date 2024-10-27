@@ -20,7 +20,7 @@ public static class IconManager
     /// <summary>
     /// May [".exe", ".png", ".jpg", ".jpeg", ".bmp", ".gif", ".tiff", ".ico"]
     /// </summary>
-    public static string[] ExcludeExtensions { get; set; } = null!;
+    public static string[] CacheExcludeExtensions { get; set; } = null!;
 
     public static void ClearCache()
     {
@@ -75,7 +75,7 @@ public static class IconManager
             return null!;
         }
 
-        bool needCache = !(ExcludeExtensions?.Contains(extension) ?? false);
+        bool needCache = !(CacheExcludeExtensions?.Contains(extension) ?? false);
 
         Dictionary<string, ImageSource> cache = large ? LargeIconCache : SmallIconCache;
         if (needCache && cache.TryGetValue(extension, out ImageSource? icon))
