@@ -12,5 +12,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeListView/TreeListView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ContentDialog/ContentDialog.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DataGrid/DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SmoothScrollViewer/SmoothScrollViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
