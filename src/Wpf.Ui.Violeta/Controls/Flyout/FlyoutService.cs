@@ -108,12 +108,35 @@ public static class FlyoutService
                     parent.Children.Remove(popup);
                 }
 
+                // Set the flyout parent
+                if (flyout.Parent is null)
+                {
+                    // Find nearest panel
+                    if (buttonExpected.Parent is System.Windows.Controls.Panel parent2)
+                    {
+                        parent2.Children.Add(flyout);
+                    }
+                    // Once fallback to window top level
+                    else if (Window.GetWindow(buttonExpected)?.Content is System.Windows.Controls.Panel parent3)
+                    {
+                        parent3.Children.Add(flyout);
+                    }
+                    else
+                    {
+                        // Flyout is not added to any parent.
+                        // Flyout will be shown but the theme is not synced.
+                        // See more https://github.com/emako/wpfui.violeta/issues/10.
+                    }
+                }
+
                 // Following code is based on the Flyout control default template.
                 // If default template is changed, this code will not work.
                 // Check WPF-UI v3.0.5 since.
                 if (flyout.Content is not null)
                 {
-                    (flyout.Content, ((System.Windows.Controls.Border)popup.Child).Child) = (null, flyout.Content as UIElement);
+                    UIElement? contentElement = flyout.Content as UIElement;
+                    flyout.Content = null;
+                    ((System.Windows.Controls.Border)popup.Child).Child = contentElement;
                 }
 
                 // Spoof the flyout opening state.
