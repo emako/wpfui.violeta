@@ -14,7 +14,7 @@
             <Rectangle.Fill>
                 <ImageBrush
                     AlignmentY="Top"
-                    ImageSource="pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Images/background-b.png"
+                    ImageSource="{DynamicResource ImageViewerBackground}"
                     RenderOptions.BitmapScalingMode="NearestNeighbor"
                     Stretch="UniformToFill"
                     TileMode="Tile"

@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <!--  ContentDialog  -->
     <KeySpline x:Key="ControlFastOutSlowInKeySpline">0,0,0,1</KeySpline>
 
     <KeyTime x:Key="ControlNormalAnimationDuration">00:00:00.250</KeyTime>

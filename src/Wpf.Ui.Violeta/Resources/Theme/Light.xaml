@@ -2,10 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="clr-namespace:Wpf.Ui.Violeta.Markup"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
+    <!--  ContentDialog  -->
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="{StaticResource LayerFillColorAlt}" />
     <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="{DynamicResource SystemAltMediumColor}" />
+
+    <!--  ImageViewer  -->
+    <ImageSource x:Key="ImageViewerBackground">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Images/background.png</ImageSource>
 
 </ResourceDictionary>

@@ -4,7 +4,11 @@
     xmlns:m="clr-namespace:Wpf.Ui.Violeta.Markup"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
+    <!--  ContentDialog  -->
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="{StaticResource LayerFillColorAlt}" />
     <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="{DynamicResource SystemAltMediumColor}" />
+
+    <!--  ImageViewer  -->
+    <ImageSource x:Key="ImageViewerBackground">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Images/background-b.png</ImageSource>
 
 </ResourceDictionary>

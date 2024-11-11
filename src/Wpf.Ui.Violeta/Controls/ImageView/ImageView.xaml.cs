@@ -39,7 +39,7 @@ public partial class ImageView : UserControl, INotifyPropertyChanged, IDisposabl
         Resources.MergedDictionaries.Clear();
 
         SizeChanged += ImagePanel_SizeChanged;
-        viewPanelImage.DoZoomToFit += (sender, e) => DoZoomToFit();
+        viewPanelImage.DoZoomToFit += (_, _) => DoZoomToFit();
 
         viewPanel.PreviewMouseWheel += ViewPanel_PreviewMouseWheel;
         viewPanel.MouseLeftButtonDown += ViewPanel_MouseLeftButtonDown;
