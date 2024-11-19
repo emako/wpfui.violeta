@@ -6,13 +6,13 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Reactive.Disposables;
 using System.Threading;
 using System.Threading.Tasks;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Threading;
 using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
 using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
 
@@ -522,6 +522,14 @@ public partial class MainWindow : FluentWindow
     private async Task ShowPendingBoxWithCancelAsync()
     {
         using IPendingHandler pending = PendingBox.Show("Doing something", "I'm a title", isShowCancel: true);
+        await Task.Delay(3000);
+    }
+
+    [Obsolete("Under development")]
+    [RelayCommand]
+    private async Task ShowAsyncPendingBoxAsync()
+    {
+        using STAThread<IPendingHandler> pending = PendingBox.ShowAsync();
         await Task.Delay(3000);
     }
 }

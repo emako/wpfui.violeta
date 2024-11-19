@@ -116,4 +116,8 @@
 		</PackageReference>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Win32\Enums\" />
+	</ItemGroup>
+
 </Project>

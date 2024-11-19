@@ -50,6 +50,19 @@ internal static class User32
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     public static extern bool EnableWindow(nint hWnd, bool bEnable);
 
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern bool MoveWindow(nint hWnd, int x, int y, int width, int height, bool repaint);
+
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool GetWindowRect(nint hwnd, ref RECT rect);
+
+    [DllImport("user32.dll")]
+    public static extern nint MonitorFromWindow(nint hwnd, MonitorDefaultTo dwFlags);
+
+    [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+    public static extern bool GetMonitorInfo(nint hMonitor, ref MONITORINFO lpmi);
+
     [Flags]
     public enum DialogBoxCommand : uint
     {
@@ -84,5 +97,21 @@ internal static class User32
         SWP_NOSIZE = 0x00000001,
         SWP_NOZORDER = 0x00000004,
         SWP_SHOWWINDOW = 0x00000040,
+    }
+
+    public enum MonitorDefaultTo : uint
+    {
+        Null = 0,
+        Primary = 1,
+        Nearest = 2,
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+    public struct MONITORINFO
+    {
+        public int cbSize;
+        public RECT rcMonitor;
+        public RECT rcWork;
+        public uint dwFlags;
     }
 }

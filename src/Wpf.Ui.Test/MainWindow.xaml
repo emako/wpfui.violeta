@@ -976,6 +976,7 @@
                             <vio:Loading />
                             <Button Command="{Binding ShowPendingBoxCommand}" Content="Show PendingBox" />
                             <Button Command="{Binding ShowPendingBoxWithCancelCommand}" Content="Show PendingBox with Cancel" />
+                            <Button Command="{Binding ShowAsyncPendingBoxCommand}" Content="Show PendingBoxAsync" />
                         </ui:StackPanel>
                     </StackPanel>
                 </StackPanel>

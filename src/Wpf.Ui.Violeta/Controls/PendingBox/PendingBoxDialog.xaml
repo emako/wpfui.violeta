@@ -23,7 +23,7 @@
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="WindowStyle" Value="SingleBorderWindow" />
-        <Setter Property="Title" Value="{Binding Message}" />
+        <Setter Property="Title" Value="{Binding Title}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="ShowInTaskbar" Value="True" />
         <Setter Property="FontSize" Value="20" />

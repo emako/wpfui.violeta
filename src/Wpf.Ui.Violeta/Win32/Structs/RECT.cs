@@ -5,22 +5,22 @@ namespace Wpf.Ui.Violeta.Win32;
 [StructLayout(LayoutKind.Sequential)]
 public struct RECT(int left, int top, int right, int bottom)
 {
-    public int left = left;
-    public int top = top;
-    public int right = right;
-    public int bottom = bottom;
+    public int Left = left;
+    public int Top = top;
+    public int Right = right;
+    public int Bottom = bottom;
 
-    public int Width => right - left;
+    public int Width => Right - Left;
 
-    public int Height => bottom - top;
+    public int Height => Bottom - Top;
 
     public void Offset(int dx, int dy)
     {
-        left += dx;
-        top += dy;
-        right += dx;
-        bottom += dy;
+        Left += dx;
+        Top += dy;
+        Right += dx;
+        Bottom += dy;
     }
 
-    public bool IsEmpty => left >= right || top >= bottom;
+    public bool IsEmpty => Left >= Right || Top >= Bottom;
 }
