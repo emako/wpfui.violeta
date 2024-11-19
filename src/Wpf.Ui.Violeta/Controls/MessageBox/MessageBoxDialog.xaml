@@ -36,7 +36,6 @@
         UseAeroCaptionButtons="True" />
 
     <Style TargetType="{x:Type local:MessageBoxDialog}">
-        <Setter Property="Cursor" Value="{DynamicResource ThemeCursor}" />
         <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
         <Setter Property="Background" Value="{DynamicResource ContentDialogBackground}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ContentDialogBorderWidth}" />
