@@ -112,6 +112,9 @@ Similar to WPF UI.
   _ = await dialog.ShowAsync();
   ```
   
+
+​	If you want to inherit `Wpf.Ui.Violeta.Controls.ContentDialog` to implement a custom dialog just using `Style="{StaticResource DefaultVioletaContentDialogStyle}"`.
+
 - **MessageBox**
 
   > To utilize Win32's classic `MessageBox` methods while supporting modern UI themes like Mica and dark mode.
