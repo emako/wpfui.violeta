@@ -1,10 +1,10 @@
-﻿namespace Wpf.Ui.Violeta.Controls;
+﻿namespace Wpf.Ui.Controls;
 
 /// <summary>
 /// Violeta Fluent Icons
 /// https://github.com/emako/fluentui-violeta-icons
 /// </summary>
-public sealed class FontSymbols
+public sealed class CustomFontSymbols
 {
     public const string Edit = "\xe900";
     public const string Empty = "\xe901";
