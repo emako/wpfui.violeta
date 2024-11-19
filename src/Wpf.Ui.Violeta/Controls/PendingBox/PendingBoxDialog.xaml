@@ -1,0 +1,72 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:primitives="clr-namespace:Wpf.Ui.Controls.Primitives"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vui="clr-namespace:Wpf.Ui.Controls">
+
+    <WindowChrome
+        x:Key="PendingBoxAeroWindowChrome"
+        x:Shared="False"
+        GlassFrameThickness="-1"
+        NonClientFrameEdges="None"
+        ResizeBorderThickness="0"
+        UseAeroCaptionButtons="True" />
+
+    <Style TargetType="{x:Type local:PendingBoxDialog}">
+        <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ContentDialogBackground}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="WindowChrome.WindowChrome" Value="{StaticResource PendingBoxAeroWindowChrome}" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="WindowStyle" Value="SingleBorderWindow" />
+        <Setter Property="Title" Value="{Binding Message}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ShowInTaskbar" Value="True" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PendingBoxDialog}">
+                    <Grid x:Name="LayoutRoot" Background="#01000000">
+                        <vui:Grid RowDefinitions="Auto,*,Auto">
+                            <TextBlock
+                                x:Name="PART_Title"
+                                Grid.Row="0"
+                                Margin="8,8,0,0"
+                                Text="{TemplateBinding Title}"
+                                TextTrimming="CharacterEllipsis"
+                                TextWrapping="NoWrap" />
+                            <vui:Grid
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ColumnDefinitions="Auto,Auto">
+                                <local:Loading
+                                    x:Name="PART_Loading"
+                                    Width="{TemplateBinding LoadingSize}"
+                                    Height="{TemplateBinding LoadingSize}"
+                                    Margin="0,0,0,0" />
+                                <TextBlock
+                                    x:Name="PART_Message"
+                                    Grid.Column="1"
+                                    Margin="16,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Message}" />
+                            </vui:Grid>
+                            <ui:Button
+                                x:Name="PART_CancelButton"
+                                Grid.Row="2"
+                                MinWidth="80"
+                                Margin="0,0,8,8"
+                                HorizontalAlignment="Right" />
+                        </vui:Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

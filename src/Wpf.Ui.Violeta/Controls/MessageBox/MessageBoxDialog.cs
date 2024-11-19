@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -459,6 +460,8 @@ public partial class MessageBoxDialog : Window
         templateSettings.CancelButtonText = string.IsNullOrEmpty(CancelButtonText) ? GetString(User32.DialogBoxCommand.IDCANCEL) : CancelButtonText;
     }
 
+    [SuppressMessage("Performance", "SYSLIB1045:Convert to 'GeneratedRegexAttribute'.")]
+    [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
     private static string GetString(User32.DialogBoxCommand wBtn)
     {
         nint strPtr = User32.MB_GetString((uint)wBtn);

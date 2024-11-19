@@ -961,6 +961,23 @@
                             </Button>
                         </ui:StackPanel>
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="PendingBox" />
+                        <ui:StackPanel
+                            Margin="0,8,0,0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <ui:LoadingScreen />
+                            <vio:Loading />
+                            <Button Command="{Binding ShowPendingBoxCommand}" Content="Show PendingBox" />
+                            <Button Command="{Binding ShowPendingBoxWithCancelCommand}" Content="Show PendingBox with Cancel" />
+                        </ui:StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>

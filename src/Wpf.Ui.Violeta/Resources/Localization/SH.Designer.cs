@@ -115,6 +115,15 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 加载中.
+        /// </summary>
+        internal static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 错误.
         /// </summary>
         internal static string MessageBoxCaptionError {

@@ -150,4 +150,7 @@
   <data name="ExceptionWindowHint2" xml:space="preserve">
     <value>You can copy the info to track the problem, ignore and try, or exit the program and restart.</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
 </root>

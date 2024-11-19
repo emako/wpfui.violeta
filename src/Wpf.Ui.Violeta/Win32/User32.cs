@@ -6,6 +6,9 @@ namespace Wpf.Ui.Violeta.Win32;
 
 internal static class User32
 {
+    public const int GWL_STYLE = -16;
+    public const int WS_SYSMENU = 0x00080000;
+
     [SecurityCritical]
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
@@ -36,7 +39,16 @@ internal static class User32
 
     [DllImport("user32.dll", ExactSpelling = true, SetLastError = true)]
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-    internal static extern bool SetWindowPos(nint hWnd, nint hWndInsertAfter, int X, int Y, int cx, int cy, SET_WINDOW_POS_FLAGS uFlags);
+    public static extern bool SetWindowPos(nint hWnd, nint hWndInsertAfter, int X, int Y, int cx, int cy, SET_WINDOW_POS_FLAGS uFlags);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern int GetWindowLong(nint hWnd, int nIndex);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern int SetWindowLong(nint hWnd, int nIndex, int dwNewLong);
+
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern bool EnableWindow(nint hWnd, bool bEnable);
 
     [Flags]
     public enum DialogBoxCommand : uint

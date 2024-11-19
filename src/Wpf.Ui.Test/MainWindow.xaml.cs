@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Threading;
 using System.Threading.Tasks;
 using Wpf.Ui.Appearance;
@@ -508,6 +509,20 @@ public partial class MainWindow : FluentWindow
     private void ThrowException()
     {
         throw new InvalidOperationException("The operation could not be completed because the system encountered an unexpected state. This might be due to incorrect usage of the API or an internal error. Please ensure that all prerequisites are met and the operation is performed under the correct conditions. If the problem persists, consult the documentation or contact support for further assistance.");
+    }
+
+    [RelayCommand]
+    private async Task ShowPendingBoxAsync()
+    {
+        using IPendingHandler pending = PendingBox.Show();
+        await Task.Delay(3000);
+    }
+
+    [RelayCommand]
+    private async Task ShowPendingBoxWithCancelAsync()
+    {
+        using IPendingHandler pending = PendingBox.Show("Doing something", "I'm a title", isShowCancel: true);
+        await Task.Delay(3000);
     }
 }
 

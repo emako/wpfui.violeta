@@ -150,4 +150,7 @@
   <data name="ExceptionWindowHint2" xml:space="preserve">
     <value>문제를 추적하기 위해 정보를 복사하거나 무시하고 시도하거나 프로그램을 종료하고 다시 시작할 수 있습니다.</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>로딩 중</value>
+  </data>
 </root>

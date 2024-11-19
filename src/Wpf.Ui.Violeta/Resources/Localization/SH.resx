@@ -150,4 +150,7 @@
   <data name="ExceptionWindowHint2" xml:space="preserve">
     <value>您可以复制信息便于跟踪问题，尝试忽略问题或退出程序后重新启动。</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>加载中</value>
+  </data>
 </root>

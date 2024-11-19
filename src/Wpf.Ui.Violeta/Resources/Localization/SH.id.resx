@@ -150,4 +150,7 @@
   <data name="ExceptionWindowHint2" xml:space="preserve">
     <value>Anda dapat menyalin informasi untuk melacak masalah, mengabaikan dan mencoba, atau keluar dari program dan memulai ulang.</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Memuat</value>
+  </data>
 </root>
