@@ -132,6 +132,19 @@ Similar to WPF UI.
   MessageBoxResult result = await MessageBox.QuestionAsync("This is a question and do you want to click OK?");
   ```
 
+- **PendingBox**
+
+  > Keep displaying 'Loading' until released.
+
+  ```c#
+  // Default style.
+  using IPendingHandler pending = PendingBox.Show();
+  
+  // Show with title and cancel button.
+  using IPendingHandler pending = PendingBox.Show("Doing something", "I'm a title", isShowCancel: true);
+  ```
+
+
 - **ToggleButtonGroup** / **RadioButtonGroup** / **MenuItemGroup**
 
   > Turn the ToggleButton and RadioButton under the same Group into a radio button.
