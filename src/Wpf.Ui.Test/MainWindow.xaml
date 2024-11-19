@@ -948,7 +948,17 @@
                             Orientation="Horizontal"
                             Spacing="8">
                             <Button Command="{Binding ShowReportCommand}" Content="Show Report" />
-                            <Button Command="{Binding ThrowExceptionCommand}" Content="Throw Exception" />
+                            <Button Command="{Binding ThrowExceptionCommand}">
+                                <Button.Content>
+                                    <ui:StackPanel Orientation="Horizontal" Spacing="4">
+                                        <ui:FontIcon
+                                            FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"
+                                            FontSize="16"
+                                            Glyph="{x:Static ui:CustomFontSymbols.Extension}" />
+                                        <TextBlock Text="Throw Exception" />
+                                    </ui:StackPanel>
+                                </Button.Content>
+                            </Button>
                         </ui:StackPanel>
                     </StackPanel>
                 </StackPanel>
