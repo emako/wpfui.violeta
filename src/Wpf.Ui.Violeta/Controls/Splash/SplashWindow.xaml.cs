@@ -62,7 +62,7 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
         return true;
     }
 
-    private void Start_Completed(object sender, EventArgs e)
+    private void Start_Completed(object? sender, EventArgs e)
     {
         if (AutoEnd)
         {
@@ -70,7 +70,7 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
         }
     }
 
-    private void End_Completed(object sender, EventArgs e)
+    private void End_Completed(object? sender, EventArgs e)
     {
         Shutdown();
     }

@@ -108,7 +108,7 @@ public static class Splash
 
         owner.Loaded += OnLoaded;
 
-        async void OnLoaded(object sender, RoutedEventArgs e)
+        async void OnLoaded(object? sender, RoutedEventArgs e)
         {
             owner.Loaded -= OnLoaded;
 

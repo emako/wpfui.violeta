@@ -348,14 +348,14 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         ClearMarginAdjustment();
         UpdateLayout();
         AdjustMargin();
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         if (IsVisible)
         {

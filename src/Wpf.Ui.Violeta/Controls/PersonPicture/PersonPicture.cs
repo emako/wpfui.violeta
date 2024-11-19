@@ -404,7 +404,7 @@ public partial class PersonPicture : Control
     }
 
     // Event handlers
-    void OnSizeChanged(object sender, SizeChangedEventArgs args)
+    void OnSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         {
             bool widthChanged = args.NewSize.Width != args.PreviousSize.Width;
@@ -461,7 +461,7 @@ public partial class PersonPicture : Control
         }
     }
 
-    void OnUnloaded(object sender, RoutedEventArgs e)
+    void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         //if (auto profilePictureReadAsync = m_profilePictureReadAsync.get())
         //{

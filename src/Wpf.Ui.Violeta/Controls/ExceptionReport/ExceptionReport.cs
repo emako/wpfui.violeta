@@ -21,7 +21,7 @@ public static class ExceptionReport
         app.DispatcherUnhandledException += OnApplicationUnhandledException;
     }
 
-    private static void OnApplicationUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    private static void OnApplicationUnhandledException(object? sender, DispatcherUnhandledExceptionEventArgs e)
     {
         e.Handled = true;
 
