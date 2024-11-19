@@ -85,7 +85,6 @@
     </ControlTemplate>
 
     <Style x:Key="TreeModelListViewStyle" TargetType="{x:Type local:TreeModelListView}">
-        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
         <Setter Property="CornerRadius" Value="3" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
