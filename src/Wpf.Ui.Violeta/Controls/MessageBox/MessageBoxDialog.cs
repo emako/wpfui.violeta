@@ -382,7 +382,7 @@ public partial class MessageBoxDialog : Window
         }
     }
 
-    private void OnButtonClick(object sender, RoutedEventArgs e)
+    private void OnButtonClick(object? sender, RoutedEventArgs e)
     {
         if (sender == OKButton)
         {
@@ -531,13 +531,13 @@ public partial class MessageBoxDialog : Window
     /// <returns>A <see cref="MessageBoxResult"/> value that specifies which message box button is clicked by the user.</returns>
     public new MessageBoxResult ShowDialog()
     {
-        base.ShowDialog();
-
         if (Owner != null)
         {
             // Inherit the topmost state from the owner window
             Topmost = Owner.Topmost;
         }
+
+        base.ShowDialog();
         return Result;
     }
 
@@ -572,7 +572,7 @@ public partial class MessageBoxDialog : Window
         }
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;
         Opened?.Invoke(this, new MessageBoxOpenedEventArgs());
@@ -586,7 +586,7 @@ public partial class MessageBoxDialog : Window
         }
     }
 
-    private void CopyExecuted(object sender, ExecutedRoutedEventArgs e)
+    private void CopyExecuted(object? sender, ExecutedRoutedEventArgs e)
     {
         try
         {
