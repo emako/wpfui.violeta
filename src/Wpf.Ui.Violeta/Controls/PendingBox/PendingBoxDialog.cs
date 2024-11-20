@@ -82,6 +82,7 @@ public partial class PendingBoxDialog : Window
     protected override void OnSourceInitialized(EventArgs e)
     {
         base.OnSourceInitialized(e);
+        InvalidateMeasure();
 
         if (WindowBackdrop.IsSupported(WindowBackdropType.Mica))
         {
