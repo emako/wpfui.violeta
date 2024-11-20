@@ -30,8 +30,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:PendingBoxDialog}">
-                    <Grid x:Name="LayoutRoot" Background="#01000000">
-                        <vui:Grid RowDefinitions="Auto,*,Auto">
+                    <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
+                        <vui:Grid Background="#01000000" RowDefinitions="Auto,*,Auto">
                             <TextBlock
                                 x:Name="PART_Title"
                                 Grid.Row="0"
