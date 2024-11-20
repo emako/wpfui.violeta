@@ -8,8 +8,12 @@ public interface IPendingHandler : IDisposable
 
     public event EventHandler? Cancel;
 
+    public DateTime StartTime { get; set; }
+
     public string? Message { get; set; }
-    public bool Cancelable { get; set; }
+
+    public bool IsShowCancel { get; set; }
+
     public bool Canceled { get; }
 
     public void Show();

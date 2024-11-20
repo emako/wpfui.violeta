@@ -11,13 +11,15 @@ public class PendingHandler(PendingBoxDialog pendingBoxDialog) : IPendingHandler
 
     public event EventHandler? Cancel;
 
+    public DateTime StartTime { get; set; } = DateTime.Now;
+
     public virtual string? Message
     {
         get => Dialog.Dispatcher.Invoke(() => Dialog.Message);
         set => Dialog.Dispatcher.Invoke(() => Dialog.Message = value);
     }
 
-    public virtual bool Cancelable
+    public virtual bool IsShowCancel
     {
         get => Dialog.Dispatcher.Invoke(() => Dialog.IsShowCancel);
         set => Dialog.Dispatcher.Invoke(() => Dialog.IsShowCancel = value);
