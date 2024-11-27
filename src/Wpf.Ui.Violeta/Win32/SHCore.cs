@@ -8,7 +8,7 @@ internal static class SHCore
     public static extern uint SetProcessDpiAwareness(PROCESS_DPI_AWARENESS awareness);
 
     [DllImport("shcore.dll")]
-    public static extern int GetDpiForMonitor(nint hmonitor, MONITOR_DPI_TYPE dpiType, out uint dpiX, out uint dpiY);
+    public static extern int GetDpiForMonitor(nint hMonitor, MONITOR_DPI_TYPE dpiType, out uint dpiX, out uint dpiY);
 
     public enum PROCESS_DPI_AWARENESS
     {
