@@ -21,7 +21,7 @@
     <Thickness x:Key="ContentDialogContentMargin">0,0,0,0</Thickness>
     <Thickness x:Key="ContentDialogContentScrollViewerMargin">0,0,0,0</Thickness>
     <Thickness x:Key="ContentDialogCommandSpaceMargin">0,24,0,0</Thickness>
-    <Thickness x:Key="ContentDialogTitleMargin">0,0,0,12</Thickness>
+    <Thickness x:Key="ContentDialogTitleMargin">0,0,0,24</Thickness>
     <Thickness x:Key="ContentDialogPadding">24</Thickness>
     <GridLength x:Key="ContentDialogButtonSpacing">8</GridLength>
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="Transparent" />
@@ -109,7 +109,7 @@
                                                             ContentTemplate="{TemplateBinding CaptionTemplate}"
                                                             FontFamily="{DynamicResource TextThemeFontFamily}"
                                                             FontSize="20"
-                                                            FontWeight="Normal"
+                                                            FontWeight="SemiBold"
                                                             Foreground="{TemplateBinding Foreground}"
                                                             IsTabStop="False"
                                                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
@@ -144,7 +144,7 @@
                                                                     Height="36"
                                                                     Margin="4,0,16,0"
                                                                     HorizontalAlignment="Center"
-                                                                    VerticalAlignment="Center"
+                                                                    VerticalAlignment="Top"
                                                                     FontFamily="{DynamicResource SymbolThemeFontFamily}"
                                                                     FontSize="36"
                                                                     Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}"
