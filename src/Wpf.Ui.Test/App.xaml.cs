@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Threading;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Resources;
 
@@ -10,6 +11,7 @@ public partial class App : Application
 {
     public App()
     {
+        SystemMenuThemeManager.Apply();
         Splash.ShowAsync("pack://application:,,,/Wpf.Ui.Test;component/wpfui.png", 0.98d);
         InitializeComponent();
 
