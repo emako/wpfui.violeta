@@ -979,6 +979,24 @@
                             <Button Command="{Binding ShowAsyncPendingBoxCommand}" Content="Show PendingBoxAsync" />
                         </ui:StackPanel>
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="AutoGrid" />
+                        <ui:AutoGrid
+                            Margin="0,8,0,0"
+                            ColumnCount="2"
+                            RowCount="2"
+                            RowHeight="35">
+                            <TextBlock VerticalAlignment="Center" Text="Title1" />
+                            <Button Content="Button1" />
+                            <TextBlock VerticalAlignment="Center" Text="Title22222222" />
+                            <Button Content="Button2" />
+                        </ui:AutoGrid>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
