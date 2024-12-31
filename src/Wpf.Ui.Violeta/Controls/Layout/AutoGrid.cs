@@ -4,6 +4,8 @@ using System.Windows.Controls;
 
 namespace Wpf.Ui.Controls;
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+
 /// <summary>
 /// Defines a flexible grid area that consists of columns and rows.
 /// Depending on the orientation, either the rows or the columns are auto-generated,
@@ -11,79 +13,40 @@ namespace Wpf.Ui.Controls;
 ///
 /// Partially based on work at http://rachel53461.wordpress.com/2011/09/17/wpf-grids-rowcolumn-count-properties/
 /// </summary>
-public class AutoGrid : System.Windows.Controls.Grid
+public class AutoGrid : Grid
 {
-    #region Public Fields
+    public static readonly DependencyProperty ChildHorizontalAlignmentProperty =
+        DependencyProperty.Register(nameof(ChildHorizontalAlignment), typeof(HorizontalAlignment?), typeof(AutoGrid), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure, OnChildHorizontalAlignmentChanged));
 
-    public static readonly DependencyProperty ChildHorizontalAlignmentProperty = DependencyProperty.Register(
-        name: "ChildHorizontalAlignment",
-        propertyType: typeof(HorizontalAlignment?),
-        ownerType: typeof(AutoGrid),
-        typeMetadata: new FrameworkPropertyMetadata((HorizontalAlignment?)null, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(OnChildHorizontalAlignmentChanged)));
+    public static readonly DependencyProperty ChildMarginProperty =
+        DependencyProperty.Register(nameof(ChildMargin), typeof(Thickness?), typeof(AutoGrid), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure, OnChildMarginChanged));
 
-    public static readonly DependencyProperty ChildMarginProperty = DependencyProperty.Register(
-        name: "ChildMargin",
-        propertyType: typeof(Thickness?),
-        ownerType: typeof(AutoGrid),
-        typeMetadata: new FrameworkPropertyMetadata((Thickness?)null, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(OnChildMarginChanged)));
+    public static readonly DependencyProperty ChildVerticalAlignmentProperty =
+        DependencyProperty.Register(nameof(ChildVerticalAlignment), propertyType: typeof(VerticalAlignment?), ownerType: typeof(AutoGrid), typeMetadata: new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure, OnChildVerticalAlignmentChanged));
 
-    public static readonly DependencyProperty ChildVerticalAlignmentProperty = DependencyProperty.Register(
-        name: "ChildVerticalAlignment",
-        propertyType: typeof(VerticalAlignment?),
-        ownerType: typeof(AutoGrid),
-        typeMetadata: new FrameworkPropertyMetadata((VerticalAlignment?)null, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(OnChildVerticalAlignmentChanged)));
+    public static readonly DependencyProperty ColumnCountProperty =
+        DependencyProperty.RegisterAttached(nameof(ColumnCount), typeof(int), typeof(AutoGrid), new FrameworkPropertyMetadata(1, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(ColumnCountChanged)));
 
-    public static readonly DependencyProperty ColumnCountProperty = DependencyProperty.RegisterAttached(
-        name: "ColumnCount",
-        propertyType: typeof(int),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata(1, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(ColumnCountChanged)));
+    public static readonly DependencyProperty ColumnsProperty =
+        DependencyProperty.RegisterAttached(nameof(Columns), typeof(string), typeof(AutoGrid), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(ColumnsChanged)));
 
-    public static readonly DependencyProperty ColumnsProperty = DependencyProperty.RegisterAttached(
-        name: "Columns",
-        propertyType: typeof(string),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(ColumnsChanged)));
+    public static readonly DependencyProperty ColumnWidthProperty =
+        DependencyProperty.RegisterAttached(nameof(ColumnWidth), typeof(GridLength), typeof(AutoGrid), new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(FixedColumnWidthChanged)));
 
-    public static readonly DependencyProperty ColumnWidthProperty = DependencyProperty.RegisterAttached(
-        name: "ColumnWidth",
-        propertyType: typeof(GridLength),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(FixedColumnWidthChanged)));
+    public static readonly DependencyProperty IsAutoIndexingProperty =
+        DependencyProperty.Register(nameof(IsAutoIndexing), typeof(bool), typeof(AutoGrid), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
-    public static readonly DependencyProperty IsAutoIndexingProperty = DependencyProperty.Register(
-        name: "IsAutoIndexing",
-        propertyType: typeof(bool),
-        ownerType: typeof(AutoGrid),
-        typeMetadata: new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.AffectsMeasure));
+    public static readonly DependencyProperty OrientationProperty =
+        DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(AutoGrid), new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
-    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        name: "Orientation",
-        propertyType: typeof(Orientation),
-        ownerType: typeof(AutoGrid),
-        typeMetadata: new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure));
+    public static readonly DependencyProperty RowCountProperty =
+        DependencyProperty.RegisterAttached(nameof(RowCount), typeof(int), typeof(AutoGrid), new FrameworkPropertyMetadata(1, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(RowCountChanged)));
 
-    public static readonly DependencyProperty RowCountProperty = DependencyProperty.RegisterAttached(
-        name: "RowCount",
-        propertyType: typeof(int),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata(1, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(RowCountChanged)));
+    public static readonly DependencyProperty RowHeightProperty =
+        DependencyProperty.RegisterAttached(nameof(RowHeight), typeof(GridLength), typeof(AutoGrid), new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(FixedRowHeightChanged)));
 
-    public static readonly DependencyProperty RowHeightProperty = DependencyProperty.RegisterAttached(
-        name: "RowHeight",
-        propertyType: typeof(GridLength),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(FixedRowHeightChanged)));
-
-    public static readonly DependencyProperty RowsProperty = DependencyProperty.RegisterAttached(
-        name: "Rows",
-        propertyType: typeof(string),
-        ownerType: typeof(AutoGrid),
-        defaultMetadata: new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(RowsChanged)));
-
-    #endregion Public Fields
-
-    #region Public Properties
+    public static readonly DependencyProperty RowsProperty =
+        DependencyProperty.RegisterAttached(nameof(Rows), typeof(string), typeof(AutoGrid), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(RowsChanged)));
 
     /// <summary>
     /// Gets or sets the child horizontal alignment.
@@ -92,8 +55,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Presets the horizontal alignment of all child controls")]
     public HorizontalAlignment? ChildHorizontalAlignment
     {
-        get { return (HorizontalAlignment?)GetValue(ChildHorizontalAlignmentProperty); }
-        set { SetValue(ChildHorizontalAlignmentProperty, value); }
+        get => (HorizontalAlignment?)GetValue(ChildHorizontalAlignmentProperty);
+        set => SetValue(ChildHorizontalAlignmentProperty, value);
     }
 
     /// <summary>
@@ -103,8 +66,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Presets the margin of all child controls")]
     public Thickness? ChildMargin
     {
-        get { return (Thickness?)GetValue(ChildMarginProperty); }
-        set { SetValue(ChildMarginProperty, value); }
+        get => (Thickness?)GetValue(ChildMarginProperty);
+        set => SetValue(ChildMarginProperty, value);
     }
 
     /// <summary>
@@ -114,8 +77,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Presets the vertical alignment of all child controls")]
     public VerticalAlignment? ChildVerticalAlignment
     {
-        get { return (VerticalAlignment?)GetValue(ChildVerticalAlignmentProperty); }
-        set { SetValue(ChildVerticalAlignmentProperty, value); }
+        get => (VerticalAlignment?)GetValue(ChildVerticalAlignmentProperty);
+        set => SetValue(ChildVerticalAlignmentProperty, value);
     }
 
     /// <summary>
@@ -124,8 +87,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Defines a set number of columns")]
     public int ColumnCount
     {
-        get { return (int)GetValue(ColumnCountProperty); }
-        set { SetValue(ColumnCountProperty, value); }
+        get => (int)GetValue(ColumnCountProperty);
+        set => SetValue(ColumnCountProperty, value);
     }
 
     /// <summary>
@@ -134,8 +97,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Defines all columns using comma separated grid length notation")]
     public string Columns
     {
-        get { return (string)GetValue(ColumnsProperty); }
-        set { SetValue(ColumnsProperty, value); }
+        get => (string)GetValue(ColumnsProperty);
+        set => SetValue(ColumnsProperty, value);
     }
 
     /// <summary>
@@ -144,8 +107,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Presets the width of all columns set using the ColumnCount property")]
     public GridLength ColumnWidth
     {
-        get { return (GridLength)GetValue(ColumnWidthProperty); }
-        set { SetValue(ColumnWidthProperty, value); }
+        get => (GridLength)GetValue(ColumnWidthProperty);
+        set => SetValue(ColumnWidthProperty, value);
     }
 
     /// <summary>
@@ -158,8 +121,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Set to false to disable the auto layout functionality")]
     public bool IsAutoIndexing
     {
-        get { return (bool)GetValue(IsAutoIndexingProperty); }
-        set { SetValue(IsAutoIndexingProperty, value); }
+        get => (bool)GetValue(IsAutoIndexingProperty);
+        set => SetValue(IsAutoIndexingProperty, value);
     }
 
     /// <summary>
@@ -170,8 +133,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Defines the directionality of the autolayout. Use vertical for a column first layout, horizontal for a row first layout.")]
     public Orientation Orientation
     {
-        get { return (Orientation)GetValue(OrientationProperty); }
-        set { SetValue(OrientationProperty, value); }
+        get => (Orientation)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
     }
 
     /// <summary>
@@ -180,8 +143,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Defines a set number of rows")]
     public int RowCount
     {
-        get { return (int)GetValue(RowCountProperty); }
-        set { SetValue(RowCountProperty, value); }
+        get => (int)GetValue(RowCountProperty);
+        set => SetValue(RowCountProperty, value);
     }
 
     /// <summary>
@@ -190,8 +153,8 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Presets the height of all rows set using the RowCount property")]
     public GridLength RowHeight
     {
-        get { return (GridLength)GetValue(RowHeightProperty); }
-        set { SetValue(RowHeightProperty, value); }
+        get => (GridLength)GetValue(RowHeightProperty);
+        set => SetValue(RowHeightProperty, value);
     }
 
     /// <summary>
@@ -200,13 +163,9 @@ public class AutoGrid : System.Windows.Controls.Grid
     [Category("Layout"), Description("Defines all rows using comma separated grid length notation")]
     public string Rows
     {
-        get { return (string)GetValue(RowsProperty); }
-        set { SetValue(RowsProperty, value); }
+        get => (string)GetValue(RowsProperty);
+        set => SetValue(RowsProperty, value);
     }
-
-    #endregion Public Properties
-
-    #region Public Methods
 
     /// <summary>
     /// Handles the column count changed event
@@ -351,10 +310,6 @@ public class AutoGrid : System.Windows.Controls.Grid
             grid.RowDefinitions.Add(new RowDefinition() { Height = def });
     }
 
-    #endregion Public Methods
-
-    #region Protected Methods
-
     /// <summary>
     /// Measures the children of a <see cref="T:System.Windows.Controls.Grid"/> in anticipation of arranging them during the <see cref="M:ArrangeOverride"/> pass.
     /// </summary>
@@ -367,10 +322,6 @@ public class AutoGrid : System.Windows.Controls.Grid
         this.PerformLayout();
         return base.MeasureOverride(constraint);
     }
-
-    #endregion Protected Methods
-
-    #region Private Methods
 
     /// <summary>
     /// Called when [child horizontal alignment changed].
@@ -455,9 +406,9 @@ public class AutoGrid : System.Windows.Controls.Grid
     /// </summary>
     private void PerformLayout()
     {
-        var fillRowFirst = this.Orientation == Orientation.Horizontal;
-        var rowCount = this.RowDefinitions.Count;
-        var colCount = this.ColumnDefinitions.Count;
+        var fillRowFirst = Orientation == Orientation.Horizontal;
+        var rowCount = RowDefinitions.Count;
+        var colCount = ColumnDefinitions.Count;
 
         if (rowCount == 0 || colCount == 0)
             return;
@@ -516,14 +467,10 @@ public class AutoGrid : System.Windows.Controls.Grid
             ApplyChildLayout(child);
         }
     }
-
-    #endregion Private Methods
 }
 
-public static class DependencyExtensions
+file static class DependencyExtensions
 {
-    #region Public Methods
-
     /// <summary>
     /// Sets the value of the <paramref name="property"/> only if it hasn't been explicitly set.
     /// </summary>
@@ -538,6 +485,4 @@ public static class DependencyExtensions
 
         return false;
     }
-
-    #endregion Public Methods
 }
