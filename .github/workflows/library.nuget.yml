@@ -33,7 +33,7 @@ jobs:
 
       - name: Push NuGet package
         # run:  dotnet nuget push "out\*.nupkg" -k ${{secrets.NUGET_AUTH_TOKEN}} --source https://api.nuget.org/v3/index.json
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nuget-packages
           path: out/*.nupkg
