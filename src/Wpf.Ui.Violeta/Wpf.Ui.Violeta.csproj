@@ -12,9 +12,9 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<AssemblyVersion>4.0.0.0</AssemblyVersion>
-		<FileVersion>4.0.0.0</FileVersion>
-		<Version>$(VersionPrefix)4.0.0.0</Version>
+		<AssemblyVersion>4.0.2.0</AssemblyVersion>
+		<FileVersion>4.0.2.0</FileVersion>
+		<Version>$(VersionPrefix)4.0.2.0</Version>
 		<Authors>ema</Authors>
 		<Company>ema</Company>
 		<Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.</Description>
@@ -94,7 +94,7 @@
     </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="WPF-UI" Version="4.0.0" />
+		<PackageReference Include="WPF-UI" Version="4.0.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net47' Or '$(TargetFramework)' == 'net471' Or '$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">

@@ -6,9 +6,9 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>latest</LangVersion>
-		<AssemblyVersion>4.0.0.0</AssemblyVersion>
-		<FileVersion>4.0.0.0</FileVersion>
-		<Version>$(VersionPrefix)4.0.0.0</Version>
+		<AssemblyVersion>4.0.2.0</AssemblyVersion>
+		<FileVersion>4.0.2.0</FileVersion>
+		<Version>$(VersionPrefix)4.0.2.0</Version>
 		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
 		<DebugType>embedded</DebugType>
 	</PropertyGroup>
@@ -29,7 +29,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-		<PackageReference Include="WPF-UI" Version="4.0.0" />
+		<PackageReference Include="WPF-UI" Version="4.0.2" />
 		<PackageReference Include="ComputedAnimations.WPF" Version="0.4.7-beta" />
 		<PackageReference Include="ComputedBehaviors.WPF" Version="0.4.7-beta" />
 		<PackageReference Include="ComputedConverters.WPF" Version="0.4.7-beta" />
