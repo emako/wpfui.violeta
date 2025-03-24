@@ -12,9 +12,9 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<AssemblyVersion>4.0.2.0</AssemblyVersion>
-		<FileVersion>4.0.2.0</FileVersion>
-		<Version>$(VersionPrefix)4.0.2.0</Version>
+		<AssemblyVersion>4.0.2.1</AssemblyVersion>
+		<FileVersion>4.0.2.1</FileVersion>
+		<Version>$(VersionPrefix)4.0.2.1</Version>
 		<Authors>ema</Authors>
 		<Company>ema</Company>
 		<Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.</Description>
