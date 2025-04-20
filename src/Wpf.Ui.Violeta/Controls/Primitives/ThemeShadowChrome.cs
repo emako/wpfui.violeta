@@ -30,11 +30,11 @@ public class ThemeShadowChrome : Decorator
 #if NET462_OR_NEWER
         _bitmapCache = new BitmapCache(VisualTreeHelper.GetDpi(this).PixelsPerDip);
 #else
-        _bitmapCache = new BitmapCache();
+        var bitmapCache = new BitmapCache();
 #endif
         _background = new Grid
         {
-            CacheMode = _bitmapCache,
+            CacheMode = bitmapCache,
             Focusable = false,
             IsHitTestVisible = false,
             SnapsToDevicePixels = false
@@ -861,7 +861,6 @@ public class ThemeShadowChrome : Decorator
     }
 
     private readonly Grid _background = null!;
-    private readonly BitmapCache _bitmapCache = null!;
     private Border _shadow1 = null!;
     private Border _shadow2 = null!;
     private PopupControl _parentPopupControl = null!;

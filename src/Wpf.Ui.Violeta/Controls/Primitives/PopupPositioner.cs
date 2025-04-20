@@ -111,7 +111,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
             }
             else
             {
-                Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DispatcherOperationCallback(delegate (object param)
+                Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DispatcherOperationCallback(delegate
                 {
                     Debug.Assert(CheckAccess(), "AsyncReposition not called on the dispatcher thread.");
 
@@ -622,7 +622,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
             User32.SetWindowPos(Handle, IntPtr.Zero, x, y, width, height, flags);
         }
 
-        internal unsafe Rect GetWindowRect()
+        internal Rect GetWindowRect()
         {
             RECT rect = new(0, 0, 0, 0);
 
