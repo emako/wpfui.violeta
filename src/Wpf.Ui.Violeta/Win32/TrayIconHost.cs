@@ -113,6 +113,11 @@ public class TrayIconHost
 
                 switch (mouseMsg)
                 {
+                    case User32.WindowMessage.WM_QUERYENDSESSION:
+                    case User32.WindowMessage.WM_ENDSESSION:
+                        _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_DELETE, ref notifyIconData);
+                        break;
+
                     case User32.WindowMessage.WM_LBUTTONDOWN:
                         LeftDown?.Invoke(this, EventArgs.Empty);
                         break;
