@@ -135,6 +135,9 @@ internal sealed class RingProgressBarConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
+        var currentCulture = CultureInfo.CurrentCulture;
+        CultureInfo.CurrentCulture = new CultureInfo("en-US");
+
         var width = (double)values[0];
         var height = (double)values[1];
 
@@ -179,6 +182,8 @@ internal sealed class RingProgressBarConverter : IMultiValueConverter
             path = "M " + width / 2 + "," + radius / 2 + " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + width / 2 + "," + (height - radius / 2) +
                 " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + point2X + "," + point2Y + "";
         }
+
+        CultureInfo.CurrentCulture = currentCulture;
         return PathGeometry.Parse(path);
     }
 
