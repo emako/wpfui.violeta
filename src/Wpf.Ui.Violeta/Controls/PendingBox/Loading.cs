@@ -135,9 +135,6 @@ internal sealed class RingProgressBarConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        var currentCulture = CultureInfo.CurrentCulture;
-        CultureInfo.CurrentCulture = new CultureInfo("en-US");
-
         var width = (double)values[0];
         var height = (double)values[1];
 
@@ -165,25 +162,25 @@ internal sealed class RingProgressBarConverter : IMultiValueConverter
 
         var path = "";
 
+        // Use invariant string formatting to prevent exceptions on non-english systems
+        // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated#culture-specific-formatting
         if (percent == 0)
         {
             path = "";
         }
         else if (percent < 0.5)
         {
-            path = "M " + width / 2 + "," + radius / 2 + " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + point2X + "," + point2Y + "";
+            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
         }
         else if (percent == 0.5)
         {
-            path = "M " + width / 2 + "," + radius / 2 + " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + width / 2 + "," + (height - radius / 2);
+            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)}");
         }
         else
         {
-            path = "M " + width / 2 + "," + radius / 2 + " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + width / 2 + "," + (height - radius / 2) +
-                " A " + (width - radius) / 2 + "," + (width - radius) / 2 + " 0 0 1 " + point2X + "," + point2Y + "";
+            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
         }
 
-        CultureInfo.CurrentCulture = currentCulture;
         return PathGeometry.Parse(path);
     }
 
