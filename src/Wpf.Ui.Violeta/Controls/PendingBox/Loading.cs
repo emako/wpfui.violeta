@@ -170,15 +170,15 @@ internal sealed class RingProgressBarConverter : IMultiValueConverter
         }
         else if (percent < 0.5)
         {
-            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
+            path = FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
         }
         else if (percent == 0.5)
         {
-            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)}");
+            path = FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)}");
         }
         else
         {
-            FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
+            path = FormattableString.Invariant($"M {width / 2},{radius / 2} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {width / 2},{(height - radius / 2)} A {(width - radius) / 2},{(width - radius) / 2} 0 0 1 {point2X},{point2Y}");
         }
 
         return PathGeometry.Parse(path);
