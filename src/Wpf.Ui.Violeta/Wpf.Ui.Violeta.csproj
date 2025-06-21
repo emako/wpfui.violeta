@@ -42,10 +42,6 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>SH.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.en.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.en.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Localization\SH.fr.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>SH.fr.Designer.cs</LastGenOutput>
@@ -73,6 +69,14 @@
 		<EmbeddedResource Update="Resources\Localization\SH.vi.resx">
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>SH.vi.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.de.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.de.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Localization\SH.zh-Hans.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>SH.zh-Hans.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Localization\SH.zh-Hant.resx">
 			<Generator>ResXFileCodeGenerator</Generator>

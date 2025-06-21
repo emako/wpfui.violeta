@@ -61,7 +61,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 复制.
+        ///   Looks up a localized string similar to Copy.
         /// </summary>
         internal static string ButtonCopy {
             get {
@@ -70,7 +70,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 退出.
+        ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string ButtonExit {
             get {
@@ -79,7 +79,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 忽略.
+        ///   Looks up a localized string similar to Ignore.
         /// </summary>
         internal static string ButtonIgnore {
             get {
@@ -88,7 +88,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 似乎遇到了一些问题.
+        ///   Looks up a localized string similar to Exception Raised.
         /// </summary>
         internal static string ExceptionWindowHint1 {
             get {
@@ -97,7 +97,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 您可以复制信息便于跟踪问题，尝试忽略问题或退出程序后重新启动。.
+        ///   Looks up a localized string similar to You can copy the info to track the problem, ignore and try, or exit the program and restart..
         /// </summary>
         internal static string ExceptionWindowHint2 {
             get {
@@ -106,7 +106,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 出错啦.
+        ///   Looks up a localized string similar to Error Occured.
         /// </summary>
         internal static string ExceptionWindowTitle {
             get {
@@ -115,7 +115,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 加载中.
+        ///   Looks up a localized string similar to Loading.
         /// </summary>
         internal static string Loading {
             get {
@@ -124,7 +124,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 错误.
+        ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string MessageBoxCaptionError {
             get {
@@ -133,7 +133,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 提示.
+        ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string MessageBoxCaptionInformation {
             get {
@@ -142,7 +142,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 询问.
+        ///   Looks up a localized string similar to Question.
         /// </summary>
         internal static string MessageBoxCaptionQuestion {
             get {
@@ -151,7 +151,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 警告.
+        ///   Looks up a localized string similar to Warning.
         /// </summary>
         internal static string MessageBoxCaptionWarning {
             get {
@@ -160,7 +160,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 载入中.
+        ///   Looks up a localized string similar to Loading.
         /// </summary>
         internal static string PendingBoxLoadingText {
             get {
