@@ -11,6 +11,12 @@ public partial class App : Application
 {
     public App()
     {
+#if false
+        System.Threading.Thread.CurrentThread.CurrentUICulture
+            = System.Threading.Thread.CurrentThread.CurrentCulture
+            = new System.Globalization.CultureInfo("de");
+#endif
+
         SystemMenuThemeManager.Apply();
         TrayIconManager.Start();
         Splash.ShowAsync("pack://application:,,,/Wpf.Ui.Test;component/wpfui.png", 0.98d);
