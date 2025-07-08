@@ -11,6 +11,14 @@ public static class I18N
     public static CultureInfo Culture
     {
         get => SH.Culture;
-        set => SH.Culture = value;
+        set
+        {
+            // "zh" is a Neutral Chinese language that requires fallback to Simplified Chinese named "zh-Hans"
+            if (value.ToString() == "zh")
+            {
+                value = new CultureInfo("zh-Hans");
+            }
+            SH.Culture = value;
+        }
     }
 }
