@@ -12,9 +12,10 @@ public partial class App : Application
     public App()
     {
 #if false
-        System.Threading.Thread.CurrentThread.CurrentUICulture
-            = System.Threading.Thread.CurrentThread.CurrentCulture
-            = new System.Globalization.CultureInfo("de");
+        I18N.Culture
+            //= System.Threading.Thread.CurrentThread.CurrentUICulture
+            //= System.Threading.Thread.CurrentThread.CurrentCulture
+            = new System.Globalization.CultureInfo("zh");
 #endif
 
         SystemMenuThemeManager.Apply();
