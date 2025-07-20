@@ -324,6 +324,8 @@ public class TrayMenu : DependencyObject, IEnumerable<ITrayMenuItemBase>, IList<
 
     public bool IsReadOnly => false;
 
+    public object? Tag { get; set; } = null;
+
     public ITrayMenuItemBase this[int index]
     {
         get => _items[index];
@@ -432,6 +434,8 @@ public interface ITrayMenuItemBase
 
     public bool IsEnabled { get; set; }
 
+    public object? Tag { get; set; }
+
     public ICommand? Command { get; set; }
 
     public object? CommandParameter { get; set; }
@@ -489,6 +493,8 @@ public sealed class TraySeparator : DependencyObject, ITrayMenuItemBase
         get => throw new NotImplementedException();
         set => throw new NotImplementedException();
     }
+
+    public object? Tag { get; set; } = null;
 }
 
 public class TrayMenuItem : DependencyObject, ITrayMenuItemBase
@@ -558,6 +564,8 @@ public class TrayMenuItem : DependencyObject, ITrayMenuItemBase
         get => (bool)GetValue(IsVisibleProperty);
         set => SetValue(IsVisibleProperty, value);
     }
+
+    public object? Tag { get; set; } = null;
 
     public ICommand? Command
     {
