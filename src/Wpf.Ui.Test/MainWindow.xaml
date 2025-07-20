@@ -549,6 +549,39 @@
                                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                                 Content="Error" />
                         </StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Notification" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="BalloonTip" />
+                            <ui:Button
+                                Command="{Binding ShowNotificationCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Information" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNotificationCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Warning" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNotificationCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="None" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNotificationCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Error" />
+                        </StackPanel>
                         <StackPanel>
                             <TextBlock
                                 MinWidth="120"

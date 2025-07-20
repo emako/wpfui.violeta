@@ -59,6 +59,28 @@ internal partial class TrayIconManager
     {
         _ = GetInstance();
     }
+
+    public static void ShowNotification(string title, string content, ToolTipIcon icon = default, int timeout = 5000, Action? clickEvent = null, Action? closeEvent = null)
+    {
+        var iconHost = GetInstance()._iconHost;
+        if (iconHost is null) return;
+
+        iconHost.ShowBalloonTip(timeout, title, content, icon);
+        iconHost.BalloonTipClicked += OnIconOnBalloonTipClicked;
+        iconHost.BalloonTipClosed += OnIconOnBalloonTipClosed;
+
+        void OnIconOnBalloonTipClicked(object? sender, EventArgs e)
+        {
+            clickEvent?.Invoke();
+            iconHost.BalloonTipClicked -= OnIconOnBalloonTipClicked;
+        }
+
+        void OnIconOnBalloonTipClosed(object? sender, EventArgs e)
+        {
+            closeEvent?.Invoke();
+            iconHost.BalloonTipClosed -= OnIconOnBalloonTipClosed;
+        }
+    }
 }
 
 internal partial class TrayIconManager : ObservableObject

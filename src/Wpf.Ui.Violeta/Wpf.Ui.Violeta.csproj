@@ -7,7 +7,7 @@
 		<UseWPF>true</UseWPF>
 		<UseWinUI>false</UseWinUI>
 		<UseWindowsForms>false</UseWindowsForms>
-		<LangVersion>latest</LangVersion>
+		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>

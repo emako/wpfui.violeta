@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -11,11 +12,11 @@ namespace Wpf.Ui.Violeta.Win32;
 
 public class TrayIconHost
 {
-    private const int ID_TRAYICON = 1000;
-
     private readonly nint hWnd = IntPtr.Zero;
     private readonly User32.WndProcDelegate wndProcDelegate = null!;
     private Shell32.NotifyIconData notifyIconData = default;
+    private readonly int id = default;
+    private static int nextId = 0;
 
     public string ToolTipText
     {
@@ -53,30 +54,81 @@ public class TrayIconHost
         }
     }
 
+    public string BalloonTipText
+    {
+        get => field;
+        set
+        {
+            if (value != field)
+            {
+                field = value;
+            }
+        }
+    } = string.Empty;
+
+    public ToolTipIcon BalloonTipIcon
+    {
+        get => field;
+        set
+        {
+            if ((int)value < 0 || (int)value > 3)
+            {
+                throw new InvalidEnumArgumentException(nameof(value), (int)value, typeof(ToolTipIcon));
+            }
+
+            if (value != field)
+            {
+                field = value;
+            }
+        }
+    }
+
+    public string BalloonTipTitle
+    {
+        get => field;
+        set
+        {
+            if (value != field)
+            {
+                field = value;
+            }
+        }
+    } = string.Empty;
+
+    public object? Tag { get; set; } = null;
+
     public TrayMenu Menu { get; set; } = null!;
 
-    public event EventHandler<EventArgs>? Click;
+    public event EventHandler<EventArgs>? BalloonTipClicked = null;
 
-    public event EventHandler<EventArgs>? RightDown;
+    public event EventHandler<EventArgs>? BalloonTipClosed = null;
 
-    public event EventHandler<EventArgs>? RightClick;
+    public event EventHandler<EventArgs>? BalloonTipShown = null;
 
-    public event EventHandler<EventArgs>? RightDoubleClick;
+    public event EventHandler<EventArgs>? Click = null;
 
-    public event EventHandler<EventArgs>? LeftDown;
+    public event EventHandler<EventArgs>? RightDown = null;
 
-    public event EventHandler<EventArgs>? LeftClick;
+    public event EventHandler<EventArgs>? RightClick = null;
 
-    public event EventHandler<EventArgs>? LeftDoubleClick;
+    public event EventHandler<EventArgs>? RightDoubleClick = null;
 
-    public event EventHandler<EventArgs>? MiddleDown;
+    public event EventHandler<EventArgs>? LeftDown = null;
 
-    public event EventHandler<EventArgs>? MiddleClick;
+    public event EventHandler<EventArgs>? LeftClick = null;
 
-    public event EventHandler<EventArgs>? MiddleDoubleClick;
+    public event EventHandler<EventArgs>? LeftDoubleClick = null;
+
+    public event EventHandler<EventArgs>? MiddleDown = null;
+
+    public event EventHandler<EventArgs>? MiddleClick = null;
+
+    public event EventHandler<EventArgs>? MiddleDoubleClick = null;
 
     public TrayIconHost()
     {
+        id = ++nextId;
+
         wndProcDelegate = new User32.WndProcDelegate(WndProc);
 
         User32.WNDCLASS wc = new()
@@ -93,7 +145,7 @@ public class TrayIconHost
         {
             cbSize = Marshal.SizeOf<Shell32.NotifyIconData>(),
             hWnd = hWnd,
-            uID = ID_TRAYICON,
+            uID = id,
             uFlags = (int)(Shell32.NotifyIconFlags.NIF_ICON | Shell32.NotifyIconFlags.NIF_MESSAGE | Shell32.NotifyIconFlags.NIF_TIP),
             uCallbackMessage = (int)User32.WindowMessage.WM_TRAYICON,
             hIcon = IntPtr.Zero,
@@ -107,7 +159,7 @@ public class TrayIconHost
     {
         if (msg == (uint)User32.WindowMessage.WM_TRAYICON)
         {
-            if ((int)wParam == ID_TRAYICON)
+            if ((int)wParam == id)
             {
                 User32.WindowMessage mouseMsg = (User32.WindowMessage)lParam;
 
@@ -156,6 +208,22 @@ public class TrayIconHost
                     case User32.WindowMessage.WM_MBUTTONDBLCLK:
                         MiddleDoubleClick?.Invoke(this, EventArgs.Empty);
                         break;
+
+                    case User32.WindowMessage.WM_NOTIFYICON_BALLOONSHOW:
+                        BalloonTipShown?.Invoke(this, EventArgs.Empty);
+                        break;
+
+                    case User32.WindowMessage.WM_NOTIFYICON_BALLOONHIDE:
+                        BalloonTipClosed?.Invoke(this, EventArgs.Empty);
+                        break;
+
+                    case User32.WindowMessage.WM_NOTIFYICON_BALLOONTIMEOUT:
+                        BalloonTipClosed?.Invoke(this, EventArgs.Empty);
+                        break;
+
+                    case User32.WindowMessage.WM_NOTIFYICON_BALLOONUSERCLICK:
+                        BalloonTipClicked?.Invoke(this, EventArgs.Empty);
+                        break;
                 }
             }
         }
@@ -166,6 +234,75 @@ public class TrayIconHost
     {
         Menu?.Open(hWnd);
     }
+
+    public virtual void ShowBalloonTip(int timeout)
+    {
+        ShowBalloonTip(timeout, BalloonTipTitle, BalloonTipText, BalloonTipIcon);
+    }
+
+    public virtual void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon)
+    {
+        if (timeout < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(timeout));
+        }
+
+        if (string.IsNullOrEmpty(tipText))
+        {
+            throw new ArgumentException("NotifyIconEmptyOrNullTipText");
+        }
+
+        if ((int)tipIcon < 0 || (int)tipIcon > 3)
+        {
+            throw new InvalidEnumArgumentException(nameof(tipIcon), (int)tipIcon, typeof(ToolTipIcon));
+        }
+
+        var notifyIconData = new Shell32.NotifyIconData()
+        {
+            cbSize = Marshal.SizeOf<Shell32.NotifyIconData>(),
+            hWnd = hWnd,
+            uID = id,
+            uFlags = (int)Shell32.NotifyIconFlags.NIF_INFO,
+            uTimeoutOrVersion = (uint)timeout,
+            szInfoTitle = tipTitle,
+            szInfo = tipText,
+            dwInfoFlags = tipIcon switch
+            {
+                ToolTipIcon.Info => 1,
+                ToolTipIcon.Warning => 2,
+                ToolTipIcon.Error => 3,
+                ToolTipIcon.None or _ => 0,
+            },
+        };
+
+        _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_MODIFY, ref notifyIconData);
+    }
+}
+
+/// <summary>
+/// Defines a set of standardized icons that can be associated with a ToolTip.
+/// </summary>
+public enum ToolTipIcon
+{
+    /// <summary>
+    /// Not a standard icon.
+    /// </summary>
+    None = 0x00,
+
+    /// <summary>
+    /// An information icon.
+    /// </summary>
+    Info = 0x01,
+
+    /// <summary>
+    /// A warning icon.
+    /// </summary>
+    Warning = 0x02,
+
+    /// <summary>
+    /// An error icon
+    /// </summary>
+    Error = 0x03,
 }
 
 public class TrayMenu : DependencyObject, IEnumerable<ITrayMenuItemBase>, IList<ITrayMenuItemBase>
