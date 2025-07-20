@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Win32;
 
-public class TrayIconHost
+public class TrayIconHost : IDisposable
 {
     private readonly nint hWnd = IntPtr.Zero;
     private readonly User32.WndProcDelegate wndProcDelegate = null!;
@@ -277,6 +277,39 @@ public class TrayIconHost
 
         _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_MODIFY, ref notifyIconData);
     }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            // Remove tray icon
+            _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_DELETE, ref notifyIconData);
+
+            // Clean up icon resources
+            if (notifyIconData.hIcon != IntPtr.Zero)
+            {
+                _ = User32.DestroyIcon(notifyIconData.hIcon);
+                notifyIconData.hIcon = IntPtr.Zero;
+            }
+
+            // Destroy window
+            if (hWnd != IntPtr.Zero)
+            {
+                _ = User32.DestroyWindow(hWnd);
+            }
+        }
+    }
+
+    ~TrayIconHost()
+    {
+        Dispose(false);
+    }
 }
 
 /// <summary>
@@ -390,6 +423,25 @@ public class TrayMenu : DependencyObject, IEnumerable<ITrayMenuItemBase>, IList<
                     flags |= User32.MenuFlags.MF_CHECKED;
 
                 _ = User32.AppendMenu(hMenu, (uint)flags, currentId, item.Header!);
+
+                if (item.IsBold)
+                {
+                    var menuItemInfo = new User32.MENUITEMINFO
+                    {
+                        cbSize = (uint)Marshal.SizeOf<User32.MENUITEMINFO>(),
+                        fMask = (uint)User32.MenuItemMask.MIIM_STATE,
+                        fState = (uint)User32.MenuItemState.MFS_DEFAULT
+                    };
+
+                    if (item.IsChecked)
+                        menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_CHECKED;
+
+                    if (!item.IsEnabled)
+                        menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_DISABLED;
+
+                    _ = User32.SetMenuItemInfo(hMenu, currentId, false, ref menuItemInfo);
+                }
+
                 idToItem[currentId] = item;
                 currentId++;
             }
@@ -433,6 +485,8 @@ public interface ITrayMenuItemBase
     public bool IsChecked { get; set; }
 
     public bool IsEnabled { get; set; }
+
+    public bool IsBold { get; set; }
 
     public object? Tag { get; set; }
 
@@ -482,6 +536,12 @@ public sealed class TraySeparator : DependencyObject, ITrayMenuItemBase
         set => throw new NotImplementedException();
     }
 
+    public bool IsBold
+    {
+        get => false;
+        set => throw new NotImplementedException();
+    }
+
     public ICommand? Command
     {
         get => throw new NotImplementedException();
@@ -526,6 +586,9 @@ public class TrayMenuItem : DependencyObject, ITrayMenuItemBase
     public static readonly DependencyProperty IsVisibleProperty =
         DependencyProperty.Register(nameof(IsVisible), typeof(bool), typeof(TrayMenuItem), new(true));
 
+    public static readonly DependencyProperty IsBoldProperty =
+        DependencyProperty.Register(nameof(IsBold), typeof(bool), typeof(TrayMenuItem), new(false));
+
     public TrayMenu? Menu
     {
         get => (TrayMenu)GetValue(MenuProperty);
@@ -563,6 +626,12 @@ public class TrayMenuItem : DependencyObject, ITrayMenuItemBase
     {
         get => (bool)GetValue(IsVisibleProperty);
         set => SetValue(IsVisibleProperty, value);
+    }
+
+    public bool IsBold
+    {
+        get => (bool)GetValue(IsBoldProperty);
+        set => SetValue(IsBoldProperty, value);
     }
 
     public object? Tag { get; set; } = null;

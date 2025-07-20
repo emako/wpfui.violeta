@@ -89,6 +89,12 @@ internal static class User32
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern bool AppendMenu(nint hMenu, uint uFlags, uint uIDNewItem, string lpNewItem);
 
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    public static extern bool SetMenuItemInfo(nint hMenu, uint uItem, bool fByPosition, ref MENUITEMINFO lpmii);
+
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    public static extern bool GetMenuItemInfo(nint hMenu, uint uItem, bool fByPosition, ref MENUITEMINFO lpmii);
+
     [DllImport("user32.dll", SetLastError = true)]
     public static extern uint TrackPopupMenuEx(nint hMenu, uint uFlags, int x, int y, nint hWnd, nint lpTPMParams);
 
@@ -107,6 +113,10 @@ internal static class User32
 
     [DllImport("user32.dll")]
     public static extern nint DefWindowProc(nint hWnd, uint uMsg, nint wParam, nint lParam);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool DestroyWindow(nint hWnd);
 
     public delegate nint WndProcDelegate(nint hWnd, uint msg, nint wParam, nint lParam);
 
@@ -175,6 +185,22 @@ internal static class User32
         public nint hbrBackground;
         public string lpszMenuName;
         public string lpszClassName;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+    public struct MENUITEMINFO
+    {
+        public uint cbSize;
+        public uint fMask;
+        public uint fType;
+        public uint fState;
+        public uint wID;
+        public nint hSubMenu;
+        public nint hbmpChecked;
+        public nint hbmpUnchecked;
+        public nint dwItemData;
+        public string dwTypeData;
+        public uint cch;
     }
 
     public enum WindowMessage
@@ -397,6 +423,48 @@ internal static class User32
         MF_CHECKED = 0x0008,
         MF_GRAYED = 0x0001,
         MF_SEPARATOR = 0x0800,
+        MF_OWNERDRAW = 0x0100,
+    }
+
+    [Flags]
+    public enum MenuItemMask : uint
+    {
+        MIIM_STATE = 0x00000001,
+        MIIM_ID = 0x00000002,
+        MIIM_SUBMENU = 0x00000004,
+        MIIM_CHECKMARKS = 0x00000008,
+        MIIM_TYPE = 0x00000010,
+        MIIM_DATA = 0x00000020,
+        MIIM_STRING = 0x00000040,
+        MIIM_BITMAP = 0x00000080,
+        MIIM_FTYPE = 0x00000100,
+    }
+
+    [Flags]
+    public enum MenuItemType : uint
+    {
+        MFT_STRING = 0x00000000,
+        MFT_BITMAP = 0x00000004,
+        MFT_MENUBARBREAK = 0x00000020,
+        MFT_MENUBREAK = 0x00000040,
+        MFT_OWNERDRAW = 0x00000100,
+        MFT_RADIOCHECK = 0x00000200,
+        MFT_SEPARATOR = 0x00000800,
+        MFT_RIGHTORDER = 0x00002000,
+        MFT_RIGHTJUSTIFY = 0x00004000,
+    }
+
+    [Flags]
+    public enum MenuItemState : uint
+    {
+        MFS_ENABLED = 0x00000000,
+        MFS_UNCHECKED = 0x00000000,
+        MFS_UNHILITE = 0x00000000,
+        MFS_CHECKED = 0x00000008,
+        MFS_DISABLED = 0x00000003,
+        MFS_GRAYED = 0x00000003,
+        MFS_HILITE = 0x00000080,
+        MFS_DEFAULT = 0x00001000,
     }
 
     [Flags]

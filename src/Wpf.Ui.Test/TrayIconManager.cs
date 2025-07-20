@@ -38,6 +38,7 @@ internal partial class TrayIconManager
                 {
                     Header = "Restart",
                     Command = RestartCommand,
+                    IsBold = true, // Test the bold style
                 },
                 new TrayMenuItem()
                 {
