@@ -27,7 +27,7 @@ public partial class MainWindow : FluentWindow
         DataContext = this;
         InitializeComponent();
 
-        Thread.Sleep(600);
+        Thread.Sleep(600); // Load simulation
         Splash.CloseOnLoaded(this, minimumMilliseconds: 1800);
 
         ScrollViewer.ScrollToEnd();

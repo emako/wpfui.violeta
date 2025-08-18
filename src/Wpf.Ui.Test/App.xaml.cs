@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
@@ -20,7 +22,21 @@ public partial class App : Application
 
         SystemMenuThemeManager.Apply();
         TrayIconManager.Start();
-        Splash.ShowAsync("pack://application:,,,/Wpf.Ui.Test;component/wpfui.png", 0.98d);
+        Splash.ShowAsync("pack://application:,,,/Wpf.Ui.Test;component/wpfui.png", 0.98d, actived: splash =>
+        {
+            // Support string for Hint property.
+            // splash?.Hint = "Loading Wpf.Ui.Test...";
+
+            // Support content for Hint property.
+            splash?.Hint = new TextBlock()
+            {
+                Text = "Loading Wpf.Ui.Test...",
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Foreground = Brushes.White,
+                FontSize = 14d,
+            };
+        });
         InitializeComponent();
 
         DispatcherUnhandledException += (object s, DispatcherUnhandledExceptionEventArgs e) =>

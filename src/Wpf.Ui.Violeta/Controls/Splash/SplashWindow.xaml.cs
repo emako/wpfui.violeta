@@ -13,12 +13,10 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
 
     public Uri ImageUri { get; }
 
-    protected string hint = null!;
-
-    public string Hint
+    public object? Hint
     {
-        get => hint;
-        set => SetProperty(ref hint, value);
+        get => field;
+        set => SetProperty(ref field, value);
     }
 
     public bool AutoEnd { get; set; } = false;
@@ -80,7 +78,10 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
         Dispatcher.Invoke(() =>
         {
             Storyboard storyboard = (Storyboard)FindResource("End");
+            Storyboard storyboardHint = (Storyboard)FindResource("EndHint");
+
             storyboard.Begin();
+            storyboardHint.Begin();
         });
     }
 
