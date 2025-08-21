@@ -531,7 +531,7 @@ Similar to WPF UI.
                  UriSource="pack://application:,,,/Wpf.Ui.Test;component/Resources/Images/Tiara.png" />
    ```
 
-- TrayIconHost
+- **TrayIconHost**
 
   > Support NotifyIcon only using Win32 api.
 
@@ -672,6 +672,30 @@ Similar to WPF UI.
     }
   }
    ```
+
+- **Drawer**
+
+  > Support Drawer with animated sliding panel
+
+  ```xaml
+  <!--  Drawer Left  -->
+  <ui:Drawer
+       Width="300"
+       IsOpen="{Binding IsOpen}"
+       Placement="Left">
+       <Border
+           Width="300"
+           Height="100"
+           Background="Black"
+           CornerRadius="9">
+           <TextBlock
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="21"
+               Text="Drawer" />
+       </Border>
+  </ui:Drawer>
+  ```
 
 ### 📷 Screenshots
 
