@@ -561,6 +561,31 @@ public partial class MainWindow : FluentWindow
         using STAThread<IPendingHandler> pending = PendingBox.ShowAsync();
         await Task.Delay(3000);
     }
+
+    [ObservableProperty]
+    private bool isOpenOfLeftDrawer = false;
+
+    [ObservableProperty]
+    private bool isOpenOfTopDrawer = false;
+
+    [ObservableProperty]
+    private bool isOpenOfRightDrawer = false;
+
+    [ObservableProperty]
+    private bool isOpenOfBottomDrawer = false;
+
+    [RelayCommand]
+    private void ShowDrawer(string placementString)
+    {
+        if (placementString == "Left")
+            IsOpenOfLeftDrawer = !IsOpenOfLeftDrawer;
+        else if (placementString == "Top")
+            IsOpenOfTopDrawer = !IsOpenOfTopDrawer;
+        else if (placementString == "Right")
+            IsOpenOfRightDrawer = !IsOpenOfRightDrawer;
+        else if (placementString == "Bottom")
+            IsOpenOfBottomDrawer = !IsOpenOfBottomDrawer;
+    }
 }
 
 public partial class RegistryModel : ITreeModel

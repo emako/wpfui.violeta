@@ -1026,9 +1026,131 @@
                             RowHeight="35">
                             <TextBlock VerticalAlignment="Center" Text="Title1" />
                             <Button Content="Button1" />
-                            <TextBlock VerticalAlignment="Center" Text="Title22222222" />
+                            <TextBlock VerticalAlignment="Center" Text="Title                     1" />
                             <Button Content="Button2" />
                         </ui:AutoGrid>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Drawer" />
+                        <ui:StackPanel
+                            Margin="0,8,0,0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <Button
+                                Command="{Binding ShowDrawerCommand}"
+                                CommandParameter="Left"
+                                Content="Show Left Drawer" />
+                            <Button
+                                Command="{Binding ShowDrawerCommand}"
+                                CommandParameter="Top"
+                                Content="Show Top Drawer" />
+                            <Button
+                                Command="{Binding ShowDrawerCommand}"
+                                CommandParameter="Right"
+                                Content="Show Right Drawer" />
+                            <Button
+                                Command="{Binding ShowDrawerCommand}"
+                                CommandParameter="Bottom"
+                                Content="Show Bottom Drawer" />
+                        </ui:StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0">
+                        <ui:Grid
+                            Margin="0,100,0,100"
+                            Background="#10999999"
+                            ColumnDefinitions="Auto,*,Auto"
+                            RowDefinitions="Auto,*,Auto">
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="21"
+                                Text="Container" />
+                            <!--  Drawer Left  -->
+                            <ui:Drawer
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Width="300"
+                                IsOpen="{Binding IsOpenOfLeftDrawer}"
+                                Placement="Left">
+                                <Border
+                                    Width="300"
+                                    Height="100"
+                                    Background="Black"
+                                    CornerRadius="9">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="21"
+                                        Text="Drawer - Left" />
+                                </Border>
+                            </ui:Drawer>
+                            <!--  Drawer Top  -->
+                            <ui:Drawer
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Width="300"
+                                IsOpen="{Binding IsOpenOfTopDrawer}"
+                                Placement="Top">
+                                <Border
+                                    Width="300"
+                                    Height="100"
+                                    Background="Black"
+                                    CornerRadius="9">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="21"
+                                        Text="Drawer - Top" />
+                                </Border>
+                            </ui:Drawer>
+                            <!--  Drawer Right  -->
+                            <ui:Drawer
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Width="300"
+                                IsOpen="{Binding IsOpenOfRightDrawer}"
+                                Placement="Right">
+                                <Border
+                                    Width="300"
+                                    Height="100"
+                                    Background="Black"
+                                    CornerRadius="9">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="21"
+                                        Text="Drawer - Right" />
+                                </Border>
+                            </ui:Drawer>
+                            <!--  Drawer Bottom  -->
+                            <ui:Drawer
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Width="300"
+                                IsOpen="{Binding IsOpenOfBottomDrawer}"
+                                Placement="Bottom">
+                                <Border
+                                    Width="300"
+                                    Height="100"
+                                    Background="Black"
+                                    CornerRadius="9">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="21"
+                                        Text="Drawer - Bottom" />
+                                </Border>
+                            </ui:Drawer>
+                        </ui:Grid>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
