@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Threading;
 
 namespace Wpf.Ui.Controls;
 
@@ -46,15 +45,7 @@ public partial class Drawer : ContentControl
     {
         Loaded -= OnLoaded;
         ApplyPlacement();
-
-        if (!IsLoaded || ActualWidth == 0 || ActualHeight == 0)
-        {
-            Dispatcher.BeginInvoke(() => ToggleDrawer(IsOpen, false), DispatcherPriority.Loaded);
-        }
-        else
-        {
-            ToggleDrawer(IsOpen, false);
-        }
+        ToggleDrawer(IsOpen, false);
     }
 
     public static readonly DependencyProperty IsOpenProperty =
@@ -157,25 +148,7 @@ public partial class Drawer : ContentControl
 
     private void ToggleDrawer(bool isOpen, bool animated)
     {
-        if (!IsLoaded || (ActualWidth == 0 && ActualHeight == 0))
-        {
-            Dispatcher.BeginInvoke(() => ToggleDrawer(isOpen, animated), DispatcherPriority.Loaded);
-            return;
-        }
-
-        double targetX = Placement switch
-        {
-            DrawerPlacement.Left => isOpen ? 0d : -ActualWidth,
-            DrawerPlacement.Right => isOpen ? 0d : ActualWidth,
-            _ => 0d,
-        };
-
-        double targetY = Placement switch
-        {
-            DrawerPlacement.Top => isOpen ? 0d : -ActualHeight,
-            DrawerPlacement.Bottom => isOpen ? 0d : ActualHeight,
-            _ => 0d,
-        };
+        Point target = GetTargetPosition(isOpen);
 
         // Automatically set ZIndex to topmost if enabled and opening
         if (isOpen && AutoZIndex)
@@ -188,13 +161,13 @@ public partial class Drawer : ContentControl
             TimeSpan duration = TimeSpan.FromMilliseconds(Duration);
             DoubleAnimation animX = new()
             {
-                To = targetX,
+                To = target.X,
                 Duration = duration,
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
             DoubleAnimation animY = new()
             {
-                To = targetY,
+                To = target.Y,
                 Duration = duration,
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
@@ -205,9 +178,35 @@ public partial class Drawer : ContentControl
         {
             TranslateTransform.BeginAnimation(TranslateTransform.XProperty, null);
             TranslateTransform.BeginAnimation(TranslateTransform.YProperty, null);
-            TranslateTransform.X = targetX;
-            TranslateTransform.Y = targetY;
+            TranslateTransform.X = target.X;
+            TranslateTransform.Y = target.Y;
         }
+    }
+
+    protected Point GetTargetPosition(bool isOpen)
+    {
+        // Attention Point
+        // When the Drawer is not loaded, ActualWidth and ActualHeight will be `0d`.
+        // If the Drawer size is Stretch, Width and Height will be `NaN`.
+
+        double sizeX = double.IsNaN(Width) ? ActualWidth : Width;
+        double sizeY = double.IsNaN(Height) ? ActualHeight : Height;
+
+        double targetX = Placement switch
+        {
+            DrawerPlacement.Left => isOpen ? 0 : -sizeX,
+            DrawerPlacement.Right => isOpen ? 0 : sizeX,
+            _ => 0d,
+        };
+
+        double targetY = Placement switch
+        {
+            DrawerPlacement.Top => isOpen ? 0 : -sizeY,
+            DrawerPlacement.Bottom => isOpen ? 0 : sizeY,
+            _ => 0d,
+        };
+
+        return new Point(targetX, targetY);
     }
 
     public void Show(bool animated = true)

@@ -33,6 +33,12 @@ public partial class MainWindow : FluentWindow
         ScrollViewer.ScrollToEnd();
 
         InitNode1Value();
+
+        Dispatcher.BeginInvoke(async () =>
+        {
+            await Task.Delay(2222);
+            DrawerContainer.Visibility = System.Windows.Visibility.Visible;
+        });
     }
 
     [ObservableProperty]

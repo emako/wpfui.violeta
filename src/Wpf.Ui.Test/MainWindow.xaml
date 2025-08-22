@@ -14,7 +14,7 @@
     Width="1200"
     Height="800"
     d:Background="#232323"
-    d:Height="2000"
+    d:Height="2400"
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
@@ -1061,10 +1061,12 @@
                     </StackPanel>
                     <StackPanel Margin="0,8,0,0">
                         <ui:Grid
+                            x:Name="DrawerContainer"
                             Margin="0,100,0,100"
                             Background="#10999999"
                             ColumnDefinitions="Auto,*,Auto"
-                            RowDefinitions="Auto,*,Auto">
+                            RowDefinitions="Auto,*,Auto"
+                            Visibility="Collapsed">
                             <TextBlock
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
@@ -1079,6 +1081,9 @@
                                 Grid.Row="0"
                                 Grid.Column="0"
                                 Width="300"
+                                Height="100"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
                                 IsOpen="{Binding IsOpenOfLeftDrawer}"
                                 Placement="Left">
                                 <Border
@@ -1098,6 +1103,7 @@
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 Width="300"
+                                Height="100"
                                 IsOpen="{Binding IsOpenOfTopDrawer}"
                                 Placement="Top">
                                 <Border
@@ -1117,6 +1123,7 @@
                                 Grid.Row="0"
                                 Grid.Column="2"
                                 Width="300"
+                                Height="100"
                                 IsOpen="{Binding IsOpenOfRightDrawer}"
                                 Placement="Right">
                                 <Border
@@ -1136,6 +1143,7 @@
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 Width="300"
+                                Height="100"
                                 IsOpen="{Binding IsOpenOfBottomDrawer}"
                                 Placement="Bottom">
                                 <Border
