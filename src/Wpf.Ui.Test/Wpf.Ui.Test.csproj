@@ -6,9 +6,9 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>preview</LangVersion>
-		<AssemblyVersion>4.0.3.3</AssemblyVersion>
-		<FileVersion>4.0.3.3</FileVersion>
-		<Version>$(VersionPrefix)4.0.3.3</Version>
+		<AssemblyVersion>4.0.3.4</AssemblyVersion>
+		<FileVersion>4.0.3.4</FileVersion>
+		<Version>$(VersionPrefix)4.0.3.4</Version>
 		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
 		<DebugType>embedded</DebugType>
 	</PropertyGroup>
