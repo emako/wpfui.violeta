@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Wpf.Ui.Controls;
 
@@ -11,20 +11,50 @@ namespace Wpf.Ui.Controls;
 /// A WPF ContentControl that displays a sliding panel (Drawer) from any edge of its container.
 /// Supports animated open/close, placement on any side (Left, Right, Top, Bottom), and optional automatic ZIndex management.
 /// </summary>
-[ContentProperty(nameof(Content))]
-public class Drawer : ContentControl
+
+[TemplatePart(Name = "PART_DrawerContainer", Type = typeof(Border))]
+public partial class Drawer : ContentControl
 {
+    private Border? _container;
+
+    public event EventHandler? Opened;
+
+    public event EventHandler? Closed;
+
     public TranslateTransform TranslateTransform => (TranslateTransform)RenderTransform;
+
+    static Drawer()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(Drawer), new FrameworkPropertyMetadata(typeof(Drawer)));
+    }
 
     public Drawer()
     {
-        RenderTransform = new TranslateTransform();
+        ResourceDictionary dict = new()
+        {
+            Source = new Uri("pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Layout/Drawer.xaml", UriKind.Absolute)
+        };
+        if (!Resources.MergedDictionaries.Contains(dict))
+            Resources.MergedDictionaries.Add(dict);
+
+        if (RenderTransform as TranslateTransform is null)
+            RenderTransform = new TranslateTransform();
         Loaded += OnLoaded;
     }
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        Loaded -= OnLoaded; ApplyPlacement(); ToggleDrawer(IsOpen, false);
+        Loaded -= OnLoaded;
+        ApplyPlacement();
+
+        if (!IsLoaded || ActualWidth == 0 || ActualHeight == 0)
+        {
+            Dispatcher.BeginInvoke(() => ToggleDrawer(IsOpen, false), DispatcherPriority.Loaded);
+        }
+        else
+        {
+            ToggleDrawer(IsOpen, false);
+        }
     }
 
     public static readonly DependencyProperty IsOpenProperty =
@@ -39,7 +69,12 @@ public class Drawer : ContentControl
     private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var drawer = (Drawer)d;
-        drawer.ToggleDrawer((bool)e.NewValue, true);
+        bool isOpen = (bool)e.NewValue;
+        drawer.ToggleDrawer(isOpen, true);
+        if (isOpen)
+            drawer.Opened?.Invoke(drawer, EventArgs.Empty);
+        else
+            drawer.Closed?.Invoke(drawer, EventArgs.Empty);
     }
 
     /// <summary>
@@ -93,44 +128,53 @@ public class Drawer : ContentControl
 
     private void ApplyPlacement()
     {
+        if (_container == null)
+            return;
+
         switch (Placement)
         {
             case DrawerPlacement.Left:
-                (Content as FrameworkElement)?.HorizontalAlignment = HorizontalAlignment.Left;
-                (Content as FrameworkElement)?.VerticalAlignment = VerticalAlignment.Stretch;
+                _container.HorizontalAlignment = HorizontalAlignment.Left;
+                _container.VerticalAlignment = VerticalAlignment.Stretch;
                 break;
 
             case DrawerPlacement.Right:
-                (Content as FrameworkElement)?.HorizontalAlignment = HorizontalAlignment.Right;
-                (Content as FrameworkElement)?.VerticalAlignment = VerticalAlignment.Stretch;
+                _container.HorizontalAlignment = HorizontalAlignment.Right;
+                _container.VerticalAlignment = VerticalAlignment.Stretch;
                 break;
 
             case DrawerPlacement.Top:
-                (Content as FrameworkElement)?.VerticalAlignment = VerticalAlignment.Top;
-                (Content as FrameworkElement)?.HorizontalAlignment = HorizontalAlignment.Stretch;
+                _container.VerticalAlignment = VerticalAlignment.Top;
+                _container.HorizontalAlignment = HorizontalAlignment.Stretch;
                 break;
 
             case DrawerPlacement.Bottom:
-                (Content as FrameworkElement)?.VerticalAlignment = VerticalAlignment.Bottom;
-                (Content as FrameworkElement)?.HorizontalAlignment = HorizontalAlignment.Stretch;
+                _container.VerticalAlignment = VerticalAlignment.Bottom;
+                _container.HorizontalAlignment = HorizontalAlignment.Stretch;
                 break;
         }
     }
 
     private void ToggleDrawer(bool isOpen, bool animated)
     {
+        if (!IsLoaded || (ActualWidth == 0 && ActualHeight == 0))
+        {
+            Dispatcher.BeginInvoke(() => ToggleDrawer(isOpen, animated), DispatcherPriority.Loaded);
+            return;
+        }
+
         double targetX = Placement switch
         {
-            DrawerPlacement.Left => isOpen ? 0 : (IsLoaded ? -ActualWidth : -Width),
-            DrawerPlacement.Right => isOpen ? 0 : (IsLoaded ? ActualWidth : Width),
-            _ => 0
+            DrawerPlacement.Left => isOpen ? 0d : -ActualWidth,
+            DrawerPlacement.Right => isOpen ? 0d : ActualWidth,
+            _ => 0d,
         };
 
         double targetY = Placement switch
         {
-            DrawerPlacement.Top => isOpen ? 0 : (IsLoaded ? -ActualHeight : -Height),
-            DrawerPlacement.Bottom => isOpen ? 0 : (IsLoaded ? ActualHeight : Height),
-            _ => 0
+            DrawerPlacement.Top => isOpen ? 0d : -ActualHeight,
+            DrawerPlacement.Bottom => isOpen ? 0d : ActualHeight,
+            _ => 0d,
         };
 
         // Automatically set ZIndex to topmost if enabled and opening
@@ -154,7 +198,6 @@ public class Drawer : ContentControl
                 Duration = duration,
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
-
             TranslateTransform.BeginAnimation(TranslateTransform.XProperty, animX);
             TranslateTransform.BeginAnimation(TranslateTransform.YProperty, animY);
         }
@@ -181,6 +224,13 @@ public class Drawer : ContentControl
             IsOpen = false; // This will trigger the animation via the IsOpen property change handler
         else
             SetCurrentValue(IsOpenProperty, false);
+    }
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+        _container = GetTemplateChild("PART_DrawerContainer") as Border;
+        ApplyPlacement();
     }
 }
 
