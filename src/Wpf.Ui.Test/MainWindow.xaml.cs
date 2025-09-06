@@ -42,7 +42,7 @@ public partial class MainWindow : FluentWindow
     }
 
     [ObservableProperty]
-    private int themeIndex = (int)ApplicationTheme.Dark;
+    private int themeIndex = (int)ApplicationTheme.Dark; // Default Dark forever
 
     partial void OnThemeIndexChanged(int value)
     {

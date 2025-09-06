@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
@@ -14,11 +15,11 @@ public static class ThemeManager
 
     public static void RegisterApplicationThemeChanged()
     {
-        ApplicationThemeManager.Changed -= ApplicationThemeManager_Changed;
-        ApplicationThemeManager.Changed += ApplicationThemeManager_Changed;
+        ApplicationThemeManager.Changed -= OnApplicationThemeManagerChanged;
+        ApplicationThemeManager.Changed += OnApplicationThemeManagerChanged;
     }
 
-    private static void ApplicationThemeManager_Changed(ApplicationTheme currentApplicationTheme, Color systemAccent)
+    private static void OnApplicationThemeManagerChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
     {
         ResourceDictionaryManager appDictionaries = new(LibraryNamespace);
 
@@ -196,13 +197,32 @@ public static class ThemeManager
     {
         if (theme == ApplicationTheme.Unknown)
         {
-            // To change `Unknown` to `System`.
+            // To change `Unknown` to `System` as default.
+            // If you want to follow the system theme, simply call `TrackSystemThemeChanges(isTracked: true);`.
             theme = GetApplicationTheme();
         }
 
         if (ApplicationThemeManager.GetAppTheme() != theme)
         {
-            ApplicationThemeManager.Apply(theme, WindowBackdropType.Mica, true);
+            ApplicationThemeManager.Apply(theme, backgroundEffect: WindowBackdropType.Mica, updateAccent: true);
+        }
+    }
+
+    public static void TrackSystemThemeChanges(bool isTracked = true)
+    {
+        if (isTracked)
+        {
+            SystemEvents.UserPreferenceChanged -= OnSystemThemeChanged;
+            SystemEvents.UserPreferenceChanged += OnSystemThemeChanged;
+        }
+        else
+        {
+            SystemEvents.UserPreferenceChanged -= OnSystemThemeChanged;
+        }
+
+        static void OnSystemThemeChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            Dispatcher.CurrentDispatcher.Invoke(() => Apply(ApplicationTheme.Unknown));
         }
     }
 }
