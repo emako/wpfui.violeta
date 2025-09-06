@@ -47,6 +47,7 @@ public partial class MainWindow : FluentWindow
     partial void OnThemeIndexChanged(int value)
     {
         ThemeManager.Apply((ApplicationTheme)value);
+        ThemeManager.TrackSystemThemeChanges(isTracked: (ApplicationTheme)value == ApplicationTheme.Unknown);
     }
 
     [RelayCommand]
