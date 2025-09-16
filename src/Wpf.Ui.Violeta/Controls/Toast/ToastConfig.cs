@@ -37,7 +37,7 @@ public sealed class ToastConfig
 
     public Thickness OffsetMargin { get; set; } = new Thickness(15d);
 
-    public static bool IsStacked { get; set; } = true;
+    public static bool IsStacked { get; set; } = false;
 
     public static int MaxStacked { get; set; } = 5;
 

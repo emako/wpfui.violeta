@@ -53,6 +53,10 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private void ShowToast(Button self)
     {
+        // Demonstrate toasts with stacking disabled
+        var originalIsStacked = ToastConfig.IsStacked;
+        ToastConfig.IsStacked = false;
+
         string message = "This is a toast message";
         ToastLocation toastLocation = (ToastLocation)Enum.Parse(typeof(ToastLocation), self.Content.ToString()!);
 
@@ -83,6 +87,9 @@ public partial class MainWindow : FluentWindow
                 Location = toastLocation,
             });
         }
+
+        // Restore original setting after a delay
+        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
     }
 
     [RelayCommand]
@@ -94,12 +101,18 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private void ShowStackedToasts()
     {
-        // Demonstrate toast stacking by showing multiple toasts quickly
+        // Demonstrate toasts with stacking enabled
+        var originalIsStacked = ToastConfig.IsStacked;
+        ToastConfig.IsStacked = true;
+
         Toast.Information("First toast message");
         Toast.Warning("Second toast message");
         Toast.Error("Third toast message");
         Toast.Success("Fourth toast message");
         Toast.Question("Fifth toast message");
+
+        // Restore original setting after a delay
+        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
     }
 
     [RelayCommand]
