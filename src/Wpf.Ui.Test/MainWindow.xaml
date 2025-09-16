@@ -412,6 +412,24 @@
                             Content="BottomRight"
                             Tag="Question" />
                     </StackPanel>
+                    <StackPanel Margin="0,16,0,0">
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Toast Stacking Test" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Multiple" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowStackedToastsCommand}"
+                                Content="Show 5 Stacked Toasts" />
+                        </StackPanel>
+                    </StackPanel>
                     <StackPanel>
                         <TextBlock
                             Margin="0,8,0,0"

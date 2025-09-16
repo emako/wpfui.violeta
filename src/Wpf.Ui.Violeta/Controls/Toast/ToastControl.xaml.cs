@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -16,6 +17,7 @@ public partial class ToastControl : UserControl
     public DispatcherTimer Timer { get; set; } = null!;
     public Thickness OffsetMargin { get; set; } = new Thickness(15);
     public ToastConfig? Options { get; set; } = null!;
+    private bool _isUnregistered = false;
 
     public ToastControl() : this(null!, string.Empty)
     {
@@ -96,7 +98,7 @@ public partial class ToastControl : UserControl
                     return;
                 }
                 // Unregister when popup closes
-                Toast.UnregisterToast(Window, this);
+                UnregisterSafely();
             };
             Popup.IsOpen = true;
         });
@@ -201,26 +203,22 @@ public partial class ToastControl : UserControl
         var activeToasts = Toast.GetActiveToasts(Window);
         double offset = 0;
 
-        foreach (var toast in activeToasts)
+        // Get all toasts with the same location that are currently open and came before this one
+        var relevantToasts = activeToasts
+            .Where(toast => toast != currentToast && 
+                           toast.Location == currentToast.Location && 
+                           toast.Popup != null && 
+                           toast.Popup.IsOpen)
+            .ToList();
+
+        foreach (var toast in relevantToasts)
         {
-            // Only count toasts that are at the same location and came before this one
-            if (toast != currentToast && toast.Location == currentToast.Location && toast.Popup != null && toast.Popup.IsOpen)
-            {
-                // Calculate the height of the existing toast including margins
-                double toastHeight = toast.Popup.Child.RenderSize.Height;
-                double spacing = 10; // Spacing between toasts
-                
-                // For bottom locations, we stack upward (negative offset)
-                // For top locations, we stack downward (positive offset)
-                if (IsBottomLocation(currentToast.Location))
-                {
-                    offset += toastHeight + spacing;
-                }
-                else
-                {
-                    offset += toastHeight + spacing;
-                }
-            }
+            // Calculate the height of the existing toast including margins
+            double toastHeight = toast.Popup.Child.RenderSize.Height;
+            if (toastHeight == 0) toastHeight = 48; // Default height if not yet rendered
+            double spacing = 10; // Spacing between toasts
+            
+            offset += toastHeight + spacing;
         }
 
         return offset;
@@ -245,7 +243,16 @@ public partial class ToastControl : UserControl
         Window.SizeChanged -= OnUpdatePosition;
         
         // Ensure toast is unregistered when manually closed
-        Toast.UnregisterToast(Window, this);
+        UnregisterSafely();
+    }
+
+    private void UnregisterSafely()
+    {
+        if (!_isUnregistered)
+        {
+            _isUnregistered = true;
+            Toast.UnregisterToast(Window, this);
+        }
     }
 
     public string Message
