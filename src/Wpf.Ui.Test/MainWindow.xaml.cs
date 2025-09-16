@@ -92,6 +92,17 @@ public partial class MainWindow : FluentWindow
     }
 
     [RelayCommand]
+    private void ShowStackedToasts()
+    {
+        // Demonstrate toast stacking by showing multiple toasts quickly
+        Toast.Information("First toast message");
+        Toast.Warning("Second toast message");
+        Toast.Error("Third toast message");
+        Toast.Success("Fourth toast message");
+        Toast.Question("Fifth toast message");
+    }
+
+    [RelayCommand]
     private async Task ShowContentDialogAsync()
     {
         ContentDialog dialog = new()

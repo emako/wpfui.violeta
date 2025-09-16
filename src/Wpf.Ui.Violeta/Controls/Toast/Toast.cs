@@ -1,10 +1,51 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 public static class Toast
 {
+    private static readonly Dictionary<Window, List<ToastControl>> _activeToasts = new();
+
+    internal static void RegisterToast(Window window, ToastControl toast)
+    {
+        if (!_activeToasts.ContainsKey(window))
+        {
+            _activeToasts[window] = new List<ToastControl>();
+        }
+        _activeToasts[window].Add(toast);
+    }
+
+    internal static void UnregisterToast(Window window, ToastControl toast)
+    {
+        if (_activeToasts.ContainsKey(window))
+        {
+            _activeToasts[window].Remove(toast);
+            if (_activeToasts[window].Count == 0)
+            {
+                _activeToasts.Remove(window);
+            }
+            // Update positions of remaining toasts
+            UpdateToastPositions(window);
+        }
+    }
+
+    internal static List<ToastControl> GetActiveToasts(Window window)
+    {
+        return _activeToasts.ContainsKey(window) ? _activeToasts[window] : new List<ToastControl>();
+    }
+
+    private static void UpdateToastPositions(Window window)
+    {
+        if (_activeToasts.ContainsKey(window))
+        {
+            foreach (var toast in _activeToasts[window])
+            {
+                toast.UpdatePosition();
+            }
+        }
+    }
     public static void Information(FrameworkElement owner, string message, ToastLocation location = ToastLocation.TopCenter, Thickness offsetMargin = default, int time = ToastConfig.NormalTime)
         => Show(owner, message, new ToastConfig(ToastIcon.Information, location, offsetMargin, time));
 
