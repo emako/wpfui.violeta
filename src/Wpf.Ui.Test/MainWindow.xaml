@@ -429,6 +429,30 @@
                                 Command="{Binding ShowStackedToastsCommand}"
                                 Content="Show 5 Stacked Toasts" />
                         </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Non-Stack" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNonStackedToastsCommand}"
+                                Content="Show Non-Stacked Toasts" />
+                        </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Max Stack" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowLimitedStackedToastsCommand}"
+                                Content="Show Limited Stack (Max 2)" />
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock

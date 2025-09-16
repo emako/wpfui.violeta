@@ -37,6 +37,10 @@ public sealed class ToastConfig
 
     public Thickness OffsetMargin { get; set; } = new Thickness(15d);
 
+    public bool IsStacked { get; set; } = true;
+
+    public int MaxStacked { get; set; } = 5;
+
     public ToastConfig()
     {
     }
@@ -50,5 +54,11 @@ public sealed class ToastConfig
             OffsetMargin = offsetMargin;
         }
         Time = time;
+    }
+
+    public ToastConfig(ToastIcon icon, ToastLocation location, Thickness offsetMargin, int time, bool isStacked, int maxStacked) : this(icon, location, offsetMargin, time)
+    {
+        IsStacked = isStacked;
+        MaxStacked = maxStacked;
     }
 }
