@@ -39,7 +39,7 @@ public sealed class ToastConfig
 
     public static bool IsStacked { get; set; } = false;
 
-    public static int MaxStacked { get; set; } = 5;
+    public static int MaxStacked { get; set; } = 10;
 
     public ToastConfig()
     {
