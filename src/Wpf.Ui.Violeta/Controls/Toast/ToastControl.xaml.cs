@@ -201,7 +201,7 @@ public partial class ToastControl : UserControl
     private double CalculateStackingOffset(ToastControl currentToast)
     {
         // Check if stacking is enabled in config
-        if (currentToast.Options != null && !currentToast.Options.IsStacked)
+        if (!ToastConfig.IsStacked)
         {
             return 0; // No stacking if disabled
         }
@@ -218,12 +218,11 @@ public partial class ToastControl : UserControl
             .ToList();
 
         // Apply max stacking limit if configured
-        int maxStacked = currentToast.Options?.MaxStacked ?? 5;
-        if (relevantToasts.Count >= maxStacked)
+        if (relevantToasts.Count >= ToastConfig.MaxStacked)
         {
             // If we've reached the max, don't stack this toast - it will overlay the last one
             // or we could implement a rotation/replacement strategy
-            relevantToasts = relevantToasts.Take(maxStacked - 1).ToList();
+            relevantToasts = relevantToasts.Take(ToastConfig.MaxStacked - 1).ToList();
         }
 
         foreach (var toast in relevantToasts)

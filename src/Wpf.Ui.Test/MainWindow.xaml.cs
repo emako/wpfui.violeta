@@ -106,19 +106,31 @@ public partial class MainWindow : FluentWindow
     private void ShowNonStackedToasts()
     {
         // Demonstrate toasts with stacking disabled
-        Toast.Information("Non-stacked toast 1", ToastLocation.TopCenter, default, ToastConfig.NormalTime, false);
-        Toast.Warning("Non-stacked toast 2", ToastLocation.TopCenter, default, ToastConfig.NormalTime, false);
-        Toast.Error("Non-stacked toast 3", ToastLocation.TopCenter, default, ToastConfig.NormalTime, false);
+        var originalIsStacked = ToastConfig.IsStacked;
+        ToastConfig.IsStacked = false;
+        
+        Toast.Information("Non-stacked toast 1");
+        Toast.Warning("Non-stacked toast 2");
+        Toast.Error("Non-stacked toast 3");
+        
+        // Restore original setting after a delay
+        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
     }
 
     [RelayCommand]
     private void ShowLimitedStackedToasts()
     {
         // Demonstrate max stacking limit of 2
-        Toast.Information("Limited stack 1", ToastLocation.TopCenter, default, ToastConfig.NormalTime, true, 2);
-        Toast.Warning("Limited stack 2", ToastLocation.TopCenter, default, ToastConfig.NormalTime, true, 2);
-        Toast.Error("Limited stack 3 (should overlay)", ToastLocation.TopCenter, default, ToastConfig.NormalTime, true, 2);
-        Toast.Success("Limited stack 4 (should overlay)", ToastLocation.TopCenter, default, ToastConfig.NormalTime, true, 2);
+        var originalMaxStacked = ToastConfig.MaxStacked;
+        ToastConfig.MaxStacked = 2;
+        
+        Toast.Information("Limited stack 1");
+        Toast.Warning("Limited stack 2");
+        Toast.Error("Limited stack 3 (should overlay)");
+        Toast.Success("Limited stack 4 (should overlay)");
+        
+        // Restore original setting after a delay
+        Task.Delay(100).ContinueWith(_ => ToastConfig.MaxStacked = originalMaxStacked);
     }
 
     [RelayCommand]
