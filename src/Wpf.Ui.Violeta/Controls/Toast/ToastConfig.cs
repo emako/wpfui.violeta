@@ -41,6 +41,8 @@ public sealed class ToastConfig
 
     public static int MaxStacked { get; set; } = 10;
 
+    public static bool MaintainPositionAfterDisplay { get; set; } = true;
+
     public ToastConfig()
     {
     }

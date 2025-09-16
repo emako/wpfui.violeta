@@ -147,6 +147,28 @@ public partial class MainWindow : FluentWindow
     }
 
     [RelayCommand]
+    private void ShowMaintainPositionToasts()
+    {
+        // Demonstrate position maintenance behavior
+        var originalIsStacked = ToastConfig.IsStacked;
+        var originalMaintainPosition = ToastConfig.MaintainPositionAfterDisplay;
+        
+        ToastConfig.IsStacked = true;
+        ToastConfig.MaintainPositionAfterDisplay = true;
+        
+        Toast.Information("Position maintained 1 (will keep position when others disappear)");
+        Toast.Warning("Position maintained 2 (will keep position when others disappear)");
+        Toast.Error("Position maintained 3 (will keep position when others disappear)");
+        
+        // Restore original settings after a delay
+        Task.Delay(100).ContinueWith(_ => 
+        {
+            ToastConfig.IsStacked = originalIsStacked;
+            ToastConfig.MaintainPositionAfterDisplay = originalMaintainPosition;
+        });
+    }
+
+    [RelayCommand]
     private async Task ShowContentDialogAsync()
     {
         ContentDialog dialog = new()

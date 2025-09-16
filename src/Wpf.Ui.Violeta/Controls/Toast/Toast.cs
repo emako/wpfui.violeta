@@ -26,8 +26,11 @@ public static class Toast
             {
                 _activeToasts.Remove(window);
             }
-            // Update positions of remaining toasts
-            UpdateToastPositions(window);
+            // Update positions of remaining toasts only if not maintaining position
+            else if (!ToastConfig.MaintainPositionAfterDisplay)
+            {
+                UpdateToastPositions(window);
+            }
         }
     }
 

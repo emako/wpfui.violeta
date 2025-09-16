@@ -453,6 +453,18 @@
                                 Command="{Binding ShowLimitedStackedToastsCommand}"
                                 Content="Show Limited Stack (Max 2)" />
                         </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Position" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowMaintainPositionToastsCommand}"
+                                Content="Show Position Maintained Toasts" />
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock
