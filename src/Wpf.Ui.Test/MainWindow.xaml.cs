@@ -53,9 +53,9 @@ public partial class MainWindow : FluentWindow
     [RelayCommand]
     private void ShowToast(Button self)
     {
-        // Demonstrate toasts with stacking disabled
+        // Demonstrate toasts with stacking enabled
         var originalIsStacked = ToastConfig.IsStacked;
-        ToastConfig.IsStacked = false;
+        ToastConfig.IsStacked = true;
 
         string message = "This is a toast message";
         ToastLocation toastLocation = (ToastLocation)Enum.Parse(typeof(ToastLocation), self.Content.ToString()!);
@@ -121,11 +121,11 @@ public partial class MainWindow : FluentWindow
         // Demonstrate toasts with stacking disabled
         var originalIsStacked = ToastConfig.IsStacked;
         ToastConfig.IsStacked = false;
-        
+
         Toast.Information("Non-stacked toast 1");
         Toast.Warning("Non-stacked toast 2");
         Toast.Error("Non-stacked toast 3");
-        
+
         // Restore original setting after a delay
         Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
     }
@@ -136,12 +136,12 @@ public partial class MainWindow : FluentWindow
         // Demonstrate max stacking limit of 2
         var originalMaxStacked = ToastConfig.MaxStacked;
         ToastConfig.MaxStacked = 2;
-        
+
         Toast.Information("Limited stack 1");
         Toast.Warning("Limited stack 2");
         Toast.Error("Limited stack 3 (should overlay)");
         Toast.Success("Limited stack 4 (should overlay)");
-        
+
         // Restore original setting after a delay
         Task.Delay(100).ContinueWith(_ => ToastConfig.MaxStacked = originalMaxStacked);
     }
@@ -151,20 +151,20 @@ public partial class MainWindow : FluentWindow
     {
         // Demonstrate position maintenance behavior
         var originalIsStacked = ToastConfig.IsStacked;
-        var originalMaintainPosition = ToastConfig.MaintainPositionAfterDisplay;
-        
+        var originalMaintainPosition = ToastConfig.IsStackedPosition;
+
         ToastConfig.IsStacked = true;
-        ToastConfig.MaintainPositionAfterDisplay = true;
-        
+        ToastConfig.IsStackedPosition = true;
+
         Toast.Information("Position maintained 1 (will keep position when others disappear)");
         Toast.Warning("Position maintained 2 (will keep position when others disappear)");
         Toast.Error("Position maintained 3 (will keep position when others disappear)");
-        
+
         // Restore original settings after a delay
-        Task.Delay(100).ContinueWith(_ => 
+        Task.Delay(100).ContinueWith(_ =>
         {
             ToastConfig.IsStacked = originalIsStacked;
-            ToastConfig.MaintainPositionAfterDisplay = originalMaintainPosition;
+            ToastConfig.IsStackedPosition = originalMaintainPosition;
         });
     }
 

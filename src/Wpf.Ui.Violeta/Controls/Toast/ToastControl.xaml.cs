@@ -12,12 +12,16 @@ namespace Wpf.Ui.Violeta.Controls;
 public partial class ToastControl : UserControl
 {
     public Window Window { get; internal set; } = null!;
+
     public FrameworkElement Owner { get; private set; } = null!;
+
     public Popup Popup { get; internal set; } = null!;
+
     public DispatcherTimer Timer { get; set; } = null!;
-    public Thickness OffsetMargin { get; set; } = new Thickness(15);
+
+    public Thickness OffsetMargin { get; set; } = new Thickness(15d);
+
     public ToastConfig? Options { get; set; } = null!;
-    private bool _isUnregistered = false;
 
     public ToastControl() : this(null!, string.Empty)
     {
@@ -211,9 +215,9 @@ public partial class ToastControl : UserControl
 
         // Get all toasts with the same location that are currently open and came before this one
         var relevantToasts = activeToasts
-            .Where(toast => toast != currentToast && 
-                           toast.Location == currentToast.Location && 
-                           toast.Popup != null && 
+            .Where(toast => toast != currentToast &&
+                           toast.Location == currentToast.Location &&
+                           toast.Popup != null &&
                            toast.Popup.IsOpen)
             .ToList();
 
@@ -231,18 +235,11 @@ public partial class ToastControl : UserControl
             double toastHeight = toast.Popup.Child.RenderSize.Height;
             if (toastHeight == 0) toastHeight = 48; // Default height if not yet rendered
             double spacing = 10; // Spacing between toasts
-            
+
             offset += toastHeight + spacing;
         }
 
         return offset;
-    }
-
-    private static bool IsBottomLocation(ToastLocation location)
-    {
-        return location == ToastLocation.BottomLeft || 
-               location == ToastLocation.BottomCenter || 
-               location == ToastLocation.BottomRight;
     }
 
     public void Close()
@@ -255,18 +252,14 @@ public partial class ToastControl : UserControl
         Popup.IsOpen = false;
         Window.LocationChanged -= OnUpdatePosition;
         Window.SizeChanged -= OnUpdatePosition;
-        
+
         // Ensure toast is unregistered when manually closed
         UnregisterSafely();
     }
 
     private void UnregisterSafely()
     {
-        if (!_isUnregistered)
-        {
-            _isUnregistered = true;
-            Toast.UnregisterToast(Window, this);
-        }
+        Toast.UnregisterToast(Window, this);
     }
 
     public string Message

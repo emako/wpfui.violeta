@@ -39,9 +39,9 @@ public sealed class ToastConfig
 
     public static bool IsStacked { get; set; } = false;
 
-    public static int MaxStacked { get; set; } = 10;
+    public static bool IsStackedPosition { get; set; } = false;
 
-    public static bool MaintainPositionAfterDisplay { get; set; } = true;
+    public static int MaxStacked { get; set; } = 25;
 
     public ToastConfig()
     {

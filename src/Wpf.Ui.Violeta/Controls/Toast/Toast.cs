@@ -26,9 +26,9 @@ public static class Toast
             {
                 _activeToasts.Remove(window);
             }
-            // Update positions of remaining toasts only if not maintaining position
-            else if (!ToastConfig.MaintainPositionAfterDisplay)
+            else if (ToastConfig.IsStackedPosition)
             {
+                // Update positions of remaining toasts
                 UpdateToastPositions(window);
             }
         }
@@ -49,6 +49,7 @@ public static class Toast
             }
         }
     }
+
     public static void Information(FrameworkElement owner, string message, ToastLocation location = ToastLocation.TopCenter, Thickness offsetMargin = default, int time = ToastConfig.NormalTime)
         => Show(owner, message, new ToastConfig(ToastIcon.Information, location, offsetMargin, time));
 
