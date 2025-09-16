@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public sealed class ToastConfig
+public sealed class ToastConfig()
 {
     public const int FastTime = 1500;
     public const int NormalTime = 2000;
@@ -37,9 +37,11 @@ public sealed class ToastConfig
 
     public Thickness OffsetMargin { get; set; } = new Thickness(15d);
 
-    public ToastConfig()
-    {
-    }
+    public static bool IsStacked { get; set; } = false;
+
+    public static bool IsStackedPosition { get; set; } = false;
+
+    public static int MaxStacked { get; set; } = 25;
 
     public ToastConfig(ToastIcon icon, ToastLocation location, Thickness offsetMargin, int time) : this()
     {

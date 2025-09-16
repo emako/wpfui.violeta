@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -11,10 +12,15 @@ namespace Wpf.Ui.Violeta.Controls;
 public partial class ToastControl : UserControl
 {
     public Window Window { get; internal set; } = null!;
+
     public FrameworkElement Owner { get; private set; } = null!;
+
     public Popup Popup { get; internal set; } = null!;
+
     public DispatcherTimer Timer { get; set; } = null!;
-    public Thickness OffsetMargin { get; set; } = new Thickness(15);
+
+    public Thickness OffsetMargin { get; set; } = new Thickness(15d);
+
     public ToastConfig? Options { get; set; } = null!;
 
     public ToastControl() : this(null!, string.Empty)
@@ -79,6 +85,9 @@ public partial class ToastControl : UserControl
             Window.LocationChanged += OnUpdatePosition;
             Window.SizeChanged += OnUpdatePosition;
 
+            // Register this toast with the manager
+            Toast.RegisterToast(Window, this);
+
             SetPopupOffset(Popup, this);
 
             Popup.Opened += OnUpdatePosition;
@@ -92,6 +101,8 @@ public partial class ToastControl : UserControl
                 {
                     return;
                 }
+                // Unregister when popup closes
+                UnregisterSafely();
             };
             Popup.IsOpen = true;
         });
@@ -118,6 +129,11 @@ public partial class ToastControl : UserControl
         up.Invoke(Popup, null);
     }
 
+    internal void UpdatePosition()
+    {
+        OnUpdatePosition(null, EventArgs.Empty);
+    }
+
     protected virtual void SetPopupOffset(Popup popup, ToastControl toast)
     {
         double ownerWidth = toast.Owner.RenderSize.Width;
@@ -134,53 +150,96 @@ public partial class ToastControl : UserControl
             ownerHeight = SystemParameters.WorkArea.Size.Height * DpiHelper.ScaleY;
         }
 
+        // Calculate stacking offset for this toast
+        double stackingOffset = CalculateStackingOffset(toast);
+
         switch (toast.Location)
         {
             case ToastLocation.Center:
                 popup.HorizontalOffset = (ownerWidth - popupWidth) / 2d;
-                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d;
+                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d + stackingOffset;
                 break;
 
             case ToastLocation.Left:
                 popup.HorizontalOffset = offset.Left;
-                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d;
+                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d + stackingOffset;
                 break;
 
             case ToastLocation.Right:
                 popup.HorizontalOffset = ownerWidth - popupWidth - offset.Right;
-                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d;
+                popup.VerticalOffset = (ownerHeight - popupHeight) / 2d + stackingOffset;
                 break;
 
             case ToastLocation.TopLeft:
                 popup.HorizontalOffset = offset.Left;
-                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top;
+                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top + stackingOffset;
                 break;
 
             case ToastLocation.TopCenter:
                 popup.HorizontalOffset = (ownerWidth - popupWidth) / 2d;
-                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top;
+                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top + stackingOffset;
                 break;
 
             case ToastLocation.TopRight:
                 popup.HorizontalOffset = ownerWidth - popupWidth - offset.Right;
-                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top;
+                popup.VerticalOffset = toast.OffsetMargin.Top + offset.Top + stackingOffset;
                 break;
 
             case ToastLocation.BottomLeft:
                 popup.HorizontalOffset = offset.Left;
-                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom;
+                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom - stackingOffset;
                 break;
 
             case ToastLocation.BottomCenter:
                 popup.HorizontalOffset = (ownerWidth - popupWidth) / 2d;
-                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom;
+                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom - stackingOffset;
                 break;
 
             case ToastLocation.BottomRight:
                 popup.HorizontalOffset = ownerWidth - popupWidth - offset.Right;
-                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom;
+                popup.VerticalOffset = ownerHeight - popupHeight - offset.Bottom - stackingOffset;
                 break;
         }
+    }
+
+    private double CalculateStackingOffset(ToastControl currentToast)
+    {
+        // Check if stacking is enabled in config
+        if (!ToastConfig.IsStacked)
+        {
+            return 0; // No stacking if disabled
+        }
+
+        var activeToasts = Toast.GetActiveToasts(Window);
+        double offset = 0;
+
+        // Get all toasts with the same location that are currently open and came before this one
+        var relevantToasts = activeToasts
+            .Where(toast => toast != currentToast &&
+                           toast.Location == currentToast.Location &&
+                           toast.Popup != null &&
+                           toast.Popup.IsOpen)
+            .ToList();
+
+        // Apply max stacking limit if configured
+        if (relevantToasts.Count >= ToastConfig.MaxStacked)
+        {
+            // If we've reached the max, don't stack this toast - it will overlay the last one
+            // or we could implement a rotation/replacement strategy
+            relevantToasts = relevantToasts.Take(ToastConfig.MaxStacked - 1).ToList();
+        }
+
+        foreach (var toast in relevantToasts)
+        {
+            // Calculate the height of the existing toast including margins
+            double toastHeight = toast.Popup.Child.RenderSize.Height;
+            if (toastHeight == 0) toastHeight = 48; // Default height if not yet rendered
+            double spacing = 10; // Spacing between toasts
+
+            offset += toastHeight + spacing;
+        }
+
+        return offset;
     }
 
     public void Close()
@@ -193,6 +252,14 @@ public partial class ToastControl : UserControl
         Popup.IsOpen = false;
         Window.LocationChanged -= OnUpdatePosition;
         Window.SizeChanged -= OnUpdatePosition;
+
+        // Ensure toast is unregistered when manually closed
+        UnregisterSafely();
+    }
+
+    private void UnregisterSafely()
+    {
+        Toast.UnregisterToast(Window, this);
     }
 
     public string Message
