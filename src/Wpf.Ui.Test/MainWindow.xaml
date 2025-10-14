@@ -1083,6 +1083,95 @@
                             <TextBlock VerticalAlignment="Center" Text="Title                     1" />
                             <Button Content="Button2" />
                         </ui:AutoGrid>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="UniformGrid vs AutoGrid" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                VerticalAlignment="Center"
+                                Text="UniformGrid:" />
+                            <Border
+                                Width="400"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Left"
+                                BorderBrush="AliceBlue"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <UniformGrid Columns="3">
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                </UniformGrid>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                VerticalAlignment="Center"
+                                Text="AutoGrid:" />
+                            <Border
+                                Width="400"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Left"
+                                BorderBrush="AliceBlue"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <ui:AutoGrid
+                                    ChildMargin="9"
+                                    ColumnCount="3"
+                                    RowCount="22">
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Red" />
+                                    <Border
+                                        Width="30"
+                                        Height="30"
+                                        Background="Green" />
+                                </ui:AutoGrid>
+                            </Border>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock
