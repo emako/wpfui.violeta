@@ -20,7 +20,7 @@ using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
 namespace Wpf.Ui.Test;
 
 [ObservableObject]
-public partial class MainWindow : FluentWindow
+public partial class MainWindow : ShellWindow
 {
     public MainWindow()
     {
@@ -669,6 +669,18 @@ public partial class MainWindow : FluentWindow
             IsOpenOfRightDrawer = !IsOpenOfRightDrawer;
         else if (placementString == "Bottom")
             IsOpenOfBottomDrawer = !IsOpenOfBottomDrawer;
+    }
+
+    [RelayCommand]
+    private void ShowShellWindow()
+    {
+        //SecondWindow window = new()
+        SecondWindow window = new()
+        {
+            AllowsTransparency = false,
+        };
+
+        window.Show();
     }
 }
 

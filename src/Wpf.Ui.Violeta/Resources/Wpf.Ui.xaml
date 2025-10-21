@@ -16,5 +16,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SmoothScrollViewer/SmoothScrollViewer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PendingBox/Loading.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PendingBox/PendingBoxDialog.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ShellWindow/ShellWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

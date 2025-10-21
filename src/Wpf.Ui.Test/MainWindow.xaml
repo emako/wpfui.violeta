@@ -1,4 +1,4 @@
-﻿<ui:FluentWindow
+﻿<vio:ShellWindow
     x:Class="Wpf.Ui.Test.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -1303,9 +1303,18 @@
                             </ui:Drawer>
                         </ui:Grid>
                     </StackPanel>
+                    <StackPanel Margin="0,8,0,0">
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="ShellWindow" />
+                        <Button Command="{Binding ShowShellWindowCommand}" Content="Show ShellWindow" />
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
         <ui:TitleBar Title="Wpf.Ui.Test" />
     </Grid>
-</ui:FluentWindow>
+</vio:ShellWindow>

@@ -1,0 +1,18 @@
+﻿<vio:ShellWindow
+    x:Class="Wpf.Ui.Test.SecondWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Wpf.Ui.Test"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="SecondWindow"
+    Width="800"
+    Height="450"
+    ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
+    mc:Ignorable="d">
+    <Grid>
+        <TextBlock Text="sdf" />
+    </Grid>
+</vio:ShellWindow>
