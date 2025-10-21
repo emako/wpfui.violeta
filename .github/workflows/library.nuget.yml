@@ -19,14 +19,11 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
-      - name: Setup Windows SDK
-        uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.5
-
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj --configuration Release --no-restore
 
       - name: Pack
         run: dotnet pack src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj -c Release --no-build -o out
