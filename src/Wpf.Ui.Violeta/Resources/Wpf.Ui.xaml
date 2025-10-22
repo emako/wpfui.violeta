@@ -17,5 +17,9 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PendingBox/Loading.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PendingBox/PendingBoxDialog.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ShellWindow/ShellWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBarButton/TitleBarButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CaptionButton/CaptionButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CaptionButtonBar/CaptionButtonBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBar/NativeLikeTitleBar.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

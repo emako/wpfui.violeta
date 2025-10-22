@@ -1,0 +1,132 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Wpf.Ui.Violeta;component/Controls/TitleBarButton/TitleBarButton.xaml" />
+        <ResourceDictionary Source="/Wpf.Ui.Violeta;component/Controls/CaptionButtonBar/CaptionButtonBar.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Thickness x:Key="TitleBarCaptionTextMargin">8,0</Thickness>
+
+    <Style TargetType="{x:Type local:NativeLikeTitleBar}">
+        <Setter Property="MinHeight" Value="{StaticResource CaptionStandardHeight}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:NativeLikeTitleBar}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <!--  BackButton  -->
+                                    <ColumnDefinition Width="auto" />
+                                    <!--  PaneToggleButton / MenuButton  -->
+                                    <ColumnDefinition Width="*" />
+                                    <!--  CustomHeaderContent  -->
+                                </Grid.ColumnDefinitions>
+
+                                <local:TitleBarButton
+                                    x:Name="PART_BackButton"
+                                    Grid.Column="0"
+                                    Width="46"
+                                    VerticalAlignment="Stretch"
+                                    Command="{TemplateBinding BackButtonCommand}"
+                                    IsActive="{TemplateBinding IsActive}"
+                                    IsEnabled="{TemplateBinding IsBackButtonEnabled}"
+                                    Visibility="{TemplateBinding BackButtonVisibility}"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <ui:FontIcon
+                                        FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                        FontSize="12"
+                                        Glyph="&#xE72B;" />
+                                </local:TitleBarButton>
+
+                                <local:TitleBarButton
+                                    x:Name="PART_PaneToggleButton"
+                                    Grid.Column="1"
+                                    Width="46"
+                                    VerticalAlignment="Stretch"
+                                    Command="{TemplateBinding PaneToggleButtonCommand}"
+                                    IsActive="{TemplateBinding IsActive}"
+                                    IsEnabled="{TemplateBinding IsPaneToggleButtonEnabled}"
+                                    Visibility="{TemplateBinding PaneToggleButtonVisibility}"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <ui:FontIcon
+                                        FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                        FontSize="13"
+                                        Glyph="&#xE700;" />
+                                </local:TitleBarButton>
+
+                                <ContentControl
+                                    x:Name="PART_CustomHeaderContentControl"
+                                    Grid.Column="2"
+                                    Content="{TemplateBinding CustomHeader}" />
+                            </Grid>
+
+                            <ContentPresenter
+                                x:Name="PART_CenterContentPresenter"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+
+                            <Grid Grid.Column="2" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <ContentControl
+                                    x:Name="PART_CustomFooterContentControl"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Right"
+                                    Content="{TemplateBinding CustomFooter}" />
+
+                                <local:CaptionButtonBar
+                                    x:Name="PART_CaptionButtonBar"
+                                    Grid.Column="1"
+                                    MinHeight="0"
+                                    CloseButtonCommand="{TemplateBinding CloseButtonCommand}"
+                                    CloseButtonVisibility="{TemplateBinding CloseButtonVisibility}"
+                                    Focusable="False"
+                                    HelpButtonCommand="{TemplateBinding HelpButtonCommand}"
+                                    HelpButtonVisibility="{TemplateBinding HelpButtonVisibility}"
+                                    IsActive="{TemplateBinding IsActive}"
+                                    IsCloseButtonEnabled="{TemplateBinding IsCloseButtonEnabled}"
+                                    IsHelpButtonEnabled="{TemplateBinding IsHelpButtonEnabled}"
+                                    IsMaximizeButtonEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
+                                    IsMinimizeButtonEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
+                                    MaximizeButtonCommand="{TemplateBinding MaximizeButtonCommand}"
+                                    MaximizeButtonVisibility="{TemplateBinding MaximizeButtonVisibility}"
+                                    MinimizeButtonCommand="{TemplateBinding MinimizeButtonCommand}"
+                                    MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter TargetName="PART_CustomHeaderContentControl" Property="Opacity" Value="{StaticResource TitleBarButtonInactiveForegroundOpacity}" />
+                            <Setter TargetName="PART_CenterContentPresenter" Property="Opacity" Value="{StaticResource TitleBarButtonInactiveForegroundOpacity}" />
+                            <Setter TargetName="PART_CustomFooterContentControl" Property="Opacity" Value="{StaticResource TitleBarButtonInactiveForegroundOpacity}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

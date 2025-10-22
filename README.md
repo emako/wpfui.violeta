@@ -701,7 +701,7 @@ Similar to WPF UI.
 
 Under construction
 
-### Thanks
+### 💞Special Thanks
 
 - [🔗 WPF-UI](https://github.com/lepoco/wpfui)
 - [🔗 Fischless](https://github.com/GenshinMatrix/Fischless)
@@ -709,4 +709,5 @@ Under construction
 - [🔗 TreeListView](https://www.codeproject.com/Articles/30721/WPF-TreeListView-Control)
 - [🔗 CachedImage](https://github.com/floydpink/CachedImage)
 - [🔗 WpfAutoGrid.Core](https://github.com/budul100/WpfAutoGrid.Core)
+- [🔗 NativeLikeCaptionButton-WPF](https://github.com/SuGar0218/NativeLikeCaptionButton-WPF)
 

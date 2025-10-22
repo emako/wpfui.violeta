@@ -1,0 +1,80 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <system:Double x:Key="TitleBarButtonWidth">46</system:Double>
+    <system:Double x:Key="TitleBarButtonIconFontSize">10</system:Double>
+    <system:Double x:Key="TitleBarButtonInactiveForegroundOpacity">0.382</system:Double>
+    <system:Double x:Key="TitleBarButtonPressedForegroundOpacity">0.618</system:Double>
+    <system:Double x:Key="TitleBarButtonDisabledForegroundOpacity">0.382</system:Double>
+
+    <Color x:Key="TitleBarButtonHoverBackgroundColor">#10000000</Color>
+    <Color x:Key="TitleBarButtonPressedBackgroundColor">#08000000</Color>
+
+    <SolidColorBrush x:Key="TitleBarButtonForeground" Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="TitleBarButtonHoverForeground" Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="TitleBarButtonPressedForeground"
+        Opacity="{StaticResource TitleBarButtonPressedForegroundOpacity}"
+        Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
+    <SolidColorBrush
+        x:Key="TitleBarButtonDisabledForeground"
+        Opacity="{StaticResource TitleBarButtonDisabledForegroundOpacity}"
+        Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonDisabledBackground" Color="Transparent" />
+
+    <Style x:Key="TitleBarButtonDefaultStyle" TargetType="{x:Type local:TitleBarButton}">
+        <Setter Property="Width" Value="{StaticResource TitleBarButtonWidth}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TitleBarButton}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.Resources>
+                            <Style TargetType="{x:Type Control}">
+                                <Setter Property="Focusable" Value="False" />
+                            </Style>
+                        </Border.Resources>
+                        <ContentPresenter
+                            x:Name="PART_ContentPresenter"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="{StaticResource TitleBarButtonInactiveForegroundOpacity}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource TitleBarButtonDisabledBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonDisabledForeground}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TitleBarButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonHoverForeground}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource TitleBarButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonPressedForeground}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource TitleBarButtonDefaultStyle}" TargetType="{x:Type local:TitleBarButton}" />
+
+</ResourceDictionary>

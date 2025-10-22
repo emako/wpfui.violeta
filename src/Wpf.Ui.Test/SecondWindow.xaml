@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Wpf.Ui.Test"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     Title="SecondWindow"
     Width="800"
@@ -12,7 +13,112 @@
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
     mc:Ignorable="d">
-    <Grid>
-        <TextBlock Text="sdf" />
-    </Grid>
+    <ui:Grid RowDefinitions="Auto,*">
+        <vio:NativeLikeTitleBar
+            Grid.Row="0"
+            Height="{Binding TitleBarHeight, Mode=OneWay}"
+            BackButtonVisibility="{Binding IsBackButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            CloseButtonVisibility="{Binding IsCloseButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            HelpButtonClick="HelpButtonClick"
+            HelpButtonVisibility="{Binding IsHelpButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            IsBackButtonEnabled="{Binding IsBackButtonEnabled, Mode=OneWay}"
+            IsCloseButtonEnabled="{Binding IsCloseButtonEnabled, Mode=OneWay}"
+            IsHelpButtonEnabled="{Binding IsHelpButtonEnabled, Mode=OneWay}"
+            IsMaximizeButtonEnabled="{Binding IsMaximizeButtonEnabled, Mode=OneWay}"
+            IsMinimizeButtonEnabled="{Binding IsMinimizeButtonEnabled, Mode=OneWay}"
+            IsPaneToggleButtonEnabled="{Binding IsPaneToggleButtonEnabled, Mode=OneWay}"
+            MaximizeButtonVisibility="{Binding IsMaximizeButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            MinimizeButtonVisibility="{Binding IsMinimizeButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+            PaneToggleButtonClick="PaneToggleButtonClick"
+            PaneToggleButtonVisibility="{Binding IsPaneToggleButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+            <vio:NativeLikeTitleBar.CustomHeader>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="8,0"
+                        VerticalAlignment="Center"
+                        Text="CaptionText"
+                        Visibility="{Binding IsCaptionTextVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Menu
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        IsEnabled="{Binding IsMenuBarEnabled, Mode=OneWay}"
+                        Visibility="{Binding IsMenuBarVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <MenuItem Header="File">
+                            <MenuItem Header="Open" />
+                            <MenuItem Header="Save" />
+                            <MenuItem Header="Save as ..." />
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Copy" />
+                            <MenuItem Header="Paste" />
+                            <MenuItem Header="Cut" />
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="Lorem" />
+                            <MenuItem Header="Ipsum" />
+                        </MenuItem>
+                    </Menu>
+                </Grid>
+            </vio:NativeLikeTitleBar.CustomHeader>
+
+            <vio:NativeLikeTitleBar.CustomFooter>
+                <StackPanel Orientation="Horizontal">
+                    <vio:TitleBarButton
+                        IsEnabled="{Binding IsPersonPictureEnabled, Mode=OneWay}"
+                        Visibility="{Binding IsPersonPictureVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <ui:FontIcon
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="14"
+                            Glyph="&#xE77B;" />
+                    </vio:TitleBarButton>
+                    <vio:TitleBarButton
+                        IsEnabled="{Binding IsThemeToggleButtonEnabled, Mode=OneWay}"
+                        Visibility="{Binding IsThemeToggleButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <ui:FontIcon
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="14"
+                            Glyph="&#xE793;" />
+                    </vio:TitleBarButton>
+                    <vio:TitleBarButton
+                        IsEnabled="{Binding IsSettingsButtonEnabled, Mode=OneWay}"
+                        Visibility="{Binding IsSettingsButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <ui:FontIcon
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="14"
+                            Glyph="&#xE713;" />
+                    </vio:TitleBarButton>
+                    <vio:TitleBarButton
+                        Click="FullScreenButtonClick"
+                        IsEnabled="{Binding IsFullScreenButtonEnabled, Mode=OneWay}"
+                        Visibility="{Binding IsFullScreenButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <ui:FontIcon
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="12"
+                            Glyph="&#xE740;" />
+                    </vio:TitleBarButton>
+                </StackPanel>
+            </vio:NativeLikeTitleBar.CustomFooter>
+
+            <TextBox
+                Width="300"
+                MaxHeight="30"
+                VerticalContentAlignment="Center"
+                Text="Lorem ipsum set amet"
+                WindowChrome.IsHitTestVisibleInChrome="True" />
+        </vio:NativeLikeTitleBar>
+
+    </ui:Grid>
 </vio:ShellWindow>

@@ -1,0 +1,57 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <system:Double x:Key="CaptionStandardHeight">30</system:Double>
+    <system:Double x:Key="CaptionMiddleHeight">36</system:Double>
+    <system:Double x:Key="CaptionTallHeight">48</system:Double>
+
+    <Style TargetType="{x:Type local:CaptionButtonBar}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CaptionButtonBar}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Orientation="Horizontal">
+                            <local:CaptionHelpButton
+                                x:Name="HelpButton"
+                                Command="{TemplateBinding HelpButtonCommand}"
+                                IsActive="{TemplateBinding IsActive}"
+                                IsEnabled="{TemplateBinding IsHelpButtonEnabled}"
+                                Visibility="{TemplateBinding HelpButtonVisibility}" />
+                            <local:CaptionMinimizeButton
+                                x:Name="MinimizeButton"
+                                Command="{TemplateBinding MinimizeButtonCommand}"
+                                IsActive="{TemplateBinding IsActive}"
+                                IsEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
+                                Visibility="{TemplateBinding MinimizeButtonVisibility}" />
+                            <local:CaptionMaximizeButton
+                                x:Name="MaximizeButton"
+                                Command="{TemplateBinding MaximizeButtonCommand}"
+                                IsActive="{TemplateBinding IsActive}"
+                                IsEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
+                                Visibility="{TemplateBinding MaximizeButtonVisibility}" />
+                            <local:CaptionCloseButton
+                                x:Name="CloseButton"
+                                Command="{TemplateBinding CloseButtonCommand}"
+                                IsActive="{TemplateBinding IsActive}"
+                                IsEnabled="{TemplateBinding IsCloseButtonEnabled}"
+                                Visibility="{TemplateBinding CloseButtonVisibility}" />
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="OwnerWindowState" Value="Maximized">
+                            <Setter TargetName="MaximizeButton" Property="IsRestoreButton" Value="True" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

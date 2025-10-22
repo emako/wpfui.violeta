@@ -1,0 +1,125 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Wpf.Ui.Violeta;component/Controls/TitleBarButton/TitleBarButton.xaml" />
+        <local:CaptionButtonColorDictionary />
+    </ResourceDictionary.MergedDictionaries>
+
+    <system:Double x:Key="CaptionButtonWidth">47</system:Double>
+    <system:String x:Key="CaptionMinimizeButtonGlyph">&#xE921;</system:String>
+    <system:String x:Key="CaptionMaximizeButtonGlyph">&#xE922;</system:String>
+    <system:String x:Key="CaptionRestoryButtonGlyph">&#xE923;</system:String>
+    <system:String x:Key="CaptionCloseButtonGlyph">&#xE8BB;</system:String>
+    <system:String x:Key="CaptionHelpButtonGlyph">&#xE897;</system:String>
+    <system:Double x:Key="CaptionButtonIconFontSize">10</system:Double>
+    <system:Double x:Key="CaptionButtonInactiveForegroundOpacity">0.382</system:Double>
+
+    <Style
+        x:Key="CaptionButtonDefaultStyle"
+        BasedOn="{StaticResource TitleBarButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionButton}">
+        <Setter Property="Width" Value="{StaticResource CaptionButtonWidth}" />
+        <Setter Property="Focusable" Value="False" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOverInTitleBar" Value="True">
+                <Setter Property="Background" Value="{StaticResource TitleBarButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonHoverForeground}" />
+            </Trigger>
+            <Trigger Property="IsPressedInTitleBar" Value="True">
+                <Setter Property="Background" Value="{StaticResource TitleBarButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonPressedForeground}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  Content in CaptionButton should be set IsHitTestVisible="False"  -->
+    <DataTemplate x:Key="CaptionFontIconButtonContentTemplate">
+        <ui:FontIcon
+            Focusable="False"
+            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+            FontSize="{StaticResource CaptionButtonIconFontSize}"
+            Glyph="{Binding}"
+            IsHitTestVisible="False"
+            SnapsToDevicePixels="True" />
+    </DataTemplate>
+
+    <Style
+        x:Key="CaptionMinimizeButtonDefaultStyle"
+        BasedOn="{StaticResource CaptionButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionMinimizeButton}">
+        <Setter Property="Kind" Value="Minimize" />
+        <Setter Property="Content" Value="{StaticResource CaptionMinimizeButtonGlyph}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
+    </Style>
+
+    <Style
+        x:Key="CaptionMaximizeButtonDefaultStyle"
+        BasedOn="{StaticResource CaptionButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionMaximizeButton}">
+        <Setter Property="Kind" Value="Maximize" />
+        <Setter Property="Content" Value="{StaticResource CaptionMaximizeButtonGlyph}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="IsRestoreButton" Value="True">
+                <Setter Property="Content" Value="{StaticResource CaptionRestoryButtonGlyph}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="CaptionCloseButtonDefaultStyle"
+        BasedOn="{StaticResource CaptionButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionCloseButton}">
+        <Setter Property="Kind" Value="Close" />
+        <Setter Property="Content" Value="{StaticResource CaptionCloseButtonGlyph}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonHoverForeground}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonPressedForeground}" />
+            </Trigger>
+            <Trigger Property="IsMouseOverInTitleBar" Value="True">
+                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonHoverForeground}" />
+            </Trigger>
+            <Trigger Property="IsPressedInTitleBar" Value="True">
+                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonPressedForeground}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="CaptionHelpButtonDefaultStyle"
+        BasedOn="{StaticResource CaptionButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionHelpButton}">
+        <Setter Property="Kind" Value="Help" />
+        <Setter Property="Content" Value="?" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock
+                        FontSize="16"
+                        IsHitTestVisible="False"
+                        Text="{Binding}" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource CaptionButtonDefaultStyle}" TargetType="{x:Type local:CaptionButton}" />
+    <Style BasedOn="{StaticResource CaptionMinimizeButtonDefaultStyle}" TargetType="{x:Type local:CaptionMinimizeButton}" />
+    <Style BasedOn="{StaticResource CaptionMaximizeButtonDefaultStyle}" TargetType="{x:Type local:CaptionMaximizeButton}" />
+    <Style BasedOn="{StaticResource CaptionCloseButtonDefaultStyle}" TargetType="{x:Type local:CaptionCloseButton}" />
+    <Style BasedOn="{StaticResource CaptionHelpButtonDefaultStyle}" TargetType="{x:Type local:CaptionHelpButton}" />
+
+</ResourceDictionary>
