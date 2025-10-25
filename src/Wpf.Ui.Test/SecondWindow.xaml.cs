@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
 using Wpf.Ui.Violeta.Controls;
 
@@ -18,15 +17,6 @@ public partial class SecondWindow : ShellWindow
 
     private void HelpButtonClick(object sender, EventArgs e)
     {
-        using Process process = new()
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                FileName = @"https://github.com/SuGar0218/NativeLikeCaptionButton-WPF"
-            }
-        };
-        process.Start();
     }
 
     private void FullScreenButtonClick(object sender, RoutedEventArgs e)

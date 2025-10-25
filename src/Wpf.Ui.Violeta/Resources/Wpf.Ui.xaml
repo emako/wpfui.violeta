@@ -21,5 +21,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CaptionButton/CaptionButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CaptionButtonBar/CaptionButtonBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBar/NativeLikeTitleBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ContentWindow/ContentWindow.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
