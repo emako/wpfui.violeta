@@ -6,7 +6,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public static class Toast
 {
-    private static readonly Dictionary<Window, List<ToastControl>> _activeToasts = new();
+    private static readonly Dictionary<Window, List<ToastControl>> _activeToasts = [];
 
     internal static void RegisterToast(Window window, ToastControl toast)
     {
@@ -36,7 +36,7 @@ public static class Toast
 
     internal static List<ToastControl> GetActiveToasts(Window window)
     {
-        return _activeToasts.ContainsKey(window) ? _activeToasts[window] : new List<ToastControl>();
+        return _activeToasts.ContainsKey(window) ? _activeToasts[window] : [];
     }
 
     private static void UpdateToastPositions(Window window)
