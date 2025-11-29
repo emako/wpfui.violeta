@@ -89,6 +89,9 @@ internal static class User32
     public static extern bool AppendMenu(nint hMenu, uint uFlags, uint uIDNewItem, string lpNewItem);
 
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    public static extern bool AppendMenu(nint hMenu, uint uFlags, nint uIDNewItem, string lpNewItem);
+
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern bool SetMenuItemInfo(nint hMenu, uint uItem, bool fByPosition, ref MENUITEMINFO lpmii);
 
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
@@ -421,6 +424,7 @@ internal static class User32
         MF_DISABLED = 0x0002,
         MF_CHECKED = 0x0008,
         MF_GRAYED = 0x0001,
+        MF_POPUP = 0x0010,
         MF_SEPARATOR = 0x0800,
         MF_OWNERDRAW = 0x0100,
     }
