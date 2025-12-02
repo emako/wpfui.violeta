@@ -18,7 +18,7 @@
                     HorizontalAlignment="Right"
                     Background="Transparent"
                     Command="{Binding ResultCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                    CommandParameter="{x:Static ui:WindowDialogResult.None}"
+                    CommandParameter="{x:Static local:ContentWindowResult.None}"
                     Foreground="#6C6C6C">
                     <TextBlock
                         FontFamily="{StaticResource SegoeFluent}"

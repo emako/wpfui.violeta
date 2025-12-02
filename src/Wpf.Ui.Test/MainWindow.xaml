@@ -1310,7 +1310,10 @@
                             FontSize="14"
                             FontWeight="Black"
                             Text="ShellWindow" />
-                        <Button Command="{Binding ShowShellWindowCommand}" Content="Show ShellWindow" />
+                        <Button
+                            Margin="0,8,0,0"
+                            Command="{Binding ShowShellWindowCommand}"
+                            Content="Show ShellWindow" />
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
