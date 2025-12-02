@@ -130,7 +130,7 @@ public partial class ContentWindow
     {
         var dialog = new ContentWindow()
         {
-            Control = (T)Activator.CreateInstance(typeof(T)),
+            Control = (T)Activator.CreateInstance(typeof(T))!,
         };
         if (dialog.Control is T control)
         {
@@ -157,11 +157,27 @@ public partial class ContentWindow
     }
 
     public static ContentWindowResult ShowDialog<T>(DependencyObject d, out T? dialogControl) where T : ContentWindowControl, new()
-        => Create(out dialogControl).ShowDialog(d);
+    {
+        ContentWindow window = Create<T>(out dialogControl);
 
-    public static ContentWindowResult ShowDialog<T>(out T dialogControl) where T : ContentWindowControl, new()
-        => Create(out dialogControl).ShowDialog();
+        window.Owner = GetWindow(d);
+        _ = window.ShowDialog();
+        return window.Result;
+    }
+
+    public static ContentWindowResult ShowDialog<T>(out T? dialogControl) where T : ContentWindowControl, new()
+    {
+        ContentWindow window = Create<T>(out dialogControl);
+
+        _ = window.ShowDialog();
+        return window.Result;
+    }
 
     public static ContentWindowResult ShowDialog<T>() where T : ContentWindowControl, new()
-        => Create<T>(out _).ShowDialog();
+    {
+        ContentWindow window = Create<T>(out _);
+
+        _ = window.ShowDialog();
+        return window.Result;
+    }
 }
