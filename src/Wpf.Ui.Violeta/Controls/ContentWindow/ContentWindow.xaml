@@ -9,6 +9,25 @@
         BasedOn="{x:Type local:ShellWindow}"
         TargetType="{x:Type local:ContentWindow}">
         <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <Button
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    Command="{Binding ResultCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                    CommandParameter="{x:Static ui:WindowDialogResult.None}"
+                    Foreground="#6C6C6C">
+                    <TextBlock
+                        FontFamily="{StaticResource SegoeFluent}"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Text="&#xe947;" />
+                </Button>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style BasedOn="{StaticResource DefaultVioletaContentWindowStyle}" TargetType="{x:Type local:ContentWindow}" />
