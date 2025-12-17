@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 
 namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 /// <summary>
-/// Represents a group of <see cref="ToggleButton"/> controls where only one
+/// Represents a group of <see cref="CheckBox"/> controls where only one
 /// button can be checked at a time (similar to radio button behavior).
 /// </summary>
-public class ToggleButtonGroup : List<ToggleButton>
+public class CheckBoxGroup : List<CheckBox>
 {
     /// <summary>
     /// Gets or sets a value that indicates whether the selected toggle can be canceled
@@ -17,41 +17,41 @@ public class ToggleButtonGroup : List<ToggleButton>
     public bool IsCanCancel { get; set; } = false;
 
     /// <summary>
-    /// Gets the attached <see cref="ToggleButtonGroup"/> from a dependency object.
+    /// Gets the attached <see cref="CheckBoxGroup"/> from a dependency object.
     /// </summary>
     /// <param name="obj">Dependency object that may hold the group.</param>
-    /// <returns>The attached <see cref="ToggleButtonGroup"/> instance.</returns>
-    public static ToggleButtonGroup GetGroup(DependencyObject obj)
+    /// <returns>The attached <see cref="CheckBoxGroup"/> instance.</returns>
+    public static CheckBoxGroup GetGroup(DependencyObject obj)
     {
-        return (ToggleButtonGroup)obj.GetValue(GroupProperty);
+        return (CheckBoxGroup)obj.GetValue(GroupProperty);
     }
 
     /// <summary>
-    /// Attaches a <see cref="ToggleButtonGroup"/> to a dependency object.
+    /// Attaches a <see cref="CheckBoxGroup"/> to a dependency object.
     /// </summary>
     /// <param name="obj">Dependency object to attach the group to.</param>
     /// <param name="value">Group instance to attach.</param>
-    public static void SetGroup(DependencyObject obj, ToggleButtonGroup value)
+    public static void SetGroup(DependencyObject obj, CheckBoxGroup value)
     {
         obj.SetValue(GroupProperty, value);
     }
 
     /// <summary>
-    /// Attached dependency property used to associate a <see cref="ToggleButtonGroup"/> with
-    /// a <see cref="ToggleButton"/> control.
+    /// Attached dependency property used to associate a <see cref="CheckBoxGroup"/> with
+    /// a <see cref="CheckBox"/> control.
     /// </summary>
     public static readonly DependencyProperty GroupProperty =
-        DependencyProperty.RegisterAttached("Group", typeof(ToggleButtonGroup), typeof(ToggleButtonGroup), new PropertyMetadata(null!, OnGroupChanged));
+        DependencyProperty.RegisterAttached("Group", typeof(CheckBoxGroup), typeof(CheckBoxGroup), new PropertyMetadata(null!, OnGroupChanged));
 
     /// <summary>
     /// Called when the attached Group property changes. When a group is attached to a
-    /// ToggleButton, the button is joined into the group.
+    /// CheckBox, the box is joined into the group.
     /// </summary>
     private static void OnGroupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is ToggleButton tb)
+        if (d is CheckBox cb)
         {
-            ((ToggleButtonGroup)e.NewValue).Join(tb);
+            ((CheckBoxGroup)e.NewValue).Join(cb);
         }
     }
 
@@ -63,11 +63,11 @@ public class ToggleButtonGroup : List<ToggleButton>
     /// <summary>
     /// Fluent helper to join a toggle button to the group and return the group instance.
     /// </summary>
-    /// <param name="toggleButton">Toggle button to join.</param>
-    /// <returns>The current <see cref="ToggleButtonGroup"/> instance.</returns>
-    public ToggleButtonGroup JoinWith(ToggleButton toggleButton)
+    /// <param name="checkBox">Toggle box to join.</param>
+    /// <returns>The current <see cref="CheckBoxGroup"/> instance.</returns>
+    public CheckBoxGroup JoinWith(CheckBox checkBox)
     {
-        Join(toggleButton);
+        Join(checkBox);
         return this;
     }
 
@@ -75,18 +75,18 @@ public class ToggleButtonGroup : List<ToggleButton>
     /// Adds the specified toggle button to the group and wires up Checked/Unchecked handlers
     /// to enforce single-selection behavior.
     /// </summary>
-    /// <param name="toggleButton">Toggle button to add to the group.</param>
-    public void Join(ToggleButton toggleButton)
+    /// <param name="checkBox">Toggle button to add to the group.</param>
+    public void Join(CheckBox checkBox)
     {
-        Add(toggleButton);
+        Add(checkBox);
 
         // When a button is checked, uncheck other buttons in the same group.
-        toggleButton.Checked += (s, e) =>
+        checkBox.Checked += (s, e) =>
         {
-            if (s is ToggleButton cb && GetGroup(cb) is ToggleButtonGroup group)
+            if (s is CheckBox cb && GetGroup(cb) is CheckBoxGroup group)
             {
                 Handling = true; // prevent Unchecked handler from fighting back
-                foreach (ToggleButton tb in group)
+                foreach (CheckBox tb in group)
                 {
                     if (tb != cb)
                     {
@@ -99,9 +99,9 @@ public class ToggleButtonGroup : List<ToggleButton>
 
         // When a button is unchecked, prevent leaving the group with no selection
         // unless IsCanCancel is true.
-        toggleButton.Unchecked += (s, e) =>
+        checkBox.Unchecked += (s, e) =>
         {
-            if (!IsCanCancel && !Handling && s is ToggleButton cb)
+            if (!IsCanCancel && !Handling && s is CheckBox cb)
             {
                 // revert the uncheck to keep one item selected
                 cb.IsChecked = true;
@@ -109,22 +109,22 @@ public class ToggleButtonGroup : List<ToggleButton>
         };
 
         // Store the group on the toggle so other code can retrieve it via GetGroup.
-        SetGroup(toggleButton, this);
+        SetGroup(checkBox, this);
     }
 
     /// <summary>
     /// Removes the toggle button from the group and clears the attached group property.
     /// </summary>
     /// <param name="checkBox">Toggle button to remove.</param>
-    public void Unjoin(ToggleButton checkBox)
+    public void Unjoin(CheckBox checkBox)
     {
         Remove(checkBox);
         SetGroup(checkBox, null!);
     }
 
     /// <summary>
-    /// Factory helper to create a new <see cref="ToggleButtonGroup"/> instance.
+    /// Factory helper to create a new <see cref="CheckBoxGroup"/> instance.
     /// </summary>
-    /// <returns>A new <see cref="ToggleButtonGroup"/>.</returns>
-    public static ToggleButtonGroup New() => [];
+    /// <returns>A new <see cref="CheckBoxGroup"/>.</returns>
+    public static CheckBoxGroup New() => [];
 }
