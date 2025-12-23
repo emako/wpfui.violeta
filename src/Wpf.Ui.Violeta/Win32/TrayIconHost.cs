@@ -396,56 +396,14 @@ public class TrayMenu : DependencyObject, IEnumerable<ITrayMenuItemBase>, IList<
     {
         if (_items.Count == 0) return;
 
-        nint hMenu = User32.CreatePopupMenu();
-        if (hMenu == IntPtr.Zero) return;
-
         Opening?.Invoke(this, EventArgs.Empty);
 
         Dictionary<uint, ITrayMenuItemBase> idToItem = [];
+        List<nint> allMenus = [];
         uint currentId = 1000;
 
-        foreach (ITrayMenuItemBase item in _items)
-        {
-            if (!item.IsVisible) continue;
-
-            if (item.Header == "-" || item is TraySeparator)
-            {
-                _ = User32.AppendMenu(hMenu, (uint)User32.MenuFlags.MF_SEPARATOR, 0, string.Empty);
-            }
-            else
-            {
-                var flags = User32.MenuFlags.MF_STRING;
-
-                if (!item.IsEnabled)
-                    flags |= User32.MenuFlags.MF_DISABLED | User32.MenuFlags.MF_GRAYED;
-
-                if (item.IsChecked)
-                    flags |= User32.MenuFlags.MF_CHECKED;
-
-                _ = User32.AppendMenu(hMenu, (uint)flags, currentId, item.Header!);
-
-                if (item.IsBold)
-                {
-                    var menuItemInfo = new User32.MENUITEMINFO
-                    {
-                        cbSize = (uint)Marshal.SizeOf<User32.MENUITEMINFO>(),
-                        fMask = (uint)User32.MenuItemMask.MIIM_STATE,
-                        fState = (uint)User32.MenuItemState.MFS_DEFAULT
-                    };
-
-                    if (item.IsChecked)
-                        menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_CHECKED;
-
-                    if (!item.IsEnabled)
-                        menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_DISABLED;
-
-                    _ = User32.SetMenuItemInfo(hMenu, currentId, false, ref menuItemInfo);
-                }
-
-                idToItem[currentId] = item;
-                currentId++;
-            }
-        }
+        nint hMenu = BuildMenu(_items, idToItem, allMenus, ref currentId);
+        if (hMenu == IntPtr.Zero) return;
 
         _ = User32.GetCursorPos(out POINT pt);
 
@@ -463,9 +421,87 @@ public class TrayMenu : DependencyObject, IEnumerable<ITrayMenuItemBase>, IList<
             clickedItem.Command?.Execute(clickedItem.CommandParameter);
         }
 
-        User32.DestroyMenu(hMenu);
+        // Destroy all menus (main menu and submenus)
+        foreach (nint menu in allMenus)
+        {
+            User32.DestroyMenu(menu);
+        }
 
         Closed?.Invoke(this, EventArgs.Empty);
+    }
+
+    private static nint BuildMenu(IList<ITrayMenuItemBase> items, Dictionary<uint, ITrayMenuItemBase> idToItem, List<nint> allMenus, ref uint currentId)
+    {
+        nint hMenu = User32.CreatePopupMenu();
+        if (hMenu == IntPtr.Zero) return IntPtr.Zero;
+
+        allMenus.Add(hMenu);
+
+        foreach (ITrayMenuItemBase item in items)
+        {
+            if (!item.IsVisible) continue;
+
+            if (item.Header == "-" || item is TraySeparator)
+            {
+                _ = User32.AppendMenu(hMenu, (uint)User32.MenuFlags.MF_SEPARATOR, 0, string.Empty);
+            }
+            else
+            {
+                // Check if this item has a submenu
+                TrayMenu? submenu = item.Menu;
+                bool hasSubmenu = submenu != null && submenu.Count > 0;
+
+                if (hasSubmenu)
+                {
+                    // Recursively build the submenu
+                    nint hSubMenu = BuildMenu(submenu!.Items, idToItem, allMenus, ref currentId);
+                    if (hSubMenu != IntPtr.Zero)
+                    {
+                        var flags = User32.MenuFlags.MF_STRING | User32.MenuFlags.MF_POPUP;
+
+                        if (!item.IsEnabled)
+                            flags |= User32.MenuFlags.MF_DISABLED | User32.MenuFlags.MF_GRAYED;
+
+                        _ = User32.AppendMenu(hMenu, (uint)flags, hSubMenu, item.Header!);
+                    }
+                }
+                else
+                {
+                    var flags = User32.MenuFlags.MF_STRING;
+
+                    if (!item.IsEnabled)
+                        flags |= User32.MenuFlags.MF_DISABLED | User32.MenuFlags.MF_GRAYED;
+
+                    if (item.IsChecked)
+                        flags |= User32.MenuFlags.MF_CHECKED;
+
+                    _ = User32.AppendMenu(hMenu, (uint)flags, currentId, item.Header!);
+
+                    if (item.IsBold)
+                    {
+                        var menuItemInfo = new User32.MENUITEMINFO
+                        {
+                            cbSize = (uint)Marshal.SizeOf<User32.MENUITEMINFO>(),
+                            fMask = (uint)User32.MenuItemMask.MIIM_STATE,
+                            fState = (uint)User32.MenuItemState.MFS_DEFAULT
+                        };
+
+                        if (item.IsChecked)
+                            menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_CHECKED;
+
+                        if (!item.IsEnabled)
+                            menuItemInfo.fState |= (uint)User32.MenuItemState.MFS_DISABLED;
+
+                        _ = User32.SetMenuItemInfo(hMenu, currentId, false, ref menuItemInfo);
+                    }
+
+                    idToItem[currentId] = item;
+                    currentId++;
+                }
+            }
+        }
+
+        return hMenu;
     }
 }
 
