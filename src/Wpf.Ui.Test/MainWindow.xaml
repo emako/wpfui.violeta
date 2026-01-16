@@ -1315,6 +1315,26 @@
                             Command="{Binding ShowShellWindowCommand}"
                             Content="Show ShellWindow" />
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="TextBox instead of TextBlock" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBox
+                                Width="240"
+                                Height="60"
+                                Style="{DynamicResource TextBlockTextBoxStyle}"
+                                Text="TextBox with TextBlockTextBoxStyle&#x0a;More lines..." />
+                            <ui:TextBox
+                                Width="240"
+                                Height="60"
+                                Style="{DynamicResource TextBlockUiTextBoxStyle}"
+                                Text="ui:TextBox with TextBlockUiTextBoxStyle&#x0a;More lines..." />
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>

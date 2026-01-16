@@ -86,4 +86,45 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TextBlockTextBoxStyle" TargetType="{x:Type TextBox}">
+        <!--  Appearance  -->
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+
+        <!--  Behavior  -->
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="IsReadOnlyCaretVisible" Value="False" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="AcceptsReturn" Value="True" />
+
+        <!--  Interaction  -->
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+    </Style>
+
+    <Style x:Key="TextBlockUiTextBoxStyle" TargetType="{x:Type ui:TextBox}">
+        <!--  Appearance  -->
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+
+        <!--  Behavior  -->
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="IsReadOnlyCaretVisible" Value="False" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="AcceptsReturn" Value="True" />
+
+        <!--  Interaction  -->
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+    </Style>
 </ResourceDictionary>
