@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Shell;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
-using Wpf.Ui.Interop;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -220,5 +220,49 @@ public partial class ShellWindow : Window
         // WindowStyleProperty.OverrideMetadata(typeof(FluentWindow), new FrameworkPropertyMetadata(WindowStyle.SingleBorderWindow));
         // AllowsTransparencyProperty.OverrideMetadata(typeof(FluentWindow), new FrameworkPropertyMetadata(false));
         _ = UnsafeNativeMethods.RemoveWindowTitlebarContents(this);
+    }
+}
+
+/// <summary>
+/// Reflective access to `Wpf.Ui.Interop.UnsafeNativeMethods` methods.
+/// </summary>
+file static class UnsafeNativeMethods
+{
+    private static readonly Type? _interopType
+        = Type.GetType("Wpf.Ui.Interop.UnsafeNativeMethods, Wpf.Ui");
+
+    /// <summary>
+    /// Tries to set the corner preference of the selected window.
+    /// </summary>
+    /// <param name="handle">Selected window handle.</param>
+    /// <param name="cornerPreference">Window corner preference.</param>
+    /// <returns><see langword="true"/> if invocation of native Windows function succeeds.</returns>
+    public static bool ApplyWindowCornerPreference(nint handle, object cornerPreference)
+    {
+        if (_interopType == null) return false;
+
+        MethodInfo? method = _interopType.GetMethod("ApplyWindowCornerPreference", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        if (method == null) return false;
+        return (bool)method.Invoke(null, [handle, cornerPreference])!;
+    }
+
+    /// <summary>
+    /// Tries to remove titlebar from selected <see cref="Window"/>.
+    /// </summary>
+    /// <param name="window">The window to which the effect is to be applied.</param>
+    /// <returns><see langword="true"/> if invocation of native Windows function succeeds.</returns>
+    public static bool RemoveWindowTitlebarContents(Window? window)
+    {
+        if (_interopType == null) return false;
+
+        MethodInfo? method = _interopType.GetMethod(
+            "RemoveWindowTitlebarContents",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+            null,
+            [typeof(Window)],
+            null
+        );
+        if (method == null) return false;
+        return (bool)method.Invoke(null, [window])!;
     }
 }
