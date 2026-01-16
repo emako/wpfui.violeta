@@ -10,7 +10,6 @@
 		<FileVersion>4.0.3.6</FileVersion>
 		<Version>$(VersionPrefix)4.0.3.6</Version>
 		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
-		<DebugType>embedded</DebugType>
 	</PropertyGroup>
 
 	<ItemGroup>
