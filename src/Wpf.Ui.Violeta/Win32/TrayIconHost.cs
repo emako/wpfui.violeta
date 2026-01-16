@@ -10,14 +10,39 @@ using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Win32;
 
+/// <summary>
+/// Manages a Win32 tray icon and its context menu for WPF applications.
+/// </summary>
 public class TrayIconHost : IDisposable
 {
+    /// <summary>
+    /// Handle to the hidden window hosting the tray icon.
+    /// </summary>
     private readonly nint hWnd = IntPtr.Zero;
+
+    /// <summary>
+    /// Delegate for window procedure.
+    /// </summary>
     private readonly User32.WndProcDelegate wndProcDelegate = null!;
+
+    /// <summary>
+    /// Data structure for the tray icon.
+    /// </summary>
     private Shell32.NotifyIconData notifyIconData = default;
+
+    /// <summary>
+    /// Unique ID for this tray icon.
+    /// </summary>
     private readonly int id = default;
+
+    /// <summary>
+    /// Static counter for unique IDs.
+    /// </summary>
     private static int nextId = 0;
 
+    /// <summary>
+    /// Tooltip text for the tray icon.
+    /// </summary>
     public string ToolTipText
     {
         get => notifyIconData.szTip;
@@ -29,6 +54,9 @@ public class TrayIconHost : IDisposable
         }
     }
 
+    /// <summary>
+    /// Handle to the icon image.
+    /// </summary>
     public nint Icon
     {
         get => notifyIconData.hIcon;
@@ -42,6 +70,9 @@ public class TrayIconHost : IDisposable
         }
     }
 
+    /// <summary>
+    /// Whether the tray icon is visible.
+    /// </summary>
     public bool IsVisible
     {
         get => notifyIconData.dwState != (uint)Shell32.NotifyIconState.NIS_HIDDEN;
@@ -54,6 +85,9 @@ public class TrayIconHost : IDisposable
         }
     }
 
+    /// <summary>
+    /// Balloon tip text.
+    /// </summary>
     public string BalloonTipText
     {
         get => field;
@@ -66,6 +100,9 @@ public class TrayIconHost : IDisposable
         }
     } = string.Empty;
 
+    /// <summary>
+    /// Balloon tip icon type.
+    /// </summary>
     public ToolTipIcon BalloonTipIcon
     {
         get => field;
@@ -83,6 +120,9 @@ public class TrayIconHost : IDisposable
         }
     }
 
+    /// <summary>
+    /// Balloon tip title.
+    /// </summary>
     public string BalloonTipTitle
     {
         get => field;
@@ -95,34 +135,79 @@ public class TrayIconHost : IDisposable
         }
     } = string.Empty;
 
+    /// <summary>
+    /// User-defined tag.
+    /// </summary>
     public object? Tag { get; set; } = null;
 
+    /// <summary>
+    /// Context menu for the tray icon.
+    /// </summary>
     public TrayMenu Menu { get; set; } = null!;
 
+    /// <summary>
+    /// Occurs when the balloon tip is clicked.
+    /// </summary>
     public event EventHandler<EventArgs>? BalloonTipClicked = null;
 
+    /// <summary>
+    /// Occurs when the balloon tip is closed.
+    /// </summary>
     public event EventHandler<EventArgs>? BalloonTipClosed = null;
 
+    /// <summary>
+    /// Occurs when the balloon tip is shown.
+    /// </summary>
     public event EventHandler<EventArgs>? BalloonTipShown = null;
 
+    /// <summary>
+    /// Occurs when the tray icon is clicked.
+    /// </summary>
     public event EventHandler<EventArgs>? Click = null;
 
+    /// <summary>
+    /// Occurs when the right mouse button is pressed down on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? RightDown = null;
 
+    /// <summary>
+    /// Occurs when the right mouse button is clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? RightClick = null;
 
+    /// <summary>
+    /// Occurs when the right mouse button is double-clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? RightDoubleClick = null;
 
+    /// <summary>
+    /// Occurs when the left mouse button is pressed down on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? LeftDown = null;
 
+    /// <summary>
+    /// Occurs when the left mouse button is clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? LeftClick = null;
 
+    /// <summary>
+    /// Occurs when the left mouse button is double-clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? LeftDoubleClick = null;
 
+    /// <summary>
+    /// Occurs when the middle mouse button is pressed down on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? MiddleDown = null;
 
+    /// <summary>
+    /// Occurs when the middle mouse button is clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? MiddleClick = null;
 
+    /// <summary>
+    /// Occurs when the middle mouse button is double-clicked on the tray icon.
+    /// </summary>
     public event EventHandler<EventArgs>? MiddleDoubleClick = null;
 
     public TrayIconHost()
@@ -230,16 +315,25 @@ public class TrayIconHost : IDisposable
         return User32.DefWindowProc(hWnd, msg, wParam, lParam);
     }
 
+    /// <summary>
+    /// Shows the context menu associated with the tray icon.
+    /// </summary>
     public virtual void ShowContextMenu()
     {
         Menu?.Open(hWnd);
     }
 
+    /// <summary>
+    /// Shows a balloon tip with the specified timeout.
+    /// </summary>
     public virtual void ShowBalloonTip(int timeout)
     {
         ShowBalloonTip(timeout, BalloonTipTitle, BalloonTipText, BalloonTipIcon);
     }
 
+    /// <summary>
+    /// Shows a balloon tip with the specified parameters.
+    /// </summary>
     public virtual void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon)
     {
         if (timeout < 0)
@@ -278,6 +372,9 @@ public class TrayIconHost : IDisposable
         _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_MODIFY, ref notifyIconData);
     }
 
+    /// <summary>
+    /// Disposes the tray icon and its resources.
+    /// </summary>
     public void Dispose()
     {
         Dispose(true);
@@ -333,7 +430,7 @@ public enum ToolTipIcon
     Warning = 0x02,
 
     /// <summary>
-    /// An error icon
+    /// An error icon.
     /// </summary>
     Error = 0x03,
 }
