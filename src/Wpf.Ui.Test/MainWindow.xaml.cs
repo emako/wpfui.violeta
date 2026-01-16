@@ -185,6 +185,7 @@ public partial class MainWindow : ShellWindow
     }
 
     [RelayCommand]
+    [Obsolete]
     private async Task ShowWithContentPresenterForDialogs()
     {
         Wpf.Ui.Controls.ContentDialog dialog =
