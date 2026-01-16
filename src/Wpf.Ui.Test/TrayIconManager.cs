@@ -36,6 +36,32 @@ internal partial class TrayIconManager
                 new TraySeparator(),
                 new TrayMenuItem()
                 {
+                    Header = "Option",
+                    Menu =
+                    [
+                        new TrayMenuItem()
+                        {
+                            Header = "Option1",
+                            Menu =
+                            [
+                                new TrayMenuItem()
+                                {
+                                    Header = "Option1-1",
+                                },
+                                new TrayMenuItem()
+                                {
+                                    Header = "Option1-2",
+                                }
+                            ],
+                        },
+                        new TrayMenuItem()
+                        {
+                            Header = "Option2",
+                        }
+                    ],
+                },
+                new TrayMenuItem()
+                {
                     Header = "Restart",
                     Command = RestartCommand,
                     IsBold = true, // Test the bold style
