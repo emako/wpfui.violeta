@@ -219,10 +219,10 @@ public static class VisualTree
                     BindingFlags bindingAttr = BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public;
                     List<PropertyInfo> obj =
                     [
-                        type.GetProperty("Children", bindingAttr),
-                        type.GetProperty("Child", bindingAttr),
-                        type.GetProperty("Content", bindingAttr),
-                        type.GetProperty("Items", bindingAttr)
+                        type.GetProperty("Children", bindingAttr)!,
+                        type.GetProperty("Child", bindingAttr)!,
+                        type.GetProperty("Content", bindingAttr)!,
+                        type.GetProperty("Items", bindingAttr)!
                     ];
                     bool flag = false;
                     foreach (PropertyInfo item in obj)
