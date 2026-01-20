@@ -41,6 +41,11 @@ public class TrayIconHost : IDisposable
     private static int nextId = 0;
 
     /// <summary>
+    /// Windows message ID for TaskbarCreated broadcast.
+    /// </summary>
+    private readonly uint taskbarCreatedMessageId = 0;
+
+    /// <summary>
     /// Tooltip text for the tray icon.
     /// </summary>
     public string ToolTipText
@@ -214,6 +219,9 @@ public class TrayIconHost : IDisposable
     {
         id = ++nextId;
 
+        // Register for TaskbarCreated message to handle Explorer restarts
+        taskbarCreatedMessageId = User32.RegisterWindowMessage("TaskbarCreated");
+
         wndProcDelegate = new User32.WndProcDelegate(WndProc);
 
         User32.WNDCLASS wc = new()
@@ -242,6 +250,14 @@ public class TrayIconHost : IDisposable
 
     protected virtual nint WndProc(nint hWnd, uint msg, nint wParam, nint lParam)
     {
+        // Handle TaskbarCreated message to re-register tray icon after Explorer restart
+        if (msg == taskbarCreatedMessageId)
+        {
+            // Re-add the tray icon
+            _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_ADD, ref notifyIconData);
+            return IntPtr.Zero;
+        }
+
         if (msg == (uint)User32.WindowMessage.WM_TRAYICON)
         {
             if ((int)wParam == id)
