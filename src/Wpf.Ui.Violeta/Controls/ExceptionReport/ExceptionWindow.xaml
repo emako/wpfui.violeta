@@ -16,6 +16,7 @@
     FontSize="13"
     WindowStartupLocation="CenterScreen"
     WindowStyle="SingleBorderWindow"
+    WindowBackdropType="Auto"
     mc:Ignorable="d">
     <Window.Resources>
         <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
