@@ -120,6 +120,9 @@ internal static class User32
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool DestroyWindow(nint hWnd);
 
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+    public static extern uint RegisterWindowMessage(string lpString);
+
     public delegate nint WndProcDelegate(nint hWnd, uint msg, nint wParam, nint lParam);
 
     [Flags]
