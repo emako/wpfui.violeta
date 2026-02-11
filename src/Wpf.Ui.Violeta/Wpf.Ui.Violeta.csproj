@@ -29,6 +29,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>wpfui.png</PackageIcon>
+        <IsRoslynAnalyzer>true</IsRoslynAnalyzer>
     </PropertyGroup>
 
     <ItemGroup>
@@ -101,6 +102,15 @@
         <None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="..\Wpf.Ui.DependencyPropertyGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.DependencyPropertyGenerator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+        <None Include="..\Wpf.Ui.DependencyPropertyGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.DependencyPropertyGenerator.pdb" Pack="true" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Wpf.Ui.DependencyPropertyGenerator\Wpf.Ui.DependencyPropertyGenerator.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+    
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.2.0" />
     </ItemGroup>

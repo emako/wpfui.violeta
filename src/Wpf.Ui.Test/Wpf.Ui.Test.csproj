@@ -26,16 +26,28 @@
         <Resource Include="..\..\branding\*.png" />
     </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="WPF-UI" Version="4.2.0" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-        <PackageReference Include="ComputedAnimations.WPF" Version="0.5.2" />
-        <PackageReference Include="ComputedBehaviors.WPF" Version="0.5.2" />
-        <PackageReference Include="ComputedConverters.WPF" Version="0.5.2" />
-    </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <MyNuGetFlag>false</MyNuGetFlag>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <MyNuGetFlag>true</MyNuGetFlag>
+    </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="ComputedAnimations.WPF" Version="0.5.3" />
+        <PackageReference Include="ComputedBehaviors.WPF" Version="0.5.3" />
+        <PackageReference Include="ComputedConverters.WPF" Version="0.5.3" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(MyNuGetFlag)' == 'true'">
+        <PackageReference Include="WPF-UI.Violeta" Version="4.2.0.2" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(MyNuGetFlag)' == 'false'">
         <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+        <ProjectReference Include="..\Wpf.Ui.DependencyPropertyGenerator\Wpf.Ui.DependencyPropertyGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
 </Project>
