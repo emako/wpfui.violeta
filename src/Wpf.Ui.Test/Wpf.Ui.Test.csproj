@@ -1,41 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net10.0-windows</TargetFramework>
-		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
-		<LangVersion>preview</LangVersion>
-		<AssemblyVersion>4.2.0.1</AssemblyVersion>
-		<FileVersion>4.2.0.1</FileVersion>
-		<Version>$(VersionPrefix)4.2.0.1</Version>
-		<ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>preview</LangVersion>
+        <AssemblyVersion>4.2.0.1</AssemblyVersion>
+        <FileVersion>4.2.0.1</FileVersion>
+        <Version>$(VersionPrefix)4.2.0.1</Version>
+        <ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<None Remove="Resources\Images\*.ico" />
-		<None Remove="Resources\Images\*.png" />
-		<None Remove="Resources\Strings\*.md" />
-		<None Remove="..\..\branding\*.png" />
-	</ItemGroup>
+    <ItemGroup>
+        <None Remove="Resources\Images\*.ico" />
+        <None Remove="Resources\Images\*.png" />
+        <None Remove="Resources\Strings\*.md" />
+        <None Remove="..\..\branding\*.png" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<Resource Include="Resources\Images\*.ico" />
-		<Resource Include="Resources\Images\*.png" />
-		<Resource Include="Resources\Strings\*.md" />
-		<Resource Include="..\..\branding\*.png" />
-	</ItemGroup>
+    <ItemGroup>
+        <Resource Include="Resources\Images\*.ico" />
+        <Resource Include="Resources\Images\*.png" />
+        <Resource Include="Resources\Strings\*.md" />
+        <Resource Include="..\..\branding\*.png" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="WPF-UI" Version="4.2.0" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-		<PackageReference Include="ComputedAnimations.WPF" Version="0.5.2" />
-		<PackageReference Include="ComputedBehaviors.WPF" Version="0.5.2" />
-		<PackageReference Include="ComputedConverters.WPF" Version="0.5.2" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="WPF-UI" Version="4.2.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="ComputedAnimations.WPF" Version="0.5.2" />
+        <PackageReference Include="ComputedBehaviors.WPF" Version="0.5.2" />
+        <PackageReference Include="ComputedConverters.WPF" Version="0.5.2" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+    </ItemGroup>
 
 </Project>

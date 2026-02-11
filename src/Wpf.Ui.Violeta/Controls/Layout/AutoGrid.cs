@@ -315,7 +315,7 @@ public class AutoGrid : Grid
     /// </summary>
     /// <param name="constraint">Indicates an upper limit size that should not be exceeded.</param>
     /// <returns>
-    /// 	<see cref="Size"/> that represents the required size to arrange child content.
+    /// <see cref="Size"/> that represents the required size to arrange child content.
     /// </returns>
     protected override Size MeasureOverride(Size constraint)
     {

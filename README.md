@@ -113,7 +113,7 @@ Similar to WPF UI.
   ```
   
 
-​	If you want to inherit `Wpf.Ui.Violeta.Controls.ContentDialog` to implement a custom dialog just using `Style="{StaticResource DefaultVioletaContentDialogStyle}"`.
+​    If you want to inherit `Wpf.Ui.Violeta.Controls.ContentDialog` to implement a custom dialog just using `Style="{StaticResource DefaultVioletaContentDialogStyle}"`.
 
 - **MessageBox**
 

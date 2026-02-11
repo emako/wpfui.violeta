@@ -1,127 +1,127 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<PackageId>WPF-UI.Violeta</PackageId>
-		<Product>WPF-UI.Violeta</Product>
-		<TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
-		<UseWPF>true</UseWPF>
-		<UseWinUI>false</UseWinUI>
-		<UseWindowsForms>false</UseWindowsForms>
-		<LangVersion>preview</LangVersion>
-		<Nullable>enable</Nullable>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<DebugType>portable</DebugType>
-		<DebugSymbols>true</DebugSymbols>
-		<IncludeSymbols>true</IncludeSymbols>
-		<EnableWindowsTargeting>true</EnableWindowsTargeting>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<AssemblyVersion>4.2.0.1</AssemblyVersion>
-		<FileVersion>4.2.0.1</FileVersion>
-		<Version>$(VersionPrefix)4.2.0.1</Version>
-		<Authors>ema</Authors>
-		<Company>ema</Company>
-		<Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.</Description>
-		<PackageProjectUrl>https://github.com/emako/wpfui.violeta</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/emako/wpfui.violeta</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageTags>WPF-UI .NET WPF Violeta</PackageTags>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageIcon>wpfui.png</PackageIcon>
-	</PropertyGroup>
+    <PropertyGroup>
+        <PackageId>WPF-UI.Violeta</PackageId>
+        <Product>WPF-UI.Violeta</Product>
+        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <UseWinUI>false</UseWinUI>
+        <UseWindowsForms>false</UseWindowsForms>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DebugType>portable</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <IncludeSymbols>true</IncludeSymbols>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <AssemblyVersion>4.2.0.1</AssemblyVersion>
+        <FileVersion>4.2.0.1</FileVersion>
+        <Version>$(VersionPrefix)4.2.0.1</Version>
+        <Authors>ema</Authors>
+        <Company>ema</Company>
+        <Description>WPF UI Violeta is based on WPF UI, and provides the Fluent experience in your known and loved WPF framework. Some new immersive controls like like `Toast`, `Flyout`, `ContentDialog`, `MessageBox` and etc.</Description>
+        <PackageProjectUrl>https://github.com/emako/wpfui.violeta</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/emako/wpfui.violeta</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>WPF-UI .NET WPF Violeta</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>wpfui.png</PackageIcon>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<None Remove="Resources\Fonts\*.ttf" />
-		<None Remove="Resources\Images\*.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Resource Include="Resources\Fonts\*.ttf" />
-		<Resource Include="Resources\Images\*.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Update="Resources\Localization\SH.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.fr.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.fr.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.id.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.id.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.ja.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.ja.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.ko.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.ko.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.pt.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.pt.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.ru.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.ru.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.vi.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.vi.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.de.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.de.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.zh-Hans.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.zh-Hans.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Resources\Localization\SH.zh-Hant.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>SH.zh-Hant.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Resources\Localization\SH.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>SH.resx</DependentUpon>
-		</Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="..\..\README.md" Pack="true" PackagePath="" />
-		<None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
+    <ItemGroup>
+        <None Remove="Resources\Fonts\*.ttf" />
+        <None Remove="Resources\Images\*.png" />
     </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="WPF-UI" Version="4.2.0" />
-	</ItemGroup>
+    <ItemGroup>
+        <Resource Include="Resources\Fonts\*.ttf" />
+        <Resource Include="Resources\Images\*.png" />
+    </ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net47' Or '$(TargetFramework)' == 'net471' Or '$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
-		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-	</ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\Localization\SH.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.fr.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.fr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.id.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.id.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.ja.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.ja.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.ko.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.ko.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.pt.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.pt.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.ru.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.ru.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.vi.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.vi.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.de.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.de.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.zh-Hans.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.zh-Hans.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.zh-Hant.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.zh-Hant.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'disable'">
-		<PackageReference Include="PolySharp" Version="1.14.1">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>build; analyzers</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="WpfAnalyzers" Version="4.1.1">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+    <ItemGroup>
+        <Compile Update="Resources\Localization\SH.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SH.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
+        <None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="WPF-UI" Version="4.2.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net47' Or '$(TargetFramework)' == 'net471' Or '$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
+        <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'disable'">
+        <PackageReference Include="PolySharp" Version="1.14.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>build; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="WpfAnalyzers" Version="4.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
 </Project>
