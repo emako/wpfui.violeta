@@ -6,9 +6,9 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <LangVersion>preview</LangVersion>
-        <AssemblyVersion>4.2.0.1</AssemblyVersion>
-        <FileVersion>4.2.0.1</FileVersion>
-        <Version>$(VersionPrefix)4.2.0.1</Version>
+        <AssemblyVersion>4.2.0.2</AssemblyVersion>
+        <FileVersion>4.2.0.2</FileVersion>
+        <Version>$(VersionPrefix)4.2.0.2</Version>
         <ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
     </PropertyGroup>
 

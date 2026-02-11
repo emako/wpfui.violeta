@@ -6,7 +6,7 @@ namespace Wpf.Ui.Test;
 internal sealed partial class DependencyPropertyGenerate : DependencyObject
 {
     [DependencyProperty(DefaultValue = 42, PropertyChanged = nameof(OnCountChanged))]
-    public int Count { get; set; }
+    public partial int Count { get; set; }
 
     private static void OnCountChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
