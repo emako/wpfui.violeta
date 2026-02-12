@@ -710,4 +710,5 @@ Under construction
 - [🔗 CachedImage](https://github.com/floydpink/CachedImage)
 - [🔗 WpfAutoGrid.Core](https://github.com/budul100/WpfAutoGrid.Core)
 - [🔗 NativeLikeCaptionButton-WPF](https://github.com/SuGar0218/NativeLikeCaptionButton-WPF)
+- [🔗 HandyOrg/HandyControl](https://github.com/HandyOrg/HandyControl)
 

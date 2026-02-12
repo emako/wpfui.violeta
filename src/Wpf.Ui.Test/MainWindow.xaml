@@ -466,6 +466,7 @@
                                 Content="Show Position Maintained Toasts" />
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             Margin="0,8,0,0"
@@ -516,6 +517,7 @@
                             </ui:Card>
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -540,6 +542,7 @@
                                 Content="Show ContentDialog" />
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -671,6 +674,7 @@
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -738,6 +742,7 @@
                             </Button>
                         </ui:StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -758,6 +763,7 @@
                                 Tag="None" />
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1005,6 +1011,7 @@
                             </ui:ListView>
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1023,6 +1030,7 @@
                             <vio:ImageView Source="/wpfui.png" />
                         </ui:Border>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1048,6 +1056,7 @@
                             </Button>
                         </ui:StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1066,6 +1075,7 @@
                             <Button Command="{Binding ShowAsyncPendingBoxCommand}" Content="Show PendingBoxAsync" />
                         </ui:StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1173,6 +1183,7 @@
                             </Border>
                         </StackPanel>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1303,6 +1314,7 @@
                             </ui:Drawer>
                         </ui:Grid>
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel Margin="0,8,0,0">
                         <TextBlock
                             MinWidth="120"
@@ -1315,6 +1327,7 @@
                             Command="{Binding ShowShellWindowCommand}"
                             Content="Show ShellWindow" />
                     </StackPanel>
+                    <!--  =============================  -->
                     <StackPanel>
                         <TextBlock
                             MinWidth="120"
@@ -1333,6 +1346,39 @@
                                 Height="60"
                                 Style="{DynamicResource TextBlockUiTextBoxStyle}"
                                 Text="ui:TextBox with TextBlockUiTextBoxStyle&#x0a;More lines..." />
+                        </StackPanel>
+                    </StackPanel>
+                    <!--  =============================  -->
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="RunningBlock in TransitioningContentControl" />
+                        <StackPanel>
+                            <vio:TransitioningContentControl>
+                                <vio:RunningBlock
+                                    HorizontalAlignment="Left"
+                                    AutoRun="True"
+                                    BorderThickness="2"
+                                    Content="RunningBlock"
+                                    FontSize="14"
+                                    Runaway="True"
+                                    Duration="0:0:1" />
+                            </vio:TransitioningContentControl>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--  =============================  -->
+                    <StackPanel>
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Next ..." />
+                        <StackPanel>
+                            <!--  ...  -->
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
