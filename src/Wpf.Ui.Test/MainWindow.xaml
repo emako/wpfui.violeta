@@ -1355,18 +1355,47 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="RunningBlock in TransitioningContentControl" />
+                            Text="RunningBlock" />
                         <StackPanel>
-                            <vio:TransitioningContentControl>
-                                <vio:RunningBlock
-                                    HorizontalAlignment="Left"
-                                    AutoRun="True"
-                                    BorderThickness="2"
-                                    Content="RunningBlock"
-                                    FontSize="14"
-                                    Runaway="True"
-                                    Duration="0:0:1" />
-                            </vio:TransitioningContentControl>
+                            <vio:RunningBlock
+                                Width="500"
+                                Padding="10,0,10,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                AutoRun="True"
+                                Content="This is a RunningBlock demo (AutoRun: true)"
+                                FontSize="16"
+                                Foreground="DodgerBlue"
+                                Runaway="True"
+                                RunningDirection="EndToStart"
+                                Speed="60"
+                                Duration="0:0:1" />
+                            <vio:RunningBlock
+                                Width="500"
+                                Padding="10,0,10,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                AutoRun="False"
+                                Content="This is a RunningBlock demo (AutoRun: false, Runaway: false)"
+                                FontSize="16"
+                                Foreground="DodgerBlue"
+                                Runaway="False"
+                                RunningDirection="StartToEnd"
+                                Speed="60"
+                                Duration="0:0:1" />
+                            <vio:RunningBlock
+                                Width="500"
+                                Padding="10,0,10,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                AutoRun="False"
+                                Content="This is a RunningBlock demo (AutoRun: false, Runaway: true)"
+                                FontSize="16"
+                                Foreground="DodgerBlue"
+                                Runaway="True"
+                                RunningDirection="EndToStart"
+                                Speed="60"
+                                Duration="0:0:1" />
                         </StackPanel>
                     </StackPanel>
                     <!--  =============================  -->

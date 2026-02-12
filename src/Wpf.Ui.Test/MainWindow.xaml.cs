@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -186,6 +187,7 @@ public partial class MainWindow : ShellWindow
 
     [RelayCommand]
     [Obsolete]
+    [SuppressMessage("Style", "IDE0017:Simplify object initialization")]
     private async Task ShowWithContentPresenterForDialogs()
     {
         Wpf.Ui.Controls.ContentDialog dialog =

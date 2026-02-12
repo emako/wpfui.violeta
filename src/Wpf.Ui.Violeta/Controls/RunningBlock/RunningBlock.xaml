@@ -3,23 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
-    <Style x:Key="BaseStyle" TargetType="Control">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-        <Setter Property="FontSize" Value="{StaticResource TextFontSize}" />
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-    </Style>
-
-    <Style
-        x:Key="DefaultRunningBlockStyle"
-        BasedOn="{StaticResource BaseStyle}"
-        TargetType="local:RunningBlock">
-        <Setter Property="Border.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
+    <Style x:Key="DefaultRunningBlockStyle" TargetType="local:RunningBlock">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Border.CornerRadius" Value="4" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0,10" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:RunningBlock">
+                <ControlTemplate TargetType="{x:Type local:RunningBlock}">
                     <local:RunningBorder
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
