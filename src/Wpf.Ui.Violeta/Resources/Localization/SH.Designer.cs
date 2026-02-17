@@ -27,6 +27,8 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
+
+        private static readonly ILocalizationProvider _provider = new ResxLocalizationProvider("Resources/Localization/", "Wpf.Ui.Violeta");
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal SH() {
@@ -39,8 +41,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wpf.Ui.Violeta.Resources.Localization.SH", typeof(SH).Assembly);
-                    resourceMan = temp;
+                    resourceMan = new ResxResourceManager(_provider);
                 }
                 return resourceMan;
             }
@@ -57,6 +58,8 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
             }
             set {
                 resourceCulture = value;
+                _provider.Culture = value ?? global::System.Globalization.CultureInfo.CurrentUICulture;
+                _provider.Invalidate();
             }
         }
         

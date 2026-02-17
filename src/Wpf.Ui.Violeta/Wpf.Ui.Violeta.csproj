@@ -31,6 +31,7 @@
         <PackageIcon>wpfui.png</PackageIcon>
         <IsRoslynAnalyzer>true</IsRoslynAnalyzer>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <PackSatelliteAssemblies>false</PackSatelliteAssemblies>
     </PropertyGroup>
 
     <ItemGroup>
@@ -43,6 +44,32 @@
         <Resource Include="Resources\Images\*.png" />
     </ItemGroup>
 
+    <ItemGroup>
+        <EmbeddedResource Remove="Resources\Localization\SH.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.fr.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.id.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.ja.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.ko.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.pt.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.ru.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.vi.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.de.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.zh-Hans.resx" />
+        <EmbeddedResource Remove="Resources\Localization\SH.zh-Hant.resx" />
+        <Resource Include="Resources\Localization\SH.resx" />
+        <Resource Include="Resources\Localization\SH.fr.resx" />
+        <Resource Include="Resources\Localization\SH.id.resx" />
+        <Resource Include="Resources\Localization\SH.ja.resx" />
+        <Resource Include="Resources\Localization\SH.ko.resx" />
+        <Resource Include="Resources\Localization\SH.pt.resx" />
+        <Resource Include="Resources\Localization\SH.ru.resx" />
+        <Resource Include="Resources\Localization\SH.vi.resx" />
+        <Resource Include="Resources\Localization\SH.de.resx" />
+        <Resource Include="Resources\Localization\SH.zh-Hans.resx" />
+        <Resource Include="Resources\Localization\SH.zh-Hant.resx" />
+    </ItemGroup>
+
+    <!--
     <ItemGroup>
         <EmbeddedResource Update="Resources\Localization\SH.resx">
             <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +116,7 @@
             <LastGenOutput>SH.zh-Hant.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
+    -->
 
     <ItemGroup>
         <Compile Update="Resources\Localization\SH.Designer.cs">
@@ -111,28 +139,13 @@
     <ItemGroup>
         <ProjectReference Include="..\Wpf.Ui.DependencyPropertyGenerator\Wpf.Ui.DependencyPropertyGenerator.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.2.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net47' Or '$(TargetFramework)' == 'net471' Or '$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
         <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'disable'">
-        <PackageReference Include="PolySharp" Version="1.14.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>build; analyzers</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="WpfAnalyzers" Version="4.1.1">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
 
 </Project>
