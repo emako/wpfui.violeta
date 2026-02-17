@@ -119,6 +119,12 @@
     -->
 
     <ItemGroup>
+        <!--
+        <EmbeddedResource Update="Resources\Localization\SH.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        -->
         <Compile Update="Resources\Localization\SH.Designer.cs">
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
