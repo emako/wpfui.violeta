@@ -9,7 +9,7 @@
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <RootNamespace>Wpf.Ui.DependencyPropertyGenerator</RootNamespace>
         <AssemblyName>Wpf.Ui.DependencyPropertyGenerator</AssemblyName>
-        <Version>4.2.0.3</Version>
+        <Version>4.2.0.4</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
     </PropertyGroup>
