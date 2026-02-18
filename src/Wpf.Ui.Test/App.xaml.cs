@@ -17,7 +17,7 @@ public partial class App : Application
         I18N.Culture
             //= System.Threading.Thread.CurrentThread.CurrentUICulture
             //= System.Threading.Thread.CurrentThread.CurrentCulture
-            = new System.Globalization.CultureInfo("zh");
+            = new System.Globalization.CultureInfo("zh-CN");
 #endif
 
         SystemMenuThemeManager.Apply();
