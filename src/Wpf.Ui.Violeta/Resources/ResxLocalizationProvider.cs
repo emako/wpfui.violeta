@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Resources;
 using System.Xml;
 
-namespace Wpf.Ui.Violeta.Resources.Localization;
+namespace Wpf.Ui.Violeta.Resources;
 
 /// <summary>
 /// Localizes by reading .resx XML exposed as WPF pack resources (Resource/Content build actions).
@@ -21,7 +21,11 @@ internal sealed class ResxLocalizationProvider(string baseResourcePath, string a
     private readonly Dictionary<string, Dictionary<string, string>?> _cache = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, Dictionary<string, string>> _resolvedCache = new(StringComparer.OrdinalIgnoreCase);
 
-    // Optional prewarm list to reduce I/O when first accessed for invariant culture.
+    /// <summary>
+    /// List of cultures to prewarm when invariant is requested. Prewarming loads these specific resx files
+    /// once so subsequent lookups skip I/O; it does not alter the fallback order (which remains
+    /// culture -> parent -> invariant). Example: zh-CN naturally falls back to zh-Hans because <see cref="CultureInfo.Parent"/> is zh-Hans.
+    /// </summary>
     private static readonly string[] KnownCultures =
     [
         string.Empty, "fr", "id", "ja", "ko", "pt", "ru", "vi", "de", "zh-Hans", "zh-Hant"
