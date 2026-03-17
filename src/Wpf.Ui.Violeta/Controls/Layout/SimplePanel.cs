@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls;
+namespace Wpf.Ui.Violeta.Controls.Layout;
 
 /// <summary>
 /// Used as a replacement for <see cref="Grid"/>
