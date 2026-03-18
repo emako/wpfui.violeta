@@ -1,4 +1,13 @@
-Set-Location $PSScriptRoot
+﻿Set-Location $PSScriptRoot
+
+Write-Host @"
+███╗   ██╗██╗   ██╗ ██████╗ ███████╗████████╗
+████╗  ██║██║   ██║██╔════╝ ██╔════╝╚══██╔══╝
+██╔██╗ ██║██║   ██║██║  ███╗█████╗     ██║   
+██║╚██╗██║██║   ██║██║   ██║██╔══╝     ██║   
+██║ ╚████║╚██████╔╝╚██████╔╝███████╗   ██║   
+╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   
+"@
 
 $projects = @(
     "..\src\Wpf.Ui.Violeta"
@@ -13,4 +22,5 @@ foreach ($proj in $projects) {
     Pop-Location
 }
 
-Pause
+Write-Host "`nPress any key to exit..."
+[void][System.Console]::ReadKey($true)
