@@ -7,15 +7,12 @@ public class Indicator : Control
 {
     public IndicatorType IndicatorType
     {
-        get { return (IndicatorType)GetValue(IndicatorTypeProperty); }
-        set { SetValue(IndicatorTypeProperty, value); }
+        get => (IndicatorType)GetValue(IndicatorTypeProperty);
+        set => SetValue(IndicatorTypeProperty, value);
     }
 
-    public static readonly DependencyProperty IndicatorTypeProperty =
-        DependencyProperty.Register("IndicatorType",
-            typeof(IndicatorType),
-            typeof(Indicator),
-            new PropertyMetadata(IndicatorType.Twist));
+    public static readonly DependencyProperty IndicatorTypeProperty
+        = DependencyProperty.Register(nameof(IndicatorType), typeof(IndicatorType), typeof(Indicator), new PropertyMetadata(IndicatorType.Twist));
 
     static Indicator()
     {
@@ -45,13 +42,13 @@ public class Indicator : Control
             return;
         }
 
-        var MainGrid = (FrameworkElement)GetTemplateChild("MainGrid");
-        if (MainGrid == null)
+        FrameworkElement mainGrid = (FrameworkElement)GetTemplateChild("MainGrid");
+        if (mainGrid == null)
         {
             return;
         }
 
-        var TargetState = IsVisible ? "Active" : "Inactive";
-        VisualStateManager.GoToElementState(MainGrid, TargetState, true);
+        string targetState = IsVisible ? "Active" : "Inactive";
+        VisualStateManager.GoToElementState(mainGrid, targetState, true);
     }
 }
