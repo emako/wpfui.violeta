@@ -696,6 +696,19 @@ Similar to WPF UI.
        </Border>
   </ui:Drawer>
   ```
+- **BusyMask**
+
+  > BusyIndicator here
+
+  ```xaml
+  <vio:BusyMask
+    Background="Transparent"
+    BusyContent="Bar"
+    IndicatorType="Bar"
+    IsBusy="True">
+      <UIElement />
+  </vio:BusyMask>
+  ```
 
 ### 📷 Screenshots
 
@@ -711,4 +724,5 @@ Under construction
 - [🔗 WpfAutoGrid.Core](https://github.com/budul100/WpfAutoGrid.Core)
 - [🔗 NativeLikeCaptionButton-WPF](https://github.com/SuGar0218/NativeLikeCaptionButton-WPF)
 - [🔗 HandyOrg/HandyControl](https://github.com/HandyOrg/HandyControl)
+- [🔗 Moh3nGolshani/BusyIndicator](https://github.com/Moh3nGolshani/BusyIndicator)
 

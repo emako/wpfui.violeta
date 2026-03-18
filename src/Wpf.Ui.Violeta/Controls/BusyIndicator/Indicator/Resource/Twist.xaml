@@ -1,0 +1,165 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <ControlTemplate x:Key="Twist" TargetType="{x:Type local:Indicator}">
+        <Grid
+            x:Name="MainGrid"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Grid RenderTransformOrigin="0.5 0.5">
+                <Grid.RenderTransform>
+                    <ScaleTransform ScaleX="{DynamicResource IndicatorScaleX}" ScaleY="{DynamicResource IndicatorScaleY}" />
+                </Grid.RenderTransform>
+
+                <Canvas RenderTransformOrigin=".5,.5">
+                    <Canvas.RenderTransform>
+                        <RotateTransform x:Name="C1" Angle="0" />
+                    </Canvas.RenderTransform>
+                    <Ellipse
+                        x:Name="E1"
+                        Canvas.Left="13.4"
+                        Canvas.Top="13.4"
+                        Width="10"
+                        Height="10"
+                        Fill="{DynamicResource IndicatorBackground}" />
+                </Canvas>
+                <Canvas RenderTransformOrigin=".5,.5">
+                    <Canvas.RenderTransform>
+                        <RotateTransform x:Name="C2" Angle="90" />
+                    </Canvas.RenderTransform>
+                    <Ellipse
+                        x:Name="E2"
+                        Canvas.Left="13.4"
+                        Canvas.Top="13.4"
+                        Width="10"
+                        Height="10"
+                        Fill="{DynamicResource IndicatorForeground}" />
+                </Canvas>
+                <Canvas RenderTransformOrigin=".5,.5">
+                    <Canvas.RenderTransform>
+                        <RotateTransform x:Name="C3" Angle="180" />
+                    </Canvas.RenderTransform>
+                    <Ellipse
+                        x:Name="E3"
+                        Canvas.Left="13.4"
+                        Canvas.Top="13.4"
+                        Width="10"
+                        Height="10"
+                        Fill="{DynamicResource IndicatorForeground}" />
+                </Canvas>
+                <Canvas RenderTransformOrigin=".5,.5">
+                    <Canvas.RenderTransform>
+                        <RotateTransform x:Name="C4" Angle="270" />
+                    </Canvas.RenderTransform>
+                    <Ellipse
+                        x:Name="E4"
+                        Canvas.Left="13.4"
+                        Canvas.Top="13.4"
+                        Width="10"
+                        Height="10"
+                        Fill="{DynamicResource IndicatorForeground}" />
+                </Canvas>
+            </Grid>
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="ActiveStates">
+                    <VisualState x:Name="Active">
+                        <Storyboard BeginTime="00:00:00" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingKeyFrames
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="C1"
+                                Storyboard.TargetProperty="Angle">
+                                <LinearDoubleKeyFrame KeyTime="00:00:01" Value="360" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E1"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E1"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimationUsingKeyFrames
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="C2"
+                                Storyboard.TargetProperty="Angle">
+                                <LinearDoubleKeyFrame KeyTime="00:00:01" Value="450" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E2"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E2"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimationUsingKeyFrames
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="C3"
+                                Storyboard.TargetProperty="Angle">
+                                <LinearDoubleKeyFrame KeyTime="00:00:01" Value="540" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E3"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E3"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimationUsingKeyFrames
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="C4"
+                                Storyboard.TargetProperty="Angle">
+                                <LinearDoubleKeyFrame KeyTime="00:00:01" Value="630" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E4"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                            <DoubleAnimation
+                                AutoReverse="True"
+                                BeginTime="00:00:00"
+                                Storyboard.TargetName="E4"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                From="13.4"
+                                To="4"
+                                Duration="00:00:00.4" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Inactive" />
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

@@ -23,5 +23,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBar/NativeLikeTitleBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ContentWindow/ContentWindow.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/RunningBlock/RunningBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/BusyIndicator/BusyIndicator.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

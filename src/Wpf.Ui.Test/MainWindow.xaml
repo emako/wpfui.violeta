@@ -1405,6 +1405,150 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="BusyMask" />
+                        <ui:WrapPanel Orientation="Horizontal">
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Bar"
+                                IndicatorType="Bar"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Blocks"
+                                IndicatorType="Blocks"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="BouncingDot"
+                                IndicatorType="BouncingDot"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Cogs"
+                                IndicatorType="Cogs"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Cupertino"
+                                IndicatorType="Cupertino"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Dashes"
+                                IndicatorType="Dashes"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="DotCircle"
+                                IndicatorType="DotCircle"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="DoubleBounce"
+                                IndicatorType="DoubleBounce"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Ellipse"
+                                IndicatorType="Ellipse"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Escalade"
+                                IndicatorType="Escalade"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="FourDots"
+                                IndicatorType="FourDots"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Grid"
+                                IndicatorType="Grid"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Piston"
+                                IndicatorType="Piston"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Pulse"
+                                IndicatorType="Pulse"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Ring"
+                                IndicatorType="Ring"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Swirl"
+                                IndicatorType="Swirl"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="ThreeDots"
+                                IndicatorType="ThreeDots"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Twist"
+                                IndicatorType="Twist"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                            <vio:BusyMask
+                                Background="Transparent"
+                                BusyContent="Wave"
+                                IndicatorType="Wave"
+                                IsBusy="True">
+                                <UIElement />
+                            </vio:BusyMask>
+                        </ui:WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  ...  -->
