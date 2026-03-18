@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:layout="clr-namespace:Wpf.Ui.Violeta.Controls.Layout"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <Style x:Key="DefaultRunningBlockStyle" TargetType="local:RunningBlock">
@@ -17,8 +18,8 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{Binding Path=Border.CornerRadius, RelativeSource={RelativeSource TemplatedParent}}">
-                        <local:SimplePanel ClipToBounds="True">
-                            <local:SimplePanel x:Name="PART_Panel" HorizontalAlignment="Left">
+                        <layout:SimplePanel ClipToBounds="True">
+                            <layout:SimplePanel x:Name="PART_Panel" HorizontalAlignment="Left">
                                 <ContentPresenter
                                     x:Name="PART_ContentElement"
                                     HorizontalAlignment="Left"
@@ -29,8 +30,8 @@
                                         </TransformGroup>
                                     </ContentPresenter.RenderTransform>
                                 </ContentPresenter>
-                            </local:SimplePanel>
-                        </local:SimplePanel>
+                            </layout:SimplePanel>
+                        </layout:SimplePanel>
                     </local:RunningBorder>
                 </ControlTemplate>
             </Setter.Value>
