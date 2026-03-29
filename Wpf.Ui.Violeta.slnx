@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="src/Wpf.Ui.DependencyPropertyGenerator/Wpf.Ui.DependencyPropertyGenerator.csproj" />
+  <Project Path="src/Wpf.Ui.Test.NavigationView/Wpf.Ui.Test.NavigationView.csproj" />
   <Project Path="src/Wpf.Ui.Test/Wpf.Ui.Test.csproj" />
   <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
 </Solution>
