@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class MergedDictionariesHelper
     {
@@ -125,3 +125,4 @@ namespace iNKORE.UI.WPF.Helpers
         //}
     }
 }
+

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class CubicBezierEase : EasingFunctionBase
     {
@@ -268,3 +268,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         #endregion
     }
 }
+

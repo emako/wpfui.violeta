@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Media.Utils
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class ColorUtils
     {
@@ -297,3 +297,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Utils
         }
     }
 }
+

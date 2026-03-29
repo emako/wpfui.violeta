@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// This header is used by multiple technologies.
@@ -410,3 +410,4 @@ namespace iNKORE.UI.WPF.Modern.Native
 
     }
 }
+

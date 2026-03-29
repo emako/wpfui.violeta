@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class ThemeResourceHelper
     {
@@ -22,3 +22,4 @@ namespace iNKORE.UI.WPF.Modern.Helpers
         }
     }
 }
+

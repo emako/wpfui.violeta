@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum CustomPlacementMode
     {
@@ -199,3 +199,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+
+

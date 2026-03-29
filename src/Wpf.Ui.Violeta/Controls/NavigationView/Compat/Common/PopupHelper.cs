@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Windows.Controls.Primitives;
-using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
-using iNKORE.UI.WPF.Modern.Helpers;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class PopupHelper
     {
@@ -53,3 +53,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         private static readonly Lazy<Action<Popup>> s_reposition = new Lazy<Action<Popup>>(CreateRepositionDelegate);
     }
 }
+
+

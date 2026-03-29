@@ -1,7 +1,7 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Minimal compatibility shim used by NavigationView.AutoSuggestBox dependency.
     public class AutoSuggestBox : Control
@@ -12,3 +12,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

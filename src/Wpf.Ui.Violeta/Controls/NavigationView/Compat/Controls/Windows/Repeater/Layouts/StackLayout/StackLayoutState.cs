@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class StackLayoutState
     {
@@ -57,3 +57,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private const int BufferSize = 100;
     }
 }
+
+

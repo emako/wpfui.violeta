@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Internal component that contains all
     // the animation related logic for ItemsRepeater.

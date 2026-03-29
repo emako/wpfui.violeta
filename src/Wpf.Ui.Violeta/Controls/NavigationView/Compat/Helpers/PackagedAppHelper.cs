@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Text;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class PackagedAppHelper
     {
@@ -31,3 +31,4 @@ namespace iNKORE.UI.WPF.Helpers
         private static extern int GetCurrentPackageFullName(ref int packageFullNameLength, StringBuilder packageFullName);
     }
 }
+

@@ -3,7 +3,7 @@
 
 using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public sealed class NavigationViewBackRequestedEventArgs : EventArgs
     {
@@ -12,3 +12,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public enum FlyoutShowMode
     {
@@ -7,3 +7,4 @@
         Transient = 2
     }
 }
+

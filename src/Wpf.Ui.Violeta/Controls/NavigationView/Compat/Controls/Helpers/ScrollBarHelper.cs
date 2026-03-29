@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Modern.Controls.Primitives;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ScrollBarHelper
     {
@@ -178,3 +178,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+

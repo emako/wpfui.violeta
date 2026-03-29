@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
-using iNKORE.UI.WPF.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// This is similar to a Border control, but it clips the content to the border's rounded corners.
@@ -111,3 +111,5 @@ namespace iNKORE.UI.WPF.Controls
         private Border PART_InnerBorder;
     }
 }
+
+

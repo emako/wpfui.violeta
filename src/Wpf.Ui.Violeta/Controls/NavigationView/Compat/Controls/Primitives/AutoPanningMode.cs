@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class AutoPanningMode
     {
@@ -114,3 +114,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+

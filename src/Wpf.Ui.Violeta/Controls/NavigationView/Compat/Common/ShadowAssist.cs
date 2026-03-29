@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ShadowAssist
     {
@@ -36,3 +36,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         #endregion
     }
 }
+

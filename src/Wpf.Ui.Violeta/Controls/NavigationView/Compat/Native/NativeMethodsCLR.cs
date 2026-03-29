@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     [StructLayout(LayoutKind.Sequential)]
     public class POINT
@@ -300,3 +300,4 @@ namespace iNKORE.UI.WPF.Modern.Native
     }
 
 }
+

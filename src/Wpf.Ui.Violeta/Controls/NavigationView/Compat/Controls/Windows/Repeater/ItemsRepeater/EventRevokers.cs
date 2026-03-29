@@ -1,6 +1,6 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class ItemsRepeaterElementPreparedRevoker : EventRevoker<ItemsRepeater, TypedEventHandler<ItemsRepeater, ItemsRepeaterElementPreparedEventArgs>>
     {
@@ -36,3 +36,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

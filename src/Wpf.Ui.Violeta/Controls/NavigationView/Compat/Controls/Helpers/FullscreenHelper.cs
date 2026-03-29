@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Helper class for making a window fullscreen.

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class Layout : DependencyObject
     {
@@ -130,3 +130,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

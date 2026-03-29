@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
@@ -7,10 +7,10 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
-using iNKORE.UI.WPF.Modern.Automation.Peers;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     [ContentProperty(nameof(ItemTemplate))]
     public partial class ItemsRepeater : Panel
@@ -861,3 +861,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private bool m_isItemTemplateEmpty = false;
     }
 }
+
+

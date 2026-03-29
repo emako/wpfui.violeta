@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Specifies the animation to run when a user navigates forward in a logical hierarchy,
@@ -118,3 +118,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         }
     }
 }
+

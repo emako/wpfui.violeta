@@ -2,9 +2,9 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     enum NavigationViewVisualStateDisplayMode
     {
@@ -60,3 +60,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         const string c_selectionIndicatorName = "SelectionIndicator";
     }
 }
+
+

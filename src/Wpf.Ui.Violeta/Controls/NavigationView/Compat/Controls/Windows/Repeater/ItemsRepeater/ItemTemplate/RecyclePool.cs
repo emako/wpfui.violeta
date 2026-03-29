@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xaml;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class RecyclePool
     {
@@ -185,3 +185,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly Dictionary<string, List<ElementInfo>> m_elements = new Dictionary<string, List<ElementInfo>>();
     }
 }
+
+

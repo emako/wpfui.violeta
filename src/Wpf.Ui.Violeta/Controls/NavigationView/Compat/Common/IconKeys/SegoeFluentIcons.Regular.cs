@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Modern.Common.IconKeys
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static partial class SegoeFluentIcons
     {
@@ -1413,3 +1413,4 @@ namespace iNKORE.UI.WPF.Modern.Common.IconKeys
         public static readonly FontIconData ClickedOutLoudSolidBold = CreateIcon(0xF8B3);
     }
 }
+

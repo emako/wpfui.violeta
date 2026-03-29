@@ -4,7 +4,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class PopupEx : Popup
     {
@@ -113,3 +113,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+

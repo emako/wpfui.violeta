@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ExpanderAnimationsHelper
     {

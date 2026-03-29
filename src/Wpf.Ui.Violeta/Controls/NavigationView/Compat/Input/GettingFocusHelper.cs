@@ -1,9 +1,9 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Windows;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Input
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class GettingFocusHelper : IDisposable
     {
@@ -58,3 +58,5 @@ namespace iNKORE.UI.WPF.Modern.Input
         private bool _ignoreGotFocus;
     }
 }
+
+

@@ -3,7 +3,7 @@
 
 using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public sealed class NavigationViewDisplayModeChangedEventArgs : EventArgs
     {
@@ -14,3 +14,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         public NavigationViewDisplayMode DisplayMode { get; internal set; }
     }
 }
+

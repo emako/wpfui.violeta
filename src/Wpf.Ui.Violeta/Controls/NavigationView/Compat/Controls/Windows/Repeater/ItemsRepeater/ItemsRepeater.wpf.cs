@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     partial class ItemsRepeater
     {
@@ -35,3 +35,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private static readonly Size s_zeroSize = new Size();
     }
 }
+

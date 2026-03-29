@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class NavigationAnimation
     {
@@ -77,3 +77,5 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         private ClockState _currentState = ClockState.Stopped;
     }
 }
+
+

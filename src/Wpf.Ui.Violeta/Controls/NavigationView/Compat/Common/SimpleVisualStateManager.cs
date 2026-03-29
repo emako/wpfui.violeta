@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     ///     Manages visual states and their transitions on a control.
@@ -289,3 +289,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         #endregion
     }
 }
+
+

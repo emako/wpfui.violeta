@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using iNKORE.UI.WPF.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Converters
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class CornerRadiusFilterConverter : DependencyObject, IValueConverter
     {
@@ -81,3 +81,5 @@ namespace iNKORE.UI.WPF.Converters
         All = TopLeft | TopRight | BottomLeft | BottomRight,
     }
 }
+
+

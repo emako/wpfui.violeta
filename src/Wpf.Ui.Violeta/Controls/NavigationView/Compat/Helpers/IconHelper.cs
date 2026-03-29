@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Native;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Text;
 //using Windows.Win32;
 //using Windows.Win32.UI.WindowsAndMessaging;
 
-namespace iNKORE.UI.WPF.Modern.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class IconHelper
     {
@@ -78,3 +78,5 @@ namespace iNKORE.UI.WPF.Modern.Helpers
         private static extern int GetModuleFileName(HandleRef hModule, StringBuilder buffer, int length);
     }
 }
+
+

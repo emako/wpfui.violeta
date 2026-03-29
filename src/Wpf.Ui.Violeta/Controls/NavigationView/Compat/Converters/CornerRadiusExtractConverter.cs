@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace iNKORE.UI.WPF.Converters
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Extracts a single member of a CornerRadius object.
@@ -83,3 +83,4 @@ namespace iNKORE.UI.WPF.Converters
         BottomLeft
     }
 }
+

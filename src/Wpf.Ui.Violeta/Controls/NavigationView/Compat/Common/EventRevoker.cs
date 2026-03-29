@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal abstract class EventRevoker<TSource, TDelegate>
         where TSource : class
@@ -33,3 +33,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

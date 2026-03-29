@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class AnimatedVisualSource : Control
     {
@@ -100,3 +100,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

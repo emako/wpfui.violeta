@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal delegate void DependencyPropertyChangedCallback(DependencyObject sender, DependencyProperty dp);
 }
+

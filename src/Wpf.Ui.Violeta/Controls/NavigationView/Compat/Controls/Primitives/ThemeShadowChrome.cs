@@ -1,6 +1,6 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Controls.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class ThemeShadowChrome : Decorator
     {
@@ -913,3 +913,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         private static readonly Vector s_noTranslation = new Vector(0, 0);
     }
 }
+
+

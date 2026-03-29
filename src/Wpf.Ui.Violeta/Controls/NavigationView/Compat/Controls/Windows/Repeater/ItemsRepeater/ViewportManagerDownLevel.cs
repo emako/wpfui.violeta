@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Threading;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Manages virtualization windows (visible/realization). 
     // This class does the equivalent behavior as ViewportManagerWithPlatformFeatures class
@@ -560,3 +560,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         };
     }
 }
+

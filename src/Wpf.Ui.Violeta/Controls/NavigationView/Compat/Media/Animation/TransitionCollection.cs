@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents a collection of Transition objects. Each Transition object represents
@@ -16,3 +16,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         }
     }
 }
+

@@ -6,10 +6,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using SplitDataSourceT = iNKORE.UI.WPF.Modern.Controls.SplitDataSourceBase<object, iNKORE.UI.WPF.Modern.Controls.NavigationViewSplitVectorID, double>;
-using SplitVectorT = iNKORE.UI.WPF.Modern.Controls.SplitVector<object, iNKORE.UI.WPF.Modern.Controls.NavigationViewSplitVectorID>;
+using Wpf.Ui.Violeta.Controls.Compat;
+using SplitDataSourceT = Wpf.Ui.Violeta.Controls.SplitDataSourceBase<object, Wpf.Ui.Violeta.Controls.NavigationViewSplitVectorID, double>;
+using SplitVectorT = Wpf.Ui.Violeta.Controls.SplitVector<object, Wpf.Ui.Violeta.Controls.NavigationViewSplitVectorID>;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     enum NavigationViewSplitVectorID
     {
@@ -393,3 +394,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         double m_overflowButtonCachedWidth;
     }
 }
+

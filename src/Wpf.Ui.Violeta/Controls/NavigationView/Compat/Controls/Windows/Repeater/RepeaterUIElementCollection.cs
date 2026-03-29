@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class RepeaterUIElementCollection : UIElementCollection
     {
@@ -233,3 +233,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly FrameworkElement _logicalParent;
     }
 }
+

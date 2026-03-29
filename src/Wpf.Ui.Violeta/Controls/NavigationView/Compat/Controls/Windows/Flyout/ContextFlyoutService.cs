@@ -1,8 +1,8 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ContextFlyoutService
     {
@@ -56,3 +56,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

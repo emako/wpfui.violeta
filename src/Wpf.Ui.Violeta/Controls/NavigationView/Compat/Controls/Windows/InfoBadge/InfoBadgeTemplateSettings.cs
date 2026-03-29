@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class InfoBadgeTemplateSettings : DependencyObject
     {
@@ -53,3 +53,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

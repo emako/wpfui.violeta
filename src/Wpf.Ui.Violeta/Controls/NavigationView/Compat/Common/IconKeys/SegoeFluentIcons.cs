@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Controls;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Common.IconKeys
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static partial class SegoeFluentIcons
     {
@@ -23,3 +23,5 @@ namespace iNKORE.UI.WPF.Modern.Common.IconKeys
         }
     }
 }
+
+

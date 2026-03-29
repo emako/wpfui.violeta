@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class PanelHelper
     {
@@ -79,3 +79,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         #endregion
     }
 }
+
+

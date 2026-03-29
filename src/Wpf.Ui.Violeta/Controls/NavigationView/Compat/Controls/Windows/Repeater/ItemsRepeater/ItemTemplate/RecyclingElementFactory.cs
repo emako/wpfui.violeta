@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     //[ContentProperty(nameof(Templates))]
     public class RecyclingElementFactory : ElementFactory
@@ -105,3 +105,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private SelectTemplateEventArgs m_args;
     }
 }
+
+

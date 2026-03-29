@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class FontIconFallback : Control
@@ -32,3 +32,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

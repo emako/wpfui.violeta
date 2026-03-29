@@ -1,4 +1,4 @@
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public enum TitleBarButtonAvailability
     {
@@ -14,3 +14,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         Fluent,
     }
 }
+

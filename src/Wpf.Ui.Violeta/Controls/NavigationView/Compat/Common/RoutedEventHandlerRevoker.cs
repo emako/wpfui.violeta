@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class RoutedEventHandlerRevoker
     {
@@ -28,3 +28,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

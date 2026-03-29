@@ -3,7 +3,7 @@
 
 using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public sealed class NavigationViewItemExpandingEventArgs : EventArgs
     {
@@ -37,3 +37,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         NavigationView m_navigationView;
     }
 }
+

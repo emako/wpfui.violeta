@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class DebugVisualStateManager : VisualStateManager
     {
@@ -26,3 +26,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
     }
 }
 #endif
+

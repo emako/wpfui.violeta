@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Common
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Defines constants that specify the password reveal behavior of a PasswordBox.
@@ -20,3 +20,4 @@
         Visible = 2
     }
 }
+

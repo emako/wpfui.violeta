@@ -9,14 +9,14 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
-using iNKORE.UI.WPF.Helpers;
+using Wpf.Ui.Violeta.Controls.Compat;
 
 //using Windows.Win32.Foundation;
 //using Windows.Win32.UI.WindowsAndMessaging;
-using iNKORE.UI.WPF.Modern.Helpers;
-using iNKORE.UI.WPF.Modern.Native;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class PopupPositioner : DependencyObject, IDisposable
     {
@@ -823,3 +823,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+
+

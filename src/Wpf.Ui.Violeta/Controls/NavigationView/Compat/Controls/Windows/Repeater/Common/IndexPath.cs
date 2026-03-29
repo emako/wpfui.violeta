@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public sealed class IndexPath
     {
@@ -130,3 +130,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly List<int> m_path = new List<int>();
     }
 }
+

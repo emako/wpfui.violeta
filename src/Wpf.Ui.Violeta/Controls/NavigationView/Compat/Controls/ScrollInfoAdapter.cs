@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class ScrollInfoAdapter : UIElement, IScrollInfo
     {
@@ -368,3 +368,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

@@ -1,14 +1,14 @@
-﻿<!--  Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. See LICENSE in the project root for license information.  -->
+<!--  Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. See LICENSE in the project root for license information.  -->
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:iNKORE.UI.WPF.Modern.Controls"
-    xmlns:primitives="clr-namespace:iNKORE.UI.WPF.Modern.Controls.Primitives"
-    xmlns:helpers="clr-namespace:iNKORE.UI.WPF.Modern.Controls.Helpers"
-    xmlns:common="clr-namespace:iNKORE.UI.WPF.Modern.Common"
-    xmlns:ikw="clr-namespace:iNKORE.UI.WPF.Controls"
-    xmlns:conv="clr-namespace:iNKORE.UI.WPF.Converters"
-    xmlns:ui="clr-namespace:iNKORE.UI.WPF.Modern.Controls">
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:helpers="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:common="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:ikw="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:conv="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:ui="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/iNKORE.UI.WPF.Modern;component/Themes/Controls/Button.xaml" />
         <ResourceDictionary>
@@ -34,7 +34,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnLeftPane" TargetType="primitives:NavigationViewItemPresenter">
+    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnLeftPane" TargetType="local:NavigationViewItemPresenter">
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForeground}" />
         <Setter Property="Background" Value="{DynamicResource NavigationViewItemBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource NavigationViewItemBorderBrush}" />
@@ -45,7 +45,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="primitives:NavigationViewItemPresenter">
+                <ControlTemplate TargetType="local:NavigationViewItemPresenter">
                     <Border
                         x:Name="LayoutRoot"
                         MinHeight="{DynamicResource NavigationViewItemOnLeftMinHeight}"
@@ -387,12 +387,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnTopPane" TargetType="primitives:NavigationViewItemPresenter">
+    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnTopPane" TargetType="local:NavigationViewItemPresenter">
         <Setter Property="Foreground" Value="{DynamicResource TopNavigationViewItemForeground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="primitives:NavigationViewItemPresenter">
+                <ControlTemplate TargetType="local:NavigationViewItemPresenter">
                     <Border
                         x:Name="LayoutRoot"
                         Margin="{DynamicResource NavigationViewItemButtonMargin}"
@@ -608,11 +608,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnTopPaneOverflow" TargetType="primitives:NavigationViewItemPresenter">
+    <Style x:Key="MUX_NavigationViewItemPresenterStyleWhenOnTopPaneOverflow" TargetType="local:NavigationViewItemPresenter">
         <Setter Property="Foreground" Value="{DynamicResource TopNavigationViewItemForeground}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="primitives:NavigationViewItemPresenter">
+                <ControlTemplate TargetType="local:NavigationViewItemPresenter">
                     <Grid
                         x:Name="LayoutRoot"
                         Height="36"
@@ -968,15 +968,15 @@
                                             Style="{StaticResource DefaultContentControlStyle}" />
 
                                         <!--  Top nav ItemsRepeater  -->
-                                        <local:ItemsRepeaterScrollHost Grid.Column="3">
+                                        <ui:ItemsRepeaterScrollHost Grid.Column="3">
                                             <ui:ScrollViewerEx HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-                                                <local:ItemsRepeater x:Name="TopNavMenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}">
-                                                    <local:ItemsRepeater.Layout>
-                                                        <local:StackLayout Orientation="Horizontal" />
-                                                    </local:ItemsRepeater.Layout>
-                                                </local:ItemsRepeater>
+                                                <ui:ItemsRepeater x:Name="TopNavMenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}">
+                                                    <ui:ItemsRepeater.Layout>
+                                                        <ui:StackLayout Orientation="Horizontal" />
+                                                    </ui:ItemsRepeater.Layout>
+                                                </ui:ItemsRepeater>
                                             </ui:ScrollViewerEx>
-                                        </local:ItemsRepeaterScrollHost>
+                                        </ui:ItemsRepeaterScrollHost>
 
                                         <Button
                                             x:Name="TopNavOverflowButton"
@@ -986,10 +986,10 @@
                                             Style="{DynamicResource NavigationViewOverflowButtonStyleWhenPaneOnTop}"
                                             Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.OverflowButtonVisibility}">
 
-                                            <local:FlyoutService.Flyout>
-                                                <local:Flyout Placement="BottomEdgeAlignedRight">
-                                                    <local:Flyout.FlyoutPresenterStyle>
-                                                        <Style TargetType="local:FlyoutPresenter">
+                                            <ui:FlyoutService.Flyout>
+                                                <ui:Flyout Placement="BottomEdgeAlignedRight">
+                                                    <ui:Flyout.FlyoutPresenterStyle>
+                                                        <Style TargetType="ui:FlyoutPresenter">
                                                             <Setter Property="Padding" Value="{DynamicResource TopNavigationViewOverflowMenuPadding}" />
                                                             <!--  Set negative top margin to make the flyout align exactly with the button  -->
                                                             <Setter Property="Margin" Value="0,-4,0,0" />
@@ -998,7 +998,7 @@
                                                             <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
                                                             <Setter Property="Template">
                                                                 <Setter.Value>
-                                                                    <ControlTemplate TargetType="local:FlyoutPresenter">
+                                                                    <ControlTemplate TargetType="ui:FlyoutPresenter">
                                                                         <ui:ScrollViewerEx
                                                                             x:Name="ScrollViewer"
                                                                             HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
@@ -1019,14 +1019,14 @@
                                                                 </Setter.Value>
                                                             </Setter>
                                                         </Style>
-                                                    </local:Flyout.FlyoutPresenterStyle>
-                                                    <local:ItemsRepeaterScrollHost>
+                                                    </ui:Flyout.FlyoutPresenterStyle>
+                                                    <ui:ItemsRepeaterScrollHost>
                                                         <ui:ScrollViewerEx VerticalScrollBarVisibility="Auto">
-                                                            <local:ItemsRepeater x:Name="TopNavMenuItemsOverflowHost" />
+                                                            <ui:ItemsRepeater x:Name="TopNavMenuItemsOverflowHost" />
                                                         </ui:ScrollViewerEx>
-                                                    </local:ItemsRepeaterScrollHost>
-                                                </local:Flyout>
-                                            </local:FlyoutService.Flyout>
+                                                    </ui:ItemsRepeaterScrollHost>
+                                                </ui:Flyout>
+                                            </ui:FlyoutService.Flyout>
                                         </Button>
 
                                         <ContentControl
@@ -1060,11 +1060,11 @@
                                             IsTabStop="False"
                                             Style="{StaticResource DefaultContentControlStyle}" />
                                         <!--  Top footer menu ItemsRepeater  -->
-                                        <local:ItemsRepeater x:Name="TopFooterMenuItemsHost" Grid.Column="8">
-                                            <local:ItemsRepeater.Layout>
-                                                <local:StackLayout Orientation="Horizontal" />
-                                            </local:ItemsRepeater.Layout>
-                                        </local:ItemsRepeater>
+                                        <ui:ItemsRepeater x:Name="TopFooterMenuItemsHost" Grid.Column="8">
+                                            <ui:ItemsRepeater.Layout>
+                                                <ui:StackLayout Orientation="Horizontal" />
+                                            </ui:ItemsRepeater.Layout>
+                                        </ui:ItemsRepeater>
 
                                     </Grid>
                                 </Border>
@@ -1072,7 +1072,7 @@
                             </StackPanel>
 
                             <!--  Displaymode (compact/minimal/normal) left  -->
-                            <local:SplitView
+                            <ui:SplitView
                                 x:Name="RootSplitView"
                                 Grid.Row="1"
                                 Background="{TemplateBinding Background}"
@@ -1086,7 +1086,7 @@
                                 OpenPaneLength="{TemplateBinding OpenPaneLength}"
                                 PaneBackground="{DynamicResource NavigationViewDefaultPaneBackground}">
 
-                                <local:SplitView.Pane>
+                                <ui:SplitView.Pane>
                                     <Border
                                         x:Name="PaneContentBorder"
                                         Margin="{DynamicResource NavigationViewPaneContentGridMargin}"
@@ -1178,15 +1178,15 @@
                                                 </Grid.RowDefinitions>
 
                                                 <!--  MenuItems  -->
-                                                <local:ItemsRepeaterScrollHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                <ui:ItemsRepeaterScrollHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                                     <ui:ScrollViewerEx
                                                         x:Name="MenuItemsScrollViewer"
                                                         KeyboardNavigation.TabNavigation="Local"
                                                         VerticalScrollBarVisibility="Auto">
                                                         <!--  Left nav ItemsRepeater  -->
-                                                        <local:ItemsRepeater x:Name="MenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}" />
+                                                        <ui:ItemsRepeater x:Name="MenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}" />
                                                     </ui:ScrollViewerEx>
-                                                </local:ItemsRepeaterScrollHost>
+                                                </ui:ItemsRepeaterScrollHost>
 
                                                 <local:NavigationViewItemSeparator
                                                     x:Name="VisualItemsSeparator"
@@ -1207,19 +1207,19 @@
                                                     Style="{StaticResource DefaultContentControlStyle}" />
 
                                                 <!--  FooterItems  -->
-                                                <local:ItemsRepeaterScrollHost Grid.Row="3">
+                                                <ui:ItemsRepeaterScrollHost Grid.Row="3">
                                                     <ui:ScrollViewerEx x:Name="FooterItemsScrollViewer">
                                                         <!--  contract7Present:VerticalAnchorRatio="1"  -->
-                                                        <local:ItemsRepeater x:Name="FooterMenuItemsHost" />
+                                                        <ui:ItemsRepeater x:Name="FooterMenuItemsHost" />
                                                     </ui:ScrollViewerEx>
-                                                </local:ItemsRepeaterScrollHost>
+                                                </ui:ItemsRepeaterScrollHost>
                                             </Grid>
 
                                         </Grid>
                                     </Border>
-                                </local:SplitView.Pane>
+                                </ui:SplitView.Pane>
 
-                                <local:SplitView.Content>
+                                <ui:SplitView.Content>
                                     <ikw:ClippedContent x:Name="ContentBorder"
                                         Margin="{DynamicResource NavigationViewContentMargin}"
                                         Background="{DynamicResource NavigationViewContentBackground}"
@@ -1263,8 +1263,8 @@
                                                 Content="{TemplateBinding Content}" />
                                         </Grid>
                                     </ikw:ClippedContent>
-                                </local:SplitView.Content>
-                            </local:SplitView>
+                                </ui:SplitView.Content>
+                            </ui:SplitView>
 
                         </Grid>
                         <VisualStateManager.VisualStateGroups>
@@ -1539,7 +1539,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <primitives:NavigationViewItemPresenter
+                        <local:NavigationViewItemPresenter
                             x:Name="NavigationViewItemPresenter"
                             Padding="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
@@ -1559,28 +1559,28 @@
                             InfoBadge="{TemplateBinding InfoBadge}"
                             IsTabStop="false"
                             UseSystemFocusVisuals="{TemplateBinding UseSystemFocusVisuals}" />
-                        <local:ItemsRepeater
+                        <ui:ItemsRepeater
                             x:Name="NavigationViewItemMenuItemsHost"
                             Grid.Row="1"
                             Visibility="Collapsed">
-                            <local:ItemsRepeater.Layout>
-                                <local:StackLayout Orientation="Vertical" />
-                            </local:ItemsRepeater.Layout>
-                        </local:ItemsRepeater>
+                            <ui:ItemsRepeater.Layout>
+                                <ui:StackLayout Orientation="Vertical" />
+                            </ui:ItemsRepeater.Layout>
+                        </ui:ItemsRepeater>
                         <primitives:FlyoutBase.AttachedFlyout>
-                            <local:Flyout x:Name="ChildrenFlyout" Placement="RightEdgeAlignedTop">
-                                <local:Flyout.FlyoutPresenterStyle>
-                                    <Style TargetType="local:FlyoutPresenter">
+                            <ui:Flyout x:Name="ChildrenFlyout" Placement="RightEdgeAlignedTop">
+                                <ui:Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="ui:FlyoutPresenter">
                                         <Setter Property="Padding" Value="{DynamicResource TopNavigationViewOverflowMenuPadding}" />
                                         <!--  Set negative top margin to make the flyout align exactly with the button  -->
                                         <!--<Setter Property="Margin" Value="0,-4,0,0" />-->
                                         <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
                                     </Style>
-                                </local:Flyout.FlyoutPresenterStyle>
+                                </ui:Flyout.FlyoutPresenterStyle>
                                 <Grid x:Name="FlyoutRootGrid">
                                     <Grid x:Name="FlyoutContentGrid" />
                                 </Grid>
-                            </local:Flyout>
+                            </ui:Flyout>
                         </primitives:FlyoutBase.AttachedFlyout>
 
                         <VisualStateManager.VisualStateGroups>
@@ -1647,7 +1647,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="primitives:NavigationViewItemPresenter" />
+    <Style TargetType="local:NavigationViewItemPresenter" />
 
     <Style TargetType="local:NavigationViewItemHeader">
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemHeaderForeground}" />

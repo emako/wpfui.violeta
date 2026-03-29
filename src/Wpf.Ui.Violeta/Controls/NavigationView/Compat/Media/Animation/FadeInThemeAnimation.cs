@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents the preconfigured opacity animation that applies to controls when
@@ -50,3 +50,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         }
     }
 }
+

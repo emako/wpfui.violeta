@@ -1,11 +1,11 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class PasswordBoxHelper : DependencyObject
     {
@@ -312,3 +312,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+
+

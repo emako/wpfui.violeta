@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public sealed class SelectionModelChildrenRequestedEventArgs : EventArgs
     {
@@ -52,3 +52,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private bool m_throwOnAccess = true;
     }
 }
+

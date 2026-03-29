@@ -1,11 +1,11 @@
-﻿using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class SliderAutoToolTipHelper
     {
@@ -164,3 +164,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+
+

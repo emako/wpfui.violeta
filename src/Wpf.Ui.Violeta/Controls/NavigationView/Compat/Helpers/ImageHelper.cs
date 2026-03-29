@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ImageHelper
     {
@@ -39,3 +39,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

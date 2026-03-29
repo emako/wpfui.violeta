@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal sealed class FlyoutBaseClosingEventArgs : EventArgs
     {
@@ -15,3 +15,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

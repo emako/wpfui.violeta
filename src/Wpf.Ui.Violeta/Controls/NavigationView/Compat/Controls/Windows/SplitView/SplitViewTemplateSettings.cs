@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public sealed class SplitViewTemplateSettings : DependencyObject
     {
@@ -129,3 +129,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         #endregion
     }
 }
+

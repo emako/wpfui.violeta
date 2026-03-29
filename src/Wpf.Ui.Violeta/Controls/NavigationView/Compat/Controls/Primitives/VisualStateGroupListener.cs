@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class VisualStateGroupListener : FrameworkElement
     {
@@ -122,3 +122,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         #endregion
     }
 }
+

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal struct SelectedItemInfo
     {
@@ -760,3 +760,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         SelectionNode m_leafNode;
     }
 }
+
+

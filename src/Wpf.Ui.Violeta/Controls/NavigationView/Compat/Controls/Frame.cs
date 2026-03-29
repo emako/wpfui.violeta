@@ -1,6 +1,6 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Helpers;
-using iNKORE.UI.WPF.Modern.Media.Animation;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Threading;
 using System.Xaml;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Displays Page instances, supports navigation to new pages, and maintains a navigation
@@ -192,13 +192,13 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private static readonly AttachableMemberIdentifier FrameProperty =
             new AttachableMemberIdentifier(typeof(Frame), "Frame");
 
-        internal static Frame GetFrame(NavigationService navigationService)
+        internal static Frame GetFrame(System.Windows.Navigation.NavigationService navigationService)
         {
             AttachablePropertyServices.TryGetProperty<Frame>(navigationService, FrameProperty, out var value);
             return value;
         }
 
-        private static void SetFrame(NavigationService navigationService, Frame value)
+        private static void SetFrame(System.Windows.Navigation.NavigationService navigationService, Frame value)
         {
             AttachablePropertyServices.SetProperty(navigationService, FrameProperty, value);
         }
@@ -610,3 +610,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private DispatcherOperation _asyncBeginTransition;
     }
 }
+
+

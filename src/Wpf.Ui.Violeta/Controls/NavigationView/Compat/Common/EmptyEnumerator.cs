@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Returns an Enumerator that enumerates over nothing.

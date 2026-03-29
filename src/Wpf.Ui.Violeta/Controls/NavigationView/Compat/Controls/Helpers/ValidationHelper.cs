@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ValidationHelper
     {
@@ -44,3 +44,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         #endregion
     }
 }
+

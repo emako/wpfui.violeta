@@ -2,7 +2,7 @@
 using System.Windows.Documents;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class HyperlinkHelper
     {
@@ -80,3 +80,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         #endregion
     }
 }
+

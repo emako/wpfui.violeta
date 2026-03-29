@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents an icon that displays and controls a visual that can animate in response to user interaction and visual state changes.
@@ -326,3 +326,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

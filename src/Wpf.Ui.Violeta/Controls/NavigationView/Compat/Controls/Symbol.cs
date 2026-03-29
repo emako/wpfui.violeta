@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Controls
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Defines constants that specify a glyph from the **Segoe MDL2 Assets** font to
@@ -207,3 +207,4 @@
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
+

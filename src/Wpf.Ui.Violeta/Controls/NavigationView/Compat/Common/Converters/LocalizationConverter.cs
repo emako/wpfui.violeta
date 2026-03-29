@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace iNKORE.UI.WPF.Modern.Common.Converters
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class LocalizeConverter : IValueConverter
     {

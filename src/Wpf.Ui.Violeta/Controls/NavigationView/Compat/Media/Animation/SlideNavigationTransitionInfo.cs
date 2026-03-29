@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Defines constants that describe the type of animation to play during a slide
@@ -231,3 +231,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         SlideNavigationTransitionEffect Effect { get; set; }
     }
 }
+

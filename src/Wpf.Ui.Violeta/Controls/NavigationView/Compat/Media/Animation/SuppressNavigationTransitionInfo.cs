@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Media.Animation
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Specifies that animations are suppressed during navigation.
@@ -13,3 +13,4 @@
         }
     }
 }
+

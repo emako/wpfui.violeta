@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Media.Utils
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum ColorScaleInterpolationMode { RGB, LAB, XYZ };
 
@@ -167,3 +167,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Utils
         }
     }
 }
+

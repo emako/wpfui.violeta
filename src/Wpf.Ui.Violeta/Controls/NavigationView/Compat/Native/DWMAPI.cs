@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Used by Desktop Window Manager (DWM)
@@ -215,3 +215,4 @@ namespace iNKORE.UI.WPF.Modern.Native
         public static extern void DwmGetColorizationParameters(out DWMCOLORIZATIONPARAMS dwParameters);
     }
 }
+

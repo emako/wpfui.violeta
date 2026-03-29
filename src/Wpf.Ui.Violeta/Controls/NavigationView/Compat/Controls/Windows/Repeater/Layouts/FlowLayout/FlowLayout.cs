@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
     {
@@ -514,3 +514,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         SpaceEvenly = 5
     }
 }
+

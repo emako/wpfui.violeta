@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class SelectedItems<T> : IReadOnlyList<T>
     {
@@ -99,3 +99,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         Func<List<SelectedItemInfo>, int, T> m_getAtImpl;
     }
 }
+

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class UniformGridLayoutState
     {
@@ -130,3 +130,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

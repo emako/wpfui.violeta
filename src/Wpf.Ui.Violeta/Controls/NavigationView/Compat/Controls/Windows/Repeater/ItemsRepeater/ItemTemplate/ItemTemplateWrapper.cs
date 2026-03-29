@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class ItemTemplateWrapper : IElementFactoryShim
     {
@@ -86,3 +86,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

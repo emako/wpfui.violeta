@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// This class provides static methods helper for executing code in UI thread of the main window.
@@ -417,3 +417,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

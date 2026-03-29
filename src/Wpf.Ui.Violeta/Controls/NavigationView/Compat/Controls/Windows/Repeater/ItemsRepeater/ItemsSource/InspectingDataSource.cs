@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class InspectingDataSource : ItemsSourceView
     {
@@ -134,3 +134,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly IKeyIndexMapping m_uniqueIdMaping = null;
     }
 }
+

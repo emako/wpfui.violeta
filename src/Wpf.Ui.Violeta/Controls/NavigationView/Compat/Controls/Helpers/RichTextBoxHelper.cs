@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class RichTextBoxHelper
     {
@@ -94,3 +94,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+

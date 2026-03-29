@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class DataGridHelper
     {
@@ -420,3 +420,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         #endregion
     }
 }
+

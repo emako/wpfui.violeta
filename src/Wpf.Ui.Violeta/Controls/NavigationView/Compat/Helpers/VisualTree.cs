@@ -8,7 +8,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Defines a collection of extensions methods for UI.
@@ -347,3 +347,4 @@ namespace iNKORE.UI.WPF.Helpers
 
     }
 }
+

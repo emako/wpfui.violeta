@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Inclusive range [start, end]
     internal class IndexRange
@@ -95,3 +95,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly int m_end = -1;
     }
 }
+

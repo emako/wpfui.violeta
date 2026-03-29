@@ -6,15 +6,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Controls.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
-using iNKORE.UI.WPF.Modern.Input;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
-using ControlHelper = iNKORE.UI.WPF.Modern.Controls.Helpers.ControlHelper;
+using ControlHelper = Wpf.Ui.Violeta.Controls.Compat.ControlHelper;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls
 {
     public class NavigationViewItemPresenter : ContentControl, IControlProtected
     {
@@ -279,3 +279,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         RotateTransform m_expandCollapseRotateTransform;
     }
 }
+
+

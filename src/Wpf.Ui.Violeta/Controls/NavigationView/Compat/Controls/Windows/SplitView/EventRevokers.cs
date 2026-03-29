@@ -1,6 +1,6 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class SplitViewIsPaneOpenChangedRevoker : EventRevoker<SplitView, DependencyPropertyChangedCallback>
     {
@@ -53,3 +53,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

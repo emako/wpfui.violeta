@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class ControlStrings : ResourceAccessor
     {
@@ -40,3 +40,4 @@ namespace iNKORE.UI.WPF.Modern.Common
     }
 
 }
+

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class NonVirtualizingLayout : Layout, INonVirtualizingLayoutOverrides
     {
@@ -58,3 +58,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize);
     }
 }
+

@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class FlowLayoutAlgorithm
     {
@@ -730,3 +730,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private OrientationBasedMeasures OM { get; } = new OrientationBasedMeasures();
     }
 }
+

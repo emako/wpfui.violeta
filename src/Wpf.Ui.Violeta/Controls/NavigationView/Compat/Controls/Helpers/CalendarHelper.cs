@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class CalendarHelper
     {
@@ -54,3 +54,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Navigation;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
-    public static class Extensions
+    public static class NavigationEventExtensions
     {
         /// <summary>
         /// Gets the data type of the source page.
@@ -54,3 +54,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

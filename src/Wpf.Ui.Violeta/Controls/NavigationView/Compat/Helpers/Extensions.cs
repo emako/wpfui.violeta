@@ -8,9 +8,9 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
-    public static class Extensions
+    public static class CompatExtensions
     {
         public const string XmlNamespace = "http://schemas.inkore.net/lib/ui/wpf";
 
@@ -21,7 +21,7 @@ namespace iNKORE.UI.WPF.Helpers
         /// through reflexion. Code is inspired by https://stackoverflow.com/a/17431815/111461
         /// </summary>
         public static readonly DependencyProperty SmoothScrollingProperty =
-            DependencyProperty.RegisterAttached("SmoothScrolling", typeof(bool), typeof(Extensions),
+            DependencyProperty.RegisterAttached("SmoothScrolling", typeof(bool), typeof(CompatExtensions),
                                                 new UIPropertyMetadata(false, SmoothScrollingChanged));
 
         public static bool GetSmoothScrolling(DependencyObject o)

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ScrollBarThumbHelper
     {
@@ -23,3 +23,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+

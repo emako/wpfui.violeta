@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Arranges child elements into a single line that can be oriented horizontally
@@ -189,3 +189,4 @@ namespace iNKORE.UI.WPF.Controls
         }
     }
 }
+

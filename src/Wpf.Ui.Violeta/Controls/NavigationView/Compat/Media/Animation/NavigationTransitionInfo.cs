@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Provides parameter info for the Frame.Navigate method. Controls how the transition
@@ -53,3 +53,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         internal static readonly PropertyPath ScaleYPath = new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)");
     }
 }
+

@@ -4,9 +4,9 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     class NavigationViewItemsFactory : ElementFactory
     {
@@ -166,3 +166,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         List<NavigationViewItem> navigationViewItemPool = new List<NavigationViewItem>();
     }
 }
+
+

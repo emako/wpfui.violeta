@@ -1,9 +1,9 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class OpeningAnimationHelper
     {
@@ -57,3 +57,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+
+

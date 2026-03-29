@@ -1,8 +1,8 @@
-﻿using iNKORE.UI.WPF.Modern.Controls.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Provides the infrastructure for the ListViewHeaderItem and GridViewHeaderItem
@@ -63,3 +63,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+
+

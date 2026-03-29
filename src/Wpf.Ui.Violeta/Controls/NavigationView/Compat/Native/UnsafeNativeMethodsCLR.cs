@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal partial class UnsafeNativeMethods
     {
@@ -15,3 +15,4 @@ namespace iNKORE.UI.WPF.Modern.Native
         public static extern IntPtr GetActiveWindow();
     }
 }
+

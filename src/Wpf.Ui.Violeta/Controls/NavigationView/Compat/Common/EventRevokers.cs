@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class FrameworkElementSizeChangedRevoker : EventRevoker<FrameworkElement, SizeChangedEventHandler>
     {
@@ -20,3 +20,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+
+

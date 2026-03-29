@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class Helper
     {
@@ -93,3 +93,4 @@ namespace iNKORE.UI.WPF.Modern.Helpers
         Center = 4,
     }
 }
+

@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Controls;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using iNKORE.UI.WPF.Converters;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Common.Converters
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class IconSourceToIconElementConverter : AdvancedValueConverterBase<IconSource, IconElement>
     {
@@ -24,3 +24,5 @@ namespace iNKORE.UI.WPF.Modern.Common.Converters
         }
     }
 }
+
+

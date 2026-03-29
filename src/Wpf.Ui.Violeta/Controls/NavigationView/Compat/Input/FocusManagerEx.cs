@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Input
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class FocusManagerEx
     {
@@ -16,3 +16,4 @@ namespace iNKORE.UI.WPF.Modern.Input
         }
     }
 }
+

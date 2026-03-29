@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class SelectorHelper
     {
@@ -46,3 +46,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

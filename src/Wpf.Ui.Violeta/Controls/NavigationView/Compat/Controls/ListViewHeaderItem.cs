@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents items in the header for grouped data inside a ListView.
@@ -20,3 +20,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

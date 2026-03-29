@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum SelectionState
     {
@@ -799,3 +799,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         int m_realizedChildrenNodeCount;
     }
 }
+

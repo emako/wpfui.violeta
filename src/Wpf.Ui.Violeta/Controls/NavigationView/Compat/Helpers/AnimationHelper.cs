@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class AnimationHelper
     {
@@ -45,3 +45,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

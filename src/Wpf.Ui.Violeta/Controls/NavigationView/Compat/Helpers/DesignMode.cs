@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Enables you to detect whether your app is in design mode in a visual designer.
@@ -19,3 +19,4 @@ namespace iNKORE.UI.WPF.Helpers
         public static bool DesignModeEnabled => _designModeEnabled.Value;
     }
 }
+

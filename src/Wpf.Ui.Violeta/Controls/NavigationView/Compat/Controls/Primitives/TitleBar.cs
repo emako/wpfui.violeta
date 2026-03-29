@@ -1,8 +1,8 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class TitleBar
     {
@@ -103,3 +103,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
             DependencyProperty.RegisterAttached("ButtonGlyphStyle", typeof(TitleBarButtonGlyphStyle?), typeof(TitleBar), new PropertyMetadata(null));
     }
 }
+

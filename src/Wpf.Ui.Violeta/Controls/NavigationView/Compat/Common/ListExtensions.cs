@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class ListExtensions
     {
@@ -38,3 +38,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

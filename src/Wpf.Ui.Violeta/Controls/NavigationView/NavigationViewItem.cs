@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
+// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.Collections.ObjectModel;
@@ -9,15 +9,15 @@ using System.Windows.Automation;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Input;
-using iNKORE.UI.WPF.Modern.Automation.Peers;
-using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
-using iNKORE.UI.WPF.Modern.Input;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
-using static iNKORE.UI.WPF.Modern.Controls.NavigationViewItemHelper;
+using static Wpf.Ui.Violeta.Controls.NavigationViewItemHelper;
 using PointerRoutedEventArgs = System.Windows.Input.MouseEventArgs;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public partial class NavigationViewItem : NavigationViewItemBase
     {
@@ -968,3 +968,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         bool m_isRepeaterParentedToFlyout = false;
     }
 }
+
+

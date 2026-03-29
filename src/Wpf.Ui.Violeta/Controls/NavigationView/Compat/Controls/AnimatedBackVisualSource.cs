@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents an animation for a back arrow that can be used as an animated icon source.
@@ -35,3 +35,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

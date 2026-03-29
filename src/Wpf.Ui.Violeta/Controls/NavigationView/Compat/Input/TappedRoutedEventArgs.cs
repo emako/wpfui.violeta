@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Input
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal sealed class TappedRoutedEventArgs : RoutedEventArgs
     {
@@ -15,3 +15,4 @@ namespace iNKORE.UI.WPF.Modern.Input
         internal int Timestamp { get; set; }
     }
 }
+

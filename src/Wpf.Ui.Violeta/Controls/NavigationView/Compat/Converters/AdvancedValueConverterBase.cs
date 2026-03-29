@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace iNKORE.UI.WPF.Converters
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
    
     public abstract class AdvancedValueConverterBase<TFrom, TTo> : DependencyObject, IValueConverter
@@ -61,3 +61,4 @@ namespace iNKORE.UI.WPF.Converters
         Auto
     }
 }
+

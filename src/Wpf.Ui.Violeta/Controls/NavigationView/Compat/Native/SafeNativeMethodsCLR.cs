@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static partial class SafeNativeMethods
     {
@@ -32,3 +32,4 @@ namespace iNKORE.UI.WPF.Modern.Native
         }
     }
 }
+

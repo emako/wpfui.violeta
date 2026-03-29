@@ -1,8 +1,8 @@
-﻿using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Data;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal sealed class CoreApplicationViewTitleBar
     {
@@ -208,3 +208,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+
+

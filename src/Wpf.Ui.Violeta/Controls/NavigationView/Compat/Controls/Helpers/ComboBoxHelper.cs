@@ -1,10 +1,10 @@
-﻿using iNKORE.UI.WPF.Converters;
-using iNKORE.UI.WPF.Modern.Common.Converters;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public sealed class ComboBoxHelper
     {
@@ -170,3 +170,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+
+

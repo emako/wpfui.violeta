@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum ScrollOrientation
     {
@@ -126,3 +126,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// ContentPresenter is used within the template of a content control to denote the
@@ -284,3 +284,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

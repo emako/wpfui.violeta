@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class OSVersionHelper
     {
@@ -47,3 +47,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

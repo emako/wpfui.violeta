@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class FlowLayoutState
     {
@@ -62,3 +62,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private static readonly int BufferSize = 100;
     }
 }
+
+

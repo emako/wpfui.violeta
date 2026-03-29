@@ -10,9 +10,9 @@ using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
-    public static class ControlHelper
+    public static class TreeViewControlHelper
     {
         /// <summary>
         /// Recursively search for an item in this subtree.
@@ -194,3 +194,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

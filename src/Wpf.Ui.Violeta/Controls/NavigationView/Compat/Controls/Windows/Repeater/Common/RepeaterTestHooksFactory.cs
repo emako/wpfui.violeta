@@ -1,7 +1,7 @@
-﻿using iNKORE.UI.WPF.Modern;
-using iNKORE.UI.WPF.Modern.Common;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     partial class RepeaterTestHooks
     {
@@ -40,3 +40,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

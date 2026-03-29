@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public interface IScrollAnchorProvider
     {
@@ -10,3 +10,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         UIElement CurrentAnchor { get; }
     }
 }
+

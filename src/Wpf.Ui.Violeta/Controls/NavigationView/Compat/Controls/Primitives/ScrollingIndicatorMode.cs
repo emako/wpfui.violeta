@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Defines constants that specify input-specific transition animations that are
@@ -20,3 +20,4 @@
         MouseIndicator = 2
     }
 }
+

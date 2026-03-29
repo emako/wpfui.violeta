@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ControlHelper
     {
@@ -402,3 +402,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         }
     }
 }
+

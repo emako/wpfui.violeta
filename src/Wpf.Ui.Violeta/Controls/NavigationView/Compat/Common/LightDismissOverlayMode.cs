@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Common
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public enum LightDismissOverlayMode
     {
@@ -7,3 +7,4 @@
         Off = 2
     }
 }
+

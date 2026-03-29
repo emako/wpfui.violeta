@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Something to say here:
     // This page used to inherit from PageFunctionBase, but it caused a lot of weird issues.
@@ -55,7 +55,7 @@ namespace iNKORE.UI.WPF.Modern.Controls
             private set => SetValue(FramePropertyKey, value);
         }
 
-        private void UpdateFrame(NavigationService navigationService)
+        private void UpdateFrame(System.Windows.Navigation.NavigationService navigationService)
         {
             if (navigationService != null && Frame.GetFrame(navigationService) is { } frame)
             {
@@ -116,7 +116,7 @@ namespace iNKORE.UI.WPF.Modern.Controls
             if (e.Property.PropertyType == NavigationServiceType &&
                 e.Property.OwnerType == NavigationServiceType)
             {
-                UpdateFrame((NavigationService)e.NewValue);
+                UpdateFrame((System.Windows.Navigation.NavigationService)e.NewValue);
             }
         }
 
@@ -124,7 +124,8 @@ namespace iNKORE.UI.WPF.Modern.Controls
         internal void InternalOnNavigatingFrom(NavigatingCancelEventArgs e) => OnNavigatingFrom(e);
         internal void InternalOnNavigatedFrom(NavigationEventArgs e) => OnNavigatedFrom(e);
 
-        private static readonly Type NavigationServiceType = typeof(NavigationService);
+        private static readonly Type NavigationServiceType = typeof(System.Windows.Navigation.NavigationService);
     }
 ;
 }
+

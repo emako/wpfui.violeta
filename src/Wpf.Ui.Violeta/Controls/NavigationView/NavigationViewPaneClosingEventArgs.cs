@@ -2,8 +2,9 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public sealed class NavigationViewPaneClosingEventArgs : EventArgs
     {
@@ -34,3 +35,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         bool m_cancelled;
     }
 }
+

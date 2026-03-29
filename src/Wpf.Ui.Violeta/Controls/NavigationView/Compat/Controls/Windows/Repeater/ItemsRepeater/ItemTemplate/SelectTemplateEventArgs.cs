@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public sealed class SelectTemplateEventArgs : EventArgs
     {
@@ -16,3 +16,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         public UIElement Owner { get; internal set; }
     }
 }
+

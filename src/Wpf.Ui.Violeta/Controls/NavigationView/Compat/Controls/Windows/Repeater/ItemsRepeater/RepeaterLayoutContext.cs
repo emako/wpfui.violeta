@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class RepeaterLayoutContext : VirtualizingLayoutContext
     {
@@ -82,3 +82,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly WeakReference<ItemsRepeater> m_owner;
     }
 }
+

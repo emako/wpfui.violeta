@@ -1,6 +1,6 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
-using iNKORE.UI.WPF.Modern.Native;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
@@ -10,13 +10,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
-using static iNKORE.UI.WPF.Modern.Native.User32;
+using static Wpf.Ui.Violeta.Controls.Compat.User32;
 //using Windows.Win32;
 //using Windows.Win32.Foundation;
 //using Windows.Win32.Graphics.Gdi;
 //using Windows.Win32.UI.WindowsAndMessaging;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class MaximizedWindowFixer
     {
@@ -402,3 +402,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         private bool _isWindowPosAdjusted;
     }
 }
+
+

@@ -3,9 +3,9 @@
 
 using System.Windows.Automation.Peers;
 using System.Windows.Automation.Provider;
-using iNKORE.UI.WPF.Modern.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Automation.Peers
+namespace Wpf.Ui.Violeta.Controls
 {
     internal class NavigationViewAutomationPeer : FrameworkElementAutomationPeer, ISelectionProvider
     {
@@ -61,3 +61,4 @@ namespace iNKORE.UI.WPF.Modern.Automation.Peers
         }
     }
 }
+

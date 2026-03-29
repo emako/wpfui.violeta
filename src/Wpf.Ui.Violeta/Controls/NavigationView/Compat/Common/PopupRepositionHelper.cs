@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class PopupRepositionHelper : IDisposable
     {
@@ -92,3 +92,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         private Window m_hostWindow;
     }
 }
+

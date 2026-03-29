@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     [Flags]
     internal enum SET_WINDOW_POS_FLAGS : uint
@@ -169,4 +169,5 @@ namespace iNKORE.UI.WPF.Modern.Native
     }
 
 }
+
 

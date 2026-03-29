@@ -1,12 +1,12 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class VisualStateGroupHelper
     {
@@ -116,3 +116,5 @@ namespace iNKORE.UI.WPF.Modern.Common
             new Lazy<Action<VisualStateGroup, VisualState>>(CreateSetCurrentStateDelegate);
     }
 }
+
+

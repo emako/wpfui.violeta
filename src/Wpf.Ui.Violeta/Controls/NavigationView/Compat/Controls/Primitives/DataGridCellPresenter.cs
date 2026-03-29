@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents the visual elements of a DataGridCell.
@@ -290,3 +290,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         private readonly BorderHelper _focusVisualSecondaryHelper;
     }
 }
+

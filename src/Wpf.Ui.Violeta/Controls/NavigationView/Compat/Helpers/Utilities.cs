@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Helpers
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -30,3 +30,4 @@
         }
     }
 }
+

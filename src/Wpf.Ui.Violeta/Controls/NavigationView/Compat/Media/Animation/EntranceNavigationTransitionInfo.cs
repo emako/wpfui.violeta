@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Specifies the animation to run when content appears on a Page.
@@ -105,3 +105,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         }
     }
 }
+

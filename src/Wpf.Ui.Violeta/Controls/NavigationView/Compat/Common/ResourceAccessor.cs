@@ -6,7 +6,7 @@ using System.Windows.Automation;
 using System.Windows.Threading;
 using Wpf.Ui.Violeta.Resources.Localization;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class ResourceAccessor
     {
@@ -245,3 +245,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

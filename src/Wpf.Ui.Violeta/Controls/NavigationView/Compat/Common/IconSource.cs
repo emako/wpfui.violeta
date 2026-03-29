@@ -1,9 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using iNKORE.UI.WPF.Modern.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
 
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents the base class for an icon source.
@@ -75,3 +75,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         protected virtual IconElement CreateIconElementCore() => null;
     }
 }
+
+

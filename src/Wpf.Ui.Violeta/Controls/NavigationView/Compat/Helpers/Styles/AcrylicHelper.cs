@@ -1,5 +1,5 @@
-﻿using iNKORE.UI.WPF.Helpers;
-using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 //using Windows.Win32;
 
-namespace iNKORE.UI.WPF.Modern.Helpers.Styles
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class Acrylic10Helper
     {
@@ -283,3 +283,5 @@ namespace iNKORE.UI.WPF.Modern.Helpers.Styles
         private static extern int SetWindowCompositionAttribute(IntPtr hWnd, ref WINCOMPATTRDATA data);
     }
 }
+
+

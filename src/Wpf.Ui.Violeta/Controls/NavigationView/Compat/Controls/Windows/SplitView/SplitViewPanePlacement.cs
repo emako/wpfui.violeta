@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Controls
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public enum SplitViewPanePlacement
     {
@@ -6,3 +6,4 @@
         Right = 1
     }
 }
+

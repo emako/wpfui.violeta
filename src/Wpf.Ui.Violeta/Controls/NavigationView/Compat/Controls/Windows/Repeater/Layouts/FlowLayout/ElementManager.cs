@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // Internal component for layout to keep track of elements and
     // help with collection changes.
@@ -485,3 +485,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private VirtualizingLayoutContext m_context;
     }
 }
+
+

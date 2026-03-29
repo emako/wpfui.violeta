@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 //using Windows.Win32.Foundation;
-using iNKORE.UI.WPF.Modern.Native;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class PointUtil
     {
@@ -19,3 +19,5 @@ namespace iNKORE.UI.WPF.Modern.Helpers
         }
     }
 }
+
+

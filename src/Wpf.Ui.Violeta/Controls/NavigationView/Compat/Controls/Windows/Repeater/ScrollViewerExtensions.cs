@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class ScrollViewerExtensions
     {
@@ -38,3 +38,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

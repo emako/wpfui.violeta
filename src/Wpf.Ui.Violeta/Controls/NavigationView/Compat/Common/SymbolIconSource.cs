@@ -1,8 +1,8 @@
-﻿using iNKORE.UI.WPF.Modern.Controls;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents an icon source that uses a glyph from the Segoe MDL2 Assets font as its content.
@@ -53,3 +53,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+
+

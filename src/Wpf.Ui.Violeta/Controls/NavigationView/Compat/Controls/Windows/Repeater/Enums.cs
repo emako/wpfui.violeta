@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     [Flags]
     public enum AnimationContext
@@ -20,3 +20,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         SuppressAutoRecycle = 2
     }
 }
+

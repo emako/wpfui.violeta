@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Common.IconKeys
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class FontDictionary
     {
@@ -55,3 +55,4 @@ namespace iNKORE.UI.WPF.Modern.Common.IconKeys
         }
     }
 }
+

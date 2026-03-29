@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Automation.Peers;
-using iNKORE.UI.WPF.Modern.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Automation.Peers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class RepeaterAutomationPeer : FrameworkElementAutomationPeer
     {
@@ -74,3 +74,4 @@ namespace iNKORE.UI.WPF.Modern.Automation.Peers
         }
     }
 }
+

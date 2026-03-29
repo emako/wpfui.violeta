@@ -1,7 +1,7 @@
-﻿using iNKORE.UI.WPF.Modern.Controls;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents a shareable object used to create an icon that displays and controls a visual that can animate in response to user interaction and visual state changes.
@@ -134,3 +134,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+
+

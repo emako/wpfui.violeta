@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Input
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class InputHelper
     {
@@ -152,3 +152,4 @@ namespace iNKORE.UI.WPF.Modern.Input
         private static TappedRoutedEventArgs _lastTappedArgs;
     }
 }
+

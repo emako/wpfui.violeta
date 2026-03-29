@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// This is similar to the CornerRadius class in WPF, but it allows different values in X and Y axis for each corner.
@@ -213,3 +213,4 @@ namespace iNKORE.UI.WPF.Common
         }
     }
 }
+

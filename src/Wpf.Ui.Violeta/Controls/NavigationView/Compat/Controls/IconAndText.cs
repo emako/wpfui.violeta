@@ -1,5 +1,5 @@
-﻿using iNKORE.UI.WPF.Controls;
-using iNKORE.UI.WPF.Modern.Common.IconKeys;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class IconAndText : ContentControl
     {
@@ -51,3 +51,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+
+

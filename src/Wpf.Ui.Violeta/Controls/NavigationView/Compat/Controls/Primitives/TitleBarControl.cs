@@ -1,7 +1,7 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class TitleBarControl : Control
     {
@@ -23,3 +23,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+

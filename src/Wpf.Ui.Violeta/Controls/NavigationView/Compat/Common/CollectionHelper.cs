@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class CollectionHelper
     {
@@ -18,3 +18,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

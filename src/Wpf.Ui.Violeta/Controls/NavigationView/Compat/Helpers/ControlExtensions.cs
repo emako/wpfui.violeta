@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class ControlExtensions
     {
@@ -21,3 +21,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

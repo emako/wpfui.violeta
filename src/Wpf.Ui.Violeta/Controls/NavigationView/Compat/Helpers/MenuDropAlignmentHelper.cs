@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class MenuDropAlignmentHelper
     {
@@ -53,3 +53,4 @@ namespace iNKORE.UI.WPF.Helpers
         }
     }
 }
+

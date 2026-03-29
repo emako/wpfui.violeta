@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Common.IconKeys
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static partial class FluentSystemIcons
     {
@@ -39,3 +39,4 @@ namespace iNKORE.UI.WPF.Modern.Common.IconKeys
         Filled
     }
 }
+

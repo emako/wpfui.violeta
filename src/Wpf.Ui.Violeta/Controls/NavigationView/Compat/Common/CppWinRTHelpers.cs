@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using iNKORE.UI.WPF.Modern.Common;
-using iNKORE.UI.WPF.Modern.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
 static class CppWinRTHelpers
 {
@@ -15,3 +15,5 @@ static class CppWinRTHelpers
         return null;
     }
 }
+
+

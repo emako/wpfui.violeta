@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Helpers;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class FocusVisualHelper
     {
@@ -612,3 +612,5 @@ namespace iNKORE.UI.WPF.Modern.Controls.Helpers
         private static FocusVisualAdorner _focusVisualAdornerCache = null;
     }
 }
+
+

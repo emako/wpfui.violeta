@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class AcrylicElement
     {
@@ -163,3 +163,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         #endregion
     }
 }
+

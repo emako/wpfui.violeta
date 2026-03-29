@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents a visual behavior that occurs for predefined actions or state changes.
@@ -15,3 +15,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         }
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Media.Utils
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum ColorBlendMode { Burn, Darken, Dodge, Lighten, Multiply, Overlay, Screen };
 
@@ -141,3 +141,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Utils
         }
     }
 }
+

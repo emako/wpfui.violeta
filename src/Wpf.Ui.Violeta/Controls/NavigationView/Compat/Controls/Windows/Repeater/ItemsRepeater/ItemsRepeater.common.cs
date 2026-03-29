@@ -3,7 +3,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class CachedVisualTreeHelpers
     {
@@ -28,3 +28,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+

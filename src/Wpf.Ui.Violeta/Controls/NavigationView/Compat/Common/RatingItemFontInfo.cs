@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents information about the visual states of font elements that represent
@@ -171,3 +171,4 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+

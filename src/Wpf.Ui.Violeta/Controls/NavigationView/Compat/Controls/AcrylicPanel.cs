@@ -1,6 +1,6 @@
-﻿// Ported from https://github.com/sourcechord/FluentWPF/blob/master/FluentWPF/AcrylicPanel.cs
+// Ported from https://github.com/sourcechord/FluentWPF/blob/master/FluentWPF/AcrylicPanel.cs
 
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class AcrylicPanel : ContentControl
     {
@@ -263,3 +263,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
     }
 
 }
+

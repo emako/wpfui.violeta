@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Modern.Native
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// The return value of the DefWindowProc function is one of the following values, indicating the position of the cursor hot spot.
@@ -80,3 +80,4 @@ namespace iNKORE.UI.WPF.Modern.Native
         TOP = 12,
     }
 }
+

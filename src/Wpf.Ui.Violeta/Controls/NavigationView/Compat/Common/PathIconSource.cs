@@ -1,8 +1,8 @@
-﻿using iNKORE.UI.WPF.Modern.Controls;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents an icon source that uses a vector path as its content.
@@ -58,3 +58,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+
+

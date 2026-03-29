@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Controls
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public interface IKeyIndexMapping
     {
@@ -6,3 +6,4 @@
         int IndexFromKey(string key);
     }
 }
+

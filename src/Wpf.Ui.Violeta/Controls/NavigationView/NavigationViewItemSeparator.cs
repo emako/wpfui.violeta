@@ -3,10 +3,10 @@
 
 using System.Windows;
 using System.Windows.Controls;
-using iNKORE.UI.WPF.Modern.Common;
+using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public class NavigationViewItemSeparator : NavigationViewItemBase
     {
@@ -109,3 +109,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         Grid m_rootGrid;
     }
 }
+
+

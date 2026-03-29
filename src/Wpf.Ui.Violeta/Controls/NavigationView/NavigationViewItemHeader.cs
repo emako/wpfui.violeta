@@ -3,8 +3,9 @@
 
 using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     public class NavigationViewItemHeader : NavigationViewItemBase
     {
@@ -93,3 +94,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         Grid m_rootGrid;
     }
 }
+

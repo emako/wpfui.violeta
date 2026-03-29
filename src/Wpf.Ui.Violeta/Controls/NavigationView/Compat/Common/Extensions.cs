@@ -1,12 +1,12 @@
-﻿using System.Windows;
+using System.Windows;
 using System;
 using System.Windows.Controls;
-using iNKORE.UI.WPF.Modern.Controls.Primitives;
-using iNKORE.UI.WPF.Modern.Helpers;
-using iNKORE.UI.WPF.Modern.Controls;
-using iNKORE.UI.WPF.Helpers;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class Extensions
     {
@@ -44,3 +44,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         }
     }
 }
+
+

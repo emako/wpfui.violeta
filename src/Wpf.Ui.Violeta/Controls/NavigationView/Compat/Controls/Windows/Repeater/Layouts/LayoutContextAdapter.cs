@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal class LayoutContextAdapter : VirtualizingLayoutContext
     {
@@ -100,3 +100,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         private readonly WeakReference<NonVirtualizingLayoutContext> m_nonVirtualizingContext;
     }
 }
+

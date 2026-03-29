@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Controls.Primitives
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class MenuPopup : Popup
     {
@@ -67,3 +67,4 @@ namespace iNKORE.UI.WPF.Modern.Controls.Primitives
         }
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace iNKORE.UI.WPF.Modern.Media.Utils
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal static class MathUtils
     {
@@ -104,3 +104,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Utils
         }
     }
 }
+

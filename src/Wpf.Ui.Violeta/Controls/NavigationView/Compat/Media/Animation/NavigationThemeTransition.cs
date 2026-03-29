@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Markup;
 
-namespace iNKORE.UI.WPF.Modern.Media.Animation
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Provides page navigation animations.
@@ -43,3 +43,4 @@ namespace iNKORE.UI.WPF.Modern.Media.Animation
         #endregion
     }
 }
+

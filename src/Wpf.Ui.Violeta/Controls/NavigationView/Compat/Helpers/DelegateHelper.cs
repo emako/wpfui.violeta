@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public static class DelegateHelper
     {
@@ -80,3 +80,4 @@ namespace iNKORE.UI.WPF.Helpers
         private const BindingFlags DefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
     }
 }
+

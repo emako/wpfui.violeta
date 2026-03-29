@@ -1,12 +1,12 @@
-﻿using iNKORE.UI.WPF.Modern.Common.IconKeys;
-using iNKORE.UI.WPF.Modern.Controls;
+using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Common
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     /// <summary>
     /// Represents an icon source that uses a glyph from the specified font.
@@ -143,7 +143,7 @@ namespace iNKORE.UI.WPF.Modern.Common
                 new PropertyMetadata(null));
 
         /// <summary>
-        /// Gets or sets the wrapped icon, which includes <see cref="Glyph"/> and <see cref="FontFamily"/>. You can get these instances from <see cref="iNKORE.UI.WPF.Modern.Common.IconKeys"/> namespace.
+        /// Gets or sets the wrapped icon, which includes <see cref="Glyph"/> and <see cref="FontFamily"/>. You can get these instances from <see cref="Wpf.Ui.Violeta.Controls.Compat"/> namespace.
         /// If you are using Glyph and FontFamily property, this can be ignored.
         /// </summary>
         public FontIconData? Icon
@@ -192,3 +192,5 @@ namespace iNKORE.UI.WPF.Modern.Common
         FontIconData? Icon { get; set; }
     }
 }
+
+

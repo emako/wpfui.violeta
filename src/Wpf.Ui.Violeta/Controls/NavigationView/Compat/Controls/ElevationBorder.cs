@@ -1,4 +1,4 @@
-﻿using iNKORE.UI.WPF.Modern.Media.Utils;
+using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     public class ElevationBorder : ContentControl
     {
@@ -190,3 +190,5 @@ namespace iNKORE.UI.WPF.Modern.Controls
         }
     }
 }
+
+

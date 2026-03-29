@@ -1,4 +1,4 @@
-﻿namespace iNKORE.UI.WPF.Modern.Input
+﻿namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal enum FocusInputDeviceKind
     {
@@ -10,3 +10,4 @@
         GameController = 5
     }
 }
+

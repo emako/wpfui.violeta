@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iNKORE.UI.WPF.Helpers
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     // This class is designed to avoid the "Cannot open clipboard" error when copying text to the clipboard. (CLIPBRD_E_CANT_OPEN)
     // The source can be found here: https://zhuanlan.zhihu.com/p/388316834 | https://stackoverflow.com/questions/5707996/clipboard-operations-throwing-exception
@@ -231,3 +231,4 @@ namespace iNKORE.UI.WPF.Helpers
         CF_PRIVATELAST = 0x02FF,
     }
 }
+

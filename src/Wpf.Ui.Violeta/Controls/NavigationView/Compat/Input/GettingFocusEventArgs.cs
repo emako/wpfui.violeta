@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 
-namespace iNKORE.UI.WPF.Modern.Input
+namespace Wpf.Ui.Violeta.Controls.Compat
 {
     internal interface IGettingFocusEventArgs2
     {
@@ -54,3 +54,4 @@ namespace iNKORE.UI.WPF.Modern.Input
         private KeyboardFocusChangedEventArgs _args;
     }
 }
+

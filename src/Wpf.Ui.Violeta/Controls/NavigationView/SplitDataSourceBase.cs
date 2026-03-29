@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-namespace iNKORE.UI.WPF.Modern.Controls
+namespace Wpf.Ui.Violeta.Controls
 {
     // The same copy of .Net Collections like C# ObservableCollection<string> data is splitted into multiple Vectors.
     // For example, the raw data is:  Homes Apps Music | Microsoft Development
@@ -381,3 +381,4 @@ namespace iNKORE.UI.WPF.Modern.Controls
         SplitVector<T, SplitVectorID>[] m_splitVectors = new SplitVector<T, SplitVectorID>[SplitVectorSize];
     }
 }
+
