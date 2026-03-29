@@ -2,191 +2,190 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Arranges child elements into a single line that can be oriented horizontally
+/// or vertically.
+/// </summary>
+public class SimpleStackPanel : Panel
 {
     /// <summary>
-    /// Arranges child elements into a single line that can be oriented horizontally
-    /// or vertically.
+    /// Initializes a new instance of the SimpleStackPanel class.
     /// </summary>
-    public class SimpleStackPanel : Panel
+    public SimpleStackPanel()
     {
-        /// <summary>
-        /// Initializes a new instance of the SimpleStackPanel class.
-        /// </summary>
-        public SimpleStackPanel()
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates the dimension by which child elements are
+    /// stacked.
+    /// </summary>
+    /// <returns>The Orientation of child content.</returns>
+    public Orientation Orientation
+    {
+        get => (Orientation)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
+
+    /// <summary>
+    /// Identifies the Orientation dependency property.
+    /// </summary>
+    public static readonly DependencyProperty OrientationProperty =
+            DependencyProperty.Register(
+                    nameof(Orientation),
+                    typeof(Orientation),
+                    typeof(SimpleStackPanel),
+                    new FrameworkPropertyMetadata(
+                            Orientation.Vertical,
+                            FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+    /// <summary>
+    /// Gets or sets a uniform distance (in pixels) between stacked items. It is applied
+    /// in the direction of the SimpleStackPanel's Orientation.
+    /// </summary>
+    /// <returns>The uniform distance (in pixels) between stacked items.</returns>
+    public double Spacing
+    {
+        get => (double)GetValue(SpacingProperty);
+        set => SetValue(SpacingProperty, value);
+    }
+
+    /// <summary>
+    /// Identifies the Spacing dependency property.
+    /// </summary>
+    public static readonly DependencyProperty SpacingProperty =
+            DependencyProperty.Register(
+                    nameof(Spacing),
+                    typeof(double),
+                    typeof(SimpleStackPanel),
+                    new FrameworkPropertyMetadata(
+                            0.0,
+                            FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+    /// <summary>
+    /// Gets a value that indicates if this SimpleStackPanel has vertical
+    /// or horizontal orientation.
+    /// </summary>
+    /// <returns>This property always returns true.</returns>
+    protected override bool HasLogicalOrientation => true;
+
+    /// <summary>
+    /// Gets a value that represents the Orientation of the SimpleStackPanel.
+    /// </summary>
+    /// <returns>An Orientation value.</returns>
+    protected override Orientation LogicalOrientation => Orientation;
+
+    /// <summary>
+    /// Measures the child elements of a SimpleStackPanel in anticipation
+    /// of arranging them during the SimpleStackPanel.ArrangeOverride(System.Windows.Size)
+    /// pass.
+    /// </summary>
+    /// <param name="constraint">An upper limit System.Windows.Size that should not be exceeded.</param>
+    /// <returns>The System.Windows.Size that represents the desired size of the element.</returns>
+    protected override Size MeasureOverride(Size constraint)
+    {
+        Size stackDesiredSize = new Size();
+        UIElementCollection children = InternalChildren;
+        Size layoutSlotSize = constraint;
+        bool fHorizontal = Orientation == Orientation.Horizontal;
+        double spacing = Spacing;
+        bool hasVisibleChild = false;
+
+        if (fHorizontal)
         {
+            layoutSlotSize.Width = double.PositiveInfinity;
+        }
+        else
+        {
+            layoutSlotSize.Height = double.PositiveInfinity;
         }
 
-        /// <summary>
-        /// Gets or sets a value that indicates the dimension by which child elements are
-        /// stacked.
-        /// </summary>
-        /// <returns>The Orientation of child content.</returns>
-        public Orientation Orientation
+        for (int i = 0, count = children.Count; i < count; ++i)
         {
-            get => (Orientation)GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
-        }
+            UIElement child = children[i];
 
-        /// <summary>
-        /// Identifies the Orientation dependency property.
-        /// </summary>
-        public static readonly DependencyProperty OrientationProperty =
-                DependencyProperty.Register(
-                        nameof(Orientation),
-                        typeof(Orientation),
-                        typeof(SimpleStackPanel),
-                        new FrameworkPropertyMetadata(
-                                Orientation.Vertical,
-                                FrameworkPropertyMetadataOptions.AffectsMeasure));
+            if (child == null) { continue; }
 
-        /// <summary>
-        /// Gets or sets a uniform distance (in pixels) between stacked items. It is applied
-        /// in the direction of the SimpleStackPanel's Orientation.
-        /// </summary>
-        /// <returns>The uniform distance (in pixels) between stacked items.</returns>
-        public double Spacing
-        {
-            get => (double)GetValue(SpacingProperty);
-            set => SetValue(SpacingProperty, value);
-        }
+            bool isVisible = child.Visibility != Visibility.Collapsed;
 
-        /// <summary>
-        /// Identifies the Spacing dependency property.
-        /// </summary>
-        public static readonly DependencyProperty SpacingProperty =
-                DependencyProperty.Register(
-                        nameof(Spacing),
-                        typeof(double),
-                        typeof(SimpleStackPanel),
-                        new FrameworkPropertyMetadata(
-                                0.0,
-                                FrameworkPropertyMetadataOptions.AffectsMeasure));
+            if (isVisible && !hasVisibleChild)
+            {
+                hasVisibleChild = true;
+            }
 
-        /// <summary>
-        /// Gets a value that indicates if this SimpleStackPanel has vertical
-        /// or horizontal orientation.
-        /// </summary>
-        /// <returns>This property always returns true.</returns>
-        protected override bool HasLogicalOrientation => true;
-
-        /// <summary>
-        /// Gets a value that represents the Orientation of the SimpleStackPanel.
-        /// </summary>
-        /// <returns>An Orientation value.</returns>
-        protected override Orientation LogicalOrientation => Orientation;
-
-        /// <summary>
-        /// Measures the child elements of a SimpleStackPanel in anticipation
-        /// of arranging them during the SimpleStackPanel.ArrangeOverride(System.Windows.Size)
-        /// pass.
-        /// </summary>
-        /// <param name="constraint">An upper limit System.Windows.Size that should not be exceeded.</param>
-        /// <returns>The System.Windows.Size that represents the desired size of the element.</returns>
-        protected override Size MeasureOverride(Size constraint)
-        {
-            Size stackDesiredSize = new Size();
-            UIElementCollection children = InternalChildren;
-            Size layoutSlotSize = constraint;
-            bool fHorizontal = Orientation == Orientation.Horizontal;
-            double spacing = Spacing;
-            bool hasVisibleChild = false;
+            child.Measure(layoutSlotSize);
+            Size childDesiredSize = child.DesiredSize;
 
             if (fHorizontal)
             {
-                layoutSlotSize.Width = double.PositiveInfinity;
+                stackDesiredSize.Width += (isVisible ? spacing : 0) + childDesiredSize.Width;
+                stackDesiredSize.Height = Math.Max(stackDesiredSize.Height, childDesiredSize.Height);
             }
             else
             {
-                layoutSlotSize.Height = double.PositiveInfinity;
+                stackDesiredSize.Width = Math.Max(stackDesiredSize.Width, childDesiredSize.Width);
+                stackDesiredSize.Height += (isVisible ? spacing : 0) + childDesiredSize.Height;
             }
+        }
 
-            for (int i = 0, count = children.Count; i < count; ++i)
-            {
-                UIElement child = children[i];
+        if (fHorizontal)
+        {
+            stackDesiredSize.Width -= hasVisibleChild ? spacing : 0;
+        }
+        else
+        {
+            stackDesiredSize.Height -= hasVisibleChild ? spacing : 0;
+        }
 
-                if (child == null) { continue; }
+        return stackDesiredSize;
+    }
 
-                bool isVisible = child.Visibility != Visibility.Collapsed;
+    /// <summary>
+    /// Arranges the content of a SimpleStackPanel element.
+    /// </summary>
+    /// <param name="arrangeSize">The System.Windows.Size that this element should use to arrange its child elements.</param>
+    /// <returns>
+    /// The System.Windows.Size that represents the arranged size of this SimpleStackPanel
+    /// element and its child elements.
+    /// </returns>
+    protected override Size ArrangeOverride(Size arrangeSize)
+    {
+        UIElementCollection children = InternalChildren;
+        bool fHorizontal = Orientation == Orientation.Horizontal;
+        Rect rcChild = new Rect(arrangeSize);
+        double previousChildSize = 0.0;
+        double spacing = Spacing;
 
-                if (isVisible && !hasVisibleChild)
-                {
-                    hasVisibleChild = true;
-                }
+        for (int i = 0, count = children.Count; i < count; ++i)
+        {
+            UIElement child = children[i];
 
-                child.Measure(layoutSlotSize);
-                Size childDesiredSize = child.DesiredSize;
-
-                if (fHorizontal)
-                {
-                    stackDesiredSize.Width += (isVisible ? spacing : 0) + childDesiredSize.Width;
-                    stackDesiredSize.Height = Math.Max(stackDesiredSize.Height, childDesiredSize.Height);
-                }
-                else
-                {
-                    stackDesiredSize.Width = Math.Max(stackDesiredSize.Width, childDesiredSize.Width);
-                    stackDesiredSize.Height += (isVisible ? spacing : 0) + childDesiredSize.Height;
-                }
-            }
+            if (child == null) { continue; }
 
             if (fHorizontal)
             {
-                stackDesiredSize.Width -= hasVisibleChild ? spacing : 0;
+                rcChild.X += previousChildSize;
+                previousChildSize = child.DesiredSize.Width;
+                rcChild.Width = previousChildSize;
+                rcChild.Height = Math.Max(arrangeSize.Height, child.DesiredSize.Height);
             }
             else
             {
-                stackDesiredSize.Height -= hasVisibleChild ? spacing : 0;
+                rcChild.Y += previousChildSize;
+                previousChildSize = child.DesiredSize.Height;
+                rcChild.Height = previousChildSize;
+                rcChild.Width = Math.Max(arrangeSize.Width, child.DesiredSize.Width);
             }
 
-            return stackDesiredSize;
-        }
-
-        /// <summary>
-        /// Arranges the content of a SimpleStackPanel element.
-        /// </summary>
-        /// <param name="arrangeSize">The System.Windows.Size that this element should use to arrange its child elements.</param>
-        /// <returns>
-        /// The System.Windows.Size that represents the arranged size of this SimpleStackPanel
-        /// element and its child elements.
-        /// </returns>
-        protected override Size ArrangeOverride(Size arrangeSize)
-        {
-            UIElementCollection children = InternalChildren;
-            bool fHorizontal = Orientation == Orientation.Horizontal;
-            Rect rcChild = new Rect(arrangeSize);
-            double previousChildSize = 0.0;
-            double spacing = Spacing;
-
-            for (int i = 0, count = children.Count; i < count; ++i)
+            if (child.Visibility != Visibility.Collapsed)
             {
-                UIElement child = children[i];
-
-                if (child == null) { continue; }
-
-                if (fHorizontal)
-                {
-                    rcChild.X += previousChildSize;
-                    previousChildSize = child.DesiredSize.Width;
-                    rcChild.Width = previousChildSize;
-                    rcChild.Height = Math.Max(arrangeSize.Height, child.DesiredSize.Height);
-                }
-                else
-                {
-                    rcChild.Y += previousChildSize;
-                    previousChildSize = child.DesiredSize.Height;
-                    rcChild.Height = previousChildSize;
-                    rcChild.Width = Math.Max(arrangeSize.Width, child.DesiredSize.Width);
-                }
-
-                if (child.Visibility != Visibility.Collapsed)
-                {
-                    previousChildSize += spacing;
-                }
-
-                child.Arrange(rcChild);
+                previousChildSize += spacing;
             }
-            return arrangeSize;
+
+            child.Arrange(rcChild);
         }
+        return arrangeSize;
     }
 }
 

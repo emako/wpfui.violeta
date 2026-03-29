@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public sealed class ItemsRepeaterElementPreparedEventArgs : EventArgs
 {
-    public sealed class ItemsRepeaterElementPreparedEventArgs : EventArgs
+    internal ItemsRepeaterElementPreparedEventArgs(
+        UIElement element,
+        int index)
     {
-        internal ItemsRepeaterElementPreparedEventArgs(
-            UIElement element,
-            int index)
-        {
-            Update(element, index);
-        }
+        Update(element, index);
+    }
 
-        public UIElement Element { get; private set; }
-        public int Index { get; private set; }
+    public UIElement Element { get; private set; }
+    public int Index { get; private set; }
 
-        internal void Update(UIElement element, int index)
-        {
-            Element = element;
-            Index = index;
-        }
+    internal void Update(UIElement element, int index)
+    {
+        Element = element;
+        Index = index;
     }
 }

@@ -6,37 +6,36 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public static partial class FluentSystemIcons
 {
-    public static partial class FluentSystemIcons
+    public static FontFamily FontFamilyRegular => FontDictionary.FluentSystemIcons;
+
+    public static FontFamily FontFamilyFilled => FontDictionary.FluentSystemIconsFilled;
+
+    public static FontIconData CreateIcon(string glyph, FluentSystemIconVariants variant)
     {
-        public static FontFamily FontFamilyRegular => FontDictionary.FluentSystemIcons;
-
-        public static FontFamily FontFamilyFilled => FontDictionary.FluentSystemIconsFilled;
-
-        public static FontIconData CreateIcon(string glyph, FluentSystemIconVariants variant)
+        switch (variant)
         {
-            switch (variant)
-            {
-                case FluentSystemIconVariants.Regular:
-                    return new FontIconData(glyph, FontFamilyRegular);
-                case FluentSystemIconVariants.Filled:
-                    return new FontIconData(glyph, FontFamilyFilled);
-            }
+            case FluentSystemIconVariants.Regular:
+                return new FontIconData(glyph, FontFamilyRegular);
 
-            return new FontIconData(glyph);
+            case FluentSystemIconVariants.Filled:
+                return new FontIconData(glyph, FontFamilyFilled);
         }
 
-        public static FontIconData CreateIcon(int chara, FluentSystemIconVariants variant)
-        {
-            return CreateIcon(FontIconData.ToGlyph(chara), variant);
-        }
+        return new FontIconData(glyph);
     }
 
-    public enum FluentSystemIconVariants
+    public static FontIconData CreateIcon(int chara, FluentSystemIconVariants variant)
     {
-        Regular,
-        Filled
+        return CreateIcon(FontIconData.ToGlyph(chara), variant);
     }
 }
 
+public enum FluentSystemIconVariants
+{
+    Regular,
+    Filled,
+}

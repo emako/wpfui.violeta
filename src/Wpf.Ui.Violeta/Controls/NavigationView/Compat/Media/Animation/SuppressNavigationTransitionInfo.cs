@@ -1,16 +1,15 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Specifies that animations are suppressed during navigation.
+/// </summary>
+public sealed class SuppressNavigationTransitionInfo : NavigationTransitionInfo
 {
     /// <summary>
-    /// Specifies that animations are suppressed during navigation.
+    /// Initializes a new instance of the SuppressNavigationTransitionInfo class.
     /// </summary>
-    public sealed class SuppressNavigationTransitionInfo : NavigationTransitionInfo
+    public SuppressNavigationTransitionInfo()
     {
-        /// <summary>
-        /// Initializes a new instance of the SuppressNavigationTransitionInfo class.
-        /// </summary>
-        public SuppressNavigationTransitionInfo()
-        {
-        }
     }
 }
 

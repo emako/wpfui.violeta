@@ -2,130 +2,129 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class UniformGridLayoutState
 {
-    public class UniformGridLayoutState
+    internal void InitializeForContext(
+        VirtualizingLayoutContext context,
+        IFlowLayoutAlgorithmDelegates callbacks)
     {
-        internal void InitializeForContext(
-            VirtualizingLayoutContext context,
-            IFlowLayoutAlgorithmDelegates callbacks)
+        FlowAlgorithm.InitializeForContext(context, callbacks);
+        ((ILayoutContextOverrides)context).LayoutStateCore = this;
+    }
+
+    internal void UninitializeForContext(VirtualizingLayoutContext context)
+    {
+        FlowAlgorithm.UninitializeForContext(context);
+    }
+
+    internal FlowLayoutAlgorithm FlowAlgorithm { get; } = new FlowLayoutAlgorithm();
+    internal double EffectiveItemWidth { get; private set; } = 0.0;
+    internal double EffectiveItemHeight { get; private set; } = 0.0;
+
+    internal void EnsureElementSize(
+        Size availableSize,
+        VirtualizingLayoutContext context,
+        double layoutItemWidth,
+        double LayoutItemHeight,
+        UniformGridLayoutItemsStretch stretch,
+        Orientation orientation,
+        double minRowSpacing,
+        double minColumnSpacing,
+        uint maxItemsPerLine)
+    {
+        if (maxItemsPerLine == 0)
         {
-            FlowAlgorithm.InitializeForContext(context, callbacks);
-            ((ILayoutContextOverrides)context).LayoutStateCore = this;
+            maxItemsPerLine = 1;
         }
 
-        internal void UninitializeForContext(VirtualizingLayoutContext context)
+        if (context.ItemCount > 0)
         {
-            FlowAlgorithm.UninitializeForContext(context);
-        }
-
-        internal FlowLayoutAlgorithm FlowAlgorithm { get; } = new FlowLayoutAlgorithm();
-        internal double EffectiveItemWidth { get; private set; } = 0.0;
-        internal double EffectiveItemHeight { get; private set; } = 0.0;
-
-        internal void EnsureElementSize(
-            Size availableSize,
-            VirtualizingLayoutContext context,
-            double layoutItemWidth,
-            double LayoutItemHeight,
-            UniformGridLayoutItemsStretch stretch,
-            Orientation orientation,
-            double minRowSpacing,
-            double minColumnSpacing,
-            uint maxItemsPerLine)
-        {
-            if (maxItemsPerLine == 0)
+            // If the first element is realized we don't need to get it from the context
+            var realizedElement = FlowAlgorithm.GetElementIfRealized(0);
+            if (realizedElement != null)
             {
-                maxItemsPerLine = 1;
+                realizedElement.Measure(availableSize);
+                SetSize(realizedElement.DesiredSize, layoutItemWidth, LayoutItemHeight, availableSize, stretch, orientation, minRowSpacing, minColumnSpacing, maxItemsPerLine);
             }
-
-            if (context.ItemCount > 0)
+            else
             {
-                // If the first element is realized we don't need to get it from the context
-                var realizedElement = FlowAlgorithm.GetElementIfRealized(0);
-                if (realizedElement != null)
+                // Not realized by flowlayout, so do this now!
+                if (context.GetOrCreateElementAt(0, ElementRealizationOptions.ForceCreate) is { } firstElement)
                 {
-                    realizedElement.Measure(availableSize);
-                    SetSize(realizedElement.DesiredSize, layoutItemWidth, LayoutItemHeight, availableSize, stretch, orientation, minRowSpacing, minColumnSpacing, maxItemsPerLine);
-                }
-                else
-                {
-                    // Not realized by flowlayout, so do this now!
-                    if (context.GetOrCreateElementAt(0, ElementRealizationOptions.ForceCreate) is { } firstElement)
-                    {
-                        firstElement.Measure(availableSize);
-                        SetSize(firstElement.DesiredSize, layoutItemWidth, LayoutItemHeight, availableSize, stretch, orientation, minRowSpacing, minColumnSpacing, maxItemsPerLine);
-                        context.RecycleElement(firstElement);
-                    }
+                    firstElement.Measure(availableSize);
+                    SetSize(firstElement.DesiredSize, layoutItemWidth, LayoutItemHeight, availableSize, stretch, orientation, minRowSpacing, minColumnSpacing, maxItemsPerLine);
+                    context.RecycleElement(firstElement);
                 }
             }
         }
+    }
 
-        private void SetSize(Size desiredItemSize,
-            double layoutItemWidth,
-            double LayoutItemHeight,
-            Size availableSize,
-            UniformGridLayoutItemsStretch stretch,
-            Orientation orientation,
-            double minRowSpacing,
-            double minColumnSpacing,
-            uint maxItemsPerLine)
+    private void SetSize(Size desiredItemSize,
+        double layoutItemWidth,
+        double LayoutItemHeight,
+        Size availableSize,
+        UniformGridLayoutItemsStretch stretch,
+        Orientation orientation,
+        double minRowSpacing,
+        double minColumnSpacing,
+        uint maxItemsPerLine)
+    {
+        if (maxItemsPerLine == 0)
         {
-            if (maxItemsPerLine == 0)
+            maxItemsPerLine = 1;
+        }
+
+        EffectiveItemWidth = double.IsNaN(layoutItemWidth) ? desiredItemSize.Width : layoutItemWidth;
+        EffectiveItemHeight = double.IsNaN(LayoutItemHeight) ? desiredItemSize.Height : LayoutItemHeight;
+
+        var availableSizeMinor = orientation == Orientation.Horizontal ? availableSize.Width : availableSize.Height;
+        var minorItemSpacing = orientation == Orientation.Vertical ? minRowSpacing : minColumnSpacing;
+
+        var itemSizeMinor = orientation == Orientation.Horizontal ? EffectiveItemWidth : EffectiveItemHeight;
+
+        double extraMinorPixelsForEachItem = 0.0;
+        if (!double.IsInfinity(availableSizeMinor))
+        {
+            var numItemsPerColumn = Math.Min(
+                maxItemsPerLine,
+                (uint)Math.Max(1.0, availableSizeMinor / (itemSizeMinor + minorItemSpacing)));
+
+            if (numItemsPerColumn == 0)
             {
-                maxItemsPerLine = 1;
+                numItemsPerColumn = 1;
             }
 
-            EffectiveItemWidth = double.IsNaN(layoutItemWidth) ? desiredItemSize.Width : layoutItemWidth;
-            EffectiveItemHeight = double.IsNaN(LayoutItemHeight) ? desiredItemSize.Height : LayoutItemHeight;
+            var usedSpace = (numItemsPerColumn * (itemSizeMinor + minorItemSpacing)) - minorItemSpacing;
+            var remainingSpace = (int)(availableSizeMinor - usedSpace);
+            extraMinorPixelsForEachItem = remainingSpace / ((int)numItemsPerColumn);
+        }
 
-            var availableSizeMinor = orientation == Orientation.Horizontal ? availableSize.Width : availableSize.Height;
-            var minorItemSpacing = orientation == Orientation.Vertical ? minRowSpacing : minColumnSpacing;
-
-            var itemSizeMinor = orientation == Orientation.Horizontal ? EffectiveItemWidth : EffectiveItemHeight;
-
-            double extraMinorPixelsForEachItem = 0.0;
-            if (!double.IsInfinity(availableSizeMinor))
+        if (stretch == UniformGridLayoutItemsStretch.Fill)
+        {
+            if (orientation == Orientation.Horizontal)
             {
-                var numItemsPerColumn = Math.Min(
-                    maxItemsPerLine,
-                    (uint)Math.Max(1.0, availableSizeMinor / (itemSizeMinor + minorItemSpacing)));
-
-                if (numItemsPerColumn == 0)
-                {
-                    numItemsPerColumn = 1;
-                }
-
-                var usedSpace = (numItemsPerColumn * (itemSizeMinor + minorItemSpacing)) - minorItemSpacing;
-                var remainingSpace = (int)(availableSizeMinor - usedSpace);
-                extraMinorPixelsForEachItem = remainingSpace / ((int)numItemsPerColumn);
+                EffectiveItemWidth += extraMinorPixelsForEachItem;
             }
-
-            if (stretch == UniformGridLayoutItemsStretch.Fill)
+            else
             {
-                if (orientation == Orientation.Horizontal)
-                {
-                    EffectiveItemWidth += extraMinorPixelsForEachItem;
-                }
-                else
-                {
-                    EffectiveItemHeight += extraMinorPixelsForEachItem;
-                }
+                EffectiveItemHeight += extraMinorPixelsForEachItem;
             }
-            else if (stretch == UniformGridLayoutItemsStretch.Uniform)
+        }
+        else if (stretch == UniformGridLayoutItemsStretch.Uniform)
+        {
+            var itemSizeMajor = orientation == Orientation.Horizontal ? EffectiveItemHeight : EffectiveItemWidth;
+            var extraMajorPixelsForEachItem = itemSizeMajor * (extraMinorPixelsForEachItem / itemSizeMinor);
+            if (orientation == Orientation.Horizontal)
             {
-                var itemSizeMajor = orientation == Orientation.Horizontal ? EffectiveItemHeight : EffectiveItemWidth;
-                var extraMajorPixelsForEachItem = itemSizeMajor * (extraMinorPixelsForEachItem / itemSizeMinor);
-                if (orientation == Orientation.Horizontal)
-                {
-                    EffectiveItemWidth += extraMinorPixelsForEachItem;
-                    EffectiveItemHeight += extraMajorPixelsForEachItem;
-                }
-                else
-                {
-                    EffectiveItemHeight += extraMinorPixelsForEachItem;
-                    EffectiveItemWidth += extraMajorPixelsForEachItem;
-                }
+                EffectiveItemWidth += extraMinorPixelsForEachItem;
+                EffectiveItemHeight += extraMajorPixelsForEachItem;
+            }
+            else
+            {
+                EffectiveItemHeight += extraMinorPixelsForEachItem;
+                EffectiveItemWidth += extraMajorPixelsForEachItem;
             }
         }
     }

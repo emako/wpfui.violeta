@@ -1,201 +1,199 @@
-﻿using Wpf.Ui.Violeta.Controls.Compat;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Represents an icon that uses a bitmap as its content.
+/// </summary>
+public class BitmapIcon : IconElement
 {
-    /// <summary>
-    /// Represents an icon that uses a bitmap as its content.
-    /// </summary>
-    public class BitmapIcon : IconElement
+    static BitmapIcon()
     {
-        static BitmapIcon()
+        ForegroundProperty.OverrideMetadata(typeof(BitmapIcon), new FrameworkPropertyMetadata(OnForegroundChanged));
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the BitmapIcon class.
+    /// </summary>
+    public BitmapIcon()
+    {
+    }
+
+    #region UriSource
+
+    /// <summary>
+    /// Identifies the UriSource dependency property.
+    /// </summary>
+    public static readonly DependencyProperty UriSourceProperty =
+        BitmapImage.UriSourceProperty.AddOwner(
+            typeof(BitmapIcon),
+            new FrameworkPropertyMetadata(OnUriSourceChanged));
+
+    /// <summary>
+    /// Gets or sets the Uniform Resource Identifier (URI) of the bitmap to use as the
+    /// icon content.
+    /// </summary>
+    /// <value>The Uri of the bitmap to use as the icon content. The default is <see langword="null"/>.</value>
+    public Uri UriSource
+    {
+        get => (Uri)GetValue(UriSourceProperty);
+        set => SetValue(UriSourceProperty, value);
+    }
+
+    private static void OnUriSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((BitmapIcon)d).ApplyUriSource();
+    }
+
+    #endregion
+
+    #region ShowAsMonochrome
+
+    /// <summary>
+    /// Identifies the ShowAsMonochrome dependency property.
+    /// </summary>
+    public static readonly DependencyProperty ShowAsMonochromeProperty =
+        DependencyProperty.Register(
+            nameof(ShowAsMonochrome),
+            typeof(bool),
+            typeof(BitmapIcon),
+            new PropertyMetadata(true, OnShowAsMonochromeChanged));
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether the bitmap is shown in a single color.
+    /// </summary>
+    /// <value><see langword="true"/> to show the bitmap in a single color; <see langword="false"/> to show the bitmap in full color. The default is <see langword="true"/>.</value>
+    public bool ShowAsMonochrome
+    {
+        get => (bool)GetValue(ShowAsMonochromeProperty);
+        set => SetValue(ShowAsMonochromeProperty, value);
+    }
+
+    private static void OnShowAsMonochromeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((BitmapIcon)d).ApplyShowAsMonochrome();
+    }
+
+    #endregion
+
+    private protected override void InitializeChildren()
+    {
+        _image = new Image
         {
-            ForegroundProperty.OverrideMetadata(typeof(BitmapIcon), new FrameworkPropertyMetadata(OnForegroundChanged));
-        }
+            Visibility = Visibility.Hidden
+        };
 
-        /// <summary>
-        /// Initializes a new instance of the BitmapIcon class.
-        /// </summary>
-        public BitmapIcon()
+        _opacityMask = new ImageBrush();
+        _foreground = new Rectangle
         {
-        }
+            OpacityMask = _opacityMask
+        };
 
-        #region UriSource
+        ApplyForeground();
+        ApplyUriSource();
 
-        /// <summary>
-        /// Identifies the UriSource dependency property.
-        /// </summary>
-        public static readonly DependencyProperty UriSourceProperty =
-            BitmapImage.UriSourceProperty.AddOwner(
-                typeof(BitmapIcon),
-                new FrameworkPropertyMetadata(OnUriSourceChanged));
+        Children.Add(_image);
 
-        /// <summary>
-        /// Gets or sets the Uniform Resource Identifier (URI) of the bitmap to use as the
-        /// icon content.
-        /// </summary>
-        /// <value>The Uri of the bitmap to use as the icon content. The default is <see langword="null"/>.</value>
-        public Uri UriSource
+        ApplyShowAsMonochrome();
+    }
+
+    private protected override void OnShouldInheritForegroundFromVisualParentChanged()
+    {
+        ApplyForeground();
+    }
+
+    private protected override void OnVisualParentForegroundPropertyChanged(DependencyPropertyChangedEventArgs args)
+    {
+        if (ShouldInheritForegroundFromVisualParent)
         {
-            get => (Uri)GetValue(UriSourceProperty);
-            set => SetValue(UriSourceProperty, value);
-        }
-
-        private static void OnUriSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((BitmapIcon)d).ApplyUriSource();
-        }
-
-        #endregion
-
-        #region ShowAsMonochrome
-
-        /// <summary>
-        /// Identifies the ShowAsMonochrome dependency property.
-        /// </summary>
-        public static readonly DependencyProperty ShowAsMonochromeProperty =
-            DependencyProperty.Register(
-                nameof(ShowAsMonochrome),
-                typeof(bool),
-                typeof(BitmapIcon),
-                new PropertyMetadata(true, OnShowAsMonochromeChanged));
-
-        /// <summary>
-        /// Gets or sets a value that indicates whether the bitmap is shown in a single color.
-        /// </summary>
-        /// <value><see langword="true"/> to show the bitmap in a single color; <see langword="false"/> to show the bitmap in full color. The default is <see langword="true"/>.</value>
-        public bool ShowAsMonochrome
-        {
-            get => (bool)GetValue(ShowAsMonochromeProperty);
-            set => SetValue(ShowAsMonochromeProperty, value);
-        }
-
-        private static void OnShowAsMonochromeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((BitmapIcon)d).ApplyShowAsMonochrome();
-        }
-
-        #endregion
-
-        private protected override void InitializeChildren()
-        {
-            _image = new Image
-            {
-                Visibility = Visibility.Hidden
-            };
-
-            _opacityMask = new ImageBrush();
-            _foreground = new Rectangle
-            {
-                OpacityMask = _opacityMask
-            };
-
             ApplyForeground();
-            ApplyUriSource();
-
-            Children.Add(_image);
-
-            ApplyShowAsMonochrome();
         }
+    }
 
-        private protected override void OnShouldInheritForegroundFromVisualParentChanged()
+    private static void OnForegroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((BitmapIcon)d).ApplyForeground();
+    }
+
+    private void ApplyForeground()
+    {
+        if (_foreground != null)
         {
-            ApplyForeground();
+            _foreground.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
         }
+    }
 
-        private protected override void OnVisualParentForegroundPropertyChanged(DependencyPropertyChangedEventArgs args)
+    private void ApplyUriSource()
+    {
+        if (_image != null && _opacityMask != null)
         {
-            if (ShouldInheritForegroundFromVisualParent)
+            var uriSource = UriSource;
+            if (uriSource != null)
             {
-                ApplyForeground();
+                var imageSource = new BitmapImage(uriSource);
+                _image.Source = imageSource;
+                _opacityMask.ImageSource = imageSource;
+            }
+            else
+            {
+                _image.ClearValue(Image.SourceProperty);
+                _opacityMask.ClearValue(ImageBrush.ImageSourceProperty);
             }
         }
+    }
 
-        private static void OnForegroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private void ApplyShowAsMonochrome()
+    {
+        bool showAsMonochrome = ShowAsMonochrome;
+
+        if (_image != null)
         {
-            ((BitmapIcon)d).ApplyForeground();
+            _image.Visibility = showAsMonochrome ? Visibility.Hidden : Visibility.Visible;
         }
 
-        private void ApplyForeground()
+        if (_foreground != null)
         {
-            if (_foreground != null)
+            if (showAsMonochrome)
             {
-                _foreground.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
-            }
-        }
-
-        private void ApplyUriSource()
-        {
-            if (_image != null && _opacityMask != null)
-            {
-                var uriSource = UriSource;
-                if (uriSource != null)
+                if (!Children.Contains(_foreground))
                 {
-                    var imageSource = new BitmapImage(uriSource);
-                    _image.Source = imageSource;
-                    _opacityMask.ImageSource = imageSource;
-                }
-                else
-                {
-                    _image.ClearValue(Image.SourceProperty);
-                    _opacityMask.ClearValue(ImageBrush.ImageSourceProperty);
-                }
-            }
-        }
-
-        private void ApplyShowAsMonochrome()
-        {
-            bool showAsMonochrome = ShowAsMonochrome;
-
-            if (_image != null)
-            {
-                _image.Visibility = showAsMonochrome ? Visibility.Hidden : Visibility.Visible;
-            }
-
-            if (_foreground != null)
-            {
-                if (showAsMonochrome)
-                {
-                    if (!Children.Contains(_foreground))
-                    {
-                        Children.Add(_foreground);
-                    }
-                }
-                else
-                {
-                    Children.Remove(_foreground);
+                    Children.Add(_foreground);
                 }
             }
+            else
+            {
+                Children.Remove(_foreground);
+            }
         }
+    }
 
-        private Image _image;
-        private Rectangle _foreground;
-        private ImageBrush _opacityMask;
+    private Image _image;
+    private Rectangle _foreground;
+    private ImageBrush _opacityMask;
 
 
-        protected override IconSource CreateIconSourceCore()
+    protected override IconSource CreateIconSourceCore()
+    {
+        var iconSource = new BitmapIconSource();
+
+        if (UriSource != null)
         {
-            var iconSource = new BitmapIconSource();
-
-            if (UriSource != null)
-            {
-                iconSource.UriSource = UriSource;
-            }
-
-            iconSource.ShowAsMonochrome = ShowAsMonochrome;
-
-            var newForeground = Foreground;
-            if (newForeground != null)
-            {
-                iconSource.Foreground = newForeground;
-            }
-            return iconSource;
+            iconSource.UriSource = UriSource;
         }
+
+        iconSource.ShowAsMonochrome = ShowAsMonochrome;
+
+        var newForeground = Foreground;
+        if (newForeground != null)
+        {
+            iconSource.Foreground = newForeground;
+        }
+        return iconSource;
     }
 }
 

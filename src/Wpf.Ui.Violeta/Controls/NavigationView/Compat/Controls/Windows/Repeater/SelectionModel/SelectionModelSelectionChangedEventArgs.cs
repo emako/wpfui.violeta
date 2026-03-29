@@ -1,7 +1,6 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public sealed class SelectionModelSelectionChangedEventArgs
 {
-    public sealed class SelectionModelSelectionChangedEventArgs
-    {
-    }
 }
 

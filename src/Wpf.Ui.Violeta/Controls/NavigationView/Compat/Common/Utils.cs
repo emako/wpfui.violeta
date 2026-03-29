@@ -1,62 +1,61 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal static class VisualStateUtil
 {
-    internal static class VisualStateUtil
+    /*
+    public static VisualStateGroup GetVisualStateGroup(FrameworkElement control, string groupName)
     {
-        /*
-        public static VisualStateGroup GetVisualStateGroup(FrameworkElement control, string groupName)
+        VisualStateGroup group = null;
+        var visualStateGroups = VisualStateManager.GetVisualStateGroups(control);
+        foreach (VisualStateGroup visualStateGroup in visualStateGroups)
         {
-            VisualStateGroup group = null;
-            var visualStateGroups = VisualStateManager.GetVisualStateGroups(control);
-            foreach (VisualStateGroup visualStateGroup in visualStateGroups)
+            if (visualStateGroup.Name == groupName)
             {
-                if (visualStateGroup.Name == groupName)
-                {
-                    group = visualStateGroup;
-                    return group;
-                }
+                group = visualStateGroup;
+                return group;
             }
-            return group;
         }
-        */
+        return group;
+    }
+    */
 
-        public static void GoToStateIfGroupExists(Control control, string groupName, string stateName, bool useTransitions)
+    public static void GoToStateIfGroupExists(Control control, string groupName, string stateName, bool useTransitions)
+    {
+        //var visualStateGroup = GetVisualStateGroup(control, groupName);
+        //if (visualStateGroup != null)
         {
-            //var visualStateGroup = GetVisualStateGroup(control, groupName);
-            //if (visualStateGroup != null)
-            {
-                VisualStateManager.GoToState(control, stateName, useTransitions);
-            }
+            VisualStateManager.GoToState(control, stateName, useTransitions);
         }
     }
+}
 
-    internal static class LayoutUtils
+internal static class LayoutUtils
+{
+    public static double MeasureAndGetDesiredWidthFor(UIElement element, Size availableSize)
     {
-        public static double MeasureAndGetDesiredWidthFor(UIElement element, Size availableSize)
+        double desiredWidth = 0;
+        if (element != null)
         {
-            double desiredWidth = 0;
-            if (element != null)
-            {
-                element.Measure(availableSize);
-                desiredWidth = element.DesiredSize.Width;
-            }
-            return desiredWidth;
+            element.Measure(availableSize);
+            desiredWidth = element.DesiredSize.Width;
         }
-
-        public static double GetActualWidthFor(FrameworkElement element)
-        {
-            return (element != null ? element.ActualWidth : 0);
-        }
+        return desiredWidth;
     }
 
-    internal static class Util
+    public static double GetActualWidthFor(FrameworkElement element)
     {
-        public static Visibility VisibilityFromBool(bool visible)
-        {
-            return visible ? Visibility.Visible : Visibility.Collapsed;
-        }
+        return (element != null ? element.ActualWidth : 0);
+    }
+}
+
+internal static class Util
+{
+    public static Visibility VisibilityFromBool(bool visible)
+    {
+        return visible ? Visibility.Visible : Visibility.Collapsed;
     }
 }
 

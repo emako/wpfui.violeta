@@ -1,41 +1,38 @@
-﻿using Wpf.Ui.Violeta.Controls.Compat;
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+partial class RepeaterTestHooks
 {
-    partial class RepeaterTestHooks
+    private static RepeaterTestHooks s_testHooks;
+
+    static void EnsureHooks()
     {
-        private static RepeaterTestHooks s_testHooks;
-
-        static void EnsureHooks()
+        if (s_testHooks == null)
         {
-            if (s_testHooks == null)
-            {
-                s_testHooks = new RepeaterTestHooks();
-            }
+            s_testHooks = new RepeaterTestHooks();
         }
+    }
 
-        public static event TypedEventHandler<object, object> BuildTreeCompleted
+    public static event TypedEventHandler<object, object> BuildTreeCompleted
+    {
+        add
         {
-            add
-            {
-                EnsureHooks();
-                s_testHooks.m_buildTreeCompleted += value;
-            }
-            remove
-            {
-                if (s_testHooks != null)
-                {
-                    s_testHooks.m_buildTreeCompleted -= value;
-                }
-            }
+            EnsureHooks();
+            s_testHooks.m_buildTreeCompleted += value;
         }
-
-        static void NotifyBuildTreeCompleted()
+        remove
         {
             if (s_testHooks != null)
             {
-                s_testHooks.NotifyBuildTreeCompletedImpl();
+                s_testHooks.m_buildTreeCompleted -= value;
             }
+        }
+    }
+
+    static void NotifyBuildTreeCompleted()
+    {
+        if (s_testHooks != null)
+        {
+            s_testHooks.NotifyBuildTreeCompletedImpl();
         }
     }
 }

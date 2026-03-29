@@ -1,100 +1,95 @@
-﻿using Wpf.Ui.Violeta.Controls.Compat;
-using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Represents an icon that uses an Image as its content.
+/// </summary>
+public class ImageIcon : IconElement
 {
-    /// <summary>
-    /// Represents an icon that uses an Image as its content.
-    /// </summary>
-    public class ImageIcon : IconElement
+    static ImageIcon()
     {
-        static ImageIcon()
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the ImageIcon class.
+    /// </summary>
+    public ImageIcon()
+    {
+    }
+
+    #region Source
+
+    /// <summary>
+    /// Identifies the Source dependency property.
+    /// </summary>
+    public static readonly DependencyProperty SourceProperty =
+        Image.SourceProperty.AddOwner(
+            typeof(ImageIcon),
+            new FrameworkPropertyMetadata(OnSourceChanged));
+
+    /// <summary>
+    /// Gets or sets the URI of the image file to use as the icon.
+    /// </summary>
+    /// <value>The URI of the image file to use as the icon. The default is <see langword="null"/>.</value>
+    public ImageSource Source
+    {
+        get => (ImageSource)GetValue(SourceProperty);
+        set => SetValue(SourceProperty, value);
+    }
+
+    private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((ImageIcon)d).ApplySource();
+    }
+
+    #endregion
+
+    private protected override void InitializeChildren()
+    {
+        _image = new Image();
+
+        ApplySource();
+
+        Children.Add(_image);
+    }
+
+    private void ApplySource()
+    {
+        if (_image != null)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the ImageIcon class.
-        /// </summary>
-        public ImageIcon()
-        {
-        }
-
-        #region Source
-
-        /// <summary>
-        /// Identifies the Source dependency property.
-        /// </summary>
-        public static readonly DependencyProperty SourceProperty =
-            Image.SourceProperty.AddOwner(
-                typeof(ImageIcon),
-                new FrameworkPropertyMetadata(OnSourceChanged));
-
-        /// <summary>
-        /// Gets or sets the URI of the image file to use as the icon.
-        /// </summary>
-        /// <value>The URI of the image file to use as the icon. The default is <see langword="null"/>.</value>
-        public ImageSource Source
-        {
-            get => (ImageSource)GetValue(SourceProperty);
-            set => SetValue(SourceProperty, value);
-        }
-
-        private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((ImageIcon)d).ApplySource();
-        }
-
-        #endregion
-
-        private protected override void InitializeChildren()
-        {
-            _image = new Image();
-
-            ApplySource();
-
-            Children.Add(_image);
-        }
-
-        private void ApplySource()
-        {
-            if (_image != null)
+            var source = Source;
+            if (source != null)
             {
-                var source = Source;
-                if (source != null)
-                {
-                    _image.Source = source;
-                }
-                else
-                {
-                    _image.ClearValue(Image.SourceProperty);
-                }
+                _image.Source = source;
+            }
+            else
+            {
+                _image.ClearValue(Image.SourceProperty);
             }
         }
+    }
 
-        private Image _image;
+    private Image _image;
 
-        protected override IconSource CreateIconSourceCore()
+    protected override IconSource CreateIconSourceCore()
+    {
+        var iconSource = new ImageIconSource();
+
+        var imageSource = Source;
+        if (imageSource != null)
         {
-            var iconSource = new ImageIconSource();
-
-            var imageSource = Source;
-            if (imageSource != null)
-            {
-                iconSource.ImageSource = imageSource;
-            }
-
-            var newForeground = Foreground;
-            if (newForeground != null)
-            {
-                iconSource.Foreground = newForeground;
-            }
-            return iconSource;
+            iconSource.ImageSource = imageSource;
         }
+
+        var newForeground = Foreground;
+        if (newForeground != null)
+        {
+            iconSource.Foreground = newForeground;
+        }
+        return iconSource;
     }
 }
 

@@ -1,9 +1,8 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public interface IKeyIndexMapping
 {
-    public interface IKeyIndexMapping
-    {
-        string KeyFromIndex(int index);
-        int IndexFromKey(string key);
-    }
+    public string KeyFromIndex(int index);
+    public int IndexFromKey(string key);
 }
 

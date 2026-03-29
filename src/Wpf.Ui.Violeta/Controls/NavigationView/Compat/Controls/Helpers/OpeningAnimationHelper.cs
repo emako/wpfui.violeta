@@ -1,57 +1,55 @@
-﻿using Wpf.Ui.Violeta.Controls.Compat;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public static class OpeningAnimationHelper
 {
-    public static class OpeningAnimationHelper
+    #region Storyboard
+
+    public static readonly DependencyProperty StoryboardProperty =
+        DependencyProperty.RegisterAttached(
+            "Storyboard",
+            typeof(Storyboard),
+            typeof(OpeningAnimationHelper),
+            new PropertyMetadata(OnStoryboardChanged));
+
+    public static Storyboard GetStoryboard(FrameworkElement element)
     {
-        #region Storyboard
+        return (Storyboard)element.GetValue(StoryboardProperty);
+    }
 
-        public static readonly DependencyProperty StoryboardProperty =
-            DependencyProperty.RegisterAttached(
-                "Storyboard",
-                typeof(Storyboard),
-                typeof(OpeningAnimationHelper),
-                new PropertyMetadata(OnStoryboardChanged));
+    public static void SetStoryboard(FrameworkElement element, Storyboard value)
+    {
+        element.SetValue(StoryboardProperty, value);
+    }
 
-        public static Storyboard GetStoryboard(FrameworkElement element)
+    private static void OnStoryboardChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var element = (FrameworkElement)d;
+
+        if (e.OldValue != null)
         {
-            return (Storyboard)element.GetValue(StoryboardProperty);
+            element.Loaded -= OnElementLoaded;
         }
 
-        public static void SetStoryboard(FrameworkElement element, Storyboard value)
+        if (e.NewValue != null)
         {
-            element.SetValue(StoryboardProperty, value);
+            element.Loaded += OnElementLoaded;
         }
+    }
 
-        private static void OnStoryboardChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    #endregion
+
+    private static void OnElementLoaded(object sender, RoutedEventArgs e)
+    {
+        var element = (FrameworkElement)sender;
+        if (element.IsVisible && Helper.IsAnimationsEnabled && !DesignMode.DesignModeEnabled)
         {
-            var element = (FrameworkElement)d;
-
-            if (e.OldValue != null)
+            var storyboard = GetStoryboard(element);
+            if (storyboard != null)
             {
-                element.Loaded -= OnElementLoaded;
-            }
-
-            if (e.NewValue != null)
-            {
-                element.Loaded += OnElementLoaded;
-            }
-        }
-
-        #endregion
-
-        private static void OnElementLoaded(object sender, RoutedEventArgs e)
-        {
-            var element = (FrameworkElement)sender;
-            if (element.IsVisible && Helper.IsAnimationsEnabled && !DesignMode.DesignModeEnabled)
-            {
-                var storyboard = GetStoryboard(element);
-                if (storyboard != null)
-                {
-                    storyboard.Begin();
-                }
+                storyboard.Begin();
             }
         }
     }

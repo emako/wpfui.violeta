@@ -1,9 +1,8 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public enum SplitViewPanePlacement
 {
-    public enum SplitViewPanePlacement
-    {
-        Left = 0,
-        Right = 1
-    }
+    Left = 0,
+    Right = 1,
 }
 

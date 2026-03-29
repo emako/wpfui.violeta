@@ -1,10 +1,9 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public enum SplitViewDisplayMode
 {
-    public enum SplitViewDisplayMode
-    {
-        Overlay = 0,
-        Inline = 1,
-        CompactOverlay = 2,
-        CompactInline = 3
-    }
+    Overlay = 0,
+    Inline = 1,
+    CompactOverlay = 2,
+    CompactInline = 3,
 }

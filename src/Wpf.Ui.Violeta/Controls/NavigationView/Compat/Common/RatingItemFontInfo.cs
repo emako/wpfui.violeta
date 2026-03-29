@@ -1,174 +1,173 @@
 ﻿using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Represents information about the visual states of font elements that represent
+/// a rating.
+/// </summary>
+public class RatingItemFontInfo : RatingItemInfo
 {
     /// <summary>
-    /// Represents information about the visual states of font elements that represent
-    /// a rating.
+    /// Initializes a new instance of the RatingItemFontInfo class.
     /// </summary>
-    public class RatingItemFontInfo : RatingItemInfo
+    public RatingItemFontInfo()
     {
-        /// <summary>
-        /// Initializes a new instance of the RatingItemFontInfo class.
-        /// </summary>
-        public RatingItemFontInfo()
-        {
-        }
+    }
 
-        #region DisabledGlyph
+    #region DisabledGlyph
 
-        /// <summary>
-        /// Identifies the DisabledGlyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty DisabledGlyphProperty =
-            DependencyProperty.Register(
-                nameof(DisabledGlyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the DisabledGlyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty DisabledGlyphProperty =
+        DependencyProperty.Register(
+            nameof(DisabledGlyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// that is disabled.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string DisabledGlyph
-        {
-            get => (string)GetValue(DisabledGlyphProperty);
-            set => SetValue(DisabledGlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// that is disabled.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string DisabledGlyph
+    {
+        get => (string)GetValue(DisabledGlyphProperty);
+        set => SetValue(DisabledGlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region Glyph
+    #region Glyph
 
-        /// <summary>
-        /// Identifies the Glyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty GlyphProperty =
-            DependencyProperty.Register(
-                nameof(Glyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the Glyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty GlyphProperty =
+        DependencyProperty.Register(
+            nameof(Glyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// that has been set by the user.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string Glyph
-        {
-            get => (string)GetValue(GlyphProperty);
-            set => SetValue(GlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// that has been set by the user.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string Glyph
+    {
+        get => (string)GetValue(GlyphProperty);
+        set => SetValue(GlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PlaceholderGlyph
+    #region PlaceholderGlyph
 
-        /// <summary>
-        /// Identifies the PlaceholderGlyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty PlaceholderGlyphProperty =
-            DependencyProperty.Register(
-                nameof(PlaceholderGlyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the PlaceholderGlyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty PlaceholderGlyphProperty =
+        DependencyProperty.Register(
+            nameof(PlaceholderGlyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// that is showing a placeholder value.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string PlaceholderGlyph
-        {
-            get => (string)GetValue(PlaceholderGlyphProperty);
-            set => SetValue(PlaceholderGlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// that is showing a placeholder value.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string PlaceholderGlyph
+    {
+        get => (string)GetValue(PlaceholderGlyphProperty);
+        set => SetValue(PlaceholderGlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PointerOverGlyph
+    #region PointerOverGlyph
 
-        /// <summary>
-        /// Identifies the PointerOverGlyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty PointerOverGlyphProperty =
-            DependencyProperty.Register(
-                nameof(PointerOverGlyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the PointerOverGlyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty PointerOverGlyphProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverGlyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// that has the pointer over it.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string PointerOverGlyph
-        {
-            get => (string)GetValue(PointerOverGlyphProperty);
-            set => SetValue(PointerOverGlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// that has the pointer over it.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string PointerOverGlyph
+    {
+        get => (string)GetValue(PointerOverGlyphProperty);
+        set => SetValue(PointerOverGlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PointerOverPlaceholderGlyph
+    #region PointerOverPlaceholderGlyph
 
-        /// <summary>
-        /// Identifies the PointerOverPlaceholderGlyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty PointerOverPlaceholderGlyphProperty =
-            DependencyProperty.Register(
-                nameof(PointerOverPlaceholderGlyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the PointerOverPlaceholderGlyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty PointerOverPlaceholderGlyphProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverPlaceholderGlyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// showing a placeholder value with the pointer over it.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string PointerOverPlaceholderGlyph
-        {
-            get => (string)GetValue(PointerOverPlaceholderGlyphProperty);
-            set => SetValue(PointerOverPlaceholderGlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// showing a placeholder value with the pointer over it.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string PointerOverPlaceholderGlyph
+    {
+        get => (string)GetValue(PointerOverPlaceholderGlyphProperty);
+        set => SetValue(PointerOverPlaceholderGlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region UnsetGlyph
+    #region UnsetGlyph
 
-        /// <summary>
-        /// Identifies the UnsetGlyph dependency property.
-        /// </summary>
-        public static readonly DependencyProperty UnsetGlyphProperty =
-            DependencyProperty.Register(
-                nameof(UnsetGlyph),
-                typeof(string),
-                typeof(RatingItemFontInfo),
-                new PropertyMetadata(string.Empty));
+    /// <summary>
+    /// Identifies the UnsetGlyph dependency property.
+    /// </summary>
+    public static readonly DependencyProperty UnsetGlyphProperty =
+        DependencyProperty.Register(
+            nameof(UnsetGlyph),
+            typeof(string),
+            typeof(RatingItemFontInfo),
+            new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
-        /// that has not been set.
-        /// </summary>
-        /// <returns>The hexadecimal character code for the rating element glyph.</returns>
-        public string UnsetGlyph
-        {
-            get => (string)GetValue(UnsetGlyphProperty);
-            set => SetValue(UnsetGlyphProperty, value);
-        }
+    /// <summary>
+    /// Gets or sets a Segoe MDL2 Assets font glyph that represents a rating element
+    /// that has not been set.
+    /// </summary>
+    /// <returns>The hexadecimal character code for the rating element glyph.</returns>
+    public string UnsetGlyph
+    {
+        get => (string)GetValue(UnsetGlyphProperty);
+        set => SetValue(UnsetGlyphProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        protected override Freezable CreateInstanceCore()
-        {
-            return new RatingItemFontInfo();
-        }
+    protected override Freezable CreateInstanceCore()
+    {
+        return new RatingItemFontInfo();
     }
 }
 

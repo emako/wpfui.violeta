@@ -1,133 +1,131 @@
 ﻿using System;
 using System.Windows;
-using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class Layout : DependencyObject
 {
-    public class Layout : DependencyObject
+    // For debugging purposes only.
+    public string LayoutId { get; set; }
+
+    private VirtualizingLayoutContext GetVirtualizingLayoutContext(LayoutContext context)
     {
-        // For debugging purposes only.
-        public string LayoutId { get; set; }
-
-        private VirtualizingLayoutContext GetVirtualizingLayoutContext(LayoutContext context)
+        if (context is VirtualizingLayoutContext virtualizingContext)
         {
-            if (context is VirtualizingLayoutContext virtualizingContext)
-            {
-                return virtualizingContext;
-            }
-            else if (context is NonVirtualizingLayoutContext nonVirtualizingContext)
-            {
-                var adapter = nonVirtualizingContext.GetVirtualizingContextAdapter();
-                return adapter;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return virtualizingContext;
         }
-
-        private NonVirtualizingLayoutContext GetNonVirtualizingLayoutContext(LayoutContext context)
+        else if (context is NonVirtualizingLayoutContext nonVirtualizingContext)
         {
-            if (context is NonVirtualizingLayoutContext nonVirtualizingContext)
-            {
-                return nonVirtualizingContext;
-            }
-            else if (context is VirtualizingLayoutContext virtualizingContext)
-            {
-                var adapter = virtualizingContext.GetNonVirtualizingContextAdapter();
-                return adapter;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            var adapter = nonVirtualizingContext.GetVirtualizingContextAdapter();
+            return adapter;
         }
-
-        public void InitializeForContext(LayoutContext context)
+        else
         {
-            if (this is IVirtualizingLayoutOverrides virtualizingLayout)
-            {
-                var virtualizingContext = GetVirtualizingLayoutContext(context);
-                virtualizingLayout.InitializeForContextCore(virtualizingContext);
-            }
-            else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
-            {
-                var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
-                nonVirtualizingLayout.InitializeForContextCore(nonVirtualizingContext);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
         }
+    }
 
-        public void UninitializeForContext(LayoutContext context)
+    private NonVirtualizingLayoutContext GetNonVirtualizingLayoutContext(LayoutContext context)
+    {
+        if (context is NonVirtualizingLayoutContext nonVirtualizingContext)
         {
-            if (this is IVirtualizingLayoutOverrides virtualizingLayout)
-            {
-                var virtualizingContext = GetVirtualizingLayoutContext(context);
-                virtualizingLayout.UninitializeForContextCore(virtualizingContext);
-            }
-            else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
-            {
-                var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
-                nonVirtualizingLayout.UninitializeForContextCore(nonVirtualizingContext);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return nonVirtualizingContext;
         }
-
-        public Size Measure(LayoutContext context, Size availableSize)
+        else if (context is VirtualizingLayoutContext virtualizingContext)
         {
-            if (this is IVirtualizingLayoutOverrides virtualizingLayout)
-            {
-                var virtualizingContext = GetVirtualizingLayoutContext(context);
-                return virtualizingLayout.MeasureOverride(virtualizingContext, availableSize);
-            }
-            else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
-            {
-                var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
-                return nonVirtualizingLayout.MeasureOverride(nonVirtualizingContext, availableSize);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            var adapter = virtualizingContext.GetNonVirtualizingContextAdapter();
+            return adapter;
         }
-
-        public Size Arrange(LayoutContext context, Size finalSize)
+        else
         {
-            if (this is IVirtualizingLayoutOverrides virtualizingLayout)
-            {
-                var virtualizingContext = GetVirtualizingLayoutContext(context);
-                return virtualizingLayout.ArrangeOverride(virtualizingContext, finalSize);
-            }
-            else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
-            {
-                var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
-                return nonVirtualizingLayout.ArrangeOverride(nonVirtualizingContext, finalSize);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            throw new NotImplementedException();
         }
+    }
 
-        public event TypedEventHandler<Layout, object> MeasureInvalidated;
-
-        public event TypedEventHandler<Layout, object> ArrangeInvalidated;
-
-        protected void InvalidateMeasure()
+    public void InitializeForContext(LayoutContext context)
+    {
+        if (this is IVirtualizingLayoutOverrides virtualizingLayout)
         {
-            MeasureInvalidated?.Invoke(this, null);
+            var virtualizingContext = GetVirtualizingLayoutContext(context);
+            virtualizingLayout.InitializeForContextCore(virtualizingContext);
         }
-
-        protected void InvalidateArrange()
+        else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
         {
-            ArrangeInvalidated?.Invoke(this, null);
+            var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
+            nonVirtualizingLayout.InitializeForContextCore(nonVirtualizingContext);
         }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public void UninitializeForContext(LayoutContext context)
+    {
+        if (this is IVirtualizingLayoutOverrides virtualizingLayout)
+        {
+            var virtualizingContext = GetVirtualizingLayoutContext(context);
+            virtualizingLayout.UninitializeForContextCore(virtualizingContext);
+        }
+        else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
+        {
+            var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
+            nonVirtualizingLayout.UninitializeForContextCore(nonVirtualizingContext);
+        }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public Size Measure(LayoutContext context, Size availableSize)
+    {
+        if (this is IVirtualizingLayoutOverrides virtualizingLayout)
+        {
+            var virtualizingContext = GetVirtualizingLayoutContext(context);
+            return virtualizingLayout.MeasureOverride(virtualizingContext, availableSize);
+        }
+        else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
+        {
+            var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
+            return nonVirtualizingLayout.MeasureOverride(nonVirtualizingContext, availableSize);
+        }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public Size Arrange(LayoutContext context, Size finalSize)
+    {
+        if (this is IVirtualizingLayoutOverrides virtualizingLayout)
+        {
+            var virtualizingContext = GetVirtualizingLayoutContext(context);
+            return virtualizingLayout.ArrangeOverride(virtualizingContext, finalSize);
+        }
+        else if (this is INonVirtualizingLayoutOverrides nonVirtualizingLayout)
+        {
+            var nonVirtualizingContext = GetNonVirtualizingLayoutContext(context);
+            return nonVirtualizingLayout.ArrangeOverride(nonVirtualizingContext, finalSize);
+        }
+        else
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public event TypedEventHandler<Layout, object> MeasureInvalidated;
+
+    public event TypedEventHandler<Layout, object> ArrangeInvalidated;
+
+    protected void InvalidateMeasure()
+    {
+        MeasureInvalidated?.Invoke(this, null);
+    }
+
+    protected void InvalidateArrange()
+    {
+        ArrangeInvalidated?.Invoke(this, null);
     }
 }
 

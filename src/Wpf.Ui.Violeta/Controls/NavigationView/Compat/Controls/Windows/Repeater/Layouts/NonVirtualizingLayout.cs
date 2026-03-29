@@ -1,61 +1,60 @@
 ﻿using System;
 using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class NonVirtualizingLayout : Layout, INonVirtualizingLayoutOverrides
 {
-    public class NonVirtualizingLayout : Layout, INonVirtualizingLayoutOverrides
+    public NonVirtualizingLayout()
     {
-        public NonVirtualizingLayout()
-        {
-        }
-
-        protected virtual void InitializeForContextCore(NonVirtualizingLayoutContext context)
-        {
-        }
-
-        protected virtual void UninitializeForContextCore(NonVirtualizingLayoutContext context)
-        {
-        }
-
-        protected virtual Size MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected virtual Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize)
-        {
-            throw new NotImplementedException();
-        }
-
-        #region INonVirtualizingLayoutOverrides
-        void INonVirtualizingLayoutOverrides.InitializeForContextCore(NonVirtualizingLayoutContext context)
-        {
-            InitializeForContextCore(context);
-        }
-
-        void INonVirtualizingLayoutOverrides.UninitializeForContextCore(NonVirtualizingLayoutContext context)
-        {
-            UninitializeForContextCore(context);
-        }
-
-        Size INonVirtualizingLayoutOverrides.MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize)
-        {
-            return MeasureOverride(context, availableSize);
-        }
-
-        Size INonVirtualizingLayoutOverrides.ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize)
-        {
-            return ArrangeOverride(context, finalSize);
-        }
-        #endregion
     }
 
-    internal interface INonVirtualizingLayoutOverrides
+    protected virtual void InitializeForContextCore(NonVirtualizingLayoutContext context)
     {
-        void InitializeForContextCore(NonVirtualizingLayoutContext context);
-        void UninitializeForContextCore(NonVirtualizingLayoutContext context);
-        Size MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize);
-        Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize);
     }
+
+    protected virtual void UninitializeForContextCore(NonVirtualizingLayoutContext context)
+    {
+    }
+
+    protected virtual Size MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected virtual Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize)
+    {
+        throw new NotImplementedException();
+    }
+
+    #region INonVirtualizingLayoutOverrides
+    void INonVirtualizingLayoutOverrides.InitializeForContextCore(NonVirtualizingLayoutContext context)
+    {
+        InitializeForContextCore(context);
+    }
+
+    void INonVirtualizingLayoutOverrides.UninitializeForContextCore(NonVirtualizingLayoutContext context)
+    {
+        UninitializeForContextCore(context);
+    }
+
+    Size INonVirtualizingLayoutOverrides.MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize)
+    {
+        return MeasureOverride(context, availableSize);
+    }
+
+    Size INonVirtualizingLayoutOverrides.ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize)
+    {
+        return ArrangeOverride(context, finalSize);
+    }
+    #endregion
+}
+
+internal interface INonVirtualizingLayoutOverrides
+{
+    void InitializeForContextCore(NonVirtualizingLayoutContext context);
+    void UninitializeForContextCore(NonVirtualizingLayoutContext context);
+    Size MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize);
+    Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize);
 }
 

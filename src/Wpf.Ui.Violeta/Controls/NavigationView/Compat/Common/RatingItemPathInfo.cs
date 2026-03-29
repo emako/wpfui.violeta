@@ -1,120 +1,119 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class RatingItemPathInfo : RatingItemInfo
 {
-    public class RatingItemPathInfo : RatingItemInfo
+    public RatingItemPathInfo()
     {
-        public RatingItemPathInfo()
-        {
-        }
+    }
 
-        #region DisabledData
+    #region DisabledData
 
-        public static readonly DependencyProperty DisabledDataProperty =
-            DependencyProperty.Register(
-                nameof(DisabledData),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty DisabledDataProperty =
+        DependencyProperty.Register(
+            nameof(DisabledData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry DisabledData
-        {
-            get => (Geometry)GetValue(DisabledDataProperty);
-            set => SetValue(DisabledDataProperty, value);
-        }
+    public Geometry DisabledData
+    {
+        get => (Geometry)GetValue(DisabledDataProperty);
+        set => SetValue(DisabledDataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region Data
+    #region Data
 
-        public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register(
-                nameof(Data),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty DataProperty =
+        DependencyProperty.Register(
+            nameof(Data),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry Data
-        {
-            get => (Geometry)GetValue(DataProperty);
-            set => SetValue(DataProperty, value);
-        }
+    public Geometry Data
+    {
+        get => (Geometry)GetValue(DataProperty);
+        set => SetValue(DataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PlaceholderData
+    #region PlaceholderData
 
-        public static readonly DependencyProperty PlaceholderDataProperty =
-            DependencyProperty.Register(
-                nameof(PlaceholderData),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty PlaceholderDataProperty =
+        DependencyProperty.Register(
+            nameof(PlaceholderData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry PlaceholderData
-        {
-            get => (Geometry)GetValue(PlaceholderDataProperty);
-            set => SetValue(PlaceholderDataProperty, value);
-        }
+    public Geometry PlaceholderData
+    {
+        get => (Geometry)GetValue(PlaceholderDataProperty);
+        set => SetValue(PlaceholderDataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PointerOverData
+    #region PointerOverData
 
-        public static readonly DependencyProperty PointerOverDataProperty =
-            DependencyProperty.Register(
-                nameof(PointerOverData),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty PointerOverDataProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry PointerOverData
-        {
-            get => (Geometry)GetValue(PointerOverDataProperty);
-            set => SetValue(PointerOverDataProperty, value);
-        }
+    public Geometry PointerOverData
+    {
+        get => (Geometry)GetValue(PointerOverDataProperty);
+        set => SetValue(PointerOverDataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region PointerOverPlaceholderData
+    #region PointerOverPlaceholderData
 
-        public static readonly DependencyProperty PointerOverPlaceholderDataProperty =
-            DependencyProperty.Register(
-                nameof(PointerOverPlaceholderData),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty PointerOverPlaceholderDataProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverPlaceholderData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry PointerOverPlaceholderData
-        {
-            get => (Geometry)GetValue(PointerOverPlaceholderDataProperty);
-            set => SetValue(PointerOverPlaceholderDataProperty, value);
-        }
+    public Geometry PointerOverPlaceholderData
+    {
+        get => (Geometry)GetValue(PointerOverPlaceholderDataProperty);
+        set => SetValue(PointerOverPlaceholderDataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        #region UnsetData
+    #region UnsetData
 
-        public static readonly DependencyProperty UnsetDataProperty =
-            DependencyProperty.Register(
-                nameof(UnsetData),
-                typeof(Geometry),
-                typeof(RatingItemPathInfo),
-                null);
+    public static readonly DependencyProperty UnsetDataProperty =
+        DependencyProperty.Register(
+            nameof(UnsetData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
 
-        public Geometry UnsetData
-        {
-            get => (Geometry)GetValue(UnsetDataProperty);
-            set => SetValue(UnsetDataProperty, value);
-        }
+    public Geometry UnsetData
+    {
+        get => (Geometry)GetValue(UnsetDataProperty);
+        set => SetValue(UnsetDataProperty, value);
+    }
 
-        #endregion
+    #endregion
 
-        protected override Freezable CreateInstanceCore()
-        {
-            return new RatingItemPathInfo();
-        }
+    protected override Freezable CreateInstanceCore()
+    {
+        return new RatingItemPathInfo();
     }
 }
 

@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public interface IElementFactory
 {
-    public interface IElementFactory
-    {
-        UIElement GetElement(ElementFactoryGetArgs args);
-        void RecycleElement(ElementFactoryRecycleArgs args);
-    }
+    public UIElement GetElement(ElementFactoryGetArgs args);
+    public void RecycleElement(ElementFactoryRecycleArgs args);
 }

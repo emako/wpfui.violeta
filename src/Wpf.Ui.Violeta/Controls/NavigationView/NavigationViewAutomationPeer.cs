@@ -1,34 +1,47 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
-using System.Windows.Automation.Peers;
+﻿using System.Windows.Automation.Peers;
 using System.Windows.Automation.Provider;
-using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace Wpf.Ui.Violeta.Controls
+namespace Wpf.Ui.Violeta.Controls;
+
+internal class NavigationViewAutomationPeer : FrameworkElementAutomationPeer, ISelectionProvider
 {
-    internal class NavigationViewAutomationPeer : FrameworkElementAutomationPeer, ISelectionProvider
+    public NavigationViewAutomationPeer(NavigationView owner) :
+        base(owner)
     {
-        public NavigationViewAutomationPeer(NavigationView owner) :
-            base(owner)
+    }
+
+    public override object GetPattern(PatternInterface patternInterface)
+    {
+        if (patternInterface == PatternInterface.Selection)
         {
+            return this;
         }
 
-        public override object GetPattern(PatternInterface patternInterface)
+        return base.GetPattern(patternInterface);
+    }
+
+    public bool CanSelectMultiple => false;
+
+    public bool IsSelectionRequired => false;
+
+    public IRawElementProviderSimple[] GetSelection()
+    {
+        if (Owner is NavigationView nv)
         {
-            if (patternInterface == PatternInterface.Selection)
+            if (nv.GetSelectedContainer() is { } nvi)
             {
-                return this;
+                if (FrameworkElementAutomationPeer.CreatePeerForElement(nvi) is { } peer)
+                {
+                    return new[] { ProviderFromPeer(peer) };
+                }
             }
-
-            return base.GetPattern(patternInterface);
         }
+        return new IRawElementProviderSimple[0];
+    }
 
-        public bool CanSelectMultiple => false;
-
-        public bool IsSelectionRequired => false;
-
-        public IRawElementProviderSimple[] GetSelection()
+    internal void RaiseSelectionChangedEvent(object oldSelection, object newSelecttion)
+    {
+        if (AutomationPeer.ListenerExists(AutomationEvents.SelectionPatternOnInvalidated))
         {
             if (Owner is NavigationView nv)
             {
@@ -36,25 +49,7 @@ namespace Wpf.Ui.Violeta.Controls
                 {
                     if (FrameworkElementAutomationPeer.CreatePeerForElement(nvi) is { } peer)
                     {
-                        return new[] { ProviderFromPeer(peer) };
-                    }
-                }
-            }
-            return new IRawElementProviderSimple[0];
-        }
-
-        internal void RaiseSelectionChangedEvent(object oldSelection, object newSelecttion)
-        {
-            if (AutomationPeer.ListenerExists(AutomationEvents.SelectionPatternOnInvalidated))
-            {
-                if (Owner is NavigationView nv)
-                {
-                    if (nv.GetSelectedContainer() is { } nvi)
-                    {
-                        if (FrameworkElementAutomationPeer.CreatePeerForElement(nvi) is { } peer)
-                        {
-                            peer.RaiseAutomationEvent(AutomationEvents.SelectionItemPatternOnElementSelected);
-                        }
+                        peer.RaiseAutomationEvent(AutomationEvents.SelectionItemPatternOnElementSelected);
                     }
                 }
             }

@@ -1,23 +1,22 @@
-﻿namespace Wpf.Ui.Violeta.Controls.Compat
+﻿namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Defines constants that specify the password reveal behavior of a PasswordBox.
+/// </summary>
+public enum PasswordRevealMode
 {
     /// <summary>
-    /// Defines constants that specify the password reveal behavior of a PasswordBox.
+    /// The password reveal button is visible. The password is not obscured while the
+    /// button is pressed.
     /// </summary>
-    public enum PasswordRevealMode
-    {
-        /// <summary>
-        /// The password reveal button is visible. The password is not obscured while the
-        /// button is pressed.
-        /// </summary>
-        Peek = 0,
-        /// <summary>
-        /// The password reveal button is not visible. The password is always obscured.
-        /// </summary>
-        Hidden = 1,
-        /// <summary>
-        /// The password reveal button is not visible. The password is not obscured.
-        /// </summary>
-        Visible = 2
-    }
+    Peek = 0,
+    /// <summary>
+    /// The password reveal button is not visible. The password is always obscured.
+    /// </summary>
+    Hidden = 1,
+    /// <summary>
+    /// The password reveal button is not visible. The password is not obscured.
+    /// </summary>
+    Visible = 2,
 }
 

@@ -1,17 +1,13 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
+﻿using System;
 
-using System;
+namespace Wpf.Ui.Violeta.Controls;
 
-namespace Wpf.Ui.Violeta.Controls
+public sealed class NavigationViewDisplayModeChangedEventArgs : EventArgs
 {
-    public sealed class NavigationViewDisplayModeChangedEventArgs : EventArgs
+    internal NavigationViewDisplayModeChangedEventArgs()
     {
-        internal NavigationViewDisplayModeChangedEventArgs()
-        {
-        }
-
-        public NavigationViewDisplayMode DisplayMode { get; internal set; }
     }
+
+    public NavigationViewDisplayMode DisplayMode { get; internal set; }
 }
 

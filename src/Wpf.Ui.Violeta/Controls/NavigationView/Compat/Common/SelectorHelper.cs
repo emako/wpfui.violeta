@@ -1,49 +1,48 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
-{
-    internal static class SelectorHelper
-    {
-        internal static bool ItemGetIsSelectable(object item)
-        {
-            if (item != null)
-            {
-                return !(item is Separator);
-            }
+namespace Wpf.Ui.Violeta.Controls.Compat;
 
-            return false;
+internal static class SelectorHelper
+{
+    internal static bool ItemGetIsSelectable(object item)
+    {
+        if (item != null)
+        {
+            return !(item is Separator);
         }
 
-        internal static bool UiGetIsSelectable(DependencyObject o)
+        return false;
+    }
+
+    internal static bool UiGetIsSelectable(DependencyObject o)
+    {
+        if (o != null)
         {
-            if (o != null)
+            if (!ItemGetIsSelectable(o))
             {
-                if (!ItemGetIsSelectable(o))
+                return false;
+            }
+            else
+            {
+                // Check the data item
+                ItemsControl itemsControl = ItemsControl.ItemsControlFromItemContainer(o);
+                if (itemsControl != null)
                 {
-                    return false;
-                }
-                else
-                {
-                    // Check the data item
-                    ItemsControl itemsControl = ItemsControl.ItemsControlFromItemContainer(o);
-                    if (itemsControl != null)
+                    object data = itemsControl.ItemContainerGenerator.ItemFromContainer(o);
+                    if (data != o)
                     {
-                        object data = itemsControl.ItemContainerGenerator.ItemFromContainer(o);
-                        if (data != o)
-                        {
-                            return ItemGetIsSelectable(data);
-                        }
-                        else
-                        {
-                            return true;
-                        }
+                        return ItemGetIsSelectable(data);
+                    }
+                    else
+                    {
+                        return true;
                     }
                 }
             }
-
-            return false;
         }
+
+        return false;
     }
 }
 

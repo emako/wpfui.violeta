@@ -2,21 +2,20 @@
 using System.ComponentModel;
 using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
-{
-    /// <summary>
-    /// Enables you to detect whether your app is in design mode in a visual designer.
-    /// </summary>
-    public static class DesignMode
-    {
-        private static readonly Lazy<bool> _designModeEnabled =
-            new Lazy<bool>(() => DesignerProperties.GetIsInDesignMode(new DependencyObject()));
+namespace Wpf.Ui.Violeta.Controls.Compat;
 
-        /// <summary>
-        /// Gets a value that indicates whether the process is running in design mode.
-        /// </summary>
-        /// <returns>**True** if the process is running in design mode; otherwise **false**.</returns>
-        public static bool DesignModeEnabled => _designModeEnabled.Value;
-    }
+/// <summary>
+/// Enables you to detect whether your app is in design mode in a visual designer.
+/// </summary>
+public static class DesignMode
+{
+    private static readonly Lazy<bool> _designModeEnabled =
+        new Lazy<bool>(() => DesignerProperties.GetIsInDesignMode(new DependencyObject()));
+
+    /// <summary>
+    /// Gets a value that indicates whether the process is running in design mode.
+    /// </summary>
+    /// <returns>**True** if the process is running in design mode; otherwise **false**.</returns>
+    public static bool DesignModeEnabled => _designModeEnabled.Value;
 }
 

@@ -1,29 +1,28 @@
 ﻿using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class BindingProxy : Freezable
 {
-    public class BindingProxy : Freezable
+    #region Value
+
+    public static readonly DependencyProperty ValueProperty =
+        DependencyProperty.Register(
+            nameof(Value),
+            typeof(object),
+            typeof(BindingProxy));
+
+    public object Value
     {
-        #region Value
+        get => GetValue(ValueProperty);
+        set => SetValue(ValueProperty, value);
+    }
 
-        public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register(
-                nameof(Value),
-                typeof(object),
-                typeof(BindingProxy));
+    #endregion
 
-        public object Value
-        {
-            get => GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
-        }
-
-        #endregion
-
-        protected override Freezable CreateInstanceCore()
-        {
-            return new BindingProxy();
-        }
+    protected override Freezable CreateInstanceCore()
+    {
+        return new BindingProxy();
     }
 }
 

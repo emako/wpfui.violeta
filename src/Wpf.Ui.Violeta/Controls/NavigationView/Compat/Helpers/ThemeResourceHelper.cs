@@ -1,25 +1,24 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal static class ThemeResourceHelper
 {
-    internal static class ThemeResourceHelper
+    private static readonly DependencyProperty ColorKeyProperty =
+        DependencyProperty.RegisterAttached(
+            "ColorKey",
+            typeof(object),
+            typeof(ThemeResourceHelper));
+
+    internal static object GetColorKey(SolidColorBrush element)
     {
-        private static readonly DependencyProperty ColorKeyProperty =
-            DependencyProperty.RegisterAttached(
-                "ColorKey",
-                typeof(object),
-                typeof(ThemeResourceHelper));
+        return element.GetValue(ColorKeyProperty);
+    }
 
-        internal static object GetColorKey(SolidColorBrush element)
-        {
-            return element.GetValue(ColorKeyProperty);
-        }
-
-        internal static void SetColorKey(SolidColorBrush element, object value)
-        {
-            element.SetValue(ColorKeyProperty, value);
-        }
+    internal static void SetColorKey(SolidColorBrush element, object value)
+    {
+        element.SetValue(ColorKeyProperty, value);
     }
 }
 

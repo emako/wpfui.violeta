@@ -1,26 +1,25 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class TitleBarControl : Control
 {
-    public class TitleBarControl : Control
+    public static readonly DependencyProperty InsideTitleBarProperty =
+        DependencyProperty.RegisterAttached(
+            "InsideTitleBar",
+            typeof(bool),
+            typeof(TitleBarControl),
+            new PropertyMetadata(false));
+
+    internal static bool GetInsideTitleBar(UIElement element)
     {
-        public static readonly DependencyProperty InsideTitleBarProperty =
-            DependencyProperty.RegisterAttached(
-                "InsideTitleBar",
-                typeof(bool),
-                typeof(TitleBarControl),
-                new PropertyMetadata(false));
+        return (bool)element.GetValue(InsideTitleBarProperty);
+    }
 
-        internal static bool GetInsideTitleBar(UIElement element)
-        {
-            return (bool)element.GetValue(InsideTitleBarProperty);
-        }
-
-        internal static void SetInsideTitleBar(UIElement element, bool value)
-        {
-            element.SetValue(InsideTitleBarProperty, value);
-        }
+    internal static void SetInsideTitleBar(UIElement element, bool value)
+    {
+        element.SetValue(InsideTitleBarProperty, value);
     }
 }
 

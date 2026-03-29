@@ -1,38 +1,34 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
-using System;
+﻿using System;
 using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace Wpf.Ui.Violeta.Controls
+namespace Wpf.Ui.Violeta.Controls;
+
+public sealed class NavigationViewPaneClosingEventArgs : EventArgs
 {
-    public sealed class NavigationViewPaneClosingEventArgs : EventArgs
+    internal NavigationViewPaneClosingEventArgs()
     {
-        internal NavigationViewPaneClosingEventArgs()
-        {
-        }
+    }
 
-        public bool Cancel
+    public bool Cancel
+    {
+        get => m_cancelled;
+        set
         {
-            get => m_cancelled;
-            set
+            m_cancelled = value;
+
+            if (m_splitViewClosingArgs is { } args)
             {
-                m_cancelled = value;
-
-                if (m_splitViewClosingArgs is { } args)
-                {
-                    args.Cancel = value;
-                }
+                args.Cancel = value;
             }
         }
-
-        internal void SplitViewClosingArgs(SplitViewPaneClosingEventArgs value)
-        {
-            m_splitViewClosingArgs = value;
-        }
-
-        SplitViewPaneClosingEventArgs m_splitViewClosingArgs;
-        bool m_cancelled;
     }
+
+    internal void SplitViewClosingArgs(SplitViewPaneClosingEventArgs value)
+    {
+        m_splitViewClosingArgs = value;
+    }
+
+    SplitViewPaneClosingEventArgs m_splitViewClosingArgs;
+    bool m_cancelled;
 }
 

@@ -1,13 +1,12 @@
 ﻿using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
-{
-    public interface IScrollAnchorProvider
-    {
-        void RegisterAnchorCandidate(UIElement element);
-        void UnregisterAnchorCandidate(UIElement element);
+namespace Wpf.Ui.Violeta.Controls.Compat;
 
-        UIElement CurrentAnchor { get; }
-    }
+public interface IScrollAnchorProvider
+{
+    public void RegisterAnchorCandidate(UIElement element);
+    public void UnregisterAnchorCandidate(UIElement element);
+
+    public UIElement CurrentAnchor { get; }
 }
 

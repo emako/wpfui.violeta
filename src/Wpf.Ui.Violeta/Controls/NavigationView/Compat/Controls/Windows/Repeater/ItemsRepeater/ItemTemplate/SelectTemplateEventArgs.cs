@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public sealed class SelectTemplateEventArgs : EventArgs
 {
-    public sealed class SelectTemplateEventArgs : EventArgs
+    internal SelectTemplateEventArgs()
     {
-        internal SelectTemplateEventArgs()
-        {
-        }
-
-        public string TemplateKey { get; set; }
-
-        public object DataContext { get; internal set; }
-
-        public UIElement Owner { get; internal set; }
     }
+
+    public string TemplateKey { get; set; }
+
+    public object DataContext { get; internal set; }
+
+    public UIElement Owner { get; internal set; }
 }
 

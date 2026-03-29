@@ -1,26 +1,25 @@
 ﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public static class ScrollBarThumbHelper
 {
-    public static class ScrollBarThumbHelper
+    public static readonly DependencyProperty IsExpandedProperty =
+        DependencyProperty.RegisterAttached(
+            "IsExpanded",
+            typeof(bool),
+            typeof(ScrollBarThumbHelper),
+            new PropertyMetadata(false));
+
+    public static bool GetIsExpanded(Thumb thumb)
     {
-        public static readonly DependencyProperty IsExpandedProperty =
-            DependencyProperty.RegisterAttached(
-                "IsExpanded",
-                typeof(bool),
-                typeof(ScrollBarThumbHelper),
-                new PropertyMetadata(false));
+        return (bool)thumb.GetValue(IsExpandedProperty);
+    }
 
-        public static bool GetIsExpanded(Thumb thumb)
-        {
-            return (bool)thumb.GetValue(IsExpandedProperty);
-        }
-
-        public static void SetIsExpanded(Thumb thumb, bool value)
-        {
-            thumb.SetValue(IsExpandedProperty, value);
-        }
+    public static void SetIsExpanded(Thumb thumb, bool value)
+    {
+        thumb.SetValue(IsExpandedProperty, value);
     }
 }
 

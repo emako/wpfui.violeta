@@ -1,129 +1,128 @@
 ﻿using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal enum ScrollOrientation
 {
-    internal enum ScrollOrientation
+    Vertical,
+    Horizontal,
+};
+
+internal class OrientationBasedMeasures
+{
+    public ScrollOrientation ScrollOrientation { get; set; } = ScrollOrientation.Vertical;
+
+    // Major - Scrolling/virtualizing direction
+    // Minor - Opposite direction
+    public double Major(Size size)
     {
-        Vertical,
-        Horizontal
-    };
+        return ScrollOrientation == ScrollOrientation.Vertical ? size.Height : size.Width;
+    }
 
-    internal class OrientationBasedMeasures
+    public double Minor(Size size)
     {
-        public ScrollOrientation ScrollOrientation { get; set; } = ScrollOrientation.Vertical;
+        return ScrollOrientation == ScrollOrientation.Vertical ? size.Width : size.Height;
+    }
 
-        // Major - Scrolling/virtualizing direction
-        // Minor - Opposite direction
-        public double Major(Size size)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ? size.Height : size.Width;
-        }
+    public double MajorSize(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ? rect.Height : rect.Width;
+    }
 
-        public double Minor(Size size)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ? size.Width : size.Height;
-        }
+    public double MinorSize(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ? rect.Width : rect.Height;
+    }
 
-        public double MajorSize(Rect rect)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ? rect.Height : rect.Width;
-        }
+    public double MajorStart(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ? rect.Y : rect.X;
+    }
 
-        public double MinorSize(Rect rect)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ? rect.Width : rect.Height;
-        }
+    public double MajorEnd(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ?
+            rect.Y + rect.Height : rect.X + rect.Width;
+    }
 
-        public double MajorStart(Rect rect)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ? rect.Y : rect.X;
-        }
+    public double MinorStart(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ? rect.X : rect.Y;
+    }
 
-        public double MajorEnd(Rect rect)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ?
-                rect.Y + rect.Height : rect.X + rect.Width;
-        }
+    public double MinorEnd(Rect rect)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ?
+            rect.X + rect.Width : rect.Y + rect.Height;
+    }
 
-        public double MinorStart(Rect rect)
+    public void SetMajorSize(ref Rect rect, double value)
+    {
+        if (ScrollOrientation == ScrollOrientation.Vertical)
         {
-            return ScrollOrientation == ScrollOrientation.Vertical ? rect.X : rect.Y;
+            rect.Height = value;
         }
+        else
+        {
+            rect.Width = value;
+        }
+    }
 
-        public double MinorEnd(Rect rect)
+    public void SetMinorSize(ref Rect rect, double value)
+    {
+        if (ScrollOrientation == ScrollOrientation.Vertical)
         {
-            return ScrollOrientation == ScrollOrientation.Vertical ?
-                rect.X + rect.Width : rect.Y + rect.Height;
+            rect.Width = value;
         }
+        else
+        {
+            rect.Height = value;
+        }
+    }
 
-        public void SetMajorSize(ref Rect rect, double value)
+    public void SetMajorStart(ref Rect rect, double value)
+    {
+        if (ScrollOrientation == ScrollOrientation.Vertical)
         {
-            if (ScrollOrientation == ScrollOrientation.Vertical)
-            {
-                rect.Height = value;
-            }
-            else
-            {
-                rect.Width = value;
-            }
+            rect.Y = value;
         }
+        else
+        {
+            rect.X = value;
+        }
+    }
 
-        public void SetMinorSize(ref Rect rect, double value)
+    public void SetMinorStart(ref Rect rect, double value)
+    {
+        if (ScrollOrientation == ScrollOrientation.Vertical)
         {
-            if (ScrollOrientation == ScrollOrientation.Vertical)
-            {
-                rect.Width = value;
-            }
-            else
-            {
-                rect.Height = value;
-            }
+            rect.X = value;
         }
+        else
+        {
+            rect.Y = value;
+        }
+    }
 
-        public void SetMajorStart(ref Rect rect, double value)
-        {
-            if (ScrollOrientation == ScrollOrientation.Vertical)
-            {
-                rect.Y = value;
-            }
-            else
-            {
-                rect.X = value;
-            }
-        }
+    public Rect MinorMajorRect(double minor, double major, double minorSize, double majorSize)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ?
+            new Rect(minor, major, minorSize, majorSize) :
+            new Rect(major, minor, majorSize, minorSize);
+    }
 
-        public void SetMinorStart(ref Rect rect, double value)
-        {
-            if (ScrollOrientation == ScrollOrientation.Vertical)
-            {
-                rect.X = value;
-            }
-            else
-            {
-                rect.Y = value;
-            }
-        }
+    public Point MinorMajorPoint(double minor, double major)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ?
+            new Point(minor, major) :
+            new Point(major, minor);
+    }
 
-        public Rect MinorMajorRect(double minor, double major, double minorSize, double majorSize)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ?
-                new Rect(minor, major, minorSize, majorSize) :
-                new Rect(major, minor, majorSize, minorSize);
-        }
-
-        public Point MinorMajorPoint(double minor, double major)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ?
-                new Point(minor, major) :
-                new Point(major, minor);
-        }
-
-        public Size MinorMajorSize(double minor, double major)
-        {
-            return ScrollOrientation == ScrollOrientation.Vertical ?
-                new Size(minor, major) :
-                new Size(major, minor);
-        }
+    public Size MinorMajorSize(double minor, double major)
+    {
+        return ScrollOrientation == ScrollOrientation.Vertical ?
+            new Size(minor, major) :
+            new Size(major, minor);
     }
 }
 

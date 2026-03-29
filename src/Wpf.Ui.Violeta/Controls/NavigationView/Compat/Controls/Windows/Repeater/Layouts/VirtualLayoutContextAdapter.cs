@@ -3,127 +3,126 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal class VirtualLayoutContextAdapter : NonVirtualizingLayoutContext
 {
-    internal class VirtualLayoutContextAdapter : NonVirtualizingLayoutContext
+    public VirtualLayoutContextAdapter(VirtualizingLayoutContext virtualizingContext)
     {
-        public VirtualLayoutContextAdapter(VirtualizingLayoutContext virtualizingContext)
-        {
-            m_virtualizingContext = new WeakReference<VirtualizingLayoutContext>(virtualizingContext);
-        }
+        m_virtualizingContext = new WeakReference<VirtualizingLayoutContext>(virtualizingContext);
+    }
 
-        protected override object LayoutStateCore
+    protected override object LayoutStateCore
+    {
+        get
         {
-            get
+            if (m_virtualizingContext.TryGetTarget(out var context))
             {
-                if (m_virtualizingContext.TryGetTarget(out var context))
-                {
-                    return context.LayoutState;
-                }
-                return null;
+                return context.LayoutState;
             }
-            set
+            return null;
+        }
+        set
+        {
+            if (m_virtualizingContext.TryGetTarget(out var context))
             {
-                if (m_virtualizingContext.TryGetTarget(out var context))
-                {
-                    context.LayoutState = value;
-                }
+                context.LayoutState = value;
             }
         }
+    }
 
-        protected override IReadOnlyList<UIElement> ChildrenCore
+    protected override IReadOnlyList<UIElement> ChildrenCore
+    {
+        get
         {
-            get
+            if (m_children == null)
             {
-                if (m_children == null)
-                {
-                    m_virtualizingContext.TryGetTarget(out var context);
-                    m_children = new ChildrenCollection<UIElement>(context);
-                }
-
-                return m_children;
+                m_virtualizingContext.TryGetTarget(out var context);
+                m_children = new ChildrenCollection<UIElement>(context);
             }
+
+            return m_children;
+        }
+    }
+
+    private readonly WeakReference<VirtualizingLayoutContext> m_virtualizingContext;
+    private IReadOnlyList<UIElement> m_children;
+
+    private class ChildrenCollection<T> : IReadOnlyList<T>, IEnumerable<T> where T : UIElement
+    {
+        public ChildrenCollection(VirtualizingLayoutContext context)
+        {
+            m_context = context;
         }
 
-        private readonly WeakReference<VirtualizingLayoutContext> m_virtualizingContext;
-        private IReadOnlyList<UIElement> m_children;
+        public int Count => m_context.ItemCount;
 
-        private class ChildrenCollection<T> : IReadOnlyList<T>, IEnumerable<T> where T : UIElement
+        public T this[int index] => (T)m_context.GetOrCreateElementAt(index, ElementRealizationOptions.None);
+
+        public IEnumerator<T> GetEnumerator()
         {
-            public ChildrenCollection(VirtualizingLayoutContext context)
+            return new Iterator(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        private class Iterator : IEnumerator<T>
+        {
+            public Iterator(IReadOnlyList<T> childCollection)
             {
-                m_context = context;
+                m_childCollection = childCollection;
             }
 
-            public int Count => m_context.ItemCount;
-
-            public T this[int index] => (T)m_context.GetOrCreateElementAt(index, ElementRealizationOptions.None);
-
-            public IEnumerator<T> GetEnumerator()
+            ~Iterator()
             {
-                return new Iterator(this);
             }
 
-            IEnumerator IEnumerable.GetEnumerator()
+            public T Current
             {
-                return GetEnumerator();
-            }
-
-            private class Iterator : IEnumerator<T>
-            {
-                public Iterator(IReadOnlyList<T> childCollection)
-                {
-                    m_childCollection = childCollection;
-                }
-
-                ~Iterator()
-                {
-                }
-
-                public T Current
-                {
-                    get
-                    {
-                        if (m_currentIndex < m_childCollection.Count)
-                        {
-                            return m_childCollection[m_currentIndex];
-                        }
-                        else
-                        {
-                            throw new InvalidOperationException();
-                        }
-                    }
-                }
-
-                object IEnumerator.Current => Current;
-
-                public bool MoveNext()
+                get
                 {
                     if (m_currentIndex < m_childCollection.Count)
                     {
-                        ++m_currentIndex;
-                        return (m_currentIndex < m_childCollection.Count);
+                        return m_childCollection[m_currentIndex];
                     }
                     else
                     {
                         throw new InvalidOperationException();
                     }
                 }
-
-                public void Reset()
-                {
-                    m_currentIndex = -1;
-                }
-
-                public void Dispose()
-                {
-                }
-
-                private readonly IReadOnlyList<T> m_childCollection;
-                private int m_currentIndex = -1;
             }
 
-            private readonly VirtualizingLayoutContext m_context;
+            object IEnumerator.Current => Current;
+
+            public bool MoveNext()
+            {
+                if (m_currentIndex < m_childCollection.Count)
+                {
+                    ++m_currentIndex;
+                    return (m_currentIndex < m_childCollection.Count);
+                }
+                else
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+
+            public void Reset()
+            {
+                m_currentIndex = -1;
+            }
+
+            public void Dispose()
+            {
+            }
+
+            private readonly IReadOnlyList<T> m_childCollection;
+            private int m_currentIndex = -1;
         }
+
+        private readonly VirtualizingLayoutContext m_context;
     }
 }

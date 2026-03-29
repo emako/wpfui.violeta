@@ -1,23 +1,19 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
 using System;
 using Wpf.Ui.Violeta.Controls.Compat;
 
-namespace Wpf.Ui.Violeta.Controls
+namespace Wpf.Ui.Violeta.Controls;
+
+public sealed class NavigationViewSelectionChangedEventArgs : EventArgs
 {
-    public sealed class NavigationViewSelectionChangedEventArgs : EventArgs
+    internal NavigationViewSelectionChangedEventArgs()
     {
-        internal NavigationViewSelectionChangedEventArgs()
-        {
-        }
-
-        public object SelectedItem { get; internal set; }
-        public bool IsSettingsSelected { get; internal set; }
-
-        public NavigationViewItemBase SelectedItemContainer { get; internal set; }
-        public NavigationTransitionInfo RecommendedNavigationTransitionInfo { get; internal set; }
     }
+
+    public object SelectedItem { get; internal set; }
+    public bool IsSettingsSelected { get; internal set; }
+
+    public NavigationViewItemBase SelectedItemContainer { get; internal set; }
+    public NavigationTransitionInfo RecommendedNavigationTransitionInfo { get; internal set; }
 }
 
 

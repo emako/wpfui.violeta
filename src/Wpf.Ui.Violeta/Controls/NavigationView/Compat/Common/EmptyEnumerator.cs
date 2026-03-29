@@ -1,63 +1,62 @@
 ﻿using System;
 using System.Collections;
 
-namespace Wpf.Ui.Violeta.Controls.Compat
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Returns an Enumerator that enumerates over nothing.
+/// </summary>
+internal class EmptyEnumeratorA : IEnumerator
 {
-    /// <summary>
-    /// Returns an Enumerator that enumerates over nothing.
-    /// </summary>
-    internal class EmptyEnumeratorA : IEnumerator
+    // singleton class, private ctor
+    private EmptyEnumeratorA()
     {
-        // singleton class, private ctor
-        private EmptyEnumeratorA()
-        {
-        }
+    }
 
-        /// <summary>
-        /// Read-Only instance of an Empty Enumerator.
-        /// </summary>
-        public static IEnumerator Instance
+    /// <summary>
+    /// Read-Only instance of an Empty Enumerator.
+    /// </summary>
+    public static IEnumerator Instance
+    {
+        get
         {
-            get
+            if (_instance == null)
             {
-                if (_instance == null)
-                {
-                    _instance = new EmptyEnumeratorA();
-                }
-                return _instance;
+                _instance = new EmptyEnumeratorA();
             }
+            return _instance;
         }
+    }
 
-        /// <summary>
-        /// Does nothing.
-        /// </summary>
-        public void Reset() { }
+    /// <summary>
+    /// Does nothing.
+    /// </summary>
+    public void Reset() { }
 
-        /// <summary>
-        /// Returns false.
-        /// </summary>
-        /// <returns>false</returns>
-        public bool MoveNext() { return false; }
+    /// <summary>
+    /// Returns false.
+    /// </summary>
+    /// <returns>false</returns>
+    public bool MoveNext() { return false; }
 
 
 #pragma warning disable 1634, 1691  // about to use PreSharp message numbers - unknown to C#
 
-        /// <summary>
-        /// Returns null.
-        /// </summary>
-        public object Current
+    /// <summary>
+    /// Returns null.
+    /// </summary>
+    public object Current
+    {
+        get
         {
-            get
-            {
 #pragma warning disable 6503 // "Property get methods should not throw exceptions."
 
-                throw new InvalidOperationException();
+            throw new InvalidOperationException();
 
 #pragma warning restore 6503
-            }
         }
+    }
 #pragma warning restore 1634, 1691
 
-        private static IEnumerator _instance;
-    }
+    private static IEnumerator _instance;
 }
