@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Wpf.Ui.Violeta.Controls.Compat;
 using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls.Compat

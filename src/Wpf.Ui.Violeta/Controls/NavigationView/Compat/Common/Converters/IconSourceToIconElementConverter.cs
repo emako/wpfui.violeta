@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using Wpf.Ui.Violeta.Controls.Compat;
 using System.Windows.Controls;
 
 namespace Wpf.Ui.Violeta.Controls.Compat
@@ -24,5 +23,3 @@ namespace Wpf.Ui.Violeta.Controls.Compat
         }
     }
 }
-
-

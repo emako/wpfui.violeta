@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 
 static class CppWinRTHelpers
 {

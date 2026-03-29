@@ -7,10 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
 using ControlHelper = Wpf.Ui.Violeta.Controls.Compat.ControlHelper;
 

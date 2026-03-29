@@ -6,7 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls.Compat
 {

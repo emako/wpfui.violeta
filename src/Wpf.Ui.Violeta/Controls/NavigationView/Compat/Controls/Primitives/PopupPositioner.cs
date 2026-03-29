@@ -13,8 +13,6 @@ using Wpf.Ui.Violeta.Controls.Compat;
 
 //using Windows.Win32.Foundation;
 //using Windows.Win32.UI.WindowsAndMessaging;
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls.Compat
 {

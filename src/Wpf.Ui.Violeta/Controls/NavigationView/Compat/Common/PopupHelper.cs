@@ -1,8 +1,6 @@
-using System;
+﻿using System;
 using System.Reflection;
 using System.Windows.Controls.Primitives;
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls.Compat

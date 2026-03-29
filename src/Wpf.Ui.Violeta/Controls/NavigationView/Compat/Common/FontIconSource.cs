@@ -1,5 +1,4 @@
-using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
+﻿using Wpf.Ui.Violeta.Controls.Compat;
 using System;
 using System.Diagnostics;
 using System.Windows;

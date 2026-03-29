@@ -6,7 +6,6 @@ using System.Windows.Automation;
 using System.Windows.Automation.Peers;
 using System.Windows.Automation.Provider;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Compat;
 using static Wpf.Ui.Violeta.Controls.Compat.ResourceAccessor;
 
 namespace Wpf.Ui.Violeta.Controls
