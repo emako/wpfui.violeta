@@ -1551,9 +1551,10 @@
                             FontWeight="Black"
                             Text="AsyncBox" />
                         <StackPanel>
-                            <vio:AsyncBox LoadingViewType="{x:Type vio:Loading}">
+                            <vio:AsyncBox LoadingDelay="1000" LoadingViewType="{x:Type vio:Loading}">
                                 <TextBlock Text="This is an AsyncBox demo. You can put any content you want in it, and it will automatically show a loading indicator when the content is being loaded asynchronously." />
                             </vio:AsyncBox>
+                            <!--  Not supported  -->
                             <!--
                             <vio:AsyncBox>
                                 <vio:AsyncBox.LoadingView>
