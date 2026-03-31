@@ -64,14 +64,13 @@
                         MinWidth="160"
                         Margin="0,6,0,0"
                         SelectionChanged="TransitionModeComboBox_OnSelectionChanged">
-                        <ComboBoxItem Tag="None">None</ComboBoxItem>
-                        <ComboBoxItem Tag="Fade">Fade</ComboBoxItem>
-                        <ComboBoxItem Tag="Slide">Slide</ComboBoxItem>
-                        <ComboBoxItem Tag="Scale">Scale</ComboBoxItem>
-                        <ComboBoxItem IsSelected="True" Tag="FadeSlide">Fade + Slide</ComboBoxItem>
-                        <ComboBoxItem Tag="FadeScale">Fade + Scale</ComboBoxItem>
-                        <ComboBoxItem Tag="SlideScale">Slide + Scale</ComboBoxItem>
-                        <ComboBoxItem Tag="FadeSlideScale">Fade + Slide + Scale</ComboBoxItem>
+                        <ComboBoxItem Tag="Recommended">Recommended</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True" Tag="Entrance">Entrance</ComboBoxItem>
+                        <ComboBoxItem Tag="DrillIn">DrillIn</ComboBoxItem>
+                        <ComboBoxItem Tag="SlideFromRight">Slide From Right</ComboBoxItem>
+                        <ComboBoxItem Tag="SlideFromLeft">Slide From Left</ComboBoxItem>
+                        <ComboBoxItem Tag="SlideFromBottom">Slide From Bottom</ComboBoxItem>
+                        <ComboBoxItem Tag="Suppress">Suppress</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
 
@@ -454,7 +453,7 @@
                                         </StackPanel>
                                     </Border>
 
-                                    <Frame
+                                    <compat:Frame
                                         x:Name="DemoFrame"
                                         Grid.Row="2"
                                         NavigationUIVisibility="Hidden" />

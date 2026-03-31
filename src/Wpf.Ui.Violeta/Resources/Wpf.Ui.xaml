@@ -4,6 +4,7 @@
     <FontFamily x:Key="FluentSystemIcons">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Variables.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/Compat/Controls/Frame.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/MessageBox/MessageBoxDialog.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/FontIcon/FontIconFallback.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PersonPicture/PersonPicture.xaml" />

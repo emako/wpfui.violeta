@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Wpf.Ui.Test.NavigationView.Pages;
 using Wpf.Ui.Violeta.Controls;
@@ -18,14 +17,13 @@ namespace Wpf.Ui.Test.NavigationView;
 
 public enum DemoTransitionMode
 {
-    None,
-    Fade,
-    Slide,
-    Scale,
-    FadeSlide,
-    FadeScale,
-    SlideScale,
-    FadeSlideScale,
+    Recommended,
+    Entrance,
+    DrillIn,
+    SlideFromRight,
+    SlideFromLeft,
+    SlideFromBottom,
+    Suppress,
 }
 
 public partial class MainWindow : ShellWindow
@@ -35,7 +33,7 @@ public partial class MainWindow : ShellWindow
     private readonly List<NavigationViewItem> _runtimeMenuItems = new();
     private int _dynamicItemIndex = 1;
     private string? _currentPageKey;
-    private DemoTransitionMode _transitionMode = DemoTransitionMode.FadeSlide;
+    private DemoTransitionMode _transitionMode = DemoTransitionMode.Entrance;
     private NavigationViewItem? _homeItem;
     private NavigationViewItem? _reportsItem;
 
@@ -56,7 +54,7 @@ public partial class MainWindow : ShellWindow
         UpdatePaneState();
         UpdateDisplayModeState();
         UpdateSelectionState("Home", "初始选中项为 Home。");
-        NavigateToTag("home", "Home");
+        NavigateToTag("home", "Home", null);
         PushEvent($"Window loaded, MenuItems={TestNavigationView.MenuItems.Count}, FooterMenuItems={TestNavigationView.FooterMenuItems.Count}");
         Dispatcher.BeginInvoke(DispatcherPriority.Loaded, new Action(DumpNavigationDiagnostics));
     }
@@ -88,14 +86,13 @@ public partial class MainWindow : ShellWindow
 
         _transitionMode = tag switch
         {
-            "None" => DemoTransitionMode.None,
-            "Fade" => DemoTransitionMode.Fade,
-            "Slide" => DemoTransitionMode.Slide,
-            "Scale" => DemoTransitionMode.Scale,
-            "FadeScale" => DemoTransitionMode.FadeScale,
-            "SlideScale" => DemoTransitionMode.SlideScale,
-            "FadeSlideScale" => DemoTransitionMode.FadeSlideScale,
-            _ => DemoTransitionMode.FadeSlide,
+            "Recommended" => DemoTransitionMode.Recommended,
+            "DrillIn" => DemoTransitionMode.DrillIn,
+            "SlideFromRight" => DemoTransitionMode.SlideFromRight,
+            "SlideFromLeft" => DemoTransitionMode.SlideFromLeft,
+            "SlideFromBottom" => DemoTransitionMode.SlideFromBottom,
+            "Suppress" => DemoTransitionMode.Suppress,
+            _ => DemoTransitionMode.Entrance,
         };
 
         PushEvent($"Transition => {_transitionMode}");
@@ -171,8 +168,7 @@ public partial class MainWindow : ShellWindow
         }
 
         UpdateSelectionState("Home", "通过快捷按钮切换到 Home。 ");
-        NavigateToTag("home", "Home");
-        PlayContentTransition();
+        NavigateToTag("home", "Home", null);
         PushEvent("SelectedItem => Home");
     }
 
@@ -183,8 +179,7 @@ public partial class MainWindow : ShellWindow
             _reportsItem.IsExpanded = true;
             TestNavigationView.SelectedItem = _reportsItem.MenuItems[0];
             UpdateSelectionState("Daily report", "通过快捷按钮切换到 Reports / Daily report。 ");
-            NavigateToTag("reports/daily", "Daily report");
-            PlayContentTransition();
+            NavigateToTag("reports/daily", "Daily report", null);
             PushEvent("SelectedItem => Daily report");
         }
     }
@@ -206,8 +201,7 @@ public partial class MainWindow : ShellWindow
             : ResolveTag(args.SelectedItemContainer ?? args.SelectedItem);
 
         UpdateSelectionState(title, detail);
-        NavigateToTag(pageTag, title);
-        PlayContentTransition();
+        NavigateToTag(pageTag, title, args.RecommendedNavigationTransitionInfo);
         PushEvent($"SelectionChanged => {title}");
     }
 
@@ -218,8 +212,7 @@ public partial class MainWindow : ShellWindow
             ? "settings"
             : ResolveTag(args.InvokedItemContainer ?? args.InvokedItem);
 
-        NavigateToTag(pageTag, label);
-        PlayContentTransition();
+        NavigateToTag(pageTag, label, args.RecommendedNavigationTransitionInfo);
         PushEvent($"ItemInvoked => {label}");
     }
 
@@ -381,7 +374,7 @@ public partial class MainWindow : ShellWindow
         };
     }
 
-    private void NavigateToTag(string? tag, string title)
+    private void NavigateToTag(string? tag, string title, NavigationTransitionInfo? recommendedInfo)
     {
         string normalized = NormalizeTag(tag);
         string pageKey = normalized.StartsWith("reports/", StringComparison.OrdinalIgnoreCase) ? "reports" : normalized;
@@ -399,10 +392,25 @@ public partial class MainWindow : ShellWindow
             _ => new GenericDemoPage(title, normalized),
         };
 
-        DemoFrame.Navigate(page);
+        NavigationTransitionInfo transitionInfo = ResolveTransitionInfo(recommendedInfo);
+        DemoFrame.Navigate(page, transitionInfo);
         CurrentPageTextBlock.Text = $"{title} ({normalized})";
-        PushEvent($"PageHost => {title} [{normalized}]");
+        PushEvent($"PageHost => {title} [{normalized}] / {transitionInfo.GetType().Name}");
         _currentPageKey = pageKey;
+    }
+
+    private NavigationTransitionInfo ResolveTransitionInfo(NavigationTransitionInfo? recommendedInfo)
+    {
+        return _transitionMode switch
+        {
+            DemoTransitionMode.Recommended => recommendedInfo ?? new EntranceNavigationTransitionInfo(),
+            DemoTransitionMode.DrillIn => new DrillInNavigationTransitionInfo(),
+            DemoTransitionMode.SlideFromRight => new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight },
+            DemoTransitionMode.SlideFromLeft => new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromLeft },
+            DemoTransitionMode.SlideFromBottom => new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromBottom },
+            DemoTransitionMode.Suppress => new SuppressNavigationTransitionInfo(),
+            _ => new EntranceNavigationTransitionInfo(),
+        };
     }
 
     private static string ResolveTag(object? item)
@@ -420,77 +428,6 @@ public partial class MainWindow : ShellWindow
         }
 
         return tag.Trim().ToLowerInvariant();
-    }
-
-    private void PlayContentTransition()
-    {
-        if (!IsLoaded)
-        {
-            return;
-        }
-
-        ContentAreaHost.BeginAnimation(OpacityProperty, null);
-        ContentAreaTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, null);
-        ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleXProperty, null);
-        ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleYProperty, null);
-
-        ContentAreaHost.Opacity = 1.0;
-        ContentAreaTranslate.X = 0;
-        ContentAreaScale.ScaleX = 1.0;
-        ContentAreaScale.ScaleY = 1.0;
-
-        if (_transitionMode == DemoTransitionMode.None)
-        {
-            return;
-        }
-
-        if (_transitionMode is DemoTransitionMode.Fade or DemoTransitionMode.FadeSlide or DemoTransitionMode.FadeScale or DemoTransitionMode.FadeSlideScale)
-        {
-            var fade = new DoubleAnimation
-            {
-                From = 0.55,
-                To = 1.0,
-                Duration = TimeSpan.FromMilliseconds(220),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            ContentAreaHost.BeginAnimation(OpacityProperty, fade, HandoffBehavior.SnapshotAndReplace);
-        }
-
-        if (_transitionMode is DemoTransitionMode.Slide or DemoTransitionMode.FadeSlide or DemoTransitionMode.SlideScale or DemoTransitionMode.FadeSlideScale)
-        {
-            var slide = new DoubleAnimation
-            {
-                From = 26,
-                To = 0,
-                Duration = TimeSpan.FromMilliseconds(220),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            ContentAreaTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, slide, HandoffBehavior.SnapshotAndReplace);
-        }
-
-        if (_transitionMode is DemoTransitionMode.Scale or DemoTransitionMode.FadeScale or DemoTransitionMode.SlideScale or DemoTransitionMode.FadeSlideScale)
-        {
-            var scaleX = new DoubleAnimation
-            {
-                From = 0.96,
-                To = 1.0,
-                Duration = TimeSpan.FromMilliseconds(220),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            var scaleY = new DoubleAnimation
-            {
-                From = 0.96,
-                To = 1.0,
-                Duration = TimeSpan.FromMilliseconds(220),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleXProperty, scaleX, HandoffBehavior.SnapshotAndReplace);
-            ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleYProperty, scaleY, HandoffBehavior.SnapshotAndReplace);
-        }
     }
 
     private void DumpNavigationDiagnostics()
