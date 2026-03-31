@@ -32,6 +32,37 @@ public class AsyncBox : FrameworkElement
 
     private bool _isChildReadyToLoad;
 
+    private bool _isReadyToStartLoading;
+
+    private bool _isLoadingStarted;
+
+    public static readonly DependencyProperty LoadingDelayProperty =
+        DependencyProperty.Register(nameof(LoadingDelay), typeof(int), typeof(AsyncBox), new PropertyMetadata(0));
+
+    public static readonly DependencyProperty IsLoadingProperty =
+        DependencyProperty.Register(nameof(IsLoading), typeof(bool), typeof(AsyncBox), new PropertyMetadata(false, OnLoadingTriggerChanged));
+
+    public static readonly DependencyProperty AutoLoadingProperty =
+        DependencyProperty.Register(nameof(AutoLoading), typeof(bool), typeof(AsyncBox), new PropertyMetadata(true, OnLoadingTriggerChanged));
+
+    public int LoadingDelay
+    {
+        get => (int)GetValue(LoadingDelayProperty);
+        set => SetValue(LoadingDelayProperty, value);
+    }
+
+    public bool IsLoading
+    {
+        get => (bool)GetValue(IsLoadingProperty);
+        set => SetValue(IsLoadingProperty, value);
+    }
+
+    public bool AutoLoading
+    {
+        get => (bool)GetValue(AutoLoadingProperty);
+        set => SetValue(AutoLoadingProperty, value);
+    }
+
     public UIElement? Child
     {
         get => _child;
@@ -145,6 +176,51 @@ public class AsyncBox : FrameworkElement
         _targetSource?.Dispatcher.Invoke(() => _targetSource?.Dispose());
     }
 
+    private static void OnLoadingTriggerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is AsyncBox asyncBox)
+        {
+            asyncBox.TryStartLoading();
+        }
+    }
+
+    private int GetEffectiveLoadingDelay() => Math.Max(0, LoadingDelay);
+
+    private bool ShouldStartLoading() => AutoLoading || IsLoading;
+
+    private void TryStartLoading()
+    {
+        if (!_isReadyToStartLoading || _isLoadingStarted || _isChildReadyToLoad)
+        {
+            return;
+        }
+
+        if (!ShouldStartLoading())
+        {
+            return;
+        }
+
+        _isLoadingStarted = true;
+        _ = StartLoadingAsync();
+    }
+
+    private async Task StartLoadingAsync()
+    {
+        var loadingDelay = GetEffectiveLoadingDelay();
+        if (loadingDelay > 0)
+        {
+            await Task.Delay(loadingDelay);
+        }
+
+        if (_isChildReadyToLoad)
+        {
+            return;
+        }
+
+        _isChildReadyToLoad = true;
+        ActivateChild();
+    }
+
     private async void OnLoaded(object sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;
@@ -168,8 +244,8 @@ public class AsyncBox : FrameworkElement
 
         Dispatcher.DoEvents();
 
-        _isChildReadyToLoad = true;
-        ActivateChild();
+        _isReadyToStartLoading = true;
+        TryStartLoading();
     }
 
     private void ActivateChild()
