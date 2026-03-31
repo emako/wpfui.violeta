@@ -287,7 +287,13 @@
                 </vio:NavigationViewItem>
             </vio:NavigationView.FooterMenuItems>
 
-            <Grid Margin="24">
+            <Grid
+                x:Name="ContentAreaHost"
+                Margin="24"
+                RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TranslateTransform x:Name="ContentAreaTranslate" />
+                </Grid.RenderTransform>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="16" />
@@ -377,45 +383,40 @@
                         BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                         BorderThickness="1"
                         CornerRadius="12">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <StackPanel>
-                                <TextBlock
-                                    FontSize="22"
-                                    FontWeight="SemiBold"
-                                    Text="建议验证清单" />
-                                <TextBlock
-                                    Margin="0,8,0,0"
-                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="1. 切到 Top 模式，确认主菜单出现溢出按钮。 2. 折叠/展开 Reports，检查层级项动画、事件和选中状态。 3. 切换 Pane 可见性、设置项和 BackButton 可见性，观察模板更新。"
-                                    TextWrapping="Wrap" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="12" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
-                                <Separator Margin="0,16,0,16" />
+                            <WrapPanel>
+                                <ui:Button
+                                    Margin="0,0,8,8"
+                                    Click="SelectHomeButton_OnClick"
+                                    Content="选中 Home" />
+                                <ui:Button
+                                    Margin="0,0,8,8"
+                                    Click="SelectReportsChildButton_OnClick"
+                                    Content="选中 Daily report" />
+                                <ui:Button
+                                    Margin="0,0,8,8"
+                                    Click="ClearLogButton_OnClick"
+                                    Content="清空日志" />
+                            </WrapPanel>
 
-                                <TextBlock
-                                    FontSize="18"
-                                    FontWeight="SemiBold"
-                                    Text="内容区域" />
-                                <TextBlock
-                                    Margin="0,8,0,0"
-                                    Text="这个页面不是业务示例，而是控件验收台。重点是快速覆盖 NavigationView 的主要视觉状态和事件路径。"
-                                    TextWrapping="Wrap" />
-
-                                <WrapPanel Margin="0,16,0,0">
-                                    <ui:Button
-                                        Margin="0,0,8,8"
-                                        Click="SelectHomeButton_OnClick"
-                                        Content="选中 Home" />
-                                    <ui:Button
-                                        Margin="0,0,8,8"
-                                        Click="SelectReportsChildButton_OnClick"
-                                        Content="选中 Daily report" />
-                                    <ui:Button
-                                        Margin="0,0,8,8"
-                                        Click="ClearLogButton_OnClick"
-                                        Content="清空日志" />
-                                </WrapPanel>
-                            </StackPanel>
-                        </ScrollViewer>
+                            <Border
+                                Grid.Row="2"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                                <Frame
+                                    x:Name="DemoFrame"
+                                    Margin="12"
+                                    NavigationUIVisibility="Hidden" />
+                            </Border>
+                        </Grid>
                     </Border>
 
                     <Border

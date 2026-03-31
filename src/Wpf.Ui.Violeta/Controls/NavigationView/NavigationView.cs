@@ -4065,12 +4065,26 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     double GetPaneToggleButtonWidth()
     {
-        return (double)(SharedHelpers.FindResource("PaneToggleButtonWidth", this, (double)c_paneToggleButtonWidth));
+        return CoerceToFiniteNumber(
+            (double)(SharedHelpers.FindResource("PaneToggleButtonWidth", this, (double)c_paneToggleButtonWidth)),
+            c_paneToggleButtonWidth);
     }
 
     double GetPaneToggleButtonHeight()
     {
-        return (double)(SharedHelpers.FindResource("PaneToggleButtonHeight", this, (double)c_paneToggleButtonHeight));
+        return CoerceToFiniteNumber(
+            (double)(SharedHelpers.FindResource("PaneToggleButtonHeight", this, (double)c_paneToggleButtonHeight)),
+            c_paneToggleButtonHeight);
+    }
+
+    static double CoerceToFiniteNumber(double value, double fallback = 0.0)
+    {
+        if (double.IsNaN(value) || double.IsInfinity(value))
+        {
+            return fallback;
+        }
+
+        return value;
     }
 
     void UpdateTopNavigationWidthCache()
@@ -4682,7 +4696,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (useLeftPaddingForBackOrCloseButton && backButtonVisibility == Visibility.Visible)
             {
-                leftPaddingForBackOrCloseButton += backButton.Width;
+                leftPaddingForBackOrCloseButton += CoerceToFiniteNumber(backButton.Width, backButton.ActualWidth);
             }
         }
 
@@ -4694,11 +4708,12 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (closeButtonVisibility == Visibility.Visible)
             {
-                paneHeaderContentBorderRowMinHeight = Math.Max(paneHeaderContentBorderRowMinHeight, closeButton.Height);
+                var closeButtonHeight = CoerceToFiniteNumber(closeButton.Height, closeButton.ActualHeight);
+                paneHeaderContentBorderRowMinHeight = Math.Max(paneHeaderContentBorderRowMinHeight, closeButtonHeight);
 
                 if (useLeftPaddingForBackOrCloseButton)
                 {
-                    paneHeaderPaddingForCloseButton = closeButton.Width;
+                    paneHeaderPaddingForCloseButton = CoerceToFiniteNumber(closeButton.Width, closeButton.ActualWidth);
                     leftPaddingForBackOrCloseButton += paneHeaderPaddingForCloseButton;
                 }
             }
