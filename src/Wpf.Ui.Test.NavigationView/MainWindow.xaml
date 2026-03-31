@@ -58,6 +58,24 @@
                 </StackPanel>
 
                 <StackPanel Margin="0,0,16,8">
+                    <TextBlock FontWeight="SemiBold" Text="Transition" />
+                    <ComboBox
+                        x:Name="TransitionModeComboBox"
+                        MinWidth="160"
+                        Margin="0,6,0,0"
+                        SelectionChanged="TransitionModeComboBox_OnSelectionChanged">
+                        <ComboBoxItem Tag="None">None</ComboBoxItem>
+                        <ComboBoxItem Tag="Fade">Fade</ComboBoxItem>
+                        <ComboBoxItem Tag="Slide">Slide</ComboBoxItem>
+                        <ComboBoxItem Tag="Scale">Scale</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True" Tag="FadeSlide">Fade + Slide</ComboBoxItem>
+                        <ComboBoxItem Tag="FadeScale">Fade + Scale</ComboBoxItem>
+                        <ComboBoxItem Tag="SlideScale">Slide + Scale</ComboBoxItem>
+                        <ComboBoxItem Tag="FadeSlideScale">Fade + Slide + Scale</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="0,0,16,8">
                     <TextBlock FontWeight="SemiBold" Text="快速操作" />
                     <WrapPanel Margin="0,6,0,0">
                         <ui:Button
@@ -292,7 +310,10 @@
                 Margin="24"
                 RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
-                    <TranslateTransform x:Name="ContentAreaTranslate" />
+                    <TransformGroup>
+                        <ScaleTransform x:Name="ContentAreaScale" />
+                        <TranslateTransform x:Name="ContentAreaTranslate" />
+                    </TransformGroup>
                 </Grid.RenderTransform>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -411,10 +432,33 @@
                                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                                 BorderThickness="1"
                                 CornerRadius="10">
-                                <Frame
-                                    x:Name="DemoFrame"
-                                    Margin="12"
-                                    NavigationUIVisibility="Hidden" />
+                                <Grid Margin="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="12" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Border
+                                        Padding="10,8"
+                                        Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="8">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock FontWeight="SemiBold" Text="当前页面: " />
+                                            <TextBlock
+                                                x:Name="CurrentPageTextBlock"
+                                                FontWeight="SemiBold"
+                                                Text="未加载" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <Frame
+                                        x:Name="DemoFrame"
+                                        Grid.Row="2"
+                                        NavigationUIVisibility="Hidden" />
+                                </Grid>
                             </Border>
                         </Grid>
                     </Border>

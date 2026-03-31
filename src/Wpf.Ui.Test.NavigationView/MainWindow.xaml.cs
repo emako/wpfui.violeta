@@ -16,6 +16,18 @@ using NavigationViewControl = Wpf.Ui.Violeta.Controls.NavigationView;
 
 namespace Wpf.Ui.Test.NavigationView;
 
+public enum DemoTransitionMode
+{
+    None,
+    Fade,
+    Slide,
+    Scale,
+    FadeSlide,
+    FadeScale,
+    SlideScale,
+    FadeSlideScale,
+}
+
 public partial class MainWindow : ShellWindow
 {
     private readonly ObservableCollection<string> _eventLog = new();
@@ -23,6 +35,7 @@ public partial class MainWindow : ShellWindow
     private readonly List<NavigationViewItem> _runtimeMenuItems = new();
     private int _dynamicItemIndex = 1;
     private string? _currentPageKey;
+    private DemoTransitionMode _transitionMode = DemoTransitionMode.FadeSlide;
     private NavigationViewItem? _homeItem;
     private NavigationViewItem? _reportsItem;
 
@@ -64,6 +77,28 @@ public partial class MainWindow : ShellWindow
             TestNavigationView.IsBackButtonVisible = visibility;
             PushEvent($"BackButton => {visibility}");
         }
+    }
+
+    private void TransitionModeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (TransitionModeComboBox.SelectedItem is not ComboBoxItem { Tag: string tag })
+        {
+            return;
+        }
+
+        _transitionMode = tag switch
+        {
+            "None" => DemoTransitionMode.None,
+            "Fade" => DemoTransitionMode.Fade,
+            "Slide" => DemoTransitionMode.Slide,
+            "Scale" => DemoTransitionMode.Scale,
+            "FadeScale" => DemoTransitionMode.FadeScale,
+            "SlideScale" => DemoTransitionMode.SlideScale,
+            "FadeSlideScale" => DemoTransitionMode.FadeSlideScale,
+            _ => DemoTransitionMode.FadeSlide,
+        };
+
+        PushEvent($"Transition => {_transitionMode}");
     }
 
     private void TogglePaneButton_OnClick(object sender, RoutedEventArgs e)
@@ -135,6 +170,9 @@ public partial class MainWindow : ShellWindow
             TestNavigationView.SelectedItem = _homeItem;
         }
 
+        UpdateSelectionState("Home", "通过快捷按钮切换到 Home。 ");
+        NavigateToTag("home", "Home");
+        PlayContentTransition();
         PushEvent("SelectedItem => Home");
     }
 
@@ -144,6 +182,9 @@ public partial class MainWindow : ShellWindow
         {
             _reportsItem.IsExpanded = true;
             TestNavigationView.SelectedItem = _reportsItem.MenuItems[0];
+            UpdateSelectionState("Daily report", "通过快捷按钮切换到 Reports / Daily report。 ");
+            NavigateToTag("reports/daily", "Daily report");
+            PlayContentTransition();
             PushEvent("SelectedItem => Daily report");
         }
     }
@@ -173,6 +214,12 @@ public partial class MainWindow : ShellWindow
     private void TestNavigationView_OnItemInvoked(NavigationViewControl sender, NavigationViewItemInvokedEventArgs args)
     {
         string label = args.IsSettingsInvoked ? "Settings" : GetItemLabel(args.InvokedItemContainer ?? args.InvokedItem);
+        string pageTag = args.IsSettingsInvoked
+            ? "settings"
+            : ResolveTag(args.InvokedItemContainer ?? args.InvokedItem);
+
+        NavigateToTag(pageTag, label);
+        PlayContentTransition();
         PushEvent($"ItemInvoked => {label}");
     }
 
@@ -353,6 +400,8 @@ public partial class MainWindow : ShellWindow
         };
 
         DemoFrame.Navigate(page);
+        CurrentPageTextBlock.Text = $"{title} ({normalized})";
+        PushEvent($"PageHost => {title} [{normalized}]");
         _currentPageKey = pageKey;
     }
 
@@ -382,25 +431,66 @@ public partial class MainWindow : ShellWindow
 
         ContentAreaHost.BeginAnimation(OpacityProperty, null);
         ContentAreaTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, null);
+        ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleXProperty, null);
+        ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleYProperty, null);
 
-        var fade = new DoubleAnimation
+        ContentAreaHost.Opacity = 1.0;
+        ContentAreaTranslate.X = 0;
+        ContentAreaScale.ScaleX = 1.0;
+        ContentAreaScale.ScaleY = 1.0;
+
+        if (_transitionMode == DemoTransitionMode.None)
         {
-            From = 0.55,
-            To = 1.0,
-            Duration = TimeSpan.FromMilliseconds(220),
-            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-        };
+            return;
+        }
 
-        var slide = new DoubleAnimation
+        if (_transitionMode is DemoTransitionMode.Fade or DemoTransitionMode.FadeSlide or DemoTransitionMode.FadeScale or DemoTransitionMode.FadeSlideScale)
         {
-            From = 26,
-            To = 0,
-            Duration = TimeSpan.FromMilliseconds(220),
-            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-        };
+            var fade = new DoubleAnimation
+            {
+                From = 0.55,
+                To = 1.0,
+                Duration = TimeSpan.FromMilliseconds(220),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
 
-        ContentAreaHost.BeginAnimation(OpacityProperty, fade, HandoffBehavior.SnapshotAndReplace);
-        ContentAreaTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, slide, HandoffBehavior.SnapshotAndReplace);
+            ContentAreaHost.BeginAnimation(OpacityProperty, fade, HandoffBehavior.SnapshotAndReplace);
+        }
+
+        if (_transitionMode is DemoTransitionMode.Slide or DemoTransitionMode.FadeSlide or DemoTransitionMode.SlideScale or DemoTransitionMode.FadeSlideScale)
+        {
+            var slide = new DoubleAnimation
+            {
+                From = 26,
+                To = 0,
+                Duration = TimeSpan.FromMilliseconds(220),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            ContentAreaTranslate.BeginAnimation(System.Windows.Media.TranslateTransform.XProperty, slide, HandoffBehavior.SnapshotAndReplace);
+        }
+
+        if (_transitionMode is DemoTransitionMode.Scale or DemoTransitionMode.FadeScale or DemoTransitionMode.SlideScale or DemoTransitionMode.FadeSlideScale)
+        {
+            var scaleX = new DoubleAnimation
+            {
+                From = 0.96,
+                To = 1.0,
+                Duration = TimeSpan.FromMilliseconds(220),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var scaleY = new DoubleAnimation
+            {
+                From = 0.96,
+                To = 1.0,
+                Duration = TimeSpan.FromMilliseconds(220),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleXProperty, scaleX, HandoffBehavior.SnapshotAndReplace);
+            ContentAreaScale.BeginAnimation(System.Windows.Media.ScaleTransform.ScaleYProperty, scaleY, HandoffBehavior.SnapshotAndReplace);
+        }
     }
 
     private void DumpNavigationDiagnostics()
