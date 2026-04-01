@@ -11,7 +11,7 @@ internal enum SelectionState
     PartiallySelected
 }
 
-// SelectionNode in the internal tree data structure that we keep track of for selection in 
+// SelectionNode in the internal tree data structure that we keep track of for selection in
 // a nested scenario. This would map to one ItemsSourceView/Collection. This node reacts
 // to collection changes and keeps the selected indices up to date.
 // This can either be a leaf node or a non leaf node.
@@ -190,7 +190,7 @@ internal class SelectionNode
         Debug.Assert(index >= 0);
 
         if (m_childrenNodes.Count == 0 || // no nodes realized
-            m_childrenNodes.Count <= index || // target node is not realized 
+            m_childrenNodes.Count <= index || // target node is not realized
             m_childrenNodes[index] == null || // target node is not realized
             m_childrenNodes[index] == m_manager.SharedLeafNode())  // target node is a leaf node.
         {
@@ -199,8 +199,8 @@ internal class SelectionNode
         }
         else
         {
-            // targetNode is the node representing the index. This node is the parent. 
-            // targetNode is a non-leaf node, containing one or many children nodes. Evaluate 
+            // targetNode is the node representing the index. This node is the parent.
+            // targetNode is a non-leaf node, containing one or many children nodes. Evaluate
             // based on children of targetNode.
             var targetNode = m_childrenNodes[index];
             selectionState = targetNode.EvaluateIsSelectedBasedOnChildrenNodes();
@@ -776,26 +776,26 @@ internal class SelectionNode
         return selectionState;
     }
 
-    SelectionModel m_manager;
+    private SelectionModel m_manager;
 
-    // Note that a node can contain children who are leaf as well as 
+    // Note that a node can contain children who are leaf as well as
     // chlidren containing leaf entries.
 
     // For inner nodes (any node whose children are data sources)
-    List<SelectionNode> m_childrenNodes = new List<SelectionNode>();
+    private List<SelectionNode> m_childrenNodes = new List<SelectionNode>();
+
     // Don't take a ref.
-    SelectionNode m_parent;
+    private SelectionNode m_parent;
 
     // For parents of leaf nodes (any node whose children are not data sources)
-    List<IndexRange> m_selected = new List<IndexRange>();
+    private List<IndexRange> m_selected = new List<IndexRange>();
 
-    object m_source;
-    ItemsSourceView m_dataSource;
+    private object m_source;
+    private ItemsSourceView m_dataSource;
 
-    int m_selectedCount;
-    List<int> m_selectedIndicesCached = new List<int>();
-    bool m_selectedIndicesCacheIsValid = false;
-    int m_anchorIndex = -1;
-    int m_realizedChildrenNodeCount;
+    private int m_selectedCount;
+    private List<int> m_selectedIndicesCached = new List<int>();
+    private bool m_selectedIndicesCacheIsValid = false;
+    private int m_anchorIndex = -1;
+    private int m_realizedChildrenNodeCount;
 }
-

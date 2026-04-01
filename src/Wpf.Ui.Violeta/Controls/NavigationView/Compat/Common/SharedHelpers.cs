@@ -125,18 +125,23 @@ internal static class SharedHelpers
             case NotifyCollectionChangedAction.Add:
                 destination.Insert(args.NewStartingIndex, (T)args.NewItems[0]);
                 break;
+
             case NotifyCollectionChangedAction.Remove:
                 destination.RemoveAt(args.OldStartingIndex);
                 break;
+
             case NotifyCollectionChangedAction.Replace:
                 destination[args.NewStartingIndex] = (T)args.NewItems[0];
                 break;
+
             case NotifyCollectionChangedAction.Move:
                 destination.Move(args.OldStartingIndex, args.NewStartingIndex);
                 break;
+
             case NotifyCollectionChangedAction.Reset:
                 CopyList(source, destination);
                 break;
+
             default:
                 Debug.Assert(false);
                 break;
@@ -340,5 +345,3 @@ internal static class SharedHelpers
         return obj?.ToString() ?? string.Empty;
     }
 }
-
-

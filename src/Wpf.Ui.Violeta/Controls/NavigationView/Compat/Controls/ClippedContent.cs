@@ -14,6 +14,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 public class ClippedContent : ContentControl
 {
     public static readonly DependencyProperty CornerRadiusProperty = Border.CornerRadiusProperty.AddOwner(typeof(ClippedContent), new PropertyMetadata(new CornerRadius(0), CornerRadiusProperty_ValueChanged));
+
     public CornerRadius CornerRadius
     {
         get { return (CornerRadius)GetValue(CornerRadiusProperty); }
@@ -76,7 +77,6 @@ public class ClippedContent : ContentControl
         }
     }
 
-
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
@@ -105,5 +105,3 @@ public class ClippedContent : ContentControl
     private Border PART_OuterBorder;
     private Border PART_InnerBorder;
 }
-
-

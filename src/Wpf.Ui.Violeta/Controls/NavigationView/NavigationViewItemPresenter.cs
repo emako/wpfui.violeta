@@ -11,13 +11,13 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public class NavigationViewItemPresenter : ContentControl, IControlProtected
 {
-    const string c_contentGrid = "PresenterContentRootGrid";
-    const string c_expandCollapseChevron = "ExpandCollapseChevron";
-    const string c_expandCollapseRotateExpandedStoryboard = "ExpandCollapseRotateExpandedStoryboard";
-    const string c_expandCollapseRotateCollapsedStoryboard = "ExpandCollapseRotateCollapsedStoryboard";
-    const string c_expandCollapseRotateTransform = "ExpandCollapseChevronRotateTransform";
+    private const string c_contentGrid = "PresenterContentRootGrid";
+    private const string c_expandCollapseChevron = "ExpandCollapseChevron";
+    private const string c_expandCollapseRotateExpandedStoryboard = "ExpandCollapseRotateExpandedStoryboard";
+    private const string c_expandCollapseRotateCollapsedStoryboard = "ExpandCollapseRotateCollapsedStoryboard";
+    private const string c_expandCollapseRotateTransform = "ExpandCollapseChevronRotateTransform";
 
-    const string c_iconBoxColumnDefinitionName = "IconColumn";
+    private const string c_iconBoxColumnDefinitionName = "IconColumn";
 
     static NavigationViewItemPresenter()
     {
@@ -54,7 +54,7 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
         set => SetValue(IconProperty, value);
     }
 
-    #endregion
+    #endregion Icon
 
     #region InfoBadge
 
@@ -71,7 +71,7 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
         set => SetValue(InfoBadgeProperty, value);
     }
 
-    #endregion
+    #endregion InfoBadge
 
     #region UseSystemFocusVisuals
 
@@ -84,7 +84,7 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
         set => SetValue(UseSystemFocusVisualsProperty, value);
     }
 
-    #endregion
+    #endregion UseSystemFocusVisuals
 
     #region CornerRadius
 
@@ -97,13 +97,13 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     public override void OnApplyTemplate()
     {
         IControlProtected controlProtected = this;
 
-        // Retrieve pointers to stable controls 
+        // Retrieve pointers to stable controls
         m_helper.Init(this);
 
         if (GetTemplateChildT<Grid>(c_contentGrid, this) is { } contentGrid)
@@ -258,18 +258,16 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
         return GetTemplateChild(childName);
     }
 
-    double m_compactPaneLengthValue = 40;
+    private double m_compactPaneLengthValue = 40;
 
-    NavigationViewItemHelper<NavigationViewItemPresenter> m_helper = new NavigationViewItemHelper<NavigationViewItemPresenter>();
-    Grid m_contentGrid;
-    Grid m_expandCollapseChevron;
+    private NavigationViewItemHelper<NavigationViewItemPresenter> m_helper = new NavigationViewItemHelper<NavigationViewItemPresenter>();
+    private Grid m_contentGrid;
+    private Grid m_expandCollapseChevron;
 
-    double m_leftIndentation = 0;
+    private double m_leftIndentation = 0;
 
-    Storyboard m_chevronExpandedStoryboard;
-    Storyboard m_chevronCollapsedStoryboard;
+    private Storyboard m_chevronExpandedStoryboard;
+    private Storyboard m_chevronCollapsedStoryboard;
 
-    RotateTransform m_expandCollapseRotateTransform;
+    private RotateTransform m_expandCollapseRotateTransform;
 }
-
-

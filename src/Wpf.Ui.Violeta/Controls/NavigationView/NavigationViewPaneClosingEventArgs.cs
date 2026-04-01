@@ -28,7 +28,6 @@ public sealed class NavigationViewPaneClosingEventArgs : EventArgs
         m_splitViewClosingArgs = value;
     }
 
-    SplitViewPaneClosingEventArgs m_splitViewClosingArgs;
-    bool m_cancelled;
+    private SplitViewPaneClosingEventArgs m_splitViewClosingArgs;
+    private bool m_cancelled;
 }
-

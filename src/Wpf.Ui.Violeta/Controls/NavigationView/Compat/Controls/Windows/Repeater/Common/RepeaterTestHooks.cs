@@ -7,8 +7,8 @@ internal partial class RepeaterTestHooks
         m_buildTreeCompleted?.Invoke(null, null);
     }
 
-    // We removed index parameter from the GetElement call, which we used extensively for 
-    // validation in tests. In order to avoid rewriting the tests, we keep the index internally and have 
+    // We removed index parameter from the GetElement call, which we used extensively for
+    // validation in tests. In order to avoid rewriting the tests, we keep the index internally and have
     // a test hook to get it for validation in tests.
     public static int GetElementFactoryElementIndex(object getArgs)
     {
@@ -48,5 +48,3 @@ internal partial class RepeaterTestHooks
 
     private event TypedEventHandler<object, object> m_buildTreeCompleted;
 }
-
-

@@ -161,7 +161,6 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
         {
             if (ScrollViewer is ScrollViewer scrollViewer)
             {
-
 #if DEBUG
                 // We should not be registring the same element twice. Even through it is functionally ok,
                 // we will end up spending more time during arrange than we must.
@@ -501,6 +500,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
 
     private UIElement m_anchorElement;
     private Rect m_anchorElementRelativeBounds;
+
     // Whenever the m_candidates list changes, we set this to true.
     private bool m_isAnchorElementDirty = true;
 
@@ -523,7 +523,8 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
     private double m_pendingViewportShift;
 
     private event ViewportChangedEventHandler ViewportChanged;
+
     private event PostArrangeEventHandler PostArrange;
+
     private event ConfigurationChangedEventHandler ConfigurationChanged;
 }
-

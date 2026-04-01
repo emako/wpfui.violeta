@@ -14,4 +14,3 @@ internal sealed class FlyoutBaseClosingEventArgs : EventArgs
         set => throw new NotImplementedException();
     }
 }
-

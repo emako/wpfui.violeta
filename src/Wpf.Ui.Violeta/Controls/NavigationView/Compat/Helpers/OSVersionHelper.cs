@@ -42,8 +42,8 @@ public static class OSVersionHelper
         internal uint dwMinorVersion;
         internal uint dwBuildNumber;
         internal uint dwPlatformId;
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
         internal string szCSDVersion;
     }
 }
-

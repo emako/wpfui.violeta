@@ -13,6 +13,7 @@ public class IconAndText : ContentControl
     #region Properties
 
     public static readonly DependencyProperty IconProperty = FontIcon.IconProperty.AddOwner(typeof(IconAndText));
+
     public FontIconData? Icon
     {
         get { return (FontIconData?)GetValue(IconProperty); }
@@ -20,6 +21,7 @@ public class IconAndText : ContentControl
     }
 
     public static readonly DependencyProperty SpacingProperty = SimpleStackPanel.SpacingProperty.AddOwner(typeof(IconAndText), new PropertyMetadata(6d));
+
     public double Spacing
     {
         get { return (double)GetValue(SpacingProperty); }
@@ -27,6 +29,7 @@ public class IconAndText : ContentControl
     }
 
     public static readonly DependencyProperty OrientationProperty = SimpleStackPanel.OrientationProperty.AddOwner(typeof(IconAndText), new PropertyMetadata(Orientation.Horizontal));
+
     public Orientation Orientation
     {
         get { return (Orientation)GetValue(OrientationProperty); }
@@ -34,14 +37,12 @@ public class IconAndText : ContentControl
     }
 
     public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(nameof(IconSize), typeof(double), typeof(IconAndText), new PropertyMetadata(16d));
+
     public double IconSize
     {
         get { return (double)GetValue(IconSizeProperty); }
         set { SetValue(IconSizeProperty, value); }
     }
 
-
-    #endregion
+    #endregion Properties
 }
-
-

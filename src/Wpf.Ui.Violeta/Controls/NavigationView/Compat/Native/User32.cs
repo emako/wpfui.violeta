@@ -233,16 +233,20 @@ internal static class User32
         DWMWINDOWMAXIMIZEDCHANGE = 0x0321,
 
         GETTITLEBARINFOEX = 0x033F,
+
         #region Windows 7
+
         DWMSENDICONICTHUMBNAIL = 0x0323,
         DWMSENDICONICLIVEPREVIEWBITMAP = 0x0326,
-        #endregion
+
+        #endregion Windows 7
 
         USER = 0x0400,
 
         // This is the hard-coded message value used by Microsoft for Shell_NotifyIcon.
         // It's relatively safe to reuse.
         TRAYMOUSEMESSAGE = 0x800, //WM_USER + 1024
+
         APP = 0x8000
 #pragma warning restore CS1591
     }
@@ -285,12 +289,12 @@ internal static class User32
         /// Specifies the x-coordinate of the point.
         /// </summary>
         public int X;
+
         /// <summary>
         /// Specifies the y-coordinate of the point.
         /// </summary>
         public int Y;
     }
-
 
     public static IntPtr GetWindowLongPtr(IntPtr hWnd, GWL nIndex) =>
         GetWindowLongPtr(hWnd, (int)nIndex);
@@ -401,8 +405,4 @@ internal static class User32
     [DllImport("USER32.dll", ExactSpelling = true)]
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     internal static extern HWND GetActiveWindow();
-
-
-
 }
-

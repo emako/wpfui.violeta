@@ -37,7 +37,7 @@ public static class ListViewHelper
         listbox.SetValue(HeaderProperty, value);
     }
 
-    #endregion
+    #endregion Header
 
     #region HeaderTemplate
 
@@ -70,7 +70,7 @@ public static class ListViewHelper
         listbox.SetValue(HeaderTemplateProperty, value);
     }
 
-    #endregion
+    #endregion HeaderTemplate
 
     #region Footer
 
@@ -104,7 +104,7 @@ public static class ListViewHelper
         listbox.SetValue(FooterProperty, value);
     }
 
-    #endregion
+    #endregion Footer
 
     #region HeaderTemplate
 
@@ -137,6 +137,5 @@ public static class ListViewHelper
         listbox.SetValue(FooterTemplateProperty, value);
     }
 
-    #endregion
+    #endregion HeaderTemplate
 }
-

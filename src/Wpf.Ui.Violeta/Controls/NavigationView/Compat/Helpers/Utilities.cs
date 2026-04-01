@@ -29,4 +29,3 @@ internal static partial class Utility
         return (short)(i & 0xFFFF);
     }
 }
-

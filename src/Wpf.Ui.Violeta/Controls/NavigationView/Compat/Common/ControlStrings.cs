@@ -9,7 +9,6 @@ internal class ControlStrings : ResourceAccessor
     {
     }
 
-
     internal static string GetControlBaseName(Type controlType, ModernControlCategory category)
     {
         _ = category;

@@ -30,7 +30,7 @@ public class AcrylicPanel : ContentControl
         set { SetValue(TargetProperty, value); }
     }
 
-    #endregion
+    #endregion Target
 
     #region CornerRadius
 
@@ -50,8 +50,7 @@ public class AcrylicPanel : ContentControl
         set { SetValue(CornerRadiusProperty, value); }
     }
 
-    #endregion
-
+    #endregion CornerRadius
 
     #region Source
 
@@ -71,7 +70,7 @@ public class AcrylicPanel : ContentControl
         set { SetValue(SourceProperty, value); }
     }
 
-    #endregion
+    #endregion Source
 
     #region Amount
 
@@ -110,7 +109,7 @@ public class AcrylicPanel : ContentControl
         obj.SetValue(AcrylicElement.AmountProperty, value);
     }
 
-    #endregion
+    #endregion Amount
 
     #region TintColor
 
@@ -149,7 +148,7 @@ public class AcrylicPanel : ContentControl
         obj.SetValue(AcrylicElement.TintColorProperty, value);
     }
 
-    #endregion
+    #endregion TintColor
 
     #region TintOpacity
 
@@ -188,7 +187,7 @@ public class AcrylicPanel : ContentControl
         obj.SetValue(AcrylicElement.TintOpacityProperty, value);
     }
 
-    #endregion
+    #endregion TintOpacity
 
     #region NoiseOpacity
 
@@ -214,8 +213,7 @@ public class AcrylicPanel : ContentControl
         obj.SetValue(AcrylicElement.NoiseOpacityProperty, value);
     }
 
-    #endregion
-
+    #endregion NoiseOpacity
 
     static AcrylicPanel()
     {
@@ -250,4 +248,3 @@ public class AcrylicPanel : ContentControl
         }
     }
 }
-

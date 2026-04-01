@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
 /// <summary>
@@ -50,7 +49,6 @@ public class IconSource : DependencyObject
         set => SetValue(DefaultSizeProperty, value);
     }
 
-
     /// <summary>
     /// Creates an icon UI element.
     /// </summary>
@@ -73,5 +71,3 @@ public class IconSource : DependencyObject
     /// <returns>An icon UI element.</returns>
     protected virtual IconElement CreateIconElementCore() => null;
 }
-
-

@@ -183,10 +183,12 @@ public class ElementAnimator
                         // Call into the derivied class's StartShowAnimation override
                         StartShowAnimation(elementInfo.Element, elementInfo.Context);
                         break;
+
                     case AnimationTrigger.Hide:
                         // Call into the derivied class's StartHideAnimation override
                         StartHideAnimation(elementInfo.Element, elementInfo.Context);
                         break;
+
                     case AnimationTrigger.BoundsChange:
                         // Call into the derivied class's StartBoundsChangeAnimation override
                         StartBoundsChangeAnimation(
@@ -249,8 +251,10 @@ public class ElementAnimator
         public UIElement Element { get; }
         public AnimationTrigger Trigger { get; }
         public AnimationContext Context { get; }
+
         // Valid for Trigger == BoundsChange
         public Rect OldBounds { get; }
+
         public Rect NewBounds { get; }
     }
 

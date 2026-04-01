@@ -38,6 +38,5 @@ public static class RowDefinitionHelper
         }
     }
 
-    #endregion
+    #endregion PixelHeight
 }
-

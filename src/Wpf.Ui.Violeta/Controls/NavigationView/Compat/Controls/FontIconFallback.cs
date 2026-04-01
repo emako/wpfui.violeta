@@ -29,6 +29,5 @@ public class FontIconFallback : Control
         set => SetValue(DataProperty, value);
     }
 
-    #endregion
+    #endregion Data
 }
-

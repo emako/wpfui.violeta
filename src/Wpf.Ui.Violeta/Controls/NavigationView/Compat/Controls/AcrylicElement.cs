@@ -37,7 +37,7 @@ internal class AcrylicElement
             typeof(AcrylicElement),
             new FrameworkPropertyMetadata(100d, FrameworkPropertyMetadataOptions.Inherits));
 
-    #endregion
+    #endregion Amount
 
     #region TintColor
 
@@ -71,7 +71,7 @@ internal class AcrylicElement
             typeof(AcrylicElement),
             new FrameworkPropertyMetadata(Colors.White, FrameworkPropertyMetadataOptions.Inherits));
 
-    #endregion
+    #endregion TintColor
 
     #region TintOpacity
 
@@ -105,7 +105,7 @@ internal class AcrylicElement
             typeof(AcrylicElement),
             new FrameworkPropertyMetadata(0.8, FrameworkPropertyMetadataOptions.Inherits));
 
-    #endregion
+    #endregion TintOpacity
 
     #region NoiseOpacity
 
@@ -129,7 +129,7 @@ internal class AcrylicElement
             typeof(AcrylicElement),
             new FrameworkPropertyMetadata(0.03, FrameworkPropertyMetadataOptions.Inherits));
 
-    #endregion
+    #endregion NoiseOpacity
 
     #region FallbackColor
 
@@ -153,6 +153,5 @@ internal class AcrylicElement
             typeof(AcrylicElement),
             new FrameworkPropertyMetadata(Colors.LightGray, FrameworkPropertyMetadataOptions.Inherits));
 
-    #endregion
+    #endregion FallbackColor
 }
-

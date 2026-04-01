@@ -50,7 +50,7 @@ public class BitmapIcon : IconElement
         ((BitmapIcon)d).ApplyUriSource();
     }
 
-    #endregion
+    #endregion UriSource
 
     #region ShowAsMonochrome
 
@@ -79,7 +79,7 @@ public class BitmapIcon : IconElement
         ((BitmapIcon)d).ApplyShowAsMonochrome();
     }
 
-    #endregion
+    #endregion ShowAsMonochrome
 
     private protected override void InitializeChildren()
     {
@@ -176,7 +176,6 @@ public class BitmapIcon : IconElement
     private Rectangle _foreground;
     private ImageBrush _opacityMask;
 
-
     protected override IconSource CreateIconSourceCore()
     {
         var iconSource = new BitmapIconSource();
@@ -196,5 +195,3 @@ public class BitmapIcon : IconElement
         return iconSource;
     }
 }
-
-

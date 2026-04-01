@@ -188,4 +188,3 @@ public class SimpleStackPanel : Panel
         return arrangeSize;
     }
 }
-

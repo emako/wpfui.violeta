@@ -11,4 +11,3 @@ public class AutoSuggestBox : Control
         DefaultStyleKeyProperty.OverrideMetadata(typeof(AutoSuggestBox), new FrameworkPropertyMetadata(typeof(AutoSuggestBox)));
     }
 }
-

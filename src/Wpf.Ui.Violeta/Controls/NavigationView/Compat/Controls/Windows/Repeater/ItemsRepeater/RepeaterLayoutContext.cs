@@ -81,4 +81,3 @@ internal class RepeaterLayoutContext : VirtualizingLayoutContext
     // cycle between the ItemsRepeater and its layout.
     private readonly WeakReference<ItemsRepeater> m_owner;
 }
-

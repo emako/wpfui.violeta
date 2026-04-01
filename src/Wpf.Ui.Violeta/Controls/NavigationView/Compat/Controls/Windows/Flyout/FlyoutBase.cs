@@ -32,7 +32,7 @@ public abstract class FlyoutBase : DependencyObject
         set => SetValue(PlacementProperty, value);
     }
 
-    #endregion
+    #endregion Placement
 
     #region AreOpenCloseAnimationsEnabled
 
@@ -59,7 +59,7 @@ public abstract class FlyoutBase : DependencyObject
         UpdatePopupAnimation();
     }
 
-    #endregion
+    #endregion AreOpenCloseAnimationsEnabled
 
     #region IsOpen
 
@@ -114,7 +114,7 @@ public abstract class FlyoutBase : DependencyObject
         IsOpen = m_popup != null && m_popup.IsOpen;
     }
 
-    #endregion
+    #endregion IsOpen
 
     #region ShowMode
 
@@ -131,7 +131,7 @@ public abstract class FlyoutBase : DependencyObject
         set => SetValue(ShowModeProperty, value);
     }
 
-    #endregion
+    #endregion ShowMode
 
     #region AttachedFlyout
 
@@ -160,7 +160,7 @@ public abstract class FlyoutBase : DependencyObject
         }
     }
 
-    #endregion
+    #endregion AttachedFlyout
 
     internal virtual PopupAnimation DesiredPopupAnimation => PopupAnimation.Fade;
 
@@ -169,8 +169,11 @@ public abstract class FlyoutBase : DependencyObject
     internal double Offset { get; set; } = s_offset;
 
     public event EventHandler<object> Opening;
+
     public event EventHandler<object> Opened;
+
     public event EventHandler<object> Closed;
+
     internal event TypedEventHandler<FlyoutBase, FlyoutBaseClosingEventArgs> Closing;
 
     public void ShowAt(FrameworkElement placementTarget)
@@ -415,6 +418,7 @@ public abstract class FlyoutBase : DependencyObject
                         new Point(0, -Offset),
                         new Point(targetSize.Width, targetSize.Height + Offset));
                     break;
+
                 case FlyoutPlacementMode.Left:
                 case FlyoutPlacementMode.Right:
                 case FlyoutPlacementMode.LeftEdgeAlignedTop:
@@ -544,5 +548,3 @@ public abstract class FlyoutBase : DependencyObject
         }
     }
 }
-
-

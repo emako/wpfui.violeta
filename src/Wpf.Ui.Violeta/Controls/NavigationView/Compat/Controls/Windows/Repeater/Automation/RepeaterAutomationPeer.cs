@@ -72,4 +72,3 @@ public class RepeaterAutomationPeer : FrameworkElementAutomationPeer
         return (UIElement)childElement;
     }
 }
-

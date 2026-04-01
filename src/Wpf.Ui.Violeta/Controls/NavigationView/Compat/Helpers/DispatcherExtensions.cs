@@ -12,8 +12,9 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 public static class DispatcherExtensions
 {
 #if !NETCOREAPP
+
     /// <summary>
-    ///     Executes the specified delegate asynchronously 
+    ///     Executes the specified delegate asynchronously
     ///     on the thread that the Dispatcher was created on.
     /// </summary>
     /// <param name="dispatcher">
@@ -36,7 +37,7 @@ public static class DispatcherExtensions
     }
 
     /// <summary>
-    ///     Executes the specified delegate asynchronously 
+    ///     Executes the specified delegate asynchronously
     ///     on the thread that the Dispatcher was created on.
     /// </summary>
     /// <param name="dispatcher">
@@ -151,6 +152,7 @@ public static class DispatcherExtensions
     {
         dispatcher.Invoke(action, timeout, priority);
     }
+
 #endif
 
     /// <summary>

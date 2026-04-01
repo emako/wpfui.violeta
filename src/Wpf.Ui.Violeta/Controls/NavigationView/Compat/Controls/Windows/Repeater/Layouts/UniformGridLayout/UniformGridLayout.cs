@@ -124,7 +124,7 @@ public class UniformGridLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegat
         ((UniformGridLayout)sender).PrivateOnPropertyChanged(args);
     }
 
-    #endregion
+    #endregion Properties
 
     protected override void InitializeForContextCore(VirtualizingLayoutContext context)
     {
@@ -305,7 +305,6 @@ public class UniformGridLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegat
 
         var extent = new Rect();
 
-
         // Constants
         int itemsCount = context.ItemCount;
         double availableSizeMinor = OM.Minor(availableSize);
@@ -407,15 +406,15 @@ public class UniformGridLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegat
         InvalidateLayout();
     }
 
-    #endregion
+    #endregion IFlowLayoutAlgorithmDelegates
 
     private double GetMinorSizeWithSpacing(VirtualizingLayoutContext context)
     {
         var minItemSpacing = MinItemSpacing;
         var gridState = GetAsGridState(context.LayoutState);
         return OM.ScrollOrientation == ScrollOrientation.Vertical ?
-            (gridState.EffectiveItemWidth+ minItemSpacing) :
-            (gridState.EffectiveItemHeight+ minItemSpacing);
+            (gridState.EffectiveItemWidth + minItemSpacing) :
+            (gridState.EffectiveItemHeight + minItemSpacing);
     }
 
     private double GetMajorSizeWithSpacing(VirtualizingLayoutContext context)
@@ -423,9 +422,8 @@ public class UniformGridLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegat
         var lineSpacing = LineSpacing;
         var gridState = GetAsGridState(context.LayoutState);
         return OM.ScrollOrientation == ScrollOrientation.Vertical ?
-            (gridState.EffectiveItemHeight+ lineSpacing) :
-            (gridState.EffectiveItemWidth+ lineSpacing);
-
+            (gridState.EffectiveItemHeight + lineSpacing) :
+            (gridState.EffectiveItemWidth + lineSpacing);
     }
 
     private Rect GetLayoutRectForDataIndex(
@@ -444,8 +442,8 @@ public class UniformGridLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegat
         Rect bounds = OM.MinorMajorRect(
             indexInRow * GetMinorSizeWithSpacing(context) + OM.MinorStart(lastExtent),
             rowIndex * GetMajorSizeWithSpacing(context) + OM.MajorStart(lastExtent),
-            OM.ScrollOrientation == ScrollOrientation.Vertical ? gridState.EffectiveItemWidth: gridState.EffectiveItemHeight,
-            OM.ScrollOrientation == ScrollOrientation.Vertical ? gridState.EffectiveItemHeight: gridState.EffectiveItemWidth);
+            OM.ScrollOrientation == ScrollOrientation.Vertical ? gridState.EffectiveItemWidth : gridState.EffectiveItemHeight,
+            OM.ScrollOrientation == ScrollOrientation.Vertical ? gridState.EffectiveItemHeight : gridState.EffectiveItemWidth);
 
         return bounds;
     }
@@ -496,4 +494,3 @@ public enum UniformGridLayoutItemsStretch
     Fill = 1,
     Uniform = 2
 }
-

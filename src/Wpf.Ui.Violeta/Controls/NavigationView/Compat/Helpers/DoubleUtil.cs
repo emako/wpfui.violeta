@@ -7,4 +7,3 @@ public static class DoubleUtil
         return 0 < val ? (int)(val + 0.5) : (int)(val - 0.5);
     }
 }
-

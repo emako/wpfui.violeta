@@ -31,4 +31,3 @@ internal static partial class SafeNativeMethods
         public static extern int IntScreenToClient(HandleRef hWnd, [In, Out] POINT pt);
     }
 }
-

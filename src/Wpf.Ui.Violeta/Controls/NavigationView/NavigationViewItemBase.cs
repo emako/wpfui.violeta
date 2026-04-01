@@ -55,7 +55,7 @@ public class NavigationViewItemBase : ContentControl, IControlProtected
         IsSelectedChanged?.Invoke(this, args.Property);
     }
 
-    #endregion
+    #endregion IsSelected
 
     #region UseSystemFocusVisuals
 
@@ -68,7 +68,7 @@ public class NavigationViewItemBase : ContentControl, IControlProtected
         set => SetValue(UseSystemFocusVisualsProperty, value);
     }
 
-    #endregion
+    #endregion UseSystemFocusVisuals
 
     internal NavigationViewRepeaterPosition Position
     {
@@ -83,7 +83,9 @@ public class NavigationViewItemBase : ContentControl, IControlProtected
         }
     }
 
-    private protected virtual void OnNavigationViewItemBasePositionChanged() { }
+    private protected virtual void OnNavigationViewItemBasePositionChanged()
+    {
+    }
 
     internal NavigationView GetNavigationView()
     {
@@ -107,9 +109,13 @@ public class NavigationViewItemBase : ContentControl, IControlProtected
         }
     }
 
-    private protected virtual void OnNavigationViewItemBaseDepthChanged() { }
+    private protected virtual void OnNavigationViewItemBaseDepthChanged()
+    {
+    }
 
-    private protected virtual void OnNavigationViewItemBaseIsSelectedChanged() { }
+    private protected virtual void OnNavigationViewItemBaseIsSelectedChanged()
+    {
+    }
 
     internal SplitView GetSplitView()
     {
@@ -155,14 +161,13 @@ public class NavigationViewItemBase : ContentControl, IControlProtected
         set => m_createdByNavigationViewItemsFactory = value;
     }
 
-    private protected WeakReference<NavigationView> m_navigationView;
+    protected WeakReference<NavigationView> m_navigationView;
 
-    NavigationViewRepeaterPosition m_position = NavigationViewRepeaterPosition.LeftNav;
-    int m_depth = 0;
-    bool m_isTopLevelItem = false;
+    private NavigationViewRepeaterPosition m_position = NavigationViewRepeaterPosition.LeftNav;
+    private int m_depth = 0;
+    private bool m_isTopLevelItem = false;
 
     // Flag to keep track of whether this item was created by the custom internal NavigationViewItemsFactory.
     // This is required in order to achieve proper recycling
-    bool m_createdByNavigationViewItemsFactory = false;
+    private bool m_createdByNavigationViewItemsFactory = false;
 }
-

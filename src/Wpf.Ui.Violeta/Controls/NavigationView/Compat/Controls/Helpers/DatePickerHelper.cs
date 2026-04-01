@@ -43,7 +43,7 @@ public static class DatePickerHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     private static void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -108,5 +108,3 @@ public static class DatePickerHelper
         }
     }
 }
-
-

@@ -39,7 +39,7 @@ public static class DataGridRowHelper
         SetAreRowDetailsFrozen((DataGridRow)d, (bool)e.NewValue);
     }
 
-    #endregion
+    #endregion AreRowDetailsFrozen
 
     #region HeadersVisibility
 
@@ -75,6 +75,5 @@ public static class DataGridRowHelper
         SetHeadersVisibility((DataGridRow)d, (DataGridHeadersVisibility)e.NewValue);
     }
 
-    #endregion
+    #endregion HeadersVisibility
 }
-

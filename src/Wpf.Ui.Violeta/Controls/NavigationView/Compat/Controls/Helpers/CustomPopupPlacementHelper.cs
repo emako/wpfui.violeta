@@ -44,7 +44,7 @@ internal static class CustomPopupPlacementHelper
         element.SetValue(PlacementProperty, value);
     }
 
-    #endregion
+    #endregion Placement
 
     internal static CustomPopupPlacement[] PositionPopup(
         CustomPlacementMode placement,
@@ -95,50 +95,62 @@ internal static class CustomPopupPlacementHelper
                 point = new Point((targetSize.Width - popupSize.Width) / 2, -popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.Bottom:
                 point = new Point((targetSize.Width - popupSize.Width) / 2, targetSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.Left:
                 point = new Point(-popupSize.Width, (targetSize.Height - popupSize.Height) / 2);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
+
             case CustomPlacementMode.Right:
                 point = new Point(targetSize.Width, (targetSize.Height - popupSize.Height) / 2);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
+
             case CustomPlacementMode.Full:
                 point = new Point((targetSize.Width - popupSize.Width) / 2, (targetSize.Height - popupSize.Height) / 2);
                 primaryAxis = PopupPrimaryAxis.None;
                 break;
+
             case CustomPlacementMode.TopEdgeAlignedLeft:
                 point = new Point(0, -popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.TopEdgeAlignedRight:
                 point = new Point(targetSize.Width - popupSize.Width, -popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.BottomEdgeAlignedLeft:
                 point = new Point(0, targetSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.BottomEdgeAlignedRight:
                 point = new Point(targetSize.Width - popupSize.Width, targetSize.Height);
                 primaryAxis = PopupPrimaryAxis.Horizontal;
                 break;
+
             case CustomPlacementMode.LeftEdgeAlignedTop:
                 point = new Point(-popupSize.Width, 0);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
+
             case CustomPlacementMode.LeftEdgeAlignedBottom:
                 point = new Point(-popupSize.Width, targetSize.Height - popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
+
             case CustomPlacementMode.RightEdgeAlignedTop:
                 point = new Point(targetSize.Width, 0);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
+
             case CustomPlacementMode.RightEdgeAlignedBottom:
                 point = new Point(targetSize.Width, targetSize.Height - popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Vertical;
@@ -167,28 +179,40 @@ internal static class CustomPopupPlacementHelper
         {
             case CustomPlacementMode.Top:
                 return CustomPlacementMode.Bottom;
+
             case CustomPlacementMode.Bottom:
                 return CustomPlacementMode.Top;
+
             case CustomPlacementMode.Left:
                 return CustomPlacementMode.Right;
+
             case CustomPlacementMode.Right:
                 return CustomPlacementMode.Left;
+
             case CustomPlacementMode.Full:
                 return null;
+
             case CustomPlacementMode.TopEdgeAlignedLeft:
                 return CustomPlacementMode.BottomEdgeAlignedLeft;
+
             case CustomPlacementMode.TopEdgeAlignedRight:
                 return CustomPlacementMode.BottomEdgeAlignedRight;
+
             case CustomPlacementMode.BottomEdgeAlignedLeft:
                 return CustomPlacementMode.TopEdgeAlignedLeft;
+
             case CustomPlacementMode.BottomEdgeAlignedRight:
                 return CustomPlacementMode.TopEdgeAlignedRight;
+
             case CustomPlacementMode.LeftEdgeAlignedTop:
                 return CustomPlacementMode.RightEdgeAlignedTop;
+
             case CustomPlacementMode.LeftEdgeAlignedBottom:
                 return CustomPlacementMode.RightEdgeAlignedBottom;
+
             case CustomPlacementMode.RightEdgeAlignedTop:
                 return CustomPlacementMode.RightEdgeAlignedTop;
+
             case CustomPlacementMode.RightEdgeAlignedBottom:
                 return CustomPlacementMode.LeftEdgeAlignedBottom;
             //case CustomPopupPlacementMode.Auto:
@@ -197,5 +221,3 @@ internal static class CustomPopupPlacementHelper
         }
     }
 }
-
-

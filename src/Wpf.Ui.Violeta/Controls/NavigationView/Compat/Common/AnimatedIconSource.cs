@@ -80,7 +80,6 @@ public class AnimatedIconSource : IconSource
             typeof(string),
             typeof(AnimatedIcon));
 
-
     /// <summary>
     /// Retrieves the value of the AnimatedIcon.State attached property for the specified <see cref="DependencyObject"/>.
     /// </summary>
@@ -132,5 +131,3 @@ public class AnimatedIconSource : IconSource
         return animatedIcon;
     }
 }
-
-

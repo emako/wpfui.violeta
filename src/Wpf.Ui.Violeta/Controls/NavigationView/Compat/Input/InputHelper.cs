@@ -46,7 +46,7 @@ internal static class InputHelper
         }
     }
 
-    #endregion
+    #endregion IsTapEnabled
 
     #region IsPressed
 
@@ -74,7 +74,7 @@ internal static class InputHelper
         }
     }
 
-    #endregion
+    #endregion IsPressed
 
     #region Tapped
 
@@ -102,7 +102,7 @@ internal static class InputHelper
         element.RaiseEvent(e);
     }
 
-    #endregion
+    #endregion Tapped
 
     private static void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
@@ -151,4 +151,3 @@ internal static class InputHelper
 
     private static TappedRoutedEventArgs _lastTappedArgs;
 }
-

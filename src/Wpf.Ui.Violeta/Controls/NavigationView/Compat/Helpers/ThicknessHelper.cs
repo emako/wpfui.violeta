@@ -14,4 +14,3 @@ public static class ThicknessHelper
         return new Thickness(uniformLength);
     }
 }
-

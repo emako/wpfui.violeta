@@ -140,12 +140,12 @@ internal static class DWMAPI
     public enum PvAttribute
     {
         /// <summary>
-        /// Object containing the <see langowrd="false"/> attribute value to set in dwmapi.h. 
+        /// Object containing the <see langowrd="false"/> attribute value to set in dwmapi.h.
         /// </summary>
         Disable = 0x00,
 
         /// <summary>
-        /// Object containing the <see langowrd="true"/> attribute value to set in dwmapi.h. 
+        /// Object containing the <see langowrd="true"/> attribute value to set in dwmapi.h.
         /// </summary>
         Enable = 0x01
     }
@@ -210,4 +210,3 @@ internal static class DWMAPI
     [DllImport("dwmapi.dll", EntryPoint = "#127", PreserveSig = false, CharSet = CharSet.Unicode)]
     public static extern void DwmGetColorizationParameters(out DWMCOLORIZATIONPARAMS dwParameters);
 }
-

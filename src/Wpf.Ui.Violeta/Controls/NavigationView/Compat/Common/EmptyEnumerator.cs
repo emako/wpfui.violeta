@@ -39,7 +39,6 @@ internal class EmptyEnumeratorA : IEnumerator
     /// <returns>false</returns>
     public bool MoveNext() { return false; }
 
-
 #pragma warning disable 1634, 1691  // about to use PreSharp message numbers - unknown to C#
 
     /// <summary>
@@ -56,6 +55,7 @@ internal class EmptyEnumeratorA : IEnumerator
 #pragma warning restore 6503
         }
     }
+
 #pragma warning restore 1634, 1691
 
     private static IEnumerator _instance;

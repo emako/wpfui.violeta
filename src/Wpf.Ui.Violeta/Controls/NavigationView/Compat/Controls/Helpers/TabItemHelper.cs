@@ -17,7 +17,7 @@ public sealed class TabItemHeaderConverter : IValueConverter
         {
             return headerString;
         }
-        
+
         return null;
     }
 
@@ -33,7 +33,7 @@ public sealed class TabItemHeaderConverter : IValueConverter
 public static class TabItemHelper
 {
     private static readonly ResourceAccessor ResourceAccessor = new(typeof(TabItemHelper));
-    
+
     #region IsEnabled
 
     public static bool GetIsEnabled(TabItem element)
@@ -64,11 +64,11 @@ public static class TabItemHelper
         {
             item.Loaded -= OnLoaded;
             item.SizeChanged -= OnSizeChanged;
-            BindingOperations.ClearBinding(item,FrameworkElement.ToolTipProperty);
+            BindingOperations.ClearBinding(item, FrameworkElement.ToolTipProperty);
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region Icon
 
@@ -101,7 +101,7 @@ public static class TabItemHelper
             typeof(object),
             typeof(TabItemHelper));
 
-    #endregion
+    #endregion Icon
 
     #region TabGeometry
 
@@ -121,15 +121,12 @@ public static class TabItemHelper
             typeof(Geometry),
             typeof(TabItemHelper));
 
-    #endregion
+    #endregion TabGeometry
 
     #region IsAddTabButtonVisible
 
     public static readonly DependencyProperty IsAddTabButtonVisibleProperty = DependencyProperty.RegisterAttached(
         "IsAddTabButtonVisible",
-
-
-
 
         typeof(bool),
         typeof(TabItemHelper),
@@ -140,7 +137,7 @@ public static class TabItemHelper
         return (bool)element.GetValue(IsAddTabButtonVisibleProperty);
     }
 
-    #endregion
+    #endregion IsAddTabButtonVisible
 
     #region CloseTabButtonCommand
 
@@ -160,7 +157,7 @@ public static class TabItemHelper
         tabItem.SetValue(CloseTabButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion CloseTabButtonCommand
 
     #region CloseButtonOverlayMode
 
@@ -175,7 +172,7 @@ public static class TabItemHelper
         return (TabViewCloseButtonOverlayMode)element.GetValue(CloseButtonOverlayModeProperty);
     }
 
-    #endregion
+    #endregion CloseButtonOverlayMode
 
     #region IsClosable
 
@@ -198,8 +195,7 @@ public static class TabItemHelper
         element.SetValue(IsClosableProperty, value);
     }
 
-    #endregion
-
+    #endregion IsClosable
 
     #region CloseRequestedEvent
 
@@ -219,9 +215,7 @@ public static class TabItemHelper
         tabItem.RemoveHandler(CloseRequestedEvent, handler);
     }
 
-
-    #endregion
-
+    #endregion CloseRequestedEvent
 
     private static void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -360,5 +354,3 @@ public static class TabItemHelper
         catch { }
     }
 }
-
-

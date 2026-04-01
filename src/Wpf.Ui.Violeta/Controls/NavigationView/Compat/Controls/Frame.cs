@@ -82,7 +82,7 @@ public class Frame : System.Windows.Controls.Frame
         }
     }
 
-    #endregion
+    #endregion SourcePageType
 
     #region CurrentSourcePageType
 
@@ -111,7 +111,7 @@ public class Frame : System.Windows.Controls.Frame
         private set => SetValue(CurrentSourcePageTypePropertyKey, value);
     }
 
-    #endregion
+    #endregion CurrentSourcePageType
 
     #region BackStackDepth
 
@@ -143,7 +143,7 @@ public class Frame : System.Windows.Controls.Frame
         BackStackDepth = BackStack?.Cast<object>().Count() ?? 0;
     }
 
-    #endregion
+    #endregion BackStackDepth
 
     #region ContentTransitions
 
@@ -182,7 +182,7 @@ public class Frame : System.Windows.Controls.Frame
             .DefaultNavigationTransitionInfo ?? new EntranceNavigationTransitionInfo();
     }
 
-    #endregion
+    #endregion ContentTransitions
 
     #region Frame
 
@@ -200,7 +200,7 @@ public class Frame : System.Windows.Controls.Frame
         AttachablePropertyServices.SetProperty(navigationService, FrameProperty, value);
     }
 
-    #endregion
+    #endregion Frame
 
     #region NavigationTransitionInfo
 
@@ -220,7 +220,7 @@ public class Frame : System.Windows.Controls.Frame
         entry.SetValue(NavigationTransitionInfoProperty, value);
     }
 
-    #endregion
+    #endregion NavigationTransitionInfo
 
     private NavigationTransitionInfo DefaultNavigationTransitionInfo { get; set; }
 
@@ -415,7 +415,6 @@ public class Frame : System.Windows.Controls.Frame
 
     private void OnNavigating(object sender, NavigatingCancelEventArgs e)
     {
-        
         if (Content is Page newPage)
         {
             newPage.InternalOnNavigatingFrom(e);
@@ -606,5 +605,3 @@ public class Frame : System.Windows.Controls.Frame
     private NavigationAnimation _enterAnimation;
     private DispatcherOperation _asyncBeginTransition;
 }
-
-

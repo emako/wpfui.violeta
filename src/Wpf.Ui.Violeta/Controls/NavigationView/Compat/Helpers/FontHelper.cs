@@ -21,7 +21,6 @@ public static class FontHelper
         return GetToggledValue(value.GetValueOrDefault(FontStyles.Normal), normal, italic);
     }
 
-
     public static FontWeight GetToggledValue(this FontWeight value, FontWeight? normal = null, FontWeight? bold = null)
     {
         if (!normal.HasValue) normal = FontWeights.Normal;
@@ -29,6 +28,7 @@ public static class FontHelper
 
         return (value == normal) ? bold.Value : normal.Value;
     }
+
     public static FontWeight GetToggledValue(this FontWeight? value, FontWeight? normal = null, FontWeight? bold = null)
     {
         return GetToggledValue(value.GetValueOrDefault(FontWeights.Normal), normal, bold);
@@ -45,20 +45,18 @@ public static class FontHelper
                 locs.Add(deco.Location);
         }
 
-
         if (!useUnderline.HasValue)
         {
             if (value != null)
             {
                 useUnderline = true;
-                foreach(var deco in value)
+                foreach (var deco in value)
                 {
                     if (locs.Contains(deco.Location))
                     {
                         useUnderline = false;
                     }
                 }
-
             }
             else useUnderline = true;
         }
@@ -68,14 +66,12 @@ public static class FontHelper
             value = new TextDecorationCollection();
         }
 
-
         if (!useUnderline.Value)
         {
             foreach (var deco in value.ToArray())
             {
                 if (locs.Contains(deco.Location))
                     value.Remove(deco);
-                
             }
         }
         else
@@ -85,7 +81,6 @@ public static class FontHelper
                 value.Add(deco);
             }
         }
-
 
         return value;
     }
@@ -139,6 +134,4 @@ public static class FontHelper
         }
         return true;
     }
-
 }
-

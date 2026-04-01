@@ -65,7 +65,7 @@ public sealed class SymbolIcon : IconElement
         }
     }
 
-    #endregion
+    #endregion Symbol
 
     #region FontSize
 
@@ -95,7 +95,7 @@ public sealed class SymbolIcon : IconElement
         }
     }
 
-    #endregion
+    #endregion FontSize
 
     private protected override void InitializeChildren()
     {
@@ -163,5 +163,3 @@ public sealed class SymbolIcon : IconElement
         return iconSource;
     }
 }
-
-

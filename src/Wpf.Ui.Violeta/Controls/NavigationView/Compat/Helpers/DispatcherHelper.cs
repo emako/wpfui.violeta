@@ -415,4 +415,3 @@ public static class DispatcherHelper
         return taskCompletionSource.Task;
     }
 }
-

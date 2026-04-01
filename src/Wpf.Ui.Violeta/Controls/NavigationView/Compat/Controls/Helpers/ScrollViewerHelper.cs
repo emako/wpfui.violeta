@@ -37,7 +37,7 @@ public static class ScrollViewerHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region AutoHideScrollBars
 
@@ -66,7 +66,7 @@ public static class ScrollViewerHelper
         }
     }
 
-    #endregion
+    #endregion AutoHideScrollBars
 
     private static void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -81,4 +81,3 @@ public static class ScrollViewerHelper
         VisualStateManager.GoToState(sv, stateName, useTransitions);
     }
 }
-

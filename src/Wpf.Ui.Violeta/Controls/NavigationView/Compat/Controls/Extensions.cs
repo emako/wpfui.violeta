@@ -53,4 +53,3 @@ public static class NavigationEventExtensions
         return e.ExtraData;
     }
 }
-

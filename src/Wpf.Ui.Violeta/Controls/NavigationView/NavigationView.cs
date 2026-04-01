@@ -36,72 +36,75 @@ enum NavigationRecommendedTransitionDirection
 public partial class NavigationView : ContentControl, IControlProtected
 {
     // General items
-    const string c_togglePaneButtonName = "TogglePaneButton";
-    const string c_paneTitleHolderFrameworkElement = "PaneTitleHolder";
-    const string c_paneTitleFrameworkElement = "PaneTitleTextBlock";
-    const string c_rootSplitViewName = "RootSplitView";
-    const string c_menuItemsHost = "MenuItemsHost";
-    const string c_footerMenuItemsHost = "FooterMenuItemsHost";
-    const string c_selectionIndicatorName = "SelectionIndicator";
-    const string c_paneContentGridName = "PaneContentGrid";
-    const string c_rootGridName = "RootGrid";
-    const string c_contentGridName = "ContentGrid";
-    const string c_searchButtonName = "PaneAutoSuggestButton";
-    const string c_paneToggleButtonIconGridColumnName = "PaneToggleButtonIconWidthColumn";
-    const string c_togglePaneTopPadding = "TogglePaneTopPadding";
-    const string c_contentPaneTopPadding = "ContentPaneTopPadding";
-    const string c_contentLeftPadding = "ContentLeftPadding";
-    const string c_navViewBackButton = "NavigationViewBackButton";
-    const string c_navViewBackButtonToolTip = "NavigationViewBackButtonToolTip";
-    const string c_navViewCloseButton = "NavigationViewCloseButton";
-    const string c_navViewCloseButtonToolTip = "NavigationViewCloseButtonToolTip";
-    const string c_paneShadowReceiverCanvas = "PaneShadowReceiver";
-    const string c_flyoutRootGrid = "FlyoutRootGrid";
+    private const string c_togglePaneButtonName = "TogglePaneButton";
+
+    private const string c_paneTitleHolderFrameworkElement = "PaneTitleHolder";
+    private const string c_paneTitleFrameworkElement = "PaneTitleTextBlock";
+    private const string c_rootSplitViewName = "RootSplitView";
+    private const string c_menuItemsHost = "MenuItemsHost";
+    private const string c_footerMenuItemsHost = "FooterMenuItemsHost";
+    private const string c_selectionIndicatorName = "SelectionIndicator";
+    private const string c_paneContentGridName = "PaneContentGrid";
+    private const string c_rootGridName = "RootGrid";
+    private const string c_contentGridName = "ContentGrid";
+    private const string c_searchButtonName = "PaneAutoSuggestButton";
+    private const string c_paneToggleButtonIconGridColumnName = "PaneToggleButtonIconWidthColumn";
+    private const string c_togglePaneTopPadding = "TogglePaneTopPadding";
+    private const string c_contentPaneTopPadding = "ContentPaneTopPadding";
+    private const string c_contentLeftPadding = "ContentLeftPadding";
+    private const string c_navViewBackButton = "NavigationViewBackButton";
+    private const string c_navViewBackButtonToolTip = "NavigationViewBackButtonToolTip";
+    private const string c_navViewCloseButton = "NavigationViewCloseButton";
+    private const string c_navViewCloseButtonToolTip = "NavigationViewCloseButtonToolTip";
+    private const string c_paneShadowReceiverCanvas = "PaneShadowReceiver";
+    private const string c_flyoutRootGrid = "FlyoutRootGrid";
 
     // DisplayMode Top specific items
-    const string c_topNavMenuItemsHost = "TopNavMenuItemsHost";
-    const string c_topNavFooterMenuItemsHost = "TopFooterMenuItemsHost";
-    const string c_topNavOverflowButton = "TopNavOverflowButton";
-    const string c_topNavMenuItemsOverflowHost = "TopNavMenuItemsOverflowHost";
-    const string c_topNavGrid = "TopNavGrid";
-    const string c_topNavContentOverlayAreaGrid = "TopNavContentOverlayAreaGrid";
-    const string c_leftNavPaneAutoSuggestBoxPresenter = "PaneAutoSuggestBoxPresenter";
-    const string c_topNavPaneAutoSuggestBoxPresenter = "TopPaneAutoSuggestBoxPresenter";
-    const string c_paneTitlePresenter = "PaneTitlePresenter";
+    private const string c_topNavMenuItemsHost = "TopNavMenuItemsHost";
+
+    private const string c_topNavFooterMenuItemsHost = "TopFooterMenuItemsHost";
+    private const string c_topNavOverflowButton = "TopNavOverflowButton";
+    private const string c_topNavMenuItemsOverflowHost = "TopNavMenuItemsOverflowHost";
+    private const string c_topNavGrid = "TopNavGrid";
+    private const string c_topNavContentOverlayAreaGrid = "TopNavContentOverlayAreaGrid";
+    private const string c_leftNavPaneAutoSuggestBoxPresenter = "PaneAutoSuggestBoxPresenter";
+    private const string c_topNavPaneAutoSuggestBoxPresenter = "TopPaneAutoSuggestBoxPresenter";
+    private const string c_paneTitlePresenter = "PaneTitlePresenter";
 
     // DisplayMode Left specific items
-    const string c_leftNavFooterContentBorder = "FooterContentBorder";
-    const string c_leftNavPaneHeaderContentBorder = "PaneHeaderContentBorder";
-    const string c_leftNavPaneCustomContentBorder = "PaneCustomContentBorder";
+    private const string c_leftNavFooterContentBorder = "FooterContentBorder";
 
-    const string c_itemsContainer = "ItemsContainerGrid";
-    const string c_itemsContainerRow = "ItemsContainerRow";
-    const string c_visualItemsSeparator = "VisualItemsSeparator";
-    const string c_menuItemsScrollViewer = "MenuItemsScrollViewer";
-    const string c_footerItemsScrollViewer = "FooterItemsScrollViewer";
+    private const string c_leftNavPaneHeaderContentBorder = "PaneHeaderContentBorder";
+    private const string c_leftNavPaneCustomContentBorder = "PaneCustomContentBorder";
 
-    const string c_paneHeaderOnTopPane = "PaneHeaderOnTopPane";
-    const string c_paneTitleOnTopPane = "PaneTitleOnTopPane";
-    const string c_paneCustomContentOnTopPane = "PaneCustomContentOnTopPane";
-    const string c_paneFooterOnTopPane = "PaneFooterOnTopPane";
-    const string c_paneHeaderCloseButtonColumn = "PaneHeaderCloseButtonColumn";
-    const string c_paneHeaderToggleButtonColumn = "PaneHeaderToggleButtonColumn";
-    const string c_paneHeaderContentBorderRow = "PaneHeaderContentBorderRow";
+    private const string c_itemsContainer = "ItemsContainerGrid";
+    private const string c_itemsContainerRow = "ItemsContainerRow";
+    private const string c_visualItemsSeparator = "VisualItemsSeparator";
+    private const string c_menuItemsScrollViewer = "MenuItemsScrollViewer";
+    private const string c_footerItemsScrollViewer = "FooterItemsScrollViewer";
 
-    const int c_backButtonHeight = 40;
-    const int c_backButtonWidth = 40;
-    const int c_paneToggleButtonHeight = 40;
-    const int c_paneToggleButtonWidth = 40;
-    const int c_toggleButtonHeightWhenShouldPreserveNavigationViewRS3Behavior = 56;
-    const int c_backButtonRowDefinition = 1;
-    const float c_paneElevationTranslationZ = 32;
+    private const string c_paneHeaderOnTopPane = "PaneHeaderOnTopPane";
+    private const string c_paneTitleOnTopPane = "PaneTitleOnTopPane";
+    private const string c_paneCustomContentOnTopPane = "PaneCustomContentOnTopPane";
+    private const string c_paneFooterOnTopPane = "PaneFooterOnTopPane";
+    private const string c_paneHeaderCloseButtonColumn = "PaneHeaderCloseButtonColumn";
+    private const string c_paneHeaderToggleButtonColumn = "PaneHeaderToggleButtonColumn";
+    private const string c_paneHeaderContentBorderRow = "PaneHeaderContentBorderRow";
 
-    const int c_mainMenuBlockIndex = 0;
-    const int c_footerMenuBlockIndex = 1;
+    private const int c_backButtonHeight = 40;
+    private const int c_backButtonWidth = 40;
+    private const int c_paneToggleButtonHeight = 40;
+    private const int c_paneToggleButtonWidth = 40;
+    private const int c_toggleButtonHeightWhenShouldPreserveNavigationViewRS3Behavior = 56;
+    private const int c_backButtonRowDefinition = 1;
+    private const float c_paneElevationTranslationZ = 32;
 
-    const int s_itemNotFound = -1;
+    private const int c_mainMenuBlockIndex = 0;
+    private const int c_footerMenuBlockIndex = 1;
 
-    static readonly Size c_infSize = new Size(double.PositiveInfinity, double.PositiveInfinity);
+    private const int s_itemNotFound = -1;
+
+    private static readonly Size c_infSize = new Size(double.PositiveInfinity, double.PositiveInfinity);
 
     internal static readonly ControlStrings ResourceAccessor = new ControlStrings(typeof(NavigationView), ModernControlCategory.Windows);
 
@@ -770,7 +773,8 @@ public partial class NavigationView : ContentControl, IControlProtected
                     UpdateSelectionForMenuItems();
                     return MenuItems;
                 }
-            };
+            }
+            ;
             itemsSource = init();
         }
 
@@ -882,7 +886,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                 return FooterMenuItems;
             }
         }
-
 
         UpdateItemsRepeaterItemsSource(m_leftNavFooterMenuRepeater, null);
         UpdateItemsRepeaterItemsSource(m_topNavFooterMenuRepeater, null);
@@ -1075,7 +1078,8 @@ public partial class NavigationView : ContentControl, IControlProtected
                     }
                 }
                 return NavigationRecommendedTransitionDirection.Default;
-            };
+            }
+            ;
             recommendedDirection = init();
         }
 
@@ -1311,7 +1315,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                             return 0;
                         }
                         return nvibImpl.Depth + 1;
-
                     }
                     childDepth = init();
                 }
@@ -1367,7 +1370,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    internal NavigationViewItemsFactory GetNavigationViewItemsFactory() { return m_navigationViewItemsFactory; }
+    internal NavigationViewItemsFactory GetNavigationViewItemsFactory()
+    {
+        return m_navigationViewItemsFactory;
+    }
 
     // Hook up the Settings Item Invoked event listener
     void CreateAndHookEventsToSettings()
@@ -1564,7 +1570,6 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void UpdatePaneLayout()
     {
-
         if (!IsTopNavigationView())
         {
             double totalAvailableHeight;
@@ -1588,12 +1593,11 @@ public partial class NavigationView : ContentControl, IControlProtected
                 }
             }
 
-
             if (IsFooterSeparatorVisible == true && m_visualItemsSeparator != null)
             {
                 m_visualItemsSeparator.Visibility = Visibility.Visible;
             }
-            else if(IsFooterSeparatorVisible == false && m_visualItemsSeparator != null)
+            else if (IsFooterSeparatorVisible == false && m_visualItemsSeparator != null)
             {
                 m_visualItemsSeparator.Visibility = Visibility.Collapsed;
             }
@@ -1616,7 +1620,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                                 // We know the actual height of footer items, so use that to determine how to split pane.
                                 if (m_leftNavRepeater is { } menuItems)
                                 {
-
                                     var footersActualHeight = footerItemsRepeater.ActualHeight;
                                     var menuItemsActualHeight = menuItems.ActualHeight;
 
@@ -1771,7 +1774,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         try
         {
             m_isOpenPaneForInteraction = true;
-            IsPaneOpen = false; // the SplitView is two-way bound to this value 
+            IsPaneOpen = false; // the SplitView is two-way bound to this value
         }
         finally
         {
@@ -1919,7 +1922,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
 
         templateSettings.PaneToggleButtonWidth = newButtonWidths;
-        templateSettings.SmallerPaneToggleButtonWidth = Math.Max(0, newButtonWidths-8);
+        templateSettings.SmallerPaneToggleButtonWidth = Math.Max(0, newButtonWidths - 8);
 
         //if (m_backButton is { } backButton)
         //{
@@ -2094,10 +2097,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         return null;
     }
 
-    static readonly Point c_frame1point1 = new Point(0.9, 0.1);
-    static readonly Point c_frame1point2 = new Point(1.0, 0.2);
-    static readonly Point c_frame2point1 = new Point(0.1, 0.9);
-    static readonly Point c_frame2point2 = new Point(0.2, 1.0);
+    private static readonly Point c_frame1point1 = new Point(0.9, 0.1);
+    private static readonly Point c_frame1point2 = new Point(1.0, 0.2);
+    private static readonly Point c_frame2point1 = new Point(0.1, 0.9);
+    private static readonly Point c_frame2point2 = new Point(0.2, 1.0);
 
     void AnimateSelectionChangedToItem(object selectedItem)
     {
@@ -2197,11 +2200,9 @@ public partial class NavigationView : ContentControl, IControlProtected
                     {
                         PlayIndicatorNonSameLevelTopPrimaryAnimation(nextIndicator, false, storyboard.Children);
                     }
-
                 }
                 else
                 {
-
                     double outgoingEndPosition = nextPos - prevPos;
                     double incomingStartPosition = prevPos - nextPos;
 
@@ -2654,7 +2655,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         var container = GetContainerForIndex(ip.GetAt(1), ip.GetAt(0) == c_footerMenuBlockIndex /*inFooter*/);
         // first index is fo mainmenu or footer
         // second is index of item in mainmenu or footer
-        // next in menuitem children 
+        // next in menuitem children
         var index = 2;
         while (container != null)
         {
@@ -2741,7 +2742,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     //    TopNav . Minimal
     //    PaneDisplayMode.Left || (PaneDisplayMode.Auto && DisplayMode.Expanded) . Expanded
     //    PaneDisplayMode.LeftCompact || (PaneDisplayMode.Auto && DisplayMode.Compact) . Compact
-    //    Map others to Minimal or MinimalWithBackButton 
+    //    Map others to Minimal or MinimalWithBackButton
     NavigationViewVisualStateDisplayMode GetVisualStateDisplayMode(NavigationViewDisplayMode displayMode)
     {
         var paneDisplayMode = PaneDisplayMode;
@@ -2764,7 +2765,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
 
         // In minimal mode, when the NavView is closed, the HeaderContent doesn't have
-        // its own dedicated space, and must 'share' the top of the NavView with the 
+        // its own dedicated space, and must 'share' the top of the NavView with the
         // pane toggle button ('hamburger' button) and the back button.
         // When the NavView is open, the close button is taking space instead of the back button.
         if (ShouldShowBackButton() || ShouldShowCloseButton())
@@ -2792,14 +2793,17 @@ public partial class NavigationView : ContentControl, IControlProtected
                     visualStateName = "MinimalWithBackButton";
                     splitViewDisplayMode = SplitViewDisplayMode.Overlay;
                     break;
+
                 case NavigationViewVisualStateDisplayMode.Minimal:
                     visualStateName = visualStateNameMinimal;
                     splitViewDisplayMode = SplitViewDisplayMode.Overlay;
                     break;
+
                 case NavigationViewVisualStateDisplayMode.Compact:
                     visualStateName = "Compact";
                     splitViewDisplayMode = SplitViewDisplayMode.CompactOverlay;
                     break;
+
                 case NavigationViewVisualStateDisplayMode.Expanded:
                     visualStateName = "Expanded";
                     splitViewDisplayMode = SplitViewDisplayMode.CompactInline;
@@ -2863,20 +2867,25 @@ public partial class NavigationView : ContentControl, IControlProtected
                 args.Handled = true;
                 OnNavigationViewItemInvoked(nvi);
                 break;
+
             case Key.Home:
                 args.Handled = true;
                 KeyboardFocusFirstItemFromItem(nvi);
                 break;
+
             case Key.End:
                 args.Handled = true;
                 KeyboardFocusLastItemFromItem(nvi);
                 break;
+
             case Key.Down:
                 FocusNextDownItem(nvi, args);
                 break;
+
             case Key.Up:
                 FocusNextUpItem(nvi, args);
                 break;
+
             case Key.Right:
                 FocusNextRightItem(nvi, args);
                 break;
@@ -2896,7 +2905,6 @@ public partial class NavigationView : ContentControl, IControlProtected
 
         if (nextFocusableElement is NavigationViewItem nextFocusableNVI)
         {
-
             var nextFocusableNVIImpl = nextFocusableNVI;
 
             if (nextFocusableNVIImpl.Depth == nviImpl.Depth)
@@ -2922,7 +2930,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                         {
                             args.Handled = nextFocusableNVIImpl.Focus(/*FocusState.Keyboard*/);
                         }
-
                     }
                 }
                 else
@@ -3147,6 +3154,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                     handled = true;
                 }
                 break;
+
             case Key.GoBack:
             case Key.XButton1:
                 if (IsPaneOpen && IsLightDismissible())
@@ -3154,9 +3162,11 @@ public partial class NavigationView : ContentControl, IControlProtected
                     handled = AttemptClosePaneLightly();
                 }
                 break;
+
             case Key.GamepadLeftShoulder:
                 handled = BumperNavigation(-1);
                 break;
+
             case Key.GamepadRightShoulder:
                 handled = BumperNavigation(1);
                 break;
@@ -3166,6 +3176,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                 // so handle tab key to distinguish between tab focus and arrow focus navigation
                 m_TabKeyPrecedesFocusChange = true;
                 break;
+
             case Key.Left:
                 bool isAltPressed = Keyboard.Modifiers.HasFlag(ModifierKeys.Alt);
 
@@ -3332,7 +3343,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         return m_rootSplitView;
     }
 
-    internal TopNavigationViewDataProvider GetTopDataProvider() { return m_topDataProvider; }
+    internal TopNavigationViewDataProvider GetTopDataProvider()
+    {
+        return m_topDataProvider;
+    }
 
     internal void TopNavigationViewItemContentChanged()
     {
@@ -3414,9 +3428,11 @@ public partial class NavigationView : ContentControl, IControlProtected
                 case -1:
                     recommendedTransitionDirection = NavigationRecommendedTransitionDirection.FromRight;
                     break;
+
                 case 1:
                     recommendedTransitionDirection = NavigationRecommendedTransitionDirection.FromLeft;
                     break;
+
                 default:
                     recommendedTransitionDirection = NavigationRecommendedTransitionDirection.Default;
                     break;
@@ -3454,7 +3470,6 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void OnSelectedItemPropertyChanged(DependencyPropertyChangedEventArgs args)
     {
-
         var newItem = args.NewValue;
         var oldItem = args.OldValue;
 
@@ -3479,7 +3494,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     {
         if (NavigationViewItemOrSettingsContentFromData(item) is { } container)
         {
-            // If we unselect an item, ListView doesn't tolerate setting the SelectedItem to null. 
+            // If we unselect an item, ListView doesn't tolerate setting the SelectedItem to null.
             // Instead we remove IsSelected from the item itself, and it make ListView to unselect it.
             // If we select an item, we follow the unselect to simplify the code.
             container.IsSelected = selected;
@@ -3743,7 +3758,6 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void SelectOverflowItem(object item, IndexPath ip)
     {
-
         object itemBeingMoved;
         {
             object init()
@@ -3784,7 +3798,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             var widthAtLeastToBeRemoved = desiredWidth + selectedOverflowItemWidth - actualWidth;
 
-            // calculate items to be removed from primary because a overflow item is selected. 
+            // calculate items to be removed from primary because a overflow item is selected.
             // SelectedItem is assumed to be removed from primary first, then added it back if it should not be removed
             var itemsToBeRemoved = FindMovableItemsToBeRemovedFromPrimaryList(widthAtLeastToBeRemoved, new List<int>() /*excludeItems*/);
 
@@ -3882,7 +3896,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                 }
             }
 
-
             // Check whether items following the selected item are out of order
             while (!needRearrange && nextIndexInPrimary < (int)primaryListSize)
             {
@@ -3967,7 +3980,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             }
             i++;
         }
-        // Keep at one item is not in primary list. Two possible reason: 
+        // Keep at one item is not in primary list. Two possible reason:
         //  1, Most likely it's caused by m_topNavigationRecoveryGracePeriod
         //  2, virtualization and it doesn't have cached width
         if (i == size && !toBeMoved.Empty())
@@ -4028,7 +4041,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                         }
                         else
                         {
-                            // item is virtualized but not realized.                    
+                            // item is virtualized but not realized.
                         }
                     }
 
@@ -4181,7 +4194,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             }
             UpdatePaneLayout();
         }
-        else if(property == IsFooterSeparatorVisibleProperty)
+        else if (property == IsFooterSeparatorVisibleProperty)
         {
             UpdatePaneLayout();
         }
@@ -4427,7 +4440,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                 }
             }
             */
-
         }
         else
         {
@@ -4574,8 +4586,8 @@ public partial class NavigationView : ContentControl, IControlProtected
         // Ignore AlwaysShowHeader property in case DisplayMode is Minimal and it's not Top NavigationView
         bool showHeader = AlwaysShowHeader || (!IsTopNavigationView() && displayMode == NavigationViewDisplayMode.Minimal);
 
-        // Like bug 17517627, Customer like WallPaper Studio 10 expects a HeaderContent visual even if Header() is null. 
-        // App crashes when they have dependency on that visual, but the crash is not directly state that it's a header problem.   
+        // Like bug 17517627, Customer like WallPaper Studio 10 expects a HeaderContent visual even if Header() is null.
+        // App crashes when they have dependency on that visual, but the crash is not directly state that it's a header problem.
         // NavigationView doesn't use quirk, but we determine the version by themeresource.
         // As a workaround, we 'quirk' it for RS4 or before release. if it's RS4 or before, HeaderVisible is not related to Header().
         // If theme resource is RS5 or later, we will not show header if header is null.
@@ -5013,7 +5025,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         DisplayModeChanged?.Invoke(this, eventArgs);
     }
 
-    // This method attaches the series of animations which are fired off dependent upon the amount 
+    // This method attaches the series of animations which are fired off dependent upon the amount
     // of space give and the length of the strings involved. It occurs upon re-rendering.
     void CreateAndAttachHeaderAnimation(Visual visual)
     {
@@ -5092,9 +5104,8 @@ public partial class NavigationView : ContentControl, IControlProtected
                 }
             }
 
-
             // Shadow will get clipped if casting on the splitView.Content directly
-            // Creating a canvas with negative margins as receiver to allow shadow to be drawn outside the content grid 
+            // Creating a canvas with negative margins as receiver to allow shadow to be drawn outside the content grid
             Thickness shadowReceiverMargin = new Thickness(0, -c_paneElevationTranslationZ, -c_paneElevationTranslationZ, -c_paneElevationTranslationZ);
 
             // Ensuring shadow is aligned to the left
@@ -5281,7 +5292,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                                 // Process x:bind
                                 //if (CachedVisualTreeHelpers.GetDataTemplateComponent(nvi) is { } extension)
                                 //{
-                                //    // Clear out old data. 
+                                //    // Clear out old data.
                                 //    extension.Recycle();
                                 //    int nextPhase = VirtualizationInfo.PhaseReachedEnd;
                                 //    // Run Phase 0
@@ -5672,7 +5683,6 @@ public partial class NavigationView : ContentControl, IControlProtected
         return null;
     }
 
-
     object GetChildrenForItemInIndexPath(IndexPath ip, bool forceRealize = false)
     {
         if (ip != null && ip.GetSize() > 1)
@@ -5733,7 +5743,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                                         // Process x:bind
                                         //if (CachedVisualTreeHelpers.GetDataTemplateComponent(nextContainer) is { } extension)
                                         //{
-                                        //    // Clear out old data. 
+                                        //    // Clear out old data.
                                         //    extension.Recycle();
                                         //    int nextPhase = VirtualizationInfo.PhaseReachedEnd;
                                         //    // Run Phase 0
@@ -5750,7 +5760,6 @@ public partial class NavigationView : ContentControl, IControlProtected
                             }
                         }
                     }
-
                 }
                 // If any of the above checks failed, it means something went wrong and we have an index for a non-existent repeater.
                 if (!succeededGettingNextContainer)
@@ -5839,134 +5848,138 @@ public partial class NavigationView : ContentControl, IControlProtected
     }
 #endif
 
-    bool m_InitialNonForcedModeUpdate = true;
+    private bool m_InitialNonForcedModeUpdate = true;
 
-    NavigationViewItemsFactory m_navigationViewItemsFactory;
+    private NavigationViewItemsFactory m_navigationViewItemsFactory;
 
     // Visual components
-    Button m_paneToggleButton;
-    SplitView m_rootSplitView;
-    NavigationViewItem m_settingsItem;
-    RowDefinition m_itemsContainerRow;
-    FrameworkElement m_menuItemsScrollViewer;
-    FrameworkElement m_footerItemsScrollViewer;
-    UIElement m_paneContentGrid;
-    ColumnDefinition m_paneToggleButtonIconGridColumn;
-    FrameworkElement m_paneTitleHolderFrameworkElement;
-    FrameworkElement m_paneTitleFrameworkElement;
-    FrameworkElement m_visualItemsSeparator;
-    Button m_paneSearchButton;
-    Button m_backButton;
-    Button m_closeButton;
-    ItemsRepeater m_leftNavRepeater;
-    ItemsRepeater m_topNavRepeater;
-    ItemsRepeater m_leftNavFooterMenuRepeater;
-    ItemsRepeater m_topNavFooterMenuRepeater;
-    Button m_topNavOverflowButton;
-    ItemsRepeater m_topNavRepeaterOverflowView;
-    Grid m_topNavGrid;
-    Border m_topNavContentOverlayAreaGrid;
+    private Button m_paneToggleButton;
+
+    private SplitView m_rootSplitView;
+    private NavigationViewItem m_settingsItem;
+    private RowDefinition m_itemsContainerRow;
+    private FrameworkElement m_menuItemsScrollViewer;
+    private FrameworkElement m_footerItemsScrollViewer;
+    private UIElement m_paneContentGrid;
+    private ColumnDefinition m_paneToggleButtonIconGridColumn;
+    private FrameworkElement m_paneTitleHolderFrameworkElement;
+    private FrameworkElement m_paneTitleFrameworkElement;
+    private FrameworkElement m_visualItemsSeparator;
+    private Button m_paneSearchButton;
+    private Button m_backButton;
+    private Button m_closeButton;
+    private ItemsRepeater m_leftNavRepeater;
+    private ItemsRepeater m_topNavRepeater;
+    private ItemsRepeater m_leftNavFooterMenuRepeater;
+    private ItemsRepeater m_topNavFooterMenuRepeater;
+    private Button m_topNavOverflowButton;
+    private ItemsRepeater m_topNavRepeaterOverflowView;
+    private Grid m_topNavGrid;
+    private Border m_topNavContentOverlayAreaGrid;
 
     // Indicator animations
-    UIElement m_prevIndicator;
-    UIElement m_nextIndicator;
-    UIElement m_activeIndicator;
-    object m_lastSelectedItemPendingAnimationInTopNav;
+    private UIElement m_prevIndicator;
 
-    FrameworkElement m_togglePaneTopPadding;
-    FrameworkElement m_contentPaneTopPadding;
-    FrameworkElement m_contentLeftPadding;
+    private UIElement m_nextIndicator;
+    private UIElement m_activeIndicator;
+    private object m_lastSelectedItemPendingAnimationInTopNav;
 
-    CoreApplicationViewTitleBar m_coreTitleBar;
+    private FrameworkElement m_togglePaneTopPadding;
+    private FrameworkElement m_contentPaneTopPadding;
+    private FrameworkElement m_contentLeftPadding;
 
-    ContentControl m_leftNavPaneAutoSuggestBoxPresenter;
-    ContentControl m_topNavPaneAutoSuggestBoxPresenter;
+    private CoreApplicationViewTitleBar m_coreTitleBar;
 
-    ContentControl m_leftNavPaneHeaderContentBorder;
-    ContentControl m_leftNavPaneCustomContentBorder;
-    ContentControl m_leftNavFooterContentBorder;
+    private ContentControl m_leftNavPaneAutoSuggestBoxPresenter;
+    private ContentControl m_topNavPaneAutoSuggestBoxPresenter;
 
-    ContentControl m_paneHeaderOnTopPane;
-    ContentControl m_paneTitleOnTopPane;
-    ContentControl m_paneCustomContentOnTopPane;
-    ContentControl m_paneFooterOnTopPane;
-    ContentControl m_paneTitlePresenter;
+    private ContentControl m_leftNavPaneHeaderContentBorder;
+    private ContentControl m_leftNavPaneCustomContentBorder;
+    private ContentControl m_leftNavFooterContentBorder;
 
-    ColumnDefinition m_paneHeaderCloseButtonColumn;
-    ColumnDefinition m_paneHeaderToggleButtonColumn;
-    RowDefinition m_paneHeaderContentBorderRow;
+    private ContentControl m_paneHeaderOnTopPane;
+    private ContentControl m_paneTitleOnTopPane;
+    private ContentControl m_paneCustomContentOnTopPane;
+    private ContentControl m_paneFooterOnTopPane;
+    private ContentControl m_paneTitlePresenter;
 
-    NavigationViewItem m_lastItemExpandedIntoFlyout;
+    private ColumnDefinition m_paneHeaderCloseButtonColumn;
+    private ColumnDefinition m_paneHeaderToggleButtonColumn;
+    private RowDefinition m_paneHeaderContentBorderRow;
+
+    private NavigationViewItem m_lastItemExpandedIntoFlyout;
 
     // Event Tokens
-    bool m_layoutUpdatedToken;
-    FrameworkElementSizeChangedRevoker m_itemsContainerSizeChangedRevoker;
+    private bool m_layoutUpdatedToken;
 
-    ItemsSourceView.CollectionChangedRevoker m_menuItemsCollectionChangedRevoker;
-    ItemsSourceView.CollectionChangedRevoker m_footerItemsCollectionChangedRevoker;
+    private FrameworkElementSizeChangedRevoker m_itemsContainerSizeChangedRevoker;
 
-    ItemsSourceView.CollectionChangedRevoker m_topNavOverflowItemsCollectionChangedRevoker;
+    private ItemsSourceView.CollectionChangedRevoker m_menuItemsCollectionChangedRevoker;
+    private ItemsSourceView.CollectionChangedRevoker m_footerItemsCollectionChangedRevoker;
 
-    bool m_wasForceClosed = false;
-    bool m_isClosedCompact = false;
-    bool m_blockNextClosingEvent = false;
-    bool m_initialListSizeStateSet = false;
+    private ItemsSourceView.CollectionChangedRevoker m_topNavOverflowItemsCollectionChangedRevoker;
 
-    TopNavigationViewDataProvider m_topDataProvider = new TopNavigationViewDataProvider();
+    private bool m_wasForceClosed = false;
+    private bool m_isClosedCompact = false;
+    private bool m_blockNextClosingEvent = false;
+    private bool m_initialListSizeStateSet = false;
 
-    SelectionModel m_selectionModel = new SelectionModel();
-    List<object> m_selectionModelSource;
+    private TopNavigationViewDataProvider m_topDataProvider = new TopNavigationViewDataProvider();
 
-    ItemsSourceView m_menuItemsSource = null;
-    ItemsSourceView m_footerItemsSource = null;
+    private SelectionModel m_selectionModel = new SelectionModel();
+    private List<object> m_selectionModelSource;
 
-    bool m_appliedTemplate = false;
+    private ItemsSourceView m_menuItemsSource = null;
+    private ItemsSourceView m_footerItemsSource = null;
+
+    private bool m_appliedTemplate = false;
 
     // flag is used to stop recursive call. eg:
     // Customer select an item from SelectedItem property->ChangeSelection update ListView->LIstView raise OnSelectChange(we want stop here)->change property do do animation again.
     // Customer clicked listview->listview raised OnSelectChange->SelectedItem property changed->ChangeSelection->Undo the selection by SelectedItem(prevItem) (we want it stop here)->ChangeSelection again ->...
-    bool m_shouldIgnoreNextSelectionChange = false;
-    // Used to disable raising selection change iff settings item gets restored because of displaymode change
-    bool m_shouldIgnoreNextSelectionChangeBecauseSettingsRestore = false;
-    // A flag to track that the selectionchange is caused by selection a item in topnav overflow menu
-    bool m_selectionChangeFromOverflowMenu = false;
-    // Flag indicating whether selection change should raise item invoked. This is needed to be able to raise ItemInvoked before SelectionChanged while SelectedItem should point to the clicked item
-    bool m_shouldRaiseItemInvokedAfterSelection = false;
+    private bool m_shouldIgnoreNextSelectionChange = false;
 
-    TopNavigationViewLayoutState m_topNavigationMode = TopNavigationViewLayoutState.Uninitialized;
+    // Used to disable raising selection change iff settings item gets restored because of displaymode change
+    private bool m_shouldIgnoreNextSelectionChangeBecauseSettingsRestore = false;
+
+    // A flag to track that the selectionchange is caused by selection a item in topnav overflow menu
+    private bool m_selectionChangeFromOverflowMenu = false;
+
+    // Flag indicating whether selection change should raise item invoked. This is needed to be able to raise ItemInvoked before SelectionChanged while SelectedItem should point to the clicked item
+    private bool m_shouldRaiseItemInvokedAfterSelection = false;
+
+    private TopNavigationViewLayoutState m_topNavigationMode = TopNavigationViewLayoutState.Uninitialized;
 
     // A threshold to stop recovery from overflow to normal happens immediately on resize.
-    float m_topNavigationRecoveryGracePeriodWidth = 5f;
+    private float m_topNavigationRecoveryGracePeriodWidth = 5f;
 
     // There are three ways to change IsPaneOpen:
     // 1, customer call IsPaneOpen=true/false directly or nav.IsPaneOpen is binding with a variable and the value is changed.
     // 2, customer click ToggleButton or splitView.IsPaneOpen->nav.IsPaneOpen changed because of window resize
     // 3, customer changed PaneDisplayMode.
     // 2 and 3 are internal implementation and will call by ClosePane/OpenPane. the flag is to indicate 1 if it's false
-    bool m_isOpenPaneForInteraction = false;
+    private bool m_isOpenPaneForInteraction = false;
 
-    bool m_moveTopNavOverflowItemOnFlyoutClose = false;
+    private bool m_moveTopNavOverflowItemOnFlyoutClose = false;
 
-    bool m_shouldIgnoreUIASelectionRaiseAsExpandCollapseWillRaise = false;
+    private bool m_shouldIgnoreUIASelectionRaiseAsExpandCollapseWillRaise = false;
 
-    bool m_OrientationChangedPendingAnimation = false;
+    private bool m_OrientationChangedPendingAnimation = false;
 
-    bool m_TabKeyPrecedesFocusChange = false;
+    private bool m_TabKeyPrecedesFocusChange = false;
 
-    GettingFocusHelper m_leftNavRepeaterGettingFocusHelper;
-    GettingFocusHelper m_topNavRepeaterGettingFocusHelper;
-    GettingFocusHelper m_leftNavFooterMenuRepeaterGettingFocusHelper;
-    GettingFocusHelper m_topNavFooterMenuRepeaterGettingFocusHelper;
+    private GettingFocusHelper m_leftNavRepeaterGettingFocusHelper;
+    private GettingFocusHelper m_topNavRepeaterGettingFocusHelper;
+    private GettingFocusHelper m_leftNavFooterMenuRepeaterGettingFocusHelper;
+    private GettingFocusHelper m_topNavFooterMenuRepeaterGettingFocusHelper;
 
-    readonly BitmapCache m_bitmapCache;
+    private readonly BitmapCache m_bitmapCache;
 
-    static readonly PropertyPath s_opacityPath = new PropertyPath(OpacityProperty);
-    static readonly PropertyPath s_centerXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterX)");
-    static readonly PropertyPath s_centerYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterY)");
-    static readonly PropertyPath s_scaleXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)");
-    static readonly PropertyPath s_scaleYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)");
-    static readonly PropertyPath s_translateXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)");
-    static readonly PropertyPath s_translateYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)");
+    private static readonly PropertyPath s_opacityPath = new PropertyPath(OpacityProperty);
+    private static readonly PropertyPath s_centerXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterX)");
+    private static readonly PropertyPath s_centerYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterY)");
+    private static readonly PropertyPath s_scaleXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)");
+    private static readonly PropertyPath s_scaleYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)");
+    private static readonly PropertyPath s_translateXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)");
+    private static readonly PropertyPath s_translateYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)");
 }
-
-

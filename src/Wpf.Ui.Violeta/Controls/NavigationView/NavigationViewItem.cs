@@ -15,24 +15,25 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public partial class NavigationViewItem : NavigationViewItemBase
 {
-    const string c_navigationViewItemPresenterName = "NavigationViewItemPresenter";
-    const string c_repeater = "NavigationViewItemMenuItemsHost";
-    const string c_rootGrid = "NVIRootGrid";
-    const string c_childrenFlyout = "ChildrenFlyout";
-    const string c_flyoutContentGrid = "FlyoutContentGrid";
+    private const string c_navigationViewItemPresenterName = "NavigationViewItemPresenter";
+    private const string c_repeater = "NavigationViewItemMenuItemsHost";
+    private const string c_rootGrid = "NVIRootGrid";
+    private const string c_childrenFlyout = "ChildrenFlyout";
+    private const string c_flyoutContentGrid = "FlyoutContentGrid";
 
     // Visual States
-    const string c_pressedSelected = "PressedSelected";
-    const string c_pointerOverSelected = "PointerOverSelected";
-    const string c_selected = "Selected";
-    const string c_pressed = "Pressed";
-    const string c_pointerOver = "PointerOver";
-    const string c_disabled = "Disabled";
-    const string c_enabled = "Enabled";
-    const string c_normal = "Normal";
-    const string c_chevronHidden = "ChevronHidden";
-    const string c_chevronVisibleOpen = "ChevronVisibleOpen";
-    const string c_chevronVisibleClosed = "ChevronVisibleClosed";
+    private const string c_pressedSelected = "PressedSelected";
+
+    private const string c_pointerOverSelected = "PointerOverSelected";
+    private const string c_selected = "Selected";
+    private const string c_pressed = "Pressed";
+    private const string c_pointerOver = "PointerOver";
+    private const string c_disabled = "Disabled";
+    private const string c_enabled = "Enabled";
+    private const string c_normal = "Normal";
+    private const string c_chevronHidden = "ChevronHidden";
+    private const string c_chevronVisibleOpen = "ChevronVisibleOpen";
+    private const string c_chevronVisibleClosed = "ChevronVisibleClosed";
 
     static NavigationViewItem()
     {
@@ -78,7 +79,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         base.OnApplyTemplate();
 
         // Find selection indicator
-        // Retrieve pointers to stable controls 
+        // Retrieve pointers to stable controls
         IControlProtected controlProtected = this;
         m_helper.Init(controlProtected);
 
@@ -336,7 +337,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
     {
         if (m_navigationViewItemPresenter is { } presenter)
         {
-            var stateName = ShouldShowInfoBadge() ?  "InfoBadgeVisible" : "InfoBadgeCollapsed";
+            var stateName = ShouldShowInfoBadge() ? "InfoBadgeVisible" : "InfoBadgeCollapsed";
             VisualStateManager.GoToState(presenter, stateName, false /*useTransitions*/);
         }
     }
@@ -354,7 +355,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
             case NavigationViewRepeaterPosition.LeftFooter:
                 if (SharedHelpers.IsRS4OrHigher() && false /*Application.Current.FocusVisualKind == FocusVisualKind.Reveal*/)
                 {
-                    // OnLeftNavigationReveal is introduced in RS6. 
+                    // OnLeftNavigationReveal is introduced in RS6.
                     // Will fallback to stateName for the customer who re-template rs5 NavigationViewItem
                     if (VisualStateManager.GoToState(this, c_OnLeftNavigationReveal, false /*useTransitions*/))
                     {
@@ -362,6 +363,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
                     }
                 }
                 break;
+
             case NavigationViewRepeaterPosition.TopPrimary:
             case NavigationViewRepeaterPosition.TopFooter:
                 if (SharedHelpers.IsRS4OrHigher() && false /*Application.Current.FocusVisualKind == FocusVisualKind.Reveal*/)
@@ -373,6 +375,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
                     stateName = c_OnTopNavigationPrimary;
                 }
                 break;
+
             case NavigationViewRepeaterPosition.TopOverflow:
                 stateName = c_OnTopNavigationOverflow;
                 break;
@@ -584,7 +587,10 @@ public partial class NavigationViewItem : NavigationViewItemBase
         return presenter;
     }
 
-    internal ItemsRepeater GetRepeater() { return m_repeater; }
+    internal ItemsRepeater GetRepeater()
+    {
+        return m_repeater;
+    }
 
     internal void ShowHideChildren()
     {
@@ -733,8 +739,8 @@ public partial class NavigationViewItem : NavigationViewItemBase
         var originalSource = e.OriginalSource as Control;
         if (originalSource != null)
         {
-            // It's used to support bluebar have difference appearance between focused and focused+selection. 
-            // For example, we can move the SelectionIndicator 3px up when focused and selected to make sure focus rectange doesn't override SelectionIndicator. 
+            // It's used to support bluebar have difference appearance between focused and focused+selection.
+            // For example, we can move the SelectionIndicator 3px up when focused and selected to make sure focus rectange doesn't override SelectionIndicator.
             // If it's a pointer or programatic, no focus rectangle, so no action
             /*
             var focusState = originalSource.FocusState;
@@ -931,35 +937,34 @@ public partial class NavigationViewItem : NavigationViewItemBase
         m_flyoutContentGrid = null;
     }
 
-    SplitViewIsPaneOpenChangedRevoker m_splitViewIsPaneOpenChangedRevoker;
-    SplitViewDisplayModeChangedRevoker m_splitViewDisplayModeChangedRevoker;
-    SplitViewCompactPaneLengthChangedRevoker m_splitViewCompactPaneLengthChangedRevoker;
+    private SplitViewIsPaneOpenChangedRevoker m_splitViewIsPaneOpenChangedRevoker;
+    private SplitViewDisplayModeChangedRevoker m_splitViewDisplayModeChangedRevoker;
+    private SplitViewCompactPaneLengthChangedRevoker m_splitViewCompactPaneLengthChangedRevoker;
 
-    ItemsRepeaterElementPreparedRevoker m_repeaterElementPreparedRevoker;
-    ItemsRepeaterElementClearingRevoker m_repeaterElementClearingRevoker;
-    ItemsSourceView.CollectionChangedRevoker m_itemsSourceViewCollectionChangedRevoker;
+    private ItemsRepeaterElementPreparedRevoker m_repeaterElementPreparedRevoker;
+    private ItemsRepeaterElementClearingRevoker m_repeaterElementClearingRevoker;
+    private ItemsSourceView.CollectionChangedRevoker m_itemsSourceViewCollectionChangedRevoker;
 
-    FlyoutBaseClosingRevoker m_flyoutClosingRevoker;
+    private FlyoutBaseClosingRevoker m_flyoutClosingRevoker;
 
-    ToolTip m_toolTip;
-    NavigationViewItemHelper<NavigationViewItem> m_helper = new NavigationViewItemHelper<NavigationViewItem>();
-    NavigationViewItemPresenter m_navigationViewItemPresenter;
-    object m_suggestedToolTipContent;
-    ItemsRepeater m_repeater;
-    Grid m_flyoutContentGrid;
-    Grid m_rootGrid;
+    private ToolTip m_toolTip;
+    private NavigationViewItemHelper<NavigationViewItem> m_helper = new NavigationViewItemHelper<NavigationViewItem>();
+    private NavigationViewItemPresenter m_navigationViewItemPresenter;
+    private object m_suggestedToolTipContent;
+    private ItemsRepeater m_repeater;
+    private Grid m_flyoutContentGrid;
+    private Grid m_rootGrid;
 
-    bool m_isClosedCompact = false;
+    private bool m_isClosedCompact = false;
 
-    bool m_appliedTemplate = false;
-    bool m_hasKeyboardFocus = false;
+    private bool m_appliedTemplate = false;
+    private bool m_hasKeyboardFocus = false;
 
     // Visual state tracking
-    bool m_isMouseCaptured = false;
-    bool m_isPressed = false;
-    bool m_isPointerOver = false;
+    private bool m_isMouseCaptured = false;
 
-    bool m_isRepeaterParentedToFlyout = false;
+    private bool m_isPressed = false;
+    private bool m_isPointerOver = false;
+
+    private bool m_isRepeaterParentedToFlyout = false;
 }
-
-

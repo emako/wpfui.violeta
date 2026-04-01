@@ -36,6 +36,7 @@ public class VirtualizingLayout : Layout, IVirtualizingLayoutOverrides
     }
 
     #region IVirtualizingLayoutOverrides
+
     void IVirtualizingLayoutOverrides.InitializeForContextCore(VirtualizingLayoutContext context)
     {
         InitializeForContextCore(context);
@@ -60,14 +61,19 @@ public class VirtualizingLayout : Layout, IVirtualizingLayoutOverrides
     {
         OnItemsChangedCore(context, source, args);
     }
-    #endregion
+
+    #endregion IVirtualizingLayoutOverrides
 }
 
 internal interface IVirtualizingLayoutOverrides
 {
     void InitializeForContextCore(VirtualizingLayoutContext context);
+
     void UninitializeForContextCore(VirtualizingLayoutContext context);
+
     Size MeasureOverride(VirtualizingLayoutContext context, Size availableSize);
+
     Size ArrangeOverride(VirtualizingLayoutContext context, Size finalSize);
+
     void OnItemsChangedCore(VirtualizingLayoutContext context, object source, NotifyCollectionChangedEventArgs args);
 }

@@ -79,5 +79,3 @@ public enum CornerRadiusFilterKind
 
     All = TopLeft | TopRight | BottomLeft | BottomRight,
 }
-
-

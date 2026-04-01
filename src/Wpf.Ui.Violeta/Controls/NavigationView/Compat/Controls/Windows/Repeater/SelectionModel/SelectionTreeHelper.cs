@@ -57,7 +57,7 @@ internal class SelectionTreeHelper
         {
             var nextNode = pendingNodes.Last();
             pendingNodes.RemoveLast();
-            int count = realizeChildren ? nextNode.Node.DataCount: nextNode.Node.ChildrenNodeCount;
+            int count = realizeChildren ? nextNode.Node.DataCount : nextNode.Node.ChildrenNodeCount;
             for (int i = count - 1; i >= 0; i--)
             {
                 SelectionNode child = nextNode.Node.GetAt(i, realizeChildren);
@@ -85,7 +85,7 @@ internal class SelectionTreeHelper
         var pendingNodes = new List<TreeWalkNodeInfo>();
         IndexPath current = start;
 
-        // Build up the stack to account for the depth first walk up to the 
+        // Build up the stack to account for the depth first walk up to the
         // start index path.
         TraverseIndexPath(
             root,
@@ -121,7 +121,7 @@ internal class SelectionTreeHelper
             bool isStartPath = IsSubSet(start, info.Path);
             bool isEndPath = IsSubSet(end, info.Path);
             int startIndex = depth < start.GetSize() && isStartPath ? start.GetAt(depth) : 0;
-            int endIndex = depth < end.GetSize() && isEndPath ? end.GetAt(depth) : info.Node.DataCount- 1;
+            int endIndex = depth < end.GetSize() && isEndPath ? end.GetAt(depth) : info.Node.DataCount - 1;
             for (int i = endIndex; i >= startIndex; i--)
             {
                 var child = info.Node.GetAt(i, true /* realizeChild */);
@@ -172,5 +172,3 @@ internal class SelectionTreeHelper
         return new IndexPath(subPath);
     }
 }
-
-

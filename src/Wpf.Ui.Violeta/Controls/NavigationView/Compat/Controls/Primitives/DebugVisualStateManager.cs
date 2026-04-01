@@ -1,4 +1,5 @@
 ﻿#if DEBUG
+
 using System.Diagnostics;
 using System.Windows;
 
@@ -24,5 +25,5 @@ public class DebugVisualStateManager : VisualStateManager
         return base.GoToStateCore(control, stateGroupsRoot, stateName, group, state, useTransitions);
     }
 }
-#endif
 
+#endif

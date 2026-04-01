@@ -36,5 +36,3 @@ partial class RepeaterTestHooks
         }
     }
 }
-
-

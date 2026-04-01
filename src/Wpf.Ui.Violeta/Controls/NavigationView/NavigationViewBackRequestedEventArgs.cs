@@ -8,4 +8,3 @@ public sealed class NavigationViewBackRequestedEventArgs : EventArgs
     {
     }
 }
-

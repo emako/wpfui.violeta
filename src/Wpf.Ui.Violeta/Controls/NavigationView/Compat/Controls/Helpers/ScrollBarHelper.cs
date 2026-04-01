@@ -56,7 +56,7 @@ public static class ScrollBarHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region IndicatorMode
 
@@ -82,7 +82,7 @@ public static class ScrollBarHelper
         UpdateVisualState((ScrollBar)d);
     }
 
-    #endregion
+    #endregion IndicatorMode
 
     #region CollapsedThumbBackgroundColor
 
@@ -103,7 +103,7 @@ public static class ScrollBarHelper
         scrollBar.SetValue(CollapsedThumbBackgroundColorProperty, value);
     }
 
-    #endregion
+    #endregion CollapsedThumbBackgroundColor
 
     #region ExpandedThumbBackgroundColor
 
@@ -124,7 +124,7 @@ public static class ScrollBarHelper
         scrollBar.SetValue(ExpandedThumbBackgroundColorProperty, value);
     }
 
-    #endregion
+    #endregion ExpandedThumbBackgroundColor
 
     private static void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
@@ -176,4 +176,3 @@ public static class ScrollBarHelper
         VisualStateManager.GoToState(scrollBar, stateName, useTransitions);
     }
 }
-

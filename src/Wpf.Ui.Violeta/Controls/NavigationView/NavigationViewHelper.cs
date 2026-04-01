@@ -8,7 +8,7 @@ enum NavigationViewVisualStateDisplayMode
     Compact,
     Expanded,
     Minimal,
-    MinimalWithBackButton
+    MinimalWithBackButton,
 }
 
 enum NavigationViewRepeaterPosition
@@ -17,7 +17,7 @@ enum NavigationViewRepeaterPosition
     TopPrimary,
     TopOverflow,
     LeftFooter,
-    TopFooter
+    TopFooter,
 }
 
 enum NavigationViewPropagateTarget
@@ -25,7 +25,7 @@ enum NavigationViewPropagateTarget
     LeftListView,
     TopListView,
     OverflowListView,
-    All
+    All,
 }
 
 class NavigationViewItemHelper
@@ -45,16 +45,17 @@ class NavigationViewItemHelper<T> : NavigationViewItemHelper
     {
     }
 
-    public UIElement GetSelectionIndicator() { return m_selectionIndicator; }
+    public UIElement GetSelectionIndicator()
+    {
+        return m_selectionIndicator;
+    }
 
     public void Init(IControlProtected controlProtected)
     {
         m_selectionIndicator = controlProtected.GetTemplateChild(c_selectionIndicatorName) as UIElement;
     }
 
-    UIElement m_selectionIndicator;
+    private UIElement m_selectionIndicator;
 
-    const string c_selectionIndicatorName = "SelectionIndicator";
+    private const string c_selectionIndicatorName = "SelectionIndicator";
 }
-
-

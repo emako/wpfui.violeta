@@ -37,4 +37,3 @@ internal static class ListExtensions
         return list.Count == 0;
     }
 }
-

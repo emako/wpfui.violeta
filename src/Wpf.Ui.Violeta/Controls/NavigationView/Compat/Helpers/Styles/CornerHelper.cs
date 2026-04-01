@@ -39,6 +39,7 @@ public static class CornerHelper
 
         // Newly added
         DWMWA_PASSIVE_UPDATE_MODE,            // [set] BOOL, Updates the window only when desktop composition runs for other reasons
+
         DWMWA_USE_HOSTBACKDROPBRUSH,          // [set] BOOL, Allows the use of host backdrop brushes for the window.
         DWMWA_USE_IMMERSIVE_DARK_MODE = 20,   // [set] BOOL, Allows a window to either use the accent color, or dark, according to the user Color Mode preferences.
         DWMWA_WINDOW_CORNER_PREFERENCE = 33,  // [set] WINDOW_CORNER_PREFERENCE, Controls the policy that rounds top-level window corners
@@ -80,6 +81,7 @@ public static class CornerHelper
     {
         // ...
         WCA_ACCENT_POLICY = 19
+
         // ...
     }
 
@@ -134,6 +136,7 @@ public static class CornerHelper
         public int y;
 
         public static implicit operator Point(POINT point) => new Point(point.x, point.y);
+
         public static implicit operator POINT(Point point) => new POINT { x = (int)point.X, y = (int)point.Y };
     }
 
@@ -177,7 +180,7 @@ public static class CornerHelper
         StringBuilder lpClassName,
         int nMaxCount);
 
-    #endregion
+    #endregion Win32
 
     public static bool SetWindowCorners(Window window, WindowCornerStyle preference)
     {

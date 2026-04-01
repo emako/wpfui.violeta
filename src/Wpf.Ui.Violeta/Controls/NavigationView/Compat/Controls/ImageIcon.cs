@@ -45,7 +45,7 @@ public class ImageIcon : IconElement
         ((ImageIcon)d).ApplySource();
     }
 
-    #endregion
+    #endregion Source
 
     private protected override void InitializeChildren()
     {
@@ -92,5 +92,3 @@ public class ImageIcon : IconElement
         return iconSource;
     }
 }
-
-

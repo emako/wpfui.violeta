@@ -27,7 +27,7 @@ partial class NavigationViewItem
         owner.OnIconPropertyChanged(args);
     }
 
-    #endregion
+    #endregion Icon
 
     #region InfoBadge
 
@@ -50,7 +50,7 @@ partial class NavigationViewItem
         owner.OnInfoBadgePropertyChanged(args);
     }
 
-    #endregion
+    #endregion InfoBadge
 
     #region CompactPaneLength
 
@@ -70,7 +70,7 @@ partial class NavigationViewItem
         private set => SetValue(CompactPaneLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion CompactPaneLength
 
     #region SelectsOnInvoked
 
@@ -87,7 +87,7 @@ partial class NavigationViewItem
         set => SetValue(SelectsOnInvokedProperty, value);
     }
 
-    #endregion
+    #endregion SelectsOnInvoked
 
     #region IsExpanded
 
@@ -113,7 +113,7 @@ partial class NavigationViewItem
         owner.IsExpandedChanged?.Invoke(owner, args.Property);
     }
 
-    #endregion
+    #endregion IsExpanded
 
     #region HasUnrealizedChildren
 
@@ -136,7 +136,7 @@ partial class NavigationViewItem
         owner.OnHasUnrealizedChildrenPropertyChanged(args);
     }
 
-    #endregion
+    #endregion HasUnrealizedChildren
 
     #region IsChildSelected
 
@@ -153,7 +153,7 @@ partial class NavigationViewItem
         set => SetValue(IsChildSelectedProperty, value);
     }
 
-    #endregion
+    #endregion IsChildSelected
 
     #region MenuItems
 
@@ -178,7 +178,7 @@ partial class NavigationViewItem
         owner.OnMenuItemsPropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItems
 
     #region MenuItemsSource
 
@@ -201,7 +201,7 @@ partial class NavigationViewItem
         owner.OnMenuItemsSourcePropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItemsSource
 
     #region CornerRadius
 
@@ -214,7 +214,5 @@ partial class NavigationViewItem
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 }
-
-

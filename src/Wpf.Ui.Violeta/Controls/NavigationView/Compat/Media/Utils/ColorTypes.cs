@@ -57,7 +57,7 @@ internal readonly struct NormalizedRGB : IEquatable<NormalizedRGB>
         return R == other.R && G == other.G && B == other.B;
     }
 
-    #endregion
+    #endregion IEquatable<NormalizedRGB>
 
     #region Equals
 
@@ -78,7 +78,7 @@ internal readonly struct NormalizedRGB : IEquatable<NormalizedRGB>
         return R.GetHashCode() ^ G.GetHashCode() ^ B.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -87,7 +87,7 @@ internal readonly struct NormalizedRGB : IEquatable<NormalizedRGB>
         return string.Format("{0},{1},{2}", R, G, B);
     }
 
-    #endregion
+    #endregion ToString
 }
 
 // H ∈ [0.0,360.0]
@@ -124,7 +124,7 @@ internal readonly struct HSL : IEquatable<HSL>
         return H == other.H && S == other.S && L == other.L;
     }
 
-    #endregion
+    #endregion IEquatable<HSL>
 
     #region Equals
 
@@ -145,7 +145,7 @@ internal readonly struct HSL : IEquatable<HSL>
         return H.GetHashCode() ^ S.GetHashCode() ^ L.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -154,7 +154,7 @@ internal readonly struct HSL : IEquatable<HSL>
         return string.Format("{0},{1},{2}", H, S, L);
     }
 
-    #endregion
+    #endregion ToString
 }
 
 // H ∈ [0.0,360.0]
@@ -173,7 +173,7 @@ internal readonly struct HSV : IEquatable<HSV>
         return H == other.H && S == other.S && V == other.V;
     }
 
-    #endregion
+    #endregion IEquatable<HSV>
 
     #region Equals
 
@@ -194,7 +194,7 @@ internal readonly struct HSV : IEquatable<HSV>
         return H.GetHashCode() ^ S.GetHashCode() ^ V.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -203,7 +203,7 @@ internal readonly struct HSV : IEquatable<HSV>
         return string.Format("{0},{1},{2}", H, S, V);
     }
 
-    #endregion
+    #endregion ToString
 }
 
 internal readonly struct LAB : IEquatable<LAB>
@@ -237,7 +237,7 @@ internal readonly struct LAB : IEquatable<LAB>
         return L == other.L && A == other.A && B == other.B;
     }
 
-    #endregion
+    #endregion IEquatable<LAB>
 
     #region Equals
 
@@ -258,7 +258,7 @@ internal readonly struct LAB : IEquatable<LAB>
         return L.GetHashCode() ^ A.GetHashCode() ^ B.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -267,7 +267,7 @@ internal readonly struct LAB : IEquatable<LAB>
         return string.Format("{0},{1},{2}", L, A, B);
     }
 
-    #endregion
+    #endregion ToString
 }
 
 internal readonly struct LCH : IEquatable<LCH>
@@ -301,7 +301,7 @@ internal readonly struct LCH : IEquatable<LCH>
         return L == other.L && C == other.C && H == other.H;
     }
 
-    #endregion
+    #endregion IEquatable<LCH>
 
     #region Equals
 
@@ -322,7 +322,7 @@ internal readonly struct LCH : IEquatable<LCH>
         return L.GetHashCode() ^ C.GetHashCode() ^ H.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -331,7 +331,7 @@ internal readonly struct LCH : IEquatable<LCH>
         return string.Format("{0},{1},{2}", L, C, H);
     }
 
-    #endregion
+    #endregion ToString
 }
 
 internal readonly struct XYZ : IEquatable<XYZ>
@@ -365,7 +365,7 @@ internal readonly struct XYZ : IEquatable<XYZ>
         return X == other.X && Y == other.Y && Z == other.Z;
     }
 
-    #endregion
+    #endregion IEquatable<XYZ>
 
     #region Equals
 
@@ -386,7 +386,7 @@ internal readonly struct XYZ : IEquatable<XYZ>
         return X.GetHashCode() ^ Y.GetHashCode() ^ Z.GetHashCode();
     }
 
-    #endregion
+    #endregion Equals
 
     #region ToString
 
@@ -395,6 +395,5 @@ internal readonly struct XYZ : IEquatable<XYZ>
         return string.Format("{0},{1},{2}", X, Y, Z);
     }
 
-    #endregion
+    #endregion ToString
 }
-

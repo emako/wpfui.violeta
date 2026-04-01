@@ -23,7 +23,7 @@ public static class PivotHelper
         tabControl.SetValue(TitleProperty, value);
     }
 
-    #endregion
+    #endregion Title
 
     #region TitleTemplate
 
@@ -43,7 +43,7 @@ public static class PivotHelper
         tabControl.SetValue(TitleTemplateProperty, value);
     }
 
-    #endregion
+    #endregion TitleTemplate
 
     #region LeftHeader
 
@@ -63,7 +63,7 @@ public static class PivotHelper
         tabControl.SetValue(LeftHeaderProperty, value);
     }
 
-    #endregion
+    #endregion LeftHeader
 
     #region LeftHeaderTemplate
 
@@ -83,7 +83,7 @@ public static class PivotHelper
         tabControl.SetValue(LeftHeaderTemplateProperty, value);
     }
 
-    #endregion
+    #endregion LeftHeaderTemplate
 
     #region RightHeader
 
@@ -103,7 +103,7 @@ public static class PivotHelper
         tabControl.SetValue(RightHeaderProperty, value);
     }
 
-    #endregion
+    #endregion RightHeader
 
     #region RightHeaderTemplate
 
@@ -123,6 +123,5 @@ public static class PivotHelper
         tabControl.SetValue(RightHeaderTemplateProperty, value);
     }
 
-    #endregion
+    #endregion RightHeaderTemplate
 }
-

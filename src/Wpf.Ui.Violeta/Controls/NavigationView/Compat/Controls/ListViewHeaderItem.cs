@@ -19,4 +19,3 @@ public class ListViewHeaderItem : ListViewBaseHeaderItem
     {
     }
 }
-

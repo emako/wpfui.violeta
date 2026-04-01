@@ -49,4 +49,3 @@ public sealed class FadeOutThemeAnimation : DoubleAnimation
         return new FadeOutThemeAnimation();
     }
 }
-

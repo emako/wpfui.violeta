@@ -29,6 +29,5 @@ public static class DecoratorHelper
         ((Decorator)d).Child = (UIElement)e.NewValue;
     }
 
-    #endregion
+    #endregion Child
 }
-

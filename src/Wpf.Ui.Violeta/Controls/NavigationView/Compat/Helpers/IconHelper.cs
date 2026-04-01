@@ -74,5 +74,3 @@ internal static class IconHelper
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern int GetModuleFileName(HandleRef hModule, StringBuilder buffer, int length);
 }
-
-

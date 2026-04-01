@@ -16,7 +16,7 @@ internal static class Extensions
         return !string.IsNullOrEmpty(s) ? s : defaultValue;
     }
 
-    /// <summary> 
+    /// <summary>
     /// Executes the specified action if the element is loaded or at the loaded event if it's not loaded.
     /// </summary>
     /// <param name="element">The element where the action should be run.</param>
@@ -39,5 +39,3 @@ internal static class Extensions
         }
     }
 }
-
-

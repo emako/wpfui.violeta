@@ -103,4 +103,3 @@ internal static class MathUtils
         return (byte)Math.Round(l + scale * (r - l));
     }
 }
-

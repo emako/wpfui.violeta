@@ -25,18 +25,25 @@ internal static class ColorBlending
         {
             case ColorBlendMode.Burn:
                 return BlendBurn(bottom, top);
+
             case ColorBlendMode.Darken:
                 return BlendDarken(bottom, top);
+
             case ColorBlendMode.Dodge:
                 return BlendDodge(bottom, top);
+
             case ColorBlendMode.Lighten:
                 return BlendLighten(bottom, top);
+
             case ColorBlendMode.Multiply:
                 return BlendMultiply(bottom, top);
+
             case ColorBlendMode.Overlay:
                 return BlendOverlay(bottom, top);
+
             case ColorBlendMode.Screen:
                 return BlendScreen(bottom, top);
+
             default:
                 throw new ArgumentException("Unknown blend mode", "mode");
         }
@@ -140,4 +147,3 @@ internal static class ColorBlending
         return 1.0 - (1.0 - top) * (1.0 - bottom);
     }
 }
-

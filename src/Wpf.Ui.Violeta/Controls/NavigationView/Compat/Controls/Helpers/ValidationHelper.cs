@@ -41,6 +41,5 @@ public static class ValidationHelper
         }
     }
 
-    #endregion
+    #endregion IsTemplateValidationAdornerSite
 }
-

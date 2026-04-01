@@ -10,13 +10,14 @@ public enum PasswordRevealMode
     /// button is pressed.
     /// </summary>
     Peek = 0,
+
     /// <summary>
     /// The password reveal button is not visible. The password is always obscured.
     /// </summary>
     Hidden = 1,
+
     /// <summary>
     /// The password reveal button is not visible. The password is not obscured.
     /// </summary>
     Visible = 2,
 }
-

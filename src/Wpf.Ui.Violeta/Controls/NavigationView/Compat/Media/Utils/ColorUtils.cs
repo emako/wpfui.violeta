@@ -68,7 +68,7 @@ internal static class ColorUtils
         return new LAB(lch.L, a, b, round, roundingPrecision);
     }
 
-    // This discontinuity in the C parameter at 0 means that floating point errors will often result in values near 0 giving unpredictable results. 
+    // This discontinuity in the C parameter at 0 means that floating point errors will often result in values near 0 giving unpredictable results.
     // EG: 0.0000001 gives a very different result than -0.0000001
     public static LCH LABToLCH(in LAB lab, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
     {
@@ -287,13 +287,14 @@ internal static class ColorUtils
                 var leftLAB = ColorUtils.RGBToLAB(left, false);
                 var rightLAB = ColorUtils.RGBToLAB(right, false);
                 return LABToRGB(InterpolateLAB(leftLAB, rightLAB, position));
+
             case ColorScaleInterpolationMode.XYZ:
                 var leftXYZ = RGBToXYZ(left, false);
                 var rightXYZ = RGBToXYZ(right, false);
                 return XYZToRGB(InterpolateXYZ(leftXYZ, rightXYZ, position));
+
             default:
                 return InterpolateRGB(left, right, position);
         }
     }
 }
-

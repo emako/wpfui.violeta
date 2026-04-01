@@ -30,7 +30,6 @@ public sealed class NavigationViewItemExpandingEventArgs : EventArgs
         }
     }
 
-    object m_expandingItem;
-    NavigationView m_navigationView;
+    private object m_expandingItem;
+    private NavigationView m_navigationView;
 }
-

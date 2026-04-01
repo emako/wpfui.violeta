@@ -42,7 +42,7 @@ public static class RichTextBoxHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region IsEmpty
 
@@ -86,11 +86,10 @@ public static class RichTextBoxHelper
         }
     }
 
-    #endregion
+    #endregion IsEmpty
 
     private static void OnTextChanged(object sender, TextChangedEventArgs e)
     {
         UpdateIsEmpty((RichTextBox)sender);
     }
 }
-

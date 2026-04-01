@@ -13,7 +13,6 @@ public class FontIcon : IconElement, IFontIconClass
 {
     public const string SegoeIconsFontFamilyName = "Segoe Fluent Icons,Segoe MDL2 Assets,Segoe UI Symbol";
 
-
     /// <summary>
     /// Initializes a new instance of the FontIcon class.F
     /// </summary>
@@ -29,12 +28,11 @@ public class FontIcon : IconElement, IFontIconClass
     public FontIcon(string glyph, FontFamily fontFamily) : this()
     {
         Glyph = glyph;
-        if(fontFamily != null)
+        if (fontFamily != null)
         {
             FontFamily = fontFamily;
         }
     }
-
 
     /// <summary>
     /// The identifier for the FontFamily dependency property.
@@ -74,7 +72,6 @@ public class FontIcon : IconElement, IFontIconClass
         get { return (FontFamily)GetValue(ActualFontFamilyProperty); }
         private set { SetValue(ActualFontFamilyPropertyKey, value); }
     }
-
 
     private static void OnFontFamilyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -233,7 +230,6 @@ public class FontIcon : IconElement, IFontIconClass
         set => SetValue(IconProperty, value);
     }
 
-
     private static void OnGlyphChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var fontIcon = (FontIcon)d;
@@ -255,7 +251,6 @@ public class FontIcon : IconElement, IFontIconClass
         this.ActualGlyph = this.Glyph ?? this.Icon?.Glyph ?? null;
         this.ActualFontFamily = this.FontFamily ?? this.Icon?.FontFamily ?? new FontFamily(SegoeIconsFontFamilyName);
     }
-
 
     private protected override void InitializeChildren()
     {
@@ -307,7 +302,6 @@ public class FontIcon : IconElement, IFontIconClass
 
     private TextBlock _textBlock;
 
-
     protected override IconSource CreateIconSourceCore()
     {
         var iconSource = new FontIconSource();
@@ -333,5 +327,3 @@ public class FontIcon : IconElement, IFontIconClass
         return iconSource;
     }
 }
-
-

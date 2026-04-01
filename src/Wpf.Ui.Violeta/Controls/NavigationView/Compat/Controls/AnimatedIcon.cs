@@ -47,7 +47,7 @@ public class AnimatedIcon : IconElement
         ((AnimatedIcon)d).OnFallbackIconSourcePropertyChanged(e);
     }
 
-    #endregion
+    #endregion FallbackIconSource
 
     #region MirroredWhenRightToLeft
 
@@ -76,7 +76,7 @@ public class AnimatedIcon : IconElement
         ((AnimatedIcon)d).OnMirroredWhenRightToLeftPropertyChanged(e);
     }
 
-    #endregion
+    #endregion MirroredWhenRightToLeft
 
     #region Source
 
@@ -105,7 +105,7 @@ public class AnimatedIcon : IconElement
         ((AnimatedIcon)d).OnSourcePropertyChanged(e);
     }
 
-    #endregion
+    #endregion Source
 
     #region State
 
@@ -118,7 +118,6 @@ public class AnimatedIcon : IconElement
             typeof(string),
             typeof(AnimatedIcon),
             new PropertyMetadata(OnAnimatedIconStatePropertyChanged));
-
 
     /// <summary>
     /// Retrieves the value of the AnimatedIcon.State attached property for the specified <see cref="DependencyObject"/>.
@@ -140,7 +139,6 @@ public class AnimatedIcon : IconElement
         control.SetValue(StateProperty, value);
     }
 
-
     private static void OnAnimatedIconStatePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is AnimatedIcon senderAsAnimatedIcon)
@@ -149,7 +147,7 @@ public class AnimatedIcon : IconElement
         }
     }
 
-    #endregion
+    #endregion State
 
     #region FontSize
 
@@ -179,7 +177,7 @@ public class AnimatedIcon : IconElement
         }
     }
 
-    #endregion
+    #endregion FontSize
 
     private void OnFallbackIconSourcePropertyChanged(DependencyPropertyChangedEventArgs e)
     {
@@ -319,5 +317,3 @@ public class AnimatedIcon : IconElement
         return iconSource;
     }
 }
-
-

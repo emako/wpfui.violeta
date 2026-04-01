@@ -8,4 +8,3 @@ internal interface IColorPaletteEntry
 {
     Color ActiveColor { get; }
 }
-

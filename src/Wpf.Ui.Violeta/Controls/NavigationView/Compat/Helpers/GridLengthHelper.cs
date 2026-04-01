@@ -14,4 +14,3 @@ public static class GridLengthHelper
         return new GridLength(value, type);
     }
 }
-

@@ -16,7 +16,7 @@ public static class ShadowAssist
     /// </remarks>
     public static bool UseBitmapCache { get; set; } = true;
 
-    #endregion
+    #endregion Property : UseBitmapCache
 
     #region AttachedProperty : CacheModeProperty
 
@@ -33,6 +33,5 @@ public static class ShadowAssist
         return (CacheMode)element.GetValue(CacheModeProperty);
     }
 
-    #endregion
+    #endregion AttachedProperty : CacheModeProperty
 }
-

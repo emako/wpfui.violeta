@@ -90,12 +90,11 @@ internal class SelectedItems<T> : IReadOnlyList<T>
             m_currentIndex = 1;
         }
 
-        readonly IReadOnlyList<T> m_selectedItems;
-        int m_currentIndex = -1;
+        private readonly IReadOnlyList<T> m_selectedItems;
+        private int m_currentIndex = -1;
     }
 
-    List<SelectedItemInfo> m_infos;
-    int m_totalCount;
-    Func<List<SelectedItemInfo>, int, T> m_getAtImpl;
+    private List<SelectedItemInfo> m_infos;
+    private int m_totalCount;
+    private Func<List<SelectedItemInfo>, int, T> m_getAtImpl;
 }
-

@@ -38,6 +38,5 @@ public static class ColumnDefinitionHelper
         }
     }
 
-    #endregion
+    #endregion PixelWidth
 }
-

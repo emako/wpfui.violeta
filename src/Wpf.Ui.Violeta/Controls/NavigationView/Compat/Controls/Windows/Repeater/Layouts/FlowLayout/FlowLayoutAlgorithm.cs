@@ -729,4 +729,3 @@ internal class FlowLayoutAlgorithm
 
     private OrientationBasedMeasures OM { get; } = new OrientationBasedMeasures();
 }
-

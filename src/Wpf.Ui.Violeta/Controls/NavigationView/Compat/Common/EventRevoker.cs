@@ -17,6 +17,7 @@ internal abstract class EventRevoker<TSource, TDelegate>
     }
 
     protected abstract void AddHandler(TSource source, TDelegate handler);
+
     protected abstract void RemoveHandler(TSource source, TDelegate handler);
 
     public void Revoke()
@@ -32,4 +33,3 @@ internal abstract class EventRevoker<TSource, TDelegate>
         _handler = null;
     }
 }
-

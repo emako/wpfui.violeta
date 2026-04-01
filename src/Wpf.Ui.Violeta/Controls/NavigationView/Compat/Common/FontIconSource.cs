@@ -147,7 +147,6 @@ public class FontIconSource : IconSource, IFontIconClass
         set => SetValue(IconProperty, value);
     }
 
-
     /// <inheritdoc/>
     protected override IconElement CreateIconElementCore()
     {
@@ -186,5 +185,3 @@ public interface IFontIconClass
 
     FontIconData? Icon { get; set; }
 }
-
-

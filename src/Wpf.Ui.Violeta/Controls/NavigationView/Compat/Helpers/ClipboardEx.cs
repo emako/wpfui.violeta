@@ -154,7 +154,7 @@ public enum ClipboardFormat
     /// An application that pastes text from the clipboard can retrieve this format to determine which character
     /// set was used to generate the text.
     /// Note that the clipboard does not support plain text in multiple character sets. To achieve this, use a
-    /// formatted text data type such as RTF instead. 
+    /// formatted text data type such as RTF instead.
     /// The system uses the code page associated with <c>CF_LOCALE</c> to implicitly convert from
     /// <see cref="CF_TEXT"/> to <see cref="CF_UNICODETEXT"/>. Therefore, the correct code page table is used for
     /// the conversion.
@@ -226,4 +226,3 @@ public enum ClipboardFormat
     /// </summary>
     CF_PRIVATELAST = 0x02FF,
 }
-

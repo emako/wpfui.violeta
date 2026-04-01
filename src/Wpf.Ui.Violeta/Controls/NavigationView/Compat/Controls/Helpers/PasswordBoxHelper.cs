@@ -74,7 +74,7 @@ public class PasswordBoxHelper : DependencyObject
         helper?.UpdateVisualState(true);
     }
 
-    #endregion
+    #endregion PasswordRevealMode
 
     #region IsEnabled
 
@@ -108,7 +108,7 @@ public class PasswordBoxHelper : DependencyObject
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region PlaceholderTextVisibility
 
@@ -131,7 +131,7 @@ public class PasswordBoxHelper : DependencyObject
 
     public static readonly DependencyProperty PlaceholderTextVisibilityProperty = PlaceholderTextVisibilityPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion PlaceholderTextVisibility
 
     #region HelperInstance
 
@@ -165,7 +165,7 @@ public class PasswordBoxHelper : DependencyObject
         }
     }
 
-    #endregion
+    #endregion HelperInstance
 
     private TextBox TextBox { get; set; }
 
@@ -298,6 +298,7 @@ public class PasswordBoxHelper : DependencyObject
                 case PasswordRevealMode.Peek:
                     buttonVisible = !_hideRevealButton && !string.IsNullOrEmpty(_passwordBox.Password);
                     break;
+
                 case PasswordRevealMode.Hidden:
                 case PasswordRevealMode.Visible:
                     buttonVisible = false;
@@ -308,5 +309,3 @@ public class PasswordBoxHelper : DependencyObject
         VisualStateManager.GoToState(_passwordBox, buttonVisible ? ButtonVisibleState : ButtonCollapsedState, useTransitions);
     }
 }
-
-

@@ -77,5 +77,3 @@ public class BitmapIconSource : IconSource
         return bitmapIcon;
     }
 }
-
-

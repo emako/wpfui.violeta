@@ -54,7 +54,8 @@ internal class ItemTemplateWrapper : IElementFactoryShim
             // Template returned null, so insert empty element to render nothing
             if (element == null)
             {
-                element = new Rectangle {
+                element = new Rectangle
+                {
                     Width = 0,
                     Height = 0
                 };
@@ -83,6 +84,5 @@ internal class ItemTemplateWrapper : IElementFactoryShim
         recyclePool.PutElement(args.Element, string.Empty /* key */, args.Parent);
     }
 
-    #endregion
+    #endregion IElementFactory
 }
-

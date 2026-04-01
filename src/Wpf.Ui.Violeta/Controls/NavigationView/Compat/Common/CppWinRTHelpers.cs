@@ -14,5 +14,3 @@ static class CppWinRTHelpers
         return null;
     }
 }
-
-

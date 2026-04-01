@@ -15,4 +15,3 @@ public sealed class SelectTemplateEventArgs : EventArgs
 
     public UIElement Owner { get; internal set; }
 }
-

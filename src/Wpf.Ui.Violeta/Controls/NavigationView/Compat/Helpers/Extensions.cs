@@ -49,16 +49,17 @@ public static class CompatExtensions
 
 #if NETFRAMEWORK
 
-public static void Deconstruct<TKey, TValue>(
-    this KeyValuePair<TKey, TValue> target,
-    out TKey key,
-    out TValue value)
-{
-    key = target.Key;
-    value = target.Value;
-}
+    public static void Deconstruct<TKey, TValue>(
+        this KeyValuePair<TKey, TValue> target,
+        out TKey key,
+        out TValue value)
+    {
+        key = target.Key;
+        value = target.Value;
+    }
 
 #endif
+
     public static GeneralTransform SafeTransformToVisual(this Visual self, Visual visual)
     {
         if (self.FindCommonVisualAncestor(visual) != null)
@@ -71,5 +72,4 @@ public static void Deconstruct<TKey, TValue>(
     public static object GetProperty(this object item, string name) => item.GetType()?.GetProperty(name)?.GetValue(item, null);
 
     public static void SetProperty(this object item, string name, object value) => item.GetType()?.GetProperty(name)?.SetValue(item, value);
-
 }

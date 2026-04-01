@@ -45,12 +45,13 @@ internal class GettingFocusEventArgs : IGettingFocusEventArgs2
     public DependencyObject NewFocusedElement { get; set; }
     public bool Handled { get; set; }
     public bool Cancel { get; set; }
+
     //public FocusNavigationDirection Direction { get; }
     //public FocusState FocusState { get; }
     public FocusInputDeviceKind InputDevice { get; }
+
     public DependencyObject OldFocusedElement { get; }
     //public Guid CorrelationId { get; }
 
     private KeyboardFocusChangedEventArgs _args;
 }
-

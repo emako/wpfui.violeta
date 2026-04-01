@@ -8,6 +8,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 public static class VisualStates
 {
     #region GroupCommon
+
     /// <summary>
     /// Normal state
     /// </summary>
@@ -37,6 +38,7 @@ public static class VisualStates
     /// Common state group
     /// </summary>
     public const string GroupCommon = "CommonStates";
+
     #endregion GroupCommon
 
     public static FrameworkElement GetImplementationRoot(DependencyObject dependencyObject)
@@ -61,6 +63,4 @@ public static class VisualStates
                 .OfType<VisualStateGroup>()
                 .FirstOrDefault(group => string.CompareOrdinal(groupName, group.Name) == 0);
     }
-
 }
-

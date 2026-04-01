@@ -45,4 +45,3 @@ internal static class SelectorHelper
         return false;
     }
 }
-

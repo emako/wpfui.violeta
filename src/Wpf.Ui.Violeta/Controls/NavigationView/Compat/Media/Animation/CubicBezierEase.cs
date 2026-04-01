@@ -153,7 +153,7 @@ public class CubicBezierEase : EasingFunctionBase
 
     /// <summary>
     /// Compute the parameter value that corresponds to a given X value, using a modified
-    /// clamped Newton-Raphson algorithm to solve the equation X(t) - time = 0. We make 
+    /// clamped Newton-Raphson algorithm to solve the equation X(t) - time = 0. We make
     /// use of some known properties of this particular function:
     /// * We are only interested in solutions in the interval [0,1]
     /// * X(t) is increasing, so we can assume that if X(t) > time t > solution.  We use
@@ -247,6 +247,7 @@ public class CubicBezierEase : EasingFunctionBase
 
     // Control points
     private bool _isSpecified;
+
     private bool _isDirty;
 
     // The parameter that corresponds to the most recent time
@@ -254,6 +255,7 @@ public class CubicBezierEase : EasingFunctionBase
 
     // Cached coefficients
     private double _Bx;        // 3*points[0].X
+
     private double _Cx;        // 3*points[1].X
     private double _Cx_Bx;     // 2*(Cx - Bx)
     private double _three_Cx;  // 3 - Cx
@@ -263,8 +265,8 @@ public class CubicBezierEase : EasingFunctionBase
 
     // constants
     private const double accuracy = .001;   // 1/3 the desired accuracy in X
+
     private const double fuzz = .000001;    // computational zero
 
-    #endregion
+    #endregion Data
 }
-

@@ -7,10 +7,11 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 /// <summary>
 /// This is similar to the CornerRadius class in WPF, but it allows different values in X and Y axis for each corner.
 /// </summary>
-public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
+public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
 {
     // According to WPF CornerRadius, these properties are mutable, so we can't use readonly fields.
     private double _topLeftX;
+
     public double TopLeftX
     {
         get { return this._topLeftX; }
@@ -18,6 +19,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _topLeftY;
+
     public double TopLeftY
     {
         get { return this._topLeftY; }
@@ -25,6 +27,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _topRightX;
+
     public double TopRightX
     {
         get { return this._topRightX; }
@@ -32,6 +35,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _topRightY;
+
     public double TopRightY
     {
         get { return this._topRightY; }
@@ -39,6 +43,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _bottomLeftX;
+
     public double BottomLeftX
     {
         get { return this._bottomLeftX; }
@@ -46,6 +51,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _bottomLeftY;
+
     public double BottomLeftY
     {
         get { return this._bottomLeftY; }
@@ -53,6 +59,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _bottomRightX;
+
     public double BottomRightX
     {
         get { return this._bottomRightX; }
@@ -60,12 +67,12 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
     }
 
     private double _bottomRightY;
+
     public double BottomRightY
     {
         get { return this._bottomRightY; }
         set { this._bottomRightY = value; }
     }
-
 
     public CornerRadiusEx(double topLeftX, double topLeftY, double topRightX, double topRightY, double bottomLeftX, double bottomLeftY, double bottomRightX, double bottomRightY)
     {
@@ -79,7 +86,7 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
         this._bottomRightY = bottomRightY;
     }
 
-    public CornerRadiusEx(CornerRadius cornerRadius): this(cornerRadius.TopLeft, cornerRadius.TopLeft, cornerRadius.TopRight, cornerRadius.TopRight, cornerRadius.BottomLeft, cornerRadius.BottomLeft, cornerRadius.BottomRight, cornerRadius.BottomRight)
+    public CornerRadiusEx(CornerRadius cornerRadius) : this(cornerRadius.TopLeft, cornerRadius.TopLeft, cornerRadius.TopRight, cornerRadius.TopRight, cornerRadius.BottomLeft, cornerRadius.BottomLeft, cornerRadius.BottomRight, cornerRadius.BottomRight)
     {
     }
 
@@ -175,19 +182,19 @@ public struct CornerRadiusEx: IEquatable<CornerRadiusEx>
                BottomRightX == other.BottomRightX && BottomRightY == other.BottomRightY;
     }
 
-    public static bool operator == (CornerRadiusEx left, CornerRadiusEx right)
+    public static bool operator ==(CornerRadiusEx left, CornerRadiusEx right)
     {
         return left.Equals(right);
     }
 
-    public static bool operator != (CornerRadiusEx left, CornerRadiusEx right)
+    public static bool operator !=(CornerRadiusEx left, CornerRadiusEx right)
     {
         return !left.Equals(right);
     }
 
     public override int GetHashCode()
     {
-        return _topLeftX.GetHashCode() ^ _topLeftY.GetHashCode() ^ _topRightX.GetHashCode() ^ _topRightY.GetHashCode() 
+        return _topLeftX.GetHashCode() ^ _topLeftY.GetHashCode() ^ _topRightX.GetHashCode() ^ _topRightY.GetHashCode()
             ^ _bottomLeftX.GetHashCode() ^ _bottomLeftY.GetHashCode() ^ _bottomRightX.GetHashCode() ^ _bottomRightY.GetHashCode();
     }
 

@@ -26,7 +26,7 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(CompactPaneGridLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion CompactPaneGridLength
 
     #region NegativeOpenPaneLength
 
@@ -46,7 +46,7 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(NegativeOpenPaneLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion NegativeOpenPaneLength
 
     #region NegativeOpenPaneLengthMinusCompactLength
 
@@ -66,7 +66,7 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(NegativeOpenPaneLengthMinusCompactLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion NegativeOpenPaneLengthMinusCompactLength
 
     #region OpenPaneGridLength
 
@@ -86,7 +86,7 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(OpenPaneGridLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion OpenPaneGridLength
 
     #region OpenPaneLength
 
@@ -106,7 +106,7 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(OpenPaneLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion OpenPaneLength
 
     #region OpenPaneLengthMinusCompactLength
 
@@ -126,6 +126,5 @@ public sealed class SplitViewTemplateSettings : DependencyObject
         internal set => SetValue(OpenPaneLengthMinusCompactLengthPropertyKey, value);
     }
 
-    #endregion
+    #endregion OpenPaneLengthMinusCompactLength
 }
-

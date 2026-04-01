@@ -163,5 +163,3 @@ internal enum SYSTEM_METRICS_INDEX : uint
     SM_XVIRTUALSCREEN = 76U,
     SM_YVIRTUALSCREEN = 77U,
 }
-
-

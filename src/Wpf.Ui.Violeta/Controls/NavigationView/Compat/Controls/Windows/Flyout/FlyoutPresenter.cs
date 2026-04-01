@@ -27,7 +27,7 @@ public class FlyoutPresenter : ContentControl
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region IsDefaultShadowEnabled
 
@@ -44,7 +44,7 @@ public class FlyoutPresenter : ContentControl
         set => SetValue(IsDefaultShadowEnabledProperty, value);
     }
 
-    #endregion
+    #endregion IsDefaultShadowEnabled
 
     protected override void OnKeyDown(KeyEventArgs e)
     {
@@ -72,5 +72,3 @@ public class FlyoutPresenter : ContentControl
     }
 #endif
 }
-
-

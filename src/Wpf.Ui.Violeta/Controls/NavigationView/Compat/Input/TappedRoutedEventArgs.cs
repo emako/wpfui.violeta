@@ -14,4 +14,3 @@ internal sealed class TappedRoutedEventArgs : RoutedEventArgs
 
     internal int Timestamp { get; set; }
 }
-

@@ -115,7 +115,6 @@ public static class FlyoutService
         {
             ButtonFlyoutOpening(button);
         }
-
     }
 
     private static void ButtonFlyoutOpening(Button button)
@@ -126,9 +125,7 @@ public static class FlyoutService
         {
             flyout.ShowAt(button);
         }
-
     }
-
 
     public static readonly DependencyProperty FlyoutOpeningModeProperty =
         DependencyProperty.RegisterAttached(
@@ -163,7 +160,6 @@ public static class FlyoutService
     //{
     //    button.SetValue(FlyoutOpeningLongPressMillisecondsProperty, value);
     //}
-
 }
 
 public enum FlyoutOpeningMode
@@ -174,4 +170,3 @@ public enum FlyoutOpeningMode
     //LeftButtonLongPress = 4,
     //RightButtonLongPress = 8
 }
-

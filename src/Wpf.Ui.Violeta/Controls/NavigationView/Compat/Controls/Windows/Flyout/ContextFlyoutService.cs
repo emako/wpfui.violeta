@@ -41,7 +41,7 @@ public static class ContextFlyoutService
         }
     }
 
-    #endregion
+    #endregion ContextFlyout
 
     private static void OnContextMenuOpening(object sender, ContextMenuEventArgs e)
     {
@@ -54,4 +54,3 @@ public static class ContextFlyoutService
         }
     }
 }
-

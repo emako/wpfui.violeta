@@ -34,12 +34,17 @@ public partial class SplitView : Control
     }
 
     public event TypedEventHandler<SplitView, object> PaneOpening;
+
     public event TypedEventHandler<SplitView, object> PaneOpened;
+
     public event TypedEventHandler<SplitView, SplitViewPaneClosingEventArgs> PaneClosing;
+
     public event TypedEventHandler<SplitView, object> PaneClosed;
 
     internal event DependencyPropertyChangedCallback IsPaneOpenChanged;
+
     internal event DependencyPropertyChangedCallback DisplayModeChanged;
+
     internal event DependencyPropertyChangedCallback CompactPaneLengthChanged;
 
     public override void OnApplyTemplate()
@@ -356,5 +361,3 @@ public partial class SplitView : Control
     private const string DisplayModeStatesName = "DisplayModeStates";
     private const string PaneClipRectangleName = "PaneClipRectangle";
 }
-
-

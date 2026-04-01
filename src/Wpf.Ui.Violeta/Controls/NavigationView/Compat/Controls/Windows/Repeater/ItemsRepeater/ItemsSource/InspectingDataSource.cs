@@ -132,4 +132,3 @@ internal class InspectingDataSource : ItemsSourceView
     private readonly IList m_vector;
     private readonly IKeyIndexMapping m_uniqueIdMaping = null;
 }
-

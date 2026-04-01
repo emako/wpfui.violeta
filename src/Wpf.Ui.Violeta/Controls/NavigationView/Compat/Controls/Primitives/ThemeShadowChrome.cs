@@ -100,7 +100,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion
+    #endregion IsShadowEnabled
 
     #region Depth
 
@@ -132,7 +132,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion
+    #endregion Depth
 
     #region CornerRadius
 
@@ -169,7 +169,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region PopupMargin
 
@@ -231,7 +231,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    #endregion
+    #endregion PopupMargin
 
     protected override int VisualChildrenCount =>
         IsShadowEnabled ? Child == null ? 1 : 2 : base.VisualChildrenCount;
@@ -519,9 +519,11 @@ public class ThemeShadowChrome : Decorator
                 case PlacementMode.Bottom:
                     placement = CustomPlacementMode.BottomEdgeAlignedLeft;
                     break;
+
                 case PlacementMode.Top:
                     placement = CustomPlacementMode.TopEdgeAlignedLeft;
                     break;
+
                 case PlacementMode.Custom:
                     if (TryGetCustomPlacementMode(out var customPlacement))
                     {
@@ -654,18 +656,21 @@ public class ThemeShadowChrome : Decorator
                     translation = getTranslation(true, true, offsetToTarget);
                 }
                 break;
+
             case CustomPlacementMode.TopEdgeAlignedRight:
                 if (TryGetOffsetToTarget(InterestPoint.TopRight, InterestPoint.BottomRight, out offsetToTarget))
                 {
                     translation = getTranslation(true, false, offsetToTarget);
                 }
                 break;
+
             case CustomPlacementMode.BottomEdgeAlignedLeft:
                 if (TryGetOffsetToTarget(InterestPoint.BottomLeft, InterestPoint.TopLeft, out offsetToTarget))
                 {
                     translation = getTranslation(false, true, offsetToTarget);
                 }
                 break;
+
             case CustomPlacementMode.BottomEdgeAlignedRight:
                 if (TryGetOffsetToTarget(InterestPoint.BottomRight, InterestPoint.TopRight, out offsetToTarget))
                 {
@@ -909,5 +914,3 @@ public class ThemeShadowChrome : Decorator
     private static readonly Brush s_bg1, s_bg2, s_bg3, s_bg4;
     private static readonly Vector s_noTranslation = new Vector(0, 0);
 }
-
-

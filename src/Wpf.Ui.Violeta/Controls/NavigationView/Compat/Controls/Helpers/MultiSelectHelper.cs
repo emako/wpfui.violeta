@@ -34,7 +34,7 @@ public static class MultiSelectHelper
         UpdateVisualState(container, (SelectionMode)e.NewValue, container.IsVisible);
     }
 
-    #endregion
+    #endregion SelectionMode
 
     private static void UpdateVisualState(ListBoxItem control, SelectionMode selectionMode, bool useTransitions)
     {
@@ -42,4 +42,3 @@ public static class MultiSelectHelper
         VisualStateManager.GoToState(control, multiSelectEnabled ? MultiSelectEnabledState : MultiSelectDisabledState, useTransitions);
     }
 }
-

@@ -117,4 +117,3 @@ public sealed class DrillInNavigationTransitionInfo : NavigationTransitionInfo
         return new NavigationAnimation(element, storyboard);
     }
 }
-

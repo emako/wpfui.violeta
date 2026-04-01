@@ -6,10 +6,10 @@ using System.Windows.Threading;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-// Manages virtualization windows (visible/realization). 
+// Manages virtualization windows (visible/realization).
 // This class does the equivalent behavior as ViewportManagerWithPlatformFeatures class
-// except that here we do not use EffectiveViewport and ScrollAnchoring features added to the framework in RS5. 
-// Instead we use the IRepeaterScrollingSurface internal API. This class is used when building in MUX and 
+// except that here we do not use EffectiveViewport and ScrollAnchoring features added to the framework in RS5.
+// Instead we use the IRepeaterScrollingSurface internal API. This class is used when building in MUX and
 // should work down-level.
 internal class ViewportManagerDownLevel : ViewportManager
 {
@@ -187,7 +187,7 @@ internal class ViewportManagerDownLevel : ViewportManager
             return;
         }
 
-        // This is because of a bug that causes effective viewport to not 
+        // This is because of a bug that causes effective viewport to not
         // fire if you register during arrange.
         // Bug 17411076: EffectiveViewport: registering for effective viewport in arrange should invalidate viewport
         EnsureScrollers();
@@ -202,7 +202,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
         m_expectedViewportShift = default;
 
-        // This is because of a bug that causes effective viewport to not 
+        // This is because of a bug that causes effective viewport to not
         // fire if you register during arrange.
         // Bug 17411076: EffectiveViewport: registering for effective viewport in arrange should invalidate viewport
         // EnsureScrollers();
@@ -397,7 +397,7 @@ internal class ViewportManagerDownLevel : ViewportManager
                 m_verticalScroller.GetRelativeViewport(m_owner)) :
             new Rect();
         var currentVisibleWindow =
-            HasScrollers?
+            HasScrollers ?
             new Rect
             (
                 m_horizontalScroller != null ? horizontalVisibleWindow.X : verticalVisibleWindow.X,
@@ -512,13 +512,16 @@ internal class ViewportManagerDownLevel : ViewportManager
     // and m_verticalScroller are set. In the latter case, we don't care about the other
     // scroller that we haven't reached yet.
     private bool m_ensuredScrollers = false;
+
     private readonly List<ScrollerInfo> m_parentScrollers = new List<ScrollerInfo>();
 
     // In order to support the Store scenario (vertical list of horizontal lists),
     // we need to build a synthetic virtualization window by taking the horizontal and
     // vertical components of the viewport from two different scrollers.
     private IRepeaterScrollingSurface m_horizontalScroller;
+
     private IRepeaterScrollingSurface m_verticalScroller;
+
     // Invariant: !m_innerScrollableScroller || m_horizontalScroller == m_innerScrollableScroller || m_verticalScroller == m_innerScrollableScroller.
     private IRepeaterScrollingSurface m_innerScrollableScroller;
 
@@ -533,6 +536,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
     // Realization window cache fields
     private double m_maximumHorizontalCacheLength = 2.0;
+
     private double m_maximumVerticalCacheLength = 2.0;
     private double m_horizontalCacheBufferPerSide;
     private double m_verticalCacheBufferPerSide;
@@ -558,4 +562,3 @@ internal class ViewportManagerDownLevel : ViewportManager
         public IRepeaterScrollingSurface Scroller { get; }
     };
 }
-

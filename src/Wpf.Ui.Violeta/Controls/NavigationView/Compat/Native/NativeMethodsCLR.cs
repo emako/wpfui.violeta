@@ -19,10 +19,14 @@ public class POINT
         this.x = x;
         this.y = y;
     }
+
 #if DEBUG
-        public override string ToString() {
-            return "{x=" + x + ", y=" + y + "}";
-        }
+
+    public override string ToString()
+    {
+        return "{x=" + x + ", y=" + y + "}";
+    }
+
 #endif
 }
 
@@ -102,7 +106,6 @@ internal partial class NativeMethods
             }
         }
     }
-
 }
 
 [DebuggerDisplay("{Value}")]
@@ -110,14 +113,19 @@ internal readonly partial struct HWND
 : IEquatable<HWND>
 {
     internal readonly IntPtr Value;
+
     internal HWND(IntPtr value) => this.Value = value;
 
     internal static HWND Null => default;
 
     internal bool IsNull => Value == default;
+
     public static implicit operator IntPtr(HWND value) => value.Value;
+
     public static explicit operator HWND(IntPtr value) => new HWND(value);
+
     public static bool operator ==(HWND left, HWND right) => left.Value == right.Value;
+
     public static bool operator !=(HWND left, HWND right) => !(left == right);
 
     public bool Equals(HWND other) => this.Value == other.Value;
@@ -138,31 +146,37 @@ internal partial struct WINDOWPOS
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal HWND hwnd;
+
     /// <summary>
     /// <para>Type: <b>HWND</b> The position of the window in Z order (front-to-back position). This member can be a handle to the window behind which this window is placed, or can be one of the special values listed with the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos">SetWindowPos</a> function.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal HWND hwndInsertAfter;
+
     /// <summary>
     /// <para>Type: <b>int</b> The position of the left edge of the window.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal int x;
+
     /// <summary>
     /// <para>Type: <b>int</b> The position of the top edge of the window.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal int y;
+
     /// <summary>
     /// <para>Type: <b>int</b> The window width, in pixels.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal int cx;
+
     /// <summary>
     /// <para>Type: <b>int</b> The window height, in pixels.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowpos#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal int cy;
+
     /// <summary>Type: <b>UINT</b></summary>
     internal SET_WINDOW_POS_FLAGS flags;
 }
@@ -180,23 +194,28 @@ internal partial struct WINDOWPLACEMENT
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal uint length;
+
     /// <summary>Type: <b>UINT</b></summary>
     internal WINDOWPLACEMENT_FLAGS flags;
+
     /// <summary>
     /// <para>Type: <b>UINT</b> The current show state of the window. It can be any of the values that can be specified in the <i>nCmdShow</i> parameter for the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a> function.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal SHOW_WINDOW_CMD showCmd;
+
     /// <summary>
     /// <para>Type: <b><a href="https://docs.microsoft.com/previous-versions/dd162805(v=vs.85)">POINT</a></b> The coordinates of the window's upper-left corner when the window is minimized.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal System.Drawing.Point ptMinPosition;
+
     /// <summary>
     /// <para>Type: <b><a href="https://docs.microsoft.com/previous-versions/dd162805(v=vs.85)">POINT</a></b> The coordinates of the window's upper-left corner when the window is maximized.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal System.Drawing.Point ptMaxPosition;
+
     /// <summary>
     /// <para>Type: <b><a href="https://docs.microsoft.com/windows/desktop/api/windef/ns-windef-rect">RECT</a></b> The window's coordinates when the window is in the restored position.</para>
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
@@ -215,10 +234,13 @@ internal partial struct MONITORINFO
     /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-monitorinfo#members">Read more on docs.microsoft.com</see>.</para>
     /// </summary>
     internal uint cbSize;
+
     /// <summary>A <a href="https://docs.microsoft.com/windows/desktop/api/windef/ns-windef-rect">RECT</a> structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.</summary>
     internal RECT rcMonitor;
+
     /// <summary>A <a href="https://docs.microsoft.com/windows/desktop/api/windef/ns-windef-rect">RECT</a> structure that specifies the work area rectangle of the display monitor, expressed in virtual-screen coordinates. Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.</summary>
     internal RECT rcWork;
+
     /// <summary>
     /// <para>A set of flags that represent attributes of the display monitor. The following flag is defined. </para>
     /// <para>This doc was truncated.</para>
@@ -238,8 +260,11 @@ internal unsafe readonly partial struct PCWSTR
     /// A pointer to the first character in the string. The content should be considered readonly, as it was typed as constant in the SDK.
     /// </summary>
     internal readonly char* Value;
+
     internal PCWSTR(char* value) => this.Value = value;
+
     public static explicit operator char*(PCWSTR value) => value.Value;
+
     public static implicit operator PCWSTR(char* value) => new PCWSTR(value);
 
     public bool Equals(PCWSTR other) => this.Value == other.Value;
@@ -247,7 +272,6 @@ internal unsafe readonly partial struct PCWSTR
     public override bool Equals(object obj) => obj is PCWSTR other && this.Equals(other);
 
     public override int GetHashCode() => unchecked((int)this.Value);
-
 
     /// <summary>
     /// Gets the number of characters up to the first null character (exclusive).
@@ -265,14 +289,11 @@ internal unsafe readonly partial struct PCWSTR
         }
     }
 
-
     /// <summary>
     /// Returns a <see langword="string"/> with a copy of this character array, up to the first null character (exclusive).
     /// </summary>
     /// <returns>A <see langword="string"/>, or <see langword="null"/> if <see cref="Value"/> is <see langword="null"/>.</returns>
     public override string ToString() => this.Value is null ? null : new string(this.Value);
-
-
 
     private string DebuggerDisplay => this.ToString();
 }
@@ -282,14 +303,19 @@ internal readonly partial struct HICON
 : IEquatable<HICON>
 {
     internal readonly IntPtr Value;
+
     internal HICON(IntPtr value) => this.Value = value;
 
     internal static HICON Null => default;
 
     internal bool IsNull => Value == default;
+
     public static implicit operator IntPtr(HICON value) => value.Value;
+
     public static explicit operator HICON(IntPtr value) => new HICON(value);
+
     public static bool operator ==(HICON left, HICON right) => left.Value == right.Value;
+
     public static bool operator !=(HICON left, HICON right) => !(left == right);
 
     public bool Equals(HICON other) => this.Value == other.Value;
@@ -298,4 +324,3 @@ internal readonly partial struct HICON
 
     public override int GetHashCode() => this.Value.GetHashCode();
 }
-

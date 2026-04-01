@@ -24,7 +24,7 @@ internal class ViewManager
         UIElement element = forceCreate ? null : GetElementIfAlreadyHeldByLayout(index);
         if (element == null)
         {
-            // check if this is the anchor made through repeater in preparation 
+            // check if this is the anchor made through repeater in preparation
             // for a bring into view.
             if (m_owner.MadeAnchor is UIElement madeAnchor)
             {
@@ -35,7 +35,8 @@ internal class ViewManager
                 }
             }
         }
-        if (element == null) { element = GetElementFromUniqueIdResetPool(index); };
+        if (element == null) { element = GetElementFromUniqueIdResetPool(index); }
+        ;
         if (element == null) { element = GetElementFromPinnedElements(index); }
         if (element == null) { element = GetElementFromElementFactory(index); }
 
@@ -89,7 +90,7 @@ internal class ViewManager
         else
         {
             // Index is either outside the range we are keeping track of or inside the range.
-            // In both these cases, we just keep the range we have. If this clear was due to 
+            // In both these cases, we just keep the range we have. If this clear was due to
             // a collection change, then in the CollectionChanged event, we will invalidate these guys.
         }
     }
@@ -153,7 +154,7 @@ internal class ViewManager
         if (m_lastFocusedElement == element)
         {
             // Focused element is going away. Remove the tracked last focused element
-            // and pick a reasonable next focus if we can find one within the layout 
+            // and pick a reasonable next focus if we can find one within the layout
             // realized elements.
             int clearedIndex = virtInfo.Index;
             MoveFocusFromClearedIndex(clearedIndex);
@@ -280,8 +281,8 @@ internal class ViewManager
                 {
                     // Requirement: oldStartIndex == newStartIndex. It is not a replace if this is not true.
                     // Two cases here
-                    // case 1: oldCount == newCount 
-                    //         indices are not affected. nothing to do here.  
+                    // case 1: oldCount == newCount
+                    //         indices are not affected. nothing to do here.
                     // case 2: oldCount != newCount
                     //         Replaced with less or more items. This is like an insert or remove
                     //         depending on the counts.
@@ -363,7 +364,7 @@ internal class ViewManager
             case NotifyCollectionChangedAction.Reset:
                 {
                     // If we get multiple resets back to back before
-                    // running layout, we dont have to clear all the elements again.         
+                    // running layout, we dont have to clear all the elements again.
                     if (!m_isDataSourceStableResetPending)
                     {
 #if DEBUG
@@ -461,7 +462,7 @@ internal class ViewManager
                     if (virtInfo.Index == index)
                     {
                         element = child;
-                        // If we have valid first/last indices, we don't have to walk the rest, but if we 
+                        // If we have valid first/last indices, we don't have to walk the rest, but if we
                         // do not, then we keep walking through the entire children collection to get accurate
                         // indices once.
                         if (!cachedFirstLastIndicesInvalid)
@@ -598,7 +599,7 @@ internal class ViewManager
             if (element is FrameworkElement elementAsFE)
             {
                 // Set data context only if no x:Bind was used. ie. No data template component on the root.
-                // If the passed in data is a UIElement and is different from the element returned by 
+                // If the passed in data is a UIElement and is different from the element returned by
                 // the template factory then we need to propagate the DataContext.
                 // Otherwise just set the DataContext on the element as the data.
                 object initElementDataContext()
@@ -634,8 +635,8 @@ internal class ViewManager
         // The view generator is the only provider that prepares the element.
         var repeater = m_owner;
 
-        // Add the element to the children collection here before raising OnElementPrepared so 
-        // that handlers can walk up the tree in case they want to find their IndexPath in the 
+        // Add the element to the children collection here before raising OnElementPrepared so
+        // that handlers can walk up the tree in case they want to find their IndexPath in the
         // nested case.
         var children = repeater.Children;
         if (CachedVisualTreeHelpers.GetParent(element) != repeater)
@@ -675,11 +676,10 @@ internal class ViewManager
             if (m_lastFocusedElement == element)
             {
                 // Focused element is going away. Remove the tracked last focused element
-                // and pick a reasonable next focus if we can find one within the layout 
+                // and pick a reasonable next focus if we can find one within the layout
                 // realized elements.
                 MoveFocusFromClearedIndex(clearedIndex);
             }
-
         }
         return cleared;
     }
@@ -801,7 +801,7 @@ internal class ViewManager
                 }
                 else if (currentIndex >= clearedIndex)
                 {
-                    // Note that we use >= above because if we deleted the focused element, 
+                    // Note that we use >= above because if we deleted the focused element,
                     // the next element would have the same index now.
                     if (currentIndex < nextIndex)
                     {
@@ -903,28 +903,32 @@ internal class ViewManager
 
     // Pinned elements that are currently owned by layout are *NOT* in this pool.
     private readonly List<PinnedElementInfo> m_pinnedPool = new List<PinnedElementInfo>();
+
     private readonly UniqueIdElementPool m_resetPool;
 
     // _lastFocusedElement is listed in _pinnedPool.
     // It has to be an element we own (i.e. a direct child).
     private UIElement m_lastFocusedElement;
+
     private bool m_isDataSourceStableResetPending;
 
     // Event tokens
     private bool m_gotFocus;
+
     private bool m_lostFocus;
 
     // Cached generate/clear contexts to avoid cost of creation every time.
     private ElementFactoryGetArgs m_ElementFactoryGetArgs;
+
     private ElementFactoryRecycleArgs m_ElementFactoryRecycleArgs;
 
     // These are first/last indices requested by layout and not cleared yet.
     // These are also not truly first / last because they are a lower / upper bound on the known realized range.
-    // For example, if we didn't have the optimization in ElementManager.cpp, m_lastRealizedElementIndexHeldByLayout 
+    // For example, if we didn't have the optimization in ElementManager.cpp, m_lastRealizedElementIndexHeldByLayout
     // will not be accurate. Rather, it will be an upper bound on what we think is the last realized index.
     private int m_firstRealizedElementIndexHeldByLayout = FirstRealizedElementIndexDefault;
+
     private int m_lastRealizedElementIndexHeldByLayout = LastRealizedElementIndexDefault;
     private const int FirstRealizedElementIndexDefault = int.MaxValue;
     private const int LastRealizedElementIndexDefault = int.MinValue;
 }
-

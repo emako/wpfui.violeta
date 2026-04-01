@@ -77,7 +77,8 @@ internal class IndexRange
             hash = hash * 31 + m_begin.GetHashCode();
             hash = hash * 31 + m_end.GetHashCode();
             return hash;
-        };
+        }
+        ;
     }
 
     public static bool operator ==(IndexRange lhs, IndexRange rhs)
@@ -92,6 +93,6 @@ internal class IndexRange
 
     // Invariant: m_end >= m_begin
     private readonly int m_begin = -1;
+
     private readonly int m_end = -1;
 }
-

@@ -62,7 +62,7 @@ public class ExpanderHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region ContentWidth
 
@@ -86,7 +86,7 @@ public class ExpanderHelper
     public static readonly DependencyProperty ContentWidthProperty =
         ContentWidthPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion ContentWidth
 
     #region NegativeContentWidth
 
@@ -110,7 +110,7 @@ public class ExpanderHelper
     public static readonly DependencyProperty NegativeContentWidthProperty =
         NegativeContentWidthPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion NegativeContentWidth
 
     #region ContentHeight
 
@@ -134,7 +134,7 @@ public class ExpanderHelper
     public static readonly DependencyProperty ContentHeightProperty =
         ContentHeightPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion ContentHeight
 
     #region NegativeContentHeight
 
@@ -158,7 +158,7 @@ public class ExpanderHelper
     public static readonly DependencyProperty NegativeContentHeightProperty =
         NegativeContentHeightPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion NegativeContentHeight
 
     private static void OnContentSizeChanged(object sender, SizeChangedEventArgs args)
     {
@@ -174,5 +174,3 @@ public class ExpanderHelper
         }
     }
 }
-
-

@@ -28,6 +28,7 @@ public class NonVirtualizingLayout : Layout, INonVirtualizingLayoutOverrides
     }
 
     #region INonVirtualizingLayoutOverrides
+
     void INonVirtualizingLayoutOverrides.InitializeForContextCore(NonVirtualizingLayoutContext context)
     {
         InitializeForContextCore(context);
@@ -47,14 +48,17 @@ public class NonVirtualizingLayout : Layout, INonVirtualizingLayoutOverrides
     {
         return ArrangeOverride(context, finalSize);
     }
-    #endregion
+
+    #endregion INonVirtualizingLayoutOverrides
 }
 
 internal interface INonVirtualizingLayoutOverrides
 {
     void InitializeForContextCore(NonVirtualizingLayoutContext context);
+
     void UninitializeForContextCore(NonVirtualizingLayoutContext context);
+
     Size MeasureOverride(NonVirtualizingLayoutContext context, Size availableSize);
+
     Size ArrangeOverride(NonVirtualizingLayoutContext context, Size finalSize);
 }
-

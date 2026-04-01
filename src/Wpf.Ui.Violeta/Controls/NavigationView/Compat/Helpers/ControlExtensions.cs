@@ -20,4 +20,3 @@ public static class ControlExtensions
         return control.Template?.FindName(childName, control) as T;
     }
 }
-

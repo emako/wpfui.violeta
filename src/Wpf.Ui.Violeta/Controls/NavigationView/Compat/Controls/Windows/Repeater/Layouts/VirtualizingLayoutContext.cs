@@ -88,6 +88,7 @@ public class VirtualizingLayoutContext : LayoutContext, IVirtualizingLayoutConte
     }
 
     #region IVirtualizingLayoutContextOverrides
+
     int IVirtualizingLayoutContextOverrides.ItemCountCore()
     {
         return ItemCountCore();
@@ -120,7 +121,8 @@ public class VirtualizingLayoutContext : LayoutContext, IVirtualizingLayoutConte
         get => LayoutOriginCore;
         set => LayoutOriginCore = value;
     }
-    #endregion
+
+    #endregion IVirtualizingLayoutContextOverrides
 
     private NonVirtualizingLayoutContext m_contextAdapter;
 }
@@ -128,8 +130,11 @@ public class VirtualizingLayoutContext : LayoutContext, IVirtualizingLayoutConte
 internal interface IVirtualizingLayoutContextOverrides
 {
     int ItemCountCore();
+
     object GetItemAtCore(int index);
+
     UIElement GetOrCreateElementAtCore(int index, ElementRealizationOptions options);
+
     void RecycleElementCore(UIElement element);
 
     Rect RealizationRectCore();

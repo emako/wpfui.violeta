@@ -59,7 +59,7 @@ public static class HyperlinkHelper
         }
     }
 
-    #endregion
+    #endregion IsPressEnabled
 
     #region IsPressed
 
@@ -77,6 +77,5 @@ public static class HyperlinkHelper
         return (bool)hyperlink.GetValue(IsPressedProperty);
     }
 
-    #endregion
+    #endregion IsPressed
 }
-

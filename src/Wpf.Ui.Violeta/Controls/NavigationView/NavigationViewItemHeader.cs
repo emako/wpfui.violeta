@@ -6,7 +6,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public class NavigationViewItemHeader : NavigationViewItemBase
 {
-    const string c_rootGrid = "NavigationViewItemHeaderRootGrid";
+    private const string c_rootGrid = "NavigationViewItemHeaderRootGrid";
 
     static NavigationViewItemHeader()
     {
@@ -86,8 +86,7 @@ public class NavigationViewItemHeader : NavigationViewItemBase
         }
     }
 
-    bool m_isClosedCompact = false;
+    private bool m_isClosedCompact = false;
 
-    Grid m_rootGrid;
+    private Grid m_rootGrid;
 }
-

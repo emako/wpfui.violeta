@@ -13,7 +13,7 @@ public class NavigationViewItemAutomationPeer :
     ISelectionItemProvider,
     IExpandCollapseProvider
 {
-    private static  ControlStrings ResourceAccessor => NavigationView.ResourceAccessor;
+    private static ControlStrings ResourceAccessor => NavigationView.ResourceAccessor;
 
     public NavigationViewItemAutomationPeer(NavigationViewItem owner) :
         base(owner)
@@ -187,8 +187,6 @@ public class NavigationViewItemAutomationPeer :
         }
     }
 
-
-
     NavigationView GetParentNavigationView()
     {
         NavigationView navigationView = null;
@@ -273,7 +271,7 @@ public class NavigationViewItemAutomationPeer :
         return null;
     }
 
-    // Get either the position or the size of the set for this particular item in the case of left nav. 
+    // Get either the position or the size of the set for this particular item in the case of left nav.
     // We go through all the items and then we determine if the listviewitem from the left listview can be a navigation view item header
     // or a navigation view item. If it's the former, we just reset the count. If it's the latter, we increment the counter.
     // In case of calculating the position, if this is the NavigationViewItemAutomationPeer we're iterating through we break the loop.
@@ -334,9 +332,9 @@ public class NavigationViewItemAutomationPeer :
         return returnValue;
     }
 
-    // Get either the position or the size of the set for this particular item in the case of top nav (primary/overflow items). 
-    // Basically, we do the same here as GetPositionOrSetCountInLeftNavHelper without dealing with the listview directly, because 
-    // TopDataProvider provcides two methods: GetOverflowItems() and GetPrimaryItems(), so we can break the loop (in case of position) by 
+    // Get either the position or the size of the set for this particular item in the case of top nav (primary/overflow items).
+    // Basically, we do the same here as GetPositionOrSetCountInLeftNavHelper without dealing with the listview directly, because
+    // TopDataProvider provcides two methods: GetOverflowItems() and GetPrimaryItems(), so we can break the loop (in case of position) by
     // comparing the value of the FrameworkElementAutomationPeer we can get from the item we're iterating through to this object.
     int GetPositionOrSetCountInTopNavHelper(AutomationOutput automationOutput)
     {
@@ -457,4 +455,3 @@ public class NavigationViewItemAutomationPeer :
         Size,
     }
 }
-

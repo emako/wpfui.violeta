@@ -9,7 +9,7 @@ namespace Wpf.Ui.Violeta.Controls;
 // The same copy of .Net Collections like C# ObservableCollection<string> data is splitted into multiple Vectors.
 // For example, the raw data is:  Homes Apps Music | Microsoft Development
 // raw Data SplitDataSource is splitted into 3 ObservableVector which is owned by SplitVector:
-//  A: Home 
+//  A: Home
 //  B: Apps Music Microsoft Development
 //  C: |
 // A flag vector is used to indicate which Vector the item belongs to and the flag vector is the same length with raw data.
@@ -36,9 +36,15 @@ class SplitVector<T, SplitVectorID>
         m_vector = new ObservableCollection<T>();
     }
 
-    public SplitVectorID GetVectorIDForItem() { return m_vectorID; }
+    public SplitVectorID GetVectorIDForItem()
+    {
+        return m_vectorID;
+    }
 
-    public IList GetVector() { return m_vector; }
+    public IList GetVector()
+    {
+        return m_vector;
+    }
 
     public void OnRawDataRemove(int indexInOriginalVector, SplitVectorID vectorID)
     {
@@ -55,7 +61,6 @@ class SplitVector<T, SplitVectorID>
                 m_indexesInOriginalVector[i]--;
             }
         }
-
     }
 
     public void OnRawDataInsert(int preferIndex, int indexInOriginalVector, T value, SplitVectorID vectorID)
@@ -130,17 +135,20 @@ class SplitVector<T, SplitVectorID>
         return -1;
     }
 
-    int Size() { return m_indexesInOriginalVector.Count; }
+    int Size()
+    {
+        return m_indexesInOriginalVector.Count;
+    }
 
-    SplitVectorID m_vectorID;
-    Collection<T> m_vector;
-    List<int> m_indexesInOriginalVector = new List<int>();
-    Func<T, int> m_indexFunctionFromDataSource;
+    private SplitVectorID m_vectorID;
+    private Collection<T> m_vector;
+    private List<int> m_indexesInOriginalVector = new List<int>();
+    private Func<T, int> m_indexFunctionFromDataSource;
 }
 
 class SplitDataSourceBase<T, SplitVectorID, AttachedDataType> where SplitVectorID : Enum
 {
-    static readonly int SplitVectorSize = Enum.GetNames(typeof(SplitVectorID)).Length;
+    private static readonly int SplitVectorSize = Enum.GetNames(typeof(SplitVectorID)).Length;
 
     public SplitVectorID GetVectorIDForItem(int index)
     {
@@ -223,9 +231,13 @@ class SplitDataSourceBase<T, SplitVectorID, AttachedDataType> where SplitVectorI
     }
 
     internal virtual int IndexOf(T value) => 0;
+
     internal virtual T GetAt(int index) => default;
+
     internal virtual int Size() => 0;
+
     internal virtual SplitVectorID DefaultVectorIDOnInsert() => default;
+
     internal virtual AttachedDataType DefaultAttachedData() => default;
 
     public int IndexOfImpl(T value, SplitVectorID vectorID)
@@ -255,7 +267,6 @@ class SplitDataSourceBase<T, SplitVectorID, AttachedDataType> where SplitVectorI
     {
         return m_splitVectors[Convert.ToInt32(vectorID)];
     }
-
 
     public void OnClear()
     {
@@ -373,8 +384,8 @@ class SplitDataSourceBase<T, SplitVectorID, AttachedDataType> where SplitVectorI
     }
 
     // length is the same as data source, and used to identify which SplitVector it belongs to.
-    List<SplitVectorID> m_flags = new List<SplitVectorID>();
-    List<AttachedDataType> m_attachedData = new List<AttachedDataType>();
-    SplitVector<T, SplitVectorID>[] m_splitVectors = new SplitVector<T, SplitVectorID>[SplitVectorSize];
-}
+    private List<SplitVectorID> m_flags = new List<SplitVectorID>();
 
+    private List<AttachedDataType> m_attachedData = new List<AttachedDataType>();
+    private SplitVector<T, SplitVectorID>[] m_splitVectors = new SplitVector<T, SplitVectorID>[SplitVectorSize];
+}

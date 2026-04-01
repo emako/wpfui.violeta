@@ -19,4 +19,3 @@ public enum ElementRealizationOptions
     ForceCreate = 1,
     SuppressAutoRecycle = 2,
 }
-

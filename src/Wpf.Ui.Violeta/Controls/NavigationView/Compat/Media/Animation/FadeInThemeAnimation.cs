@@ -49,4 +49,3 @@ public sealed class FadeInThemeAnimation : DoubleAnimation
         return new FadeInThemeAnimation();
     }
 }
-

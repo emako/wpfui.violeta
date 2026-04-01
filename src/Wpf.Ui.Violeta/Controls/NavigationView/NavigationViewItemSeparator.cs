@@ -7,7 +7,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public class NavigationViewItemSeparator : NavigationViewItemBase
 {
-    const string c_rootGrid = "NavigationViewItemSeparatorRootGrid";
+    private const string c_rootGrid = "NavigationViewItemSeparatorRootGrid";
 
     static NavigationViewItemSeparator()
     {
@@ -100,10 +100,8 @@ public class NavigationViewItemSeparator : NavigationViewItemBase
         }
     }
 
-    bool m_appliedTemplate = false;
-    bool m_isClosedCompact = false;
+    private bool m_appliedTemplate = false;
+    private bool m_isClosedCompact = false;
 
-    Grid m_rootGrid;
+    private Grid m_rootGrid;
 }
-
-

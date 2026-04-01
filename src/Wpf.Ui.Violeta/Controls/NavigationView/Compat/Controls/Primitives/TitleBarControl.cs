@@ -22,4 +22,3 @@ public class TitleBarControl : Control
         element.SetValue(InsideTitleBarProperty, value);
     }
 }
-

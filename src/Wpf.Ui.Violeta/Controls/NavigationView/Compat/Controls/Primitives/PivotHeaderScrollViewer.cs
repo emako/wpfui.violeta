@@ -39,7 +39,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScroll
 
     #region CanScrollUp
 
@@ -59,7 +59,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollUpPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollUp
 
     #region CanScrollDown
 
@@ -79,7 +79,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollDownPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollDown
 
     #region CanScrollLeft
 
@@ -99,7 +99,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollLeftPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollLeft
 
     #region CanScrollRight
 
@@ -119,7 +119,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollRightPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollRight
 
     #region CanScrollVertically
 
@@ -139,7 +139,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollVerticallyPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollVertically
 
     #region CanScrollHorizontally
 
@@ -159,7 +159,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         private set => SetValue(CanScrollHorizontallyPropertyKey, value);
     }
 
-    #endregion
+    #endregion CanScrollHorizontally
 
     protected override void OnVisualParentChanged(DependencyObject oldParent)
     {
@@ -364,7 +364,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
 
                 // Due to event leapfrogging, we may have the wrong container.
                 // If so, re-fetch the right container using a more expensive method.
-                // (BTW, the previous line will cause a debug assert in this case) 
+                // (BTW, the previous line will cause a debug assert in this case)
                 if (tabItem == null ||
                     !EqualsEx(selectedItem, tabControl.ItemContainerGenerator.ItemFromContainer(tabItem)))
                 {
@@ -390,4 +390,3 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         }
     }
 }
-

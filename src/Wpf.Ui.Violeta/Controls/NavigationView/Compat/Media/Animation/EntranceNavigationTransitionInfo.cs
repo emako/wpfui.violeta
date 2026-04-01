@@ -104,4 +104,3 @@ public sealed class EntranceNavigationTransitionInfo : NavigationTransitionInfo
         return new NavigationAnimation(element, storyboard);
     }
 }
-

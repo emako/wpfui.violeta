@@ -20,10 +20,9 @@ public class ElevationBorder : ContentControl
         (d as ElevationBorder)?.RefreshElevationBrush();
     }
 
-
     public Color? ElevationColor
     {
-        get {  return (Color?)GetValue(ElevationColorProperty); }
+        get { return (Color?)GetValue(ElevationColorProperty); }
         set { SetValue(ElevationColorProperty, value); }
     }
 
@@ -38,6 +37,7 @@ public class ElevationBorder : ContentControl
     }
 
     public static readonly DependencyProperty IsElevationOnTopProperty = DependencyProperty.RegisterAttached(nameof(IsElevationOnTop), typeof(bool?), typeof(ElevationBorder), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.Inherits) { PropertyChangedCallback = ElevationRelatedProperty_ValueChanged });
+
     public bool? IsElevationOnTop
     {
         get { return (bool?)GetValue(IsElevationOnTopProperty); }
@@ -55,6 +55,7 @@ public class ElevationBorder : ContentControl
     }
 
     public static readonly DependencyProperty ElevationOpacityProperty = DependencyProperty.RegisterAttached(nameof(ElevationOpacity), typeof(double?), typeof(ElevationBorder), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.Inherits) { PropertyChangedCallback = ElevationRelatedProperty_ValueChanged });
+
     public double? ElevationOpacity
     {
         get { return (double?)GetValue(ElevationOpacityProperty); }
@@ -70,7 +71,6 @@ public class ElevationBorder : ContentControl
     {
         d?.SetValue(ElevationOpacityProperty, value);
     }
-
 
     public ElevationBorder()
     {
@@ -103,6 +103,7 @@ public class ElevationBorder : ContentControl
     private GradientStop _elevationBrush_Stop2;
 
     public static readonly DependencyProperty CornerRadiusProperty = Border.CornerRadiusProperty.AddOwner(typeof(ElevationBorder));
+
     public CornerRadius CornerRadius
     {
         get { return (CornerRadius)GetValue(CornerRadiusProperty); }
@@ -115,6 +116,7 @@ public class ElevationBorder : ContentControl
     {
         (d as ElevationBorder)?.ElevationLengthProperty_ValueChanged(d, e);
     }
+
     private void ElevationLengthProperty_ValueChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
         RefreshElevationBrush();
@@ -152,6 +154,7 @@ public class ElevationBorder : ContentControl
     }
 
     public static readonly DependencyProperty ElevationTransitionLengthProperty = DependencyProperty.Register(nameof(ElevationTransitionLength), typeof(double), typeof(ElevationBorder), new PropertyMetadata(3d));
+
     public double ElevationTransitionLength
     {
         get { return (double)GetValue(ElevationTransitionLengthProperty); }
@@ -159,6 +162,7 @@ public class ElevationBorder : ContentControl
     }
 
     public static readonly DependencyProperty IsElevationEnabledProperty = DependencyProperty.RegisterAttached(nameof(IsElevationEnabled), typeof(bool), typeof(UIElement), new FrameworkPropertyMetadata(true) { Inherits = true });
+
     public bool IsElevationEnabled
     {
         get { return (bool)GetValue(IsElevationEnabledProperty); }
@@ -177,11 +181,10 @@ public class ElevationBorder : ContentControl
 
     public static readonly DependencyPropertyKey ElevationBrushPropertyKey = DependencyProperty.RegisterReadOnly(nameof(ElevationBrush), typeof(LinearGradientBrush), typeof(ElevationBorder), new PropertyMetadata(null));
     public static readonly DependencyProperty ElevationBrushProperty = ElevationBrushPropertyKey.DependencyProperty;
+
     public LinearGradientBrush ElevationBrush
     {
         get { return (LinearGradientBrush)GetValue(ElevationBrushProperty); }
         set { SetValue(ElevationBrushPropertyKey, value); }
     }
 }
-
-

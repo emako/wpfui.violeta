@@ -6,4 +6,3 @@ public enum LightDismissOverlayMode
     On = 1,
     Off = 2,
 }
-

@@ -14,6 +14,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 public partial class ItemsRepeater : Panel
 {
     internal static readonly Point ClearedElementsArrangePosition = new Point(-10000.0, -10000.0);
+
     // A convention we use in the ItemsRepeater codebase for an invalid Rect value.
     internal static readonly Rect InvalidRect = Rect.Empty;
 
@@ -267,7 +268,7 @@ public partial class ItemsRepeater : Panel
         set => SetValue(VerticalCacheLengthProperty, value);
     }
 
-    #endregion
+    #endregion Properties
 
     public int GetElementIndex(UIElement element)
     {
@@ -295,7 +296,9 @@ public partial class ItemsRepeater : Panel
     }
 
     public event TypedEventHandler<ItemsRepeater, ItemsRepeaterElementClearingEventArgs> ElementClearing;
+
     public event TypedEventHandler<ItemsRepeater, ItemsRepeaterElementIndexChangedEventArgs> ElementIndexChanged;
+
     public event TypedEventHandler<ItemsRepeater, ItemsRepeaterElementPreparedEventArgs> ElementPrepared;
 
     internal IElementFactoryShim ItemTemplateShim => m_itemTemplateWrapper;
@@ -671,7 +674,7 @@ public partial class ItemsRepeater : Panel
             m_itemTemplateWrapper = newValue as IElementFactoryShim;
             if (m_itemTemplateWrapper == null)
             {
-                // ItemTemplate set does not implement IElementFactoryShim. We also 
+                // ItemTemplate set does not implement IElementFactoryShim. We also
                 // want to support DataTemplate and DataTemplateSelectors automagically.
                 if (newValue is DataTemplate dataTemplate)
                 {
@@ -827,29 +830,34 @@ public partial class ItemsRepeater : Panel
     private IElementFactoryShim m_itemTemplateWrapper;
 
     private VirtualizingLayoutContext m_layoutContext;
+
     // Value is different from null only while we are on the OnItemsSourceChanged call stack.
     private NotifyCollectionChangedEventArgs m_processingItemsSourceChange;
 
     private Size m_lastAvailableSize;
     private bool m_isLayoutInProgress = false;
+
     // The value of _layoutOrigin is expected to be set by the layout
     // when it gets measured. It should not be used outside of measure.
     private Point m_layoutOrigin;
 
     // Cached Event args to avoid creation cost every time
     private ItemsRepeaterElementPreparedEventArgs m_elementPreparedArgs;
+
     private ItemsRepeaterElementClearingEventArgs m_elementClearingArgs;
     private ItemsRepeaterElementIndexChangedEventArgs m_elementIndexChangedArgs;
 
-    // Loaded events fire on the first tick after an element is put into the tree 
+    // Loaded events fire on the first tick after an element is put into the tree
     // while unloaded is posted on the UI tree and may be processed out of sync with subsequent loaded
     // events. We keep these counters to detect out-of-sync unloaded events and take action to rectify.
     private int _loadedCounter;
+
     private int _unloadedCounter;
 
     // Bug in framework's reference tracking causes crash during
     // UIAffinityQueue cleanup. To avoid that bug, take a strong ref
     private object m_itemTemplate;
+
     private Layout m_layout;
     private ElementAnimator m_animator;
 
@@ -858,5 +866,3 @@ public partial class ItemsRepeater : Panel
     // Solution: Have flag that is only true when DataTemplate exists but it is empty.
     private bool m_isItemTemplateEmpty = false;
 }
-
-

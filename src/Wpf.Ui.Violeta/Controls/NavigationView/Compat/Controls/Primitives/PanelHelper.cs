@@ -73,7 +73,5 @@ public static class PanelHelper
         }
     }
 
-    #endregion
+    #endregion Spacing
 }
-
-

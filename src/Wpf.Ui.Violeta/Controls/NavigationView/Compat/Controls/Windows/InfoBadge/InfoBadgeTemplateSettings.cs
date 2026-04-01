@@ -25,7 +25,7 @@ public class InfoBadgeTemplateSettings : DependencyObject
         internal set => SetValue(IconElementPropertyKey, value);
     }
 
-    #endregion
+    #endregion IconElement
 
     #region InfoBadgeCornerRadius
 
@@ -44,6 +44,5 @@ public class InfoBadgeTemplateSettings : DependencyObject
         internal set => SetValue(InfoBadgeCornerRadiusPropertyKey, value);
     }
 
-    #endregion
+    #endregion InfoBadgeCornerRadius
 }
-

@@ -53,7 +53,7 @@ public abstract class IconElement : FrameworkElement
         set { SetValue(ForegroundProperty, value); }
     }
 
-    #endregion
+    #endregion Foreground
 
     #region VisualParentForeground
 
@@ -64,7 +64,7 @@ public abstract class IconElement : FrameworkElement
             typeof(IconElement),
             new PropertyMetadata(null, OnVisualParentForegroundPropertyChanged));
 
-    private protected Brush VisualParentForeground
+    protected Brush VisualParentForeground
     {
         get => (Brush)GetValue(VisualParentForegroundProperty);
         set => SetValue(VisualParentForegroundProperty, value);
@@ -79,9 +79,9 @@ public abstract class IconElement : FrameworkElement
     {
     }
 
-    #endregion
+    #endregion VisualParentForeground
 
-    private protected bool ShouldInheritForegroundFromVisualParent
+    protected bool ShouldInheritForegroundFromVisualParent
     {
         get => _shouldInheritForegroundFromVisualParent;
         private set
@@ -122,7 +122,7 @@ public abstract class IconElement : FrameworkElement
             Parent != VisualParent;
     }
 
-    private protected UIElementCollection Children
+    protected UIElementCollection Children
     {
         get
         {
@@ -202,7 +202,4 @@ public abstract class IconElement : FrameworkElement
     /// </summary>
     /// <returns>An icon source.</returns>
     protected virtual IconSource CreateIconSourceCore() => null;
-
 }
-
-

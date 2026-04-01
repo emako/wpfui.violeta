@@ -36,7 +36,7 @@ public class ScrollViewerEx : ScrollViewer
         set => SetValue(OrientationProperty, value);
     }
 
-    #endregion
+    #endregion Orientation
 
     #region AutoHideScrollBars
 
@@ -60,7 +60,7 @@ public class ScrollViewerEx : ScrollViewer
         }
     }
 
-    #endregion
+    #endregion AutoHideScrollBars
 
     #region RewriteWheelChange
 
@@ -77,7 +77,7 @@ public class ScrollViewerEx : ScrollViewer
         set => SetValue(RewriteWheelChangeProperty, value);
     }
 
-    #endregion
+    #endregion RewriteWheelChange
 
     #region ForceUseSmoothScroll
 
@@ -94,7 +94,7 @@ public class ScrollViewerEx : ScrollViewer
         set => SetValue(ForceUseSmoothScrollProperty, value);
     }
 
-    #endregion
+    #endregion ForceUseSmoothScroll
 
     #region Wheel Sensitivity
 
@@ -111,7 +111,7 @@ public class ScrollViewerEx : ScrollViewer
         set => SetValue(WheelSensitivityProperty, value);
     }
 
-    #endregion
+    #endregion Wheel Sensitivity
 
     #region IsScrollAnimationEnabled
 
@@ -128,7 +128,7 @@ public class ScrollViewerEx : ScrollViewer
         set => SetValue(IsScrollAnimationEnabledProperty, value);
     }
 
-    #endregion
+    #endregion IsScrollAnimationEnabled
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -163,7 +163,6 @@ public class ScrollViewerEx : ScrollViewer
     {
         Orientation Direction = GetDirection();
         ScrollViewerBehavior.SetIsAnimating(this, true);
-        
 
         if (Direction == Orientation.Vertical)
         {
@@ -392,5 +391,3 @@ public class ScrollViewerEx : ScrollViewer
         VisualStateManager.GoToState(this, stateName, useTransitions);
     }
 }
-
-

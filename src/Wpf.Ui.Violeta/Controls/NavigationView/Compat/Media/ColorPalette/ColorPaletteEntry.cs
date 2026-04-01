@@ -13,5 +13,3 @@ internal class ColorPaletteEntry : IColorPaletteEntry
 
     public Color ActiveColor { get; }
 }
-
-

@@ -24,7 +24,7 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(DisabledDataProperty, value);
     }
 
-    #endregion
+    #endregion DisabledData
 
     #region Data
 
@@ -41,7 +41,7 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(DataProperty, value);
     }
 
-    #endregion
+    #endregion Data
 
     #region PlaceholderData
 
@@ -58,7 +58,7 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(PlaceholderDataProperty, value);
     }
 
-    #endregion
+    #endregion PlaceholderData
 
     #region PointerOverData
 
@@ -75,7 +75,7 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(PointerOverDataProperty, value);
     }
 
-    #endregion
+    #endregion PointerOverData
 
     #region PointerOverPlaceholderData
 
@@ -92,7 +92,7 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(PointerOverPlaceholderDataProperty, value);
     }
 
-    #endregion
+    #endregion PointerOverPlaceholderData
 
     #region UnsetData
 
@@ -109,11 +109,10 @@ public class RatingItemPathInfo : RatingItemInfo
         set => SetValue(UnsetDataProperty, value);
     }
 
-    #endregion
+    #endregion UnsetData
 
     protected override Freezable CreateInstanceCore()
     {
         return new RatingItemPathInfo();
     }
 }
-

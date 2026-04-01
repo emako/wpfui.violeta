@@ -9,6 +9,7 @@ public static class DpiHelper
 {
     [ThreadStatic]
     private static Matrix _transformToDevice;
+
     [ThreadStatic]
     private static Matrix _transformToDip;
 

@@ -16,5 +16,3 @@ internal class FlyoutBaseClosingRevoker : EventRevoker<FlyoutBase, TypedEventHan
         source.Closing -= handler;
     }
 }
-
-

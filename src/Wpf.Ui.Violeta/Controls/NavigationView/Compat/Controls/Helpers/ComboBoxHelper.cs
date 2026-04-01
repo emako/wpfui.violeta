@@ -7,9 +7,12 @@ public sealed class ComboBoxHelper
 {
     private const string c_popupBorderName = "PopupBorder";
     private const string c_editableTextName = "PART_EditableTextBox";
+
     //private const string c_editableTextBorderName = "BorderElement";
     private const string c_backgroundName = "Background";
+
     private const string c_highlightBackgroundName = "HighlightBackground";
+
     //private const string c_controlCornerRadiusKey = "ControlCornerRadius";
     private const string c_overlayCornerRadiusKey = "OverlayCornerRadius";
 
@@ -166,5 +169,3 @@ public sealed class ComboBoxHelper
         return control.Template?.FindName(childName, control) as T;
     }
 }
-
-

@@ -15,4 +15,3 @@ internal static class FocusManagerEx
         return null!;
     }
 }
-

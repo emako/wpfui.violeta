@@ -141,6 +141,7 @@ public static class TreeViewControlHelper
 
         return null;
     }
+
     public static T FindVisualParent<T>(this Visual visual) where T : Visual
     {
         try
@@ -187,4 +188,3 @@ public static class TreeViewControlHelper
         return control.Template?.FindName(name, control);
     }
 }
-

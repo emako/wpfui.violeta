@@ -27,7 +27,7 @@ partial class NavigationView
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region IsPaneOpen
 
@@ -50,7 +50,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsPaneOpen
 
     #region CompactModeThresholdWidth
 
@@ -73,7 +73,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion CompactModeThresholdWidth
 
     #region ExpandedModeThresholdWidth
 
@@ -96,7 +96,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion ExpandedModeThresholdWidth
 
     #region FooterMenuItems
 
@@ -118,7 +118,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion FooterMenuItems
 
     #region FooterMenuItemsSource
 
@@ -141,7 +141,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion FooterMenuItemsSource
 
     #region PaneFooter
 
@@ -164,7 +164,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion PaneFooter
 
     #region Header
 
@@ -187,7 +187,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion Header
 
     #region HeaderTemplate
 
@@ -210,7 +210,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion HeaderTemplate
 
     #region DisplayMode
 
@@ -234,7 +234,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion DisplayMode
 
     #region IsSettingsVisible
 
@@ -257,7 +257,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsSettingsVisible
 
     #region IsPaneToggleButtonVisible
 
@@ -280,7 +280,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsPaneToggleButtonVisible
 
     #region AlwaysShowHeader
 
@@ -303,7 +303,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion AlwaysShowHeader
 
     #region CompactPaneLength
 
@@ -326,7 +326,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion CompactPaneLength
 
     #region OpenPaneLength
 
@@ -349,7 +349,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion OpenPaneLength
 
     #region PaneToggleButtonStyle
 
@@ -372,7 +372,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion PaneToggleButtonStyle
 
     #region IsFooterSeparatorVisible
 
@@ -395,7 +395,7 @@ partial class NavigationView
         set => SetValue(IsFooterSeparatorVisibleProperty, value);
     }
 
-    #endregion
+    #endregion IsFooterSeparatorVisible
 
     #region SelectedItem
 
@@ -418,9 +418,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
-
-
+    #endregion SelectedItem
 
     #region MenuItems
 
@@ -443,7 +441,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItems
 
     #region MenuItemsSource
 
@@ -466,7 +464,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItemsSource
 
     #region SettingsItem
 
@@ -490,7 +488,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion SettingsItem
 
     #region AutoSuggestBox
 
@@ -513,7 +511,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion AutoSuggestBox
 
     #region MenuItemTemplate
 
@@ -536,7 +534,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItemTemplate
 
     #region MenuItemTemplateSelector
 
@@ -559,7 +557,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItemTemplateSelector
 
     #region MenuItemContainerStyle
 
@@ -582,7 +580,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion MenuItemContainerStyle
 
     #region MenuItemContainerStyleSelector
 
@@ -606,10 +604,9 @@ partial class NavigationView
 
     private void OnMenuItemContainerStyleSelectorPropertyChanged(DependencyPropertyChangedEventArgs args)
     {
-
     }
 
-    #endregion
+    #endregion MenuItemContainerStyleSelector
 
     #region IsBackButtonVisible
 
@@ -632,7 +629,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsBackButtonVisible
 
     #region IsBackEnabled
 
@@ -655,7 +652,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsBackEnabled
 
     #region PaneTitle
 
@@ -678,7 +675,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion PaneTitle
 
     #region PaneDisplayMode
 
@@ -701,7 +698,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion PaneDisplayMode
 
     #region PaneHeader
 
@@ -718,7 +715,7 @@ partial class NavigationView
         set => SetValue(PaneHeaderProperty, value);
     }
 
-    #endregion
+    #endregion PaneHeader
 
     #region PaneCustomContent
 
@@ -735,7 +732,7 @@ partial class NavigationView
         set => SetValue(PaneCustomContentProperty, value);
     }
 
-    #endregion
+    #endregion PaneCustomContent
 
     #region ContentOverlay
 
@@ -752,7 +749,7 @@ partial class NavigationView
         set => SetValue(ContentOverlayProperty, value);
     }
 
-    #endregion
+    #endregion ContentOverlay
 
     #region IsPaneVisible
 
@@ -775,7 +772,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsPaneVisible
 
     #region SelectionFollowsFocus
 
@@ -798,7 +795,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion SelectionFollowsFocus
 
     #region TemplateSettings
 
@@ -818,7 +815,7 @@ partial class NavigationView
         private set => SetValue(TemplateSettingsPropertyKey, value);
     }
 
-    #endregion
+    #endregion TemplateSettings
 
     #region ShoulderNavigationEnabled
 
@@ -841,7 +838,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion ShoulderNavigationEnabled
 
     #region OverflowLabelMode
 
@@ -864,7 +861,7 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion OverflowLabelMode
 
     #region IsTitleBarAutoPaddingEnabled
 
@@ -887,17 +884,26 @@ partial class NavigationView
         owner.PropertyChanged(args);
     }
 
-    #endregion
+    #endregion IsTitleBarAutoPaddingEnabled
 
     public event TypedEventHandler<NavigationView, NavigationViewSelectionChangedEventArgs> SelectionChanged;
+
     public event TypedEventHandler<NavigationView, NavigationViewItemInvokedEventArgs> ItemInvoked;
+
     public event TypedEventHandler<NavigationView, NavigationViewDisplayModeChangedEventArgs> DisplayModeChanged;
+
     public event TypedEventHandler<NavigationView, NavigationViewBackRequestedEventArgs> BackRequested;
+
     public event TypedEventHandler<NavigationView, object> PaneClosed;
+
     public event TypedEventHandler<NavigationView, NavigationViewPaneClosingEventArgs> PaneClosing;
+
     public event TypedEventHandler<NavigationView, object> PaneOpened;
+
     public event TypedEventHandler<NavigationView, object> PaneOpening;
+
     public event TypedEventHandler<NavigationView, NavigationViewItemExpandingEventArgs> Expanding;
+
     public event TypedEventHandler<NavigationView, NavigationViewItemCollapsedEventArgs> Collapsed;
 
     private static object CoerceToGreaterThanZero(DependencyObject d, object baseValue)
@@ -910,5 +916,3 @@ partial class NavigationView
         return baseValue;
     }
 }
-
-

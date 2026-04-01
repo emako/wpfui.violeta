@@ -18,4 +18,3 @@ public static class DesignMode
     /// <returns>**True** if the process is running in design mode; otherwise **false**.</returns>
     public static bool DesignModeEnabled => _designModeEnabled.Value;
 }
-

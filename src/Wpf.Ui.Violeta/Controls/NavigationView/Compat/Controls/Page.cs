@@ -67,7 +67,7 @@ public class Page : System.Windows.Controls.Page
         }
     }
 
-    #endregion
+    #endregion Frame
 
     /// <summary>
     /// Invoked when the Page is loaded and becomes the current source of a parent Frame.
@@ -121,10 +121,11 @@ public class Page : System.Windows.Controls.Page
     }
 
     internal void InternalOnNavigatedTo(NavigationEventArgs e) => OnNavigatedTo(e);
+
     internal void InternalOnNavigatingFrom(NavigatingCancelEventArgs e) => OnNavigatingFrom(e);
+
     internal void InternalOnNavigatedFrom(NavigationEventArgs e) => OnNavigatedFrom(e);
 
     private static readonly Type NavigationServiceType = typeof(System.Windows.Navigation.NavigationService);
 }
 ;
-

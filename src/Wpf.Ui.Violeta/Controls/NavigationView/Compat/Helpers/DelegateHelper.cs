@@ -79,4 +79,3 @@ public static class DelegateHelper
 
     private const BindingFlags DefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;
 }
-

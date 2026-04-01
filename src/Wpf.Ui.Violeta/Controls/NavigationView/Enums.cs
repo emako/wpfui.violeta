@@ -41,4 +41,3 @@ public enum NavigationViewOverflowLabelMode
     MoreLabel = 0,
     NoLabel = 1,
 }
-

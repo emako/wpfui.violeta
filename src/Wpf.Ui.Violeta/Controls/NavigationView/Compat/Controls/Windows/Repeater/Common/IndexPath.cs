@@ -129,4 +129,3 @@ public sealed class IndexPath
 
     private readonly List<int> m_path = new List<int>();
 }
-

@@ -22,4 +22,3 @@ public static class ScrollBarThumbHelper
         thumb.SetValue(IsExpandedProperty, value);
     }
 }
-

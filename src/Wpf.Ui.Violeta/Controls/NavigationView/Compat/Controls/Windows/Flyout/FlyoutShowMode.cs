@@ -6,4 +6,3 @@ public enum FlyoutShowMode
     Standard = 1,
     Transient = 2,
 }
-

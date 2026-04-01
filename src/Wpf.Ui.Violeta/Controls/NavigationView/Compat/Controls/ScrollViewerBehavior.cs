@@ -24,7 +24,7 @@ public class ScrollViewerBehavior
         return (bool)target.GetValue(IsAnimatingProperty);
     }
 
-    #endregion
+    #endregion IsAnimating
 
     #region VerticalOffset
 
@@ -50,7 +50,7 @@ public class ScrollViewerBehavior
         (target as ScrollViewer)?.ScrollToVerticalOffset((double)e.NewValue);
     }
 
-    #endregion
+    #endregion VerticalOffset
 
     #region HorizontalOffset
 
@@ -76,6 +76,5 @@ public class ScrollViewerBehavior
         (target as ScrollViewer)?.ScrollToHorizontalOffset((double)e.NewValue);
     }
 
-    #endregion
+    #endregion HorizontalOffset
 }
-

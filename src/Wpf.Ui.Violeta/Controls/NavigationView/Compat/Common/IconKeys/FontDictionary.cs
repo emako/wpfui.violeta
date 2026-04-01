@@ -54,4 +54,3 @@ public readonly struct FontIconData
         throw new ArgumentException("Input glyph must be a single character or a valid surrogate pair.");
     }
 }
-

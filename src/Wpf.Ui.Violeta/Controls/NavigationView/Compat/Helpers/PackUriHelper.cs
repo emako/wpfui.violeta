@@ -9,5 +9,3 @@ internal static class PackUriHelper
         return new Uri($"pack://application:,,,/Wpf.Ui.Violeta.Controls.Compat;component/{path}");
     }
 }
-
-

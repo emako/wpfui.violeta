@@ -51,5 +51,3 @@ public class ImageIconSource : IconSource
         return imageIcon;
     }
 }
-
-

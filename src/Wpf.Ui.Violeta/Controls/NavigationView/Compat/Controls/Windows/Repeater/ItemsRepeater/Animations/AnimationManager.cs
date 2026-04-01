@@ -43,13 +43,16 @@ internal class AnimationManager
             case NotifyCollectionChangedAction.Add:
                 m_hasRecordedAdds = true;
                 break;
+
             case NotifyCollectionChangedAction.Remove:
                 m_hasRecordedRemoves = true;
                 break;
+
             case NotifyCollectionChangedAction.Replace:
                 m_hasRecordedAdds = true;
                 m_hasRecordedRemoves = true;
                 break;
+
             case NotifyCollectionChangedAction.Reset:
                 m_hasRecordedResets = true;
                 break;
@@ -137,6 +140,7 @@ internal class AnimationManager
     // layout transition during the current
     // tick.
     private bool m_hasRecordedAdds;
+
     private bool m_hasRecordedRemoves;
     private bool m_hasRecordedResets;
     private bool m_hasRecordedLayoutTransitions;

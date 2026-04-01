@@ -38,7 +38,7 @@ public static class CalendarHelper
         }
     }
 
-    #endregion
+    #endregion AutoReleaseMouseCapture
 
     private static void OnCalendarGotMouseCapture(object sender, MouseEventArgs e)
     {
@@ -53,4 +53,3 @@ public static class CalendarHelper
         }
     }
 }
-

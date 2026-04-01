@@ -27,7 +27,7 @@ public class FlowLayoutState
 
     internal void OnLineArranged(int startIndex, int countInLine, double lineSize, VirtualizingLayoutContext context)
     {
-        // If we do not have any estimation information, use the line for estimation. 
+        // If we do not have any estimation information, use the line for estimation.
         // If we do have some estimation information, don't account for the last line which is quite likely
         // different from the rest of the lines and can throw off estimation.
         if (TotalLinesMeasured == 0 || startIndex + countInLine != context.ItemCount)
@@ -60,5 +60,3 @@ public class FlowLayoutState
     private readonly List<double> m_itemsPerLineEstimationBuffer = new List<double>();
     private static readonly int BufferSize = 100;
 }
-
-

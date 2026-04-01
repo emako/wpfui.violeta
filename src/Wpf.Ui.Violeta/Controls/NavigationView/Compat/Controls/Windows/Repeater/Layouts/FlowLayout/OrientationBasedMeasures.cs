@@ -125,4 +125,3 @@ internal class OrientationBasedMeasures
             new Size(major, minor);
     }
 }
-

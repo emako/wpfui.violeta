@@ -13,4 +13,3 @@ public enum TitleBarButtonGlyphStyle
     MDL2,
     Fluent,
 }
-

@@ -69,7 +69,7 @@ public class SelectionModel : INotifyPropertyChanged
                 // - more than one item was selected at the time of the switch
                 if (value && selectedIndices != null && selectedIndices.Count > 1)
                 {
-                    // We want to be single select, so make sure there is only 
+                    // We want to be single select, so make sure there is only
                     // one selected item.
                     var firstSelectionIndexPath = selectedIndices[0];
                     ClearSelection(true /* resetAnchor */, false /*raiseSelectionChanged */);
@@ -186,9 +186,9 @@ public class SelectionModel : INotifyPropertyChanged
                 }
 
                 // Instead of creating a dumb vector that takes up the space for all the selected items,
-                // we create a custom VectorView implimentation that calls back using a delegate to find 
+                // we create a custom VectorView implimentation that calls back using a delegate to find
                 // the selected item at a particular index. This avoid having to create the storage and copying
-                // needed in a dumb vector. This also allows us to expose a tree of selected nodes into an 
+                // needed in a dumb vector. This also allows us to expose a tree of selected nodes into an
                 // easier to consume flat vector view of objects.
                 var selectedItems = new SelectedItems<object>(
                     selectedInfos,
@@ -244,9 +244,9 @@ public class SelectionModel : INotifyPropertyChanged
                     });
 
                 // Instead of creating a dumb vector that takes up the space for all the selected indices,
-                // we create a custom VectorView implimentation that calls back using a delegate to find 
+                // we create a custom VectorView implimentation that calls back using a delegate to find
                 // the IndexPath at a particular index. This avoid having to create the storage and copying
-                // needed in a dumb vector. This also allows us to expose a tree of selected nodes into an 
+                // needed in a dumb vector. This also allows us to expose a tree of selected nodes into an
                 // easier to consume flat vector view of IndexPaths.
                 var indices = new SelectedItems<IndexPath>(
                     selectedInfos,
@@ -455,7 +455,10 @@ public class SelectionModel : INotifyPropertyChanged
         OnSelectionChanged();
     }
 
-    internal SelectionNode SharedLeafNode() { return m_leafNode; }
+    internal SelectionNode SharedLeafNode()
+    {
+        return m_leafNode;
+    }
 
     internal object ResolvePath(object data, IndexPath dataIndexPath)
     {
@@ -473,7 +476,6 @@ public class SelectionModel : INotifyPropertyChanged
                 m_childrenRequestedEventArgs.Initialize(data, dataIndexPath, false /*throwOnAccess*/);
             }
 
-
             childrenRequested(this, m_childrenRequestedEventArgs);
             resolved = m_childrenRequestedEventArgs.Children;
 
@@ -484,7 +486,7 @@ public class SelectionModel : INotifyPropertyChanged
         {
             // No handlers for ChildrenRequested event. If data is of type ItemsSourceView
             // or a type that can be used to create a ItemsSourceView using ItemsSourceView.CreateFrom, then we can
-            // auto-resolve that as the child. If not, then we consider the value as a leaf. This is to 
+            // auto-resolve that as the child. If not, then we consider the value as a leaf. This is to
             // avoid having to provide the event handler for the most common scenarios. If the app dev does
             // not want this default behavior, they can provide the handler to override.
             if (data is ItemsSourceView ||
@@ -613,9 +615,9 @@ public class SelectionModel : INotifyPropertyChanged
             bool changedSelection = false;
 
             // We only need to clear selection by walking the data structure from the beginning when:
-            // - we are in single selection mode and 
+            // - we are in single selection mode and
             // - want to select something.
-            // 
+            //
             // If we want to unselect something we unselect it directly in TraverseIndexPath below and raise the SelectionChanged event
             // if required.
             if (m_singleSelect && select)
@@ -719,7 +721,7 @@ public class SelectionModel : INotifyPropertyChanged
         var winrtStart = start;
         var winrtEnd = end;
 
-        // Make sure start <= end 
+        // Make sure start <= end
         if (winrtEnd.CompareTo(winrtStart) == -1)
         {
             var temp = winrtStart;
@@ -745,18 +747,17 @@ public class SelectionModel : INotifyPropertyChanged
         OnSelectionChanged();
     }
 
-    SelectionNode m_rootNode;
-    bool m_singleSelect = false;
+    private SelectionNode m_rootNode;
+    private bool m_singleSelect = false;
 
-    IReadOnlyList<IndexPath> m_selectedIndicesCached;
-    IReadOnlyList<object> m_selectedItemsCached;
+    private IReadOnlyList<IndexPath> m_selectedIndicesCached;
+    private IReadOnlyList<object> m_selectedItemsCached;
 
     // Cached Event args to avoid creation cost every time
-    SelectionModelChildrenRequestedEventArgs m_childrenRequestedEventArgs;
-    SelectionModelSelectionChangedEventArgs m_selectionChangedEventArgs;
+    private SelectionModelChildrenRequestedEventArgs m_childrenRequestedEventArgs;
+
+    private SelectionModelSelectionChangedEventArgs m_selectionChangedEventArgs;
 
     // use just one instance of a leaf node to avoid creating a bunch of these.
-    SelectionNode m_leafNode;
+    private SelectionNode m_leafNode;
 }
-
-

@@ -10,13 +10,14 @@ public enum ScrollingIndicatorMode
     /// Do not use input-specific transitions.
     /// </summary>
     None = 0,
+
     /// <summary>
     /// Use input-specific transitions that are appropriate for touch input.
     /// </summary>
     TouchIndicator = 1,
+
     /// <summary>
     /// Use input-specific transitions that are appropriate for mouse input.
     /// </summary>
     MouseIndicator = 2,
 }
-

@@ -37,7 +37,6 @@ public static class TextBoxHelper
             textBox.Loaded += OnLoaded;
             textBox.TextChanged += OnTextChanged;
             UpdateHasText(textBox);
-
         }
         else
         {
@@ -47,7 +46,7 @@ public static class TextBoxHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region HasText
 
@@ -76,7 +75,7 @@ public static class TextBoxHelper
         SetHasText(textBox, !string.IsNullOrEmpty(textBox.Text));
     }
 
-    #endregion
+    #endregion HasText
 
     #region IsDeleteButton
 
@@ -112,7 +111,7 @@ public static class TextBoxHelper
         }
     }
 
-    #endregion
+    #endregion IsDeleteButton
 
     #region IsDeleteButtonVisible
 
@@ -138,8 +137,7 @@ public static class TextBoxHelper
         UpdateVisualStates((TextBox)d, (bool)e.NewValue);
     }
 
-    #endregion
-
+    #endregion IsDeleteButtonVisible
 
     private static void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -167,4 +165,3 @@ public static class TextBoxHelper
         VisualStateManager.GoToState(textBox, isDeleteButtonVisible ? ButtonVisibleState : ButtonCollapsedState, true);
     }
 }
-

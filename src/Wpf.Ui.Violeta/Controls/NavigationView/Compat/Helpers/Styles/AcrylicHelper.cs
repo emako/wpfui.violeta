@@ -68,14 +68,14 @@ public static class Acrylic10Helper
     /// <param name="force">Skip the compatibility check.</param>
     public static bool Apply(IntPtr handle, Color color, bool force = false)
     {
-        //if (!force && !IsSupported()) 
-        //{ 
-        //    return false; 
+        //if (!force && !IsSupported())
+        //{
+        //    return false;
         //}
 
-        if (handle == IntPtr.Zero) 
-        { 
-            return false; 
+        if (handle == IntPtr.Zero)
+        {
+            return false;
         }
 
         if (IsAcrylicSupported())
@@ -86,7 +86,6 @@ public static class Acrylic10Helper
         {
             return false; // TryApplyAero(handle);
         }
-
     }
 
     /// <summary>
@@ -275,5 +274,3 @@ public static class Acrylic10Helper
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     private static extern int SetWindowCompositionAttribute(IntPtr hWnd, ref WINCOMPATTRDATA data);
 }
-
-

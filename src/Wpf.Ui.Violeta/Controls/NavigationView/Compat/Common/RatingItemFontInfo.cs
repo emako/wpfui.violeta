@@ -38,7 +38,7 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(DisabledGlyphProperty, value);
     }
 
-    #endregion
+    #endregion DisabledGlyph
 
     #region Glyph
 
@@ -63,7 +63,7 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(GlyphProperty, value);
     }
 
-    #endregion
+    #endregion Glyph
 
     #region PlaceholderGlyph
 
@@ -88,7 +88,7 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(PlaceholderGlyphProperty, value);
     }
 
-    #endregion
+    #endregion PlaceholderGlyph
 
     #region PointerOverGlyph
 
@@ -113,7 +113,7 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(PointerOverGlyphProperty, value);
     }
 
-    #endregion
+    #endregion PointerOverGlyph
 
     #region PointerOverPlaceholderGlyph
 
@@ -138,7 +138,7 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(PointerOverPlaceholderGlyphProperty, value);
     }
 
-    #endregion
+    #endregion PointerOverPlaceholderGlyph
 
     #region UnsetGlyph
 
@@ -163,11 +163,10 @@ public class RatingItemFontInfo : RatingItemInfo
         set => SetValue(UnsetGlyphProperty, value);
     }
 
-    #endregion
+    #endregion UnsetGlyph
 
     protected override Freezable CreateInstanceCore()
     {
         return new RatingItemFontInfo();
     }
 }
-

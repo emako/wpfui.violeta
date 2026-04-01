@@ -15,5 +15,3 @@ public sealed class NavigationViewItemInvokedEventArgs : EventArgs
     public NavigationViewItemBase InvokedItemContainer { get; internal set; }
     public NavigationTransitionInfo RecommendedNavigationTransitionInfo { get; internal set; }
 }
-
-

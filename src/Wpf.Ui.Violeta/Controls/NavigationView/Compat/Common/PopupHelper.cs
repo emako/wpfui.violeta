@@ -49,5 +49,3 @@ internal static class PopupHelper
 
     private static readonly Lazy<Action<Popup>> s_reposition = new Lazy<Action<Popup>>(CreateRepositionDelegate);
 }
-
-

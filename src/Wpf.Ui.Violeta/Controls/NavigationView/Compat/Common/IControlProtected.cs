@@ -6,4 +6,3 @@ internal interface IControlProtected
 {
     DependencyObject GetTemplateChild(string childName);
 }
-

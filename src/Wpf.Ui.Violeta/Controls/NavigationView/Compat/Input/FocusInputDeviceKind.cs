@@ -9,4 +9,3 @@ internal enum FocusInputDeviceKind
     Keyboard = 4,
     GameController = 5,
 }
-

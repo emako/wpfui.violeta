@@ -40,7 +40,7 @@ public static class AutoPanningMode
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     private static void ScrollViewer_Loaded(object sender, RoutedEventArgs e)
     {
@@ -109,4 +109,3 @@ public static class AutoPanningMode
         }
     }
 }
-

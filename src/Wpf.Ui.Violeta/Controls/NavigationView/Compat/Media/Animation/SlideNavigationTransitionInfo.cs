@@ -15,11 +15,13 @@ public enum SlideNavigationTransitionEffect
     /// The exiting page fades out and the entering page enters from the bottom.
     /// </summary>
     FromBottom = 0,
+
     /// <summary>
     /// The exiting page leaves to the right of the panel and the entering page enters
     /// from the left.
     /// </summary>
     FromLeft = 1,
+
     /// <summary>
     /// The exiting page leaves to the left of the panel and the entering page enters
     /// from the right.
@@ -63,7 +65,7 @@ public sealed class SlideNavigationTransitionInfo : NavigationTransitionInfo, IS
         set => SetValue(EffectProperty, value);
     }
 
-    #endregion
+    #endregion Effect
 
     internal override NavigationAnimation GetEnterAnimation(FrameworkElement element, bool movingBackwards)
     {
@@ -230,4 +232,3 @@ internal interface ISlideNavigationTransitionInfo2
 {
     SlideNavigationTransitionEffect Effect { get; set; }
 }
-

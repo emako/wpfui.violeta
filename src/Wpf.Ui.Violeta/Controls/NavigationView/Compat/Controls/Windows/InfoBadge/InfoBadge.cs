@@ -40,7 +40,7 @@ public class InfoBadge : Control
         ((InfoBadge)sender).OnDisplayKindPropertiesChanged();
     }
 
-    #endregion
+    #endregion IconSource
 
     #region TemplateSettings
 
@@ -59,7 +59,7 @@ public class InfoBadge : Control
         get => (InfoBadgeTemplateSettings)GetValue(TemplateSettingsProperty);
     }
 
-    #endregion
+    #endregion TemplateSettings
 
     #region Value
 
@@ -81,7 +81,7 @@ public class InfoBadge : Control
         ((InfoBadge)sender).OnDisplayKindPropertiesChanged();
     }
 
-    #endregion
+    #endregion Value
 
     #region CornerRadius
 
@@ -104,7 +104,7 @@ public class InfoBadge : Control
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     public override void OnApplyTemplate()
     {
@@ -188,10 +188,9 @@ public class InfoBadge : Control
                 }
             }
             return new CornerRadius(cornerRadiusValue, cornerRadiusValue, cornerRadiusValue, cornerRadiusValue);
-        };
+        }
+        ;
 
         TemplateSettings.InfoBadgeCornerRadius = value();
     }
 }
-
-

@@ -17,7 +17,6 @@ public class SimpleVisualStateManager : VisualStateManager
     {
         if (state != null)
         {
-            
             useTransitions &= Helper.IsAnimationsEnabled;
 
             if (group.Transitions.Count > 0 && VisualStateGroupHelper.IsSupported)
@@ -52,7 +51,7 @@ public class SimpleVisualStateManager : VisualStateManager
         return null;
     }
 
-    #endregion
+    #endregion VisualStateGroups
 
     #region State Change
 
@@ -104,7 +103,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
         // If the transition is null, then we want to instantly snap. The dynamicTransition will
         // consist of everything that is being moved back to the default state.
-        // If the transition.Duration and explicit storyboard duration is zero, then we want both the dynamic 
+        // If the transition.Duration and explicit storyboard duration is zero, then we want both the dynamic
         // and state Storyboards to happen in the same tick, so we start them at the same time.
         if (transition == null || transition.GeneratedDuration == DurationZero &&
                                         (transition.Storyboard == null || transition.Storyboard.Duration == DurationZero))
@@ -164,7 +163,7 @@ public class SimpleVisualStateManager : VisualStateManager
     ///   if the stateGroupsRoot or control is not in the tree, don't start the new
     ///   storyboards. Also if the group has already changed state, then
     ///   don't start the new storyboards.
-    /// </summary> 
+    /// </summary>
     private static bool ShouldRunStateStoryboard(FrameworkElement control, FrameworkElement stateGroupsRoot, VisualState state, VisualStateGroup group)
     {
         bool controlInTree = true;
@@ -175,7 +174,7 @@ public class SimpleVisualStateManager : VisualStateManager
         // which would tell us it's in the visual tree.
         if (control != null)
         {
-            // If it's visible then it's in the visual tree, so we don't even have to look for a 
+            // If it's visible then it's in the visual tree, so we don't even have to look for a
             // PresentationSource
             if (!control.IsVisible)
             {
@@ -194,7 +193,7 @@ public class SimpleVisualStateManager : VisualStateManager
         return controlInTree && stateGroupsRootInTree && state == group.CurrentState;
     }
 
-    #endregion
+    #endregion State Change
 
     #region Transitions
 
@@ -279,13 +278,11 @@ public class SimpleVisualStateManager : VisualStateManager
         return transition.From == null && transition.To == null;
     }
 
-    #endregion
+    #endregion Transitions
 
     #region Data
 
     private static readonly Duration DurationZero = new Duration(TimeSpan.Zero);
 
-    #endregion
+    #endregion Data
 }
-
-

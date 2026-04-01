@@ -150,7 +150,7 @@ public class ContentPresenterEx : ContentPresenter
                             new PropertyChangedCallback(OnTextWrappingChanged)));
 
     /// <summary>
-    /// The TextWrapping property controls whether or not text wraps 
+    /// The TextWrapping property controls whether or not text wraps
     /// when it reaches the flow edge of its containing block box.
     /// </summary>
     public TextWrapping TextWrapping
@@ -172,13 +172,14 @@ public class ContentPresenterEx : ContentPresenter
         }
     }
 
-    #endregion
+    #endregion Public Properties
 
     #region Private Properties
 
     private bool IsUsingDefaultTemplate { get; set; }
 
     private TextBlock _textBlock;
+
     private TextBlock TextBlock
     {
         get => _textBlock;
@@ -199,6 +200,7 @@ public class ContentPresenterEx : ContentPresenter
     }
 
     private AccessText _accessText;
+
     private AccessText AccessText
     {
         get => _accessText;
@@ -218,7 +220,7 @@ public class ContentPresenterEx : ContentPresenter
         }
     }
 
-    #endregion
+    #endregion Private Properties
 
     #region Protected Methods
 
@@ -281,6 +283,5 @@ public class ContentPresenterEx : ContentPresenter
         }
     }
 
-    #endregion
+    #endregion Protected Methods
 }
-

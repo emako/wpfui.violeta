@@ -56,5 +56,3 @@ public class PathIconSource : IconSource
         return pathIcon;
     }
 }
-
-

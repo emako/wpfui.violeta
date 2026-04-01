@@ -84,7 +84,6 @@ internal class ColorPalette
 
         if (baseColorHSL.S >= _saturationAdjustmentCutoff)
         {
-
             adjustedLight = ColorBlending.SaturateViaLCH(adjustedLight, _saturationLight);
             adjustedDark = ColorBlending.SaturateViaLCH(adjustedDark, _saturationDark);
         }
@@ -117,5 +116,3 @@ internal class ColorPalette
         return finalScale;
     }
 }
-
-

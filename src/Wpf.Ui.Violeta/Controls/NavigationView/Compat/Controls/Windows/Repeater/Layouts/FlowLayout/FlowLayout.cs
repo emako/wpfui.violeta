@@ -72,7 +72,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         ((FlowLayout)sender).PrivateOnPropertyChanged(args);
     }
 
-    #endregion
+    #endregion Properties
 
     #region IVirtualizingLayoutOverrides
 
@@ -146,7 +146,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         InvalidateLayout();
     }
 
-    #endregion
+    #endregion IVirtualizingLayoutOverrides
 
     #region IFlowLayoutOverrides
 
@@ -323,7 +323,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         flowState.OnLineArranged(startIndex, countInLine, lineSize, context);
     }
 
-    #endregion
+    #endregion IFlowLayoutOverrides
 
     #region IFlowLayoutAlgorithmDelegates
 
@@ -410,7 +410,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
             context);
     }
 
-    #endregion
+    #endregion IFlowLayoutAlgorithmDelegates
 
     private void PrivateOnPropertyChanged(DependencyPropertyChangedEventArgs args)
     {
@@ -494,11 +494,12 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
 
     // Fields
     private double m_minRowSpacing;
+
     private double m_minColumnSpacing;
     private FlowLayoutLineAlignment m_lineAlignment = FlowLayoutLineAlignment.Start;
 
     // !!! WARNING !!!
-    // Any storage here needs to be related to layout configuration. 
+    // Any storage here needs to be related to layout configuration.
     // layout specific state needs to be stored in FlowLayoutState.
 
     private OrientationBasedMeasures OM { get; } = new OrientationBasedMeasures();
@@ -513,4 +514,3 @@ public enum FlowLayoutLineAlignment
     SpaceBetween = 4,
     SpaceEvenly = 5
 }
-

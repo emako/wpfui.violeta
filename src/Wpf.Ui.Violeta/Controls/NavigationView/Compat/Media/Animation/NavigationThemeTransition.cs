@@ -40,6 +40,5 @@ public sealed class NavigationThemeTransition : Transition
         set => SetValue(DefaultNavigationTransitionInfoProperty, value);
     }
 
-    #endregion
+    #endregion DefaultNavigationTransitionInfo
 }
-

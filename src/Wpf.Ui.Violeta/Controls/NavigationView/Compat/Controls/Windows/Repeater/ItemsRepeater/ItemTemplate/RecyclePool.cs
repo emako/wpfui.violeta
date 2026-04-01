@@ -152,7 +152,7 @@ public class RecyclePool
             typeof(RecyclePool),
             null);
 
-    #endregion
+    #endregion Properties
 
     private Panel EnsureOwnerIsPanelOrNull(UIElement owner)
     {
@@ -183,5 +183,3 @@ public class RecyclePool
 
     private readonly Dictionary<string, List<ElementInfo>> m_elements = new Dictionary<string, List<ElementInfo>>();
 }
-
-

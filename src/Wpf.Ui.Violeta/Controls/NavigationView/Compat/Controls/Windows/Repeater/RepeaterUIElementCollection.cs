@@ -47,7 +47,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
 
             VisualCollection vc = _visualChildren;
 
-            //if setting new element into slot or assigning null, 
+            //if setting new element into slot or assigning null,
             //remove previously hooked element from the logical tree
             if (vc[index] != value)
             {
@@ -67,9 +67,9 @@ internal class RepeaterUIElementCollection : UIElementCollection
         return AddInternal(element);
     }
 
-    // Warning: this method is very dangerous because it does not prevent adding children 
+    // Warning: this method is very dangerous because it does not prevent adding children
     // into collection populated by generator. This may cause crashes if used incorrectly.
-    // Don't call this unless you are deriving a panel that is populating the collection 
+    // Don't call this unless you are deriving a panel that is populating the collection
     // in cooperation with the generator
     internal int AddInternal(UIElement element)
     {
@@ -107,9 +107,9 @@ internal class RepeaterUIElementCollection : UIElementCollection
         ClearInternal();
     }
 
-    // Warning: this method is very dangerous because it does not prevent adding children 
+    // Warning: this method is very dangerous because it does not prevent adding children
     // into collection populated by generator. This may cause crashes if used incorrectly.
-    // Don't call this unless you are deriving a panel that is populating the collection 
+    // Don't call this unless you are deriving a panel that is populating the collection
     // in cooperation with the generator
     internal void ClearInternal()
     {
@@ -118,7 +118,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
 
         if (cnt > 0)
         {
-            // copy children in VisualCollection so that we can clear the visual link first, 
+            // copy children in VisualCollection so that we can clear the visual link first,
             // followed by the logical link
             Visual[] visuals = new Visual[cnt];
             for (int i = 0; i < cnt; i++)
@@ -145,9 +145,9 @@ internal class RepeaterUIElementCollection : UIElementCollection
         InsertInternal(index, element);
     }
 
-    // Warning: this method is very dangerous because it does not prevent adding children 
+    // Warning: this method is very dangerous because it does not prevent adding children
     // into collection populated by generator. This may cause crashes if used incorrectly.
-    // Don't call this unless you are deriving a panel that is populating the collection 
+    // Don't call this unless you are deriving a panel that is populating the collection
     // in cooperation with the generator
     internal void InsertInternal(int index, UIElement element)
     {
@@ -175,9 +175,9 @@ internal class RepeaterUIElementCollection : UIElementCollection
         RemoveRangeInternal(index, count);
     }
 
-    // Warning: this method is very dangerous because it does not prevent adding children 
+    // Warning: this method is very dangerous because it does not prevent adding children
     // into collection populated by generator. This may cause crashes if used incorrectly.
-    // Don't call this unless you are deriving a panel that is populating the collection 
+    // Don't call this unless you are deriving a panel that is populating the collection
     // in cooperation with the generator
     internal void RemoveRangeInternal(int index, int count)
     {
@@ -190,7 +190,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
 
         if (count > 0)
         {
-            // copy children in VisualCollection so that we can clear the visual link first, 
+            // copy children in VisualCollection so that we can clear the visual link first,
             // followed by the logical link
             Visual[] visuals = new Visual[count];
             int i = index;
@@ -211,7 +211,6 @@ internal class RepeaterUIElementCollection : UIElementCollection
                 }
             }
         }
-
     }
 
     // Helper function to validate element; will throw exceptions if problems are detected.
@@ -232,4 +231,3 @@ internal class RepeaterUIElementCollection : UIElementCollection
     private readonly UIElement _visualParent;
     private readonly FrameworkElement _logicalParent;
 }
-

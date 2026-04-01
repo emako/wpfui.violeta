@@ -50,5 +50,3 @@ internal class SplitViewCompactPaneLengthChangedRevoker : EventRevoker<SplitView
         source.CompactPaneLengthChanged -= handler;
     }
 }
-
-

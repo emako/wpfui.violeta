@@ -8,7 +8,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 /// Extracts a single member of a CornerRadius object.
 /// For example, if you have a CornerRadius of 5,5,5,5 and you want to extract the TopLeft value, you would use this converter with the TargetMember set to TopLeft.
 /// </summary>
-public class CornerRadiusExtractionConverter: IValueConverter
+public class CornerRadiusExtractionConverter : IValueConverter
 {
     public CornerRadiusExtractMember TargetMember { get; set; }
 
@@ -26,15 +26,19 @@ public class CornerRadiusExtractionConverter: IValueConverter
                 case CornerRadiusExtractMember.TopLeft:
                     result = cornerRadius.TopLeft;
                     break;
+
                 case CornerRadiusExtractMember.TopRight:
                     result = cornerRadius.TopRight;
                     break;
+
                 case CornerRadiusExtractMember.BottomRight:
                     result = cornerRadius.BottomRight;
                     break;
+
                 case CornerRadiusExtractMember.BottomLeft:
                     result = cornerRadius.BottomLeft;
                     break;
+
                 default:
                     result = cornerRadius.TopLeft;
                     break;
@@ -56,12 +60,16 @@ public class CornerRadiusExtractionConverter: IValueConverter
             {
                 case CornerRadiusExtractMember.TopLeft:
                     return new CornerRadius(doubleValue, 0, 0, 0);
+
                 case CornerRadiusExtractMember.TopRight:
                     return new CornerRadius(0, doubleValue, 0, 0);
+
                 case CornerRadiusExtractMember.BottomRight:
                     return new CornerRadius(0, 0, doubleValue, 0);
+
                 case CornerRadiusExtractMember.BottomLeft:
                     return new CornerRadius(0, 0, 0, doubleValue);
+
                 default:
                     return new CornerRadius(doubleValue);
             }
@@ -78,4 +86,3 @@ public enum CornerRadiusExtractMember
     BottomRight,
     BottomLeft
 }
-

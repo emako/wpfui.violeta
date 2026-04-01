@@ -53,7 +53,7 @@ public class VisualStateGroupListener : FrameworkElement
         UpdateCurrentStateName(e.NewState);
     }
 
-    #endregion
+    #endregion Group
 
     #region CurrentStateName
 
@@ -85,7 +85,7 @@ public class VisualStateGroupListener : FrameworkElement
         }
     }
 
-    #endregion
+    #endregion CurrentStateName
 
     #region Listener
 
@@ -119,6 +119,5 @@ public class VisualStateGroupListener : FrameworkElement
         }
     }
 
-    #endregion
+    #endregion Listener
 }
-

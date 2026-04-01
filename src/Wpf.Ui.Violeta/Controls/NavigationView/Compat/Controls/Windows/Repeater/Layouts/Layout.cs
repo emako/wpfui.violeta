@@ -128,4 +128,3 @@ public class Layout : DependencyObject
         ArrangeInvalidated?.Invoke(this, null);
     }
 }
-

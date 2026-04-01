@@ -54,7 +54,7 @@ internal static class VisualStateGroupHelper
         return currentStoryboards;
     }
 
-    #endregion
+    #endregion CurrentStoryboards
 
     internal static void StartNewThenStopOld(this VisualStateGroup group, FrameworkElement element, params Storyboard[] newStoryboards)
     {
@@ -93,7 +93,6 @@ internal static class VisualStateGroupHelper
             // commenting this out for now.
             // newStoryboards[index].SeekAlignedToLastTick(element, TimeSpan.Zero, TimeSeekOrigin.BeginTime);
         }
-
     }
 
     private static Action<VisualStateGroup, VisualState> CreateSetCurrentStateDelegate()
@@ -113,5 +112,3 @@ internal static class VisualStateGroupHelper
     private static readonly Lazy<Action<VisualStateGroup, VisualState>> _setCurrentState =
         new Lazy<Action<VisualStateGroup, VisualState>>(CreateSetCurrentStateDelegate);
 }
-
-

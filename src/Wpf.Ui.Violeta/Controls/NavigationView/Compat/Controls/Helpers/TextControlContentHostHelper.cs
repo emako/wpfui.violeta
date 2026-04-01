@@ -23,6 +23,5 @@ public static class TextControlContentHostHelper
         contentHost.SetValue(ContentPresenterMarginProperty, value);
     }
 
-    #endregion
+    #endregion ContentPresenterMargin
 }
-

@@ -22,7 +22,7 @@ public static class ExpanderAnimationsHelper
         typeof(ExpanderAnimationsHelper),
         new PropertyMetadata("ExpanderContent"));
 
-    #endregion
+    #endregion ToAnimateControlName
 
     #region ExpandAnimationDuration
 
@@ -38,7 +38,7 @@ public static class ExpanderAnimationsHelper
         typeof(ExpanderAnimationsHelper),
         new PropertyMetadata(TimeSpan.FromMilliseconds(333)));
 
-    #endregion
+    #endregion ExpandAnimationDuration
 
     #region CollapseAnimationDuration
 
@@ -55,7 +55,7 @@ public static class ExpanderAnimationsHelper
             typeof(ExpanderAnimationsHelper),
             new PropertyMetadata(TimeSpan.FromMilliseconds(167)));
 
-    #endregion
+    #endregion CollapseAnimationDuration
 
     #region IsEnabled
 
@@ -112,7 +112,7 @@ public static class ExpanderAnimationsHelper
         RunExpanderAnimation(expander);
     }
 
-    #endregion
+    #endregion IsEnabled
 
     /// <summary>
     /// Initializes the visual state of an expander on initial load without animations.
@@ -147,7 +147,7 @@ public static class ExpanderAnimationsHelper
             // If expanded on load, ensure visibility is set and clear any animations
             toAnimateControl.BeginAnimation(UIElement.VisibilityProperty, null);
             toAnimateControl.Visibility = Visibility.Visible;
-            
+
             // Clear any transform animations and reset transform to identity
             if (toAnimateControl.RenderTransform is TranslateTransform translateTransform)
             {
@@ -211,7 +211,7 @@ public static class ExpanderAnimationsHelper
         }
 
         var (animationProperty, toValue) = GetToAnimatePropertyAndValue(toAnimateControl, expander.ExpandDirection);
-        
+
         toAnimateControl.BeginAnimation(UIElement.VisibilityProperty, visibilityAnimation);
         RunTranslationAnimation(animationDuration, translateTransform, animationProperty,
             toValue);

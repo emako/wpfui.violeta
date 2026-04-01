@@ -43,7 +43,7 @@ internal class MaximizedWindowFixer
         }
     }
 
-    #endregion
+    #endregion MaximizedWindowFixer
 
     private Thickness MaximizedWindowBorder => _maximizedWindowBorder ??= GetMaximizedWindowBorder();
 
@@ -144,16 +144,18 @@ internal class MaximizedWindowFixer
     {
         IntPtr retInt = IntPtr.Zero;
         uint message = (uint)msg;
-        
+
         switch (message)
         {
             case (int)WM.SETTINGCHANGE:
                 InvalidateMaximizedWindowBorder();
                 UpdateWindowPadding();
                 break;
+
             case (int)WM.WINDOWPOSCHANGING:
                 OnWindowPosChanging(lParam);
                 break;
+
             case (int)WM.WINDOWPOSCHANGED:
                 if (!_maximizedWindowBorder.HasValue)
                 {
@@ -310,13 +312,16 @@ internal class MaximizedWindowFixer
                 pos.x = 2;
                 pos.cx -= 2;
                 break;
+
             case ABEdge.ABE_TOP:
                 pos.y = 2;
                 pos.cy -= 2;
                 break;
+
             case ABEdge.ABE_RIGHT:
                 pos.cx -= 2;
                 break;
+
             case ABEdge.ABE_BOTTOM:
                 pos.cy -= 2;
                 break;
@@ -384,7 +389,7 @@ internal class MaximizedWindowFixer
     [DllImport("user32.dll", ExactSpelling = true)]
     private static extern IntPtr MonitorFromRect(ref RECT rect, MONITOR_FROM_FLAGS flags);
 
-    #endregion
+    #endregion Win32 Interop
 
     private Window _window;
     private IntPtr _hwnd;
@@ -392,5 +397,3 @@ internal class MaximizedWindowFixer
     private Thickness? _maximizedWindowBorder;
     private bool _isWindowPosAdjusted;
 }
-
-

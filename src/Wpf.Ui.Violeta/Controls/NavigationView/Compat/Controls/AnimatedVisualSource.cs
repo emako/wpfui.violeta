@@ -36,7 +36,7 @@ public class AnimatedVisualSource : Control
         set => SetValue(FallbackIconSourceProperty, value);
     }
 
-    #endregion
+    #endregion FallbackIconSource
 
     #region MirroredWhenRightToLeft
 
@@ -60,7 +60,7 @@ public class AnimatedVisualSource : Control
         set => SetValue(MirroredWhenRightToLeftProperty, value);
     }
 
-    #endregion
+    #endregion MirroredWhenRightToLeft
 
     #region State
 
@@ -85,12 +85,10 @@ public class AnimatedVisualSource : Control
         ((AnimatedVisualSource)d).OnStatePropertyChanged(e);
     }
 
-    #endregion
+    #endregion State
 
     protected virtual void OnStatePropertyChanged(DependencyPropertyChangedEventArgs e)
     {
         VisualStateManager.GoToState(this, (string)e.NewValue, true);
     }
 }
-
-

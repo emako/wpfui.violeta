@@ -26,6 +26,7 @@ internal sealed class CoreApplicationViewTitleBar
     public double SystemOverlayRightInset => TitleBar.GetSystemOverlayRightInset(_owner);
 
     public event TypedEventHandler<CoreApplicationViewTitleBar, object> IsVisibleChanged;
+
     public event TypedEventHandler<CoreApplicationViewTitleBar, object> LayoutMetricsChanged;
 
     private void RaiseIsVisibleChanged()
@@ -72,7 +73,7 @@ internal sealed class CoreApplicationViewTitleBar
         window.SetValue(TitleBarProperty, value);
     }
 
-    #endregion
+    #endregion TitleBar
 
     private readonly Window _owner;
     private readonly Listener _listener;
@@ -120,7 +121,7 @@ internal sealed class CoreApplicationViewTitleBar
             _owner.RaiseIsVisibleChanged();
         }
 
-        #endregion
+        #endregion ExtendViewIntoTitleBar
 
         #region Height
 
@@ -147,7 +148,7 @@ internal sealed class CoreApplicationViewTitleBar
             _owner.RaiseLayoutMetricsChanged();
         }
 
-        #endregion
+        #endregion Height
 
         #region SystemOverlayLeftInset
 
@@ -174,7 +175,7 @@ internal sealed class CoreApplicationViewTitleBar
             _owner.RaiseLayoutMetricsChanged();
         }
 
-        #endregion
+        #endregion SystemOverlayLeftInset
 
         #region SystemOverlayRightInset
 
@@ -201,10 +202,8 @@ internal sealed class CoreApplicationViewTitleBar
             _owner.RaiseLayoutMetricsChanged();
         }
 
-        #endregion
+        #endregion SystemOverlayRightInset
 
         private readonly CoreApplicationViewTitleBar _owner;
     }
 }
-
-

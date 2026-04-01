@@ -101,5 +101,3 @@ public class RecyclingElementFactory : ElementFactory
     private Dictionary<string, DataTemplate> m_templates;
     private SelectTemplateEventArgs m_args;
 }
-
-

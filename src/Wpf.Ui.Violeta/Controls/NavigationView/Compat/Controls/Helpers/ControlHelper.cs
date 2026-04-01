@@ -41,7 +41,7 @@ public static class ControlHelper
             typeof(ControlHelper),
             null);
 
-    #endregion
+    #endregion CornerRadius
 
     #region Header
 
@@ -80,7 +80,7 @@ public static class ControlHelper
         UpdateHeaderVisibility((Control)d);
     }
 
-    #endregion
+    #endregion Header
 
     #region HeaderTemplate
 
@@ -122,7 +122,7 @@ public static class ControlHelper
         UpdateHeaderVisibility((Control)d);
     }
 
-    #endregion
+    #endregion HeaderTemplate
 
     #region HeaderVisibility
 
@@ -162,7 +162,7 @@ public static class ControlHelper
         SetHeaderVisibility(control, visibility);
     }
 
-    #endregion
+    #endregion HeaderVisibility
 
     #region PlaceholderText
 
@@ -206,7 +206,7 @@ public static class ControlHelper
         UpdatePlaceholderTextVisibility((Control)d);
     }
 
-    #endregion
+    #endregion PlaceholderText
 
     #region PlaceholderTextVisibility
 
@@ -235,7 +235,7 @@ public static class ControlHelper
         SetPlaceholderTextVisibility(control, string.IsNullOrEmpty(GetPlaceholderText(control)) ? Visibility.Collapsed : Visibility.Visible);
     }
 
-    #endregion
+    #endregion PlaceholderTextVisibility
 
     #region PlaceholderForeground
 
@@ -269,7 +269,7 @@ public static class ControlHelper
             typeof(ControlHelper),
             null);
 
-    #endregion
+    #endregion PlaceholderForeground
 
     #region Description
 
@@ -310,7 +310,7 @@ public static class ControlHelper
         UpdateDescriptionVisibility((Control)d);
     }
 
-    #endregion
+    #endregion Description
 
     #region DescriptionVisibility
 
@@ -339,7 +339,7 @@ public static class ControlHelper
         SetDescriptionVisibility(control, IsNullOrEmptyString(GetDescription(control)) ? Visibility.Collapsed : Visibility.Visible);
     }
 
-    #endregion
+    #endregion DescriptionVisibility
 
     #region VisualState
 
@@ -394,11 +394,10 @@ public static class ControlHelper
         }
     }
 
-    #endregion
+    #endregion VisualState
 
     internal static bool IsNullOrEmptyString(object obj)
     {
         return obj == null || obj is string s && string.IsNullOrEmpty(s);
     }
 }
-

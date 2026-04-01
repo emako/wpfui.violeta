@@ -42,7 +42,7 @@ public class ScrollInfoAdapter : UIElement, IScrollInfo
         ((ScrollInfoAdapter)d).UpdateOffsets();
     }
 
-    #endregion
+    #endregion ForceUseSmoothScroll
 
     /// <inheritdoc/>
     public bool CanVerticallyScroll
@@ -280,6 +280,7 @@ public class ScrollInfoAdapter : UIElement, IScrollInfo
     }
 
     #region not exposed methods
+
     private void Animate(DependencyProperty property, double targetValue, int duration = 300)
     {
         //make a smooth animation that starts and ends slowly
@@ -331,17 +332,21 @@ public class ScrollInfoAdapter : UIElement, IScrollInfo
             ? _child.ScrollOwner.ScrollableWidth
             : horizontalOffset;
     }
-    #endregion
+
+    #endregion not exposed methods
 
     #region helper dependency properties as scrollbars are not animatable by default
+
     internal double VerticalScrollOffset
     {
         get { return (double)GetValue(VerticalScrollOffsetProperty); }
         set { SetValue(VerticalScrollOffsetProperty, value); }
     }
+
     internal static readonly DependencyProperty VerticalScrollOffsetProperty =
         DependencyProperty.Register("VerticalScrollOffset", typeof(double), typeof(ScrollInfoAdapter),
         new PropertyMetadata(0.0, new PropertyChangedCallback(OnVerticalScrollOffsetChanged)));
+
     private static void OnVerticalScrollOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         double NewValue = (double)e.NewValue;
@@ -357,14 +362,16 @@ public class ScrollInfoAdapter : UIElement, IScrollInfo
         get { return (double)GetValue(HorizontalScrollOffsetProperty); }
         set { SetValue(HorizontalScrollOffsetProperty, value); }
     }
+
     internal static readonly DependencyProperty HorizontalScrollOffsetProperty =
         DependencyProperty.Register("HorizontalScrollOffset", typeof(double), typeof(ScrollInfoAdapter),
         new PropertyMetadata(0.0, new PropertyChangedCallback(OnHorizontalScrollOffsetChanged)));
+
     private static void OnHorizontalScrollOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var smoothScrollViewer = (ScrollInfoAdapter)d;
         smoothScrollViewer._child.SetHorizontalOffset((double)e.NewValue);
     }
-    #endregion
-}
 
+    #endregion helper dependency properties as scrollbars are not animatable by default
+}

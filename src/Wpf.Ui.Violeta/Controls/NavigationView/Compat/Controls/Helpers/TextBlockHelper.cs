@@ -40,7 +40,7 @@ public static class TextBlockHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region IsTextTrimmed
 
@@ -64,7 +64,7 @@ public static class TextBlockHelper
     public static readonly DependencyProperty IsTextTrimmedProperty =
         IsTextTrimmedPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion IsTextTrimmed
 
     private static void OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
@@ -97,4 +97,3 @@ public static class TextBlockHelper
         SetIsTextTrimmed(textBlock, isTrimmed);
     }
 }
-

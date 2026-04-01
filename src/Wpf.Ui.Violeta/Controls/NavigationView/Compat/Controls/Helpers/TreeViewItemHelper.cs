@@ -53,7 +53,7 @@ public static class TreeViewItemHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region CollapsedGlyph
 
@@ -93,7 +93,7 @@ public static class TreeViewItemHelper
             typeof(TreeViewItemHelper),
             new PropertyMetadata("\uF2B0"));
 
-    #endregion
+    #endregion CollapsedGlyph
 
     #region ExpandedGlyph
 
@@ -133,7 +133,7 @@ public static class TreeViewItemHelper
             typeof(TreeViewItemHelper),
             new PropertyMetadata("\uF2A3"));
 
-    #endregion
+    #endregion ExpandedGlyph
 
     #region CollapsedPath
 
@@ -166,7 +166,7 @@ public static class TreeViewItemHelper
             typeof(Geometry),
             typeof(TreeViewItemHelper));
 
-    #endregion
+    #endregion CollapsedPath
 
     #region ExpandedPath
 
@@ -199,7 +199,7 @@ public static class TreeViewItemHelper
             typeof(Geometry),
             typeof(TreeViewItemHelper));
 
-    #endregion
+    #endregion ExpandedPath
 
     #region GlyphBrush
 
@@ -233,7 +233,7 @@ public static class TreeViewItemHelper
             typeof(TreeViewItemHelper),
             null);
 
-    #endregion
+    #endregion GlyphBrush
 
     #region GlyphOpacity
 
@@ -267,7 +267,7 @@ public static class TreeViewItemHelper
             typeof(TreeViewItemHelper),
             new PropertyMetadata(1.0));
 
-    #endregion
+    #endregion GlyphOpacity
 
     #region GlyphSize
 
@@ -301,7 +301,7 @@ public static class TreeViewItemHelper
             typeof(TreeViewItemHelper),
             new PropertyMetadata(12.0));
 
-    #endregion
+    #endregion GlyphSize
 
     #region Indentation
 
@@ -338,7 +338,7 @@ public static class TreeViewItemHelper
         SetIndentation(item, new Thickness(GetDepth(item) * 16, 0, 0, 0));
     }
 
-    #endregion
+    #endregion Indentation
 
     #region ExpandChevronPadding
 
@@ -359,8 +359,7 @@ public static class TreeViewItemHelper
         treeViewItem.SetValue(ExpandChevronPaddingProperty, value);
     }
 
-    #endregion
-
+    #endregion ExpandChevronPadding
 
     private static int GetDepth(TreeViewItem item)
     {
@@ -373,4 +372,3 @@ public static class TreeViewItemHelper
         return depth;
     }
 }
-

@@ -112,7 +112,6 @@ public static partial class FullscreenHelper
                 return;
             }
 
-
             var hwndSource = HwndSource.FromHwnd(hwnd);
 
             // Remove hook
@@ -298,7 +297,6 @@ public static partial class FullscreenHelper
             /// </summary>
             SW_RESTORE = 9,
         }
-
 
         internal static class Properties
         {

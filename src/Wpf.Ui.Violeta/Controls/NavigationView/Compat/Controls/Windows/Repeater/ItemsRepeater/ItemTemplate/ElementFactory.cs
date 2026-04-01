@@ -21,7 +21,7 @@ public class ElementFactory : DependencyObject, IElementFactoryShim
         RecycleElementCore(args);
     }
 
-    #endregion
+    #endregion IElementFactory
 
     protected virtual UIElement GetElementCore(ElementFactoryGetArgs args)
     {
@@ -33,4 +33,3 @@ public class ElementFactory : DependencyObject, IElementFactoryShim
         throw new NotImplementedException();
     }
 }
-

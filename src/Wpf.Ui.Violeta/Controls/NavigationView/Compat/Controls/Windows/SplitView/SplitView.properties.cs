@@ -31,7 +31,7 @@ partial class SplitView
         CompactPaneLengthChanged?.Invoke(this, args.Property);
     }
 
-    #endregion
+    #endregion CompactPaneLength
 
     #region Content
 
@@ -47,7 +47,7 @@ partial class SplitView
         set => SetValue(ContentProperty, value);
     }
 
-    #endregion
+    #endregion Content
 
     #region CornerRadius
 
@@ -66,7 +66,7 @@ partial class SplitView
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region DisplayMode
 
@@ -96,7 +96,7 @@ partial class SplitView
         DisplayModeChanged?.Invoke(this, args.Property);
     }
 
-    #endregion
+    #endregion DisplayMode
 
     #region IsPaneOpen
 
@@ -137,7 +137,7 @@ partial class SplitView
         IsPaneOpenChanged?.Invoke(this, args.Property);
     }
 
-    #endregion
+    #endregion IsPaneOpen
 
     #region OpenPaneLength
 
@@ -165,7 +165,7 @@ partial class SplitView
         UpdatePaneClipRectangle();
     }
 
-    #endregion
+    #endregion OpenPaneLength
 
     #region PaneBackground
 
@@ -181,7 +181,7 @@ partial class SplitView
         set => SetValue(PaneBackgroundProperty, value);
     }
 
-    #endregion
+    #endregion PaneBackground
 
     #region PanePlacement
 
@@ -208,7 +208,7 @@ partial class SplitView
         UpdateDisplayModeState();
     }
 
-    #endregion
+    #endregion PanePlacement
 
     #region Pane
 
@@ -224,7 +224,7 @@ partial class SplitView
         set => SetValue(PaneProperty, value);
     }
 
-    #endregion
+    #endregion Pane
 
     #region TemplateSettings
 
@@ -244,7 +244,7 @@ partial class SplitView
         private set => SetValue(TemplateSettingsPropertyKey, value);
     }
 
-    #endregion
+    #endregion TemplateSettings
 
     #region LightDismissOverlayMode
 
@@ -271,7 +271,5 @@ partial class SplitView
         UpdateOverlayVisibilityState();
     }
 
-    #endregion
+    #endregion LightDismissOverlayMode
 }
-
-

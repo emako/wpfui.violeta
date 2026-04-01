@@ -156,7 +156,8 @@ class TopNavigationViewDataProvider : SplitDataSourceT
         foreach (var index in indexes)
         {
             MoveItemToVector(index, vectorID);
-        };
+        }
+        ;
     }
 
     public int GetPrimaryListSize()
@@ -384,10 +385,11 @@ class TopNavigationViewDataProvider : SplitDataSourceT
         return isContainerNavigationViewHeader;
     }
 
-    ItemsSourceView m_dataSource;
-    // If the raw datasource is the same, we don't need to create new ItemsSourceView object.
-    object m_rawDataSource;
-    Action<NotifyCollectionChangedEventArgs> m_dataChangeCallback;
-    double m_overflowButtonCachedWidth;
-}
+    private ItemsSourceView m_dataSource;
 
+    // If the raw datasource is the same, we don't need to create new ItemsSourceView object.
+    private object m_rawDataSource;
+
+    private Action<NotifyCollectionChangedEventArgs> m_dataChangeCallback;
+    private double m_overflowButtonCachedWidth;
+}

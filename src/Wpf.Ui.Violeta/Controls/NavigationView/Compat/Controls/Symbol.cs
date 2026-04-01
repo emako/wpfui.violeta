@@ -206,4 +206,3 @@ public enum Symbol
     XboxOneConsole = 59792
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
-

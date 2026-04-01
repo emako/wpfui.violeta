@@ -238,7 +238,7 @@ public static class VisualTree
             }
             else if (parent is Decorator parent_Decorator)
             {
-                if(parent_Decorator.Child == element)
+                if (parent_Decorator.Child == element)
                 {
                     parent_Decorator.Child = null;
                     return true;
@@ -254,7 +254,6 @@ public static class VisualTree
                 parent_ContentPresenter.Content = null;
                 return true;
             }
-
             else if (parent is Popup parent_Popup)
             {
                 parent_Popup.Child = null;
@@ -293,15 +292,16 @@ public static class VisualTree
                     {
                         case "children":
                             var children = prop.GetValue(parent, null);
-                            foreach(var method in children.GetType().GetMethods())
+                            foreach (var method in children.GetType().GetMethods())
                             {
-                                if(method.Name.ToLower() == "remove")
+                                if (method.Name.ToLower() == "remove")
                                 {
                                     method.Invoke(children, new object[] { element });
                                     isRemovalDone = true;
                                 }
                             }
                             break;
+
                         case "child":
                         case "content":
                             if (prop.GetValue(parent) == element)
@@ -318,7 +318,6 @@ public static class VisualTree
                     return true;
                 }
             }
-
         }
         catch
         {
@@ -336,6 +335,7 @@ public static class VisualTree
 
         return element.Parent != oldParent;
     }
+
     public static bool DetachFromVisualParent(this FrameworkElement element)
     {
         var oldParent = VisualTreeHelper.GetParent(element);
@@ -343,6 +343,4 @@ public static class VisualTree
 
         return VisualTreeHelper.GetParent(element) != oldParent;
     }
-
 }
-

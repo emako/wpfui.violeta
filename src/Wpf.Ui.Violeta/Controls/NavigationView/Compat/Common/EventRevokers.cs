@@ -18,5 +18,3 @@ internal class FrameworkElementSizeChangedRevoker : EventRevoker<FrameworkElemen
         source.SizeChanged -= handler;
     }
 }
-
-

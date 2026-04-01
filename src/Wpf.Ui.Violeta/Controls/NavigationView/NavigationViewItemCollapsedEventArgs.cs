@@ -30,7 +30,6 @@ public sealed class NavigationViewItemCollapsedEventArgs : EventArgs
         }
     }
 
-    object m_collapsedItem;
-    NavigationView m_navigationView;
+    private object m_collapsedItem;
+    private NavigationView m_navigationView;
 }
-

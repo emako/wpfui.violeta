@@ -26,7 +26,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(TopPaddingPropertyKey, value);
     }
 
-    #endregion
+    #endregion TopPadding
 
     #region OverflowButtonVisibility
 
@@ -46,7 +46,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(OverflowButtonVisibilityPropertyKey, value);
     }
 
-    #endregion
+    #endregion OverflowButtonVisibility
 
     #region PaneToggleButtonVisibility
 
@@ -66,7 +66,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(PaneToggleButtonVisibilityPropertyKey, value);
     }
 
-    #endregion
+    #endregion PaneToggleButtonVisibility
 
     #region BackButtonVisibility
 
@@ -86,7 +86,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(BackButtonVisibilityPropertyKey, value);
     }
 
-    #endregion
+    #endregion BackButtonVisibility
 
     #region TopPaneVisibility
 
@@ -106,7 +106,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(TopPaneVisibilityPropertyKey, value);
     }
 
-    #endregion
+    #endregion TopPaneVisibility
 
     #region LeftPaneVisibility
 
@@ -126,7 +126,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(LeftPaneVisibilityPropertyKey, value);
     }
 
-    #endregion
+    #endregion LeftPaneVisibility
 
     #region SingleSelectionFollowsFocus
 
@@ -146,7 +146,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(SingleSelectionFollowsFocusPropertyKey, value);
     }
 
-    #endregion
+    #endregion SingleSelectionFollowsFocus
 
     #region OpenPaneWidth
 
@@ -166,7 +166,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(OpenPaneWidthPropertyKey, value);
     }
 
-    #endregion
+    #endregion OpenPaneWidth
 
     #region PaneToggleButtonWidth
 
@@ -186,7 +186,7 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(PaneToggleButtonWidthPropertyKey, value);
     }
 
-    #endregion
+    #endregion PaneToggleButtonWidth
 
     #region SmallerPaneToggleButtonWidth
 
@@ -206,7 +206,5 @@ public class NavigationViewTemplateSettings : DependencyObject
         internal set => SetValue(SmallerPaneToggleButtonWidthPropertyKey, value);
     }
 
-    #endregion
-
+    #endregion SmallerPaneToggleButtonWidth
 }
-

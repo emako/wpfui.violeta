@@ -42,7 +42,7 @@ public static class TabControlHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region TabStripHeader
 
@@ -75,7 +75,7 @@ public static class TabControlHelper
         tabControl.SetValue(TabStripHeaderProperty, value);
     }
 
-    #endregion
+    #endregion TabStripHeader
 
     #region TabStripHeaderTemplate
 
@@ -108,7 +108,7 @@ public static class TabControlHelper
         tabControl.SetValue(TabStripHeaderTemplateProperty, value);
     }
 
-    #endregion
+    #endregion TabStripHeaderTemplate
 
     #region TabStripFooter
 
@@ -141,7 +141,7 @@ public static class TabControlHelper
         tabControl.SetValue(TabStripFooterProperty, value);
     }
 
-    #endregion
+    #endregion TabStripFooter
 
     #region TabStripFooterTemplate
 
@@ -174,7 +174,7 @@ public static class TabControlHelper
         tabControl.SetValue(TabStripFooterTemplateProperty, value);
     }
 
-    #endregion
+    #endregion TabStripFooterTemplate
 
     #region TabStripFooterTemplate
 
@@ -198,7 +198,7 @@ public static class TabControlHelper
         tabControl.SetValue(ContentBackgroundProperty, value);
     }
 
-    #endregion
+    #endregion TabStripFooterTemplate
 
     #region CloseButtonOverlayMode
 
@@ -231,7 +231,7 @@ public static class TabControlHelper
         element.SetValue(CloseButtonOverlayModeProperty, value);
     }
 
-    #endregion
+    #endregion CloseButtonOverlayMode
 
     #region TabWidthMode
 
@@ -264,7 +264,7 @@ public static class TabControlHelper
         element.SetValue(TabWidthModeProperty, value);
     }
 
-    #endregion
+    #endregion TabWidthMode
 
     #region IsAddTabButtonVisible
 
@@ -297,14 +297,13 @@ public static class TabControlHelper
         element.SetValue(IsAddTabButtonVisibleProperty, value);
     }
 
-    #endregion
-
+    #endregion IsAddTabButtonVisible
 
     #region TabCloseRequestedEvent
 
     /// <summary>
     /// The event is raised when a tab's close button is clicked.
-    /// 
+    ///
     /// </summary>
     public static readonly RoutedEvent TabCloseRequestedEvent = EventManager.RegisterRoutedEvent(
         "TabCloseRequested",
@@ -316,12 +315,13 @@ public static class TabControlHelper
     {
         tabControl.AddHandler(TabCloseRequestedEvent, handler);
     }
+
     public static void RemoveTabCloseRequestedHandler(TabControl tabControl, EventHandler<TabViewTabCloseRequestedEventArgs> handler)
     {
         tabControl.RemoveHandler(TabCloseRequestedEvent, handler);
     }
 
-    #endregion
+    #endregion TabCloseRequestedEvent
 
     #region AddTabButtonClickEvent
 
@@ -341,8 +341,7 @@ public static class TabControlHelper
         tabControl.RemoveHandler(AddTabButtonClickEvent, handler);
     }
 
-    #endregion
-
+    #endregion AddTabButtonClickEvent
 
     #region AddTabButtonCommand
 
@@ -374,7 +373,7 @@ public static class TabControlHelper
         element.SetValue(AddTabButtonCommandProperty, value);
     }
 
-    #endregion
+    #endregion AddTabButtonCommand
 
     #region AddTabButtonCommandParameter
 
@@ -406,7 +405,7 @@ public static class TabControlHelper
         element.SetValue(AddTabButtonCommandParameterProperty, value);
     }
 
-    #endregion
+    #endregion AddTabButtonCommandParameter
 
     private static void OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -434,10 +433,12 @@ public enum TabViewWidthMode
     /// Each tab has the same width.
     /// </summary>
     Equal = 0,
+
     /// <summary>
     /// Each tab adjusts its width to the content within the tab.
     /// </summary>
     SizeToContent = 1,
+
     /// <summary>
     /// Unselected tabs collapse to show only their icon. The selected tab adjusts to display the content within the tab.
     /// </summary>
@@ -454,16 +455,17 @@ public enum TabViewCloseButtonOverlayMode
     /// This value maps to Always.
     /// </summary>
     Auto = 0,
+
     /// <summary>
     /// The selected tab always shows the close button if it is closable. Unselected tabs show the close button when the tab is closable and the user has their pointer over the tab.
     /// </summary>
     OnPointerOver = 1,
+
     /// <summary>
     /// The selected tab always shows the close button if it is closable. Unselected tabs always show the close button if they are closable.
     /// </summary>
     Always = 2,
 }
-
 
 /// <summary>
 /// Provides data for a tab close event.
@@ -487,4 +489,3 @@ public class TabViewTabCloseRequestedEventArgs : RoutedEventArgs
         Tab = tab;
     }
 }
-

@@ -34,7 +34,7 @@ public class DataGridCellPresenter : ContentPresenter
         set { SetValue(BackgroundProperty, value); }
     }
 
-    #endregion
+    #endregion Background
 
     #region CurrencyVisualBrush
 
@@ -53,7 +53,7 @@ public class DataGridCellPresenter : ContentPresenter
         set => SetValue(CurrencyVisualBrushProperty, value);
     }
 
-    #endregion
+    #endregion CurrencyVisualBrush
 
     #region CurrencyVisualThickness
 
@@ -78,7 +78,7 @@ public class DataGridCellPresenter : ContentPresenter
         ((DataGridCellPresenter)d)._currencyVisualHelper.ClearPenCache();
     }
 
-    #endregion
+    #endregion CurrencyVisualThickness
 
     #region FocusVisualPrimaryBrush
 
@@ -97,7 +97,7 @@ public class DataGridCellPresenter : ContentPresenter
         set => SetValue(FocusVisualPrimaryBrushProperty, value);
     }
 
-    #endregion
+    #endregion FocusVisualPrimaryBrush
 
     #region FocusVisualPrimaryThickness
 
@@ -122,7 +122,7 @@ public class DataGridCellPresenter : ContentPresenter
         ((DataGridCellPresenter)d)._focusVisualPrimaryHelper.ClearPenCache();
     }
 
-    #endregion
+    #endregion FocusVisualPrimaryThickness
 
     #region FocusVisualSecondaryBrush
 
@@ -141,7 +141,7 @@ public class DataGridCellPresenter : ContentPresenter
         set => SetValue(FocusVisualSecondaryBrushProperty, value);
     }
 
-    #endregion
+    #endregion FocusVisualSecondaryBrush
 
     #region FocusVisualSecondaryThickness
 
@@ -166,7 +166,7 @@ public class DataGridCellPresenter : ContentPresenter
         ((DataGridCellPresenter)d)._focusVisualSecondaryHelper.ClearPenCache();
     }
 
-    #endregion
+    #endregion FocusVisualSecondaryThickness
 
     #region IsCurrencyVisualVisible
 
@@ -183,7 +183,7 @@ public class DataGridCellPresenter : ContentPresenter
         set => SetValue(IsCurrencyVisualVisibleProperty, value);
     }
 
-    #endregion
+    #endregion IsCurrencyVisualVisible
 
     #region IsFocusVisualVisible
 
@@ -200,7 +200,7 @@ public class DataGridCellPresenter : ContentPresenter
         set => SetValue(IsFocusVisualVisibleProperty, value);
     }
 
-    #endregion
+    #endregion IsFocusVisualVisible
 
     protected override void OnRender(DrawingContext dc)
     {
@@ -289,4 +289,3 @@ public class DataGridCellPresenter : ContentPresenter
     private readonly BorderHelper _focusVisualPrimaryHelper;
     private readonly BorderHelper _focusVisualSecondaryHelper;
 }
-

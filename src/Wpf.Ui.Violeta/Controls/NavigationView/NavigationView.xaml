@@ -324,9 +324,7 @@
     </Style>
 
     <!--  NavigationViewItemHeaderTextStyle  -->
-    <Style
-        x:Key="NavigationViewItemHeaderTextStyle"
-        TargetType="TextBlock">
+    <Style x:Key="NavigationViewItemHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="TextWrapping" Value="NoWrap" />
@@ -1961,9 +1959,7 @@
         </Setter>
     </Style>
 
-    <Style
-        TargetType="local:NavigationViewItemPresenter"
-        BasedOn="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnLeftPane}" />
+    <Style BasedOn="{StaticResource MUX_NavigationViewItemPresenterStyleWhenOnLeftPane}" TargetType="local:NavigationViewItemPresenter" />
 
     <Style TargetType="local:NavigationViewItemHeader">
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemHeaderForeground}" />

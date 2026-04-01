@@ -56,5 +56,3 @@ internal class GettingFocusHelper : IDisposable
     private UIElement _owner;
     private bool _ignoreGotFocus;
 }
-
-

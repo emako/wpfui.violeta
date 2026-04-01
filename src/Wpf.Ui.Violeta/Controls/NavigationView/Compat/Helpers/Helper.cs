@@ -51,15 +51,20 @@ internal static class Helper
         {
             case InterestPoint.TopLeft:
                 return rect.TopLeft;
+
             case InterestPoint.TopRight:
                 return rect.TopRight;
+
             case InterestPoint.BottomLeft:
                 return rect.BottomLeft;
+
             case InterestPoint.BottomRight:
                 return rect.BottomRight;
+
             case InterestPoint.Center:
                 return new Point(rect.Left + rect.Width / 2,
                                  rect.Top + rect.Height / 2);
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(interestPoint));
         }
@@ -90,4 +95,3 @@ internal enum InterestPoint
     BottomRight = 3,
     Center = 4,
 }
-

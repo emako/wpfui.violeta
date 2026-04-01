@@ -140,6 +140,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
     {
         // The position of the upper left corner of the popup after nudging
         public int X;
+
         public int Y;
 
         // The size of the popup
@@ -420,7 +421,6 @@ internal class PopupPositioner : DependencyObject, IDisposable
                 }
                 break;
 
-
             case PlacementMode.Top:
                 axis = PopupPrimaryAxis.Horizontal;
                 if (dropFromRight)
@@ -434,7 +434,6 @@ internal class PopupPositioner : DependencyObject, IDisposable
                     if (i == 1) return new PointCombination(InterestPoint.BottomLeft, InterestPoint.TopLeft);
                 }
                 break;
-
 
             case PlacementMode.Right:
             case PlacementMode.Left:
@@ -697,7 +696,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
         private HwndSource _window;
     }
 
-#endregion
+    #endregion Popup Members
 
     #region Positioner
 
@@ -726,7 +725,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
         }
     }
 
-    #endregion
+    #endregion Positioner
 
     private void OnPopupOpened(object sender, EventArgs e)
     {
@@ -815,5 +814,3 @@ internal class PopupPositioner : DependencyObject, IDisposable
         public static Func<Popup, Rect, Point, Rect> GetScreenBounds { get; }
     }
 }
-
-

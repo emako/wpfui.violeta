@@ -47,7 +47,7 @@ internal class ElementManager
 
     public int GetRealizedElementCount()
     {
-        return IsVirtualizingContext?
+        return IsVirtualizingContext ?
             m_realizedElements.Count : m_context.ItemCount;
     }
 
@@ -108,7 +108,7 @@ internal class ElementManager
         Debug.Assert(IsVirtualizingContext);
         for (int i = 0; i < count; i++)
         {
-            // Clear from the edges so that ItemsRepeater can optimize on maintaining 
+            // Clear from the edges so that ItemsRepeater can optimize on maintaining
             // realized indices without walking through all the children every time.
             int index = realizedIndex == 0 ? realizedIndex + i : (realizedIndex + count - 1) - i;
             if (m_realizedElements[index] is UIElement elementRef)
@@ -237,7 +237,6 @@ internal class ElementManager
             var effectiveOrientation = scrollOrientationSameAsFlow ?
                 (orientation == ScrollOrientation.Vertical ? ScrollOrientation.Horizontal : ScrollOrientation.Vertical) :
                 orientation;
-
 
             var windowStart = effectiveOrientation == ScrollOrientation.Vertical ? window.Y : window.X;
             var windowEnd = effectiveOrientation == ScrollOrientation.Vertical ? window.Y + window.Height : window.X + window.Width;
@@ -429,7 +428,7 @@ internal class ElementManager
             int insertRangeStartIndex = newStartingIndex - m_firstRealizedDataIndex;
             for (int i = 0; i < count; i++)
             {
-                // Insert null (sentinel) here instead of an element, that way we dont 
+                // Insert null (sentinel) here instead of an element, that way we dont
                 // end up creating a lot of elements only to be thrown out in the next layout.
                 int insertRangeIndex = insertRangeStartIndex + i;
                 int dataIndex = newStartingIndex + i;
@@ -483,5 +482,3 @@ internal class ElementManager
     private int m_firstRealizedDataIndex = -1;
     private VirtualizingLayoutContext m_context;
 }
-
-

@@ -44,7 +44,7 @@ public static class PressHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region IsPressed
 
@@ -68,7 +68,7 @@ public static class PressHelper
     public static readonly DependencyProperty IsPressedProperty =
         IsPressedPropertyKey.DependencyProperty;
 
-    #endregion
+    #endregion IsPressed
 
     private static void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
@@ -106,4 +106,3 @@ public static class PressHelper
         }
     }
 }
-

@@ -112,11 +112,13 @@ internal class ColorScale
                 LAB rightLAB = ColorUtils.RGBToLAB(_stops[upperIndex].Color, false);
                 LAB targetLAB = ColorUtils.InterpolateLAB(leftLAB, rightLAB, scalePosition);
                 return ColorUtils.LABToRGB(targetLAB, false).Denormalize();
+
             case ColorScaleInterpolationMode.XYZ:
                 XYZ leftXYZ = ColorUtils.RGBToXYZ(_stops[lowerIndex].Color, false);
                 XYZ rightXYZ = ColorUtils.RGBToXYZ(_stops[upperIndex].Color, false);
                 XYZ targetXYZ = ColorUtils.InterpolateXYZ(leftXYZ, rightXYZ, scalePosition);
                 return ColorUtils.XYZToRGB(targetXYZ, false).Denormalize();
+
             default:
                 return ColorUtils.InterpolateRGB(_stops[lowerIndex].Color, _stops[upperIndex].Color, scalePosition);
         }
@@ -166,4 +168,3 @@ internal class ColorScale
         return new ColorScale(finalStops);
     }
 }
-

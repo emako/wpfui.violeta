@@ -1412,4 +1412,3 @@ public static partial class SegoeFluentIcons
     public static readonly FontIconData SpeechSolidBold = CreateIcon(0xF8B2);
     public static readonly FontIconData ClickedOutLoudSolidBold = CreateIcon(0xF8B3);
 }
-

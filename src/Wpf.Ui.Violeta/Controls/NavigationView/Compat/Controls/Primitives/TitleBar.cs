@@ -102,4 +102,3 @@ internal static class TitleBar
     public static readonly DependencyProperty ButtonGlyphStyleProperty =
         DependencyProperty.RegisterAttached("ButtonGlyphStyle", typeof(TitleBarButtonGlyphStyle?), typeof(TitleBar), new PropertyMetadata(null));
 }
-

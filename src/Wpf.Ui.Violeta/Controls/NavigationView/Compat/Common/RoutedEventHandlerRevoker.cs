@@ -27,4 +27,3 @@ internal class RoutedEventHandlerRevoker
         }
     }
 }
-

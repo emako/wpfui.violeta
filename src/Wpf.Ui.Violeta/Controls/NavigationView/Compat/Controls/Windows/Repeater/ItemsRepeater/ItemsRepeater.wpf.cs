@@ -34,4 +34,3 @@ partial class ItemsRepeater
 
     private static readonly Size s_zeroSize = new Size();
 }
-

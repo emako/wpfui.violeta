@@ -33,5 +33,3 @@ internal class ItemsRepeaterElementClearingRevoker : EventRevoker<ItemsRepeater,
         source.ElementClearing -= handler;
     }
 }
-
-

@@ -53,7 +53,7 @@ public static class SliderAutoToolTipHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     #region OriginalCustomPopupPlacementCallback
 
@@ -73,7 +73,7 @@ public static class SliderAutoToolTipHelper
         toolTip.SetValue(OriginalCustomPopupPlacementCallbackProperty, value);
     }
 
-    #endregion
+    #endregion OriginalCustomPopupPlacementCallback
 
     private static void OnToolTipIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
@@ -135,6 +135,7 @@ public static class SliderAutoToolTipHelper
                     primaryAxis = PopupPrimaryAxis.Vertical;
                 }
                 break;
+
             case AutoToolTipPlacement.BottomRight:
                 if (slider.Orientation == Orientation.Horizontal)
                 {
@@ -149,6 +150,7 @@ public static class SliderAutoToolTipHelper
                     primaryAxis = PopupPrimaryAxis.Vertical;
                 }
                 break;
+
             default:
                 return new CustomPopupPlacement[] { };
         }
@@ -162,5 +164,3 @@ public static class SliderAutoToolTipHelper
         return new CustomPopupPlacement[] { new CustomPopupPlacement(point, primaryAxis) };
     }
 }
-
-

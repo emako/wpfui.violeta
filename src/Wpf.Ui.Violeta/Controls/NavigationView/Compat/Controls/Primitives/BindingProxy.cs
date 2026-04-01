@@ -18,11 +18,10 @@ public class BindingProxy : Freezable
         set => SetValue(ValueProperty, value);
     }
 
-    #endregion
+    #endregion Value
 
     protected override Freezable CreateInstanceCore()
     {
         return new BindingProxy();
     }
 }
-

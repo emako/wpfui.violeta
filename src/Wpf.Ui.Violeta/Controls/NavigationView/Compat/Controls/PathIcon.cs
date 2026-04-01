@@ -46,7 +46,7 @@ public class PathIcon : IconElement
         ((PathIcon)d).ApplyData();
     }
 
-    #endregion
+    #endregion Data
 
     private protected override void InitializeChildren()
     {
@@ -118,5 +118,3 @@ public class PathIcon : IconElement
         return iconSource;
     }
 }
-
-

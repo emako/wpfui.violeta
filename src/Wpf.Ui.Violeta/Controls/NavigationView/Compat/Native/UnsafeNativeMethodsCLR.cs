@@ -14,4 +14,3 @@ internal partial class UnsafeNativeMethods
     [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
     public static extern IntPtr GetActiveWindow();
 }
-

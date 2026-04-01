@@ -99,4 +99,3 @@ internal class LayoutContextAdapter : VirtualizingLayoutContext
 
     private readonly WeakReference<NonVirtualizingLayoutContext> m_nonVirtualizingContext;
 }
-

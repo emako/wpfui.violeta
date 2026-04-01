@@ -40,7 +40,7 @@ public static class DataGridHelper
         }
     }
 
-    #endregion
+    #endregion IsEnabled
 
     private static void OnLoadingRow(object sender, DataGridRowEventArgs e)
     {
@@ -80,7 +80,7 @@ public static class DataGridHelper
         dataGrid.SetValue(TextColumnElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion TextColumnElementStyle
 
     #region TextColumnEditingElementStyle
 
@@ -100,7 +100,7 @@ public static class DataGridHelper
         dataGrid.SetValue(TextColumnEditingElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion TextColumnEditingElementStyle
 
     #region TextColumnFontSize
 
@@ -121,7 +121,7 @@ public static class DataGridHelper
         dataGrid.SetValue(TextColumnFontSizeProperty, value);
     }
 
-    #endregion
+    #endregion TextColumnFontSize
 
     #region CheckBoxColumnElementStyle
 
@@ -141,7 +141,7 @@ public static class DataGridHelper
         dataGrid.SetValue(CheckBoxColumnElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion CheckBoxColumnElementStyle
 
     #region CheckBoxColumnEditingElementStyle
 
@@ -161,7 +161,7 @@ public static class DataGridHelper
         dataGrid.SetValue(CheckBoxColumnEditingElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion CheckBoxColumnEditingElementStyle
 
     #region ComboBoxColumnElementStyle
 
@@ -181,7 +181,7 @@ public static class DataGridHelper
         dataGrid.SetValue(ComboBoxColumnElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion ComboBoxColumnElementStyle
 
     #region ComboBoxColumnEditingElementStyle
 
@@ -201,7 +201,7 @@ public static class DataGridHelper
         dataGrid.SetValue(ComboBoxColumnEditingElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion ComboBoxColumnEditingElementStyle
 
     #region HyperlinkColumnElementStyle
 
@@ -221,7 +221,7 @@ public static class DataGridHelper
         dataGrid.SetValue(HyperlinkColumnElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion HyperlinkColumnElementStyle
 
     #region HyperlinkColumnEditingElementStyle
 
@@ -241,7 +241,7 @@ public static class DataGridHelper
         dataGrid.SetValue(HyperlinkColumnEditingElementStyleProperty, value);
     }
 
-    #endregion
+    #endregion HyperlinkColumnEditingElementStyle
 
     #region UseModernColumnStyles
 
@@ -275,7 +275,7 @@ public static class DataGridHelper
         }
     }
 
-    #endregion
+    #endregion UseModernColumnStyles
 
     #region ColumnStylesHelper
 
@@ -299,7 +299,7 @@ public static class DataGridHelper
         }
     }
 
-    #endregion
+    #endregion ColumnStylesHelper
 
     private class ColumnStylesHelper
     {
@@ -417,6 +417,5 @@ public static class DataGridHelper
         }
     }
 
-    #endregion
+    #endregion Column Styles
 }
-

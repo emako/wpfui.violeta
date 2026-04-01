@@ -39,7 +39,7 @@ public static class OpeningAnimationHelper
         }
     }
 
-    #endregion
+    #endregion Storyboard
 
     private static void OnElementLoaded(object sender, RoutedEventArgs e)
     {
@@ -54,5 +54,3 @@ public static class OpeningAnimationHelper
         }
     }
 }
-
-

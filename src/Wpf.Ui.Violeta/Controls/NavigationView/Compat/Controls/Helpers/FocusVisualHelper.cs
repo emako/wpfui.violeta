@@ -42,7 +42,7 @@ public static class FocusVisualHelper
             typeof(Brush),
             typeof(FocusVisualHelper));
 
-    #endregion
+    #endregion FocusVisualPrimaryBrush
 
     #region FocusVisualSecondaryBrush
 
@@ -77,7 +77,7 @@ public static class FocusVisualHelper
             typeof(Brush),
             typeof(FocusVisualHelper));
 
-    #endregion
+    #endregion FocusVisualSecondaryBrush
 
     #region FocusVisualPrimaryThickness
 
@@ -116,7 +116,7 @@ public static class FocusVisualHelper
             typeof(FocusVisualHelper),
             new FrameworkPropertyMetadata(new Thickness(2)));
 
-    #endregion
+    #endregion FocusVisualPrimaryThickness
 
     #region FocusVisualSecondaryThickness
 
@@ -155,7 +155,7 @@ public static class FocusVisualHelper
             typeof(FocusVisualHelper),
             new FrameworkPropertyMetadata(new Thickness(1)));
 
-    #endregion
+    #endregion FocusVisualSecondaryThickness
 
     #region FocusVisualMargin
 
@@ -192,7 +192,7 @@ public static class FocusVisualHelper
             typeof(FocusVisualHelper),
             new FrameworkPropertyMetadata(new Thickness()));
 
-    #endregion
+    #endregion FocusVisualMargin
 
     #region UseSystemFocusVisuals
 
@@ -232,7 +232,7 @@ public static class FocusVisualHelper
         control.SetValue(UseSystemFocusVisualsProperty, value);
     }
 
-    #endregion
+    #endregion UseSystemFocusVisuals
 
     #region IsTemplateFocusTarget
 
@@ -287,7 +287,7 @@ public static class FocusVisualHelper
         }
     }
 
-    #endregion
+    #endregion IsTemplateFocusTarget
 
     #region IsSystemFocusVisual
 
@@ -321,7 +321,7 @@ public static class FocusVisualHelper
         }
     }
 
-    #endregion
+    #endregion IsSystemFocusVisual
 
     #region ShowFocusVisual
 
@@ -419,7 +419,7 @@ public static class FocusVisualHelper
         }
     }
 
-    #endregion
+    #endregion ShowFocusVisual
 
     #region FocusedElement
 
@@ -439,7 +439,7 @@ public static class FocusVisualHelper
             typeof(FrameworkElement),
             typeof(FocusVisualHelper));
 
-    #endregion
+    #endregion FocusedElement
 
     #region TemplateFocusTarget
 
@@ -459,7 +459,7 @@ public static class FocusVisualHelper
         control.SetValue(TemplateFocusTargetProperty, value);
     }
 
-    #endregion
+    #endregion TemplateFocusTarget
 
     private static void OnFocusVisualIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
@@ -609,5 +609,3 @@ public static class FocusVisualHelper
 
     private static FocusVisualAdorner _focusVisualAdornerCache = null;
 }
-
-

@@ -46,14 +46,14 @@ public class StackLayoutState
 
     internal FlowLayoutAlgorithm FlowAlgorithm { get; } = new FlowLayoutAlgorithm();
     internal double TotalElementSize { get; private set; }
+
     // During the measure pass, as we measure the elements, we will keep track
     // of the largest arrange bounds in the non-virtualizing direction. This value
     // is going to be used in the calculation of the extent.
     internal double MaxArrangeBounds { get; private set; }
+
     internal int TotalElementsMeasured { get; private set; }
 
     private readonly List<double> m_estimationBuffer = new List<double>();
     private const int BufferSize = 100;
 }
-
-

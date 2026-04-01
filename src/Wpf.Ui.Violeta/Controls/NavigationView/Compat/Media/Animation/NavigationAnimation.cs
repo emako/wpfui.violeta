@@ -75,5 +75,3 @@ internal class NavigationAnimation
 
     private ClockState _currentState = ClockState.Stopped;
 }
-
-

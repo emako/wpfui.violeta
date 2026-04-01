@@ -20,4 +20,3 @@ public class RatingItemInfo : Freezable
         return new RatingItemInfo();
     }
 }
-

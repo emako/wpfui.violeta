@@ -12,7 +12,7 @@ class NavigationViewItemsFactory : ElementFactory
         m_itemTemplateWrapper = newValue as IElementFactoryShim;
         if (m_itemTemplateWrapper == null)
         {
-            // ItemTemplate set does not implement IElementFactoryShim. We also 
+            // ItemTemplate set does not implement IElementFactoryShim. We also
             // want to support DataTemplate and DataTemplateSelectors automagically.
             if (newValue is DataTemplate dataTemplate)
             {
@@ -31,7 +31,6 @@ class NavigationViewItemsFactory : ElementFactory
     {
         m_settingsItem = settingsItem;
     }
-
 
     // Retrieve the element that will be displayed for a specific data item.
     // If the resolved element is not derived from NavigationViewItemBase, wrap in a NavigationViewItem before returning.
@@ -89,7 +88,6 @@ class NavigationViewItemsFactory : ElementFactory
                 var tempArgs = new ElementFactoryRecycleArgs();
                 tempArgs.Element = newContent as UIElement;
                 m_itemTemplateWrapper.RecycleElement(tempArgs);
-
 
                 nviImpl.Content = args.Data;
                 nviImpl.ContentTemplate = itemTemplateWrapper.Template;
@@ -158,9 +156,7 @@ class NavigationViewItemsFactory : ElementFactory
         }
     }
 
-    IElementFactoryShim m_itemTemplateWrapper;
-    NavigationViewItemBase m_settingsItem;
-    List<NavigationViewItem> navigationViewItemPool = new List<NavigationViewItem>();
+    private IElementFactoryShim m_itemTemplateWrapper;
+    private NavigationViewItemBase m_settingsItem;
+    private List<NavigationViewItem> navigationViewItemPool = new List<NavigationViewItem>();
 }
-
-

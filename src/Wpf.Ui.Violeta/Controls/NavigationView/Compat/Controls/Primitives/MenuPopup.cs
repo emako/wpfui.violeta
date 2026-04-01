@@ -26,7 +26,7 @@ public class MenuPopup : Popup
         private set => SetValue(IsSuspendingAnimationPropertyKey, value);
     }
 
-    #endregion
+    #endregion IsSuspendingAnimation
 
     protected override void OnOpened(EventArgs e)
     {
@@ -66,4 +66,3 @@ public class MenuPopup : Popup
         }
     }
 }
-

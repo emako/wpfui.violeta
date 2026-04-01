@@ -6,8 +6,8 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 public class LocalizeConverter : IValueConverter
 {
-    private ResourceAccessor _resourceAccessor;
-    private Type _controlType;
+    private ResourceAccessor _resourceAccessor = null!;
+    private Type _controlType = null!;
 
     public Type ControlType
     {
@@ -19,7 +19,7 @@ public class LocalizeConverter : IValueConverter
         }
     }
 
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
     {
         return _resourceAccessor?.GetLocalizedStringResource(value as string);
     }

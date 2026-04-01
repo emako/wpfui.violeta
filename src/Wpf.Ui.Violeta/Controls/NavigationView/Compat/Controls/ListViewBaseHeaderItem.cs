@@ -36,7 +36,7 @@ public class ListViewBaseHeaderItem : ContentControl
         set => SetValue(UseSystemFocusVisualsProperty, value);
     }
 
-    #endregion
+    #endregion UseSystemFocusVisuals
 
     #region CornerRadius
 
@@ -59,7 +59,5 @@ public class ListViewBaseHeaderItem : ContentControl
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 }
-
-

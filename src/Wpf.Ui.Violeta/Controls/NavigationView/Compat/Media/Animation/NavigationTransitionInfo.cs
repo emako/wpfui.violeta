@@ -52,4 +52,3 @@ public class NavigationTransitionInfo : DependencyObject
     internal static readonly PropertyPath ScaleXPath = new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)");
     internal static readonly PropertyPath ScaleYPath = new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)");
 }
-

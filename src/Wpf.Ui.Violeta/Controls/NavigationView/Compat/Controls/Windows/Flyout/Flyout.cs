@@ -41,7 +41,7 @@ public class Flyout : FlyoutBase
         set => SetValue(ContentProperty, value);
     }
 
-    #endregion
+    #endregion Content
 
     #region FlyoutPresenterStyle
 
@@ -57,7 +57,7 @@ public class Flyout : FlyoutBase
         set => SetValue(FlyoutPresenterStyleProperty, value);
     }
 
-    #endregion
+    #endregion FlyoutPresenterStyle
 
     internal override PopupAnimation DesiredPopupAnimation => PopupAnimation.None;
 
@@ -186,6 +186,7 @@ public class Flyout : FlyoutBase
                 case FlyoutPlacementMode.BottomEdgeAlignedLeft:
                 case FlyoutPlacementMode.BottomEdgeAlignedRight:
                     return IsPopupOpenDown ? AnimateFrom.Top : AnimateFrom.Bottom;
+
                 case FlyoutPlacementMode.Left:
                 case FlyoutPlacementMode.LeftEdgeAlignedTop:
                 case FlyoutPlacementMode.LeftEdgeAlignedBottom:
@@ -207,18 +208,22 @@ public class Flyout : FlyoutBase
                 m_fromHorizontalOffsetKeyFrame.Value = 0;
                 m_fromVerticalOffsetKeyFrame.Value = 0;
                 break;
+
             case AnimateFrom.Top:
                 m_fromHorizontalOffsetKeyFrame.Value = 0;
                 m_fromVerticalOffsetKeyFrame.Value = -c_translation;
                 break;
+
             case AnimateFrom.Bottom:
                 m_fromHorizontalOffsetKeyFrame.Value = 0;
                 m_fromVerticalOffsetKeyFrame.Value = c_translation;
                 break;
+
             case AnimateFrom.Left:
                 m_fromHorizontalOffsetKeyFrame.Value = -c_translation;
                 m_fromVerticalOffsetKeyFrame.Value = 0;
                 break;
+
             case AnimateFrom.Right:
                 m_fromHorizontalOffsetKeyFrame.Value = c_translation;
                 m_fromVerticalOffsetKeyFrame.Value = 0;
@@ -257,5 +262,3 @@ public class Flyout : FlyoutBase
     private DoubleKeyFrame m_fromHorizontalOffsetKeyFrame;
     private DoubleKeyFrame m_fromVerticalOffsetKeyFrame;
 }
-
-

@@ -59,7 +59,7 @@ public class StackLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         ((StackLayout)sender).PrivateOnPropertyChanged(args);
     }
 
-    #endregion
+    #endregion Properties
 
     protected override void InitializeForContextCore(VirtualizingLayoutContext context)
     {
@@ -384,7 +384,7 @@ public class StackLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
     private double m_itemSpacing;
 
     // !!! WARNING !!!
-    // Any storage here needs to be related to layout configuration. 
+    // Any storage here needs to be related to layout configuration.
     // layout specific state needs to be stored in StackLayoutState.
 
     private OrientationBasedMeasures OM { get; } = new OrientationBasedMeasures();
@@ -395,4 +395,3 @@ public struct FlowLayoutAnchorInfo
     public int Index;
     public double Offset;
 };
-

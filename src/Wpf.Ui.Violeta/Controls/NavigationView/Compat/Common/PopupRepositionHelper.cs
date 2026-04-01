@@ -91,4 +91,3 @@ internal class PopupRepositionHelper : IDisposable
     private Point m_popupPosition;
     private Window m_hostWindow;
 }
-

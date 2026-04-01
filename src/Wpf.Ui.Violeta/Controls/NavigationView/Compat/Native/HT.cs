@@ -30,6 +30,7 @@ internal enum HT
     /// In a size box (same as HTSIZE).
     /// </summary>
     GROWBOX = 4,
+
     //SIZE = 4,
 
     /// <summary>
@@ -56,6 +57,7 @@ internal enum HT
     /// In a Maximize button.
     /// </summary>
     MAXBUTTON = 9,
+
     // ZOOM = 9,
 
     /// <summary>
@@ -73,4 +75,3 @@ internal enum HT
     /// </summary>
     TOP = 12,
 }
-

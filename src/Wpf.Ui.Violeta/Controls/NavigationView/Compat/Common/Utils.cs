@@ -58,4 +58,3 @@ internal static class Util
         return visible ? Visibility.Visible : Visibility.Collapsed;
     }
 }
-

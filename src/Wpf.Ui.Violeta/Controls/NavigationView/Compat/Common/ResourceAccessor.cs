@@ -172,7 +172,7 @@ internal class ResourceAccessor
 
     public const string IR_NoiseAsset_256X256_PNG = "NoiseAsset_256X256_PNG";
 
-    #endregion
+    #endregion Resource Keys
 
     private readonly Type? _controlType;
     private readonly string? _baseName;
@@ -241,4 +241,3 @@ internal class ResourceAccessor
         return new ResourceManager(baseName, assembly);
     }
 }
-
