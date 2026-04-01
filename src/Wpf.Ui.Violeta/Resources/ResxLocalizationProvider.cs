@@ -80,6 +80,16 @@ internal sealed class ResxLocalizationProvider(string baseResourcePath, string a
             return cached;
         }
 
+        HashSet<string> supportedCultures = new(KnownCultures, StringComparer.OrdinalIgnoreCase);
+
+        if (!string.IsNullOrEmpty(culture.Name)
+            && !string.Equals(culture.Name, "en", StringComparison.OrdinalIgnoreCase)
+            && !supportedCultures.Contains(culture.Name))
+        {
+            _cache[culture.Name] = null;
+            return null;
+        }
+
         string resourceName = (string.IsNullOrEmpty(culture.Name) || culture.Name is "en")
             ? $"{_baseResourcePath}SH.resx"
             : $"{_baseResourcePath}SH.{culture.Name}.resx";
