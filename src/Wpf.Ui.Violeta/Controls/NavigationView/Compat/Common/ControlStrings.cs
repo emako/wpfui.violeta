@@ -12,12 +12,12 @@ internal class ControlStrings : ResourceAccessor
 
     internal static string GetControlBaseName(Type controlType, ModernControlCategory category)
     {
-        var root = controlType.Assembly.GetName().Name;
+        _ = category;
 
-        root = root + "." + category.ToString() + "." + controlType.Name;
-        root = root + "." + "Strings.Resources";
-
-        return root;
+        // Resource manifest names follow the control's CLR namespace,
+        // e.g. Wpf.Ui.Violeta.Controls.NavigationView.Strings.Resources.
+        string controlFullName = controlType.FullName ?? controlType.Name;
+        return $"{controlFullName}.Strings.Resources";
     }
 
     internal static Assembly GetControlAssembly(Type controlType)
