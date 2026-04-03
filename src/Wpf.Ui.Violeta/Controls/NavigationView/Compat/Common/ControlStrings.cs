@@ -13,10 +13,9 @@ internal class ControlStrings : ResourceAccessor
     {
         _ = category;
 
-        // Resource manifest names follow the control's CLR namespace,
-        // e.g. Wpf.Ui.Violeta.Controls.NavigationView.Strings.Resources.
-        string controlFullName = controlType.FullName ?? controlType.Name;
-        return $"{controlFullName}.Strings.Resources";
+        // NavigationView shared strings are now centralized under Resources/Localization.
+        _ = controlType;
+        return "Wpf.Ui.Violeta.Resources.Localization.Resources";
     }
 
     internal static Assembly GetControlAssembly(Type controlType)

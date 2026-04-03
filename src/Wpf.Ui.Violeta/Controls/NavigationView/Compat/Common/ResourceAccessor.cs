@@ -234,7 +234,8 @@ internal class ResourceAccessor
             var controlName = _controlType.Name;
             if (assemblyName != null)
             {
-                baseName = $"{assemblyName}.{controlName}.Strings.Resources";
+                _ = controlName;
+                baseName = $"{assemblyName}.Resources.Localization.Resources";
             }
         }
 
