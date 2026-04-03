@@ -1552,7 +1552,7 @@
                             Text="AsyncBox" />
                         <StackPanel>
                             <vio:AsyncBox LoadingDelay="1000" LoadingViewType="{x:Type vio:Loading}">
-                                <TextBlock Text="This is an AsyncBox demo. You can put any content you want in it, and it will automatically show a loading indicator when the content is being loaded asynchronously." />
+                                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" Text="This is an AsyncBox demo. You can put any content you want in it, and it will automatically show a loading indicator when the content is being loaded asynchronously." />
                             </vio:AsyncBox>
                             <!--  Not supported  -->
                             <!--
@@ -1563,6 +1563,24 @@
                                 <TextBlock Text="This is an AsyncBox demo. You can put any content you want in it, and it will automatically show a loading indicator when the content is being loaded asynchronously." />
                             </vio:AsyncBox>
                             -->
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="DarkCalloutToolTipStyle" />
+                        <StackPanel>
+                            <TextBlock Text="Mouse Hover here ...">
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Style="{DynamicResource CalloutToolTipStyle}">
+                                        <TextBlock Text="ToolTip" />
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>

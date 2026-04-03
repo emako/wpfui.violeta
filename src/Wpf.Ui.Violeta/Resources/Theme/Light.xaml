@@ -11,4 +11,8 @@
     <!--  ImageViewer  -->
     <ImageSource x:Key="ImageViewerBackground">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Images/background.png</ImageSource>
 
+    <!--  CalloutToolTip  -->
+    <SolidColorBrush x:Key="CalloutToolTipForeground" Color="White" />
+    <SolidColorBrush x:Key="CalloutToolTipBackground" Color="#FF232323" />
+
 </ResourceDictionary>
