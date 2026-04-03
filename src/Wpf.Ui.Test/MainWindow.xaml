@@ -1595,8 +1595,7 @@
                             <vio:MultiComboBox
                                 Width="240"
                                 MaxDropDownHeight="300"
-                                PlaceholderText="Please select..."
-                                SelectAllText="Select All">
+                                PlaceholderText="Please select...">
                                 <vio:MultiComboBoxItem Content="Option A" />
                                 <vio:MultiComboBoxItem Content="Option B" />
                                 <vio:MultiComboBoxItem Content="Option C" />
@@ -1608,8 +1607,7 @@
                                 Width="240"
                                 Margin="16,0,0,0"
                                 MaxDropDownHeight="300"
-                                PlaceholderText="Binding demo (ItemsSource)"
-                                SelectAllText="Select All" />
+                                PlaceholderText="Binding demo (ItemsSource)" />
                             <TextBlock
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"

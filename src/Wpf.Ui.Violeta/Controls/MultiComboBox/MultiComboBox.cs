@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -108,6 +109,11 @@ public class MultiComboBox : ComboBox
     {
         MultiSelectedItems = [];
         MultiSelectedItems.CollectionChanged += OnSelectedItemsCollectionChanged;
+
+        if (ReadLocalValue(SelectAllTextProperty) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(SelectAllTextProperty, SH.MultiComboBoxSelectAll);
+        }
     }
 
     public override void OnApplyTemplate()

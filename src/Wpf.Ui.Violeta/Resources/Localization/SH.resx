@@ -153,4 +153,7 @@
   <data name="Loading" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
 </root>
