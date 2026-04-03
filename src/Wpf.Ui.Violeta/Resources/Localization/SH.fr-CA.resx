@@ -118,47 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MessageBoxCaptionError" xml:space="preserve">
-    <value>錯誤</value>
+    <value>Erreur</value>
   </data>
   <data name="MessageBoxCaptionInformation" xml:space="preserve">
-    <value>資訊</value>
+    <value>Information</value>
   </data>
   <data name="MessageBoxCaptionQuestion" xml:space="preserve">
-    <value>問題</value>
+    <value>Question</value>
   </data>
   <data name="MessageBoxCaptionWarning" xml:space="preserve">
-    <value>警告</value>
+    <value>Avertissement</value>
   </data>
   <data name="PendingBoxLoadingText" xml:space="preserve">
-    <value>載入中</value>
+    <value>Chargement</value>
   </data>
   <data name="ExceptionWindowTitle" xml:space="preserve">
-    <value>出错啦</value>
+    <value>Erreur</value>
   </data>
   <data name="ButtonCopy" xml:space="preserve">
-    <value>復制</value>
+    <value>Copier</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
-    <value>忽略</value>
+    <value>Ignorer</value>
   </data>
   <data name="ButtonExit" xml:space="preserve">
-    <value>退出</value>
+    <value>Sortie</value>
   </data>
   <data name="ExceptionWindowHint1" xml:space="preserve">
-    <value>似乎遇到了一些問題</value>
+    <value>Exception levée</value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>你可以複製信息來跟蹤問題，忽略並嘗試，或者退出程序然後重新啟動。</value>
+    <value>Vous pouvez copier les informations pour suivre le problème, ignorer et essayer, ou quitter le programme et redémarrer.</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>加載中</value>
+    <value>Chargement</value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
-    <value>開啟導覽</value>
+    <value>Navigation Ouvrir</value>
     <comment>Automation name for the hamburger button when it is in a closed state</comment>
   </data>
   <data name="NavigationButtonOpenName" xml:space="preserve">
-    <value>關閉導覽</value>
+    <value>Navigation Fermer</value>
     <comment>Automation name and tooltip caption for the hamburger button when it is in an open state, and tooltip caption for the close button</comment>
   </data>
   <data name="NavigationViewItemDefaultControlName" xml:space="preserve">
@@ -166,35 +166,35 @@
     <comment>Default automation id if no name or id is provided</comment>
   </data>
   <data name="SettingsButtonName" xml:space="preserve">
-    <value>設定</value>
+    <value>Paramètres</value>
     <comment>Automation name for the settings button</comment>
   </data>
   <data name="NavigationViewSearchButtonName" xml:space="preserve">
-    <value>按一下以搜尋</value>
+    <value>Cliquer pour rechercher</value>
     <comment>Name for the compact view search button</comment>
   </data>
   <data name="NavigationBackButtonName" xml:space="preserve">
-    <value>上一步</value>
+    <value>Retour</value>
     <comment>Automation name for the nav view provided back button</comment>
   </data>
   <data name="NavigationBackButtonToolTip" xml:space="preserve">
-    <value>上一步</value>
+    <value>Retour</value>
     <comment>ToolTip caption for the back button</comment>
   </data>
   <data name="NavigationCloseButtonName" xml:space="preserve">
-    <value>關閉</value>
+    <value>Fermer</value>
     <comment>Automation name for the nav view provided close button</comment>
   </data>
   <data name="NavigationOverflowButtonName" xml:space="preserve">
-    <value>更多</value>
+    <value>Plus</value>
     <comment>Automation name for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonText" xml:space="preserve">
-    <value>更多</value>
+    <value>Plus</value>
     <comment>Text for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
-    <value>更多</value>
+    <value>Plus</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
   </data>
 </root>
