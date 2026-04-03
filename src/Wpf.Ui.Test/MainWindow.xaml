@@ -1590,6 +1590,40 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="MultiComboBox" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <vio:MultiComboBox
+                                Width="240"
+                                MaxDropDownHeight="300"
+                                PlaceholderText="Please select..."
+                                SelectAllText="Select All">
+                                <vio:MultiComboBoxItem Content="Option A" />
+                                <vio:MultiComboBoxItem Content="Option B" />
+                                <vio:MultiComboBoxItem Content="Option C" />
+                                <vio:MultiComboBoxItem Content="Option D" />
+                                <vio:MultiComboBoxItem Content="Option E" />
+                            </vio:MultiComboBox>
+                            <vio:MultiComboBox
+                                x:Name="MultiComboBoxDemo"
+                                Width="240"
+                                Margin="16,0,0,0"
+                                MaxDropDownHeight="300"
+                                PlaceholderText="Binding demo (ItemsSource)"
+                                SelectAllText="Select All" />
+                            <TextBlock
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{Binding MultiComboBoxSelectedText}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  ...  -->

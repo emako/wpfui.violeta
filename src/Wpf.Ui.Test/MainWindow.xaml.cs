@@ -34,6 +34,7 @@ public partial class MainWindow : ShellWindow
         ScrollViewer.ScrollToEnd();
 
         InitNode1Value();
+        InitMultiComboBoxDemo();
 
         Dispatcher.BeginInvoke(async () =>
         {
@@ -42,8 +43,22 @@ public partial class MainWindow : ShellWindow
         });
     }
 
+    private void InitMultiComboBoxDemo()
+    {
+        MultiComboBoxDemo.ItemsSource = new[] { "Apple", "Banana", "Cherry", "Durian", "Elderberry" };
+        MultiComboBoxDemo.MultiSelectedItems.CollectionChanged += (_, _) =>
+        {
+            MultiComboBoxSelectedText = MultiComboBoxDemo.MultiSelectedItems.Count == 0
+                ? "Selected: (none)"
+                : "Selected: " + string.Join(", ", MultiComboBoxDemo.MultiSelectedItems);
+        };
+    }
+
     [ObservableProperty]
     private int themeIndex = (int)ApplicationTheme.Dark; // Default Dark forever
+
+    [ObservableProperty]
+    private string multiComboBoxSelectedText = "Selected: (none)";
 
     partial void OnThemeIndexChanged(int value)
     {
