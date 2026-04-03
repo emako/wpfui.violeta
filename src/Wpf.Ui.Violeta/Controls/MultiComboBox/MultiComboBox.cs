@@ -205,21 +205,13 @@ public class MultiComboBox : ComboBox
         if (_suppressSelectAllUpdate)
             return;
 
-        bool? isChecked = PART_SelectAllCheckBox?.IsChecked;
-
-        if (isChecked == null)
-        {
-            // Indeterminate clicked — promote to fully checked
-            isChecked = true;
-            if (PART_SelectAllCheckBox != null)
-                PART_SelectAllCheckBox.IsChecked = true;
-        }
+        bool shouldSelectAll = MultiSelectedItems.Count < Items.Count;
 
         _suppressItemUpdate = true;
 
         try
         {
-            if (isChecked == true)
+            if (shouldSelectAll)
             {
                 MultiSelectedItems.Clear();
                 foreach (object item in Items)
@@ -239,8 +231,11 @@ public class MultiComboBox : ComboBox
             _suppressItemUpdate = false;
         }
 
-        SelectAllCheckState = isChecked;
+        SelectAllCheckState = shouldSelectAll;
+        if (PART_SelectAllCheckBox != null)
+            PART_SelectAllCheckBox.IsChecked = shouldSelectAll;
         UpdateSelectedText();
+        UpdateSelectAllState();
     }
 
     private void SetAllItemsChecked(bool isChecked)
