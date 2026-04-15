@@ -1,4 +1,6 @@
-﻿using System;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -226,6 +228,7 @@ public static class ExpanderAnimationsHelper
             ExpandDirection.Up => (TranslateTransform.YProperty, TranslateTransform.XProperty, toAnimateControl.ActualHeight),
             ExpandDirection.Left => (TranslateTransform.XProperty, TranslateTransform.YProperty, toAnimateControl.ActualWidth),
             ExpandDirection.Right => (TranslateTransform.XProperty, TranslateTransform.YProperty, -toAnimateControl.ActualWidth),
+            _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null),
         };
 
         toAnimateControl.RenderTransform.BeginAnimation(toResetProp, null);

@@ -1,4 +1,6 @@
-﻿using System.Threading;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -87,7 +89,8 @@ public static class TextBlockHelper
             textBlock.FlowDirection,
             typeface,
             textBlock.FontSize,
-            textBlock.Foreground);
+            textBlock.Foreground,
+            VisualTreeHelper.GetDpi(textBlock).PixelsPerDip);
 
         formattedText.MaxTextWidth = textBlock.ActualWidth;
 

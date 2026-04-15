@@ -1,4 +1,6 @@
-﻿// Ported from https://www.wpf-controls.com/wpf-smooth-scroll-viewer
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+// Ported from https://www.wpf-controls.com/wpf-smooth-scroll-viewer
 
 using System;
 using System.Windows;

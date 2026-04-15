@@ -1,4 +1,6 @@
-﻿using System;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -5861,7 +5863,6 @@ public partial class NavigationView : ContentControl, IControlProtected
     private FrameworkElement m_menuItemsScrollViewer;
     private FrameworkElement m_footerItemsScrollViewer;
     private UIElement m_paneContentGrid;
-    private ColumnDefinition m_paneToggleButtonIconGridColumn;
     private FrameworkElement m_paneTitleHolderFrameworkElement;
     private FrameworkElement m_paneTitleFrameworkElement;
     private FrameworkElement m_visualItemsSeparator;
@@ -5940,7 +5941,9 @@ public partial class NavigationView : ContentControl, IControlProtected
     private bool m_shouldIgnoreNextSelectionChange = false;
 
     // Used to disable raising selection change iff settings item gets restored because of displaymode change
+#pragma warning disable CS0414
     private bool m_shouldIgnoreNextSelectionChangeBecauseSettingsRestore = false;
+#pragma warning restore CS0414
 
     // A flag to track that the selectionchange is caused by selection a item in topnav overflow menu
     private bool m_selectionChangeFromOverflowMenu = false;

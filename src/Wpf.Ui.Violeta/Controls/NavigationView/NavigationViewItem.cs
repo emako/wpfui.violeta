@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
@@ -937,9 +939,11 @@ public partial class NavigationViewItem : NavigationViewItemBase
         m_flyoutContentGrid = null;
     }
 
+#pragma warning disable CS0649
     private SplitViewIsPaneOpenChangedRevoker m_splitViewIsPaneOpenChangedRevoker;
     private SplitViewDisplayModeChangedRevoker m_splitViewDisplayModeChangedRevoker;
     private SplitViewCompactPaneLengthChangedRevoker m_splitViewCompactPaneLengthChangedRevoker;
+#pragma warning restore CS0649
 
     private ItemsRepeaterElementPreparedRevoker m_repeaterElementPreparedRevoker;
     private ItemsRepeaterElementClearingRevoker m_repeaterElementClearingRevoker;

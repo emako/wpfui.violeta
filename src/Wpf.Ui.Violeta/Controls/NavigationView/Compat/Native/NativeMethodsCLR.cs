@@ -1,6 +1,10 @@
-﻿using System.Diagnostics;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Diagnostics;
 using System;
 using System.Runtime.InteropServices;
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -130,7 +134,7 @@ internal readonly partial struct HWND
 
     public bool Equals(HWND other) => this.Value == other.Value;
 
-    public override bool Equals(object obj) => obj is HWND other && this.Equals(other);
+    public override bool Equals(object? obj) => obj is HWND other && this.Equals(other);
 
     public override int GetHashCode() => this.Value.GetHashCode();
 }
@@ -269,7 +273,7 @@ internal unsafe readonly partial struct PCWSTR
 
     public bool Equals(PCWSTR other) => this.Value == other.Value;
 
-    public override bool Equals(object obj) => obj is PCWSTR other && this.Equals(other);
+    public override bool Equals(object? obj) => obj is PCWSTR other && this.Equals(other);
 
     public override int GetHashCode() => unchecked((int)this.Value);
 
@@ -320,7 +324,7 @@ internal readonly partial struct HICON
 
     public bool Equals(HICON other) => this.Value == other.Value;
 
-    public override bool Equals(object obj) => obj is HICON other && this.Equals(other);
+    public override bool Equals(object? obj) => obj is HICON other && this.Equals(other);
 
     public override int GetHashCode() => this.Value.GetHashCode();
 }

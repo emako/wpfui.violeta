@@ -1,5 +1,9 @@
-﻿using System;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
 using System.Windows.Media;
+
+#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -61,7 +65,7 @@ internal readonly struct NormalizedRGB : IEquatable<NormalizedRGB>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is NormalizedRGB other)
         {
@@ -128,7 +132,7 @@ internal readonly struct HSL : IEquatable<HSL>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is HSL other)
         {
@@ -177,7 +181,7 @@ internal readonly struct HSV : IEquatable<HSV>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is HSV other)
         {
@@ -241,7 +245,7 @@ internal readonly struct LAB : IEquatable<LAB>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is LAB other)
         {
@@ -305,7 +309,7 @@ internal readonly struct LCH : IEquatable<LCH>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is LCH other)
         {
@@ -369,7 +373,7 @@ internal readonly struct XYZ : IEquatable<XYZ>
 
     #region Equals
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is XYZ other)
         {

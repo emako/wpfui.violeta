@@ -1,4 +1,6 @@
-﻿// Ported from https://github.com/lindexi/lindexi_gd/blob/master/KenafearcuweYemjecahee/FullscreenHelper.cs
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+// Ported from https://github.com/lindexi/lindexi_gd/blob/master/KenafearcuweYemjecahee/FullscreenHelper.cs
 
 using System;
 using System.Runtime.InteropServices;
@@ -529,7 +531,7 @@ public const CharSet BuildCharSet = CharSet.Ansi;
             return (Left == other.Left) && (Right == other.Right) && (Top == other.Top) && (Bottom == other.Bottom);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is Rectangle rectangle && Equals(rectangle);
         }

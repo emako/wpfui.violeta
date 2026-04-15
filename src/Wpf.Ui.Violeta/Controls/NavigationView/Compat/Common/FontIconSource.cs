@@ -1,4 +1,6 @@
-﻿using System.Windows;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Windows;
 using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -175,9 +177,9 @@ public class FontIconSource : IconSource, IFontIconClass
 
 public interface IFontIconClass
 {
-    FontFamily FontFamily { get; set; }
+    FontFamily? FontFamily { get; set; }
 
-    string Glyph { get; set; }
+    string? Glyph { get; set; }
 
     double FontSize { get; set; }
 

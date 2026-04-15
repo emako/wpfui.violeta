@@ -1,4 +1,6 @@
-﻿using System;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
@@ -526,5 +528,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
 
     private event PostArrangeEventHandler PostArrange;
 
+#pragma warning disable CS0067
     private event ConfigurationChangedEventHandler ConfigurationChanged;
+#pragma warning restore CS0067
 }

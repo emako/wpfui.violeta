@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Diagnostics;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -59,7 +61,7 @@ internal class IndexRange
         return (m_begin <= other.End) && (m_end >= other.Begin);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is IndexRange other)
         {
