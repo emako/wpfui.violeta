@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -35,7 +36,14 @@ public partial class ExceptionWindow : FluentWindow
                 try
                 {
                     // Try get assembly version but be care the owner class had been unmounted.
-                    AppVersion ??= "v" + owner.GetType().Assembly.GetName().Version?.ToString();
+                    Assembly assembly
+                        // Gets the entry assembly (the executable that started the process); may return null in some contexts (e.g., unit tests, plugins)
+                        = Assembly.GetEntryAssembly()
+                        // Fallback to the assembly that defines the current WPF Application (App.xaml.cs)
+                        ?? Application.Current?.GetType().Assembly
+                        // Final fallback to the assembly where the provided owner object is defined
+                        ?? owner.GetType().Assembly;
+                    AppVersion ??= "v" + assembly?.GetName().Version?.ToString();
                 }
                 catch
                 {
