@@ -669,10 +669,11 @@ public static class TaskDialog
 
     private static readonly string _logFile = Path.Combine(Path.GetTempPath(), "taskdialog-log.txt");
 
-    private static void Log(string format, params object[] args)
+    private static void Log(string format, params object[]? args)
     {
         try
         {
+            args ??= [];
 #if DEBUG
             string line = DateTime.Now.ToString("o") + " [" + Thread.CurrentThread.ManagedThreadId + "] " + string.Format(format, args);
             File.AppendAllText(_logFile, line + Environment.NewLine);
