@@ -1868,6 +1868,53 @@
                     </StackPanel>
                     <StackPanel>
                         <!--  =============================  -->
+                        <!--  Banner  -->
+                        <!--  =============================  -->
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Banner" />
+                        <StackPanel Margin="0,8,0,16">
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="This is an informational message."
+                                Header="Information"
+                                Type="Information" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="Operation completed successfully."
+                                Header="Success"
+                                Type="Success" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="Please review before continuing."
+                                Header="Warning"
+                                Type="Warning" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="Something went wrong, please try again."
+                                Header="Error"
+                                Type="Error" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                CanClose="True"
+                                Content="You can dismiss this banner."
+                                Header="Dismissible"
+                                Type="Information" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="No icon shown."
+                                Header="No Icon"
+                                ShowIcon="False"
+                                Type="Warning" />
+                            <vio:Banner
+                                Margin="0,4,0,0"
+                                Content="Content only, no header."
+                                Type="Success" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
                         <!--  Skeleton  -->
                         <!--  =============================  -->
                         <TextBlock

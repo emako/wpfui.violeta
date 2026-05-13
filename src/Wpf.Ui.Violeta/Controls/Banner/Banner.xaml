@@ -1,0 +1,175 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+
+    <!--  Close button style: a small, flat, icon-only button  -->
+    <Style x:Key="BannerCloseButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Root"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="4">
+                        <ui:SymbolIcon
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Symbol="Dismiss16" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DefaultBannerStyle" TargetType="{x:Type local:Banner}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Banner}">
+                    <Border
+                        x:Name="PART_Container"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{DynamicResource SystemFillColorAttentionBackgroundBrush}"
+                        BorderBrush="{DynamicResource SystemFillColorAttentionBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  Icon + Title/Content area  -->
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  Icon area  -->
+                                <StackPanel
+                                    x:Name="PART_IconArea"
+                                    Grid.Column="0"
+                                    Margin="0,0,12,0"
+                                    VerticalAlignment="Top">
+                                    <!--  Custom icon: shown when Icon != null  -->
+                                    <ContentPresenter
+                                        x:Name="PART_CustomIcon"
+                                        Content="{TemplateBinding Icon}"
+                                        Visibility="Visible" />
+                                    <!--  Built-in icon: shown when Icon == null  -->
+                                    <ui:SymbolIcon
+                                        x:Name="PART_BuiltInIcon"
+                                        FontSize="20"
+                                        Foreground="{DynamicResource SystemFillColorAttentionBrush}"
+                                        Symbol="Info24"
+                                        Visibility="Collapsed" />
+                                </StackPanel>
+
+                                <!--  Title + Body  -->
+                                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                                    <ContentPresenter
+                                        x:Name="PART_Header"
+                                        Content="{TemplateBinding Header}"
+                                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                        TextBlock.FontSize="15"
+                                        TextBlock.FontWeight="SemiBold"
+                                        TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                        Visibility="Visible" />
+                                    <ContentPresenter
+                                        Margin="0,2,0,0"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                </StackPanel>
+                            </Grid>
+
+                            <!--  Close button  -->
+                            <Button
+                                x:Name="PART_CloseButton"
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource BannerCloseButtonStyle}"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!--  Show/hide icon area  -->
+                        <Trigger Property="ShowIcon" Value="False">
+                            <Setter TargetName="PART_IconArea" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <!--  When Icon == null, show built-in icon instead  -->
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="PART_CustomIcon" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Visibility" Value="Visible" />
+                        </Trigger>
+
+                        <!--  Show close button when CanClose  -->
+                        <Trigger Property="CanClose" Value="True">
+                            <Setter TargetName="PART_CloseButton" Property="Visibility" Value="Visible" />
+                        </Trigger>
+
+                        <!--  Show header ContentPresenter only when Header is set  -->
+                        <Trigger Property="Header" Value="{x:Null}">
+                            <Setter TargetName="PART_Header" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <!--  Success  -->
+                        <Trigger Property="Type" Value="Success">
+                            <Setter TargetName="PART_Container" Property="Background" Value="{DynamicResource SystemFillColorSuccessBackgroundBrush}" />
+                            <Setter TargetName="PART_Container" Property="BorderBrush" Value="{DynamicResource SystemFillColorSuccessBrush}" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Symbol" Value="CheckmarkCircle24" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Foreground" Value="{DynamicResource SystemFillColorSuccessBrush}" />
+                        </Trigger>
+
+                        <!--  Warning  -->
+                        <Trigger Property="Type" Value="Warning">
+                            <Setter TargetName="PART_Container" Property="Background" Value="{DynamicResource SystemFillColorCautionBackgroundBrush}" />
+                            <Setter TargetName="PART_Container" Property="BorderBrush" Value="{DynamicResource SystemFillColorCautionBrush}" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Symbol" Value="Warning24" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Foreground" Value="{DynamicResource SystemFillColorCautionBrush}" />
+                        </Trigger>
+
+                        <!--  Error  -->
+                        <Trigger Property="Type" Value="Error">
+                            <Setter TargetName="PART_Container" Property="Background" Value="{DynamicResource SystemFillColorCriticalBackgroundBrush}" />
+                            <Setter TargetName="PART_Container" Property="BorderBrush" Value="{DynamicResource SystemFillColorCriticalBrush}" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Symbol" Value="ErrorCircle24" />
+                            <Setter TargetName="PART_BuiltInIcon" Property="Foreground" Value="{DynamicResource SystemFillColorCriticalBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultBannerStyle}" TargetType="{x:Type local:Banner}" />
+
+</ResourceDictionary>
