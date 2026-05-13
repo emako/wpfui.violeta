@@ -1841,6 +1841,33 @@
                     </StackPanel>
                     <StackPanel>
                         <!--  =============================  -->
+                        <!--  PinCode  -->
+                        <!--  =============================  -->
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="PinCode" />
+                        <StackPanel Margin="0,8,0,16">
+                            <StackPanel>
+                                <TextBlock Margin="0,0,0,4" Text="Digit + Letter (default, 4 cells)" />
+                                <vio:PinCode Count="4" />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Margin="0,0,0,4" Text="Digit only (6 cells)" />
+                                <vio:PinCode Count="6" Mode="Digit" />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Margin="0,0,0,4" Text="Password mask  •" />
+                                <vio:PinCode Count="6" PasswordChar="•" CompleteCommand="{Binding PinCodeCompleteCommand}" />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Margin="0,0,0,4" Text="Completed value:" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding PinCodeResult}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
                         <TextBlock
                             MinWidth="120"
                             Margin="0,8,0,0"

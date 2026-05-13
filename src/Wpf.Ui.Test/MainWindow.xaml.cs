@@ -371,6 +371,18 @@ public partial class MainWindow : ShellWindow
         ];
     }
 
+    // ── PinCode ──────────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    private string? _pinCodeResult;
+
+    [RelayCommand]
+    private void PinCodeComplete(object? parameter)
+    {
+        if (parameter is System.Collections.Generic.IList<string> code)
+            PinCodeResult = string.Join("", code);
+    }
+
     partial void OnThemeIndexChanged(int value)
     {
         ThemeManager.Apply((ApplicationTheme)value);
