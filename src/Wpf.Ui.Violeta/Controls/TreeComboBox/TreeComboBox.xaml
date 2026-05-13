@@ -89,9 +89,7 @@
                             HorizontalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
                             CornerRadius="{DynamicResource ControlCornerRadius}">
-                            <Grid
-                                x:Name="PART_Header"
-                                Margin="{Binding Level, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TreeComboBoxLevelToIndentConverter}}">
+                            <Grid x:Name="PART_Header" Margin="{Binding Level, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TreeComboBoxLevelToIndentConverter}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -160,7 +158,7 @@
         <Setter Property="Padding" Value="{StaticResource TreeComboBoxPadding}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
         <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -260,9 +258,7 @@
                                 BorderBrush="{DynamicResource ComboBoxDropDownBorderBrush}"
                                 BorderThickness="1"
                                 CornerRadius="{DynamicResource PopupCornerRadius}">
-                                <ScrollViewer
-                                    HorizontalScrollBarVisibility="Disabled"
-                                    VerticalScrollBarVisibility="Auto">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                                     <ItemsPresenter />
                                 </ScrollViewer>
                             </Border>

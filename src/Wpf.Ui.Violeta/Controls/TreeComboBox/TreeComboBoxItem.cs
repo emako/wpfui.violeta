@@ -88,9 +88,23 @@ public class TreeComboBoxItem : HeaderedItemsControl
 
     private void UpdateLevel()
     {
-        int distance = CalculateDistanceFromLogicalParent<TreeComboBox>(this);
-        // distance = 1 means immediate child of TreeComboBox → Level 0
-        SetValue(LevelPropertyKey, distance > 0 ? distance - 1 : 0);
+        // Count the number of TreeComboBoxItem ancestors (ignoring all intermediate
+        // visual elements such as Border/Grid/StackPanel/ItemsPresenter).
+        // This is robust for both declarative XAML items and data-bound ItemsSource items.
+        int level = 0;
+        DependencyObject? current = LogicalTreeHelper.GetParent(this);
+        current ??= VisualTreeHelper.GetParent(this);
+        while (current is not null)
+        {
+            if (current is TreeComboBox)
+                break;
+            if (current is TreeComboBoxItem)
+                level++;
+            DependencyObject? next = LogicalTreeHelper.GetParent(current);
+            next ??= VisualTreeHelper.GetParent(current);
+            current = next;
+        }
+        SetValue(LevelPropertyKey, level);
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -125,21 +139,5 @@ public class TreeComboBoxItem : HeaderedItemsControl
             current = parent;
         }
         return null;
-    }
-
-    private static int CalculateDistanceFromLogicalParent<T>(DependencyObject? element) where T : DependencyObject
-    {
-        int distance = 0;
-        DependencyObject? parent = element;
-        while (parent is not null)
-        {
-            DependencyObject? next = LogicalTreeHelper.GetParent(parent);
-            next ??= VisualTreeHelper.GetParent(parent);
-            if (next is T)
-                return distance + 1;
-            parent = next;
-            distance++;
-        }
-        return -1;
     }
 }
