@@ -42,6 +42,7 @@ public partial class MainWindow : ShellWindow
         InitCascadingComboBoxDemoLevel2();
         InitCascadingComboBoxDemoLevel4();
         InitCascadingComboBoxDemoMixedDepth();
+        InitTreeComboBoxDemo();
 
         Dispatcher.BeginInvoke(async () =>
         {
@@ -298,8 +299,7 @@ public partial class MainWindow : ShellWindow
         ];
     }
 
-    private void InitCascadingComboBoxDemoMixedDepth()
-    {
+    private void InitCascadingComboBoxDemoMixedDepth()    {
         CascadingComboBoxDemoItems_MixedDepth =
         [
             new CascadingItem("Quick Pick",
@@ -338,6 +338,36 @@ public partial class MainWindow : ShellWindow
                 new CascadingItem("Option B"),
                 new CascadingItem("Option C"),
             ]),
+        ];
+    }
+
+    // ── TreeComboBox ──────────────────────────────────────────────
+
+    [ObservableProperty]
+    private System.Collections.Generic.List<TreeComboBoxNode>? _treeComboBoxItems;
+
+    [ObservableProperty]
+    private TreeComboBoxNode? _treeComboBoxSelectedItem;
+
+    private void InitTreeComboBoxDemo()
+    {
+        TreeComboBoxItems =
+        [
+            new TreeComboBoxNode("Item 1",
+            [
+                new TreeComboBoxNode("Item 1-1",
+                [
+                    new TreeComboBoxNode("Item 1-1-1"),
+                    new TreeComboBoxNode("Item 1-1-2"),
+                ]),
+                new TreeComboBoxNode("Item 1-2"),
+            ]),
+            new TreeComboBoxNode("Item 2",
+            [
+                new TreeComboBoxNode("Item 2-1"),
+                new TreeComboBoxNode("Item 2-2"),
+            ]),
+            new TreeComboBoxNode("Item 3"),
         ];
     }
 
@@ -1257,4 +1287,11 @@ public partial class Staff : ObservableObject
     private void OnClick()
     {
     }
+}
+
+/// <summary>Simple view-model node for TreeComboBox demo.</summary>
+public sealed class TreeComboBoxNode(string name, System.Collections.Generic.List<TreeComboBoxNode>? children = null)
+{
+    public string Name { get; } = name;
+    public System.Collections.Generic.List<TreeComboBoxNode> Children { get; } = children ?? [];
 }

@@ -1783,6 +1783,65 @@
                     <StackPanel>
                         <!--  =============================  -->
                         <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="TreeComboBox" />
+                        <StackPanel Margin="0,8,0,16">
+                            <!--  Declarative items  -->
+                            <TextBlock
+                                MinWidth="120"
+                                Margin="0,8,0,0"
+                                Text="Declarative items" />
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <vio:TreeComboBox
+                                    Width="280"
+                                    HorizontalAlignment="Left"
+                                    PlaceholderText="Please select...">
+                                    <vio:TreeComboBoxItem Header="Hello">
+                                        <vio:TreeComboBoxItem Header="Hello World">
+                                            <vio:TreeComboBoxItem Header="Hello World 1" />
+                                            <vio:TreeComboBoxItem Header="Hello World 2" />
+                                            <vio:TreeComboBoxItem Header="Hello World 3" />
+                                        </vio:TreeComboBoxItem>
+                                        <vio:TreeComboBoxItem Header="Hello Violeta" />
+                                    </vio:TreeComboBoxItem>
+                                    <vio:TreeComboBoxItem Header="World">
+                                        <vio:TreeComboBoxItem Header="World Hello" />
+                                        <vio:TreeComboBoxItem Header="World Violeta" />
+                                    </vio:TreeComboBoxItem>
+                                    <vio:TreeComboBoxItem Header="Leaf item" />
+                                </vio:TreeComboBox>
+                            </StackPanel>
+                            <!--  Data-bound items  -->
+                            <TextBlock
+                                MinWidth="120"
+                                Margin="0,12,0,0"
+                                Text="Data-bound (HierarchicalDataTemplate)" />
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <vio:TreeComboBox
+                                    Width="280"
+                                    HorizontalAlignment="Left"
+                                    ItemsSource="{Binding TreeComboBoxItems}"
+                                    PlaceholderText="Please select..."
+                                    SelectedItem="{Binding TreeComboBoxSelectedItem, Mode=TwoWay}">
+                                    <vio:TreeComboBox.ItemTemplate>
+                                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                            <TextBlock Text="{Binding Name}" />
+                                        </HierarchicalDataTemplate>
+                                    </vio:TreeComboBox.ItemTemplate>
+                                </vio:TreeComboBox>
+                                <TextBlock
+                                    Margin="16,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="{Binding TreeComboBoxSelectedItem.Name}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
                             MinWidth="120"
                             Margin="0,8,0,0"
                             FontSize="14"
