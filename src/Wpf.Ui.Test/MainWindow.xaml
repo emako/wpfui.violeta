@@ -2142,6 +2142,48 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="Timeline" />
+                        <WrapPanel>
+                            <vio:Timeline
+                                Margin="0,0,24,0"
+                                HeaderMemberPath="Header"
+                                ContentMemberPath="Description"
+                                TimeMemberPath="Time"
+                                TimeFormat="yyyy-MM-dd"
+                                ItemsSource="{Binding TimelineItems}"
+                                Mode="Alternate" />
+                            <vio:Timeline
+                                Margin="0,0,24,0"
+                                HeaderMemberPath="Header"
+                                ContentMemberPath="Description"
+                                TimeMemberPath="Time"
+                                TimeFormat="yyyy-MM-dd"
+                                ItemsSource="{Binding TimelineItems}"
+                                Mode="Left" />
+                            <vio:Timeline
+                                Margin="0,0,24,0"
+                                HeaderMemberPath="Header"
+                                ContentMemberPath="Description"
+                                TimeMemberPath="Time"
+                                TimeFormat="yyyy-MM-dd"
+                                ItemsSource="{Binding TimelineItems}"
+                                Mode="Right" />
+                            <vio:Timeline Mode="Alternate">
+                                <vio:TimelineItem Header="Step One" Content="First item" Position="Left" Type="Default" />
+                                <vio:TimelineItem Header="Step Two" Content="Second item" Position="Right" Type="Success" />
+                                <vio:TimelineItem Header="Step Three" Content="Third item" Position="Separate" Type="Warning" />
+                                <vio:TimelineItem Header="Step Four" Content="Fourth item" Position="Separate" Type="Ongoing" />
+                                <vio:TimelineItem Header="Step Five" Content="Fifth item" Position="Separate" Type="Error" />
+                            </vio:Timeline>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  ...  -->

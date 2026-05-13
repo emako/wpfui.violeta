@@ -407,6 +407,15 @@ public partial class MainWindow : ShellWindow
     [ObservableProperty]
     private double _qrCodeSymbolCornerRatio = 0.5;
 
+    public TimelineItemViewModel[] TimelineItems { get; } =
+    [
+        new() { Time = new DateTime(2024, 1, 1), Header = "Completed", Description = "Step 1 finished successfully.", ItemType = TimelineItemType.Success },
+        new() { Time = new DateTime(2024, 6, 1), Header = "In Progress", Description = "Step 2 is currently ongoing.", ItemType = TimelineItemType.Ongoing },
+        new() { Time = new DateTime(2025, 1, 1), Header = "Warning", Description = "Step 3 completed with warnings.", ItemType = TimelineItemType.Warning },
+        new() { Time = new DateTime(2025, 6, 1), Header = "Failed", Description = "Step 4 encountered an error.", ItemType = TimelineItemType.Error },
+        new() { Time = new DateTime(2026, 1, 1), Header = "Pending", Description = "Step 5 has not started yet.", ItemType = TimelineItemType.Default },
+    ];
+
     partial void OnThemeIndexChanged(int value)
     {
         ThemeManager.Apply((ApplicationTheme)value);
@@ -1330,4 +1339,13 @@ public sealed class TreeComboBoxNode(string name, System.Collections.Generic.Lis
 {
     public string Name { get; } = name;
     public System.Collections.Generic.List<TreeComboBoxNode> Children { get; } = children ?? [];
+}
+
+/// <summary>View-model item for Timeline demo.</summary>
+public class TimelineItemViewModel
+{
+    public DateTime Time { get; set; }
+    public string? Header { get; set; }
+    public string? Description { get; set; }
+    public TimelineItemType ItemType { get; set; }
 }
