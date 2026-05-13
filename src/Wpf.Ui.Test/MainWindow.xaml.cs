@@ -398,6 +398,15 @@ public partial class MainWindow : ShellWindow
         IsSkeletonActive = IsSkeletonLoading;
     }
 
+    [ObservableProperty]
+    private string _qrCodeData = "https://github.com/emako/wpfui.violeta";
+
+    [ObservableProperty]
+    private EccLevel _qrCodeEccLevel = EccLevel.Medium;
+
+    [ObservableProperty]
+    private double _qrCodeSymbolCornerRatio = 0.5;
+
     partial void OnThemeIndexChanged(int value)
     {
         ThemeManager.Apply((ApplicationTheme)value);

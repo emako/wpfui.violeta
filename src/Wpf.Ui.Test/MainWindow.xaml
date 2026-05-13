@@ -2107,6 +2107,41 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="QrCode" />
+                        <StackPanel Orientation="Horizontal">
+                            <vio:QrCode
+                                Width="200"
+                                Height="200"
+                                CornerRadius="8"
+                                Data="{Binding QrCodeData}"
+                                ErrorCorrection="{Binding QrCodeEccLevel}"
+                                SymbolCornerRatio="{Binding QrCodeSymbolCornerRatio}" />
+                            <StackPanel
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center">
+                                <TextBox
+                                    Width="200"
+                                    Margin="0,0,0,4"
+                                    Text="{Binding QrCodeData, UpdateSourceTrigger=PropertyChanged}" />
+                                <Slider
+                                    Width="200"
+                                    Margin="0,0,0,4"
+                                    Maximum="0.5"
+                                    Minimum="0"
+                                    TickFrequency="0.05"
+                                    TickPlacement="BottomRight"
+                                    IsSnapToTickEnabled="True"
+                                    Value="{Binding QrCodeSymbolCornerRatio}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  ...  -->
