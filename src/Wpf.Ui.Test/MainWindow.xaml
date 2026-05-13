@@ -12,7 +12,7 @@
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     Title="Wpf.Ui.Test"
     Width="1200"
-    Height="800"
+    Height="760"
     d:Background="#232323"
     d:Height="2400"
     ExtendsContentIntoTitleBar="True"
