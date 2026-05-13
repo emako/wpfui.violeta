@@ -2272,9 +2272,90 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="Badge" />
+                        <WrapPanel Margin="0,8,0,0">
+                            <!--  Count badge (default TopRight)  -->
+                            <vio:Badge
+                                Margin="16"
+                                BadgeContent="5"
+                                OverflowCount="99">
+                                <Border
+                                    Width="48"
+                                    Height="48"
+                                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
+                            </vio:Badge>
+                            <!--  Overflow  -->
+                            <vio:Badge
+                                Margin="16"
+                                BadgeContent="120"
+                                OverflowCount="99">
+                                <Border
+                                    Width="48"
+                                    Height="48"
+                                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
+                            </vio:Badge>
+                            <!--  Dot  -->
+                            <vio:Badge Margin="16" Dot="True">
+                                <Border
+                                    Width="48"
+                                    Height="48"
+                                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
+                            </vio:Badge>
+                            <!--  BottomRight  -->
+                            <vio:Badge
+                                Margin="16"
+                                BadgeContent="3"
+                                CornerPosition="BottomRight">
+                                <Border
+                                    Width="48"
+                                    Height="48"
+                                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
+                            </vio:Badge>
+                            <!--  Custom color  -->
+                            <vio:Badge
+                                Margin="16"
+                                BadgeBackground="#2ea043"
+                                BadgeContent="NEW"
+                                CornerPosition="TopLeft">
+                                <Border
+                                    Width="48"
+                                    Height="48"
+                                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
+                            </vio:Badge>
+                            <!--  Text content  -->
+                            <vio:Badge Margin="16" BadgeContent="5">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Text="Messages" />
+                            </vio:Badge>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
-                            <!--  ...  -->
+                            <!--  Next ...  -->
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
