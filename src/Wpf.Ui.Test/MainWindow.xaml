@@ -2235,6 +2235,43 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="Divider" />
+                        <ui:StackPanel Margin="0,4,0,0" Spacing="8">
+                            <!--  No content (plain line)  -->
+                            <vio:Divider />
+                            <!--  Center label (default)  -->
+                            <vio:Divider Content="Center" />
+                            <!--  Left label  -->
+                            <vio:Divider HorizontalContentAlignment="Left" Content="Left" />
+                            <!--  Right label  -->
+                            <vio:Divider HorizontalContentAlignment="Right" Content="Right" />
+                            <!--  Custom content  -->
+                            <vio:Divider>
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:SymbolIcon Symbol="Star24" />
+                                    <TextBlock
+                                        Margin="4,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Text="Custom Content" />
+                                </StackPanel>
+                            </vio:Divider>
+                            <!--  Vertical dividers  -->
+                            <ui:StackPanel Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Text="Left" />
+                                <vio:Divider Orientation="Vertical" />
+                                <TextBlock VerticalAlignment="Center" Text="Middle" />
+                                <vio:Divider Orientation="Vertical" />
+                                <TextBlock VerticalAlignment="Center" Text="Right" />
+                            </ui:StackPanel>
+                        </ui:StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  ...  -->

@@ -1,0 +1,135 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--
+        Horizontal divider line style.
+        Shared by all three horizontal column templates.
+    -->
+    <Style x:Key="DividerLineStyle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style TargetType="local:Divider">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <!--  Default template: Horizontal, Center  -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Divider">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Column="0" Style="{StaticResource DividerLineStyle}" />
+                        <ContentPresenter
+                            x:Name="PART_Content"
+                            Grid.Column="1"
+                            Margin="8,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="False" />
+                        <Rectangle Grid.Column="2" Style="{StaticResource DividerLineStyle}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasContent" Value="False">
+                            <Setter TargetName="PART_Content" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!--  Horizontal Left  -->
+            <Trigger Property="HorizontalContentAlignment" Value="Left">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="local:Divider">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Column="0" Style="{StaticResource DividerLineStyle}" />
+                                <ContentPresenter
+                                    x:Name="PART_Content"
+                                    Grid.Column="1"
+                                    Margin="8,0"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    RecognizesAccessKey="False" />
+                                <Rectangle Grid.Column="2" Style="{StaticResource DividerLineStyle}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="HasContent" Value="False">
+                                    <Setter TargetName="PART_Content" Property="Visibility" Value="Collapsed" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!--  Horizontal Right  -->
+            <Trigger Property="HorizontalContentAlignment" Value="Right">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="local:Divider">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Column="0" Style="{StaticResource DividerLineStyle}" />
+                                <ContentPresenter
+                                    x:Name="PART_Content"
+                                    Grid.Column="1"
+                                    Margin="8,0"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    RecognizesAccessKey="False" />
+                                <Rectangle Grid.Column="2" Style="{StaticResource DividerLineStyle}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="HasContent" Value="False">
+                                    <Setter TargetName="PART_Content" Property="Visibility" Value="Collapsed" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!--
+                Vertical — placed LAST so it wins when Orientation=Vertical
+                regardless of HorizontalContentAlignment.
+            -->
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Width" Value="1" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="Margin" Value="1,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="local:Divider">
+                            <Rectangle
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                SnapsToDevicePixels="True" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
