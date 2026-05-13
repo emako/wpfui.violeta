@@ -1868,6 +1868,70 @@
                     </StackPanel>
                     <StackPanel>
                         <!--  =============================  -->
+                        <!--  Skeleton  -->
+                        <!--  =============================  -->
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Skeleton" />
+                        <StackPanel Margin="0,8,0,16">
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="IsLoading only" />
+                                <vio:Skeleton
+                                    Width="200"
+                                    Height="32"
+                                    IsLoading="True">
+                                    <TextBlock Text="Hidden content" />
+                                </vio:Skeleton>
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="IsLoading + IsActive" />
+                                <vio:Skeleton
+                                    Width="200"
+                                    Height="32"
+                                    IsActive="True"
+                                    IsLoading="True">
+                                    <TextBlock Text="Hidden content" />
+                                </vio:Skeleton>
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Not loading (normal)" />
+                                <vio:Skeleton Width="200" Height="32">
+                                    <TextBlock VerticalAlignment="Center" Text="Visible content" />
+                                </vio:Skeleton>
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Dynamic toggle" />
+                                <StackPanel Orientation="Horizontal">
+                                    <vio:Skeleton
+                                        Width="200"
+                                        Height="32"
+                                        IsActive="{Binding IsSkeletonActive}"
+                                        IsLoading="{Binding IsSkeletonLoading}">
+                                        <TextBlock VerticalAlignment="Center" Text="Dynamic content" />
+                                    </vio:Skeleton>
+                                    <ui:Button
+                                        Margin="8,0,0,0"
+                                        Command="{Binding ToggleSkeletonCommand}"
+                                        Content="Toggle" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
                         <TextBlock
                             MinWidth="120"
                             Margin="0,8,0,0"

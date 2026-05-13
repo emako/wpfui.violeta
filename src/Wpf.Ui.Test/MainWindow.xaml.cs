@@ -383,6 +383,21 @@ public partial class MainWindow : ShellWindow
             PinCodeResult = string.Join("", code);
     }
 
+    // ── Skeleton ─────────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    private bool _isSkeletonLoading = true;
+
+    [ObservableProperty]
+    private bool _isSkeletonActive = true;
+
+    [RelayCommand]
+    private void ToggleSkeleton()
+    {
+        IsSkeletonLoading = !IsSkeletonLoading;
+        IsSkeletonActive = IsSkeletonLoading;
+    }
+
     partial void OnThemeIndexChanged(int value)
     {
         ThemeManager.Apply((ApplicationTheme)value);
