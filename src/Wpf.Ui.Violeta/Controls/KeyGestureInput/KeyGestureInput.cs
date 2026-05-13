@@ -10,8 +10,11 @@ namespace Wpf.Ui.Violeta.Controls;
 /// Inherits from <see cref="TextBox"/> and uses its
 /// <see cref="System.Windows.Controls.TextBox.Text"/> property to display the captured gesture.
 /// </summary>
+[TemplatePart(Name = ClearButtonPartName, Type = typeof(Button))]
 public class KeyGestureInput : TextBox
 {
+    public const string ClearButtonPartName = "ClearButton";
+
     static KeyGestureInput()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
@@ -142,16 +145,15 @@ public class KeyGestureInput : TextBox
             {
                 // We can't `Template.Triggers.Remove(isReadOnlyOnTrueTrigger);` method
                 // which will caused `System.InvalidOperationException`.
-
-                // Setting property directly is the highest priority.
-                if (GetTemplateChild("ClearButton") is Button clearButton)
+                if (GetTemplateChild(ClearButtonPartName) is Button clearButton)
                 {
                     foreach (SetterBase setterBase in isReadOnlyOnTrueTrigger.Setters)
                     {
-                        if (setterBase is Setter setter && setter.TargetName is "ClearButton")
+                        if (setterBase is Setter setter && setter.TargetName is ClearButtonPartName)
                         {
                             if (setter.Property.Name == nameof(Visibility))
                             {
+                                // Setting property directly is the highest priority.
                                 clearButton?.Visibility = ClearButtonEnabled ? Visibility.Visible : Visibility.Collapsed;
                             }
                         }
