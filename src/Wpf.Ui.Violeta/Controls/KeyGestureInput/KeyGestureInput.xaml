@@ -18,6 +18,7 @@
         <Setter Property="PlaceholderText" Value="Press a key combination..." />
         <Setter Property="IsReadOnly" Value="True" />
         <Setter Property="ClearButtonEnabled" Value="False" />
+        <Setter Property="IsTextSelectionEnabled" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="InputMethod.IsInputMethodEnabled" Value="False" />

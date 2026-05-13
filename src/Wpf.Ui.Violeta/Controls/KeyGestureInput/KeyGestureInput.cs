@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Input;
+using Button = Wpf.Ui.Controls.Button;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -16,10 +17,22 @@ public class KeyGestureInput : TextBox
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(KeyGestureInput),
             new FrameworkPropertyMetadata(typeof(KeyGestureInput)));
+
+        ClearButtonEnabledProperty.OverrideMetadata(
+            typeof(KeyGestureInput),
+            new FrameworkPropertyMetadata(
+                true,
+                OnClearButtonEnabledChanged));
     }
 
     public KeyGestureInput()
     {
+    }
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+        UpdateClearButtonEnabled();
     }
 
     #region Gesture
@@ -106,6 +119,47 @@ public class KeyGestureInput : TextBox
     }
 
     #endregion ConsiderKeyModifiers
+
+    public static void OnClearButtonEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is KeyGestureInput self)
+        {
+            self.UpdateClearButtonEnabled();
+        }
+    }
+
+    protected void UpdateClearButtonEnabled()
+    {
+        if (Template is not null)
+        {
+            Trigger? isReadOnlyOnTrueTrigger = Template.Triggers
+                .Where(trigger => trigger is Trigger)
+                .Select(trigger => trigger as Trigger)
+                .FirstOrDefault(trigger => trigger?.Property?.Name == nameof(IsReadOnly)
+                    && trigger.Value is bool value && value == true);
+
+            if (isReadOnlyOnTrueTrigger is not null)
+            {
+                // We can't `Template.Triggers.Remove(isReadOnlyOnTrueTrigger);` method
+                // which will caused `System.InvalidOperationException`.
+
+                // Setting property directly is the highest priority.
+                if (GetTemplateChild("ClearButton") is Button clearButton)
+                {
+                    foreach (SetterBase setterBase in isReadOnlyOnTrueTrigger.Setters)
+                    {
+                        if (setterBase is Setter setter && setter.TargetName is "ClearButton")
+                        {
+                            if (setter.Property.Name == nameof(Visibility))
+                            {
+                                clearButton?.Visibility = ClearButtonEnabled ? Visibility.Visible : Visibility.Collapsed;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // -------------------------------------------------------------------------
 

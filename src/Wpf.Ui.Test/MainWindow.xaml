@@ -2224,7 +2224,7 @@
                                 Width="240"
                                 Margin="4"
                                 ClearButtonEnabled="True"
-                                IsReadOnly="False"
+                                IsReadOnly="True"
                                 PlaceholderText="Press shortcut, then clear..." />
                         </WrapPanel>
                     </StackPanel>
