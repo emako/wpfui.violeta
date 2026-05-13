@@ -107,43 +107,6 @@ public class KeyGestureInput : TextBox
 
     #endregion ConsiderKeyModifiers
 
-    #region InnerLeftContent / InnerRightContent
-
-    public static readonly DependencyProperty InnerLeftContentProperty =
-        DependencyProperty.Register(
-            nameof(InnerLeftContent), typeof(object), typeof(KeyGestureInput),
-            new PropertyMetadata(null));
-
-    public object? InnerLeftContent
-    {
-        get => GetValue(InnerLeftContentProperty);
-        set => SetValue(InnerLeftContentProperty, value);
-    }
-
-    public static readonly DependencyProperty InnerRightContentProperty =
-        DependencyProperty.Register(
-            nameof(InnerRightContent), typeof(object), typeof(KeyGestureInput),
-            new PropertyMetadata(null));
-
-    public object? InnerRightContent
-    {
-        get => GetValue(InnerRightContentProperty);
-        set => SetValue(InnerRightContentProperty, value);
-    }
-
-    #endregion InnerLeftContent / InnerRightContent
-
-    #region Placeholder
-
-    /// <summary>Gets or sets the placeholder text. Delegates to <see cref="Wpf.Ui.Controls.TextBox.PlaceholderText"/>.</summary>
-    public string Placeholder
-    {
-        get => PlaceholderText;
-        set => PlaceholderText = value;
-    }
-
-    #endregion Placeholder
-
     // -------------------------------------------------------------------------
 
     protected override void OnKeyDown(KeyEventArgs e)

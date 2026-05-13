@@ -2217,23 +2217,15 @@
                                 Width="240"
                                 Margin="4"
                                 ConsiderKeyModifiers="False"
-                                Placeholder="Press any single key..." />
+                                PlaceholderText="Press any single key..." />
                             <!--  With inner right content (clear button)  -->
                             <vio:KeyGestureInput
                                 x:Name="ClearableGestureInput"
                                 Width="240"
                                 Margin="4"
                                 ClearButtonEnabled="True"
-                                Placeholder="Press shortcut, then clear...">
-                                <!--<vio:KeyGestureInput.InnerRightContent>
-                                    <Button
-                                        Padding="4,2"
-                                        Click="OnClearGestureClick"
-                                        Content="✕"
-                                        FontSize="10"
-                                        Style="{DynamicResource TransparentButtonStyle}" />
-                                </vio:KeyGestureInput.InnerRightContent>-->
-                            </vio:KeyGestureInput>
+                                IsReadOnly="False"
+                                PlaceholderText="Press shortcut, then clear..." />
                         </WrapPanel>
                     </StackPanel>
                     <StackPanel>

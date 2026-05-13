@@ -4,16 +4,8 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
-    <Style TargetType="local:KeyGestureInput">
-        <!--  Universal WPF UI focus  -->
-        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--  Universal WPF UI ContextMenu  -->
-        <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
-        <Setter Property="Foreground" Value="{DynamicResource TextControlForeground}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource TextControlForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{StaticResource TextBoxBorderThemeThickness}" />
+    <Style BasedOn="{StaticResource DefaultUiTextBoxStyle}" TargetType="local:KeyGestureInput">
+        <Setter Property="ContextMenu" Value="{x:Null}" />
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
@@ -23,10 +15,6 @@
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
-        <Setter Property="MinWidth" Value="{DynamicResource TextControlThemeMinWidth}" />
-        <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
-        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="PlaceholderText" Value="Press a key combination..." />
         <Setter Property="IsReadOnly" Value="True" />
         <Setter Property="ClearButtonEnabled" Value="False" />
@@ -34,134 +22,6 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="InputMethod.IsInputMethodEnabled" Value="False" />
         <Setter Property="IsReadOnly" Value="True" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local:KeyGestureInput">
-                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                        <Border
-                            x:Name="ContentBorder"
-                            Width="{TemplateBinding Width}"
-                            Height="{TemplateBinding Height}"
-                            MinWidth="{TemplateBinding MinWidth}"
-                            MinHeight="{TemplateBinding MinHeight}"
-                            Padding="0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding Border.CornerRadius}">
-                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <ContentPresenter
-                                    x:Name="ControlInnerLeft"
-                                    Grid.Column="0"
-                                    Margin="{StaticResource TextBoxLeftIconMargin}"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding InnerLeftContent}"
-                                    Focusable="False"
-                                    TextElement.FontSize="{TemplateBinding FontSize}"
-                                    TextElement.Foreground="{TemplateBinding Foreground}" />
-
-                                <Grid Grid.Column="1" Margin="{TemplateBinding Padding}">
-                                    <ui:PassiveScrollViewer
-                                        x:Name="PART_ContentHost"
-                                        CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
-                                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
-                                        IsTabStop="{TemplateBinding ScrollViewer.IsTabStop}"
-                                        Style="{DynamicResource DefaultTextBoxScrollViewerStyle}"
-                                        TextElement.Foreground="{TemplateBinding Foreground}"
-                                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" />
-                                    <TextBlock
-                                        x:Name="PlaceholderTextBox"
-                                        Margin="0"
-                                        Padding="1,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="{TemplateBinding FontSize}"
-                                        Foreground="{DynamicResource TextControlPlaceholderForeground}"
-                                        Text="{TemplateBinding PlaceholderText}" />
-                                </Grid>
-
-                                <ContentPresenter
-                                    x:Name="ControlInnerRight"
-                                    Grid.Column="2"
-                                    Margin="{StaticResource TextBoxRightIconMargin}"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding InnerRightContent}"
-                                    TextElement.FontSize="{TemplateBinding FontSize}"
-                                    TextElement.Foreground="{TemplateBinding Foreground}" />
-                            </Grid>
-                        </Border>
-                        <!--  The AccentBorder is a separate element so border thickness changes do not affect content position  -->
-                        <Border
-                            x:Name="AccentBorder"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
-                            BorderThickness="{StaticResource TextBoxAccentBorderThemeThickness}"
-                            CornerRadius="{TemplateBinding Border.CornerRadius}" />
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <!--  Placeholder visibility driven by base-class CurrentPlaceholderEnabled  -->
-                        <Trigger Property="CurrentPlaceholderEnabled" Value="False">
-                            <Setter TargetName="PlaceholderTextBox" Property="Visibility" Value="Collapsed" />
-                        </Trigger>
-
-                        <!--  Collapse left inner content when not set  -->
-                        <Trigger Property="InnerLeftContent" Value="{x:Null}">
-                            <Setter TargetName="ControlInnerLeft" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="ControlInnerLeft" Property="Margin" Value="0" />
-                        </Trigger>
-
-                        <!--  Collapse right inner content when not set  -->
-                        <Trigger Property="InnerRightContent" Value="{x:Null}">
-                            <Setter TargetName="ControlInnerRight" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="ControlInnerRight" Property="Margin" Value="0" />
-                        </Trigger>
-
-                        <!--  Focused state  -->
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
-                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
-                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
-                        </Trigger>
-
-                        <!--  Hover state  -->
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsEnabled" Value="True" />
-                                <Condition Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsFocused" Value="False" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
-                        </MultiTrigger>
-
-                        <!--  IBeam cursor when enabled  -->
-                        <Trigger Property="IsEnabled" Value="True">
-                            <Setter Property="Cursor" Value="IBeam" />
-                        </Trigger>
-
-                        <!--  Disabled state  -->
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundDisabled}" />
-                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
-                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
-                            <Setter TargetName="ControlInnerLeft" Property="TextElement.Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
-                            <Setter TargetName="ControlInnerRight" Property="TextElement.Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
-                            <Setter TargetName="PlaceholderTextBox" Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
-                            <Setter Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
 </ResourceDictionary>
