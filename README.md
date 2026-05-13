@@ -839,3 +839,4 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries, named
 - [🔗 Moh3nGolshani/BusyIndicator](https://github.com/Moh3nGolshani/BusyIndicator)
 - [🔗 walterlv/sharing-demo](https://github.com/walterlv/sharing-demo)
 - [🔗 SlimeNull/LightDarkModeSwitchAnimation](https://github.com/SlimeNull/LightDarkModeSwitchAnimation)
+- [🔗 irihitech/Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia)
