@@ -2353,6 +2353,105 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="AspectRatioLayout" />
+                        <TextBlock
+                            Margin="0,4,0,4"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Adjust width/height to verify mode switching (tolerance=0.3)" />
+                        <WrapPanel
+                            Margin="0,4,0,8"
+                            ItemHeight="28"
+                            ItemWidth="300">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Width="56"
+                                    VerticalAlignment="Center"
+                                    Text="Width" />
+                                <Slider
+                                    x:Name="AspectRatioWidthSlider"
+                                    Width="180"
+                                    Maximum="640"
+                                    Minimum="80"
+                                    Value="320" />
+                                <TextBlock
+                                    Width="48"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding ElementName=AspectRatioWidthSlider, Path=Value, StringFormat=F0}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Width="56"
+                                    VerticalAlignment="Center"
+                                    Text="Height" />
+                                <Slider
+                                    x:Name="AspectRatioHeightSlider"
+                                    Width="180"
+                                    Maximum="360"
+                                    Minimum="80"
+                                    Value="160" />
+                                <TextBlock
+                                    Width="48"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding ElementName=AspectRatioHeightSlider, Path=Value, StringFormat=F0}" />
+                            </StackPanel>
+                        </WrapPanel>
+                        <!--  Diagnostic demo: force aspect ratio changes via explicit width/height controls  -->
+                        <vio:AspectRatioLayout
+                            Width="{Binding ElementName=AspectRatioWidthSlider, Path=Value}"
+                            Height="{Binding ElementName=AspectRatioHeightSlider, Path=Value}"
+                            HorizontalAlignment="Left"
+                            AspectRatioTolerance="0.3">
+                            <vio:AspectRatioLayoutItem AcceptAspectRatioMode="HorizontalRectangle">
+                                <Border Background="Red" CornerRadius="6">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="18"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="Horizontal Rectangle"
+                                            TextAlignment="Center" />
+                                        <TextBlock
+                                            Foreground="White"
+                                            Text="Width &gt; Height × 1.3"
+                                            TextAlignment="Center" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:AspectRatioLayoutItem>
+                            <vio:AspectRatioLayoutItem AcceptAspectRatioMode="Square">
+                                <Border Background="Orange" CornerRadius="6">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="18"
+                                            FontWeight="Bold"
+                                            Text="Square"
+                                            TextAlignment="Center" />
+                                        <TextBlock Text="0.7 ≤ W/H &lt; 1.3" TextAlignment="Center" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:AspectRatioLayoutItem>
+                            <vio:AspectRatioLayoutItem AcceptAspectRatioMode="VerticalRectangle">
+                                <Border Background="Green" CornerRadius="6">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="18"
+                                            FontWeight="Bold"
+                                            Text="Vertical Rectangle"
+                                            TextAlignment="Center" />
+                                        <TextBlock Text="Height &gt; Width × 1.3" TextAlignment="Center" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:AspectRatioLayoutItem>
+                        </vio:AspectRatioLayout>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Next ..." />
                         <StackPanel>
                             <!--  Next ...  -->
