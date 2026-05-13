@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -41,6 +38,13 @@ public class AspectRatioLayout : ContentControl
     public AspectRatioLayout()
     {
         Items = [];
+        Loaded += OnLoaded;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        Loaded -= OnLoaded;
+        UpdateContent(forceUpdate: true);
     }
 
     #region Items
