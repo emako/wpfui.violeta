@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -161,14 +159,17 @@ public class Timeline : ItemsControl
                 foreach (var item in items)
                     SetIfUnset(item, TimelineItem.PositionProperty, TimelineItemPosition.Left);
                 break;
+
             case TimelineDisplayMode.Right:
                 foreach (var item in items)
                     SetIfUnset(item, TimelineItem.PositionProperty, TimelineItemPosition.Right);
                 break;
+
             case TimelineDisplayMode.Center:
                 foreach (var item in items)
                     SetIfUnset(item, TimelineItem.PositionProperty, TimelineItemPosition.Separate);
                 break;
+
             case TimelineDisplayMode.Alternate:
                 bool left = false;
                 foreach (var item in items)

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
@@ -415,6 +416,23 @@ public partial class MainWindow : ShellWindow
         new() { Time = new DateTime(2025, 6, 1), Header = "Failed", Description = "Step 4 encountered an error.", ItemType = TimelineItemType.Error },
         new() { Time = new DateTime(2026, 1, 1), Header = "Pending", Description = "Step 5 has not started yet.", ItemType = TimelineItemType.Default },
     ];
+
+    private KeyGestureValue? _keyGesture;
+
+    public KeyGestureValue? KeyGesture
+    {
+        get => _keyGesture;
+        set
+        {
+            _keyGesture = value;
+            OnPropertyChanged(nameof(KeyGesture));
+        }
+    }
+
+    private void OnClearGestureClick(object sender, RoutedEventArgs e)
+    {
+        ClearableGestureInput.Clear();
+    }
 
     partial void OnThemeIndexChanged(int value)
     {

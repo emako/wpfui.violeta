@@ -1858,7 +1858,10 @@
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock Margin="0,0,0,4" Text="Password mask  •" />
-                                <vio:PinCode Count="6" PasswordChar="•" CompleteCommand="{Binding PinCodeCompleteCommand}" />
+                                <vio:PinCode
+                                    CompleteCommand="{Binding PinCodeCompleteCommand}"
+                                    Count="6"
+                                    PasswordChar="•" />
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock Margin="0,0,0,4" Text="Completed value:" />
@@ -2116,9 +2119,7 @@
                                 Data="{Binding QrCodeData}"
                                 ErrorCorrection="{Binding QrCodeEccLevel}"
                                 SymbolCornerRatio="{Binding QrCodeSymbolCornerRatio}" />
-                            <StackPanel
-                                Margin="16,0,0,0"
-                                VerticalAlignment="Center">
+                            <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
                                 <TextBox
                                     Width="200"
                                     Margin="0,0,0,4"
@@ -2126,11 +2127,11 @@
                                 <Slider
                                     Width="200"
                                     Margin="0,0,0,4"
+                                    IsSnapToTickEnabled="True"
                                     Maximum="0.5"
                                     Minimum="0"
                                     TickFrequency="0.05"
                                     TickPlacement="BottomRight"
-                                    IsSnapToTickEnabled="True"
                                     Value="{Binding QrCodeSymbolCornerRatio}" />
                             </StackPanel>
                         </StackPanel>
@@ -2146,35 +2147,93 @@
                         <WrapPanel>
                             <vio:Timeline
                                 Margin="0,0,24,0"
-                                HeaderMemberPath="Header"
                                 ContentMemberPath="Description"
-                                TimeMemberPath="Time"
-                                TimeFormat="yyyy-MM-dd"
+                                HeaderMemberPath="Header"
                                 ItemsSource="{Binding TimelineItems}"
-                                Mode="Alternate" />
+                                Mode="Alternate"
+                                TimeFormat="yyyy-MM-dd"
+                                TimeMemberPath="Time" />
                             <vio:Timeline
                                 Margin="0,0,24,0"
-                                HeaderMemberPath="Header"
                                 ContentMemberPath="Description"
-                                TimeMemberPath="Time"
-                                TimeFormat="yyyy-MM-dd"
+                                HeaderMemberPath="Header"
                                 ItemsSource="{Binding TimelineItems}"
-                                Mode="Left" />
+                                Mode="Left"
+                                TimeFormat="yyyy-MM-dd"
+                                TimeMemberPath="Time" />
                             <vio:Timeline
                                 Margin="0,0,24,0"
-                                HeaderMemberPath="Header"
                                 ContentMemberPath="Description"
-                                TimeMemberPath="Time"
-                                TimeFormat="yyyy-MM-dd"
+                                HeaderMemberPath="Header"
                                 ItemsSource="{Binding TimelineItems}"
-                                Mode="Right" />
+                                Mode="Right"
+                                TimeFormat="yyyy-MM-dd"
+                                TimeMemberPath="Time" />
                             <vio:Timeline Mode="Alternate">
-                                <vio:TimelineItem Header="Step One" Content="First item" Position="Left" Type="Default" />
-                                <vio:TimelineItem Header="Step Two" Content="Second item" Position="Right" Type="Success" />
-                                <vio:TimelineItem Header="Step Three" Content="Third item" Position="Separate" Type="Warning" />
-                                <vio:TimelineItem Header="Step Four" Content="Fourth item" Position="Separate" Type="Ongoing" />
-                                <vio:TimelineItem Header="Step Five" Content="Fifth item" Position="Separate" Type="Error" />
+                                <vio:TimelineItem
+                                    Content="First item"
+                                    Header="Step One"
+                                    Position="Left"
+                                    Type="Default" />
+                                <vio:TimelineItem
+                                    Content="Second item"
+                                    Header="Step Two"
+                                    Position="Right"
+                                    Type="Success" />
+                                <vio:TimelineItem
+                                    Content="Third item"
+                                    Header="Step Three"
+                                    Position="Separate"
+                                    Type="Warning" />
+                                <vio:TimelineItem
+                                    Content="Fourth item"
+                                    Header="Step Four"
+                                    Position="Separate"
+                                    Type="Ongoing" />
+                                <vio:TimelineItem
+                                    Content="Fifth item"
+                                    Header="Step Five"
+                                    Position="Separate"
+                                    Type="Error" />
                             </vio:Timeline>
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="KeyGestureInput" />
+                        <WrapPanel>
+                            <!--  Default (with modifiers)  -->
+                            <vio:KeyGestureInput
+                                Width="240"
+                                Margin="4"
+                                Gesture="{Binding KeyGesture, Mode=TwoWay}" />
+                            <!--  No modifiers  -->
+                            <vio:KeyGestureInput
+                                Width="240"
+                                Margin="4"
+                                ConsiderKeyModifiers="False"
+                                Placeholder="Press any single key..." />
+                            <!--  With inner right content (clear button)  -->
+                            <vio:KeyGestureInput
+                                x:Name="ClearableGestureInput"
+                                Width="240"
+                                Margin="4"
+                                ClearButtonEnabled="True"
+                                Placeholder="Press shortcut, then clear...">
+                                <!--<vio:KeyGestureInput.InnerRightContent>
+                                    <Button
+                                        Padding="4,2"
+                                        Click="OnClearGestureClick"
+                                        Content="✕"
+                                        FontSize="10"
+                                        Style="{DynamicResource TransparentButtonStyle}" />
+                                </vio:KeyGestureInput.InnerRightContent>-->
+                            </vio:KeyGestureInput>
                         </WrapPanel>
                     </StackPanel>
                     <StackPanel>

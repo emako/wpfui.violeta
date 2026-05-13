@@ -1,0 +1,187 @@
+using System.Windows;
+using System.Windows.Input;
+using TextBox = Wpf.Ui.Controls.TextBox;
+
+namespace Wpf.Ui.Violeta.Controls;
+
+/// <summary>
+/// A control that captures keyboard shortcuts by listening to key events.
+/// Inherits from <see cref="TextBox"/> and uses its
+/// <see cref="System.Windows.Controls.TextBox.Text"/> property to display the captured gesture.
+/// </summary>
+public class KeyGestureInput : TextBox
+{
+    static KeyGestureInput()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(
+            typeof(KeyGestureInput),
+            new FrameworkPropertyMetadata(typeof(KeyGestureInput)));
+    }
+
+    public KeyGestureInput()
+    {
+    }
+
+    #region Gesture
+
+    public static readonly DependencyProperty GestureProperty =
+        DependencyProperty.Register(
+            nameof(Gesture),
+            typeof(KeyGestureValue?),
+            typeof(KeyGestureInput),
+            new FrameworkPropertyMetadata(
+                null,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnGestureChanged));
+
+    public KeyGestureValue? Gesture
+    {
+        get => (KeyGestureValue?)GetValue(GestureProperty);
+        set => SetValue(GestureProperty, value);
+    }
+
+    private static void OnGestureChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is KeyGestureInput control)
+        {
+            control.SetValue(IsEmptyPropertyKey, e.NewValue is null);
+            control.SetCurrentValue(TextProperty, ((KeyGestureValue?)e.NewValue)?.ToString() ?? string.Empty);
+        }
+    }
+
+    #endregion Gesture
+
+    #region IsEmpty (read-only)
+
+    private static readonly DependencyPropertyKey IsEmptyPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(IsEmpty),
+            typeof(bool),
+            typeof(KeyGestureInput),
+            new PropertyMetadata(true));
+
+    public static readonly DependencyProperty IsEmptyProperty = IsEmptyPropertyKey.DependencyProperty;
+
+    public bool IsEmpty => (bool)GetValue(IsEmptyProperty);
+
+    #endregion IsEmpty (read-only)
+
+    #region AcceptableKeys
+
+    public static readonly DependencyProperty AcceptableKeysProperty =
+        DependencyProperty.Register(
+            nameof(AcceptableKeys),
+            typeof(IList<Key>),
+            typeof(KeyGestureInput),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// When set, only keys contained in this list will be recorded.
+    /// </summary>
+    public IList<Key>? AcceptableKeys
+    {
+        get => (IList<Key>?)GetValue(AcceptableKeysProperty);
+        set => SetValue(AcceptableKeysProperty, value);
+    }
+
+    #endregion AcceptableKeys
+
+    #region ConsiderKeyModifiers
+
+    public static readonly DependencyProperty ConsiderKeyModifiersProperty =
+        DependencyProperty.Register(
+            nameof(ConsiderKeyModifiers),
+            typeof(bool),
+            typeof(KeyGestureInput),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// When <see langword="true"/> (default), modifier keys (Ctrl/Alt/Shift/Win) are
+    /// included in the recorded gesture.
+    /// </summary>
+    public bool ConsiderKeyModifiers
+    {
+        get => (bool)GetValue(ConsiderKeyModifiersProperty);
+        set => SetValue(ConsiderKeyModifiersProperty, value);
+    }
+
+    #endregion ConsiderKeyModifiers
+
+    #region InnerLeftContent / InnerRightContent
+
+    public static readonly DependencyProperty InnerLeftContentProperty =
+        DependencyProperty.Register(
+            nameof(InnerLeftContent), typeof(object), typeof(KeyGestureInput),
+            new PropertyMetadata(null));
+
+    public object? InnerLeftContent
+    {
+        get => GetValue(InnerLeftContentProperty);
+        set => SetValue(InnerLeftContentProperty, value);
+    }
+
+    public static readonly DependencyProperty InnerRightContentProperty =
+        DependencyProperty.Register(
+            nameof(InnerRightContent), typeof(object), typeof(KeyGestureInput),
+            new PropertyMetadata(null));
+
+    public object? InnerRightContent
+    {
+        get => GetValue(InnerRightContentProperty);
+        set => SetValue(InnerRightContentProperty, value);
+    }
+
+    #endregion InnerLeftContent / InnerRightContent
+
+    #region Placeholder
+
+    /// <summary>Gets or sets the placeholder text. Delegates to <see cref="Wpf.Ui.Controls.TextBox.PlaceholderText"/>.</summary>
+    public string Placeholder
+    {
+        get => PlaceholderText;
+        set => PlaceholderText = value;
+    }
+
+    #endregion Placeholder
+
+    // -------------------------------------------------------------------------
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        // In WPF, Alt+key sets e.Key = Key.System; the actual key is in e.SystemKey.
+        var key = e.Key == Key.System ? e.SystemKey : e.Key;
+
+        // Ignore IME-processed and unknown keys.
+        if (key is Key.ImeProcessed or Key.None) return;
+
+        // Ignore pure modifier key presses.
+        if (IsModifierKey(key)) return;
+
+        // Filter by acceptable keys if specified.
+        if (AcceptableKeys is { } allowed && !allowed.Contains(key)) return;
+
+        var gesture = ConsiderKeyModifiers
+            ? new KeyGestureValue(key, e.KeyboardDevice.Modifiers)
+            : new KeyGestureValue(key, ModifierKeys.None);
+
+        SetCurrentValue(GestureProperty, (KeyGestureValue?)gesture);
+        e.Handled = true;
+    }
+
+    protected override void OnPreviewTextInput(TextCompositionEventArgs e)
+    {
+        // Block all direct text input; the control only accepts key gestures.
+        e.Handled = true;
+    }
+
+    /// <summary>Clears the current gesture.</summary>
+    public new void Clear() => SetCurrentValue(GestureProperty, (KeyGestureValue?)null);
+
+    // -------------------------------------------------------------------------
+
+    private static bool IsModifierKey(Key key) =>
+        key is Key.LeftCtrl or Key.RightCtrl
+            or Key.LeftAlt or Key.RightAlt
+            or Key.LeftShift or Key.RightShift
+            or Key.LWin or Key.RWin;
+}
