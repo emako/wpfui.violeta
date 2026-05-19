@@ -2110,6 +2110,136 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="FlipView" />
+                        <ui:StackPanel Orientation="Vertical" Spacing="8">
+                            <!--  Default (Auto) — buttons fade in on hover  -->
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Auto (hover to show buttons)" />
+                            <vio:FlipView Width="400" Height="200">
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource AccentFillColorDefaultBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="1" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorSuccessBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="2" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorCautionBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="3" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorCriticalBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="4" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                            </vio:FlipView>
+                            <!--  Always-visible buttons  -->
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="NavigationButtonsVisibility=Visible" />
+                            <vio:FlipView
+                                Width="400"
+                                Height="200"
+                                NavigationButtonsVisibility="Visible">
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource AccentFillColorDefaultBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="A" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorSuccessBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="B" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorCriticalBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="32"
+                                            Foreground="White"
+                                            Text="C" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                            </vio:FlipView>
+                            <!--  AutoLoop  -->
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="AutoLoop=True" />
+                            <vio:FlipView
+                                Width="400"
+                                Height="200"
+                                AutoLoop="True"
+                                NavigationButtonsVisibility="Visible">
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource AccentFillColorDefaultBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Foreground="White"
+                                            Text="Loop 1" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorSuccessBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Foreground="White"
+                                            Text="Loop 2" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                                <vio:FlipViewItem>
+                                    <Border Background="{DynamicResource SystemFillColorCautionBrush}">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="24"
+                                            Foreground="White"
+                                            Text="Loop 3" />
+                                    </Border>
+                                </vio:FlipViewItem>
+                            </vio:FlipView>
+                        </ui:StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="QrCode" />
                         <StackPanel Orientation="Horizontal">
                             <vio:QrCode
