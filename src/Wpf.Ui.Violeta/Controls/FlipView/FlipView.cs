@@ -160,6 +160,22 @@ public class FlipView : Selector
         }
     }
 
+    // --- Mouse wheel navigation -----------------------------------------------
+
+    /// <summary>
+    /// Override PreviewMouseWheel (tunnel) so we intercept before the inner
+    /// AnimatableScrollViewer gets a chance to handle it.
+    /// </summary>
+    protected override void OnPreviewMouseWheel(MouseWheelEventArgs e)
+    {
+        base.OnPreviewMouseWheel(e);
+        if (e.Delta < 0)
+            MoveNext();
+        else
+            MovePrevious();
+        e.Handled = true;
+    }
+
     // --- Mouse enter/leave (button fade) --------------------------------------
 
     protected override void OnMouseEnter(System.Windows.Input.MouseEventArgs e)
@@ -273,8 +289,12 @@ public class FlipView : Selector
         {
             From = fromOffset,
             To = targetOffset,
-            Duration = TimeSpan.FromMilliseconds(250),
-            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+            Duration = TimeSpan.FromMilliseconds(400d),
+            EasingFunction = new ExponentialEase
+            {
+                Exponent = 6d,
+                EasingMode = EasingMode.EaseOut,
+            },
             FillBehavior = FillBehavior.HoldEnd,
         };
         animation.Completed += (_, _) => _isAnimating = false;
