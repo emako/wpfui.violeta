@@ -2338,6 +2338,319 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="FluentScrollViewer" />
+                        <!--  Three side-by-side scroll viewers to compare physics modes  -->
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <!--  Default physics (velocity friction decay)  -->
+                            <StackPanel>
+                                <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="DefaultScrollPhysics (default)" />
+                                <vio:FluentScrollViewer
+                                    Width="200"
+                                    Height="220"
+                                    Margin="0,4,0,0"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <vio:FluentScrollViewer.Physics>
+                                        <vio:DefaultScrollPhysics Smoothness="0.78" />
+                                    </vio:FluentScrollViewer.Physics>
+                                    <StackPanel>
+                                        <TextBlock Padding="8,4" Text="Item 1" />
+                                        <TextBlock Padding="8,4" Text="Item 2" />
+                                        <TextBlock Padding="8,4" Text="Item 3" />
+                                        <TextBlock Padding="8,4" Text="Item 4" />
+                                        <TextBlock Padding="8,4" Text="Item 5" />
+                                        <TextBlock Padding="8,4" Text="Item 6" />
+                                        <TextBlock Padding="8,4" Text="Item 7" />
+                                        <TextBlock Padding="8,4" Text="Item 8" />
+                                        <TextBlock Padding="8,4" Text="Item 9" />
+                                        <TextBlock Padding="8,4" Text="Item 10" />
+                                        <TextBlock Padding="8,4" Text="Item 11" />
+                                        <TextBlock Padding="8,4" Text="Item 12" />
+                                        <TextBlock Padding="8,4" Text="Item 13" />
+                                        <TextBlock Padding="8,4" Text="Item 14" />
+                                        <TextBlock Padding="8,4" Text="Item 15" />
+                                        <TextBlock Padding="8,4" Text="Item 16" />
+                                        <TextBlock Padding="8,4" Text="Item 17" />
+                                        <TextBlock Padding="8,4" Text="Item 18" />
+                                        <TextBlock Padding="8,4" Text="Item 19" />
+                                        <TextBlock Padding="8,4" Text="Item 20" />
+                                        <TextBlock Padding="8,4" Text="Item 21" />
+                                        <TextBlock Padding="8,4" Text="Item 22" />
+                                        <TextBlock Padding="8,4" Text="Item 23" />
+                                        <TextBlock Padding="8,4" Text="Item 24" />
+                                        <TextBlock Padding="8,4" Text="Item 25" />
+                                        <TextBlock Padding="8,4" Text="Item 26" />
+                                        <TextBlock Padding="8,4" Text="Item 27" />
+                                        <TextBlock Padding="8,4" Text="Item 28" />
+                                        <TextBlock Padding="8,4" Text="Item 29" />
+                                        <TextBlock Padding="8,4" Text="Item 30" />
+                                        <TextBlock Padding="8,4" Text="Item 31" />
+                                        <TextBlock Padding="8,4" Text="Item 32" />
+                                        <TextBlock Padding="8,4" Text="Item 33" />
+                                        <TextBlock Padding="8,4" Text="Item 34" />
+                                        <TextBlock Padding="8,4" Text="Item 35" />
+                                        <TextBlock Padding="8,4" Text="Item 36" />
+                                        <TextBlock Padding="8,4" Text="Item 37" />
+                                        <TextBlock Padding="8,4" Text="Item 38" />
+                                        <TextBlock Padding="8,4" Text="Item 39" />
+                                        <TextBlock Padding="8,4" Text="Item 40" />
+                                        <TextBlock Padding="8,4" Text="Item 41" />
+                                        <TextBlock Padding="8,4" Text="Item 42" />
+                                        <TextBlock Padding="8,4" Text="Item 43" />
+                                        <TextBlock Padding="8,4" Text="Item 44" />
+                                        <TextBlock Padding="8,4" Text="Item 45" />
+                                        <TextBlock Padding="8,4" Text="Item 46" />
+                                        <TextBlock Padding="8,4" Text="Item 47" />
+                                        <TextBlock Padding="8,4" Text="Item 48" />
+                                        <TextBlock Padding="8,4" Text="Item 49" />
+                                        <TextBlock Padding="8,4" Text="Item 50" />
+                                        <TextBlock Padding="8,4" Text="Item 51" />
+                                        <TextBlock Padding="8,4" Text="Item 52" />
+                                        <TextBlock Padding="8,4" Text="Item 53" />
+                                        <TextBlock Padding="8,4" Text="Item 54" />
+                                        <TextBlock Padding="8,4" Text="Item 55" />
+                                        <TextBlock Padding="8,4" Text="Item 56" />
+                                        <TextBlock Padding="8,4" Text="Item 57" />
+                                        <TextBlock Padding="8,4" Text="Item 58" />
+                                        <TextBlock Padding="8,4" Text="Item 59" />
+                                        <TextBlock Padding="8,4" Text="Item 60" />
+                                        <TextBlock Padding="8,4" Text="Item 61" />
+                                        <TextBlock Padding="8,4" Text="Item 62" />
+                                        <TextBlock Padding="8,4" Text="Item 63" />
+                                        <TextBlock Padding="8,4" Text="Item 64" />
+                                        <TextBlock Padding="8,4" Text="Item 65" />
+                                        <TextBlock Padding="8,4" Text="Item 66" />
+                                        <TextBlock Padding="8,4" Text="Item 67" />
+                                        <TextBlock Padding="8,4" Text="Item 68" />
+                                        <TextBlock Padding="8,4" Text="Item 69" />
+                                        <TextBlock Padding="8,4" Text="Item 70" />
+                                        <TextBlock Padding="8,4" Text="Item 71" />
+                                        <TextBlock Padding="8,4" Text="Item 72" />
+                                        <TextBlock Padding="8,4" Text="Item 73" />
+                                        <TextBlock Padding="8,4" Text="Item 74" />
+                                        <TextBlock Padding="8,4" Text="Item 75" />
+                                        <TextBlock Padding="8,4" Text="Item 76" />
+                                        <TextBlock Padding="8,4" Text="Item 77" />
+                                        <TextBlock Padding="8,4" Text="Item 78" />
+                                        <TextBlock Padding="8,4" Text="Item 79" />
+                                        <TextBlock Padding="8,4" Text="Item 80" />
+                                        <TextBlock Padding="8,4" Text="Item 81" />
+                                        <TextBlock Padding="8,4" Text="Item 82" />
+                                        <TextBlock Padding="8,4" Text="Item 83" />
+                                        <TextBlock Padding="8,4" Text="Item 84" />
+                                        <TextBlock Padding="8,4" Text="Item 85" />
+                                        <TextBlock Padding="8,4" Text="Item 86" />
+                                        <TextBlock Padding="8,4" Text="Item 87" />
+                                        <TextBlock Padding="8,4" Text="Item 88" />
+                                        <TextBlock Padding="8,4" Text="Item 89" />
+                                        <TextBlock Padding="8,4" Text="Item 90" />
+                                        <TextBlock Padding="8,4" Text="Item 91" />
+                                        <TextBlock Padding="8,4" Text="Item 92" />
+                                        <TextBlock Padding="8,4" Text="Item 93" />
+                                        <TextBlock Padding="8,4" Text="Item 94" />
+                                        <TextBlock Padding="8,4" Text="Item 95" />
+                                        <TextBlock Padding="8,4" Text="Item 96" />
+                                        <TextBlock Padding="8,4" Text="Item 97" />
+                                        <TextBlock Padding="8,4" Text="Item 98" />
+                                        <TextBlock Padding="8,4" Text="Item 99" />
+                                        <TextBlock Padding="8,4" Text="Item 100" />
+                                    </StackPanel>
+                                </vio:FluentScrollViewer>
+                            </StackPanel>
+                            <!--  Exponential physics  -->
+                            <StackPanel>
+                                <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="ExponentialScrollPhysics" />
+                                <vio:FluentScrollViewer
+                                    Width="200"
+                                    Height="220"
+                                    Margin="0,4,0,0"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <vio:FluentScrollViewer.Physics>
+                                        <vio:ExponentialScrollPhysics DecayRate="8" />
+                                    </vio:FluentScrollViewer.Physics>
+                                    <StackPanel>
+                                        <TextBlock Padding="8,4" Text="Item 1" />
+                                        <TextBlock Padding="8,4" Text="Item 2" />
+                                        <TextBlock Padding="8,4" Text="Item 3" />
+                                        <TextBlock Padding="8,4" Text="Item 4" />
+                                        <TextBlock Padding="8,4" Text="Item 5" />
+                                        <TextBlock Padding="8,4" Text="Item 6" />
+                                        <TextBlock Padding="8,4" Text="Item 7" />
+                                        <TextBlock Padding="8,4" Text="Item 8" />
+                                        <TextBlock Padding="8,4" Text="Item 9" />
+                                        <TextBlock Padding="8,4" Text="Item 10" />
+                                        <TextBlock Padding="8,4" Text="Item 11" />
+                                        <TextBlock Padding="8,4" Text="Item 12" />
+                                        <TextBlock Padding="8,4" Text="Item 13" />
+                                        <TextBlock Padding="8,4" Text="Item 14" />
+                                        <TextBlock Padding="8,4" Text="Item 15" />
+                                        <TextBlock Padding="8,4" Text="Item 16" />
+                                        <TextBlock Padding="8,4" Text="Item 17" />
+                                        <TextBlock Padding="8,4" Text="Item 18" />
+                                        <TextBlock Padding="8,4" Text="Item 19" />
+                                        <TextBlock Padding="8,4" Text="Item 20" />
+                                        <TextBlock Padding="8,4" Text="Item 21" />
+                                        <TextBlock Padding="8,4" Text="Item 22" />
+                                        <TextBlock Padding="8,4" Text="Item 23" />
+                                        <TextBlock Padding="8,4" Text="Item 24" />
+                                        <TextBlock Padding="8,4" Text="Item 25" />
+                                        <TextBlock Padding="8,4" Text="Item 26" />
+                                        <TextBlock Padding="8,4" Text="Item 27" />
+                                        <TextBlock Padding="8,4" Text="Item 28" />
+                                        <TextBlock Padding="8,4" Text="Item 29" />
+                                        <TextBlock Padding="8,4" Text="Item 30" />
+                                        <TextBlock Padding="8,4" Text="Item 31" />
+                                        <TextBlock Padding="8,4" Text="Item 32" />
+                                        <TextBlock Padding="8,4" Text="Item 33" />
+                                        <TextBlock Padding="8,4" Text="Item 34" />
+                                        <TextBlock Padding="8,4" Text="Item 35" />
+                                        <TextBlock Padding="8,4" Text="Item 36" />
+                                        <TextBlock Padding="8,4" Text="Item 37" />
+                                        <TextBlock Padding="8,4" Text="Item 38" />
+                                        <TextBlock Padding="8,4" Text="Item 39" />
+                                        <TextBlock Padding="8,4" Text="Item 40" />
+                                        <TextBlock Padding="8,4" Text="Item 41" />
+                                        <TextBlock Padding="8,4" Text="Item 42" />
+                                        <TextBlock Padding="8,4" Text="Item 43" />
+                                        <TextBlock Padding="8,4" Text="Item 44" />
+                                        <TextBlock Padding="8,4" Text="Item 45" />
+                                        <TextBlock Padding="8,4" Text="Item 46" />
+                                        <TextBlock Padding="8,4" Text="Item 47" />
+                                        <TextBlock Padding="8,4" Text="Item 48" />
+                                        <TextBlock Padding="8,4" Text="Item 49" />
+                                        <TextBlock Padding="8,4" Text="Item 50" />
+                                        <TextBlock Padding="8,4" Text="Item 51" />
+                                        <TextBlock Padding="8,4" Text="Item 52" />
+                                        <TextBlock Padding="8,4" Text="Item 53" />
+                                        <TextBlock Padding="8,4" Text="Item 54" />
+                                        <TextBlock Padding="8,4" Text="Item 55" />
+                                        <TextBlock Padding="8,4" Text="Item 56" />
+                                        <TextBlock Padding="8,4" Text="Item 57" />
+                                        <TextBlock Padding="8,4" Text="Item 58" />
+                                        <TextBlock Padding="8,4" Text="Item 59" />
+                                        <TextBlock Padding="8,4" Text="Item 60" />
+                                        <TextBlock Padding="8,4" Text="Item 61" />
+                                        <TextBlock Padding="8,4" Text="Item 62" />
+                                        <TextBlock Padding="8,4" Text="Item 63" />
+                                        <TextBlock Padding="8,4" Text="Item 64" />
+                                        <TextBlock Padding="8,4" Text="Item 65" />
+                                        <TextBlock Padding="8,4" Text="Item 66" />
+                                        <TextBlock Padding="8,4" Text="Item 67" />
+                                        <TextBlock Padding="8,4" Text="Item 68" />
+                                        <TextBlock Padding="8,4" Text="Item 69" />
+                                        <TextBlock Padding="8,4" Text="Item 70" />
+                                        <TextBlock Padding="8,4" Text="Item 71" />
+                                        <TextBlock Padding="8,4" Text="Item 72" />
+                                        <TextBlock Padding="8,4" Text="Item 73" />
+                                        <TextBlock Padding="8,4" Text="Item 74" />
+                                        <TextBlock Padding="8,4" Text="Item 75" />
+                                        <TextBlock Padding="8,4" Text="Item 76" />
+                                        <TextBlock Padding="8,4" Text="Item 77" />
+                                        <TextBlock Padding="8,4" Text="Item 78" />
+                                        <TextBlock Padding="8,4" Text="Item 79" />
+                                        <TextBlock Padding="8,4" Text="Item 80" />
+                                        <TextBlock Padding="8,4" Text="Item 81" />
+                                        <TextBlock Padding="8,4" Text="Item 82" />
+                                        <TextBlock Padding="8,4" Text="Item 83" />
+                                        <TextBlock Padding="8,4" Text="Item 84" />
+                                        <TextBlock Padding="8,4" Text="Item 85" />
+                                        <TextBlock Padding="8,4" Text="Item 86" />
+                                        <TextBlock Padding="8,4" Text="Item 87" />
+                                        <TextBlock Padding="8,4" Text="Item 88" />
+                                        <TextBlock Padding="8,4" Text="Item 89" />
+                                        <TextBlock Padding="8,4" Text="Item 90" />
+                                        <TextBlock Padding="8,4" Text="Item 91" />
+                                        <TextBlock Padding="8,4" Text="Item 92" />
+                                        <TextBlock Padding="8,4" Text="Item 93" />
+                                        <TextBlock Padding="8,4" Text="Item 94" />
+                                        <TextBlock Padding="8,4" Text="Item 95" />
+                                        <TextBlock Padding="8,4" Text="Item 96" />
+                                        <TextBlock Padding="8,4" Text="Item 97" />
+                                        <TextBlock Padding="8,4" Text="Item 98" />
+                                        <TextBlock Padding="8,4" Text="Item 99" />
+                                        <TextBlock Padding="8,4" Text="Item 100" />
+                                    </StackPanel>
+                                </vio:FluentScrollViewer>
+                            </StackPanel>
+                            <!--  Horizontal scroll  -->
+                            <StackPanel>
+                                <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Horizontal (Shift+wheel or touchpad)" />
+                                <vio:FluentScrollViewer
+                                    Width="200"
+                                    Height="220"
+                                    Margin="0,4,0,0"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    PreferredScrollOrientation="Horizontal"
+                                    VerticalScrollBarVisibility="Disabled">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border
+                                            Width="80"
+                                            Height="180"
+                                            Margin="4"
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="A" />
+                                        </Border>
+                                        <Border
+                                            Width="80"
+                                            Height="180"
+                                            Margin="4"
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="B" />
+                                        </Border>
+                                        <Border
+                                            Width="80"
+                                            Height="180"
+                                            Margin="4"
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="C" />
+                                        </Border>
+                                        <Border
+                                            Width="80"
+                                            Height="180"
+                                            Margin="4"
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="D" />
+                                        </Border>
+                                        <Border
+                                            Width="80"
+                                            Height="180"
+                                            Margin="4"
+                                            Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Text="E" />
+                                        </Border>
+                                    </StackPanel>
+                                </vio:FluentScrollViewer>
+                            </StackPanel>
+                        </ui:StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="QrCode" />
                         <StackPanel Orientation="Horizontal">
                             <vio:QrCode
