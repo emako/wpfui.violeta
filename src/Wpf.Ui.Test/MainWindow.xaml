@@ -2447,6 +2447,143 @@
                     </StackPanel>
                     <StackPanel>
                         <!--  =============================  -->
+                        <!--  LoadingButton  -->
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="LoadingButton" />
+                        <StackPanel Margin="0,8,0,16">
+                            <!--  Placement  -->
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Placement" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Content="Left"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Content="Right"
+                                    IsLoading="True"
+                                    LoadingPlacement="Right" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Content="Top"
+                                    IsLoading="True"
+                                    LoadingPlacement="Top" />
+                                <vio:LoadingButton
+                                    Content="Bottom"
+                                    IsLoading="True"
+                                    LoadingPlacement="Bottom" />
+                            </StackPanel>
+                            <!--  Appearance  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Appearance" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Secondary"
+                                    Content="Secondary"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Primary"
+                                    Content="Primary"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Danger"
+                                    Content="Danger"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Appearance="Success"
+                                    Content="Success"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                            </StackPanel>
+                            <!--  No content (icon-only spinner)  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="No content" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Secondary"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Primary"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                            </StackPanel>
+                            <!--  Disabled  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Disabled" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Content="Not Loading"
+                                    IsEnabled="False"
+                                    IsLoading="False" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Primary"
+                                    Content="Loading + Disabled"
+                                    IsEnabled="False"
+                                    IsLoading="True"
+                                    LoadingPlacement="Left" />
+                            </StackPanel>
+                            <!--  Dynamic toggle  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Dynamic toggle" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Secondary"
+                                    Content="Secondary"
+                                    IsLoading="{Binding IsLoadingButtonLoading}"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Primary"
+                                    Content="Primary"
+                                    IsLoading="{Binding IsLoadingButtonLoading}"
+                                    LoadingPlacement="Right" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Danger"
+                                    Content="Danger"
+                                    IsLoading="{Binding IsLoadingButtonLoading}"
+                                    LoadingPlacement="Top" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Success"
+                                    Content="Success"
+                                    IsLoading="{Binding IsLoadingButtonLoading}"
+                                    LoadingPlacement="Bottom" />
+                                <ui:Button Command="{Binding ToggleLoadingButtonCommand}" Content="Toggle" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
                         <TextBlock
                             MinWidth="120"
                             Margin="0,8,0,0"

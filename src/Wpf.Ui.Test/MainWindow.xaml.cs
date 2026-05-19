@@ -300,7 +300,8 @@ public partial class MainWindow : ShellWindow
         ];
     }
 
-    private void InitCascadingComboBoxDemoMixedDepth()    {
+    private void InitCascadingComboBoxDemoMixedDepth()
+    {
         CascadingComboBoxDemoItems_MixedDepth =
         [
             new CascadingItem("Quick Pick",
@@ -382,6 +383,17 @@ public partial class MainWindow : ShellWindow
     {
         if (parameter is System.Collections.Generic.IList<string> code)
             PinCodeResult = string.Join("", code);
+    }
+
+    // ── LoadingButton ─────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    private bool _isLoadingButtonLoading = true;
+
+    [RelayCommand]
+    private void ToggleLoadingButton()
+    {
+        IsLoadingButtonLoading = !IsLoadingButtonLoading;
     }
 
     // ── Skeleton ─────────────────────────────────────────────────────────────
