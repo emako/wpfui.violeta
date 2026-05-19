@@ -109,7 +109,12 @@ internal static class DwmApi
         int val = (int)corner;
         _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.WINDOW_CORNER_PREFERENCE, ref val, Marshal.SizeOf<int>());
     }
-
+    /// <summary>Enables or disables the immersive dark mode frame rendering on the given HWND.</summary>
+    internal static void SetImmersiveDarkMode(nint hwnd, bool dark)
+    {
+        int val = dark ? 1 : 0;
+        DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE, ref val, Marshal.SizeOf<int>());
+    }
     /// <summary>Enables or disables the acrylic blur-behind composition effect.</summary>
     internal static void SetAcrylicComposition(nint hwnd, bool enable, Color? tintColor = null)
     {
@@ -146,9 +151,11 @@ internal static class DwmApi
 
     /// <summary>
     /// Applies the full Fluent acrylic material to a popup HWND:
-    /// transparent WPF composition target + DWM frame extension + acrylic + corner rounding.
+    /// transparent WPF composition target + immersive dark mode + DWM frame extension + acrylic + corner rounding.
+    /// When <paramref name="tintColor"/> is fully transparent the method selects a theme-appropriate default
+    /// (#CC1C1C1C for dark, #CCF3F3F3 for light).
     /// </summary>
-    internal static void ApplyPopupMaterial(nint hwnd, Color tintColor, WindowCornerPreference corner)
+    internal static void ApplyPopupMaterial(nint hwnd, Color tintColor, WindowCornerPreference corner, bool isDark)
     {
         if (hwnd == 0) return;
 
@@ -156,8 +163,18 @@ internal static class DwmApi
         if (source?.CompositionTarget is not null)
             source.CompositionTarget.BackgroundColor = Colors.Transparent;
 
+        SetImmersiveDarkMode(hwnd, isDark);
         ExtendFrameIntoClientArea(hwnd);
-        SetAcrylicComposition(hwnd, true, tintColor);
+
+        // When the caller has not set a custom tint (fully transparent), choose a sensible default
+        // that matches the current light/dark theme so the acrylic surface looks natural.
+        Color effectiveTint = tintColor.A == 0
+            ? (isDark
+                ? Color.FromArgb(0xCC, 0x1C, 0x1C, 0x1C)   // dark  ≈ Windows 11 dark acrylic
+                : Color.FromArgb(0xCC, 0xF3, 0xF3, 0xF3))  // light ≈ Windows 11 light acrylic
+            : tintColor;
+
+        SetAcrylicComposition(hwnd, true, effectiveTint);
         SetWindowCorner(hwnd, corner);
     }
 }

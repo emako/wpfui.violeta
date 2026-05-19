@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -141,13 +142,13 @@ public class FluentPopup : Popup
     private static void OnWindowCornerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is FluentPopup popup && popup._hwnd != 0)
-            DwmApi.SetWindowCorner(popup._hwnd, popup.WindowCorner);
+            popup.ApplyCurrentThemeMaterial();
     }
 
     private static void OnBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is FluentPopup popup && popup._hwnd != 0)
-            DwmApi.ApplyPopupMaterial(popup._hwnd, popup.Background.Color, popup.WindowCorner);
+            popup.ApplyCurrentThemeMaterial();
     }
 
     // ------------------------------------------------------------------
@@ -161,14 +162,28 @@ public class FluentPopup : Popup
     private void OnPopupOpened(object? sender, EventArgs e)
     {
         _hwnd = GetNativeHwnd(this);
-        DwmApi.ApplyPopupMaterial(_hwnd, Background.Color, WindowCorner);
+        ApplyCurrentThemeMaterial();
+        ApplicationThemeManager.Changed += OnApplicationThemeChanged;
         Dispatcher.InvokeAsync(PlayEntranceAnimation);
     }
 
     private void OnPopupClosed(object? sender, EventArgs e)
     {
+        ApplicationThemeManager.Changed -= OnApplicationThemeChanged;
         ResetAnimation();
         _hwnd = 0;
+    }
+
+    private void OnApplicationThemeChanged(ApplicationTheme theme, Color systemAccent)
+    {
+        if (_hwnd != 0)
+            ApplyCurrentThemeMaterial();
+    }
+
+    private void ApplyCurrentThemeMaterial()
+    {
+        bool isDark = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
+        DwmApi.ApplyPopupMaterial(_hwnd, Background.Color, WindowCorner, isDark);
     }
 
     // ------------------------------------------------------------------
