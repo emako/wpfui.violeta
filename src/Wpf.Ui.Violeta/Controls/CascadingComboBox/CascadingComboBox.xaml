@@ -143,19 +143,18 @@
                                     </ui:SymbolIcon>
                                 </Grid>
 
-                                <ToggleButton
-                                    x:Name="PART_MainToggle"
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="2"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    ClickMode="Press"
-                                    Focusable="False"
-                                    IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
                             </Grid>
                         </Border>
+
+                        <ToggleButton
+                            x:Name="PART_MainToggle"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            ClickMode="Press"
+                            Focusable="False"
+                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
 
                         <!--  Dropdown Popup  -->
                         <Popup
