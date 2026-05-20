@@ -396,6 +396,18 @@ public partial class MainWindow : ShellWindow
         IsLoadingButtonLoading = !IsLoadingButtonLoading;
     }
 
+    [ObservableProperty]
+    private bool _isLoadingButtonCommandLoading = false;
+
+    [RelayCommand]
+    private async Task SimulateLoadingButtonAsync()
+    {
+        IsLoadingButtonCommandLoading = true;
+        await Task.Delay(1000);
+        IsLoadingButtonCommandLoading = false;
+        Toast.Success("Succeeded!");
+    }
+
     // ── Skeleton ─────────────────────────────────────────────────────────────
 
     [ObservableProperty]

@@ -3121,6 +3121,33 @@
                                     LoadingPlacement="Bottom" />
                                 <ui:Button Command="{Binding ToggleLoadingButtonCommand}" Content="Toggle" />
                             </StackPanel>
+                            <!--  Command binding (simulate async work)  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Command binding" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Secondary"
+                                    Command="{Binding SimulateLoadingButtonCommand}"
+                                    Content="Submit"
+                                    IsLoading="{Binding IsLoadingButtonCommandLoading}"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Margin="0,0,8,0"
+                                    Appearance="Primary"
+                                    Command="{Binding SimulateLoadingButtonCommand}"
+                                    Content="Submit"
+                                    IsLoading="{Binding IsLoadingButtonCommandLoading}"
+                                    LoadingPlacement="Left" />
+                                <vio:LoadingButton
+                                    Appearance="Danger"
+                                    Command="{Binding SimulateLoadingButtonCommand}"
+                                    Content="Submit"
+                                    IsLoading="{Binding IsLoadingButtonCommandLoading}"
+                                    LoadingPlacement="Left" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel>
