@@ -217,6 +217,7 @@
                                             VerticalScrollBarVisibility="Auto">
                                             <WrapPanel
                                                 x:Name="PART_HeaderPanel"
+                                                MinHeight="26"
                                                 Orientation="Horizontal" />
                                         </ScrollViewer>
                                     </Grid>
