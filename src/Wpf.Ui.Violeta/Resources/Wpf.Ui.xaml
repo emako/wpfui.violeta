@@ -44,5 +44,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/FlipView/FlipView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TagInput/TagInput.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TagComboBox/TagComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/RangeSlider/RangeSlider.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

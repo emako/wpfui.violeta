@@ -458,6 +458,28 @@ public partial class MainWindow : ShellWindow
             TagComboBoxSelectedFruitsText = value.Count == 0 ? "(none)" : string.Join(", ", value);
     }
 
+    // ── RangeSlider ───────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RangeSliderText))]
+    private double _rangeSliderLower = 20;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RangeSliderText))]
+    private double _rangeSliderUpper = 70;
+
+    public string RangeSliderText => $"[{RangeSliderLower:0}, {RangeSliderUpper:0}]";
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RangeSliderTickText))]
+    private double _rangeSliderTickLower = 20;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RangeSliderTickText))]
+    private double _rangeSliderTickUpper = 60;
+
+    public string RangeSliderTickText => $"[{RangeSliderTickLower:0}, {RangeSliderTickUpper:0}]";
+
     // ── Skeleton ─────────────────────────────────────────────────────────────
 
     [ObservableProperty]

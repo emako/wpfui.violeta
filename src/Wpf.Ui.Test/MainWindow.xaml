@@ -3163,8 +3163,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="Basic" />
                                 <vio:TagInput
                                     Width="320"
@@ -3176,8 +3176,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="Separator (,)" />
                                 <vio:TagInput
                                     Width="320"
@@ -3190,8 +3190,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="No duplicates" />
                                 <vio:TagInput
                                     Width="320"
@@ -3204,8 +3204,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="MaxCount = 3" />
                                 <vio:TagInput
                                     Width="320"
@@ -3218,8 +3218,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="LostFocus = Add" />
                                 <vio:TagInput
                                     Width="320"
@@ -3232,8 +3232,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="Pre-populated" />
                                 <vio:TagInput
                                     Width="320"
@@ -3245,8 +3245,8 @@
                             <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                                 <TextBlock
                                     MinWidth="160"
-                                    VerticalAlignment="Top"
                                     Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
                                     Text="Disabled" />
                                 <vio:TagInput
                                     Width="320"
@@ -3261,9 +3261,7 @@
                                     MinWidth="160"
                                     VerticalAlignment="Center"
                                     Text="Basic tags value" />
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    Text="{Binding TagInputBasicTagsText}" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding TagInputBasicTagsText}" />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -3327,11 +3325,121 @@
                                     MinWidth="160"
                                     VerticalAlignment="Center"
                                     Text="Selected fruits" />
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    Text="{Binding TagComboBoxSelectedFruitsText}" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding TagComboBoxSelectedFruitsText}" />
                             </StackPanel>
 
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--  ═══════════════════════════════════════════════════════  -->
+                    <!--  RangeSlider  -->
+                    <!--  ═══════════════════════════════════════════════════════  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="RangeSlider" />
+
+                    <StackPanel Margin="0,8,0,0">
+                        <!--  Horizontal (basic)  -->
+                        <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="Horizontal" />
+                            <vio:RangeSlider
+                                Width="320"
+                                LowerValue="{Binding RangeSliderLower, Mode=TwoWay}"
+                                Maximum="100"
+                                Minimum="0"
+                                UpperValue="{Binding RangeSliderUpper, Mode=TwoWay}" />
+                            <TextBlock
+                                Margin="12,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="{Binding RangeSliderText}" />
+                        </StackPanel>
+
+                        <!--  Horizontal with ticks (snap)  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="Ticks + Snap" />
+                            <vio:RangeSlider
+                                Width="320"
+                                IsSnapToTickEnabled="True"
+                                LowerValue="{Binding RangeSliderTickLower, Mode=TwoWay}"
+                                Maximum="100"
+                                Minimum="0"
+                                TickFrequency="10"
+                                TickPlacement="BottomRight"
+                                UpperValue="{Binding RangeSliderTickUpper, Mode=TwoWay}" />
+                            <TextBlock
+                                Margin="12,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="{Binding RangeSliderTickText}" />
+                        </StackPanel>
+
+                        <!--  Vertical  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="Vertical" />
+                            <vio:RangeSlider
+                                Height="160"
+                                LowerValue="20"
+                                Maximum="100"
+                                Minimum="0"
+                                Orientation="Vertical"
+                                UpperValue="80" />
+                        </StackPanel>
+
+                        <!--  Vertical with ticks  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="Vertical + Ticks" />
+                            <vio:RangeSlider
+                                Height="160"
+                                LowerValue="30"
+                                Maximum="100"
+                                Minimum="0"
+                                Orientation="Vertical"
+                                TickFrequency="10"
+                                TickPlacement="Both"
+                                UpperValue="70" />
+                        </StackPanel>
+
+                        <!--  Disabled  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="Disabled" />
+                            <vio:RangeSlider
+                                Width="320"
+                                IsEnabled="False"
+                                LowerValue="25"
+                                Maximum="100"
+                                Minimum="0"
+                                UpperValue="75" />
+                        </StackPanel>
+
+                        <!--  Read-only  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="160"
+                                VerticalAlignment="Center"
+                                Text="ReadOnly" />
+                            <vio:RangeSlider
+                                Width="320"
+                                IsReadOnly="True"
+                                LowerValue="30"
+                                Maximum="100"
+                                Minimum="0"
+                                UpperValue="60" />
                         </StackPanel>
                     </StackPanel>
 
