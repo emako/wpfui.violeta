@@ -186,6 +186,13 @@ public class TagInput : Control
             var tb = new TextBox
             {
                 MinWidth = 60,
+                // MinHeight + Margin must match ClosableTag so TagInputPanel row-height stays
+                // constant whether there are 0 or N tags.
+                // ClosableTag visual height = button(16) + padding-v(4) + border-v(2) = 22px
+                // ClosableTag Margin = "2" → DesiredSize.Height = 22 + 4 = 26px
+                // We mirror both so max(chip, tb) is always 26px → no height jump.
+                MinHeight = 22,
+                Margin = new Thickness(2),
                 VerticalAlignment = VerticalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
                 Padding = new Thickness(2, 0, 2, 0),
