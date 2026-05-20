@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -187,17 +186,11 @@ public class TagInput : Control
             var tb = new TextBox
             {
                 MinWidth = 60,
-                BorderThickness = new Thickness(0),
-                Background = Brushes.Transparent,
                 VerticalAlignment = VerticalAlignment.Center,
-                Padding = new Thickness(2, 0, 2, 0),
                 VerticalContentAlignment = VerticalAlignment.Center,
+                Padding = new Thickness(2, 0, 2, 0),
             };
-
-            // Inherit WPF-UI color tokens.
-            tb.SetResourceReference(TextBox.ForegroundProperty, "TextFillColorPrimaryBrush");
-            tb.SetResourceReference(TextBox.CaretBrushProperty, "TextFillColorPrimaryBrush");
-            tb.SetResourceReference(TextBox.SelectionBrushProperty, "TextControlSelectionHighlightColor");
+            tb.SetResourceReference(FrameworkElement.StyleProperty, "TransparentTextBoxStyle");
 
             tb.PreviewKeyDown += OnInputTextBoxKeyDown;
             tb.LostFocus += OnInputTextBoxLostFocus;
