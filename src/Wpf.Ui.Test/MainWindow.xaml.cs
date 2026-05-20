@@ -408,6 +408,35 @@ public partial class MainWindow : ShellWindow
         Toast.Success("Succeeded!");
     }
 
+    // ── TagInput ──────────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputBasicTags = [];
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputSeparatorTags = [];
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputNoDupTags = [];
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputMaxCountTags = [];
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputLostFocusTags = [];
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagInputPrefilledTags = ["WPF", "Fluent", "UI"];
+
+    [ObservableProperty]
+    private string _tagInputBasicTagsText = "(none)";
+
+    partial void OnTagInputBasicTagsChanged(ObservableCollection<string> value)
+    {
+        value.CollectionChanged += (_, _) =>
+            TagInputBasicTagsText = value.Count == 0 ? "(none)" : string.Join(", ", value);
+    }
+
     // ── Skeleton ─────────────────────────────────────────────────────────────
 
     [ObservableProperty]

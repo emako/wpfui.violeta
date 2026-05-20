@@ -3157,9 +3157,114 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="Next ..." />
+                            Text="TagInput" />
                         <StackPanel>
-                            <!--  Next ...  -->
+                            <!--  Basic: enter text and press Enter to add tags  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="Basic" />
+                                <vio:TagInput
+                                    Width="320"
+                                    PlaceholderText="Type and press Enter…"
+                                    Tags="{Binding TagInputBasicTags}" />
+                            </StackPanel>
+
+                            <!--  With separator — paste "a,b,c" to add multiple tags at once  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="Separator (,)" />
+                                <vio:TagInput
+                                    Width="320"
+                                    PlaceholderText="Type or paste comma-separated…"
+                                    Separator=","
+                                    Tags="{Binding TagInputSeparatorTags}" />
+                            </StackPanel>
+
+                            <!--  No duplicates  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="No duplicates" />
+                                <vio:TagInput
+                                    Width="320"
+                                    AllowDuplicates="False"
+                                    PlaceholderText="Duplicates are rejected…"
+                                    Tags="{Binding TagInputNoDupTags}" />
+                            </StackPanel>
+
+                            <!--  Max 3 tags  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="MaxCount = 3" />
+                                <vio:TagInput
+                                    Width="320"
+                                    MaxCount="3"
+                                    PlaceholderText="At most 3 tags…"
+                                    Tags="{Binding TagInputMaxCountTags}" />
+                            </StackPanel>
+
+                            <!--  LostFocus → Add  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="LostFocus = Add" />
+                                <vio:TagInput
+                                    Width="320"
+                                    LostFocusBehavior="Add"
+                                    PlaceholderText="Text committed on blur…"
+                                    Tags="{Binding TagInputLostFocusTags}" />
+                            </StackPanel>
+
+                            <!--  Pre-populated  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="Pre-populated" />
+                                <vio:TagInput
+                                    Width="320"
+                                    PlaceholderText="Type and press Enter…"
+                                    Tags="{Binding TagInputPrefilledTags}" />
+                            </StackPanel>
+
+                            <!--  Disabled  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Top"
+                                    Margin="0,6,0,0"
+                                    Text="Disabled" />
+                                <vio:TagInput
+                                    Width="320"
+                                    IsEnabled="False"
+                                    PlaceholderText="Disabled…"
+                                    Tags="{Binding TagInputPrefilledTags}" />
+                            </StackPanel>
+
+                            <!--  Result readout  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Basic tags value" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="{Binding TagInputBasicTagsText}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
