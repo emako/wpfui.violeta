@@ -437,6 +437,27 @@ public partial class MainWindow : ShellWindow
             TagInputBasicTagsText = value.Count == 0 ? "(none)" : string.Join(", ", value);
     }
 
+    // ── TagComboBox ───────────────────────────────────────────────────────────
+
+    [ObservableProperty]
+    private ObservableCollection<string> _tagComboBoxFruits =
+        ["Apple", "Banana", "Cherry", "Durian", "Elderberry", "Fig", "Grape"];
+
+    [ObservableProperty]
+    private ObservableCollection<object> _tagComboBoxSelectedFruits = [];
+
+    [ObservableProperty]
+    private ObservableCollection<object> _tagComboBoxPreSelected = ["Apple", "Banana"];
+
+    [ObservableProperty]
+    private string _tagComboBoxSelectedFruitsText = "(none)";
+
+    partial void OnTagComboBoxSelectedFruitsChanged(ObservableCollection<object> value)
+    {
+        value.CollectionChanged += (_, _) =>
+            TagComboBoxSelectedFruitsText = value.Count == 0 ? "(none)" : string.Join(", ", value);
+    }
+
     // ── Skeleton ─────────────────────────────────────────────────────────────
 
     [ObservableProperty]

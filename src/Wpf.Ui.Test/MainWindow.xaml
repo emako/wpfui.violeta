@@ -3267,6 +3267,74 @@
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
+
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="TagComboBox" />
+                        <StackPanel>
+
+                            <!--  Basic: string items  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
+                                    Text="Basic (strings)" />
+                                <vio:TagComboBox
+                                    Width="320"
+                                    ItemsSource="{Binding TagComboBoxFruits}"
+                                    PlaceholderText="Select fruits…"
+                                    SelectedItems="{Binding TagComboBoxSelectedFruits}" />
+                            </StackPanel>
+
+                            <!--  Pre-selected  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
+                                    Text="Pre-selected" />
+                                <vio:TagComboBox
+                                    Width="320"
+                                    ItemsSource="{Binding TagComboBoxFruits}"
+                                    PlaceholderText="Select fruits…"
+                                    SelectedItems="{Binding TagComboBoxPreSelected}" />
+                            </StackPanel>
+
+                            <!--  Disabled  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    Margin="0,6,0,0"
+                                    VerticalAlignment="Top"
+                                    Text="Disabled" />
+                                <vio:TagComboBox
+                                    Width="320"
+                                    IsEnabled="False"
+                                    ItemsSource="{Binding TagComboBoxFruits}"
+                                    PlaceholderText="Disabled…"
+                                    SelectedItems="{Binding TagComboBoxPreSelected}" />
+                            </StackPanel>
+
+                            <!--  Result readout  -->
+                            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="160"
+                                    VerticalAlignment="Center"
+                                    Text="Selected fruits" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Text="{Binding TagComboBoxSelectedFruitsText}" />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
