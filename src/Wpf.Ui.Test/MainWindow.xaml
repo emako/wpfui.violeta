@@ -3443,6 +3443,121 @@
                         </StackPanel>
                     </StackPanel>
 
+                    <!--  Anchor  -->
+                    <StackPanel x:Name="AnchorDemoSection" Margin="0,24,0,0">
+                        <TextBlock
+                            Margin="0,0,0,8"
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="Anchor" />
+
+                        <!--  Two-panel layout: anchor nav on the left, content on the right  -->
+                        <Grid Height="360">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  Anchor nav  -->
+                            <vio:Anchor
+                                x:Name="DemoAnchor"
+                                Grid.Column="0"
+                                VerticalAlignment="Top"
+                                TargetContainer="{Binding ElementName=AnchorScrollViewer}"
+                                TopOffset="12">
+                                <vio:AnchorItem AnchorId="sec1" Header="Section 1" />
+                                <vio:AnchorItem AnchorId="sec2" Header="Section 2">
+                                    <vio:AnchorItem AnchorId="sec2-1" Header="Sub-section 2.1" />
+                                    <vio:AnchorItem AnchorId="sec2-2" Header="Sub-section 2.2" />
+                                </vio:AnchorItem>
+                                <vio:AnchorItem AnchorId="sec3" Header="Section 3" />
+                                <vio:AnchorItem AnchorId="sec4" Header="Section 4" />
+                                <vio:AnchorItem AnchorId="sec5" Header="Section 5" />
+                            </vio:Anchor>
+
+                            <!--  Scrollable content  -->
+                            <ScrollViewer
+                                x:Name="AnchorScrollViewer"
+                                Grid.Column="1"
+                                Padding="12,0"
+                                VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <TextBlock
+                                        vio:Anchor.Id="sec1"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Text="Section 1" />
+                                    <TextBlock
+                                        Margin="0,4,0,32"
+                                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        vio:Anchor.Id="sec2"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Text="Section 2" />
+                                    <TextBlock
+                                        Margin="0,4,0,8"
+                                        Text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        Margin="0,12,0,0"
+                                        vio:Anchor.Id="sec2-1"
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Text="Sub-section 2.1" />
+                                    <TextBlock
+                                        Margin="0,4,0,8"
+                                        Text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        Margin="0,12,0,0"
+                                        vio:Anchor.Id="sec2-2"
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Text="Sub-section 2.2" />
+                                    <TextBlock
+                                        Margin="0,4,0,32"
+                                        Text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        vio:Anchor.Id="sec3"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Text="Section 3" />
+                                    <TextBlock
+                                        Margin="0,4,0,32"
+                                        Text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        vio:Anchor.Id="sec4"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Text="Section 4" />
+                                    <TextBlock
+                                        Margin="0,4,0,32"
+                                        Text="Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt."
+                                        TextWrapping="Wrap" />
+
+                                    <TextBlock
+                                        vio:Anchor.Id="sec5"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        Text="Section 5" />
+                                    <TextBlock
+                                        Margin="0,4,0,0"
+                                        Text="Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </StackPanel>
+
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
