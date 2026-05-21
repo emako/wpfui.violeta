@@ -3444,7 +3444,7 @@
                     </StackPanel>
 
                     <!--  Anchor  -->
-                    <StackPanel x:Name="AnchorDemoSection" Margin="0,24,0,0">
+                    <StackPanel x:Name="AnchorDemoSection" Margin="0,24,24,0">
                         <TextBlock
                             Margin="0,0,0,8"
                             FontSize="20"
