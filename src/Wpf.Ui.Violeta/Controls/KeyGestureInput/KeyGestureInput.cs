@@ -156,6 +156,10 @@ public class KeyGestureInput : TextBox
                                 // Setting property directly is the highest priority.
                                 clearButton?.Visibility = ClearButtonEnabled ? Visibility.Visible : Visibility.Collapsed;
                             }
+                            else if (setter.Property.Name == nameof(Margin))
+                            {
+                                clearButton?.Margin = new Thickness(0, 0, 4, 0);
+                            }
                         }
                     }
                 }
