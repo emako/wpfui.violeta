@@ -1,4 +1,3 @@
-using System;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -7,6 +6,7 @@ using Wpf.Ui.Violeta.Controls;
 
 namespace Wpf.Ui.Violeta.Markup;
 
+[Obsolete("Not ready for production")]
 public class AcrylicBrushExtension : MarkupExtension
 {
     public FrameworkElement? Target { get; set; }
@@ -78,7 +78,7 @@ public class AcrylicBrushExtension : MarkupExtension
         return CreateAcrylicBrushInternal(Target);
     }
 
-    private Brush CreateAcrylicBrushInternal(FrameworkElement target)
+    private VisualBrush CreateAcrylicBrushInternal(FrameworkElement target)
     {
         var acrylicPanel = new AcrylicPanel();
 

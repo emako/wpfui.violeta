@@ -4,6 +4,7 @@ using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
 
+[Obsolete("Not ready for production")]
 [TemplatePart(Name = PartBlurLayer, Type = typeof(FrameworkElement))]
 public class AcrylicPanel : ContentControl
 {
@@ -140,10 +141,7 @@ public class AcrylicPanel : ContentControl
     {
         LayoutUpdated += OnTrackedLayoutUpdated;
 
-        if (Target != null)
-        {
-            Target.LayoutUpdated += OnTrackedLayoutUpdated;
-        }
+        Target?.LayoutUpdated += OnTrackedLayoutUpdated;
 
         if (Source != null && Source != Target)
         {
@@ -155,10 +153,7 @@ public class AcrylicPanel : ContentControl
     {
         LayoutUpdated -= OnTrackedLayoutUpdated;
 
-        if (Target != null)
-        {
-            Target.LayoutUpdated -= OnTrackedLayoutUpdated;
-        }
+        Target?.LayoutUpdated -= OnTrackedLayoutUpdated;
 
         if (Source != null && Source != Target)
         {
