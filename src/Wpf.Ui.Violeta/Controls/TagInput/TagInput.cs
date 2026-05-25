@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -279,8 +276,9 @@ public class TagInput : Control
             case LostFocusBehavior.Add:
                 AddTags(_inputTextBox?.Text);
                 break;
+
             case LostFocusBehavior.Clear:
-                if (_inputTextBox is not null) _inputTextBox.Text = string.Empty;
+                _inputTextBox?.Text = string.Empty;
                 break;
         }
     }
@@ -300,10 +298,10 @@ public class TagInput : Control
 
         string[] values = string.IsNullOrEmpty(Separator)
             ? [text]
-            : text.Split([Separator], StringSplitOptions.RemoveEmptyEntries);
+            : text!.Split([Separator], StringSplitOptions.RemoveEmptyEntries);
 
         if (!AllowDuplicates)
-            values = values.Distinct().Except(Tags).ToArray();
+            values = [.. values.Distinct().Except(Tags)];
 
         foreach (var value in values)
         {
@@ -311,8 +309,7 @@ public class TagInput : Control
             Tags.Add(value);
         }
 
-        if (_inputTextBox is not null)
-            _inputTextBox.Text = string.Empty;
+        _inputTextBox?.Text = string.Empty;
     }
 
     /// <summary>
@@ -329,17 +326,11 @@ public class TagInput : Control
 
     // ── ICommand implementation ───────────────────────────────────────────
 
-    private sealed class CloseTagCommandImpl : ICommand
+    private sealed class CloseTagCommandImpl(TagInput owner) : ICommand
     {
-        private readonly TagInput _owner;
+        private readonly TagInput _owner = owner;
 
-        public CloseTagCommandImpl(TagInput owner) => _owner = owner;
-
-        public event EventHandler? CanExecuteChanged
-        {
-            add { }
-            remove { }
-        }
+        public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter) => true;
 
