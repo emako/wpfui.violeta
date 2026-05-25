@@ -47,31 +47,32 @@
                         FontWeight="Black"
                         Text="AcrylicBrushExtension Demo" />
                     <Grid
-                        x:Name="AcrylicDemoSurface"
                         Height="180"
                         Margin="0,8,0,12">
-                        <Grid.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Offset="0" Color="#FF6A5ACD" />
-                                <GradientStop Offset="0.5" Color="#FF00B7C3" />
-                                <GradientStop Offset="1" Color="#FFFF8C00" />
-                            </LinearGradientBrush>
-                        </Grid.Background>
+                        <Grid x:Name="AcrylicDemoSource">
+                            <Grid.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Offset="0" Color="#FF6A5ACD" />
+                                    <GradientStop Offset="0.5" Color="#FF00B7C3" />
+                                    <GradientStop Offset="1" Color="#FFFF8C00" />
+                                </LinearGradientBrush>
+                            </Grid.Background>
 
-                        <Canvas>
-                            <Ellipse
-                                Width="120"
-                                Height="120"
-                                Margin="18,24,0,0"
-                                Fill="#66FFFFFF" />
-                            <Rectangle
-                                Width="180"
-                                Height="70"
-                                Margin="220,34,0,0"
-                                Fill="#55FFFFFF"
-                                RadiusX="14"
-                                RadiusY="14" />
-                        </Canvas>
+                            <Canvas>
+                                <Ellipse
+                                    Width="120"
+                                    Height="120"
+                                    Margin="18,24,0,0"
+                                    Fill="#66FFFFFF" />
+                                <Rectangle
+                                    Width="180"
+                                    Height="70"
+                                    Margin="220,34,0,0"
+                                    Fill="#55FFFFFF"
+                                    RadiusX="14"
+                                    RadiusY="14" />
+                            </Canvas>
+                        </Grid>
 
                         <Border
                             Width="380"
@@ -87,7 +88,7 @@
                                     Amount="24"
                                     TintColor="#FF000000"
                                     TintOpacity="0.2"
-                                    TargetName="AcrylicDemoSurface" />
+                                    TargetName="AcrylicDemoSource" />
                             </Border.Background>
                             <StackPanel>
                                 <TextBlock
