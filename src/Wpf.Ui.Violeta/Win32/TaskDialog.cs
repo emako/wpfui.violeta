@@ -525,7 +525,7 @@ public static class TaskDialog
         }
         catch (Exception ex)
         {
-            Log("Unhandled exception in EnumChildProcImpl for hwnd={0}: {1}\n{2}", hwnd, ex, ex.StackTrace);
+            Log("Unhandled exception in EnumChildProcImpl for hwnd={0}: {1}\n{2}", hwnd, ex, ex.StackTrace!);
             // Returning true continues enumeration despite the error.
             return true;
         }

@@ -36,7 +36,11 @@
                     </ComboBox>
                 </ui:StackPanel>
             </Grid>
-            <ScrollViewer x:Name="ScrollViewer" Grid.Row="1">
+            <ScrollViewer
+                x:Name="ScrollViewer"
+                Grid.Row="1"
+                HorizontalScrollBarVisibility="Visible"
+                VerticalScrollBarVisibility="Visible">
                 <StackPanel>
                     <TextBlock
                         FontSize="14"
@@ -3675,10 +3679,9 @@
                         </StackPanel>
 
                         <vio:TransitioningContentControl
-                            Height="128"
                             Margin="0,10,0,0"
-                            HorizontalContentAlignment="Stretch"
-                            VerticalContentAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Top"
                             Content="{Binding TransitioningDemoContent}"
                             RestartTransitionOnContentChange="True"
                             Transition="{Binding TransitioningDemoTransition}">
