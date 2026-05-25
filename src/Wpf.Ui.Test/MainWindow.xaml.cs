@@ -69,6 +69,59 @@ public partial class MainWindow : ShellWindow
     [ObservableProperty]
     public partial string MultiComboBoxSelectedText { get; set; } = "Selected: (none)";
 
+    private readonly string[] _transitioningDemoSlides =
+    [
+        "Slide 1 - Welcome to Violeta",
+        "Slide 2 - Try changing transition type",
+        "Slide 3 - Content changes with animation",
+        "Slide 4 - This is a looping demo",
+    ];
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(TransitioningDemoStatus))]
+    private int _transitioningDemoIndex;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(TransitioningDemoStatus))]
+    private TransitionType _transitioningDemoTransition = TransitionType.Right;
+
+    [ObservableProperty]
+    private string _transitioningDemoContent = "Slide 1 - Welcome to Violeta";
+
+    public string TransitioningDemoStatus =>
+        $"Slide {TransitioningDemoIndex + 1}/{_transitioningDemoSlides.Length} | {TransitioningDemoTransition}";
+
+    partial void OnTransitioningDemoIndexChanged(int value)
+    {
+        if (value < 0 || value >= _transitioningDemoSlides.Length)
+        {
+            return;
+        }
+
+        TransitioningDemoContent = _transitioningDemoSlides[value];
+    }
+
+    [RelayCommand]
+    private void NextTransitioningDemo()
+    {
+        TransitioningDemoIndex = (TransitioningDemoIndex + 1) % _transitioningDemoSlides.Length;
+    }
+
+    [RelayCommand]
+    private void PreviousTransitioningDemo()
+    {
+        TransitioningDemoIndex = (TransitioningDemoIndex - 1 + _transitioningDemoSlides.Length) % _transitioningDemoSlides.Length;
+    }
+
+    [RelayCommand]
+    private void SetTransitioningDemoTransition(string transitionName)
+    {
+        if (Enum.TryParse(transitionName, true, out TransitionType transition))
+        {
+            TransitioningDemoTransition = transition;
+        }
+    }
+
     [ObservableProperty]
     public partial ObservableCollection<ICascadingItem> CascadingComboBoxDemoItems_Level1 { get; set; } = [];
 
