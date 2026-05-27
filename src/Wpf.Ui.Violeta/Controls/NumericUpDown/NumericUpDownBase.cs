@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -350,10 +349,8 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
             _canDecrease = Value is null || Value.Value.CompareTo(Minimum) > 0;
         }
 
-        if (_increaseButton != null)
-            _increaseButton.IsEnabled = _canIncrease;
-        if (_decreaseButton != null)
-            _decreaseButton.IsEnabled = _canDecrease;
+        _increaseButton?.IsEnabled = _canIncrease;
+        _decreaseButton?.IsEnabled = _canDecrease;
     }
 
     // ─── Increase / Decrease ─────────────────────────────────────────────────
@@ -386,7 +383,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
     public override void Clear()
     {
         Value = EmptyInputValue;
-        if (_textBox != null) _textBox.Text = string.Empty;
+        _textBox?.Text = string.Empty;
     }
 
     // ─── Abstract members ─────────────────────────────────────────────────────
@@ -406,7 +403,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
     {
         if (string.IsNullOrEmpty(text)) return string.Empty;
 
-        var s = text.Replace("_", string.Empty);
+        var s = text!.Replace("_", string.Empty);
 
         if ((numberStyles & NumberStyles.AllowHexSpecifier) != 0)
         {

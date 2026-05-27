@@ -15,6 +15,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
         <Setter Property="Width" Value="{StaticResource NumericUpDownSpinButtonWidth}" />
         <Setter Property="Padding" Value="0" />
@@ -27,6 +28,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}"
                         SnapsToDevicePixels="True">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
@@ -47,8 +49,10 @@
         </Style.Triggers>
     </Style>
 
-    <!--  Base NumericUpDown style.
-          All concrete typed subclasses inherit this via BasedOn.  -->
+    <!--
+        Base NumericUpDown style.
+        All concrete typed subclasses inherit this via BasedOn.
+    -->
     <Style x:Key="BaseNumericUpDownStyle" TargetType="{x:Type local:NumericUpDown}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
@@ -108,14 +112,13 @@
                                         x:Name="PART_TextBox"
                                         Padding="{TemplateBinding Padding}"
                                         HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="Stretch"
+                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                         AcceptsReturn="False"
                                         Background="Transparent"
                                         BorderBrush="Transparent"
                                         BorderThickness="0"
-                                        Style="{DynamicResource TransparentTextBoxStyle}"
                                         CaretBrush="{DynamicResource TextFillColorPrimaryBrush}"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
@@ -124,6 +127,7 @@
                                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                         ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                         SelectionBrush="{DynamicResource TextControlSelectionHighlightColor}"
+                                        Style="{DynamicResource TransparentTextBoxStyle}"
                                         TextWrapping="NoWrap" />
 
                                     <!--  Placeholder text (shown when TextBox is empty)  -->
@@ -131,7 +135,7 @@
                                         x:Name="PART_PlaceholderText"
                                         Margin="{TemplateBinding Padding}"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
                                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
@@ -159,11 +163,12 @@
                                     Visibility="Collapsed" />
 
                                 <!--  SpinnerPanel: vertical separator + up/down repeat buttons  -->
-                                <Grid
-                                    x:Name="PART_SpinnerPanel"
-                                    Grid.Column="3">
+                                <Grid x:Name="PART_SpinnerPanel" Grid.Column="3">
 
-                                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                                    <StackPanel
+                                        Grid.Column="0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
                                         <RepeatButton
                                             x:Name="PART_IncreaseButton"
                                             Height="{StaticResource NumericUpDownSpinButtonHeight}"
@@ -249,9 +254,11 @@
         </Setter>
     </Style>
 
-    <!--  One implicit style per concrete type – each BasedOn the base style above.
-          This is necessary because WPF's default-style lookup works best when
-          DefaultStyleKey points to the element's own type.  -->
+    <!--
+        One implicit style per concrete type – each BasedOn the base style above.
+        This is necessary because WPF's default-style lookup works best when
+        DefaultStyleKey points to the element's own type.
+    -->
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericIntUpDown}" />
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericUIntUpDown}" />
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericDoubleUpDown}" />

@@ -82,8 +82,7 @@ public abstract class NumericUpDown : Control
     {
         if (d is NumericUpDown self)
         {
-            if (self._textBox != null)
-                self._textBox.IsReadOnly = (bool)e.NewValue;
+            self._textBox?.IsReadOnly = (bool)e.NewValue;
             self.SetValidSpinDirection();
         }
     }
@@ -113,10 +112,8 @@ public abstract class NumericUpDown : Control
 
     private void UpdateInnerContentVisibility()
     {
-        if (_innerLeftContent != null)
-            _innerLeftContent.Visibility = InnerLeftContent != null ? Visibility.Visible : Visibility.Collapsed;
-        if (_innerRightContent != null)
-            _innerRightContent.Visibility = InnerRightContent != null ? Visibility.Visible : Visibility.Collapsed;
+        _innerLeftContent?.Visibility = InnerLeftContent != null ? Visibility.Visible : Visibility.Collapsed;
+        _innerRightContent?.Visibility = InnerRightContent != null ? Visibility.Visible : Visibility.Collapsed;
     }
 
     /// <summary>Optional content rendered to the left of the text input. Mirrors Ursa's <c>InnerLeftContent</c>.</summary>
@@ -304,7 +301,7 @@ public abstract class NumericUpDown : Control
 
     #endregion Spinned routed event
 
-    // ─── Template wiring ────────────────────────────────────────────────────
+    // --- Template wiring ----------------------------------------------------
 
     static NumericUpDown()
     {
@@ -316,8 +313,8 @@ public abstract class NumericUpDown : Control
         base.OnApplyTemplate();
 
         // Detach old handlers
-        if (_increaseButton != null) _increaseButton.Click -= OnIncreaseButtonClick;
-        if (_decreaseButton != null) _decreaseButton.Click -= OnDecreaseButtonClick;
+        _increaseButton?.Click -= OnIncreaseButtonClick;
+        _decreaseButton?.Click -= OnDecreaseButtonClick;
         if (_textBox != null)
         {
             _textBox.TextChanged -= OnTextBoxTextChanged;
@@ -344,8 +341,8 @@ public abstract class NumericUpDown : Control
             _textBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
         }
 
-        if (_increaseButton != null) _increaseButton.Click += OnIncreaseButtonClick;
-        if (_decreaseButton != null) _decreaseButton.Click += OnDecreaseButtonClick;
+        _increaseButton?.Click += OnIncreaseButtonClick;
+        _decreaseButton?.Click += OnDecreaseButtonClick;
 
         if (_dragPanel != null)
         {
@@ -360,7 +357,7 @@ public abstract class NumericUpDown : Control
         SetValidSpinDirection();
     }
 
-    // ─── Button clicks ───────────────────────────────────────────────────────
+    // --- Button clicks -------------------------------------------------------
 
     private void OnIncreaseButtonClick(object sender, RoutedEventArgs e)
     {
@@ -382,7 +379,7 @@ public abstract class NumericUpDown : Control
         }
     }
 
-    // ─── Inner TextBox changes ────────────────────────────────────────────────
+    // --- Inner TextBox changes ------------------------------------------------
 
     private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
     {
@@ -437,7 +434,7 @@ public abstract class NumericUpDown : Control
         }
     }
 
-    // ─── Mouse wheel ─────────────────────────────────────────────────────────
+    // --- Mouse wheel ---------------------------------------------------------
 
     protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
@@ -457,7 +454,7 @@ public abstract class NumericUpDown : Control
         }
     }
 
-    // ─── Drag panel ──────────────────────────────────────────────────────────
+    // --- Drag panel ----------------------------------------------------------
 
     private void OnDragPanelMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
@@ -466,16 +463,16 @@ public abstract class NumericUpDown : Control
         if (e.ClickCount == 2 && AllowDrag)
         {
             // Double-click: enter edit mode
-            if (_dragPanel != null) _dragPanel.Visibility = Visibility.Collapsed;
+            _dragPanel?.Visibility = Visibility.Collapsed;
             _textBox?.Focus();
-            if (_textBox != null) _textBox.IsReadOnly = IsReadOnly;
+            _textBox?.IsReadOnly = IsReadOnly;
             e.Handled = true;
         }
         else
         {
             // Single click: focus but stay in drag mode (read-only textbox)
             _textBox?.Focus();
-            if (_textBox != null) _textBox.IsReadOnly = true;
+            _textBox?.IsReadOnly = true;
             Mouse.Capture((IInputElement)sender);
         }
     }
@@ -511,11 +508,10 @@ public abstract class NumericUpDown : Control
 
     private void UpdateDragPanelVisibility()
     {
-        if (_dragPanel != null)
-            _dragPanel.Visibility = AllowDrag ? Visibility.Visible : Visibility.Collapsed;
+        _dragPanel?.Visibility = AllowDrag ? Visibility.Visible : Visibility.Collapsed;
     }
 
-    // ─── Focus ───────────────────────────────────────────────────────────────
+    // --- Focus ---------------------------------------------------------------
 
     protected override void OnIsKeyboardFocusWithinChanged(DependencyPropertyChangedEventArgs e)
     {
@@ -535,7 +531,7 @@ public abstract class NumericUpDown : Control
         _textBox?.Focus();
     }
 
-    // ─── Abstract interface implemented by NumericUpDownBase<T> ─────────────
+    // --- Abstract interface implemented by NumericUpDownBase<T> -------------
 
     protected abstract void SetValidSpinDirection();
 

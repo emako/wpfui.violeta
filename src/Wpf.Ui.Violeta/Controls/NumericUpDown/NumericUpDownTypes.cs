@@ -1,13 +1,12 @@
-using System;
 using System.Globalization;
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-// ────────────────────────────────────────────────────────────────────────────
+// ----------------------------------------------------------------------------
 // Each concrete class points its DefaultStyleKey to itself; the XAML resource
 // dictionary contains a style for each type (BasedOn the shared base style).
-// ────────────────────────────────────────────────────────────────────────────
+// ----------------------------------------------------------------------------
 
 #region int
 
@@ -27,14 +26,16 @@ public class NumericIntUpDown : NumericUpDownBase<int>
     }
 
     protected override int Zero => 0;
+
     protected override int Add(int a, int b) => checked(a + b);
+
     protected override int Subtract(int a, int b) => checked(a - b);
 
     protected override int? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => int.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion int
 
 #region uint
 
@@ -53,14 +54,16 @@ public class NumericUIntUpDown : NumericUpDownBase<uint>
     }
 
     protected override uint Zero => 0u;
+
     protected override uint Add(uint a, uint b) => checked(a + b);
+
     protected override uint Subtract(uint a, uint b) => checked(a - b);
 
     protected override uint? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => uint.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion uint
 
 #region double
 
@@ -79,14 +82,16 @@ public class NumericDoubleUpDown : NumericUpDownBase<double>
     }
 
     protected override double Zero => 0.0;
+
     protected override double Add(double a, double b) => a + b;
+
     protected override double Subtract(double a, double b) => a - b;
 
     protected override double? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => double.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion double
 
 #region float
 
@@ -105,14 +110,16 @@ public class NumericFloatUpDown : NumericUpDownBase<float>
     }
 
     protected override float Zero => 0f;
+
     protected override float Add(float a, float b) => a + b;
+
     protected override float Subtract(float a, float b) => a - b;
 
     protected override float? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => float.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion float
 
 #region decimal
 
@@ -131,14 +138,16 @@ public class NumericDecimalUpDown : NumericUpDownBase<decimal>
     }
 
     protected override decimal Zero => 0m;
+
     protected override decimal Add(decimal a, decimal b) => a + b;
+
     protected override decimal Subtract(decimal a, decimal b) => a - b;
 
     protected override decimal? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => decimal.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion decimal
 
 #region long
 
@@ -157,14 +166,16 @@ public class NumericLongUpDown : NumericUpDownBase<long>
     }
 
     protected override long Zero => 0L;
+
     protected override long Add(long a, long b) => checked(a + b);
+
     protected override long Subtract(long a, long b) => checked(a - b);
 
     protected override long? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => long.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion long
 
 #region ulong
 
@@ -183,14 +194,16 @@ public class NumericULongUpDown : NumericUpDownBase<ulong>
     }
 
     protected override ulong Zero => 0UL;
+
     protected override ulong Add(ulong a, ulong b) => checked(a + b);
+
     protected override ulong Subtract(ulong a, ulong b) => checked(a - b);
 
     protected override ulong? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => ulong.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion ulong
 
 #region short
 
@@ -209,14 +222,16 @@ public class NumericShortUpDown : NumericUpDownBase<short>
     }
 
     protected override short Zero => 0;
+
     protected override short Add(short a, short b) => checked((short)(a + b));
+
     protected override short Subtract(short a, short b) => checked((short)(a - b));
 
     protected override short? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => short.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion short
 
 #region ushort
 
@@ -235,14 +250,16 @@ public class NumericUShortUpDown : NumericUpDownBase<ushort>
     }
 
     protected override ushort Zero => 0;
+
     protected override ushort Add(ushort a, ushort b) => checked((ushort)(a + b));
+
     protected override ushort Subtract(ushort a, ushort b) => checked((ushort)(a - b));
 
     protected override ushort? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => ushort.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion ushort
 
 #region byte
 
@@ -261,14 +278,16 @@ public class NumericByteUpDown : NumericUpDownBase<byte>
     }
 
     protected override byte Zero => 0;
+
     protected override byte Add(byte a, byte b) => checked((byte)(a + b));
+
     protected override byte Subtract(byte a, byte b) => checked((byte)(a - b));
 
     protected override byte? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => byte.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion byte
 
 #region sbyte
 
@@ -287,11 +306,13 @@ public class NumericSByteUpDown : NumericUpDownBase<sbyte>
     }
 
     protected override sbyte Zero => 0;
+
     protected override sbyte Add(sbyte a, sbyte b) => checked((sbyte)(a + b));
+
     protected override sbyte Subtract(sbyte a, sbyte b) => checked((sbyte)(a - b));
 
     protected override sbyte? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles)
         => sbyte.TryParse(text, numberStyles, numberFormat, out var v) ? v : null;
 }
 
-#endregion
+#endregion sbyte
