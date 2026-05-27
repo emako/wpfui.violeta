@@ -2092,6 +2092,39 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="TimeBox" />
+                        <StackPanel
+                            Margin="0,8,0,0"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Example" />
+                            <vio:TimeBox Margin="16,0,0,0" Time="01:23:45" />
+                            <vio:TimeBox
+                                Margin="16,0,0,0"
+                                ShowMillisecond="True"
+                                Time="01:23:45.678" />
+                            <vio:TimeBox
+                                Margin="16,0,0,0"
+                                IsEnabled="False"
+                                Time="12:00:00" />
+                            <TextBlock
+                                Margin="4,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="(Disabled)" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Hyperlink" />
                         <StackPanel>
                             <TextBlock>

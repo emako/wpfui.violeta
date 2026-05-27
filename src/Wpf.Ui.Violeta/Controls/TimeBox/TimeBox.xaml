@@ -1,0 +1,156 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Style TargetType="local:TimeBox">
+        <!--  Universal WPF UI focus  -->
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <!--  Universal WPF UI ContextMenu  -->
+        <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource TextBoxBorderThemeThickness}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TimeBox">
+                    <Grid>
+                        <Border
+                            x:Name="ContentBorder"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            MinWidth="{TemplateBinding MinWidth}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Padding="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}">
+                            <StackPanel
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+
+                                <!--  Hours  -->
+                                <TextBox
+                                    x:Name="PART_HourTextBox"
+                                    Width="32"
+                                    Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    MaxLength="2"
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
+
+                                <TextBlock
+                                    Margin="1,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text=":" />
+
+                                <!--  Minutes  -->
+                                <TextBox
+                                    x:Name="PART_MinuteTextBox"
+                                    Width="32"
+                                    Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    MaxLength="2"
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
+
+                                <TextBlock
+                                    Margin="1,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text=":" />
+
+                                <!--  Seconds  -->
+                                <TextBox
+                                    x:Name="PART_SecondTextBox"
+                                    Width="32"
+                                    Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    MaxLength="2"
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
+
+                                <!--  Millisecond separator and field (shown when ShowMillisecond = true)  -->
+                                <TextBlock
+                                    x:Name="PART_MillisecondSeparator"
+                                    Margin="1,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="."
+                                    Visibility="Collapsed" />
+
+                                <TextBox
+                                    x:Name="PART_MillisecondTextBox"
+                                    Width="40"
+                                    Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    MaxLength="3"
+                                    Style="{DynamicResource TransparentTextBoxStyle}"
+                                    Visibility="Collapsed" />
+
+                            </StackPanel>
+                        </Border>
+
+                        <!--  Accent border / bottom indicator  -->
+                        <Border
+                            x:Name="AccentBorder"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                            BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            IsHitTestVisible="False" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!--  Show millisecond section when ShowMillisecond = true  -->
+                        <Trigger Property="ShowMillisecond" Value="True">
+                            <Setter TargetName="PART_MillisecondSeparator" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_MillisecondTextBox" Property="Visibility" Value="Visible" />
+                        </Trigger>
+
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsKeyboardFocusWithin" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
