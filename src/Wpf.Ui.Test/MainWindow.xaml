@@ -2132,13 +2132,13 @@
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                             Text="LabelPosition = Top" />
                         <vio:Form LabelPosition="Top">
-                            <vio:FormItem Label="用户名" IsRequired="True">
+                            <vio:FormItem IsRequired="True" Label="Username">
                                 <TextBox Width="220" />
                             </vio:FormItem>
-                            <vio:FormItem Label="邮箱">
+                            <vio:FormItem Label="Email">
                                 <TextBox Width="220" />
                             </vio:FormItem>
-                            <vio:FormItem Label="备注">
+                            <vio:FormItem Label="Notes">
                                 <TextBox
                                     Width="220"
                                     Height="60"
@@ -2152,13 +2152,13 @@
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                             Text="LabelPosition = Left, LabelWidth = * (auto-align)" />
                         <vio:Form LabelPosition="Left" LabelWidth="*">
-                            <vio:FormItem Label="用户名" IsRequired="True">
+                            <vio:FormItem IsRequired="True" Label="Username">
                                 <TextBox Width="220" />
                             </vio:FormItem>
-                            <vio:FormItem Label="电子邮箱">
+                            <vio:FormItem Label="Email Address">
                                 <TextBox Width="220" />
                             </vio:FormItem>
-                            <vio:FormItem Label="手机号码">
+                            <vio:FormItem Label="Phone Number">
                                 <TextBox Width="220" />
                             </vio:FormItem>
                         </vio:Form>
@@ -2168,19 +2168,19 @@
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                             Text="FormGroup (with header)" />
                         <vio:Form LabelPosition="Left" LabelWidth="*">
-                            <vio:FormGroup Header="基本信息">
-                                <vio:FormItem Label="姓名" IsRequired="True">
+                            <vio:FormGroup Header="Basic Information">
+                                <vio:FormItem IsRequired="True" Label="Full Name">
                                     <TextBox Width="220" />
                                 </vio:FormItem>
-                                <vio:FormItem Label="学校">
+                                <vio:FormItem Label="School">
                                     <TextBox Width="220" />
                                 </vio:FormItem>
                             </vio:FormGroup>
-                            <vio:FormGroup Header="联系方式">
-                                <vio:FormItem Label="手机">
+                            <vio:FormGroup Header="Contact Information">
+                                <vio:FormItem Label="Phone">
                                     <TextBox Width="220" />
                                 </vio:FormItem>
-                                <vio:FormItem Label="邮箱">
+                                <vio:FormItem Label="Email">
                                     <TextBox Width="220" />
                                 </vio:FormItem>
                             </vio:FormGroup>
@@ -2188,7 +2188,7 @@
                                 <ui:Button
                                     Width="220"
                                     Appearance="Primary"
-                                    Content="提交" />
+                                    Content="Submit" />
                             </vio:FormItem>
                         </vio:Form>
                     </StackPanel>
