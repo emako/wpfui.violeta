@@ -134,6 +134,7 @@
                                     <TextBlock
                                         x:Name="PART_PlaceholderText"
                                         Margin="{TemplateBinding Padding}"
+                                        Padding="2,0,0,0"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="Center"
                                         FontFamily="{TemplateBinding FontFamily}"
