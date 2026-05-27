@@ -3848,9 +3848,7 @@
                                     MinWidth="200"
                                     VerticalAlignment="Center"
                                     Text="Multi-line wrap" />
-                                <vio:SelectableTextBlock
-                                    MaxWidth="300"
-                                    Text="This is a longer paragraph of text that wraps across multiple lines. You can select any part of it with the mouse and copy it to the clipboard." />
+                                <vio:SelectableTextBlock MaxWidth="300" Text="This is a longer paragraph of text that wraps across multiple lines. You can select any part of it with the mouse and copy it to the clipboard." />
                             </StackPanel>
                         </StackPanel>
 
@@ -3866,49 +3864,64 @@
 
                         <!--  int  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="int (−100 … 100, step 5)" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="int (−100 … 100, step 5)" />
                             <vio:NumericIntUpDown
                                 Width="160"
-                                Minimum="-100"
                                 Maximum="100"
-                                Step="5"
-                                PlaceholderText="enter int…" />
+                                Minimum="-100"
+                                PlaceholderText="enter int…"
+                                Step="5" />
                         </StackPanel>
 
                         <!--  double  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="double (0 … 1, step 0.1)" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="double (0 … 1, step 0.1)" />
                             <vio:NumericDoubleUpDown
                                 Width="160"
-                                Minimum="0"
-                                Maximum="1"
-                                Step="0.1"
                                 FormatString="N2"
-                                PlaceholderText="0.00" />
+                                Maximum="1"
+                                Minimum="0"
+                                PlaceholderText="0.00"
+                                Step="0.1" />
                         </StackPanel>
 
                         <!--  decimal  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="decimal (step 0.01)" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="decimal (step 0.01)" />
                             <vio:NumericDecimalUpDown
                                 Width="160"
-                                Step="0.01"
                                 FormatString="N2"
-                                PlaceholderText="decimal…" />
+                                PlaceholderText="decimal…"
+                                Step="0.01" />
                         </StackPanel>
 
                         <!--  No spinner buttons  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="int — no spinner buttons" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="int — no spinner buttons" />
                             <vio:NumericIntUpDown
                                 Width="160"
-                                ShowButtonSpinner="False"
-                                PlaceholderText="no buttons" />
+                                PlaceholderText="no buttons"
+                                ShowButtonSpinner="False" />
                         </StackPanel>
 
                         <!--  Read-only  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="int — read-only" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="int — read-only" />
                             <vio:NumericIntUpDown
                                 Width="160"
                                 IsReadOnly="True"
@@ -3917,7 +3930,10 @@
 
                         <!--  Disabled  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="Disabled" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="Disabled" />
                             <vio:NumericIntUpDown
                                 Width="160"
                                 IsEnabled="False"
@@ -3926,23 +3942,27 @@
 
                         <!--  AllowDrag  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="AllowDrag (double-click to edit)" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="AllowDrag (double-click to edit)" />
                             <vio:NumericIntUpDown
                                 Width="160"
                                 AllowDrag="True"
-                                Minimum="-1000"
                                 Maximum="1000"
+                                Minimum="-1000"
+                                PlaceholderText="drag or dbl-click"
                                 Step="10"
-                                Value="0"
-                                PlaceholderText="drag or dbl-click" />
+                                Value="0" />
                         </StackPanel>
 
                         <!--  byte (0-255)  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
-                            <TextBlock MinWidth="200" VerticalAlignment="Center" Text="byte (0 … 255)" />
-                            <vio:NumericByteUpDown
-                                Width="160"
-                                PlaceholderText="0-255" />
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="byte (0 … 255)" />
+                            <vio:NumericByteUpDown Width="160" PlaceholderText="0-255" />
                         </StackPanel>
 
                     </StackPanel>
