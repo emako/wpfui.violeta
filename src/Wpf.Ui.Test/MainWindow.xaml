@@ -3996,6 +3996,87 @@
 
                     </StackPanel>
 
+                    <!--  ══════════════════════════════════════════════════════════════
+                          ButtonSpinner Demo
+                          ══════════════════════════════════════════════════════════════  -->
+                    <StackPanel Margin="0,16,0,0" Orientation="Vertical">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Text="ButtonSpinner" />
+
+                        <!--  Default (grouped buttons, right)  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="Default — buttons right" />
+                            <vio:ButtonSpinner Width="200" Spin="ButtonSpinnerDemo_OnSpin">
+                                <TextBlock x:Name="ButtonSpinnerDefaultValueText" Text="Value: 0" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                        <!--  Default, buttons on the left  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="ButtonSpinnerLocation=Left" />
+                            <vio:ButtonSpinner Width="200" ButtonSpinnerLocation="Left" Spin="ButtonSpinnerDemo_OnSpin">
+                                <TextBlock x:Name="ButtonSpinnerLeftValueText" Text="Value: 0" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                        <!--  ShowButtonSpinner = False  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="ShowButtonSpinner=False" />
+                            <vio:ButtonSpinner Width="200" ShowButtonSpinner="False">
+                                <TextBlock Text="No buttons" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                        <!--  Split variant, buttons right  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="SplitButtonSpinnerStyle" />
+                            <vio:ButtonSpinner Width="200" Style="{DynamicResource SplitButtonSpinnerStyle}" Spin="ButtonSpinnerDemo_OnSpin">
+                                <TextBlock x:Name="ButtonSpinnerSplitRightValueText" Text="Value: 0" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                        <!--  Split variant, buttons left  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="SplitButtonSpinner, Location=Left" />
+                            <vio:ButtonSpinner
+                                Width="200"
+                                ButtonSpinnerLocation="Left"
+                                Style="{DynamicResource SplitButtonSpinnerStyle}"
+                                Spin="ButtonSpinnerDemo_OnSpin">
+                                <TextBlock x:Name="ButtonSpinnerSplitLeftValueText" Text="Value: 0" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                        <!--  Disabled  -->
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock
+                                MinWidth="220"
+                                VerticalAlignment="Center"
+                                Text="Disabled" />
+                            <vio:ButtonSpinner Width="200" IsEnabled="False">
+                                <TextBlock Text="Disabled" VerticalAlignment="Center" />
+                            </vio:ButtonSpinner>
+                        </StackPanel>
+
+                    </StackPanel>
+
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>

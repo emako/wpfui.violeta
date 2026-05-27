@@ -26,6 +26,11 @@ namespace Wpf.Ui.Test;
 [ObservableObject]
 public partial class MainWindow : ShellWindow
 {
+    private int _buttonSpinnerDefaultValue;
+    private int _buttonSpinnerLeftValue;
+    private int _buttonSpinnerSplitRightValue;
+    private int _buttonSpinnerSplitLeftValue;
+
     public MainWindow()
     {
         DataContext = this;
@@ -50,6 +55,43 @@ public partial class MainWindow : ShellWindow
             await Task.Delay(2222);
             DrawerContainer.Visibility = System.Windows.Visibility.Visible;
         });
+    }
+
+    private void ButtonSpinnerDemo_OnSpin(object sender, SpinEventArgs e)
+    {
+        if (sender is not ButtonSpinner spinner)
+        {
+            return;
+        }
+
+        int delta = e.Direction == SpinDirection.Increase ? 1 : -1;
+
+        if (ReferenceEquals(spinner.Content, ButtonSpinnerDefaultValueText))
+        {
+            _buttonSpinnerDefaultValue += delta;
+            ButtonSpinnerDefaultValueText.Text = $"Value: {_buttonSpinnerDefaultValue}";
+            return;
+        }
+
+        if (ReferenceEquals(spinner.Content, ButtonSpinnerLeftValueText))
+        {
+            _buttonSpinnerLeftValue += delta;
+            ButtonSpinnerLeftValueText.Text = $"Value: {_buttonSpinnerLeftValue}";
+            return;
+        }
+
+        if (ReferenceEquals(spinner.Content, ButtonSpinnerSplitRightValueText))
+        {
+            _buttonSpinnerSplitRightValue += delta;
+            ButtonSpinnerSplitRightValueText.Text = $"Value: {_buttonSpinnerSplitRightValue}";
+            return;
+        }
+
+        if (ReferenceEquals(spinner.Content, ButtonSpinnerSplitLeftValueText))
+        {
+            _buttonSpinnerSplitLeftValue += delta;
+            ButtonSpinnerSplitLeftValueText.Text = $"Value: {_buttonSpinnerSplitLeftValue}";
+        }
     }
 
     private void InitMultiComboBoxDemo()
