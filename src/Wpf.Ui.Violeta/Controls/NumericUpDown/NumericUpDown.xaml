@@ -162,23 +162,8 @@
                                 <Grid
                                     x:Name="PART_SpinnerPanel"
                                     Grid.Column="3">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <!--  separator  -->
-                                        <ColumnDefinition Width="Auto" />
-                                        <!--  buttons  -->
-                                    </Grid.ColumnDefinitions>
 
-                                    <!--  Vertical separator between text area and buttons  -->
-                                    <Border
-                                        x:Name="PART_SpinnerSeparator"
-                                        Grid.Column="0"
-                                        Width="1"
-                                        Margin="0,6"
-                                        Background="{DynamicResource ControlStrokeColorDefaultBrush}" />
-
-                                    <!--  Up / Down buttons  -->
-                                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                                    <StackPanel Grid.Column="0" Orientation="Vertical">
                                         <RepeatButton
                                             x:Name="PART_IncreaseButton"
                                             Height="{StaticResource NumericUpDownSpinButtonHeight}"
@@ -188,10 +173,6 @@
                                                 FontSize="9"
                                                 Text="&#xE70E;" />
                                         </RepeatButton>
-                                        <Border
-                                            Height="1"
-                                            Margin="3,0"
-                                            Background="{DynamicResource ControlStrokeColorDefaultBrush}" />
                                         <RepeatButton
                                             x:Name="PART_DecreaseButton"
                                             Height="{StaticResource NumericUpDownSpinButtonHeight}"
