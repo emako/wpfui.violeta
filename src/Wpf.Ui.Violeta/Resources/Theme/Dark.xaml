@@ -15,4 +15,7 @@
     <SolidColorBrush x:Key="CalloutToolTipForeground" Color="#FF232323" />
     <SolidColorBrush x:Key="CalloutToolTipBackground" Color="White" />
 
+    <!--  SelectableTextBlock  -->
+    <SolidColorBrush x:Key="SelectableTextBlockMarkBackground" Color="#50B8860B" />
+
 </ResourceDictionary>

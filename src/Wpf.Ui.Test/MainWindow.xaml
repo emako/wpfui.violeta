@@ -3751,6 +3751,109 @@
                                 </DataTemplate>
                             </vio:TransitioningContentControl.ContentTemplate>
                         </vio:TransitioningContentControl>
+
+                        <!--  SelectableTextBlock  -->
+                        <!--  =============================  -->
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="SelectableTextBlock" />
+                        <StackPanel Margin="0,8,0,16">
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Default" />
+                                <vio:SelectableTextBlock Text="Default — drag to select, right-click to copy." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Secondary" />
+                                <vio:SelectableTextBlock Style="{StaticResource SecondarySelectableTextBlock}" Text="Secondary text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Tertiary" />
+                                <vio:SelectableTextBlock Style="{StaticResource TertiarySelectableTextBlock}" Text="Tertiary text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Quaternary" />
+                                <vio:SelectableTextBlock Style="{StaticResource QuaternarySelectableTextBlock}" Text="Quaternary (disabled) text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Success" />
+                                <vio:SelectableTextBlock Style="{StaticResource SuccessSelectableTextBlock}" Text="Success text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Warning" />
+                                <vio:SelectableTextBlock Style="{StaticResource WarningSelectableTextBlock}" Text="Warning text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Danger" />
+                                <vio:SelectableTextBlock Style="{StaticResource DangerSelectableTextBlock}" Text="Danger text colour." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Mark (highlight)" />
+                                <vio:SelectableTextBlock Style="{StaticResource MarkSelectableTextBlock}" Text="Mark highlight background." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Underline" />
+                                <vio:SelectableTextBlock Style="{StaticResource UnderlineSelectableTextBlock}" Text="Underline decoration." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Delete (strikethrough)" />
+                                <vio:SelectableTextBlock Style="{StaticResource DeleteSelectableTextBlock}" Text="Strikethrough decoration." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Underline + Delete" />
+                                <vio:SelectableTextBlock Style="{StaticResource UnderlineDeleteSelectableTextBlock}" Text="Underline and strikethrough combined." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Disabled" />
+                                <vio:SelectableTextBlock IsEnabled="False" Text="Disabled state." />
+                            </StackPanel>
+                            <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="200"
+                                    VerticalAlignment="Center"
+                                    Text="Multi-line wrap" />
+                                <vio:SelectableTextBlock
+                                    MaxWidth="300"
+                                    Text="This is a longer paragraph of text that wraps across multiple lines. You can select any part of it with the mouse and copy it to the clipboard." />
+                            </StackPanel>
+                        </StackPanel>
+
                     </StackPanel>
 
                 </StackPanel>
