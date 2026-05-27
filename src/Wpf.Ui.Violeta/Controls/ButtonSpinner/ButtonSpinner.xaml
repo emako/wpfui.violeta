@@ -17,6 +17,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
         <Setter Property="Width" Value="{StaticResource ButtonSpinnerButtonWidth}" />
         <Setter Property="Padding" Value="0" />
@@ -58,6 +59,7 @@
         <Setter Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
         <Setter Property="Width" Value="{StaticResource ButtonSpinnerSplitButtonSize}" />
         <Setter Property="Padding" Value="0" />
@@ -138,7 +140,7 @@
                                     x:Name="PART_ButtonGroup"
                                     Grid.Column="2"
                                     VerticalAlignment="Center">
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                                         <RepeatButton
                                             x:Name="PART_IncreaseButton"
                                             Height="{StaticResource ButtonSpinnerButtonHeight}"

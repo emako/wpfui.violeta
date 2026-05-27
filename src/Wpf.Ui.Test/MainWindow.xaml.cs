@@ -26,6 +26,15 @@ namespace Wpf.Ui.Test;
 [ObservableObject]
 public partial class MainWindow : ShellWindow
 {
+    private static readonly string[] _buttonSpinnerWords =
+    [
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Durian",
+        "Elderberry",
+    ];
+
     private int _buttonSpinnerDefaultValue;
     private int _buttonSpinnerLeftValue;
     private int _buttonSpinnerSplitRightValue;
@@ -68,30 +77,35 @@ public partial class MainWindow : ShellWindow
 
         if (ReferenceEquals(spinner.Content, ButtonSpinnerDefaultValueText))
         {
-            _buttonSpinnerDefaultValue += delta;
-            ButtonSpinnerDefaultValueText.Text = $"Value: {_buttonSpinnerDefaultValue}";
+            _buttonSpinnerDefaultValue = WrapIndex(_buttonSpinnerDefaultValue + delta, _buttonSpinnerWords.Length);
+            ButtonSpinnerDefaultValueText.Text = _buttonSpinnerWords[_buttonSpinnerDefaultValue];
             return;
         }
 
         if (ReferenceEquals(spinner.Content, ButtonSpinnerLeftValueText))
         {
-            _buttonSpinnerLeftValue += delta;
-            ButtonSpinnerLeftValueText.Text = $"Value: {_buttonSpinnerLeftValue}";
+            _buttonSpinnerLeftValue = WrapIndex(_buttonSpinnerLeftValue + delta, _buttonSpinnerWords.Length);
+            ButtonSpinnerLeftValueText.Text = _buttonSpinnerWords[_buttonSpinnerLeftValue];
             return;
         }
 
         if (ReferenceEquals(spinner.Content, ButtonSpinnerSplitRightValueText))
         {
-            _buttonSpinnerSplitRightValue += delta;
-            ButtonSpinnerSplitRightValueText.Text = $"Value: {_buttonSpinnerSplitRightValue}";
+            _buttonSpinnerSplitRightValue = WrapIndex(_buttonSpinnerSplitRightValue + delta, _buttonSpinnerWords.Length);
+            ButtonSpinnerSplitRightValueText.Text = _buttonSpinnerWords[_buttonSpinnerSplitRightValue];
             return;
         }
 
         if (ReferenceEquals(spinner.Content, ButtonSpinnerSplitLeftValueText))
         {
-            _buttonSpinnerSplitLeftValue += delta;
-            ButtonSpinnerSplitLeftValueText.Text = $"Value: {_buttonSpinnerSplitLeftValue}";
+            _buttonSpinnerSplitLeftValue = WrapIndex(_buttonSpinnerSplitLeftValue + delta, _buttonSpinnerWords.Length);
+            ButtonSpinnerSplitLeftValueText.Text = _buttonSpinnerWords[_buttonSpinnerSplitLeftValue];
         }
+    }
+
+    private static int WrapIndex(int value, int length)
+    {
+        return (value % length + length) % length;
     }
 
     private void InitMultiComboBoxDemo()

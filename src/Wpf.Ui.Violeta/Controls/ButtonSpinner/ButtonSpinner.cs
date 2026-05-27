@@ -39,7 +39,7 @@ public class ButtonSpinner : ContentControl
             new FrameworkPropertyMetadata(typeof(ButtonSpinner)));
     }
 
-    // ─── ShowButtonSpinner ────────────────────────────────────────────────────
+    // --- ShowButtonSpinner ----------------------------------------------------
 
     public static readonly DependencyProperty ShowButtonSpinnerProperty =
         DependencyProperty.Register(
@@ -55,7 +55,7 @@ public class ButtonSpinner : ContentControl
         set => SetValue(ShowButtonSpinnerProperty, value);
     }
 
-    // ─── AllowSpin ────────────────────────────────────────────────────────────
+    // --- AllowSpin ------------------------------------------------------------
 
     public static readonly DependencyProperty AllowSpinProperty =
         DependencyProperty.Register(
@@ -71,7 +71,7 @@ public class ButtonSpinner : ContentControl
         set => SetValue(AllowSpinProperty, value);
     }
 
-    // ─── ButtonSpinnerLocation ────────────────────────────────────────────────
+    // --- ButtonSpinnerLocation ------------------------------------------------
 
     public static readonly DependencyProperty ButtonSpinnerLocationProperty =
         DependencyProperty.Register(
@@ -87,7 +87,7 @@ public class ButtonSpinner : ContentControl
         set => SetValue(ButtonSpinnerLocationProperty, value);
     }
 
-    // ─── Spin routed event ────────────────────────────────────────────────────
+    // --- Spin routed event ----------------------------------------------------
 
     public static readonly RoutedEvent SpinEvent =
         EventManager.RegisterRoutedEvent(
@@ -103,7 +103,7 @@ public class ButtonSpinner : ContentControl
         remove => RemoveHandler(SpinEvent, value);
     }
 
-    // ─── Template ─────────────────────────────────────────────────────────────
+    // --- Template -------------------------------------------------------------
 
     public override void OnApplyTemplate()
     {
