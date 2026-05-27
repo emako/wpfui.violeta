@@ -1,4 +1,8 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 internal sealed class BitList : IEnumerable<bool>
 {

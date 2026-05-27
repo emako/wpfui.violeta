@@ -1,19 +1,19 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 internal struct MatrixSize
 {
-	internal MatrixSize(int width, int height)
-		: this()
-	{
-		Width = width;
-		Height = height;
-	}
+    internal MatrixSize(int width, int height)
+        : this()
+    {
+        Width = width;
+        Height = height;
+    }
 
-	public int Width { get; private set; }
-	public int Height { get; private set; }
+    public int Width { get; private set; }
+    public int Height { get; private set; }
 
-	public override string ToString()
-	{
-		return $"Size({Width};{Height})";
-	}
+    public override string ToString()
+    {
+        return $"Size({Width};{Height})";
+    }
 }

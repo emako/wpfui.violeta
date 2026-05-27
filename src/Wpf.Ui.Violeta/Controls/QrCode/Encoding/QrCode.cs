@@ -1,4 +1,4 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 /// <summary>
 /// This class contain two variables.
@@ -26,3 +26,5 @@ internal class QrCode
 		private set;
 	}
 }
+
+

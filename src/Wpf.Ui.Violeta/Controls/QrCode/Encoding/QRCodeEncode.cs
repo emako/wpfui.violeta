@@ -1,11 +1,11 @@
-using Gma.QrCodeNet.Encoding.DataEncodation;
-using Gma.QrCodeNet.Encoding.EncodingRegion;
-using Gma.QrCodeNet.Encoding.ErrorCorrection;
-using Gma.QrCodeNet.Encoding.Masking;
-using Gma.QrCodeNet.Encoding.Masking.Scoring;
-using Gma.QrCodeNet.Encoding.Positioning;
+﻿using Wpf.Ui.Violeta.Controls.Encoding.DataEncodation;
+using Wpf.Ui.Violeta.Controls.Encoding.EncodingRegion;
+using Wpf.Ui.Violeta.Controls.Encoding.ErrorCorrection;
+using Wpf.Ui.Violeta.Controls.Encoding.Masking;
+using Wpf.Ui.Violeta.Controls.Encoding.Masking.Scoring;
+using Wpf.Ui.Violeta.Controls.Encoding.Positioning;
 
-namespace Gma.QrCodeNet.Encoding;
+namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 internal static class QRCodeEncode
 {
@@ -30,3 +30,5 @@ internal static class QRCodeEncode
 		return triMatrix.GetLowestPenaltyMatrix(errorLevel);
 	}
 }
+
+

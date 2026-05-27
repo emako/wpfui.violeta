@@ -1,8 +1,8 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 internal enum MatrixStatus
 {
-	None,
-	NoMask,
-	Data
+    None,
+    NoMask,
+    Data,
 }

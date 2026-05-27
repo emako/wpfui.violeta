@@ -1,6 +1,7 @@
-using Gma.QrCodeNet.Encoding;
+﻿using Wpf.Ui.Violeta.Controls.Encoding;
 using System.Windows;
 using System.Windows.Media;
+using System;
 
 namespace Wpf.Ui.Violeta.Controls;
 

@@ -1,53 +1,55 @@
-namespace Gma.QrCodeNet.Encoding.Versions;
+﻿using System;
+
+namespace Wpf.Ui.Violeta.Controls.Encoding.Versions;
 
 internal struct ErrorCorrectionBlocks
 {
-	internal ErrorCorrectionBlocks(int numErrorCorrectionCodewords, ErrorCorrectionBlock ecBlock)
-		: this()
-	{
-		NumErrorCorrectionCodewards = numErrorCorrectionCodewords;
-		ECBlock = [ecBlock];
+    internal ErrorCorrectionBlocks(int numErrorCorrectionCodewords, ErrorCorrectionBlock ecBlock)
+        : this()
+    {
+        NumErrorCorrectionCodewards = numErrorCorrectionCodewords;
+        ECBlock = [ecBlock];
 
-		Initialize();
-	}
+        Initialize();
+    }
 
-	internal ErrorCorrectionBlocks(int numErrorCorrectionCodewords, ErrorCorrectionBlock ecBlock1, ErrorCorrectionBlock ecBlock2)
-		: this()
-	{
-		NumErrorCorrectionCodewards = numErrorCorrectionCodewords;
-		ECBlock = [ecBlock1, ecBlock2];
+    internal ErrorCorrectionBlocks(int numErrorCorrectionCodewords, ErrorCorrectionBlock ecBlock1, ErrorCorrectionBlock ecBlock2)
+        : this()
+    {
+        NumErrorCorrectionCodewards = numErrorCorrectionCodewords;
+        ECBlock = [ecBlock1, ecBlock2];
 
-		Initialize();
-	}
+        Initialize();
+    }
 
-	internal int NumErrorCorrectionCodewards { get; private set; }
+    internal int NumErrorCorrectionCodewards { get; private set; }
 
-	internal int NumBlocks { get; private set; }
+    internal int NumBlocks { get; private set; }
 
-	internal int ErrorCorrectionCodewordsPerBlock { get; private set; }
+    internal int ErrorCorrectionCodewordsPerBlock { get; private set; }
 
-	private ErrorCorrectionBlock[] ECBlock { get; }
+    private ErrorCorrectionBlock[] ECBlock { get; }
 
-	/// <summary>
-	/// Get Error Correction Blocks
-	/// </summary>
-	internal ErrorCorrectionBlock[] GetECBlocks() => ECBlock;
+    /// <summary>
+    /// Get Error Correction Blocks
+    /// </summary>
+    internal ErrorCorrectionBlock[] GetECBlocks() => ECBlock;
 
-	/// <summary>
-	/// Initialize for NumBlocks and ErrorCorrectionCodewordsPerBlock
-	/// </summary>
-	private void Initialize()
+    /// <summary>
+    /// Initialize for NumBlocks and ErrorCorrectionCodewordsPerBlock
+    /// </summary>
+    private void Initialize()
     {
         if (ECBlock == null)
             throw new ArgumentNullException(nameof(ECBlock));
 
         NumBlocks = 0;
-		int blockLength = ECBlock.Length;
-		for (int i = 0; i < blockLength; i++)
-		{
-			NumBlocks += ECBlock[i].NumErrorCorrectionBlock;
-		}
+        int blockLength = ECBlock.Length;
+        for (int i = 0; i < blockLength; i++)
+        {
+            NumBlocks += ECBlock[i].NumErrorCorrectionBlock;
+        }
 
-		ErrorCorrectionCodewordsPerBlock = NumErrorCorrectionCodewards / NumBlocks;
-	}
+        ErrorCorrectionCodewordsPerBlock = NumErrorCorrectionCodewards / NumBlocks;
+    }
 }

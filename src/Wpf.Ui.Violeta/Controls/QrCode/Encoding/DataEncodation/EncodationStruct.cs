@@ -1,15 +1,15 @@
-using Gma.QrCodeNet.Encoding.Versions;
+﻿using Wpf.Ui.Violeta.Controls.Encoding.Versions;
 
-namespace Gma.QrCodeNet.Encoding.DataEncodation;
+namespace Wpf.Ui.Violeta.Controls.Encoding.DataEncodation;
 
 internal struct EncodationStruct
 {
-	internal EncodationStruct(VersionControlStruct vcStruct, BitList dataCodewords)
-	{
-		VersionDetail = vcStruct.VersionDetail;
-		DataCodewords = dataCodewords;
-	}
+    internal EncodationStruct(VersionControlStruct vcStruct, BitList dataCodewords)
+    {
+        VersionDetail = vcStruct.VersionDetail;
+        DataCodewords = dataCodewords;
+    }
 
-	internal VersionDetail VersionDetail { get; set; }
-	internal BitList DataCodewords { get; set; }
+    internal VersionDetail VersionDetail { get; set; }
+    internal BitList DataCodewords { get; set; }
 }

@@ -1,9 +1,9 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 public enum ErrorCorrectionLevel
 {
-	L,
-	M,
-	Q,
-	H
+    L,
+    M,
+    Q,
+    H,
 }

@@ -1,29 +1,32 @@
-namespace Gma.QrCodeNet.Encoding.Positioning.Stencils;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Wpf.Ui.Violeta.Controls.Encoding.Positioning.Stencils;
 
 internal class AlignmentPattern : PatternStencilBase
 {
-	public AlignmentPattern(int version)
-		: base(version)
-	{
-	}
+    public AlignmentPattern(int version)
+        : base(version)
+    {
+    }
 
-	private static bool[,] AlignmentPatternArray { get; } =
-		new[,]
-		{
-				{ X, X, X, X, X },
-				{ X, O, O, O, X },
-				{ X, O, X, O, X },
-				{ X, O, O, O, X },
-				{ X, X, X, X, X }
-		};
+    private static bool[,] AlignmentPatternArray { get; } =
+        new[,]
+        {
+            { X, X, X, X, X },
+            { X, O, O, O, X },
+            { X, O, X, O, X },
+            { X, O, O, O, X },
+            { X, X, X, X, X }
+        };
 
-	public override bool[,] Stencil => AlignmentPatternArray;
+    public override bool[,] Stencil => AlignmentPatternArray;
 
-	// Table E.1 — Row/column coordinates of center module of Alignment Patterns
-	private static byte[][] AlignmentPatternCoordinatesByVersion { get; } =
+    // Table E.1 鈥?Row/column coordinates of center module of Alignment Patterns
+    private static byte[][] AlignmentPatternCoordinatesByVersion { get; } =
     [
         [],
-				[],
+        [],
         [6, 18],
         [6, 22],
         [6, 26],
@@ -65,36 +68,35 @@ internal class AlignmentPattern : PatternStencilBase
         [6, 30, 58, 86, 114, 142, 170]
     ];
 
-	public override void ApplyTo(TriStateMatrix matrix)
-	{
-		foreach (var coordinatePair in GetNonColidingCoordinatePairs(matrix))
-		{
-			CopyTo(matrix, coordinatePair, MatrixStatus.NoMask);
-		}
-	}
+    public override void ApplyTo(TriStateMatrix matrix)
+    {
+        foreach (var coordinatePair in GetNonColidingCoordinatePairs(matrix))
+        {
+            CopyTo(matrix, coordinatePair, MatrixStatus.NoMask);
+        }
+    }
 
-	public IEnumerable<MatrixPoint> GetNonColidingCoordinatePairs(TriStateMatrix matrix)
-	{
-		return
-			GetAllCoordinatePairs()
-				.Where(point => matrix.MStatus(point.Offset(2, 2)) == MatrixStatus.None);
-	}
+    public IEnumerable<MatrixPoint> GetNonColidingCoordinatePairs(TriStateMatrix matrix)
+    {
+        return GetAllCoordinatePairs()
+            .Where(point => matrix.MStatus(point.Offset(2, 2)) == MatrixStatus.None);
+    }
 
-	private IEnumerable<MatrixPoint> GetAllCoordinatePairs()
-	{
-		var coordinates = GetPatternCoordinatesByVersion(Version).ToList();
-		foreach (var centerX in coordinates)
-		{
-			foreach (var centerY in coordinates)
-			{
-				MatrixPoint location = new(centerX - 2, centerY - 2);
-				yield return location;
-			}
-		}
-	}
+    private IEnumerable<MatrixPoint> GetAllCoordinatePairs()
+    {
+        var coordinates = GetPatternCoordinatesByVersion(Version).ToList();
+        foreach (var centerX in coordinates)
+        {
+            foreach (var centerY in coordinates)
+            {
+                MatrixPoint location = new(centerX - 2, centerY - 2);
+                yield return location;
+            }
+        }
+    }
 
-	private static IEnumerable<byte> GetPatternCoordinatesByVersion(int version)
-	{
-		return AlignmentPatternCoordinatesByVersion[version];
-	}
+    private static IEnumerable<byte> GetPatternCoordinatesByVersion(int version)
+    {
+        return AlignmentPatternCoordinatesByVersion[version];
+    }
 }

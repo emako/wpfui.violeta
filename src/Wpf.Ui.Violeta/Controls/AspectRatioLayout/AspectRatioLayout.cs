@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -52,7 +55,7 @@ public class AspectRatioLayout : ContentControl
     /// <summary>The collection of content candidates, one per aspect-ratio range/mode.</summary>
     public List<AspectRatioLayoutItem> Items { get; set; }
 
-    #endregion
+    #endregion Items
 
     #region AspectRatioTolerance
 
@@ -75,7 +78,7 @@ public class AspectRatioLayout : ContentControl
     private static void OnToleranceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         => ((AspectRatioLayout)d).UpdateContent(forceUpdate: true);
 
-    #endregion
+    #endregion AspectRatioTolerance
 
     #region CurrentAspectRatioMode (read-only)
 
@@ -92,7 +95,7 @@ public class AspectRatioLayout : ContentControl
     public AspectRatioMode CurrentAspectRatioMode =>
         (AspectRatioMode)GetValue(CurrentAspectRatioModeProperty);
 
-    #endregion
+    #endregion CurrentAspectRatioMode (read-only)
 
     #region AspectRatioValue (read-only)
 
@@ -110,7 +113,7 @@ public class AspectRatioLayout : ContentControl
     public double AspectRatioValue =>
         (double)GetValue(AspectRatioValueProperty);
 
-    #endregion
+    #endregion AspectRatioValue (read-only)
 
     // -------------------------------------------------------------------------
 

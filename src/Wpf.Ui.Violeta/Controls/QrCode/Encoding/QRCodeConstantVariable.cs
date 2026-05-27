@@ -1,4 +1,4 @@
-namespace Gma.QrCodeNet.Encoding;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding;
 
 /// <summary>
 /// Contain most of common constant variables. S
@@ -50,3 +50,5 @@ internal static class QRCodeConstantVariable
 	/// </summary>
 	public static byte[] UTF8ByteOrderMark => [0xEF, 0xBB, 0xBF];
 }
+
+

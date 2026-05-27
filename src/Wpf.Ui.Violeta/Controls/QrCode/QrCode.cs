@@ -1,6 +1,7 @@
-using Gma.QrCodeNet.Encoding;
+﻿using Wpf.Ui.Violeta.Controls.Encoding;
 using System.Windows;
 using System.Windows.Media;
+using System;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -49,7 +50,7 @@ public partial class QrCode : FrameworkElement
         DependencyProperty.Register(nameof(Data), typeof(string), typeof(QrCode),
             new FrameworkPropertyMetadata(null, OnDataPropertyChanged));
 
-    #endregion
+    #endregion DependencyProperties
 
     #region Properties
 
@@ -101,11 +102,11 @@ public partial class QrCode : FrameworkElement
         set => SetValue(DataProperty, value);
     }
 
-    #endregion
+    #endregion Properties
 
     private static readonly QrEncoder _qrCodeGenerator = new();
 
-    private Gma.QrCodeNet.Encoding.QrCode? _encodedQrCode;
+    private Wpf.Ui.Violeta.Controls.Encoding.QrCode? _encodedQrCode;
     private PathGeometry? _qrCodeGeometry;
 
     private int QuietZoneCount => IsQuietZoneEnabled ? 4 : 0;
@@ -169,7 +170,7 @@ public partial class QrCode : FrameworkElement
         InvalidateVisual();
     }
 
-    private void OnLayoutChanged(Gma.QrCodeNet.Encoding.QrCode? qrCodeData)
+    private void OnLayoutChanged(Wpf.Ui.Violeta.Controls.Encoding.QrCode? qrCodeData)
     {
         if (qrCodeData is null)
         {

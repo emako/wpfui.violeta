@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 
 namespace Wpf.Ui.Violeta.Controls;

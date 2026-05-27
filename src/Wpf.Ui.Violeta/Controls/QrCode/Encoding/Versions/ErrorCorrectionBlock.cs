@@ -1,15 +1,15 @@
-namespace Gma.QrCodeNet.Encoding.Versions;
+﻿namespace Wpf.Ui.Violeta.Controls.Encoding.Versions;
 
 internal struct ErrorCorrectionBlock
 {
-	internal ErrorCorrectionBlock(int numErrorCorrectionBlock, int numDataCodewards)
-		: this()
-	{
-		NumErrorCorrectionBlock = numErrorCorrectionBlock;
-		NumDataCodewords = numDataCodewards;
-	}
+    internal ErrorCorrectionBlock(int numErrorCorrectionBlock, int numDataCodewards)
+        : this()
+    {
+        NumErrorCorrectionBlock = numErrorCorrectionBlock;
+        NumDataCodewords = numDataCodewards;
+    }
 
-	internal int NumErrorCorrectionBlock { get; private set; }
+    internal int NumErrorCorrectionBlock { get; private set; }
 
-	internal int NumDataCodewords { get; private set; }
+    internal int NumDataCodewords { get; private set; }
 }
