@@ -72,7 +72,7 @@ public class TreeComboBox : ItemsControl
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnSelectedItemChanged));
 
-    public new object? SelectedItem
+    public object? SelectedItem
     {
         get => GetValue(SelectedItemProperty);
         set => SetValue(SelectedItemProperty, value);
@@ -94,7 +94,7 @@ public class TreeComboBox : ItemsControl
         private set => SetValue(SelectionBoxItemPropertyKey, value);
     }
 
-    #endregion
+    #endregion Dependency Properties
 
     static TreeComboBox()
     {
@@ -127,8 +127,7 @@ public class TreeComboBox : ItemsControl
 
     private void RegisterWindowHandler()
     {
-        if (_parentWindow is null)
-            _parentWindow = Window.GetWindow(this);
+        _parentWindow ??= Window.GetWindow(this);
 
         if (_parentWindow is not null && !_windowHandlerRegistered)
         {
@@ -267,8 +266,7 @@ public class TreeComboBox : ItemsControl
         TreeComboBoxItem? container = item as TreeComboBoxItem
             ?? FindContainerFromItem(this, item) as TreeComboBoxItem;
 
-        if (container is not null)
-            container.IsSelected = selected;
+        container?.IsSelected = selected;
     }
 
     private void UpdateSelectionBoxItem(object? item)

@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+#pragma warning disable CS0067
+
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
@@ -37,7 +39,7 @@ public class TagInput : Control
     private UIElement? _placeholder;
     private TextBox? _inputTextBox;
 
-    // ── Dependency properties ─────────────────────────────────────────────
+    // -- Dependency properties ---------------------------------------------
 
     public static readonly DependencyProperty TagsProperty =
         DependencyProperty.Register(
@@ -81,7 +83,7 @@ public class TagInput : Control
             typeof(TagInput),
             new PropertyMetadata(LostFocusBehavior.None));
 
-    // ── Properties ────────────────────────────────────────────────────────
+    // -- Properties --------------------------------------------------------
 
     /// <summary>Gets or sets the collection of tag strings.</summary>
     public IList<string>? Tags
@@ -128,14 +130,14 @@ public class TagInput : Control
         set => SetValue(LostFocusBehaviorProperty, value);
     }
 
-    // ── Close command ─────────────────────────────────────────────────────
+    // -- Close command -----------------------------------------------------
 
     private ICommand? _closeTagCommand;
 
     /// <summary>Command bound to each <see cref="ClosableTag"/>'s close button.</summary>
     public ICommand CloseTagCommand => _closeTagCommand ??= new CloseTagCommandImpl(this);
 
-    // ── Static ctor ───────────────────────────────────────────────────────
+    // -- Static ctor -------------------------------------------------------
 
     static TagInput()
     {
@@ -150,7 +152,7 @@ public class TagInput : Control
         SetCurrentValue(TagsProperty, new ObservableCollection<string>());
     }
 
-    // ── Tags change ───────────────────────────────────────────────────────
+    // -- Tags change -------------------------------------------------------
 
     private static void OnTagsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -172,7 +174,7 @@ public class TagInput : Control
         CheckPlaceholderVisibility();
     }
 
-    // ── Template ──────────────────────────────────────────────────────────
+    // -- Template ----------------------------------------------------------
 
     public override void OnApplyTemplate()
     {
@@ -211,7 +213,7 @@ public class TagInput : Control
         CheckPlaceholderVisibility();
     }
 
-    // ── Focus forwarding ──────────────────────────────────────────────────
+    // -- Focus forwarding --------------------------------------------------
 
     protected override void OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs e)
     {
@@ -220,7 +222,7 @@ public class TagInput : Control
         _inputTextBox?.Focus();
     }
 
-    // ── Item management ───────────────────────────────────────────────────
+    // -- Item management ---------------------------------------------------
 
     private void RebuildItems()
     {
@@ -249,7 +251,7 @@ public class TagInput : Control
         _placeholder.Visibility = isEmpty ? Visibility.Visible : Visibility.Collapsed;
     }
 
-    // ── TextBox event handlers ────────────────────────────────────────────
+    // -- TextBox event handlers --------------------------------------------
 
     private void OnInputTextBoxKeyDown(object sender, KeyEventArgs e)
     {
@@ -291,7 +293,7 @@ public class TagInput : Control
         CheckPlaceholderVisibility();
     }
 
-    // ── Tag add / remove ──────────────────────────────────────────────────
+    // -- Tag add / remove --------------------------------------------------
 
     private void AddTags(string? text)
     {
@@ -327,7 +329,7 @@ public class TagInput : Control
             Tags.RemoveAt(index);
     }
 
-    // ── ICommand implementation ───────────────────────────────────────────
+    // -- ICommand implementation -------------------------------------------
 
     private sealed class CloseTagCommandImpl(TagInput owner) : ICommand
     {

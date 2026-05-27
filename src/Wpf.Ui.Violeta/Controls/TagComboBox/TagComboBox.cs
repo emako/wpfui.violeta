@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+#pragma warning disable CS0067
+
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
@@ -24,7 +26,7 @@ public class TagComboBox : ComboBox
     private UIElement? _placeholder;
     private readonly ICommand _removeItemCommand;
 
-    // ── Dependency Properties ──────────────────────────────────────────────
+    // -- Dependency Properties ----------------------------------------------
 
     public static readonly DependencyProperty SelectedItemsProperty =
         DependencyProperty.Register(
@@ -47,7 +49,7 @@ public class TagComboBox : ComboBox
             typeof(TagComboBox),
             new PropertyMetadata(120.0));
 
-    public new ObservableCollection<object>? SelectedItems
+    public ObservableCollection<object>? SelectedItems
     {
         get => (ObservableCollection<object>?)GetValue(SelectedItemsProperty);
         set => SetValue(SelectedItemsProperty, value);
@@ -65,7 +67,7 @@ public class TagComboBox : ComboBox
         set => SetValue(MaxSelectionBoxHeightProperty, value);
     }
 
-    // ── Static ctor & ctor ────────────────────────────────────────────────
+    // -- Static ctor & ctor ------------------------------------------------
 
     static TagComboBox()
     {
@@ -80,7 +82,7 @@ public class TagComboBox : ComboBox
         _removeItemCommand = new RemoveItemCommandImpl(this);
     }
 
-    // ── DP change handlers ────────────────────────────────────────────────
+    // -- DP change handlers ------------------------------------------------
 
     private static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -102,7 +104,7 @@ public class TagComboBox : ComboBox
         SyncDropDownCheckedStates();
     }
 
-    // ── Template ──────────────────────────────────────────────────────────
+    // -- Template ----------------------------------------------------------
 
     public override void OnApplyTemplate()
     {
@@ -113,7 +115,7 @@ public class TagComboBox : ComboBox
         CheckPlaceholderVisibility();
     }
 
-    // ── Item container overrides ──────────────────────────────────────────
+    // -- Item container overrides ------------------------------------------
 
     protected override bool IsItemItsOwnContainerOverride(object item)
         => item is TagComboBoxItem;
@@ -139,7 +141,7 @@ public class TagComboBox : ComboBox
             container.IsCheckedChanged -= OnItemCheckedChanged;
     }
 
-    // ── Item check-change handler ─────────────────────────────────────────
+    // -- Item check-change handler -----------------------------------------
 
     private void OnItemCheckedChanged(object? sender, RoutedEventArgs e)
     {
@@ -159,7 +161,7 @@ public class TagComboBox : ComboBox
         }
     }
 
-    // ── Chip management ───────────────────────────────────────────────────
+    // -- Chip management ---------------------------------------------------
 
     private void RebuildChips()
     {
@@ -213,7 +215,7 @@ public class TagComboBox : ComboBox
         return item?.ToString() ?? string.Empty;
     }
 
-    // ── ComboBox overrides ────────────────────────────────────────────────
+    // -- ComboBox overrides ------------------------------------------------
 
     protected override void OnDropDownClosed(EventArgs e)
     {
@@ -227,31 +229,23 @@ public class TagComboBox : ComboBox
         // Suppress: multi-select is driven by IsItemChecked, not the base single-select mechanism.
     }
 
-    // ── Remove command (inner) ────────────────────────────────────────────
+    // -- Remove command (inner) --------------------------------------------
 
-    private sealed class RemoveItemCommandImpl : ICommand
+    private sealed class RemoveItemCommandImpl(TagComboBox owner) : ICommand
     {
-        private readonly TagComboBox _owner;
-
-        public RemoveItemCommandImpl(TagComboBox owner) => _owner = owner;
-
-        public event EventHandler? CanExecuteChanged
-        {
-            add { }
-            remove { }
-        }
+        public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter) => true;
 
         public void Execute(object? parameter)
         {
             if (parameter is null) return;
-            _owner.SelectedItems?.Remove(parameter);
+            owner.SelectedItems?.Remove(parameter);
 
             // Also uncheck the corresponding container in the open dropdown.
-            var item = _owner.Items.Cast<object>().FirstOrDefault(i => ReferenceEquals(i, parameter));
+            var item = owner.Items.Cast<object>().FirstOrDefault(i => ReferenceEquals(i, parameter));
             if (item is not null &&
-                _owner.ItemContainerGenerator.ContainerFromItem(item) is TagComboBoxItem container)
+                owner.ItemContainerGenerator.ContainerFromItem(item) is TagComboBoxItem container)
             {
                 container.IsItemChecked = false;
             }

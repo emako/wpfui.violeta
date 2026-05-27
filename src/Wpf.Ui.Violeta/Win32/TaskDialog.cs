@@ -197,7 +197,7 @@ public static class TaskDialog
         }
         catch (Exception ex)
         {
-            Log("EnsureNativeExports failed: {0}\n{1}", ex, ex.StackTrace);
+            Log("EnsureNativeExports failed: {0}\n{1}", ex, ex.StackTrace!);
         }
     }
 
@@ -373,13 +373,13 @@ public static class TaskDialog
             }
             catch (Exception ex)
             {
-                Log("User callback threw: {0}\n{1}", ex, ex.StackTrace);
+                Log("User callback threw: {0}\n{1}", ex, ex.StackTrace!);
                 return 0;
             }
         }
         catch (Exception ex)
         {
-            Log("Unhandled exception in InternalTaskDialogCallback: {0}\n{1}", ex, ex.StackTrace);
+            Log("Unhandled exception in InternalTaskDialogCallback: {0}\n{1}", ex, ex.StackTrace!);
             return 0;
         }
     }
@@ -391,7 +391,7 @@ public static class TaskDialog
     private static void ApplyThemeToWindow(nint hwnd, bool isThemeSwitch)
     {
         int dark = _theme == Theme.Dark ? 1 : 0;
-        DwmSetWindowAttribute(hwnd, 20 /*DWMWA_USE_IMMERSIVE_DARK_MODE*/, ref dark, sizeof(int));
+        _ = DwmSetWindowAttribute(hwnd, 20 /*DWMWA_USE_IMMERSIVE_DARK_MODE*/, ref dark, sizeof(int));
         // Attempt to set theme on the dialog window itself first
         try
         {
@@ -467,7 +467,7 @@ public static class TaskDialog
                 }
                 else
                 {
-                    SetWindowTheme(hwnd, null, null);
+                    _ = SetWindowTheme(hwnd, null, null);
                     try
                     {
                         RedrawWindow(hwnd, IntPtr.Zero, IntPtr.Zero, RDW_INVALIDATE | RDW_ERASE | RDW_UPDATENOW);
@@ -604,13 +604,13 @@ public static class TaskDialog
                 case WM_ERASEBKGND:
                     {
                         // Set white text for SysLink controls (which inherit from parent WM_ERASEBKGND)
-                        SetTextColor(wParam, 0x00FFFFFF); // white
+                        _ = SetTextColor(wParam, 0x00FFFFFF); // white
 
                         string cls = GetWindowClass(hWnd);
                         if (cls == "SysLink")
                         {
                             // Don't erase background for links – avoids white flash on page switches
-                            return (nint)1;
+                            return 1;
                         }
 
                         // Let DirectUIHWND default handling occur – subclassing it may
@@ -651,7 +651,7 @@ public static class TaskDialog
         }
         catch (Exception ex)
         {
-            Log("Unhandled exception in SubclassProcImpl for hwnd={0}, msg={1}: {2}\n{3}", hWnd, uMsg, ex, ex.StackTrace);
+            Log("Unhandled exception in SubclassProcImpl for hwnd={0}, msg={1}: {2}\n{3}", hWnd, uMsg, ex, ex.StackTrace!);
             return DefSubclassProc(hWnd, uMsg, wParam, lParam);
         }
     }
@@ -663,7 +663,7 @@ public static class TaskDialog
     private static string GetWindowClass(nint hwnd)
     {
         var sb = new StringBuilder(256);
-        GetClassName(hwnd, sb, 256);
+        _ = GetClassName(hwnd, sb, 256);
         return sb.ToString();
     }
 
@@ -852,12 +852,12 @@ public static class TaskDialog
                 if (r != 0)
                 {
                     // Fallback to Explorer if DarkMode_Explorer isn't supported
-                    SetWindowTheme(hwnd, "Explorer", null);
+                    _ = SetWindowTheme(hwnd, "Explorer", null);
                 }
             }
             else
             {
-                SetWindowTheme(hwnd, null, null);
+                _ = SetWindowTheme(hwnd, null, null);
             }
         }
         catch (EntryPointNotFoundException)
