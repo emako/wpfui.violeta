@@ -115,6 +115,7 @@
                                         Background="Transparent"
                                         BorderBrush="Transparent"
                                         BorderThickness="0"
+                                        Style="{DynamicResource TransparentTextBoxStyle}"
                                         CaretBrush="{DynamicResource TextFillColorPrimaryBrush}"
                                         FontFamily="{TemplateBinding FontFamily}"
                                         FontSize="{TemplateBinding FontSize}"
