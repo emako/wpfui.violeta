@@ -3904,6 +3904,35 @@
                                 Step="0.01" />
                         </StackPanel>
 
+                        <!--  Prefix / suffix samples  -->
+                        <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="double — prefix" />
+                            <vio:NumericDoubleUpDown
+                                Width="160"
+                                FormatString="N2"
+                                InnerLeftContent="$"
+                                Maximum="9999"
+                                Minimum="0"
+                                PlaceholderText="0.00" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="200"
+                                VerticalAlignment="Center"
+                                Text="double — suffix" />
+                            <vio:NumericDoubleUpDown
+                                Width="160"
+                                FormatString="N1"
+                                InnerRightContent="kg"
+                                Maximum="9999"
+                                Minimum="0"
+                                PlaceholderText="weight" />
+                        </StackPanel>
+
                         <!--  No spinner buttons  -->
                         <StackPanel Margin="0,4,0,0" Orientation="Horizontal">
                             <TextBlock
