@@ -47,10 +47,9 @@
         </Style.Triggers>
     </Style>
 
-    <!--  Default NumericUpDown style.
-          All concrete typed subclasses (NumericIntUpDown, NumericDoubleUpDown, …)
-          redirect their DefaultStyleKey to this type, so one style covers them all.  -->
-    <Style TargetType="{x:Type local:NumericUpDown}">
+    <!--  Base NumericUpDown style.
+          All concrete typed subclasses inherit this via BasedOn.  -->
+    <Style x:Key="BaseNumericUpDownStyle" TargetType="{x:Type local:NumericUpDown}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
@@ -267,5 +266,20 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--  One implicit style per concrete type – each BasedOn the base style above.
+          This is necessary because WPF's default-style lookup works best when
+          DefaultStyleKey points to the element's own type.  -->
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericIntUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericUIntUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericDoubleUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericFloatUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericDecimalUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericLongUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericULongUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericShortUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericUShortUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericByteUpDown}" />
+    <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericSByteUpDown}" />
 
 </ResourceDictionary>

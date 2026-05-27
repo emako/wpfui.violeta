@@ -5,7 +5,8 @@ using System.Windows;
 namespace Wpf.Ui.Violeta.Controls;
 
 // ────────────────────────────────────────────────────────────────────────────
-// Default style key helper: all typed classes share the NumericUpDown style.
+// Each concrete class points its DefaultStyleKey to itself; the XAML resource
+// dictionary contains a style for each type (BasedOn the shared base style).
 // ────────────────────────────────────────────────────────────────────────────
 
 #region int
@@ -17,7 +18,7 @@ public class NumericIntUpDown : NumericUpDownBase<int>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericIntUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericIntUpDown)));
 
         // Override defaults for int
         MinimumProperty.OverrideMetadata(typeof(NumericIntUpDown), new FrameworkPropertyMetadata(int.MinValue));
@@ -44,7 +45,7 @@ public class NumericUIntUpDown : NumericUpDownBase<uint>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericUIntUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericUIntUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericUIntUpDown), new FrameworkPropertyMetadata(uint.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericUIntUpDown), new FrameworkPropertyMetadata(uint.MaxValue));
@@ -70,7 +71,7 @@ public class NumericDoubleUpDown : NumericUpDownBase<double>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericDoubleUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericDoubleUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericDoubleUpDown), new FrameworkPropertyMetadata(double.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericDoubleUpDown), new FrameworkPropertyMetadata(double.MaxValue));
@@ -96,7 +97,7 @@ public class NumericFloatUpDown : NumericUpDownBase<float>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericFloatUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericFloatUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericFloatUpDown), new FrameworkPropertyMetadata(float.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericFloatUpDown), new FrameworkPropertyMetadata(float.MaxValue));
@@ -122,7 +123,7 @@ public class NumericDecimalUpDown : NumericUpDownBase<decimal>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericDecimalUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericDecimalUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericDecimalUpDown), new FrameworkPropertyMetadata(decimal.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericDecimalUpDown), new FrameworkPropertyMetadata(decimal.MaxValue));
@@ -148,7 +149,7 @@ public class NumericLongUpDown : NumericUpDownBase<long>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericLongUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericLongUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericLongUpDown), new FrameworkPropertyMetadata(long.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericLongUpDown), new FrameworkPropertyMetadata(long.MaxValue));
@@ -174,7 +175,7 @@ public class NumericULongUpDown : NumericUpDownBase<ulong>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericULongUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericULongUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericULongUpDown), new FrameworkPropertyMetadata(ulong.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericULongUpDown), new FrameworkPropertyMetadata(ulong.MaxValue));
@@ -200,7 +201,7 @@ public class NumericShortUpDown : NumericUpDownBase<short>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericShortUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericShortUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericShortUpDown), new FrameworkPropertyMetadata(short.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericShortUpDown), new FrameworkPropertyMetadata(short.MaxValue));
@@ -226,7 +227,7 @@ public class NumericUShortUpDown : NumericUpDownBase<ushort>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericUShortUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericUShortUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericUShortUpDown), new FrameworkPropertyMetadata(ushort.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericUShortUpDown), new FrameworkPropertyMetadata(ushort.MaxValue));
@@ -252,7 +253,7 @@ public class NumericByteUpDown : NumericUpDownBase<byte>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericByteUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericByteUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericByteUpDown), new FrameworkPropertyMetadata(byte.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericByteUpDown), new FrameworkPropertyMetadata(byte.MaxValue));
@@ -278,7 +279,7 @@ public class NumericSByteUpDown : NumericUpDownBase<sbyte>
     {
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(NumericSByteUpDown),
-            new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+            new FrameworkPropertyMetadata(typeof(NumericSByteUpDown)));
 
         MinimumProperty.OverrideMetadata(typeof(NumericSByteUpDown), new FrameworkPropertyMetadata(sbyte.MinValue));
         MaximumProperty.OverrideMetadata(typeof(NumericSByteUpDown), new FrameworkPropertyMetadata(sbyte.MaxValue));
