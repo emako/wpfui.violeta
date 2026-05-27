@@ -2125,6 +2125,80 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
+                            Text="Form" />
+                        <!--  Label on top (default)  -->
+                        <TextBlock
+                            Margin="0,4,0,2"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="LabelPosition = Top" />
+                        <vio:Form LabelPosition="Top">
+                            <vio:FormItem Label="用户名" IsRequired="True">
+                                <TextBox Width="220" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="邮箱">
+                                <TextBox Width="220" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="备注">
+                                <TextBox
+                                    Width="220"
+                                    Height="60"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap" />
+                            </vio:FormItem>
+                        </vio:Form>
+                        <!--  Label on left, auto-aligned  -->
+                        <TextBlock
+                            Margin="0,12,0,2"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="LabelPosition = Left, LabelWidth = * (auto-align)" />
+                        <vio:Form LabelPosition="Left" LabelWidth="*">
+                            <vio:FormItem Label="用户名" IsRequired="True">
+                                <TextBox Width="220" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="电子邮箱">
+                                <TextBox Width="220" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="手机号码">
+                                <TextBox Width="220" />
+                            </vio:FormItem>
+                        </vio:Form>
+                        <!--  FormGroup with header  -->
+                        <TextBlock
+                            Margin="0,12,0,2"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="FormGroup (with header)" />
+                        <vio:Form LabelPosition="Left" LabelWidth="*">
+                            <vio:FormGroup Header="基本信息">
+                                <vio:FormItem Label="姓名" IsRequired="True">
+                                    <TextBox Width="220" />
+                                </vio:FormItem>
+                                <vio:FormItem Label="学校">
+                                    <TextBox Width="220" />
+                                </vio:FormItem>
+                            </vio:FormGroup>
+                            <vio:FormGroup Header="联系方式">
+                                <vio:FormItem Label="手机">
+                                    <TextBox Width="220" />
+                                </vio:FormItem>
+                                <vio:FormItem Label="邮箱">
+                                    <TextBox Width="220" />
+                                </vio:FormItem>
+                            </vio:FormGroup>
+                            <vio:FormItem NoLabel="True">
+                                <ui:Button
+                                    Width="220"
+                                    Appearance="Primary"
+                                    Content="提交" />
+                            </vio:FormItem>
+                        </vio:Form>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
                             Text="Hyperlink" />
                         <StackPanel>
                             <TextBlock>
