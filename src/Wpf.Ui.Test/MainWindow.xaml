@@ -1244,6 +1244,51 @@
                                 </ui:AutoGrid>
                             </Border>
                         </StackPanel>
+
+                        <!--  Grid Spacing  -->
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontSize="16"
+                                FontWeight="SemiBold"
+                                Text="Grid with HorizontalSpacing / VerticalSpacing" />
+                            <ui:Grid
+                                ColumnDefinitions="Auto,*,Auto"
+                                HorizontalSpacing="12"
+                                RowDefinitions="Auto,Auto"
+                                VerticalSpacing="8">
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Background="Red"
+                                    Text="R0C0" />
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Background="Green"
+                                    Text="R0C1" />
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    Background="Red"
+                                    Text="R0C2" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Background="Green"
+                                    Text="R1C0" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Background="Red"
+                                    Text="R1C1" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Background="Green"
+                                    Text="R1C2" />
+                            </ui:Grid>
+                        </StackPanel>
                     </StackPanel>
                     <!--  =============================  -->
                     <StackPanel>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
@@ -11,6 +12,23 @@ namespace Wpf.Ui.Controls;
 [ContentProperty(nameof(Children))]
 public class Grid : System.Windows.Controls.Grid
 {
+    private readonly List<GridLength> _logicalColumns = [];
+    private readonly List<GridLength> _logicalRows = [];
+
+    // Private attached DPs that store the user's logical Grid.Column/Row before
+    // we remap them to accommodate spacer columns/rows.
+    private static readonly DependencyProperty LogicalColumnProperty =
+        DependencyProperty.RegisterAttached("LogicalColumn", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalRowProperty =
+        DependencyProperty.RegisterAttached("LogicalRow", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalColumnSpanProperty =
+        DependencyProperty.RegisterAttached("LogicalColumnSpan", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalRowSpanProperty =
+        DependencyProperty.RegisterAttached("LogicalRowSpan", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
     public static readonly DependencyProperty ColumnDefinitionsProperty =
           DependencyProperty.Register(nameof(ColumnDefinitions), typeof(ColumnDefinitionCollection), typeof(Grid), new PropertyMetadata(null, OnColumnDefinitionsChanged));
 
@@ -25,16 +43,10 @@ public class Grid : System.Windows.Controls.Grid
     {
         if (d is Grid grid && e.NewValue is ColumnDefinitionCollection columnDefinitions)
         {
-            grid.UpdateColumnDefinitions(columnDefinitions);
-        }
-    }
-
-    private void UpdateColumnDefinitions(ColumnDefinitionCollection columnDefinitions)
-    {
-        base.ColumnDefinitions.Clear();
-        foreach (ColumnDefinition columnDefinition in columnDefinitions)
-        {
-            base.ColumnDefinitions.Add(new ColumnDefinition { Width = columnDefinition.Width });
+            grid._logicalColumns.Clear();
+            foreach (ColumnDefinition col in columnDefinitions)
+                grid._logicalColumns.Add(col.Width);
+            grid.RebuildColumnDefinitions();
         }
     }
 
@@ -52,16 +64,119 @@ public class Grid : System.Windows.Controls.Grid
     {
         if (d is Grid grid && e.NewValue is RowDefinitionCollection rowDefinitions)
         {
-            grid.UpdateRowDefinitions(rowDefinitions);
+            grid._logicalRows.Clear();
+            foreach (RowDefinition row in rowDefinitions)
+                grid._logicalRows.Add(row.Height);
+            grid.RebuildRowDefinitions();
         }
     }
 
-    private void UpdateRowDefinitions(RowDefinitionCollection rowDefinitions)
+    public static readonly DependencyProperty HorizontalSpacingProperty =
+        DependencyProperty.Register(nameof(HorizontalSpacing), typeof(double), typeof(Grid),
+            new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnHorizontalSpacingChanged));
+
+    public double HorizontalSpacing
+    {
+        get => (double)GetValue(HorizontalSpacingProperty);
+        set => SetValue(HorizontalSpacingProperty, value);
+    }
+
+    private static void OnHorizontalSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Grid grid)
+            grid.RebuildColumnDefinitions();
+    }
+
+    public static readonly DependencyProperty VerticalSpacingProperty =
+        DependencyProperty.Register(nameof(VerticalSpacing), typeof(double), typeof(Grid),
+            new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnVerticalSpacingChanged));
+
+    public double VerticalSpacing
+    {
+        get => (double)GetValue(VerticalSpacingProperty);
+        set => SetValue(VerticalSpacingProperty, value);
+    }
+
+    private static void OnVerticalSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Grid grid)
+            grid.RebuildRowDefinitions();
+    }
+
+    protected override Size MeasureOverride(Size constraint)
+    {
+        bool hasH = HorizontalSpacing > 0 && _logicalColumns.Count > 0;
+        bool hasV = VerticalSpacing > 0 && _logicalRows.Count > 0;
+
+        foreach (UIElement child in Children)
+        {
+            if (hasH || hasV)
+            {
+                // Capture user-set column/row on first encounter (before any remapping).
+                if ((int)child.GetValue(LogicalColumnProperty) == int.MinValue)
+                {
+                    child.SetValue(LogicalColumnProperty, GetColumn(child));
+                    child.SetValue(LogicalRowProperty, GetRow(child));
+                    child.SetValue(LogicalColumnSpanProperty, GetColumnSpan(child));
+                    child.SetValue(LogicalRowSpanProperty, GetRowSpan(child));
+                }
+
+                int logCol = (int)child.GetValue(LogicalColumnProperty);
+                int logRow = (int)child.GetValue(LogicalRowProperty);
+                int logColSpan = (int)child.GetValue(LogicalColumnSpanProperty);
+                int logRowSpan = (int)child.GetValue(LogicalRowSpanProperty);
+
+                // Map logical → actual (spacer-injected) index.
+                // Logical column c → actual column c*2; span s → actual span s*2-1.
+                SetColumn(child, hasH ? logCol * 2 : logCol);
+                SetRow(child, hasV ? logRow * 2 : logRow);
+                SetColumnSpan(child, hasH ? Math.Max(1, logColSpan * 2 - 1) : logColSpan);
+                SetRowSpan(child, hasV ? Math.Max(1, logRowSpan * 2 - 1) : logRowSpan);
+            }
+            else
+            {
+                // Spacing was removed — restore the original logical values.
+                int logCol = (int)child.GetValue(LogicalColumnProperty);
+                if (logCol != int.MinValue)
+                {
+                    SetColumn(child, logCol);
+                    SetRow(child, (int)child.GetValue(LogicalRowProperty));
+                    SetColumnSpan(child, (int)child.GetValue(LogicalColumnSpanProperty));
+                    SetRowSpan(child, (int)child.GetValue(LogicalRowSpanProperty));
+                }
+            }
+        }
+
+        return base.MeasureOverride(constraint);
+    }
+
+    private void RebuildColumnDefinitions()
+    {
+        base.ColumnDefinitions.Clear();
+        bool hasSpacing = HorizontalSpacing > 0;
+        bool first = true;
+        foreach (GridLength width in _logicalColumns)
+        {
+            if (!first && hasSpacing)
+                base.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(HorizontalSpacing) });
+            base.ColumnDefinitions.Add(new ColumnDefinition { Width = width });
+            first = false;
+        }
+    }
+
+    private void RebuildRowDefinitions()
     {
         base.RowDefinitions.Clear();
-        foreach (RowDefinition rowDefinition in rowDefinitions)
+        bool hasSpacing = VerticalSpacing > 0;
+        bool first = true;
+        foreach (GridLength height in _logicalRows)
         {
-            base.RowDefinitions.Add(new RowDefinition { Height = rowDefinition.Height });
+            if (!first && hasSpacing)
+                base.RowDefinitions.Add(new RowDefinition { Height = new GridLength(VerticalSpacing) });
+            base.RowDefinitions.Add(new RowDefinition { Height = height });
+            first = false;
         }
     }
 }
