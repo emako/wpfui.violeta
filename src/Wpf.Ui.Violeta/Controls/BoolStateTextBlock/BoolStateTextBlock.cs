@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,6 +24,12 @@ public class BoolStateTextBlock : TextBlock
         typeof(BoolStateTextBlock),
         new PropertyMetadata("False", OnDisplayStateChanged));
 
+    public static readonly DependencyProperty FontOptionsProperty = DependencyProperty.Register(
+        nameof(FontOptions),
+        typeof(BoolStateTextBlockFontOptions),
+        typeof(BoolStateTextBlock),
+        new PropertyMetadata(null, OnFontOptionsChanged));
+
     public bool Value
     {
         get => (bool)GetValue(ValueProperty);
@@ -41,9 +48,16 @@ public class BoolStateTextBlock : TextBlock
         set => SetValue(FalseTextProperty, value);
     }
 
+    public BoolStateTextBlockFontOptions? FontOptions
+    {
+        get => (BoolStateTextBlockFontOptions?)GetValue(FontOptionsProperty);
+        set => SetValue(FontOptionsProperty, value);
+    }
+
     public BoolStateTextBlock()
     {
         UpdateDisplayText();
+        ApplyFontOptions();
     }
 
     private static void OnDisplayStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -54,8 +68,50 @@ public class BoolStateTextBlock : TextBlock
         }
     }
 
+    private static void OnFontOptionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not BoolStateTextBlock boolStateTextBlock)
+        {
+            return;
+        }
+
+        if (e.OldValue is BoolStateTextBlockFontOptions oldOptions)
+        {
+            WeakEventManager<Freezable, EventArgs>.RemoveHandler(oldOptions, nameof(Freezable.Changed), boolStateTextBlock.OnFontOptionsInstanceChanged);
+        }
+
+        if (e.NewValue is BoolStateTextBlockFontOptions newOptions)
+        {
+            WeakEventManager<Freezable, EventArgs>.AddHandler(newOptions, nameof(Freezable.Changed), boolStateTextBlock.OnFontOptionsInstanceChanged);
+        }
+
+        boolStateTextBlock.ApplyFontOptions();
+    }
+
+    private void OnFontOptionsInstanceChanged(object? sender, EventArgs e)
+    {
+        ApplyFontOptions();
+    }
+
     private void UpdateDisplayText()
     {
         Text = Value ? TrueText : FalseText;
+    }
+
+    private void ApplyFontOptions()
+    {
+        if (FontOptions is null)
+        {
+            return;
+        }
+
+        SetCurrentValue(FontFamilyProperty, FontOptions.FontFamily);
+        SetCurrentValue(FontSizeProperty, FontOptions.FontSize);
+        SetCurrentValue(FontWeightProperty, FontOptions.FontWeight);
+        SetCurrentValue(FontStyleProperty, FontOptions.FontStyle);
+        SetCurrentValue(FontStretchProperty, FontOptions.FontStretch);
+        SetCurrentValue(ForegroundProperty, FontOptions.Foreground);
+        SetCurrentValue(LineHeightProperty, FontOptions.LineHeight);
+        SetCurrentValue(TextDecorationsProperty, FontOptions.TextDecorations);
     }
 }
