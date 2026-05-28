@@ -40,6 +40,43 @@ public abstract class NumericUpDown : Control
 
     // Tracks the mouse position for drag-to-spin
     private Point? _dragStartPoint;
+    // Guard to avoid re-entrant TextChanged when stripping invalid chars
+    private bool _isRestrictingInput;
+
+    #region RestrictInput
+
+    public static readonly DependencyProperty RestrictInputProperty =
+        DependencyProperty.Register(
+            nameof(RestrictInput),
+            typeof(bool),
+            typeof(NumericUpDown),
+            new PropertyMetadata(true, OnRestrictInputChanged));
+
+    private static void OnRestrictInputChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is NumericUpDown self)
+            self.UpdateInputMethodState();
+    }
+
+    private void UpdateInputMethodState()
+    {
+        if (_textBox != null)
+            InputMethod.SetIsInputMethodEnabled(_textBox, !RestrictInput);
+    }
+
+    /// <summary>
+    /// When <see langword="true"/> the TextBox only accepts characters valid for the numeric type:
+    /// digits, the type-appropriate decimal separator, and the minus sign (only when
+    /// <see cref="IsNegativeInputAllowed"/> returns <see langword="true"/>). IME input is also
+    /// disabled. Default is <see langword="true"/>.
+    /// </summary>
+    public bool RestrictInput
+    {
+        get => (bool)GetValue(RestrictInputProperty);
+        set => SetValue(RestrictInputProperty, value);
+    }
+
+    #endregion RestrictInput
 
     #region AllowDrag
 
@@ -319,6 +356,7 @@ public abstract class NumericUpDown : Control
         {
             _textBox.TextChanged -= OnTextBoxTextChanged;
             _textBox.PreviewKeyDown -= OnTextBoxPreviewKeyDown;
+            _textBox.PreviewTextInput -= OnTextBoxPreviewTextInput;
         }
         if (_dragPanel != null)
         {
@@ -339,6 +377,8 @@ public abstract class NumericUpDown : Control
             _textBox.IsReadOnly = IsReadOnly;
             _textBox.TextChanged += OnTextBoxTextChanged;
             _textBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
+            _textBox.PreviewTextInput += OnTextBoxPreviewTextInput;
+            UpdateInputMethodState();
         }
 
         _increaseButton?.Click += OnIncreaseButtonClick;
@@ -384,6 +424,18 @@ public abstract class NumericUpDown : Control
     private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
     {
         if (_textBox is null) return;
+
+        // Post-input sanitisation: strip any character that is illegal for this
+        // numeric type. This runs AFTER the text is already in the TextBox, so it
+        // catches IME composition commits, paste, drag-drop, and every other input
+        // path that bypasses PreviewTextInput.
+        if (RestrictInput && !_isRestrictingInput)
+        {
+            _isRestrictingInput = true;
+            try { SanitizeRestrictedText(); }
+            finally { _isRestrictingInput = false; }
+        }
+
         _updateFromTextInput = true;
         try
         {
@@ -393,6 +445,87 @@ public abstract class NumericUpDown : Control
         finally
         {
             _updateFromTextInput = false;
+        }
+    }
+
+    /// <summary>
+    /// Removes every character from the TextBox that is not valid for the current
+    /// numeric type, then restores the caret position as closely as possible.
+    /// Called only when <see cref="RestrictInput"/> is <see langword="true"/>.
+    /// </summary>
+    private void SanitizeRestrictedText()
+    {
+        if (_textBox is null) return;
+
+        var raw = _textBox.Text;
+        var decSep = NumberFormat?.NumberDecimalSeparator ?? ".";
+        char decChar = decSep.Length == 1 ? decSep[0] : '.';
+        bool allowDecimal = IsFloatingPointInput;
+        bool allowNegative = IsNegativeInputAllowed();
+
+        var sb = new System.Text.StringBuilder(raw.Length);
+        bool hasDecSep = false;
+        bool hasMinus = false;
+
+        foreach (char c in raw)
+        {
+            if (char.IsDigit(c))
+            {
+                sb.Append(c);
+            }
+            else if (c == '-' && !hasMinus && sb.Length == 0 && allowNegative)
+            {
+                hasMinus = true;
+                sb.Append(c);
+            }
+            else if (c == decChar && allowDecimal && !hasDecSep)
+            {
+                hasDecSep = true;
+                sb.Append(c);
+            }
+            // All other characters are silently dropped.
+        }
+
+        var cleaned = sb.ToString();
+        if (cleaned == raw) return;
+
+        // Restore the caret at the same logical offset (clamped to new length).
+        int caret = Math.Min(_textBox.CaretIndex, cleaned.Length);
+        _textBox.Text = cleaned;
+        _textBox.CaretIndex = caret;
+    }
+
+    private void OnTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+        // Best-effort early rejection for direct keyboard input (before the char
+        // reaches the TextBox). IME commits and paste are handled in SanitizeRestrictedText.
+        if (!RestrictInput || _textBox is null) return;
+
+        var decSep = NumberFormat?.NumberDecimalSeparator ?? ".";
+        char decChar = decSep.Length == 1 ? decSep[0] : '.';
+
+        foreach (char c in e.Text)
+        {
+            if (char.IsDigit(c)) continue;
+
+            if (c == '-')
+            {
+                if (!IsNegativeInputAllowed()) { e.Handled = true; return; }
+                continue;
+            }
+
+            if (c == decChar)
+            {
+                if (!IsFloatingPointInput) { e.Handled = true; return; }
+                var textWithoutSelection = _textBox.Text.Remove(
+                    _textBox.SelectionStart, _textBox.SelectionLength);
+                if (textWithoutSelection.Contains(decSep)) { e.Handled = true; return; }
+                continue;
+            }
+
+            // Letter, IME composition character, punctuation … → block.
+            e.Handled = true;
+            return;
         }
     }
 
@@ -530,6 +663,21 @@ public abstract class NumericUpDown : Control
         base.OnGotFocus(e);
         _textBox?.Focus();
     }
+
+    // --- Virtual helpers for RestrictInput ---------------------------------
+
+    /// <summary>
+    /// Returns <see langword="true"/> when the numeric type accepts a fractional part
+    /// (double, float, decimal). Override in concrete classes.
+    /// </summary>
+    protected virtual bool IsFloatingPointInput => false;
+
+    /// <summary>
+    /// Returns <see langword="true"/> when a minus sign is currently a valid first
+    /// character (i.e. the current Minimum allows negative values).
+    /// Override in <see cref="NumericUpDownBase{T}"/>.
+    /// </summary>
+    protected virtual bool IsNegativeInputAllowed() => true;
 
     // --- Abstract interface implemented by NumericUpDownBase<T> -------------
 

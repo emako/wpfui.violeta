@@ -4260,6 +4260,106 @@
                             </vio:BoolStateTextBlock>
                         </StackPanel>
                     </StackPanel>
+
+                    <!--  NumericUpDown  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="NumericUpDown" />
+
+                    <!--  RestrictInput=False (default, unrestricted)  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Int — RestrictInput=False (default, no filtering)" />
+                    <vio:NumericIntUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="-100"
+                        Maximum="100"
+                        PlaceholderText="Integer, unrestricted"
+                        RestrictInput="False" />
+
+                    <!--  RestrictInput=True / int, Minimum=0 (no minus sign)  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Int — RestrictInput=True, Minimum=0 (digits only, no minus / decimal / IME)" />
+                    <vio:NumericIntUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="0"
+                        Maximum="9999"
+                        PlaceholderText="Digits only, no minus" />
+
+                    <!--  RestrictInput=True / int, negative allowed  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Int — RestrictInput=True, Minimum=-999 (minus sign allowed)" />
+                    <vio:NumericIntUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="-999"
+                        Maximum="999"
+                        PlaceholderText="Digits and minus" />
+
+                    <!--  RestrictInput=True / double  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Double — RestrictInput=True (one decimal separator allowed)" />
+                    <vio:NumericDoubleUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="-999.99"
+                        Maximum="999.99"
+                        PlaceholderText="e.g. 3.14" />
+
+                    <!--  RestrictInput=True / double, Minimum=0  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Double — RestrictInput=True, Minimum=0 (positive decimal, no minus)" />
+                    <vio:NumericDoubleUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="0"
+                        Maximum="9999.99"
+                        PlaceholderText="Positive decimal" />
+
+                    <!--  RestrictInput=True / float  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Float — RestrictInput=True" />
+                    <vio:NumericFloatUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="-100"
+                        Maximum="100"
+                        PlaceholderText="float with sign" />
+
+                    <!--  RestrictInput=True / decimal  -->
+                    <TextBlock
+                        Margin="0,8,0,2"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="Decimal — RestrictInput=True, Minimum=0" />
+                    <vio:NumericDecimalUpDown
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Minimum="0"
+                        Maximum="9999999.99"
+                        PlaceholderText="Positive decimal" />
+
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>

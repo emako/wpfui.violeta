@@ -17,7 +17,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
 {
     private bool _isSyncingTextAndValue;
 
-    // ─── Value ───────────────────────────────────────────────────────────────
+    // --- Value ---------------------------------------------------------------
 
     public static readonly DependencyProperty ValueProperty =
         DependencyProperty.Register(
@@ -65,7 +65,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         set => SetValue(ValueProperty, value);
     }
 
-    // ─── ValueChanged routed event ────────────────────────────────────────────
+    // --- ValueChanged routed event --------------------------------------------
 
     public static readonly RoutedEvent ValueChangedEvent =
         EventManager.RegisterRoutedEvent(
@@ -81,7 +81,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         remove => RemoveHandler(ValueChangedEvent, value);
     }
 
-    // ─── Minimum ─────────────────────────────────────────────────────────────
+    // --- Minimum -------------------------------------------------------------
 
     public static readonly DependencyProperty MinimumProperty =
         DependencyProperty.Register(
@@ -116,7 +116,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         set => SetValue(MinimumProperty, value);
     }
 
-    // ─── Maximum ─────────────────────────────────────────────────────────────
+    // --- Maximum -------------------------------------------------------------
 
     public static readonly DependencyProperty MaximumProperty =
         DependencyProperty.Register(
@@ -151,7 +151,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         set => SetValue(MaximumProperty, value);
     }
 
-    // ─── Step ────────────────────────────────────────────────────────────────
+    // --- Step ----------------------------------------------------------------
 
     public static readonly DependencyProperty StepProperty =
         DependencyProperty.Register(
@@ -167,7 +167,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         set => SetValue(StepProperty, value);
     }
 
-    // ─── EmptyInputValue ─────────────────────────────────────────────────────
+    // --- EmptyInputValue -----------------------------------------------------
 
     public static readonly DependencyProperty EmptyInputValueProperty =
         DependencyProperty.Register(
@@ -186,7 +186,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         set => SetValue(EmptyInputValueProperty, value);
     }
 
-    // ─── Command ─────────────────────────────────────────────────────────────
+    // --- Command -------------------------------------------------------------
 
     public static readonly DependencyProperty CommandProperty =
         DependencyProperty.Register(
@@ -224,7 +224,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
             cmd.Execute(param);
     }
 
-    // ─── Initialization ──────────────────────────────────────────────────────
+    // --- Initialization ------------------------------------------------------
 
     protected NumericUpDownBase()
     {
@@ -235,7 +235,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         };
     }
 
-    // ─── Core sync logic ─────────────────────────────────────────────────────
+    // --- Core sync logic -----------------------------------------------------
 
     protected override bool SyncTextAndValue(
         bool fromTextToValue = false,
@@ -295,7 +295,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         return a.Value.CompareTo(b.Value) == 0;
     }
 
-    // ─── Text ↔ value conversion ──────────────────────────────────────────────
+    // --- Text ↔ value conversion ----------------------------------------------
 
     protected virtual T? ConvertTextToValue(string? text)
     {
@@ -334,7 +334,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         return value.Value.ToString();
     }
 
-    // ─── Spin direction validation ────────────────────────────────────────────
+    // --- Spin direction validation --------------------------------------------
 
     protected override void SetValidSpinDirection()
     {
@@ -353,7 +353,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         _decreaseButton?.IsEnabled = _canDecrease;
     }
 
-    // ─── Increase / Decrease ─────────────────────────────────────────────────
+    // --- Increase / Decrease -------------------------------------------------
 
     protected override void Increase()
     {
@@ -378,7 +378,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         return value;
     }
 
-    // ─── Clear ───────────────────────────────────────────────────────────────
+    // --- Clear ---------------------------------------------------------------
 
     public override void Clear()
     {
@@ -386,14 +386,19 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
         _textBox?.Text = string.Empty;
     }
 
-    // ─── Abstract members ─────────────────────────────────────────────────────
+    // --- RestrictInput override ----------------------------------------------
+
+    /// <inheritdoc/>
+    protected override bool IsNegativeInputAllowed() => Minimum.CompareTo(Zero) < 0;
+
+    // --- Abstract members -----------------------------------------------------
 
     protected abstract T Zero { get; }
     protected abstract T Add(T a, T b);
     protected abstract T Subtract(T a, T b);
     protected abstract T? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles);
 
-    // ─── Helpers ─────────────────────────────────────────────────────────────
+    // --- Helpers -------------------------------------------------------------
 
     /// <summary>
     /// Strips hex/binary literal prefixes and underscore separators from the raw input string.
@@ -430,7 +435,7 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
     }
 }
 
-// ─── Extension helper ─────────────────────────────────────────────────────────
+// --- Extension helper ---------------------------------------------------------
 
 internal static class NumericFormatExtensions
 {

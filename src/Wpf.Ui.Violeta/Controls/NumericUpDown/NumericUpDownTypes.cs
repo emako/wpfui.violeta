@@ -83,6 +83,8 @@ public class NumericDoubleUpDown : NumericUpDownBase<double>
 
     protected override double Zero => 0.0;
 
+    protected override bool IsFloatingPointInput => true;
+
     protected override double Add(double a, double b) => a + b;
 
     protected override double Subtract(double a, double b) => a - b;
@@ -111,6 +113,8 @@ public class NumericFloatUpDown : NumericUpDownBase<float>
 
     protected override float Zero => 0f;
 
+    protected override bool IsFloatingPointInput => true;
+
     protected override float Add(float a, float b) => a + b;
 
     protected override float Subtract(float a, float b) => a - b;
@@ -138,6 +142,8 @@ public class NumericDecimalUpDown : NumericUpDownBase<decimal>
     }
 
     protected override decimal Zero => 0m;
+
+    protected override bool IsFloatingPointInput => true;
 
     protected override decimal Add(decimal a, decimal b) => a + b;
 
