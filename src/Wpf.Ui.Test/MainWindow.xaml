@@ -1289,6 +1289,38 @@
                                     Text="R1C2" />
                             </ui:Grid>
                         </StackPanel>
+
+                        <!--  DropShadowChrome  -->
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontSize="16"
+                                FontWeight="SemiBold"
+                                Text="DropShadowChrome" />
+                            <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                                <ui:DropShadowChrome CornerRadius="0">
+                                    <Border
+                                        Width="80"
+                                        Height="50"
+                                        Background="{DynamicResource ApplicationBackgroundBrush}" />
+                                </ui:DropShadowChrome>
+                                <ui:DropShadowChrome CornerRadius="8">
+                                    <Border
+                                        Width="80"
+                                        Height="50"
+                                        Background="{DynamicResource ApplicationBackgroundBrush}"
+                                        CornerRadius="8" />
+                                </ui:DropShadowChrome>
+                                <ui:DropShadowChrome CornerRadius="4" Color="#C0FF0000">
+                                    <Border
+                                        Width="80"
+                                        Height="50"
+                                        Background="{DynamicResource ApplicationBackgroundBrush}"
+                                        CornerRadius="4" />
+                                </ui:DropShadowChrome>
+                            </ui:StackPanel>
+                        </StackPanel>
+
                     </StackPanel>
                     <!--  =============================  -->
                     <StackPanel>
