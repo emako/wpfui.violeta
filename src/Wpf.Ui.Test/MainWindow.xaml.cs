@@ -123,6 +123,9 @@ public partial class MainWindow : ShellWindow
     public partial int ThemeIndex { get; set; } = (int)ApplicationTheme.Dark;
 
     [ObservableProperty]
+    public partial bool BoolStateDemoValue { get; set; }
+
+    [ObservableProperty]
     public partial string MultiComboBoxSelectedText { get; set; } = "Selected: (none)";
 
     private readonly string[] _transitioningDemoSlides =

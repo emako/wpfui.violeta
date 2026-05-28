@@ -4115,6 +4115,30 @@
 
                     </StackPanel>
 
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        ButtonSpinner Demo
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <!--  NumericUpDown  -->
+                    <StackPanel Margin="0,8,0,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Text="NumericUpDown" />
+
+                        <CheckBox
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            Content="BoolState Value"
+                            IsChecked="{Binding BoolStateDemoValue, Mode=TwoWay}" />
+                        <vio:BoolStateTextBlock
+                            VerticalAlignment="Center"
+                            FalseText="Offline"
+                            TrueText="Online"
+                            Value="{Binding BoolStateDemoValue}" />
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
