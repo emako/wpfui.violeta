@@ -9,14 +9,33 @@ using System.Windows.Markup;
 
 namespace Wpf.Ui.Controls;
 
+/// <summary>
+/// An extended <see cref="System.Windows.Controls.Grid"/> that supports:
+/// <list type="bullet">
+///   <item>Comma-separated shorthand for <see cref="ColumnDefinitions"/> and <see cref="RowDefinitions"/>.</item>
+///   <item><see cref="HorizontalSpacing"/> — fixed pixel gap inserted between every pair of adjacent columns.</item>
+///   <item><see cref="VerticalSpacing"/> — fixed pixel gap inserted between every pair of adjacent rows.</item>
+/// </list>
+/// <para>
+/// Spacing is implemented by injecting fixed-width/height spacer columns/rows between each logical
+/// column/row in the underlying <see cref="System.Windows.Controls.Grid"/>.
+/// Children's <c>Grid.Column</c>, <c>Grid.Row</c>, <c>Grid.ColumnSpan</c>, and <c>Grid.RowSpan</c>
+/// are automatically remapped from logical indices to the corresponding actual indices at measure time.
+/// The original logical values are preserved so that removing spacing restores them cleanly.
+/// </para>
+/// </summary>
 [ContentProperty(nameof(Children))]
 public class Grid : System.Windows.Controls.Grid
 {
+    /// <summary>User-specified column widths, in logical order (no spacers).</summary>
     private readonly List<GridLength> _logicalColumns = [];
+
+    /// <summary>User-specified row heights, in logical order (no spacers).</summary>
     private readonly List<GridLength> _logicalRows = [];
 
-    // Private attached DPs that store the user's logical Grid.Column/Row before
-    // we remap them to accommodate spacer columns/rows.
+    // These attached DPs store each child's original logical Grid.Column / Grid.Row
+    // values before we rewrite them to account for injected spacer columns/rows.
+    // int.MinValue is used as a sentinel meaning "not yet captured".
     private static readonly DependencyProperty LogicalColumnProperty =
         DependencyProperty.RegisterAttached("LogicalColumn", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
 
@@ -29,9 +48,16 @@ public class Grid : System.Windows.Controls.Grid
     private static readonly DependencyProperty LogicalRowSpanProperty =
         DependencyProperty.RegisterAttached("LogicalRowSpan", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
 
+    /// <summary>Backing dependency property for <see cref="ColumnDefinitions"/>.</summary>
     public static readonly DependencyProperty ColumnDefinitionsProperty =
           DependencyProperty.Register(nameof(ColumnDefinitions), typeof(ColumnDefinitionCollection), typeof(Grid), new PropertyMetadata(null, OnColumnDefinitionsChanged));
 
+    /// <summary>
+    /// Gets or sets the column definitions using comma-separated grid-length notation
+    /// (e.g. <c>"auto,*,2*,100"</c>).
+    /// Overrides <see cref="System.Windows.Controls.Grid.ColumnDefinitions"/> to enable
+    /// the shorthand syntax and to cooperate with <see cref="HorizontalSpacing"/>.
+    /// </summary>
     [TypeConverter(typeof(ColumnDefinitionsConverter))]
     public new ColumnDefinitionCollection ColumnDefinitions
     {
@@ -39,6 +65,10 @@ public class Grid : System.Windows.Controls.Grid
         set => SetValue(ColumnDefinitionsProperty, value);
     }
 
+    /// <summary>
+    /// Caches the logical column widths and rebuilds the underlying column definitions
+    /// (with spacers if <see cref="HorizontalSpacing"/> is set).
+    /// </summary>
     private static void OnColumnDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Grid grid && e.NewValue is ColumnDefinitionCollection columnDefinitions)
@@ -50,9 +80,16 @@ public class Grid : System.Windows.Controls.Grid
         }
     }
 
+    /// <summary>Backing dependency property for <see cref="RowDefinitions"/>.</summary>
     public static readonly DependencyProperty RowDefinitionsProperty =
           DependencyProperty.Register(nameof(RowDefinitions), typeof(RowDefinitionCollection), typeof(Grid), new PropertyMetadata(null, OnRowDefinitionsChanged));
 
+    /// <summary>
+    /// Gets or sets the row definitions using comma-separated grid-length notation
+    /// (e.g. <c>"auto,*,auto"</c>).
+    /// Overrides <see cref="System.Windows.Controls.Grid.RowDefinitions"/> to enable
+    /// the shorthand syntax and to cooperate with <see cref="VerticalSpacing"/>.
+    /// </summary>
     [TypeConverter(typeof(RowDefinitionsConverter))]
     public new RowDefinitionCollection RowDefinitions
     {
@@ -60,6 +97,10 @@ public class Grid : System.Windows.Controls.Grid
         set => SetValue(RowDefinitionsProperty, value);
     }
 
+    /// <summary>
+    /// Caches the logical row heights and rebuilds the underlying row definitions
+    /// (with spacers if <see cref="VerticalSpacing"/> is set).
+    /// </summary>
     private static void OnRowDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Grid grid && e.NewValue is RowDefinitionCollection rowDefinitions)
@@ -71,11 +112,17 @@ public class Grid : System.Windows.Controls.Grid
         }
     }
 
+    /// <summary>Backing dependency property for <see cref="HorizontalSpacing"/>.</summary>
     public static readonly DependencyProperty HorizontalSpacingProperty =
         DependencyProperty.Register(nameof(HorizontalSpacing), typeof(double), typeof(Grid),
             new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
                 OnHorizontalSpacingChanged));
 
+    /// <summary>
+    /// Gets or sets the fixed pixel gap inserted between each pair of adjacent columns.
+    /// When non-zero, a fixed-width spacer column is injected between every two logical columns
+    /// in the underlying <see cref="System.Windows.Controls.Grid"/>.
+    /// </summary>
     public double HorizontalSpacing
     {
         get => (double)GetValue(HorizontalSpacingProperty);
@@ -88,11 +135,17 @@ public class Grid : System.Windows.Controls.Grid
             grid.RebuildColumnDefinitions();
     }
 
+    /// <summary>Backing dependency property for <see cref="VerticalSpacing"/>.</summary>
     public static readonly DependencyProperty VerticalSpacingProperty =
         DependencyProperty.Register(nameof(VerticalSpacing), typeof(double), typeof(Grid),
             new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
                 OnVerticalSpacingChanged));
 
+    /// <summary>
+    /// Gets or sets the fixed pixel gap inserted between each pair of adjacent rows.
+    /// When non-zero, a fixed-height spacer row is injected between every two logical rows
+    /// in the underlying <see cref="System.Windows.Controls.Grid"/>.
+    /// </summary>
     public double VerticalSpacing
     {
         get => (double)GetValue(VerticalSpacingProperty);
@@ -105,6 +158,11 @@ public class Grid : System.Windows.Controls.Grid
             grid.RebuildRowDefinitions();
     }
 
+    /// <summary>
+    /// Before delegating to the base measure pass, remaps each child's
+    /// <c>Grid.Column</c> / <c>Grid.Row</c> / <c>Grid.ColumnSpan</c> / <c>Grid.RowSpan</c>
+    /// from logical indices to the actual indices that account for injected spacer columns/rows.
+    /// </summary>
     protected override Size MeasureOverride(Size constraint)
     {
         bool hasH = HorizontalSpacing > 0 && _logicalColumns.Count > 0;
@@ -114,7 +172,8 @@ public class Grid : System.Windows.Controls.Grid
         {
             if (hasH || hasV)
             {
-                // Capture user-set column/row on first encounter (before any remapping).
+                // Capture the child's user-authored (logical) placement on first encounter,
+                // before we overwrite the attached properties with actual (spacer-shifted) values.
                 if ((int)child.GetValue(LogicalColumnProperty) == int.MinValue)
                 {
                     child.SetValue(LogicalColumnProperty, GetColumn(child));
@@ -152,6 +211,11 @@ public class Grid : System.Windows.Controls.Grid
         return base.MeasureOverride(constraint);
     }
 
+    /// <summary>
+    /// Clears and repopulates the underlying column definitions from <see cref="_logicalColumns"/>,
+    /// interleaving fixed-width spacer columns when <see cref="HorizontalSpacing"/> is non-zero.
+    /// Logical column <c>c</c> maps to actual column <c>c*2</c>; spacers occupy odd indices.
+    /// </summary>
     private void RebuildColumnDefinitions()
     {
         base.ColumnDefinitions.Clear();
@@ -166,6 +230,11 @@ public class Grid : System.Windows.Controls.Grid
         }
     }
 
+    /// <summary>
+    /// Clears and repopulates the underlying row definitions from <see cref="_logicalRows"/>,
+    /// interleaving fixed-height spacer rows when <see cref="VerticalSpacing"/> is non-zero.
+    /// Logical row <c>r</c> maps to actual row <c>r*2</c>; spacers occupy odd indices.
+    /// </summary>
     private void RebuildRowDefinitions()
     {
         base.RowDefinitions.Clear();
@@ -181,6 +250,12 @@ public class Grid : System.Windows.Controls.Grid
     }
 }
 
+/// <summary>
+/// Converts a comma-separated string of grid-length values (e.g. <c>"auto,*,2*,100"</c>)
+/// into a <see cref="ColumnDefinitionCollection"/>.
+/// Also handles direct <see cref="ColumnDefinitionCollection"/> pass-through and
+/// supports VS Hot Reload via <c>WpfVisualTreeService.LiveMarkup.TapTypeDescriptorContext</c>.
+/// </summary>
 internal sealed class ColumnDefinitionsConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
@@ -244,6 +319,12 @@ internal sealed class ColumnDefinitionsConverter : TypeConverter
     }
 }
 
+/// <summary>
+/// Converts a comma-separated string of grid-length values (e.g. <c>"auto,*,auto"</c>)
+/// into a <see cref="RowDefinitionCollection"/>.
+/// Also handles direct <see cref="RowDefinitionCollection"/> pass-through and
+/// supports VS Hot Reload via <c>WpfVisualTreeService.LiveMarkup.TapTypeDescriptorContext</c>.
+/// </summary>
 internal sealed class RowDefinitionsConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
