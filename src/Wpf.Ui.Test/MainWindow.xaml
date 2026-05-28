@@ -4120,6 +4120,35 @@
                         ButtonSpinner Demo
                         ══════════════════════════════════════════════════════════════
                     -->
+                    <!--  BoolStateContentControl  -->
+                    <StackPanel Margin="0,8,0,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Text="BoolStateContentControl" />
+                        <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                            <CheckBox
+                                VerticalAlignment="Center"
+                                Content="BoolState Value"
+                                IsChecked="{Binding BoolStateDemoValue, Mode=TwoWay}" />
+                            <vio:BoolStateContentControl Value="{Binding BoolStateDemoValue}">
+                                <vio:BoolStateContentControl.TrueContent>
+                                    <ui:SymbolIcon
+                                        Filled="True"
+                                        Foreground="Green"
+                                        Symbol="CheckmarkCircle24" />
+                                </vio:BoolStateContentControl.TrueContent>
+                                <vio:BoolStateContentControl.FalseContent>
+                                    <ui:SymbolIcon
+                                        Filled="True"
+                                        Foreground="Red"
+                                        Symbol="DismissCircle24" />
+                                </vio:BoolStateContentControl.FalseContent>
+                            </vio:BoolStateContentControl>
+                        </ui:StackPanel>
+                    </StackPanel>
+
                     <!--  BoolStateTextBlock  -->
                     <StackPanel Margin="0,8,0,0">
                         <TextBlock
