@@ -34,12 +34,15 @@ public abstract class NumericUpDown : Control
 
     // Whether the current text update is from user typing (vs programmatic)
     protected internal bool _updateFromTextInput;
+
     // Whether increase/decrease are currently valid
     protected internal bool _canIncrease = true;
+
     protected internal bool _canDecrease = true;
 
     // Tracks the mouse position for drag-to-spin
     private Point? _dragStartPoint;
+
     // Guard to avoid re-entrant TextChanged when stripping invalid chars
     private bool _isRestrictingInput;
 
@@ -123,6 +126,7 @@ public abstract class NumericUpDown : Control
             self.SetValidSpinDirection();
         }
     }
+
     /// <summary>Prevents user editing. Mirrors Ursa's <c>IsReadOnly</c>.</summary>
     public bool IsReadOnly
     {
@@ -131,7 +135,6 @@ public abstract class NumericUpDown : Control
     }
 
     #endregion IsReadOnly
-
 
     #region InnerLeftContent / InnerRightContent
 

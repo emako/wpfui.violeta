@@ -394,8 +394,11 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
     // --- Abstract members -----------------------------------------------------
 
     protected abstract T Zero { get; }
+
     protected abstract T Add(T a, T b);
+
     protected abstract T Subtract(T a, T b);
+
     protected abstract T? ParseText(string? text, NumberFormatInfo numberFormat, NumberStyles numberStyles);
 
     // --- Helpers -------------------------------------------------------------
