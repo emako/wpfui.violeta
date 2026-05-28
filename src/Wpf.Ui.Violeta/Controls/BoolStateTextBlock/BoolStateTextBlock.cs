@@ -16,19 +16,31 @@ public class BoolStateTextBlock : TextBlock
         nameof(TrueText),
         typeof(string),
         typeof(BoolStateTextBlock),
-        new PropertyMetadata("True", OnDisplayStateChanged));
+        new PropertyMetadata(bool.TrueString, OnDisplayStateChanged));
 
     public static readonly DependencyProperty FalseTextProperty = DependencyProperty.Register(
         nameof(FalseText),
         typeof(string),
         typeof(BoolStateTextBlock),
-        new PropertyMetadata("False", OnDisplayStateChanged));
+        new PropertyMetadata(bool.FalseString, OnDisplayStateChanged));
 
     public static readonly DependencyProperty FontOptionsProperty = DependencyProperty.Register(
         nameof(FontOptions),
         typeof(BoolStateTextBlockFontOptions),
         typeof(BoolStateTextBlock),
         new PropertyMetadata(null, OnFontOptionsChanged));
+
+    public static readonly DependencyProperty TrueFontOptionsProperty = DependencyProperty.Register(
+        nameof(TrueFontOptions),
+        typeof(BoolStateTextBlockFontOptions),
+        typeof(BoolStateTextBlock),
+        new PropertyMetadata(null, OnStateFontOptionsChanged));
+
+    public static readonly DependencyProperty FalseFontOptionsProperty = DependencyProperty.Register(
+        nameof(FalseFontOptions),
+        typeof(BoolStateTextBlockFontOptions),
+        typeof(BoolStateTextBlock),
+        new PropertyMetadata(null, OnStateFontOptionsChanged));
 
     public bool Value
     {
@@ -54,17 +66,28 @@ public class BoolStateTextBlock : TextBlock
         set => SetValue(FontOptionsProperty, value);
     }
 
+    public BoolStateTextBlockFontOptions? TrueFontOptions
+    {
+        get => (BoolStateTextBlockFontOptions?)GetValue(TrueFontOptionsProperty);
+        set => SetValue(TrueFontOptionsProperty, value);
+    }
+
+    public BoolStateTextBlockFontOptions? FalseFontOptions
+    {
+        get => (BoolStateTextBlockFontOptions?)GetValue(FalseFontOptionsProperty);
+        set => SetValue(FalseFontOptionsProperty, value);
+    }
+
     public BoolStateTextBlock()
     {
-        UpdateDisplayText();
-        ApplyFontOptions();
+        UpdateVisualState();
     }
 
     private static void OnDisplayStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is BoolStateTextBlock boolStateTextBlock)
         {
-            boolStateTextBlock.UpdateDisplayText();
+            boolStateTextBlock.UpdateVisualState();
         }
     }
 
@@ -75,6 +98,23 @@ public class BoolStateTextBlock : TextBlock
             return;
         }
 
+        UpdateFontOptionsSubscription(boolStateTextBlock, e);
+        boolStateTextBlock.ApplyFontOptions();
+    }
+
+    private static void OnStateFontOptionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not BoolStateTextBlock boolStateTextBlock)
+        {
+            return;
+        }
+
+        UpdateFontOptionsSubscription(boolStateTextBlock, e);
+        boolStateTextBlock.ApplyFontOptions();
+    }
+
+    private static void UpdateFontOptionsSubscription(BoolStateTextBlock boolStateTextBlock, DependencyPropertyChangedEventArgs e)
+    {
         if (e.OldValue is BoolStateTextBlockFontOptions oldOptions)
         {
             WeakEventManager<Freezable, EventArgs>.RemoveHandler(oldOptions, nameof(Freezable.Changed), boolStateTextBlock.OnFontOptionsInstanceChanged);
@@ -84,8 +124,6 @@ public class BoolStateTextBlock : TextBlock
         {
             WeakEventManager<Freezable, EventArgs>.AddHandler(newOptions, nameof(Freezable.Changed), boolStateTextBlock.OnFontOptionsInstanceChanged);
         }
-
-        boolStateTextBlock.ApplyFontOptions();
     }
 
     private void OnFontOptionsInstanceChanged(object? sender, EventArgs e)
@@ -98,20 +136,30 @@ public class BoolStateTextBlock : TextBlock
         Text = Value ? TrueText : FalseText;
     }
 
+    private void UpdateVisualState()
+    {
+        UpdateDisplayText();
+        ApplyFontOptions();
+    }
+
     private void ApplyFontOptions()
     {
-        if (FontOptions is null)
+        BoolStateTextBlockFontOptions? activeFontOptions = Value
+            ? TrueFontOptions ?? FontOptions
+            : FalseFontOptions ?? FontOptions;
+
+        if (activeFontOptions is null)
         {
             return;
         }
 
-        SetCurrentValue(FontFamilyProperty, FontOptions.FontFamily);
-        SetCurrentValue(FontSizeProperty, FontOptions.FontSize);
-        SetCurrentValue(FontWeightProperty, FontOptions.FontWeight);
-        SetCurrentValue(FontStyleProperty, FontOptions.FontStyle);
-        SetCurrentValue(FontStretchProperty, FontOptions.FontStretch);
-        SetCurrentValue(ForegroundProperty, FontOptions.Foreground);
-        SetCurrentValue(LineHeightProperty, FontOptions.LineHeight);
-        SetCurrentValue(TextDecorationsProperty, FontOptions.TextDecorations);
+        SetCurrentValue(FontFamilyProperty, activeFontOptions.FontFamily);
+        SetCurrentValue(FontSizeProperty, activeFontOptions.FontSize);
+        SetCurrentValue(FontWeightProperty, activeFontOptions.FontWeight);
+        SetCurrentValue(FontStyleProperty, activeFontOptions.FontStyle);
+        SetCurrentValue(FontStretchProperty, activeFontOptions.FontStretch);
+        SetCurrentValue(ForegroundProperty, activeFontOptions.Foreground);
+        SetCurrentValue(LineHeightProperty, activeFontOptions.LineHeight);
+        SetCurrentValue(TextDecorationsProperty, activeFontOptions.TextDecorations);
     }
 }

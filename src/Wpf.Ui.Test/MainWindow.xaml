@@ -4136,16 +4136,21 @@
                             <vio:BoolStateTextBlock
                                 VerticalAlignment="Center"
                                 FalseText="Offline"
-                                FontSize="14"
-                                Foreground="Blue"
                                 TrueText="Online"
                                 Value="{Binding BoolStateDemoValue}">
-                                <vio:BoolStateTextBlock.FontOptions>
+                                <vio:BoolStateTextBlock.TrueFontOptions>
                                     <vio:BoolStateTextBlockFontOptions
                                         FontSize="16"
                                         FontWeight="SemiBold"
                                         Foreground="Red" />
-                                </vio:BoolStateTextBlock.FontOptions>
+                                </vio:BoolStateTextBlock.TrueFontOptions>
+                                <vio:BoolStateTextBlock.FalseFontOptions>
+                                    <vio:BoolStateTextBlockFontOptions
+                                        FontSize="14"
+                                        FontWeight="Normal"
+                                        Foreground="Blue"
+                                        TextDecorations="{x:Static TextDecorations.Underline}" />
+                                </vio:BoolStateTextBlock.FalseFontOptions>
                             </vio:BoolStateTextBlock>
                         </StackPanel>
                     </StackPanel>
