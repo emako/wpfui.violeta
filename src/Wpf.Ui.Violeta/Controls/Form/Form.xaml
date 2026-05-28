@@ -14,9 +14,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local:Form">
                     <!--  Grid.IsSharedSizeScope enables label-column alignment across all child FormItems  -->
-                    <StackPanel Grid.IsSharedSizeScope="True">
+                    <Grid Grid.IsSharedSizeScope="True">
                         <ItemsPresenter />
-                    </StackPanel>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -38,6 +38,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:FormGroup">
+                    <!--  Grid.IsSharedSizeScope is NOT set here intentionally;  -->
+                    <!--  FormGroup items participate in the parent Form's scope.  -->
                     <StackPanel>
                         <!--  Header row (title + separator line)  -->
                         <StackPanel x:Name="PART_HeaderPanel" Visibility="Collapsed">
@@ -70,6 +72,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
+                    <!--  No IsSharedSizeScope here – inherits from the parent Form's Grid scope  -->
                     <StackPanel />
                 </ItemsPanelTemplate>
             </Setter.Value>

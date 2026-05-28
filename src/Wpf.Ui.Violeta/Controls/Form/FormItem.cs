@@ -76,7 +76,7 @@ public class FormItem : ContentControl
         nameof(LabelWidth),
         typeof(double),
         typeof(FormItem),
-        new PropertyMetadata(double.NaN));
+        new PropertyMetadata(double.NaN, (d, _) => ((FormItem)d).ApplyLabelColumnWidth()));
 
     /// <summary>
     /// Pixel width of the label column when <see cref="LabelPosition"/> is <see cref="FormLabelPosition.Left"/>.
@@ -115,6 +115,31 @@ public class FormItem : ContentControl
     }
 
     #endregion
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+        ApplyLabelColumnWidth();
+    }
+
+    private void ApplyLabelColumnWidth()
+    {
+        // Only applies to the Left template which has a "LabelColumn" ColumnDefinition.
+        if (GetTemplateChild("LabelColumn") is ColumnDefinition col)
+        {
+            double w = LabelWidth;
+            if (!double.IsNaN(w))
+            {
+                col.Width = new GridLength(w, GridUnitType.Pixel);
+                col.SharedSizeGroup = null;
+            }
+            else
+            {
+                col.Width = GridLength.Auto;
+                col.SharedSizeGroup = "FormLabel";
+            }
+        }
+    }
 
     /// <summary>
     /// Called by the parent <see cref="Form"/> to push layout settings down.
