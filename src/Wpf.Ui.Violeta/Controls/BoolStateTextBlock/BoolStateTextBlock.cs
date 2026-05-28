@@ -153,13 +153,13 @@ public class BoolStateTextBlock : TextBlock
             return;
         }
 
-        SetCurrentValue(FontFamilyProperty, activeFontOptions.FontFamily);
-        SetCurrentValue(FontSizeProperty, activeFontOptions.FontSize);
-        SetCurrentValue(FontWeightProperty, activeFontOptions.FontWeight);
-        SetCurrentValue(FontStyleProperty, activeFontOptions.FontStyle);
-        SetCurrentValue(FontStretchProperty, activeFontOptions.FontStretch);
-        SetCurrentValue(ForegroundProperty, activeFontOptions.Foreground);
-        SetCurrentValue(LineHeightProperty, activeFontOptions.LineHeight);
-        SetCurrentValue(TextDecorationsProperty, activeFontOptions.TextDecorations);
+        SetValue(FontFamilyProperty, activeFontOptions.FontFamily);
+        SetValue(FontSizeProperty, activeFontOptions.FontSize);
+        SetValue(FontWeightProperty, activeFontOptions.FontWeight);
+        SetValue(FontStyleProperty, activeFontOptions.FontStyle);
+        SetValue(FontStretchProperty, activeFontOptions.FontStretch);
+        SetValue(ForegroundProperty, activeFontOptions.Foreground);
+        SetValue(LineHeightProperty, activeFontOptions.LineHeight);
+        SetValue(TextDecorationsProperty, activeFontOptions.TextDecorations);
     }
 }
