@@ -66,6 +66,9 @@ public partial class MainWindow : ShellWindow
         });
     }
 
+
+    // ── ButtonSpinner ─────────────────────────────────────────────
+
     private void ButtonSpinnerDemo_OnSpin(object sender, SpinEventArgs e)
     {
         if (sender is not ButtonSpinner spinner)
@@ -108,6 +111,9 @@ public partial class MainWindow : ShellWindow
         return (value % length + length) % length;
     }
 
+
+    // ── MultiComboBox ─────────────────────────────────────────────
+
     private void InitMultiComboBoxDemo()
     {
         MultiComboBoxDemo.ItemsSource = new[] { "Apple", "Banana", "Cherry", "Durian", "Elderberry" };
@@ -127,6 +133,9 @@ public partial class MainWindow : ShellWindow
 
     [ObservableProperty]
     public partial string MultiComboBoxSelectedText { get; set; } = "Selected: (none)";
+
+
+    // ── TransitioningContentControl ───────────────────────────────
 
     private readonly string[] _transitioningDemoSlides =
     [
@@ -180,6 +189,9 @@ public partial class MainWindow : ShellWindow
             TransitioningDemoTransition = transition;
         }
     }
+
+
+    // ── CascadingComboBox ─────────────────────────────────────────
 
     [ObservableProperty]
     public partial ObservableCollection<ICascadingItem> CascadingComboBoxDemoItems_Level1 { get; set; } = [];
@@ -607,6 +619,9 @@ public partial class MainWindow : ShellWindow
         IsSkeletonActive = IsSkeletonLoading;
     }
 
+
+    // ── QrCode ────────────────────────────────────────────────────
+
     [ObservableProperty]
     private string _qrCodeData = "https://github.com/emako/wpfui.violeta";
 
@@ -616,6 +631,9 @@ public partial class MainWindow : ShellWindow
     [ObservableProperty]
     private double _qrCodeSymbolCornerRatio = 0.5;
 
+
+    // ── Timeline ──────────────────────────────────────────────────
+
     public TimelineItemViewModel[] TimelineItems { get; } =
     [
         new() { Time = new DateTime(2024, 1, 1), Header = "Completed", Description = "Step 1 finished successfully.", ItemType = TimelineItemType.Success },
@@ -624,6 +642,9 @@ public partial class MainWindow : ShellWindow
         new() { Time = new DateTime(2025, 6, 1), Header = "Failed", Description = "Step 4 encountered an error.", ItemType = TimelineItemType.Error },
         new() { Time = new DateTime(2026, 1, 1), Header = "Pending", Description = "Step 5 has not started yet.", ItemType = TimelineItemType.Default },
     ];
+
+
+    // ── KeyGestureInput ───────────────────────────────────────────
 
     private KeyGestureValue? _keyGesture;
 
@@ -647,6 +668,9 @@ public partial class MainWindow : ShellWindow
         ThemeManager.Apply((ApplicationTheme)value);
         ThemeManager.TrackSystemThemeChanges(isTracked: (ApplicationTheme)value == ApplicationTheme.Unknown);
     }
+
+
+    // ── Toast ─────────────────────────────────────────────────────
 
     [RelayCommand]
     private void ShowToast(Button self)
@@ -690,11 +714,17 @@ public partial class MainWindow : ShellWindow
         Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
     }
 
+
+    // ── Flyout ────────────────────────────────────────────────────
+
     [RelayCommand]
     private void ShowFlyoutInline()
     {
         Toast.Success("The cake is a lie!");
     }
+
+
+    // ── Toast Stacking ────────────────────────────────────────────
 
     [RelayCommand]
     private void ShowStackedToasts()
@@ -766,6 +796,9 @@ public partial class MainWindow : ShellWindow
         });
     }
 
+
+    // ── ContentDialog ─────────────────────────────────────────────
+
     [RelayCommand]
     private async Task ShowContentDialogAsync()
     {
@@ -803,6 +836,9 @@ public partial class MainWindow : ShellWindow
         // Showing the dialog
         _ = await dialog.ShowAsync(CancellationToken.None);
     }
+
+
+    // ── MessageBox ────────────────────────────────────────────────
 
     [RelayCommand]
     private void ShowMessageBox(Button self)
@@ -852,6 +888,9 @@ public partial class MainWindow : ShellWindow
             _ = await MessageBox.ErrorAsync("This is a error message");
         }
     }
+
+
+    // ── TaskDialog ────────────────────────────────────────────────
 
     [RelayCommand]
     private void ShowTaskDialog(Button self)
@@ -967,6 +1006,9 @@ public partial class MainWindow : ShellWindow
         }
     }
 
+
+    // ── Notification ──────────────────────────────────────────────
+
     [RelayCommand]
     private void ShowNotification(Button self)
     {
@@ -994,6 +1036,9 @@ public partial class MainWindow : ShellWindow
             );
         }
     }
+
+
+    // ── TreeModelListView ─────────────────────────────────────────
 
     [ObservableProperty]
     public partial RegistryModel TreeRegistryModel { get; set; } = new();
@@ -1132,6 +1177,9 @@ public partial class MainWindow : ShellWindow
         }
         return model;
     }
+
+
+    // ── ListView ──────────────────────────────────────────────────
 
     [ObservableProperty]
     public partial ObservableCollection<Staff> StaffList { get; set; } = [];
@@ -1317,6 +1365,9 @@ public partial class MainWindow : ShellWindow
         _ = SelectedStaffItem;
     }
 
+
+    // ── ExceptionReport ───────────────────────────────────────────
+
     [RelayCommand]
     private void ShowReport()
     {
@@ -1339,6 +1390,9 @@ public partial class MainWindow : ShellWindow
         throw new InvalidOperationException("The operation could not be completed because the system encountered an unexpected state. This might be due to incorrect usage of the API or an internal error. Please ensure that all prerequisites are met and the operation is performed under the correct conditions. If the problem persists, consult the documentation or contact support for further assistance.");
     }
 
+
+    // ── PendingBox ────────────────────────────────────────────────
+
     [RelayCommand]
     private async Task ShowPendingBoxAsync()
     {
@@ -1360,6 +1414,9 @@ public partial class MainWindow : ShellWindow
         using STAThread<IPendingHandler> pending = PendingBox.ShowAsync();
         await Task.Delay(3000);
     }
+
+
+    // ── Drawer ────────────────────────────────────────────────────
 
     [ObservableProperty]
     public partial bool IsOpenOfLeftDrawer { get; set; } = false;
@@ -1386,6 +1443,9 @@ public partial class MainWindow : ShellWindow
             IsOpenOfBottomDrawer = !IsOpenOfBottomDrawer;
     }
 
+
+    // ── ShellWindow ───────────────────────────────────────────────
+
     [RelayCommand]
     private void ShowShellWindow()
     {
@@ -1397,6 +1457,9 @@ public partial class MainWindow : ShellWindow
 
         window.Show();
     }
+
+
+    // ── Hyperlink ─────────────────────────────────────────────────
 
     private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
     {
