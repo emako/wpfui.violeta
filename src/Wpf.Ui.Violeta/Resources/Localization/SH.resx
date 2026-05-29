@@ -168,4 +168,22 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>page</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>year</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>second</value>
+  </data>
 </root>

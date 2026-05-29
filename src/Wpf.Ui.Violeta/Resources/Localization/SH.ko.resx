@@ -165,6 +165,24 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>이동</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>일</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>월</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>년</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>시</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>분</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>초</value>
+  </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>페이지</value>
   </data>

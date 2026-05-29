@@ -18,4 +18,33 @@
     <!--  SelectableTextBlock  -->
     <SolidColorBrush x:Key="SelectableTextBlockMarkBackground" Color="#50B8860B" />
 
+    <!--  DateTimePicker  -->
+    <SolidColorBrush x:Key="DateTimePickerPopupBackground" Color="#FF2A2A2A" />
+    <SolidColorBrush x:Key="DateTimePickerPopupBorderBrush" Color="#1AFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerButtonBackground" Color="#FF323232" />
+    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBackground" Color="#FF3C3C3C" />
+    <SolidColorBrush x:Key="DateTimePickerButtonBorderBrush" Color="#1AFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerButtonPointeroverBorderBrush" Color="#1AFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerButtonDisabledBackground" Color="#FF282828" />
+    <SolidColorBrush x:Key="DateTimePickerButtonDisabledBorderBrush" Color="#0DFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerButtonForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="DateTimePickerIconForeground" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="DateTimePickerHeaderForeground" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="DateTimePickerSeparatorBackground" Color="#1AFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerSelectedItemBackground" Color="#1F4D9DFF" />
+    <SolidColorBrush x:Key="DateTimePickerItemForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="DateTimePickerItemDimmedForeground" Color="#80B0B0B0" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonForeground" Color="#FF9E9E9E" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedForeground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverBackground" Color="#0FFFFFFF" />
+    <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPressedBackground" Color="#1AFFFFFF" />
+    <CornerRadius x:Key="DateTimePickerPopupCornerRadius">6</CornerRadius>
+    <DropShadowEffect
+        x:Key="DateTimePickerPopupShadow"
+        BlurRadius="20"
+        Direction="270"
+        Opacity="0.4"
+        ShadowDepth="6" />
+
 </ResourceDictionary>

@@ -165,6 +165,24 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Aller à</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>Jour</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>Mois</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>Année</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>Heure</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>Seconde</value>
+  </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>page</value>
   </data>

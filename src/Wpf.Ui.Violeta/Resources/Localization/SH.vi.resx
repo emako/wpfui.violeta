@@ -165,6 +165,24 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Đi đến</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>ngày</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>tháng</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>năm</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>giờ</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>phút</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>giây</value>
+  </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>trang</value>
   </data>

@@ -215,5 +215,59 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
                 return ResourceManager.GetString("PendingBoxLoadingText", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to day.
+        /// </summary>
+        internal static string DatePickerDayText {
+            get {
+                return ResourceManager.GetString("DatePickerDayText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to month.
+        /// </summary>
+        internal static string DatePickerMonthText {
+            get {
+                return ResourceManager.GetString("DatePickerMonthText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        internal static string DatePickerYearText {
+            get {
+                return ResourceManager.GetString("DatePickerYearText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to hour.
+        /// </summary>
+        internal static string TimePickerHourText {
+            get {
+                return ResourceManager.GetString("TimePickerHourText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to minute.
+        /// </summary>
+        internal static string TimePickerMinuteText {
+            get {
+                return ResourceManager.GetString("TimePickerMinuteText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to second.
+        /// </summary>
+        internal static string TimePickerSecondText {
+            get {
+                return ResourceManager.GetString("TimePickerSecondText", resourceCulture);
+            }
+        }
     }
 }

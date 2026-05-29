@@ -165,6 +165,24 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>前往</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>时</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>秒</value>
+  </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>页</value>
   </data>

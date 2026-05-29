@@ -4887,6 +4887,42 @@
                             Style="{DynamicResource ButtonTabStripStyle}" />
                     </StackPanel>
 
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        DatePicker / TimePicker
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <TextBlock
+                        Margin="0,24,0,0"
+                        FontSize="22"
+                        FontWeight="Bold"
+                        Text="DatePicker / TimePicker" />
+
+                    <!--  DatePicker  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="DatePicker" />
+                    <ui:StackPanel Margin="0,8,0,0" Orientation="Horizontal" Spacing="16">
+                        <vio:DatePicker />
+                        <vio:DatePicker x:Name="PreselectedDatePicker" />
+                        <vio:DatePicker DayVisible="False" />
+                    </ui:StackPanel>
+
+                    <!--  TimePicker  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TimePicker" />
+                    <ui:StackPanel Margin="0,8,0,24" Orientation="Horizontal" Spacing="16">
+                        <vio:TimePicker />
+                        <vio:TimePicker UseSeconds="True" />
+                        <vio:TimePicker ClockIdentifier="12HourClock" />
+                        <vio:TimePicker ClockIdentifier="12HourClock" UseSeconds="True" />
+                    </ui:StackPanel>
+
                 </StackPanel>
 
             </ScrollViewer>

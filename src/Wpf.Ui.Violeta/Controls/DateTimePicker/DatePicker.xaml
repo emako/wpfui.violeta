@@ -1,0 +1,358 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/DateTimePicker.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          DatePickerPresenter
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style TargetType="{x:Type local:DatePickerPresenter}">
+        <Setter Property="Width" Value="300" />
+        <Setter Property="MinWidth" Value="280" />
+        <Setter Property="MaxHeight" Value="300" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerPopupBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerPopupBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DatePickerPresenter}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}"
+                        Effect="{DynamicResource DateTimePickerPopupShadow}"
+                        SnapsToDevicePixels="True">
+                        <Border
+                            ClipToBounds="True"
+                            CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  Picker columns  -->
+                                <Grid
+                                    x:Name="PART_PickerContainer"
+                                    Grid.Row="0"
+                                    Height="180">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  Month column  -->
+                                    <Grid Grid.Column="0" x:Name="PART_MonthHost">
+                                        <local:DateTimePickerPanel
+                                            x:Name="PART_MonthSelector"
+                                            ItemHeight="36"
+                                            PanelType="Month"
+                                            ShouldLoop="True" />
+                                        <RepeatButton
+                                            x:Name="PART_MonthUpButton"
+                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
+                                        <RepeatButton
+                                            x:Name="PART_MonthDownButton"
+                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
+                                    </Grid>
+
+                                    <!--  Separator 1  -->
+                                    <Rectangle
+                                        Grid.Column="1"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <!--  Day column  -->
+                                    <Grid Grid.Column="2" x:Name="PART_DayHost">
+                                        <local:DateTimePickerPanel
+                                            x:Name="PART_DaySelector"
+                                            ItemHeight="36"
+                                            PanelType="Day"
+                                            ShouldLoop="True" />
+                                        <RepeatButton
+                                            x:Name="PART_DayUpButton"
+                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
+                                        <RepeatButton
+                                            x:Name="PART_DayDownButton"
+                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
+                                    </Grid>
+
+                                    <!--  Separator 2  -->
+                                    <Rectangle
+                                        Grid.Column="3"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <!--  Year column  -->
+                                    <Grid Grid.Column="4" x:Name="PART_YearHost">
+                                        <local:DateTimePickerPanel
+                                            x:Name="PART_YearSelector"
+                                            ItemHeight="36"
+                                            PanelType="Year"
+                                            ShouldLoop="False" />
+                                        <RepeatButton
+                                            x:Name="PART_YearUpButton"
+                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
+                                        <RepeatButton
+                                            x:Name="PART_YearDownButton"
+                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
+                                    </Grid>
+                                </Grid>
+
+                                <!--  Column header labels  -->
+                                <Grid
+                                    Grid.Row="0"
+                                    VerticalAlignment="Top"
+                                    IsHitTestVisible="False">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Padding="0,4"
+                                        HorizontalAlignment="Center"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
+                                        Text="{Binding MonthText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePickerPresenter}}}" />
+                                    <TextBlock
+                                        Grid.Column="2"
+                                        Padding="0,4"
+                                        HorizontalAlignment="Center"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
+                                        Text="{Binding DayText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePickerPresenter}}}" />
+                                    <TextBlock
+                                        Grid.Column="4"
+                                        Padding="0,4"
+                                        HorizontalAlignment="Center"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
+                                        Text="{Binding YearText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePickerPresenter}}}" />
+                                </Grid>
+
+                                <!--  Accept / Dismiss row  -->
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  Top separator line  -->
+                                    <Rectangle
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="3"
+                                        Height="1"
+                                        VerticalAlignment="Top"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <Button
+                                        x:Name="PART_AcceptButton"
+                                        Grid.Column="0"
+                                        Height="40"
+                                        HorizontalAlignment="Stretch"
+                                        Style="{StaticResource DateTimePickerPopupButtonStyle}">
+                                        <Path
+                                            Width="14"
+                                            Height="10"
+                                            Data="M 0,5 L 5,10 L 14,0"
+                                            Stretch="Fill"
+                                            Stroke="{DynamicResource DateTimePickerFlyoutButtonForeground}"
+                                            StrokeLineJoin="Round"
+                                            StrokeThickness="1.8" />
+                                    </Button>
+
+                                    <Rectangle
+                                        Grid.Column="1"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <Button
+                                        x:Name="PART_DismissButton"
+                                        Grid.Column="2"
+                                        Height="40"
+                                        HorizontalAlignment="Stretch"
+                                        Style="{StaticResource DateTimePickerPopupButtonStyle}">
+                                        <Path
+                                            Width="10"
+                                            Height="10"
+                                            Data="M 0,0 L 10,10 M 0,10 L 10,0"
+                                            Stretch="Fill"
+                                            Stroke="{DynamicResource DateTimePickerFlyoutButtonForeground}"
+                                            StrokeThickness="1.5" />
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" SourceName="PART_MonthHost" Value="True">
+                            <Setter TargetName="PART_MonthUpButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_MonthDownButton" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" SourceName="PART_DayHost" Value="True">
+                            <Setter TargetName="PART_DayUpButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_DayDownButton" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" SourceName="PART_YearHost" Value="True">
+                            <Setter TargetName="PART_YearUpButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_YearDownButton" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          DatePicker
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style TargetType="{x:Type local:DatePicker}">
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinWidth" Value="280" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DatePicker}">
+                    <StackPanel>
+                        <!--  Optional header  -->
+                        <ContentPresenter
+                            x:Name="HeaderPresenter"
+                            Margin="0,0,0,4"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Visibility="Collapsed" />
+
+                        <Grid>
+                            <!--  Flyout button  -->
+                            <Button
+                                x:Name="PART_FlyoutButton"
+                                MinWidth="{TemplateBinding MinWidth}"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Foreground="{TemplateBinding Foreground}"
+                                IsEnabled="{TemplateBinding IsEnabled}"
+                                Style="{StaticResource DateTimePickerFlyoutButtonStyle}">
+                                <Grid x:Name="PART_ButtonContentGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock
+                                        x:Name="PART_MonthTextBlock"
+                                        Grid.Column="0"
+                                        Padding="12,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="{TemplateBinding MonthText}" />
+
+                                    <Rectangle
+                                        Grid.Column="1"
+                                        Width="1"
+                                        Height="18"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <TextBlock
+                                        x:Name="PART_DayTextBlock"
+                                        Grid.Column="2"
+                                        Padding="12,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="{TemplateBinding DayText}" />
+
+                                    <Rectangle
+                                        Grid.Column="3"
+                                        Width="1"
+                                        Height="18"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                    <TextBlock
+                                        x:Name="PART_YearTextBlock"
+                                        Grid.Column="4"
+                                        Padding="12,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
+                                        Text="{TemplateBinding YearText}" />
+
+                                    <!--  Calendar icon  -->
+                                    <Grid
+                                        Grid.Column="5"
+                                        Width="32"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center">
+                                        <Path
+                                            Width="14"
+                                            Height="14"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Data="M 2,3 L 2,1 L 4,1 L 4,3 L 8,3 L 8,1 L 10,1 L 10,3 L 12,3 L 12,13 L 0,13 L 0,3 Z M 0,5 L 12,5"
+                                            Fill="Transparent"
+                                            Stretch="Fill"
+                                            Stroke="{DynamicResource DateTimePickerIconForeground}"
+                                            StrokeThickness="1" />
+                                    </Grid>
+                                </Grid>
+                            </Button>
+
+                            <!--  Popup  -->
+                            <Popup
+                                x:Name="PART_Popup"
+                                AllowsTransparency="True"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PART_FlyoutButton}"
+                                PopupAnimation="Fade"
+                                StaysOpen="False">
+                                <local:DatePickerPresenter
+                                    x:Name="PART_Presenter"
+                                    DayText="{Binding DayText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePicker}}}"
+                                    MonthText="{Binding MonthText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePicker}}}"
+                                    YearText="{Binding YearText, RelativeSource={RelativeSource AncestorType={x:Type local:DatePicker}}}" />
+                            </Popup>
+                        </Grid>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Header" Value="{x:Null}">
+                            <Setter TargetName="HeaderPresenter" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Header, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                            <Setter TargetName="HeaderPresenter" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -165,6 +165,24 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Перейти к</value>
   </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>день</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>месяц</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>год</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>часы</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>минуты</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>секунды</value>
+  </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>странице</value>
   </data>
