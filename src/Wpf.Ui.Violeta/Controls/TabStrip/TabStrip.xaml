@@ -266,10 +266,10 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!--  Selected: elevated card-in-card  -->
+                        <!--  Selected: accent highlight inside the card shell  -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource LayerFillColorDefaultBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
                             <Setter Property="FontWeight" Value="SemiBold" />
                         </Trigger>
                         <!--  Hover (not selected)  -->
