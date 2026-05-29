@@ -34,10 +34,19 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            RecognizesAccessKey="True" />
+                        <Grid>
+                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                IsHitTestVisible="False"
+                                TextElement.FontWeight="SemiBold"
+                                Visibility="Hidden" />
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--  Selected  -->
@@ -156,10 +165,19 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="4,4,0,0"
                         SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            RecognizesAccessKey="True" />
+                        <Grid>
+                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                IsHitTestVisible="False"
+                                TextElement.FontWeight="SemiBold"
+                                Visibility="Hidden" />
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--  Selected: show 3-sided border + card bg + overlap separator by 1 px  -->
@@ -217,7 +235,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Margin" Value="0,0,4,0" />
+        <Setter Property="Margin" Value="1" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="Padding" Value="12,6" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -233,16 +251,25 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{DynamicResource ControlCornerRadius}"
                         SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            RecognizesAccessKey="True" />
+                        <Grid>
+                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                IsHitTestVisible="False"
+                                TextElement.FontWeight="SemiBold"
+                                Visibility="Hidden" />
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!--  Selected: solid accent fill  -->
+                        <!--  Selected: elevated card-in-card  -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource LayerFillColorDefaultBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
                             <Setter Property="FontWeight" Value="SemiBold" />
                         </Trigger>
                         <!--  Hover (not selected)  -->
@@ -252,7 +279,7 @@
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                         </MultiTrigger>
                         <!--  Disabled  -->
                         <Trigger Property="IsEnabled" Value="False">
@@ -265,14 +292,15 @@
         </Setter>
     </Style>
 
-    <!--  Button TabStrip — no separator line; sets button item style  -->
+    <!--  Button TabStrip — single card wrapping all items  -->
     <Style x:Key="ButtonTabStripStyle" TargetType="{x:Type local:TabStrip}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="3" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
@@ -287,11 +315,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TabStrip}">
-                    <!--  No separator  -->
+                    <!--  Single card, no separator  -->
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="True">
                         <ItemsPresenter />
                     </Border>
