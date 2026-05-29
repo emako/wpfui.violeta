@@ -38,7 +38,7 @@
                         <Border
                             Height="{TemplateBinding ItemHeight}"
                             VerticalAlignment="Center"
-                            Background="{DynamicResource DateTimePickerSelectedItemBackground}"
+                            Background="{DynamicResource AccentButtonBackground}"
                             CornerRadius="4"
                             IsHitTestVisible="False"
                             Margin="4,0" />
@@ -49,15 +49,15 @@
     </Style>
 
     <!--  ═══════════════════════════════════════════════════════════════
-          Internal flyout button (the clickable area)
+          Internal flyout button (the clickable area) — Card appearance
           ═══════════════════════════════════════════════════════════════ -->
     <Style x:Key="DateTimePickerFlyoutButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
@@ -77,12 +77,11 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource CardBackgroundFillColorSecondaryBrush}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource DateTimePickerButtonDisabledBackground}" />
-                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonDisabledBorderBrush}" />
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource ControlFillColorDisabledBrush}" />
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

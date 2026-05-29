@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/DateTimePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -142,45 +143,6 @@
                                     </Grid>
                                 </Grid>
 
-                                <!--  Column header labels  -->
-                                <Grid
-                                    Grid.Row="0"
-                                    VerticalAlignment="Top"
-                                    IsHitTestVisible="False">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="1" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="1" />
-                                        <ColumnDefinition Width="Auto" MinWidth="0" />
-                                        <ColumnDefinition Width="1" />
-                                        <ColumnDefinition Width="Auto" MinWidth="0" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock
-                                        Grid.Column="0"
-                                        Padding="0,4"
-                                        HorizontalAlignment="Center"
-                                        FontSize="11"
-                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
-                                        Text="{Binding HourText, RelativeSource={RelativeSource AncestorType={x:Type local:TimePickerPresenter}}}" />
-                                    <TextBlock
-                                        Grid.Column="2"
-                                        Padding="0,4"
-                                        HorizontalAlignment="Center"
-                                        FontSize="11"
-                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
-                                        Text="{Binding MinuteText, RelativeSource={RelativeSource AncestorType={x:Type local:TimePickerPresenter}}}" />
-                                    <TextBlock
-                                        x:Name="SecondHeaderText"
-                                        Grid.Column="4"
-                                        Padding="0,4"
-                                        HorizontalAlignment="Center"
-                                        FontSize="11"
-                                        Foreground="{DynamicResource DateTimePickerHeaderForeground}"
-                                        Text="{Binding SecondText, RelativeSource={RelativeSource AncestorType={x:Type local:TimePickerPresenter}}}"
-                                        Visibility="Collapsed" />
-                                </Grid>
-
                                 <!--  Accept / Dismiss row  -->
                                 <Grid Grid.Row="1">
                                     <Grid.ColumnDefinitions>
@@ -239,7 +201,6 @@
                         <DataTrigger Binding="{Binding UseSeconds, RelativeSource={RelativeSource Self}}" Value="True">
                             <Setter TargetName="PART_SecondHost" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_SecondSpacer" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="SecondHeaderText" Property="Visibility" Value="Visible" />
                         </DataTrigger>
                         <!--  Show AM/PM for 12h  -->
                         <DataTrigger Binding="{Binding ClockIdentifier, RelativeSource={RelativeSource Self}}" Value="12HourClock">
@@ -341,22 +302,14 @@
                                         Text="{TemplateBinding MinuteText}" />
 
                                     <!--  Clock icon  -->
-                                    <Grid
+                                    <ui:SymbolIcon
                                         Grid.Column="3"
                                         Width="32"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Center">
-                                        <Path
-                                            Width="14"
-                                            Height="14"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Data="M 7,1 A 6,6 0 1 1 6.99,1 Z M 7,4 L 7,7 L 10,9"
-                                            Fill="Transparent"
-                                            Stretch="Fill"
-                                            Stroke="{DynamicResource DateTimePickerIconForeground}"
-                                            StrokeThickness="1" />
-                                    </Grid>
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource DateTimePickerIconForeground}"
+                                        Symbol="Clock24" />
                                 </Grid>
                             </Button>
 

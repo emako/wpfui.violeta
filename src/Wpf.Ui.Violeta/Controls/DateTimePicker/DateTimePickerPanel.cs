@@ -222,7 +222,7 @@ public class DateTimePickerPanel : Control
             {
                 Text = text,
                 Height = ItemHeight,
-                HorizontalAlignment = HorizontalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Center,
                 TextAlignment = TextAlignment.Center,
             };

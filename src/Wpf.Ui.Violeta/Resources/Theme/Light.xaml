@@ -32,7 +32,7 @@
     <SolidColorBrush x:Key="DateTimePickerHeaderForeground" Color="#FF6E6E6E" />
     <SolidColorBrush x:Key="DateTimePickerSeparatorBackground" Color="#1A000000" />
     <SolidColorBrush x:Key="DateTimePickerSelectedItemBackground" Color="#1A0066FF" />
-    <SolidColorBrush x:Key="DateTimePickerItemForeground" Color="#FF1C1C1C" />
+    <SolidColorBrush x:Key="DateTimePickerItemForeground" Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="DateTimePickerItemDimmedForeground" Color="#80808080" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonForeground" Color="#FF6E6E6E" />
     <SolidColorBrush x:Key="DateTimePickerFlyoutButtonPointeroverForeground" Color="#FF1C1C1C" />
