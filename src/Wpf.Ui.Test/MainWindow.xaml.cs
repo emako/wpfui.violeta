@@ -238,6 +238,18 @@ public partial class MainWindow : ShellWindow
     [ObservableProperty]
     public partial string CascadingComboBoxSelectedText_MixedDepth { get; set; } = "Selected: (none)";
 
+    [ObservableProperty]
+    public partial ObservableCollection<string> TabItems { get; set; } =
+    [
+        "Dashboard",
+        "Analytics",
+        "Reports",
+        "Settings",
+    ];
+
+    [ObservableProperty]
+    public partial string? SelectedTab { get; set; } = "Dashboard";
+
     partial void OnCascadingComboBoxSelectedValue_Level3Changed(ICascadingItem? value)
     {
         CascadingComboBoxSelectedText_Level3 = value is null

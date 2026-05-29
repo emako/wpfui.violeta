@@ -4792,7 +4792,101 @@
                         </StackPanel>
                     </ui:StackPanel>
 
+                    <!--  ═══════════════════════════════════════════════════════════
+                          TabStrip
+                          ═══════════════════════════════════════════════════════════ -->
+                    <TextBlock
+                        Margin="0,24,0,0"
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="TabStrip" />
+                    <TextBlock
+                        Margin="0,4,0,16"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Standalone tab header strip (no content pane). Three variants: Line (default), Card, Button." />
+
+                    <!--  Row 1: Line (default) and Card  -->
+                    <ui:StackPanel Orientation="Horizontal" Spacing="32">
+
+                        <!--  LINE (default)  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Line (default)" />
+                            <vio:TabStrip>
+                                <vio:TabStripItem Content="Overview" IsSelected="True" />
+                                <vio:TabStripItem Content="Details" />
+                                <vio:TabStripItem Content="Settings" />
+                                <vio:TabStripItem Content="History" />
+                            </vio:TabStrip>
+                        </StackPanel>
+
+                        <!--  CARD  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Card" />
+                            <vio:TabStrip Style="{DynamicResource CardTabStripStyle}">
+                                <vio:TabStripItem Content="Overview" IsSelected="True" />
+                                <vio:TabStripItem Content="Details" />
+                                <vio:TabStripItem Content="Settings" />
+                                <vio:TabStripItem Content="History" />
+                            </vio:TabStrip>
+                        </StackPanel>
+
+                    </ui:StackPanel>
+
+                    <!--  Row 2: Button and disabled items  -->
+                    <ui:StackPanel
+                        Margin="0,24,0,0"
+                        Orientation="Horizontal"
+                        Spacing="32">
+
+                        <!--  BUTTON  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Button" />
+                            <vio:TabStrip Style="{DynamicResource ButtonTabStripStyle}">
+                                <vio:TabStripItem Content="All" IsSelected="True" />
+                                <vio:TabStripItem Content="Active" />
+                                <vio:TabStripItem Content="Paused" />
+                                <vio:TabStripItem Content="Archived" />
+                            </vio:TabStrip>
+                        </StackPanel>
+
+                        <!--  Disabled items  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="With disabled item" />
+                            <vio:TabStrip>
+                                <vio:TabStripItem Content="Active" IsSelected="True" />
+                                <vio:TabStripItem Content="Preview" />
+                                <vio:TabStripItem Content="Unavailable" IsEnabled="False" />
+                            </vio:TabStrip>
+                        </StackPanel>
+
+                    </ui:StackPanel>
+
+                    <!--  Row 3: ItemsSource binding demo  -->
+                    <StackPanel Margin="0,24,0,0">
+                        <TextBlock
+                            Margin="0,0,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="ItemsSource binding (Button style)" />
+                        <vio:TabStrip
+                            Style="{DynamicResource ButtonTabStripStyle}"
+                            ItemsSource="{Binding TabItems}"
+                            SelectedItem="{Binding SelectedTab, Mode=TwoWay}" />
+                    </StackPanel>
+
                 </StackPanel>
+
             </ScrollViewer>
         </ui:Grid>
         <ui:TitleBar Title="Wpf.Ui.Test" />
