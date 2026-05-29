@@ -4660,6 +4660,141 @@
                         </StackPanel>
                     </StackPanel>
 
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        GridSplitter
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Black"
+                        Text="GridSplitter" />
+                    <TextBlock
+                        Margin="0,4,0,8"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="ShowsPreview=True (default) — 松开鼠标后才真正改变尺寸" />
+
+                    <!--  Row splitter demo  -->
+                    <ui:StackPanel
+                        Margin="0,0,0,0"
+                        Orientation="Horizontal"
+                        Spacing="24">
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="水平分割 (分割行)" />
+                            <Grid
+                                Width="280"
+                                Height="260"
+                                RowDefinitions="*,Auto,*">
+                                <Border
+                                    Grid.Row="0"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Top Panel" />
+                                </Border>
+                                <!--  Just use GridSplitter directly — style is applied automatically  -->
+                                <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" />
+                                <Border
+                                    Grid.Row="2"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Bottom Panel" />
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+
+                        <!--  Column splitter demo  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="垂直分割 (分割列)" />
+                            <Grid
+                                Width="280"
+                                Height="260"
+                                ColumnDefinitions="*,Auto,*">
+                                <Border
+                                    Grid.Column="0"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Left Panel" />
+                                </Border>
+                                <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" />
+                                <Border
+                                    Grid.Column="2"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Right Panel" />
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+
+                        <!--  Immediate (ShowsPreview=False) for comparison  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="对比：立即生效 (ShowsPreview=False)" />
+                            <Grid
+                                Width="280"
+                                Height="260"
+                                ColumnDefinitions="*,Auto,*">
+                                <Border
+                                    Grid.Column="0"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Left Panel" />
+                                </Border>
+                                <GridSplitter
+                                    Grid.Column="1"
+                                    VerticalAlignment="Stretch"
+                                    ShowsPreview="False" />
+                                <Border
+                                    Grid.Column="2"
+                                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                                    CornerRadius="6">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Right Panel" />
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </ui:StackPanel>
+
                 </StackPanel>
             </ScrollViewer>
         </ui:Grid>
