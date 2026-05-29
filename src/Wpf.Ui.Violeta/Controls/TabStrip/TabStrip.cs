@@ -18,6 +18,18 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </remarks>
 public class TabStrip : ListBox
 {
+    public static readonly DependencyProperty IsSelectedItemBoldProperty = DependencyProperty.Register(
+        nameof(IsSelectedItemBold),
+        typeof(bool),
+        typeof(TabStrip),
+        new FrameworkPropertyMetadata(false));
+
+    public bool IsSelectedItemBold
+    {
+        get => (bool)GetValue(IsSelectedItemBoldProperty);
+        set => SetValue(IsSelectedItemBoldProperty, value);
+    }
+
     static TabStrip()
     {
         DefaultStyleKeyProperty.OverrideMetadata(

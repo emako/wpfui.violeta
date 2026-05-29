@@ -34,27 +34,24 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="True">
-                        <Grid>
-                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                IsHitTestVisible="False"
-                                TextElement.FontWeight="SemiBold"
-                                Visibility="Hidden" />
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                RecognizesAccessKey="True" />
-                        </Grid>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--  Selected  -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter Property="FontWeight" Value="SemiBold" />
                             <Setter Property="BorderBrush" Value="{DynamicResource AccentFillColorDefaultBrush}" />
                         </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding IsSelectedItemBold, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </MultiDataTrigger>
                         <!--  Hover (not selected)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -165,30 +162,27 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="4,4,0,0"
                         SnapsToDevicePixels="True">
-                        <Grid>
-                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                IsHitTestVisible="False"
-                                TextElement.FontWeight="SemiBold"
-                                Visibility="Hidden" />
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                RecognizesAccessKey="True" />
-                        </Grid>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--  Selected: show 3-sided border + card bg + overlap separator by 1 px  -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter Property="FontWeight" Value="SemiBold" />
                             <Setter TargetName="Root" Property="BorderThickness" Value="1,1,1,0" />
                             <Setter TargetName="Root" Property="Background" Value="{DynamicResource LayerFillColorDefaultBrush}" />
                             <!--  Extend 1 px below to cover the separator line  -->
                             <Setter TargetName="Root" Property="Margin" Value="0,0,0,-1" />
                         </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding IsSelectedItemBold, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </MultiDataTrigger>
                         <!--  Hover (not selected)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -251,27 +245,24 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{DynamicResource ControlCornerRadius}"
                         SnapsToDevicePixels="True">
-                        <Grid>
-                            <!--  Ghost: always SemiBold — reserves bold width so item never jumps  -->
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                IsHitTestVisible="False"
-                                TextElement.FontWeight="SemiBold"
-                                Visibility="Hidden" />
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                RecognizesAccessKey="True" />
-                        </Grid>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <!--  Selected: accent highlight inside the card shell  -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Root" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
-                            <Setter Property="FontWeight" Value="SemiBold" />
                         </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding IsSelectedItemBold, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </MultiDataTrigger>
                         <!--  Hover (not selected)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

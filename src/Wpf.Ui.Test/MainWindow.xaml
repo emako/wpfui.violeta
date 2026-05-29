@@ -15,7 +15,7 @@
     Width="1200"
     Height="760"
     d:Background="#232323"
-    d:Height="2400"
+    d:Height="15000"
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
@@ -4792,9 +4792,11 @@
                         </StackPanel>
                     </ui:StackPanel>
 
-                    <!--  ═══════════════════════════════════════════════════════════
-                          TabStrip
-                          ═══════════════════════════════════════════════════════════ -->
+                    <!--
+                        ═══════════════════════════════════════════════════════════
+                        TabStrip
+                        ═══════════════════════════════════════════════════════════
+                    -->
                     <TextBlock
                         Margin="0,24,0,0"
                         FontSize="14"
@@ -4880,9 +4882,9 @@
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="ItemsSource binding (Button style)" />
                         <vio:TabStrip
-                            Style="{DynamicResource ButtonTabStripStyle}"
                             ItemsSource="{Binding TabItems}"
-                            SelectedItem="{Binding SelectedTab, Mode=TwoWay}" />
+                            SelectedItem="{Binding SelectedTab, Mode=TwoWay}"
+                            Style="{DynamicResource ButtonTabStripStyle}" />
                     </StackPanel>
 
                 </StackPanel>
