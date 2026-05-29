@@ -1,9 +1,5 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!--
-        Preview adorner style – shown while dragging when ShowsPreview=True.
-        Resize only takes effect on mouse release.
-    -->
     <Style x:Key="GridSplitterPreviewStyle">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -17,14 +13,9 @@
         </Setter>
     </Style>
 
-    <!--
-        • ShowsPreview = True  →  resize commits only on mouse release
-        • MinWidth / MinHeight ensure the Auto-sized row/column is never 0-px
-        • Outer border is transparent with Padding=2 for a wider hit-test area
-        • Inner visual bar has no content children — avoids any layout-jump on hover
-        • Hover / Focus → bar turns accent colour
-    -->
     <Style x:Key="DefaultGridSplitterStyle" TargetType="{x:Type GridSplitter}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="IsTabStop" Value="True" />
         <Setter Property="ShowsPreview" Value="True" />
         <Setter Property="MinWidth" Value="6" />
         <Setter Property="MinHeight" Value="6" />
@@ -41,10 +32,10 @@
                     <!--  Transparent outer region — widens the grab area beyond the visual bar  -->
                     <Border
                         x:Name="Root"
-                        Padding="2"
+                        Margin="1"
+                        Padding="1"
                         Background="Transparent"
                         SnapsToDevicePixels="True">
-                        <!--  Visual bar — no children so its size never jumps  -->
                         <Border
                             x:Name="Bar"
                             Background="{DynamicResource ControlStrokeColorDefaultBrush}"
@@ -67,5 +58,13 @@
     </Style>
 
     <Style BasedOn="{StaticResource DefaultGridSplitterStyle}" TargetType="GridSplitter" />
+
+    <Style
+        x:Key="HiddenGridSplitterStyle"
+        BasedOn="{StaticResource DefaultGridSplitterStyle}"
+        TargetType="{x:Type GridSplitter}">
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+    </Style>
 
 </ResourceDictionary>
