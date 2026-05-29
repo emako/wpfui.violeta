@@ -56,10 +56,6 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Bar" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
                         </Trigger>
-                        <!--  Keyboard focus  -->
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Bar" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                        </Trigger>
                         <!--  Disabled  -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Root" Property="Opacity" Value="0.38" />
