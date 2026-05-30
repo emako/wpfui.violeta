@@ -351,7 +351,7 @@ public class DateTimePickerPanel : Control
         {
             var distance = Math.Abs(i - SelectedIndex);
             if (distance == 0)
-                _itemElements[i].SetResourceReference(TextBlock.ForegroundProperty, "DateTimePickerItemForeground");
+                _itemElements[i].SetResourceReference(TextBlock.ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
             else
                 _itemElements[i].SetResourceReference(TextBlock.ForegroundProperty, "DateTimePickerItemDimmedForeground");
 

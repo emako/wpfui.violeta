@@ -27,14 +27,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:DateTimePickerPanel}">
                     <Grid>
-                        <ScrollViewer
-                            x:Name="PART_ScrollViewer"
-                            Focusable="False"
-                            HorizontalScrollBarVisibility="Disabled"
-                            VerticalScrollBarVisibility="Hidden">
-                            <StackPanel x:Name="PART_ItemsPanel" />
-                        </ScrollViewer>
-                        <!--  Center highlight rectangle  -->
+                        <!--  Center highlight rectangle (behind text items)  -->
                         <Border
                             Height="{TemplateBinding ItemHeight}"
                             VerticalAlignment="Center"
@@ -42,6 +35,13 @@
                             CornerRadius="4"
                             IsHitTestVisible="False"
                             Margin="4,0" />
+                        <ScrollViewer
+                            x:Name="PART_ScrollViewer"
+                            Focusable="False"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Hidden">
+                            <StackPanel x:Name="PART_ItemsPanel" />
+                        </ScrollViewer>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
