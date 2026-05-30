@@ -38,7 +38,7 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <!--  Picker columns  -->
+                                <!--  Picker columns (Year-Month-Day)  -->
                                 <Grid
                                     x:Name="PART_PickerContainer"
                                     Grid.Row="0"
@@ -51,8 +51,28 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
+                                    <!--  Year column  -->
+                                    <Grid Grid.Column="0" x:Name="PART_YearHost">
+                                        <local:DateTimePickerPanel
+                                            x:Name="PART_YearSelector"
+                                            ItemHeight="36"
+                                            PanelType="Year"
+                                            ShouldLoop="False" />
+                                        <RepeatButton
+                                            x:Name="PART_YearUpButton"
+                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
+                                        <RepeatButton
+                                            x:Name="PART_YearDownButton"
+                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
+                                    </Grid>
+
+                                    <!--  Separator 1  -->
+                                    <Rectangle
+                                        Grid.Column="1"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
                                     <!--  Month column  -->
-                                    <Grid Grid.Column="0" x:Name="PART_MonthHost">
+                                    <Grid Grid.Column="2" x:Name="PART_MonthHost">
                                         <local:DateTimePickerPanel
                                             x:Name="PART_MonthSelector"
                                             ItemHeight="36"
@@ -66,13 +86,13 @@
                                             Style="{StaticResource DateTimePickerDownButtonStyle}" />
                                     </Grid>
 
-                                    <!--  Separator 1  -->
+                                    <!--  Separator 2  -->
                                     <Rectangle
-                                        Grid.Column="1"
+                                        Grid.Column="3"
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <!--  Day column  -->
-                                    <Grid Grid.Column="2" x:Name="PART_DayHost">
+                                    <Grid Grid.Column="4" x:Name="PART_DayHost">
                                         <local:DateTimePickerPanel
                                             x:Name="PART_DaySelector"
                                             ItemHeight="36"
@@ -83,26 +103,6 @@
                                             Style="{StaticResource DateTimePickerUpButtonStyle}" />
                                         <RepeatButton
                                             x:Name="PART_DayDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
-
-                                    <!--  Separator 2  -->
-                                    <Rectangle
-                                        Grid.Column="3"
-                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
-
-                                    <!--  Year column  -->
-                                    <Grid Grid.Column="4" x:Name="PART_YearHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_YearSelector"
-                                            ItemHeight="36"
-                                            PanelType="Year"
-                                            ShouldLoop="False" />
-                                        <RepeatButton
-                                            x:Name="PART_YearUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_YearDownButton"
                                             Style="{StaticResource DateTimePickerDownButtonStyle}" />
                                     </Grid>
                                 </Grid>
@@ -231,14 +231,14 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock
-                                        x:Name="PART_MonthTextBlock"
+                                        x:Name="PART_YearTextBlock"
                                         Grid.Column="0"
                                         Padding="12,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="{TemplateBinding MonthText}" />
+                                        Text="{TemplateBinding YearText}" />
 
                                     <Rectangle
                                         Grid.Column="1"
@@ -247,14 +247,14 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <TextBlock
-                                        x:Name="PART_DayTextBlock"
+                                        x:Name="PART_MonthTextBlock"
                                         Grid.Column="2"
                                         Padding="12,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="{TemplateBinding DayText}" />
+                                        Text="{TemplateBinding MonthText}" />
 
                                     <Rectangle
                                         Grid.Column="3"
@@ -263,14 +263,14 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <TextBlock
-                                        x:Name="PART_YearTextBlock"
+                                        x:Name="PART_DayTextBlock"
                                         Grid.Column="4"
                                         Padding="12,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{TemplateBinding FontSize}"
                                         FontWeight="{TemplateBinding FontWeight}"
-                                        Text="{TemplateBinding YearText}" />
+                                        Text="{TemplateBinding DayText}" />
 
                                     <!--  Calendar icon  -->
                                     <ui:SymbolIcon
