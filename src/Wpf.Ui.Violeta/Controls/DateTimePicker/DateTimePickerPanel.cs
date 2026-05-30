@@ -221,7 +221,6 @@ public class DateTimePickerPanel : Control
             var tb = new TextBlock
             {
                 Text = text,
-                Height = ItemHeight,
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Center,
                 TextAlignment = TextAlignment.Center,
