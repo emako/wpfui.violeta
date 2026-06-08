@@ -10,15 +10,14 @@ if (-not $ApiKey) {
 
 Write-Host @"
 ███╗   ██╗██╗   ██╗ ██████╗ ███████╗████████╗
-████╗  ██║██║   ██║██╔════╝ ███████╗╚══██╔══╝
+████╗  ██║██║   ██║██╔════╝ ██╔════╝╚══██╔══╝
 ██╔██╗ ██║██║   ██║██║  ███╗█████╗     ██║   
 ██║╚██╗██║██║   ██║██║   ██║██╔══╝     ██║   
 ██║ ╚████║╚██████╔╝╚██████╔╝███████╗   ██║   
-╚═╝  ╚═══╝ ╚═════╝  ╚══════╝   ╚═╝   
+╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   
 "@
 
 dotnet nuget push *.nupkg --api-key $ApiKey --source https://api.nuget.org/v3/index.json
-dotnet nuget push *.snupkg --api-key $ApiKey --source https://api.nuget.org/v3/index.json
 
 Write-Host "`nPress any key to exit..."
 [void][System.Console]::ReadKey($true)
