@@ -1181,6 +1181,91 @@
 
                         <!--
                             ══════════════════════════════════════════════════════════════
+                            Border
+                            ══════════════════════════════════════════════════════════════
+                        -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="Border" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="ClipToBounds + CornerRadius clips content to rounded outer edge." />
+                        <ui:WrapPanel Margin="0,8,0,0">
+                            <ui:Border
+                                Width="90"
+                                Height="90"
+                                Margin="0,0,16,16"
+                                ClipToBounds="True"
+                                CornerRadius="8">
+                                <Rectangle Fill="Red" />
+                            </ui:Border>
+                            <ui:Border
+                                Width="120"
+                                Height="90"
+                                Margin="0,0,16,16"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                ClipToBounds="True"
+                                CornerRadius="12,4,12,4">
+                                <Rectangle
+                                    Width="140"
+                                    Height="60"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}" />
+                            </ui:Border>
+                        </ui:WrapPanel>
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="BorderThickness without adapter: inner content may cover the border stroke." />
+                        <ui:Border
+                            Width="120"
+                            Height="120"
+                            Margin="0,8,0,0"
+                            HorizontalAlignment="Left"
+                            BorderBrush="Firebrick"
+                            BorderThickness="5"
+                            ClipToBounds="True"
+                            CornerRadius="12">
+                            <Rectangle Fill="DodgerBlue" />
+                        </ui:Border>
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="BorderContentAdapter clips content to the inner rounded edge." />
+                        <ui:WrapPanel Margin="0,8,0,0">
+                            <ui:Border
+                                Width="120"
+                                Height="120"
+                                Margin="0,0,16,16"
+                                BorderBrush="Firebrick"
+                                BorderThickness="5"
+                                ClipToBounds="True"
+                                CornerRadius="12">
+                                <ui:BorderContentAdapter>
+                                    <Rectangle Fill="DodgerBlue" />
+                                </ui:BorderContentAdapter>
+                            </ui:Border>
+                            <ui:Border
+                                x:Name="borderContentClipDemo"
+                                Width="120"
+                                Height="120"
+                                Margin="0,0,16,16"
+                                BorderBrush="Firebrick"
+                                BorderThickness="5"
+                                ClipToBounds="True"
+                                CornerRadius="12">
+                                <Rectangle Clip="{Binding ContentClip, ElementName=borderContentClipDemo}" Fill="DodgerBlue" />
+                            </ui:Border>
+                        </ui:WrapPanel>
+                    </StackPanel>
+                    <!--  =============================  -->
+                    <StackPanel>
+
+                        <!--
+                            ══════════════════════════════════════════════════════════════
                             ExceptionReport
                             ══════════════════════════════════════════════════════════════
                         -->
@@ -4904,7 +4989,10 @@
                         FontSize="14"
                         FontWeight="SemiBold"
                         Text="DatePicker" />
-                    <ui:StackPanel Margin="0,8,0,0" Orientation="Horizontal" Spacing="16">
+                    <ui:StackPanel
+                        Margin="0,8,0,0"
+                        Orientation="Horizontal"
+                        Spacing="16">
                         <vio:DatePicker />
                         <vio:DatePicker x:Name="PreselectedDatePicker" />
                         <vio:DatePicker DayVisible="False" />
@@ -4916,7 +5004,10 @@
                         FontSize="14"
                         FontWeight="SemiBold"
                         Text="TimePicker" />
-                    <ui:StackPanel Margin="0,8,0,24" Orientation="Horizontal" Spacing="16">
+                    <ui:StackPanel
+                        Margin="0,8,0,24"
+                        Orientation="Horizontal"
+                        Spacing="16">
                         <vio:TimePicker />
                         <vio:TimePicker UseSeconds="True" />
                         <vio:TimePicker ClockIdentifier="12HourClock" />
