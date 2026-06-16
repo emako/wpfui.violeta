@@ -6,8 +6,7 @@ namespace Wpf.Ui.Violeta.Win32;
 
 internal static class GdiPlus
 {
-    private static readonly object SyncRoot = new();
-    private static nint _token;
+    private static readonly object _syncRoot = new();
     private static bool _initialized;
 
     public static void EnsureInitialized()
@@ -15,7 +14,7 @@ internal static class GdiPlus
         if (_initialized)
             return;
 
-        lock (SyncRoot)
+        lock (_syncRoot)
         {
             if (_initialized)
                 return;
@@ -28,7 +27,7 @@ internal static class GdiPlus
                 SuppressExternalCodecs = false,
             };
 
-            int status = GdiplusStartup(out _token, ref startupInput, IntPtr.Zero);
+            int status = GdiplusStartup(out nint token, ref startupInput, IntPtr.Zero);
             if (status != 0)
                 throw new InvalidOperationException($"GdiplusStartup failed with status code {status}.");
 

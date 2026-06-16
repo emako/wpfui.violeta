@@ -109,12 +109,14 @@ internal static class DwmApi
         int val = (int)corner;
         _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.WINDOW_CORNER_PREFERENCE, ref val, Marshal.SizeOf<int>());
     }
+
     /// <summary>Enables or disables the immersive dark mode frame rendering on the given HWND.</summary>
     internal static void SetImmersiveDarkMode(nint hwnd, bool dark)
     {
         int val = dark ? 1 : 0;
-        DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE, ref val, Marshal.SizeOf<int>());
+        _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE, ref val, Marshal.SizeOf<int>());
     }
+
     /// <summary>Enables or disables the acrylic blur-behind composition effect.</summary>
     internal static void SetAcrylicComposition(nint hwnd, bool enable, Color? tintColor = null)
     {
