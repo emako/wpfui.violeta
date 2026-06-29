@@ -4,6 +4,10 @@ namespace Wpf.Ui.Violeta.Win32;
 
 internal static class Gdi32
 {
+    [DllImport("gdi32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool DeleteObject(nint hObject);
+
     [DllImport("gdi32.dll", SetLastError = false, ExactSpelling = true)]
     public static extern int GetDeviceCaps(nint hdc, DeviceCap nIndex);
 

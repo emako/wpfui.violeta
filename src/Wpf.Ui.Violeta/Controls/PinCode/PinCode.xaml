@@ -1,0 +1,114 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <system:Double x:Key="PinCodeItemSize">36.0</system:Double>
+    <system:Double x:Key="PinCodeItemSizeSmall">28.0</system:Double>
+    <system:Double x:Key="PinCodeItemSizeLarge">44.0</system:Double>
+    <system:Double x:Key="PinCodeItemFontSize">16.0</system:Double>
+    <Thickness x:Key="PinCodeItemSpacing">0,0,8,0</Thickness>
+
+    <!--  PinCodeItemsControl: no extra visuals, just an ItemsPresenter  -->
+    <Style TargetType="{x:Type local:PinCodeItemsControl}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PinCodeItemsControl}">
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  PinCodeItem default style  -->
+    <Style x:Key="DefaultPinCodeItemStyle" TargetType="{x:Type local:PinCodeItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Width" Value="{StaticResource PinCodeItemSize}" />
+        <Setter Property="Height" Value="{StaticResource PinCodeItemSize}" />
+        <Setter Property="Margin" Value="{StaticResource PinCodeItemSpacing}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{StaticResource PinCodeItemFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource ComboBoxForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ComboBoxBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PinCodeItem}">
+                    <Border
+                        x:Name="PART_Background"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <TextBlock
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{TemplateBinding DisplayText}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Background" Property="Background" Value="{DynamicResource ComboBoxBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Background" Property="BorderBrush" Value="{DynamicResource ComboBoxBorderBrushPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="PART_Background" Property="Background" Value="{DynamicResource ComboBoxBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Background" Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource ComboBoxForegroundDisabled}" />
+                            <Setter TargetName="PART_Background" Property="Background" Value="{DynamicResource ComboBoxBackgroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultPinCodeItemStyle}" TargetType="{x:Type local:PinCodeItem}" />
+
+    <!--  PinCode main style  -->
+    <Style x:Key="DefaultPinCodeStyle" TargetType="{x:Type local:PinCode}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PinCode}">
+                    <local:PinCodeItemsControl x:Name="PART_ItemsControl" ItemsSource="{TemplateBinding Digits}">
+                        <local:PinCodeItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </local:PinCodeItemsControl.ItemsPanel>
+                        <local:PinCodeItemsControl.ItemContainerStyle>
+                            <Style BasedOn="{StaticResource DefaultPinCodeItemStyle}" TargetType="{x:Type local:PinCodeItem}">
+                                <Setter Property="PasswordChar" Value="{Binding PasswordChar, RelativeSource={RelativeSource AncestorType={x:Type local:PinCode}}}" />
+                            </Style>
+                        </local:PinCodeItemsControl.ItemContainerStyle>
+                    </local:PinCodeItemsControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--  Remove last-item right margin  -->
+        <Style.Resources>
+            <Style BasedOn="{StaticResource DefaultPinCodeItemStyle}" TargetType="{x:Type local:PinCodeItem}">
+                <Setter Property="PasswordChar" Value="{Binding PasswordChar, RelativeSource={RelativeSource AncestorType={x:Type local:PinCode}}}" />
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultPinCodeStyle}" TargetType="{x:Type local:PinCode}" />
+
+</ResourceDictionary>

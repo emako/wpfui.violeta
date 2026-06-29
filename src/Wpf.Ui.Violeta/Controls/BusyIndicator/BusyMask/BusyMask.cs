@@ -21,16 +21,6 @@ public class BusyMask : ContentControl
     public static readonly DependencyProperty IsBusyProperty
         = DependencyProperty.Register(nameof(IsBusy), typeof(bool), typeof(BusyMask), new PropertyMetadata(false, OnIsBusyChanged));
 
-    [Description("Gets or sets whether the indicator is busy by default on startup.")]
-    private bool _IsBusyATStartup;
-
-    [Obsolete("Use the initial value of IsBusy to control the initial state.")]
-    public bool IsBusyAtStartup
-    {
-        get => _IsBusyATStartup;
-        set => _IsBusyATStartup = value;
-    }
-
     [Category("BusyIndicator")]
     [Description("Gets or sets indicator content such as waiting message.")]
     public string BusyContent
@@ -101,7 +91,7 @@ public class BusyMask : ContentControl
 
     public override void OnApplyTemplate()
     {
-        ChangeVisualState(IsBusyAtStartup || IsBusy);
+        ChangeVisualState(IsBusy);
     }
 
     protected virtual void ChangeVisualState(bool isBusyContentVisible = false)

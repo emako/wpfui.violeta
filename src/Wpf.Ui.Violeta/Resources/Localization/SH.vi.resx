@@ -139,22 +139,22 @@
     <value>Sao chép</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
-    <value>Bỏ qua</value>
+    <value>B�?qua</value>
   </data>
   <data name="ButtonExit" xml:space="preserve">
     <value>Thoát</value>
   </data>
   <data name="ExceptionWindowHint1" xml:space="preserve">
-    <value>Ngoại lệ xảy ra</value>
+    <value>Ngoại l�?xảy ra</value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>Bạn có thể sao chép thông tin để theo dõi vấn đề, bỏ qua và thử lại, hoặc thoát chương trình và khởi động lại.</value>
+    <value>Bạn có th�?sao chép thông tin đ�?theo dõi vấn đ�? b�?qua và th�?lại, hoặc thoát chương trình và khởi động lại.</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Đang tải</value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
-    <value>Mở Điều hướng</value>
+    <value>M�?Điều hướng</value>
     <comment>Automation name for the hamburger button when it is in a closed state</comment>
   </data>
   <data name="NavigationButtonOpenName" xml:space="preserve">
@@ -170,7 +170,7 @@
     <comment>Automation name for the settings button</comment>
   </data>
   <data name="NavigationViewSearchButtonName" xml:space="preserve">
-    <value>Bấm để tìm kiếm</value>
+    <value>Bấm đ�?tìm kiếm</value>
     <comment>Name for the compact view search button</comment>
   </data>
   <data name="NavigationBackButtonName" xml:space="preserve">
@@ -196,5 +196,38 @@
   <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
     <value>Xem thêm</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>Chọn tất c�?/value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>Tất c�?/value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Vui lòng chọn...</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>Đi đến</value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>ngày</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>tháng</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>năm</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>gi�?/value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>phút</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>giây</value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>trang</value>
   </data>
 </root>

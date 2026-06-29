@@ -1,0 +1,225 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  Form                                                  -->
+    <!--  ═══════════════════════════════════════════════════  -->
+    <Style TargetType="local:Form">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Form">
+                    <!--  Grid.IsSharedSizeScope enables label-column alignment across all child FormItems  -->
+                    <StackPanel Grid.IsSharedSizeScope="True">
+                        <ItemsPresenter />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  FormGroup                                             -->
+    <!--  ═══════════════════════════════════════════════════  -->
+    <Style TargetType="local:FormGroup">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:FormGroup">
+                    <StackPanel>
+                        <!--  Header row (title + separator line)  -->
+                        <StackPanel x:Name="PART_HeaderPanel" Visibility="Collapsed">
+                            <ContentPresenter
+                                Margin="0,0,0,4"
+                                Content="{TemplateBinding Header}"
+                                RecognizesAccessKey="False"
+                                TextElement.FontSize="16"
+                                TextElement.FontWeight="SemiBold"
+                                TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                            <Rectangle
+                                Height="1"
+                                Margin="0,0,0,8"
+                                HorizontalAlignment="Stretch"
+                                Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                SnapsToDevicePixels="True" />
+                        </StackPanel>
+
+                        <ItemsPresenter />
+                    </StackPanel>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasHeader" Value="True">
+                            <Setter TargetName="PART_HeaderPanel" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  FormItem – shared resources                           -->
+    <!--  ═══════════════════════════════════════════════════  -->
+
+    <!--  Required asterisk style  -->
+    <Style x:Key="FormItemRequiredAsteriskStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource SystemFillColorCriticalBrush}" />
+        <Setter Property="Margin" Value="2,0,0,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Text" Value="*" />
+    </Style>
+
+    <!--  Label text style  -->
+    <Style x:Key="FormItemLabelStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <!--
+        TOP template (label above field).
+        Default when LabelPosition = Top.
+    -->
+    <ControlTemplate x:Key="FormItemTopTemplate" TargetType="local:FormItem">
+        <StackPanel x:Name="Root" Margin="{TemplateBinding Margin}">
+
+            <!--  Label row (hidden when NoLabel = true)  -->
+            <Grid x:Name="PART_LabelRow" Margin="0,0,0,4">
+                <StackPanel
+                    HorizontalAlignment="{TemplateBinding LabelAlignment}"
+                    Orientation="Horizontal">
+                    <ContentPresenter
+                        Content="{TemplateBinding Label}"
+                        RecognizesAccessKey="True"
+                        TextElement.FontWeight="SemiBold"
+                        TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <TextBlock
+                        x:Name="PART_Asterisk"
+                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
+                        Visibility="Collapsed" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Field  -->
+            <ContentPresenter
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+
+        </StackPanel>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsRequired" Value="True">
+                <Setter TargetName="PART_Asterisk" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="NoLabel" Value="True">
+                <Setter TargetName="PART_LabelRow" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--
+        LEFT template (label to the left of field).
+        Used when LabelPosition = Left.
+        The label column uses SharedSizeGroup so all labels within the same
+        Grid.IsSharedSizeScope (set on the Form's template) align to the same width.
+        LabelWidth (double, NaN = auto) optionally forces an explicit label width.
+    -->
+    <ControlTemplate x:Key="FormItemLeftTemplate" TargetType="local:FormItem">
+        <Grid x:Name="Root" Margin="{TemplateBinding Margin}">
+            <Grid.ColumnDefinitions>
+                <!--  SharedSizeGroup aligns labels across all FormItems in the same Form  -->
+                <ColumnDefinition
+                    x:Name="LabelColumn"
+                    Width="Auto"
+                    SharedSizeGroup="FormLabel" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Label cell  -->
+            <Border
+                x:Name="PART_LabelBorder"
+                Grid.Column="0"
+                VerticalAlignment="Center">
+                <StackPanel
+                    HorizontalAlignment="{TemplateBinding LabelAlignment}"
+                    Orientation="Horizontal">
+                    <ContentPresenter
+                        Content="{TemplateBinding Label}"
+                        RecognizesAccessKey="True"
+                        TextElement.FontWeight="SemiBold"
+                        TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                    <TextBlock
+                        x:Name="PART_Asterisk"
+                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
+                        Visibility="Collapsed" />
+                </StackPanel>
+            </Border>
+
+            <!--  Field  -->
+            <ContentPresenter
+                x:Name="PART_ContentPresenter"
+                Grid.Column="2"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsRequired" Value="True">
+                <Setter TargetName="PART_Asterisk" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <!--  NoLabel: span full width, collapse label column  -->
+            <Trigger Property="NoLabel" Value="True">
+                <Setter TargetName="PART_LabelBorder" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_ContentPresenter" Property="Grid.Column" Value="0" />
+                <Setter TargetName="PART_ContentPresenter" Property="Grid.ColumnSpan" Value="3" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  FormItem Style – switches template via trigger        -->
+    <!--  ═══════════════════════════════════════════════════  -->
+    <Style TargetType="local:FormItem">
+        <Setter Property="Margin" Value="0,4" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template" Value="{StaticResource FormItemTopTemplate}" />
+
+        <Style.Triggers>
+            <Trigger Property="LabelPosition" Value="Left">
+                <Setter Property="Template" Value="{StaticResource FormItemLeftTemplate}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

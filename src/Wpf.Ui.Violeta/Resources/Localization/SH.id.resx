@@ -197,4 +197,37 @@
     <value>Selengkapnya</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
   </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>Pilih semua</value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>Semua</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Silakan pilih...</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>Ke</value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>hari</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>bulan</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>tahun</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>jam</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>menit</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>detik</value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>halaman</value>
+  </data>
 </root>

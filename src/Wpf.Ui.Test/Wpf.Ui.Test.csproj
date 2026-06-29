@@ -6,10 +6,11 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <LangVersion>preview</LangVersion>
-        <AssemblyVersion>4.2.0.5</AssemblyVersion>
-        <FileVersion>4.2.0.5</FileVersion>
-        <Version>$(VersionPrefix)4.2.0.5</Version>
+        <AssemblyVersion>4.3.0.1</AssemblyVersion>
+        <FileVersion>4.3.0.1</FileVersion>
+        <Version>$(VersionPrefix)4.3.0.1</Version>
         <ApplicationIcon>Resources\Images\ProfilePicture.ico</ApplicationIcon>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,6 +33,7 @@
 
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <MyNuGetFlag>true</MyNuGetFlag>
+        <DebugType>embedded</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -42,7 +44,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(MyNuGetFlag)' == 'true'">
-        <PackageReference Include="WPF-UI.Violeta" Version="4.2.0.5" />
+        <PackageReference Include="WPF-UI.Violeta" Version="4.3.0.1" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(MyNuGetFlag)' == 'false'">

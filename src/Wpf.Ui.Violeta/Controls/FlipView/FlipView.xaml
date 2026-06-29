@@ -1,0 +1,158 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--  Internal navigation button used inside FlipView  -->
+    <Style x:Key="FlipViewNavigationButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Width" Value="36" />
+        <Setter Property="Height" Value="36" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundChromeMediumBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="ContentBorder"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource ControlCornerRadius}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerPressed}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  FlipViewItem  -->
+    <Style x:Key="DefaultFlipViewItemStyle" TargetType="{x:Type local:FlipViewItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:FlipViewItem}">
+                    <ContentPresenter
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Focusable="False"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultFlipViewItemStyle}" TargetType="{x:Type local:FlipViewItem}" />
+
+    <!--  FlipView  -->
+    <Style x:Key="DefaultFlipViewStyle" TargetType="{x:Type local:FlipView}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Once" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <!--  Horizontal StackPanel so items are laid out side-by-side at equal widths  -->
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:FlipView}">
+                    <!--
+                        Root Grid clips to bounds so adjacent (not-yet-shown) items are invisible.
+                        Navigation buttons are overlaid on the left/right edges.
+                        Button opacity is animated entirely from code-behind (OnMouseEnter/Leave).
+                    -->
+                    <Grid Background="{DynamicResource ApplicationPageBackgroundThemeBrush}" ClipToBounds="True">
+
+                        <!--  Scrollable items host — scrollbar hidden; offset driven by code/animation  -->
+                        <local:AnimatableScrollViewer
+                            x:Name="PART_ScrollViewer"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter x:Name="PART_ItemsPresenter" />
+                        </local:AnimatableScrollViewer>
+
+                        <!--  Previous (left) button — initial Opacity=0, faded in by code on hover  -->
+                        <Button
+                            x:Name="PART_PreviousButton"
+                            Margin="8,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Opacity="0"
+                            Style="{StaticResource FlipViewNavigationButtonStyle}">
+                            <TextBlock
+                                FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                FontSize="12"
+                                Text="&#xE76B;" />
+                        </Button>
+
+                        <!--  Next (right) button  -->
+                        <Button
+                            x:Name="PART_NextButton"
+                            Margin="8,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Opacity="0"
+                            Style="{StaticResource FlipViewNavigationButtonStyle}">
+                            <TextBlock
+                                FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                FontSize="12"
+                                Text="&#xE76C;" />
+                        </Button>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultFlipViewStyle}" TargetType="{x:Type local:FlipView}" />
+
+</ResourceDictionary>

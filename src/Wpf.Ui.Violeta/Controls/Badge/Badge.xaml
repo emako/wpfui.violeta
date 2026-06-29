@@ -1,0 +1,86 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Style TargetType="local:Badge">
+        <Setter Property="BadgeBackground" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+        <Setter Property="BadgeForeground" Value="White" />
+        <Setter Property="BadgeFontSize" Value="11" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Badge">
+                    <Grid
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                        ClipToBounds="False">
+                        <!--  Main content  -->
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        <!--  Badge indicator  -->
+                        <Border
+                            x:Name="PART_BadgeContainer"
+                            MinWidth="20"
+                            MinHeight="20"
+                            Padding="5,2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Background="{TemplateBinding BadgeBackground}"
+                            ClipToBounds="False"
+                            CornerRadius="10"
+                            RenderTransformOrigin="0.5,0.5"
+                            UseLayoutRounding="False"
+                            Visibility="{TemplateBinding IsBadgeVisible,
+                                                         Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <TextBlock
+                                x:Name="PART_BadgeText"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding BadgeFontSize}"
+                                FontWeight="SemiBold"
+                                Foreground="{TemplateBinding BadgeForeground}"
+                                Text="{TemplateBinding BadgeText}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--  Dot mode: hide text, shrink badge  -->
+                        <Trigger Property="Dot" Value="True">
+                            <Setter TargetName="PART_BadgeContainer" Property="MinWidth" Value="8" />
+                            <Setter TargetName="PART_BadgeContainer" Property="MinHeight" Value="8" />
+                            <Setter TargetName="PART_BadgeContainer" Property="Padding" Value="0" />
+                            <Setter TargetName="PART_BadgeText" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <!--  Corner positions  -->
+                        <Trigger Property="CornerPosition" Value="TopLeft">
+                            <Setter TargetName="PART_BadgeContainer" Property="HorizontalAlignment" Value="Left" />
+                            <Setter TargetName="PART_BadgeContainer" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
+                        <Trigger Property="CornerPosition" Value="TopRight">
+                            <Setter TargetName="PART_BadgeContainer" Property="HorizontalAlignment" Value="Right" />
+                            <Setter TargetName="PART_BadgeContainer" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
+                        <Trigger Property="CornerPosition" Value="BottomLeft">
+                            <Setter TargetName="PART_BadgeContainer" Property="HorizontalAlignment" Value="Left" />
+                            <Setter TargetName="PART_BadgeContainer" Property="VerticalAlignment" Value="Bottom" />
+                        </Trigger>
+                        <Trigger Property="CornerPosition" Value="BottomRight">
+                            <Setter TargetName="PART_BadgeContainer" Property="HorizontalAlignment" Value="Right" />
+                            <Setter TargetName="PART_BadgeContainer" Property="VerticalAlignment" Value="Bottom" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

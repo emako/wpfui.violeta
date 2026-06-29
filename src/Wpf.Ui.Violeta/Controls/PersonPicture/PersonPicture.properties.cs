@@ -171,13 +171,13 @@ public partial class PersonPicture
     public static readonly DependencyProperty ProfilePictureProperty =
         DependencyProperty.Register(
             nameof(ProfilePicture),
-            typeof(ImageSource),
+            typeof(object),
             typeof(PersonPicture),
             new PropertyMetadata(null, OnProfilePicturePropertyChanged));
 
-    public ImageSource ProfilePicture
+    public object? ProfilePicture
     {
-        get => (ImageSource)GetValue(ProfilePictureProperty);
+        get => GetValue(ProfilePictureProperty);
         set => SetValue(ProfilePictureProperty, value);
     }
 

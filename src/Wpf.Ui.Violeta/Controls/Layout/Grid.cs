@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
@@ -8,12 +9,55 @@ using System.Windows.Markup;
 
 namespace Wpf.Ui.Controls;
 
+/// <summary>
+/// An extended <see cref="System.Windows.Controls.Grid"/> that supports:
+/// <list type="bullet">
+///   <item>Comma-separated shorthand for <see cref="ColumnDefinitions"/> and <see cref="RowDefinitions"/>.</item>
+///   <item><see cref="HorizontalSpacing"/> — fixed pixel gap inserted between every pair of adjacent columns.</item>
+///   <item><see cref="VerticalSpacing"/> — fixed pixel gap inserted between every pair of adjacent rows.</item>
+/// </list>
+/// <para>
+/// Spacing is implemented by injecting fixed-width/height spacer columns/rows between each logical
+/// column/row in the underlying <see cref="System.Windows.Controls.Grid"/>.
+/// Children's <c>Grid.Column</c>, <c>Grid.Row</c>, <c>Grid.ColumnSpan</c>, and <c>Grid.RowSpan</c>
+/// are automatically remapped from logical indices to the corresponding actual indices at measure time.
+/// The original logical values are preserved so that removing spacing restores them cleanly.
+/// </para>
+/// </summary>
 [ContentProperty(nameof(Children))]
 public class Grid : System.Windows.Controls.Grid
 {
+    /// <summary>User-specified column widths, in logical order (no spacers).</summary>
+    private readonly List<GridLength> _logicalColumns = [];
+
+    /// <summary>User-specified row heights, in logical order (no spacers).</summary>
+    private readonly List<GridLength> _logicalRows = [];
+
+    // These attached DPs store each child's original logical Grid.Column / Grid.Row
+    // values before we rewrite them to account for injected spacer columns/rows.
+    // int.MinValue is used as a sentinel meaning "not yet captured".
+    private static readonly DependencyProperty LogicalColumnProperty =
+        DependencyProperty.RegisterAttached("LogicalColumn", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalRowProperty =
+        DependencyProperty.RegisterAttached("LogicalRow", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalColumnSpanProperty =
+        DependencyProperty.RegisterAttached("LogicalColumnSpan", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    private static readonly DependencyProperty LogicalRowSpanProperty =
+        DependencyProperty.RegisterAttached("LogicalRowSpan", typeof(int), typeof(Grid), new PropertyMetadata(int.MinValue));
+
+    /// <summary>Backing dependency property for <see cref="ColumnDefinitions"/>.</summary>
     public static readonly DependencyProperty ColumnDefinitionsProperty =
           DependencyProperty.Register(nameof(ColumnDefinitions), typeof(ColumnDefinitionCollection), typeof(Grid), new PropertyMetadata(null, OnColumnDefinitionsChanged));
 
+    /// <summary>
+    /// Gets or sets the column definitions using comma-separated grid-length notation
+    /// (e.g. <c>"auto,*,2*,100"</c>).
+    /// Overrides <see cref="System.Windows.Controls.Grid.ColumnDefinitions"/> to enable
+    /// the shorthand syntax and to cooperate with <see cref="HorizontalSpacing"/>.
+    /// </summary>
     [TypeConverter(typeof(ColumnDefinitionsConverter))]
     public new ColumnDefinitionCollection ColumnDefinitions
     {
@@ -21,26 +65,31 @@ public class Grid : System.Windows.Controls.Grid
         set => SetValue(ColumnDefinitionsProperty, value);
     }
 
+    /// <summary>
+    /// Caches the logical column widths and rebuilds the underlying column definitions
+    /// (with spacers if <see cref="HorizontalSpacing"/> is set).
+    /// </summary>
     private static void OnColumnDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Grid grid && e.NewValue is ColumnDefinitionCollection columnDefinitions)
         {
-            grid.UpdateColumnDefinitions(columnDefinitions);
+            grid._logicalColumns.Clear();
+            foreach (ColumnDefinition col in columnDefinitions)
+                grid._logicalColumns.Add(col.Width);
+            grid.RebuildColumnDefinitions();
         }
     }
 
-    private void UpdateColumnDefinitions(ColumnDefinitionCollection columnDefinitions)
-    {
-        base.ColumnDefinitions.Clear();
-        foreach (ColumnDefinition columnDefinition in columnDefinitions)
-        {
-            base.ColumnDefinitions.Add(new ColumnDefinition { Width = columnDefinition.Width });
-        }
-    }
-
+    /// <summary>Backing dependency property for <see cref="RowDefinitions"/>.</summary>
     public static readonly DependencyProperty RowDefinitionsProperty =
           DependencyProperty.Register(nameof(RowDefinitions), typeof(RowDefinitionCollection), typeof(Grid), new PropertyMetadata(null, OnRowDefinitionsChanged));
 
+    /// <summary>
+    /// Gets or sets the row definitions using comma-separated grid-length notation
+    /// (e.g. <c>"auto,*,auto"</c>).
+    /// Overrides <see cref="System.Windows.Controls.Grid.RowDefinitions"/> to enable
+    /// the shorthand syntax and to cooperate with <see cref="VerticalSpacing"/>.
+    /// </summary>
     [TypeConverter(typeof(RowDefinitionsConverter))]
     public new RowDefinitionCollection RowDefinitions
     {
@@ -48,24 +97,165 @@ public class Grid : System.Windows.Controls.Grid
         set => SetValue(RowDefinitionsProperty, value);
     }
 
+    /// <summary>
+    /// Caches the logical row heights and rebuilds the underlying row definitions
+    /// (with spacers if <see cref="VerticalSpacing"/> is set).
+    /// </summary>
     private static void OnRowDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Grid grid && e.NewValue is RowDefinitionCollection rowDefinitions)
         {
-            grid.UpdateRowDefinitions(rowDefinitions);
+            grid._logicalRows.Clear();
+            foreach (RowDefinition row in rowDefinitions)
+                grid._logicalRows.Add(row.Height);
+            grid.RebuildRowDefinitions();
         }
     }
 
-    private void UpdateRowDefinitions(RowDefinitionCollection rowDefinitions)
+    /// <summary>Backing dependency property for <see cref="HorizontalSpacing"/>.</summary>
+    public static readonly DependencyProperty HorizontalSpacingProperty =
+        DependencyProperty.Register(nameof(HorizontalSpacing), typeof(double), typeof(Grid),
+            new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnHorizontalSpacingChanged));
+
+    /// <summary>
+    /// Gets or sets the fixed pixel gap inserted between each pair of adjacent columns.
+    /// When non-zero, a fixed-width spacer column is injected between every two logical columns
+    /// in the underlying <see cref="System.Windows.Controls.Grid"/>.
+    /// </summary>
+    public double HorizontalSpacing
+    {
+        get => (double)GetValue(HorizontalSpacingProperty);
+        set => SetValue(HorizontalSpacingProperty, value);
+    }
+
+    private static void OnHorizontalSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Grid grid)
+            grid.RebuildColumnDefinitions();
+    }
+
+    /// <summary>Backing dependency property for <see cref="VerticalSpacing"/>.</summary>
+    public static readonly DependencyProperty VerticalSpacingProperty =
+        DependencyProperty.Register(nameof(VerticalSpacing), typeof(double), typeof(Grid),
+            new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnVerticalSpacingChanged));
+
+    /// <summary>
+    /// Gets or sets the fixed pixel gap inserted between each pair of adjacent rows.
+    /// When non-zero, a fixed-height spacer row is injected between every two logical rows
+    /// in the underlying <see cref="System.Windows.Controls.Grid"/>.
+    /// </summary>
+    public double VerticalSpacing
+    {
+        get => (double)GetValue(VerticalSpacingProperty);
+        set => SetValue(VerticalSpacingProperty, value);
+    }
+
+    private static void OnVerticalSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Grid grid)
+            grid.RebuildRowDefinitions();
+    }
+
+    /// <summary>
+    /// Before delegating to the base measure pass, remaps each child's
+    /// <c>Grid.Column</c> / <c>Grid.Row</c> / <c>Grid.ColumnSpan</c> / <c>Grid.RowSpan</c>
+    /// from logical indices to the actual indices that account for injected spacer columns/rows.
+    /// </summary>
+    protected override Size MeasureOverride(Size constraint)
+    {
+        bool hasH = HorizontalSpacing > 0 && _logicalColumns.Count > 0;
+        bool hasV = VerticalSpacing > 0 && _logicalRows.Count > 0;
+
+        foreach (UIElement child in Children)
+        {
+            if (hasH || hasV)
+            {
+                // Capture the child's user-authored (logical) placement on first encounter,
+                // before we overwrite the attached properties with actual (spacer-shifted) values.
+                if ((int)child.GetValue(LogicalColumnProperty) == int.MinValue)
+                {
+                    child.SetValue(LogicalColumnProperty, GetColumn(child));
+                    child.SetValue(LogicalRowProperty, GetRow(child));
+                    child.SetValue(LogicalColumnSpanProperty, GetColumnSpan(child));
+                    child.SetValue(LogicalRowSpanProperty, GetRowSpan(child));
+                }
+
+                int logCol = (int)child.GetValue(LogicalColumnProperty);
+                int logRow = (int)child.GetValue(LogicalRowProperty);
+                int logColSpan = (int)child.GetValue(LogicalColumnSpanProperty);
+                int logRowSpan = (int)child.GetValue(LogicalRowSpanProperty);
+
+                // Map logical → actual (spacer-injected) index.
+                // Logical column c → actual column c*2; span s → actual span s*2-1.
+                SetColumn(child, hasH ? logCol * 2 : logCol);
+                SetRow(child, hasV ? logRow * 2 : logRow);
+                SetColumnSpan(child, hasH ? Math.Max(1, logColSpan * 2 - 1) : logColSpan);
+                SetRowSpan(child, hasV ? Math.Max(1, logRowSpan * 2 - 1) : logRowSpan);
+            }
+            else
+            {
+                // Spacing was removed — restore the original logical values.
+                int logCol = (int)child.GetValue(LogicalColumnProperty);
+                if (logCol != int.MinValue)
+                {
+                    SetColumn(child, logCol);
+                    SetRow(child, (int)child.GetValue(LogicalRowProperty));
+                    SetColumnSpan(child, (int)child.GetValue(LogicalColumnSpanProperty));
+                    SetRowSpan(child, (int)child.GetValue(LogicalRowSpanProperty));
+                }
+            }
+        }
+
+        return base.MeasureOverride(constraint);
+    }
+
+    /// <summary>
+    /// Clears and repopulates the underlying column definitions from <see cref="_logicalColumns"/>,
+    /// interleaving fixed-width spacer columns when <see cref="HorizontalSpacing"/> is non-zero.
+    /// Logical column <c>c</c> maps to actual column <c>c*2</c>; spacers occupy odd indices.
+    /// </summary>
+    private void RebuildColumnDefinitions()
+    {
+        base.ColumnDefinitions.Clear();
+        bool hasSpacing = HorizontalSpacing > 0;
+        bool first = true;
+        foreach (GridLength width in _logicalColumns)
+        {
+            if (!first && hasSpacing)
+                base.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(HorizontalSpacing) });
+            base.ColumnDefinitions.Add(new ColumnDefinition { Width = width });
+            first = false;
+        }
+    }
+
+    /// <summary>
+    /// Clears and repopulates the underlying row definitions from <see cref="_logicalRows"/>,
+    /// interleaving fixed-height spacer rows when <see cref="VerticalSpacing"/> is non-zero.
+    /// Logical row <c>r</c> maps to actual row <c>r*2</c>; spacers occupy odd indices.
+    /// </summary>
+    private void RebuildRowDefinitions()
     {
         base.RowDefinitions.Clear();
-        foreach (RowDefinition rowDefinition in rowDefinitions)
+        bool hasSpacing = VerticalSpacing > 0;
+        bool first = true;
+        foreach (GridLength height in _logicalRows)
         {
-            base.RowDefinitions.Add(new RowDefinition { Height = rowDefinition.Height });
+            if (!first && hasSpacing)
+                base.RowDefinitions.Add(new RowDefinition { Height = new GridLength(VerticalSpacing) });
+            base.RowDefinitions.Add(new RowDefinition { Height = height });
+            first = false;
         }
     }
 }
 
+/// <summary>
+/// Converts a comma-separated string of grid-length values (e.g. <c>"auto,*,2*,100"</c>)
+/// into a <see cref="ColumnDefinitionCollection"/>.
+/// Also handles direct <see cref="ColumnDefinitionCollection"/> pass-through and
+/// supports VS Hot Reload via <c>WpfVisualTreeService.LiveMarkup.TapTypeDescriptorContext</c>.
+/// </summary>
 internal sealed class ColumnDefinitionsConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
@@ -129,6 +319,12 @@ internal sealed class ColumnDefinitionsConverter : TypeConverter
     }
 }
 
+/// <summary>
+/// Converts a comma-separated string of grid-length values (e.g. <c>"auto,*,auto"</c>)
+/// into a <see cref="RowDefinitionCollection"/>.
+/// Also handles direct <see cref="RowDefinitionCollection"/> pass-through and
+/// supports VS Hot Reload via <c>WpfVisualTreeService.LiveMarkup.TapTypeDescriptorContext</c>.
+/// </summary>
 internal sealed class RowDefinitionsConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)

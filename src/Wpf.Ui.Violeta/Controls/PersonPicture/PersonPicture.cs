@@ -4,6 +4,7 @@ using System.Windows.Automation;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Wpf.Ui.Controls;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -67,11 +68,23 @@ public partial class PersonPicture : Control
     /// <summary>
     /// Helper to determine the image source that should be shown.
     /// </summary>
-    ImageSource GetImageSource()
+    ImageSource? GetImageSource()
     {
-        if (ProfilePicture != null)
+        var profilePicture = ProfilePicture;
+        if (profilePicture is ImageSource imageSource)
         {
-            return ProfilePicture;
+            return imageSource;
+        }
+        else if (profilePicture is string uriString && !string.IsNullOrEmpty(uriString))
+        {
+            try
+            {
+                return new BitmapImage(new Uri(uriString, UriKind.RelativeOrAbsolute));
+            }
+            catch (UriFormatException)
+            {
+                return null;
+            }
         }
         else
         {
@@ -85,7 +98,7 @@ public partial class PersonPicture : Control
     void UpdateIfReady()
     {
         string initials = GetInitials();
-        ImageSource imageSrc = GetImageSource();
+        ImageSource? imageSrc = GetImageSource();
 
         var templateSettings = TemplateSettings;
         templateSettings.ActualInitials = initials;

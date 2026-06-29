@@ -130,10 +130,10 @@
     <value>警告</value>
   </data>
   <data name="PendingBoxLoadingText" xml:space="preserve">
-    <value>載入中</value>
+    <value>載入�?/value>
   </data>
   <data name="ExceptionWindowTitle" xml:space="preserve">
-    <value>出错啦</value>
+    <value>出错�?/value>
   </data>
   <data name="ButtonCopy" xml:space="preserve">
     <value>復制</value>
@@ -142,16 +142,16 @@
     <value>忽略</value>
   </data>
   <data name="ButtonExit" xml:space="preserve">
-    <value>退出</value>
+    <value>退�?/value>
   </data>
   <data name="ExceptionWindowHint1" xml:space="preserve">
-    <value>似乎遇到了一些問題</value>
+    <value>似乎遇到了一些問�?/value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>你可以複製信息來跟蹤問題，忽略並嘗試，或者退出程序然後重新啟動。</value>
+    <value>你可以複製信息來跟蹤問題，忽略並嘗試，或者退出程序然後重新啟動�?/value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>加載中</value>
+    <value>加載�?/value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
     <value>開啟導覽</value>
@@ -174,11 +174,11 @@
     <comment>Name for the compact view search button</comment>
   </data>
   <data name="NavigationBackButtonName" xml:space="preserve">
-    <value>上一步</value>
+    <value>上一�?/value>
     <comment>Automation name for the nav view provided back button</comment>
   </data>
   <data name="NavigationBackButtonToolTip" xml:space="preserve">
-    <value>上一步</value>
+    <value>上一�?/value>
     <comment>ToolTip caption for the back button</comment>
   </data>
   <data name="NavigationCloseButtonName" xml:space="preserve">
@@ -196,5 +196,38 @@
   <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
     <value>更多</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>全選</value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>請選�?..</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>前往</value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>�?/value>
   </data>
 </root>

@@ -1,0 +1,14 @@
+﻿using System;
+
+namespace Wpf.Ui.Violeta.Controls.Encoding.Masking;
+
+internal class Pattern7 : Pattern
+{
+    public override MaskPatternType MaskPatternType => MaskPatternType.Type7;
+
+    public override bool this[int i, int j]
+    {
+        get => (((i * j) % 3) + (((i + j) % 2) % 2)) == 0;
+        set => throw new NotSupportedException();
+    }
+}

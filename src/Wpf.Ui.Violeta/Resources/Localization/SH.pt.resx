@@ -197,4 +197,37 @@
     <value>Mais</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
   </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>Selecionar tudo</value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>Tudo</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Selecione...</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>Ir para</value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>dia</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>mês</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>ano</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>hora</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>minuto</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>segundo</value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>página</value>
+  </data>
 </root>

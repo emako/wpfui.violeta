@@ -1,0 +1,28 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+
+    <Style BasedOn="{StaticResource DefaultUiTextBoxStyle}" TargetType="local:KeyGestureInput">
+        <Setter Property="ContextMenu" Value="{x:Null}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="PlaceholderText" Value="Press a key combination..." />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="ClearButtonEnabled" Value="False" />
+        <Setter Property="IsTextSelectionEnabled" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="InputMethod.IsInputMethodEnabled" Value="False" />
+        <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
+</ResourceDictionary>

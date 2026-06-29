@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MessageBoxCaptionError" xml:space="preserve">
-    <value>エラー</value>
+    <value>エラ�?/value>
   </data>
   <data name="MessageBoxCaptionInformation" xml:space="preserve">
-    <value>ヒント</value>
+    <value>ヒン�?/value>
   </data>
   <data name="MessageBoxCaptionQuestion" xml:space="preserve">
     <value>質問</value>
@@ -130,13 +130,13 @@
     <value>警告</value>
   </data>
   <data name="PendingBoxLoadingText" xml:space="preserve">
-    <value>読み込み中</value>
+    <value>読み込み�?/value>
   </data>
   <data name="ExceptionWindowTitle" xml:space="preserve">
-    <value>エラー発生</value>
+    <value>エラー発�?/value>
   </data>
   <data name="ButtonCopy" xml:space="preserve">
-    <value>コピー</value>
+    <value>コピ�?/value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>無視</value>
@@ -145,20 +145,20 @@
     <value>終了</value>
   </data>
   <data name="ExceptionWindowHint1" xml:space="preserve">
-    <value>例外が発生しました</value>
+    <value>例外が発生しまし�?/value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>問題を追跡するために情報をコピーするか、無視して試すか、プログラムを終了して再起動することができます。</value>
+    <value>問題を追跡するために情報をコピーするか、無視して試すか、プログラムを終了して再起動することができます�?/value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>読み込み中</value>
+    <value>読み込み�?/value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
     <value>ナビゲーションを開く</value>
     <comment>Automation name for the hamburger button when it is in a closed state</comment>
   </data>
   <data name="NavigationButtonOpenName" xml:space="preserve">
-    <value>ナビゲーションを閉じる</value>
+    <value>ナビゲーションを閉じ�?/value>
     <comment>Automation name and tooltip caption for the hamburger button when it is in an open state, and tooltip caption for the close button</comment>
   </data>
   <data name="NavigationViewItemDefaultControlName" xml:space="preserve">
@@ -182,19 +182,52 @@
     <comment>ToolTip caption for the back button</comment>
   </data>
   <data name="NavigationCloseButtonName" xml:space="preserve">
-    <value>閉じる</value>
+    <value>閉じ�?/value>
     <comment>Automation name for the nav view provided close button</comment>
   </data>
   <data name="NavigationOverflowButtonName" xml:space="preserve">
-    <value>その他</value>
+    <value>その�?/value>
     <comment>Automation name for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonText" xml:space="preserve">
-    <value>さらに表示</value>
+    <value>さらに表�?/value>
     <comment>Text for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
-    <value>その他</value>
+    <value>その�?/value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>すべて選�?/value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>すべ�?/value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>選択してください...</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>移動�?/value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>�?/value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>ペー�?/value>
   </data>
 </root>

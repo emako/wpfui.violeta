@@ -1,0 +1,163 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          DateTimePickerPanel item text style
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style x:Key="DateTimePickerItemTextStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerItemForeground}" />
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          DateTimePickerPanel template
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style TargetType="{x:Type local:DateTimePickerPanel}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DateTimePickerPanel}">
+                    <Grid>
+                        <!--  Center highlight rectangle (behind text items)  -->
+                        <Border
+                            Height="{TemplateBinding ItemHeight}"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource AccentButtonBackground}"
+                            CornerRadius="4"
+                            IsHitTestVisible="False"
+                            Margin="4,0" />
+                        <ScrollViewer
+                            x:Name="PART_ScrollViewer"
+                            Focusable="False"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Hidden">
+                            <StackPanel x:Name="PART_ItemsPanel" />
+                        </ScrollViewer>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          Internal flyout button (the clickable area) — Card appearance
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style x:Key="DateTimePickerFlyoutButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="PART_Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource ControlCornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource CardBackgroundFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{DynamicResource ControlFillColorDisabledBrush}" />
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ═══════════════════════════════════════════════════════════════
+          Accept / Dismiss / Up / Down button inside the popup
+          ═══════════════════════════════════════════════════════════════ -->
+    <Style x:Key="DateTimePickerPopupButtonStyle" TargetType="{x:Type ButtonBase}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonForeground}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0,8" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverBackground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverForeground}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPressedBackground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPressedForeground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DateTimePickerUpButtonStyle" BasedOn="{StaticResource DateTimePickerPopupButtonStyle}" TargetType="{x:Type RepeatButton}">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Visibility" Value="Hidden" />
+        <Setter Property="Padding" Value="0,4" />
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path
+                    Width="10"
+                    Height="6"
+                    Data="M 0,6 L 5,0 L 10,6"
+                    Stretch="Fill"
+                    Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RepeatButton}}"
+                    StrokeThickness="1.5" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DateTimePickerDownButtonStyle" BasedOn="{StaticResource DateTimePickerPopupButtonStyle}" TargetType="{x:Type RepeatButton}">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Visibility" Value="Hidden" />
+        <Setter Property="Padding" Value="0,4" />
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path
+                    Width="10"
+                    Height="6"
+                    Data="M 0,0 L 5,6 L 10,0"
+                    Stretch="Fill"
+                    Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=RepeatButton}}"
+                    StrokeThickness="1.5" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
