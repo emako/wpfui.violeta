@@ -13,6 +13,7 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta")]
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Controls")]
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Converters")]
+[assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Controls.Compat")]
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Controls.Primitives")]
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Markup")]
 [assembly: XmlnsDefinition("http://schemas.lepo.co/wpfui/2022/xaml/violeta", "Wpf.Ui.Violeta.Appearance")]

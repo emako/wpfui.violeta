@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <LangVersion>preview</LangVersion>
+        <AssemblyTitle>Wpf.Ui.Violeta Gallery</AssemblyTitle>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    </ItemGroup>
+
+</Project>
