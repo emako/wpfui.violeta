@@ -68,7 +68,7 @@ public static class TextBlockHelper
 
     #endregion IsTextTrimmed
 
-    private static void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private static void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdateTextTrimmed((TextBlock)sender);
     }

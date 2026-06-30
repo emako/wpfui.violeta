@@ -55,7 +55,7 @@ public static class PanelHelper
         }
     }
 
-    private static void OnPanelLoaded(object sender, RoutedEventArgs e)
+    private static void OnPanelLoaded(object? sender, RoutedEventArgs e)
     {
         var panel = (Panel)sender;
         object value = panel.GetProperty("Orientation");

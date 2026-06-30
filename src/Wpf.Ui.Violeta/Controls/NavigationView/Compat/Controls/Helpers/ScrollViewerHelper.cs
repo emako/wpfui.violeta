@@ -70,7 +70,7 @@ public static class ScrollViewerHelper
 
     #endregion AutoHideScrollBars
 
-    private static void OnLoaded(object sender, RoutedEventArgs e)
+    private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
         var sv = (ScrollViewer)sender;
         sv.ApplyTemplate();

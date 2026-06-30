@@ -402,7 +402,7 @@ public abstract class NumericUpDown : Control
 
     // --- Button clicks -------------------------------------------------------
 
-    private void OnIncreaseButtonClick(object sender, RoutedEventArgs e)
+    private void OnIncreaseButtonClick(object? sender, RoutedEventArgs e)
     {
         if (AllowSpin && !IsReadOnly && _canIncrease)
         {
@@ -412,7 +412,7 @@ public abstract class NumericUpDown : Control
         }
     }
 
-    private void OnDecreaseButtonClick(object sender, RoutedEventArgs e)
+    private void OnDecreaseButtonClick(object? sender, RoutedEventArgs e)
     {
         if (AllowSpin && !IsReadOnly && _canDecrease)
         {
@@ -424,7 +424,7 @@ public abstract class NumericUpDown : Control
 
     // --- Inner TextBox changes ------------------------------------------------
 
-    private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
+    private void OnTextBoxTextChanged(object? sender, TextChangedEventArgs e)
     {
         if (_textBox is null) return;
 
@@ -498,7 +498,7 @@ public abstract class NumericUpDown : Control
         _textBox.CaretIndex = caret;
     }
 
-    private void OnTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)
+    private void OnTextBoxPreviewTextInput(object? sender, TextCompositionEventArgs e)
     {
         // Best-effort early rejection for direct keyboard input (before the char
         // reaches the TextBox). IME commits and paste are handled in SanitizeRestrictedText.
@@ -532,7 +532,7 @@ public abstract class NumericUpDown : Control
         }
     }
 
-    private void OnTextBoxPreviewKeyDown(object sender, KeyEventArgs e)
+    private void OnTextBoxPreviewKeyDown(object? sender, KeyEventArgs e)
     {
         switch (e.Key)
         {
@@ -592,7 +592,7 @@ public abstract class NumericUpDown : Control
 
     // --- Drag panel ----------------------------------------------------------
 
-    private void OnDragPanelMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    private void OnDragPanelMouseDown(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         _dragStartPoint = e.GetPosition(this);
 
@@ -609,11 +609,11 @@ public abstract class NumericUpDown : Control
             // Single click: focus but stay in drag mode (read-only textbox)
             _textBox?.Focus();
             _textBox?.IsReadOnly = true;
-            Mouse.Capture((IInputElement)sender);
+            Mouse.Capture((IInputElement)sender!);
         }
     }
 
-    private void OnDragPanelMouseMove(object sender, MouseEventArgs e)
+    private void OnDragPanelMouseMove(object? sender, MouseEventArgs e)
     {
         if (!AllowDrag || IsReadOnly) return;
         if (!e.LeftButton.HasFlag(MouseButtonState.Pressed)) return;
@@ -629,7 +629,7 @@ public abstract class NumericUpDown : Control
         _dragStartPoint = pos;
     }
 
-    private void OnDragPanelMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    private void OnDragPanelMouseUp(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         _dragStartPoint = null;
         Mouse.Capture(null);

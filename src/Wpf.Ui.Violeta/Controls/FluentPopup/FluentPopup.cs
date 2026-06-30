@@ -158,7 +158,7 @@ public class FluentPopup : Popup
 
     private void OnHostWindowMoved(object? sender, EventArgs e) => FollowMove();
 
-    private void OnHostWindowSizeChanged(object sender, SizeChangedEventArgs e) => FollowMove();
+    private void OnHostWindowSizeChanged(object? sender, SizeChangedEventArgs e) => FollowMove();
 
     private void OnPopupOpened(object? sender, EventArgs e)
     {

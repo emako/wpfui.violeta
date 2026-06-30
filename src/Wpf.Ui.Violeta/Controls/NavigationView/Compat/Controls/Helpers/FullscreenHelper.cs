@@ -185,7 +185,9 @@ public static partial class FullscreenHelper
             try
             {
                 // Get WINDOWPOS structure
-                var pos = (WindowPosition)Marshal.PtrToStructure(lParam, typeof(WindowPosition));
+#pragma warning disable CA2263 // Prefer generic overload when type is known
+                var pos = (WindowPosition)Marshal.PtrToStructure(lParam, typeof(WindowPosition))!;
+#pragma warning restore CA2263 // Prefer generic overload when type is known
 
                 if ((pos.Flags & WindowPositionFlags.SWP_NOMOVE) != 0 &&
                 (pos.Flags & WindowPositionFlags.SWP_NOSIZE) != 0)

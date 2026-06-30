@@ -44,7 +44,7 @@ public static class AutoPanningMode
 
     #endregion IsEnabled
 
-    private static void ScrollViewer_Loaded(object sender, RoutedEventArgs e)
+    private static void ScrollViewer_Loaded(object? sender, RoutedEventArgs e)
     {
         var sv = (ScrollViewer)sender;
         sv.Loaded -= ScrollViewer_Loaded;

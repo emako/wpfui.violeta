@@ -46,27 +46,27 @@ public static class FlyoutService
 
     //static Dictionary<Button, DispatcherTimer> longPressTimers = new Dictionary<Button, DispatcherTimer>();
 
-    //private static void Button_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    //private static void Button_MouseLeftButtonUp(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     //{
     //    throw new System.NotImplementedException();
     //}
 
-    //private static void Button_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    //private static void Button_MouseLeftButtonDown(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     //{
     //    throw new System.NotImplementedException();
     //}
 
-    //private static void Button_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    //private static void Button_MouseRightButtonDown(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     //{
     //    throw new System.NotImplementedException();
     //}
 
-    private static void Button_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    private static void Button_MouseRightButtonUp(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         ButtonFlyoutOpening(sender, FlyoutOpeningMode.RightMouseButtonUp);
     }
 
-    //private static void OnButtonLongPressStarted(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    //private static void OnButtonLongPressStarted(object? sender, System.Windows.Input.MouseButtonEventArgs e)
     //{
     //    var button = (Button)sender;
     //    var openingMode = GetFlyoutOpeningMode(button);
@@ -90,7 +90,7 @@ public static class FlyoutService
     //    }
     //}
 
-    //private static void Timer_Tick(object sender, EventArgs e)
+    //private static void Timer_Tick(object? sender, EventArgs e)
     //{
     //    DispatcherTimer timer = sender as DispatcherTimer;
     //    Button button = timer?.Tag as Button;
@@ -104,12 +104,12 @@ public static class FlyoutService
     //    }
     //}
 
-    private static void OnButtonClick(object sender, RoutedEventArgs e)
+    private static void OnButtonClick(object? sender, RoutedEventArgs e)
     {
         ButtonFlyoutOpening(sender, FlyoutOpeningMode.Click);
     }
 
-    private static void ButtonFlyoutOpening(object sender, FlyoutOpeningMode requested)
+    private static void ButtonFlyoutOpening(object? sender, FlyoutOpeningMode requested)
     {
         var button = (Button)sender;
         var open = GetFlyoutOpeningMode(button);

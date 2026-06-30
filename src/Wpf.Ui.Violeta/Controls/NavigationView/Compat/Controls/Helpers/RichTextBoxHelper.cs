@@ -90,7 +90,7 @@ public static class RichTextBoxHelper
 
     #endregion IsEmpty
 
-    private static void OnTextChanged(object sender, TextChangedEventArgs e)
+    private static void OnTextChanged(object? sender, TextChangedEventArgs e)
     {
         UpdateIsEmpty((RichTextBox)sender);
     }

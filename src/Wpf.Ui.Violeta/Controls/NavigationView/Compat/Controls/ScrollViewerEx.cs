@@ -132,7 +132,7 @@ public class ScrollViewerEx : ScrollViewer
 
     #endregion IsScrollAnimationEnabled
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         LastVerticalLocation = VerticalOffset;
         LastHorizontalLocation = HorizontalOffset;

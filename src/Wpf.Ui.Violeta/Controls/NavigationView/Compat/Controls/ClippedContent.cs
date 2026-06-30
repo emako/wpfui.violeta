@@ -45,7 +45,7 @@ public class ClippedContent : ContentControl
         ApplyClip();
     }
 
-    private void ClippingBorder_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void ClippingBorder_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
         ApplyClip();
     }
@@ -98,7 +98,7 @@ public class ClippedContent : ContentControl
         ApplyClip();
     }
 
-    private void PART_InnerBorder_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void PART_InnerBorder_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
         ApplyClip();
     }

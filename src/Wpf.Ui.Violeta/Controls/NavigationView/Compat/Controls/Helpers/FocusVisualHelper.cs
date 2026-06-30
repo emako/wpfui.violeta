@@ -410,7 +410,7 @@ public static class FocusVisualHelper
             }
         }
 
-        static void OnControlIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        static void OnControlIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
         {
             ((Control)sender).IsVisibleChanged -= OnControlIsVisibleChanged;
             Debug.Assert((bool)e.NewValue == false);
@@ -463,7 +463,7 @@ public static class FocusVisualHelper
 
     #endregion TemplateFocusTarget
 
-    private static void OnFocusVisualIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private static void OnFocusVisualIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         var focusVisual = (Control)sender;
         if ((bool)e.NewValue)

@@ -133,7 +133,7 @@ public class TimeBox : Control
 
     #region Input Handlers
 
-    private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+    private void OnPreviewTextInput(object? sender, TextCompositionEventArgs e)
     {
         if (string.IsNullOrEmpty(e.Text))
         {
@@ -181,7 +181,7 @@ public class TimeBox : Control
         }
     }
 
-    private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+    private void OnPreviewKeyDown(object? sender, KeyEventArgs e)
     {
         if (sender is not TextBox tb) return;
 
@@ -262,7 +262,7 @@ public class TimeBox : Control
         }
     }
 
-    private void OnSectionTextChanged(object sender, TextChangedEventArgs e)
+    private void OnSectionTextChanged(object? sender, TextChangedEventArgs e)
     {
         if (_isInternalUpdate) return;
         if (sender is not TextBox tb) return;
@@ -293,7 +293,7 @@ public class TimeBox : Control
         UpdateTimeFromSections();
     }
 
-    private void OnPaste(object sender, DataObjectPastingEventArgs e)
+    private void OnPaste(object? sender, DataObjectPastingEventArgs e)
     {
         if (e.SourceDataObject.GetDataPresent(DataFormats.Text))
         {

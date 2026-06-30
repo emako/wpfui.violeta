@@ -47,7 +47,7 @@ public static class TreeViewItemHelper
         }
     }
 
-    private static void OnTreeViewItemIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private static void OnTreeViewItemIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         if ((bool)e.NewValue)
         {

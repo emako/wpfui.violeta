@@ -149,7 +149,7 @@ public class VisualTargetPresentationSource : PresentationSource, IDisposable
         return _visualTarget;
     }
 
-    private void Root_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void Root_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
         if (IsDisposed)
         {

@@ -45,7 +45,7 @@ public static class ContextFlyoutService
 
     #endregion ContextFlyout
 
-    private static void OnContextMenuOpening(object sender, ContextMenuEventArgs e)
+    private static void OnContextMenuOpening(object? sender, ContextMenuEventArgs e)
     {
         var element = (FrameworkElement)sender;
         var flyout = GetContextFlyout(element);

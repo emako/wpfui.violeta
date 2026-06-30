@@ -393,14 +393,14 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         ClearMarginAdjustment();
         UpdateLayout();
         AdjustMargin();
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         if (IsVisible)
         {
@@ -468,7 +468,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnParentPopupControlOpened(object sender, EventArgs e)
+    private void OnParentPopupControlOpened(object? sender, EventArgs e)
     {
         if (_popupPositioner != null)
         {
@@ -501,7 +501,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
-    private void OnParentPopupControlClosed(object sender, EventArgs e)
+    private void OnParentPopupControlClosed(object? sender, EventArgs e)
     {
         ClearMarginAdjustment();
         ResetTransform();
@@ -894,12 +894,12 @@ public class ThemeShadowChrome : Decorator
             }
         }
 
-        private void OnOpened(object sender, EventArgs e)
+        private void OnOpened(object? sender, EventArgs e)
         {
             Opened?.Invoke(this, e);
         }
 
-        private void OnClosed(object sender, EventArgs e)
+        private void OnClosed(object? sender, EventArgs e)
         {
             Closed?.Invoke(this, e);
         }

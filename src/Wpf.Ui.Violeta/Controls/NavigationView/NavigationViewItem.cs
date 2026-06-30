@@ -174,7 +174,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         }
     }
 
-    private void OnItemsSourceViewChanged(object sender, NotifyCollectionChangedEventArgs args)
+    private void OnItemsSourceViewChanged(object? sender, NotifyCollectionChangedEventArgs args)
     {
         UpdateVisualStateForChevron();
     }
@@ -701,13 +701,13 @@ public partial class NavigationViewItem : NavigationViewItemBase
         }
     }
 
-    internal void OnExpandCollapseChevronTapped(object sender, TappedRoutedEventArgs args)
+    internal void OnExpandCollapseChevronTapped(object? sender, TappedRoutedEventArgs args)
     {
         IsExpanded = !IsExpanded;
         args.Handled = true;
     }
 
-    void OnFlyoutClosing(object sender, FlyoutBaseClosingEventArgs args)
+    void OnFlyoutClosing(object? sender, FlyoutBaseClosingEventArgs args)
     {
         IsExpanded = false;
     }
@@ -766,7 +766,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         }
     }
 
-    void OnPresenterPointerPressed(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerPressed(object? sender, PointerRoutedEventArgs args)
     {
         // Inherited code, removed Debug.Asserts
         // Debug.Assert(!m_isPressed);
@@ -787,7 +787,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         UpdateVisualState(true);
     }
 
-    void OnPresenterPointerReleased(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerReleased(object? sender, PointerRoutedEventArgs args)
     {
         if (m_isPressed)
         {
@@ -806,33 +806,33 @@ public partial class NavigationViewItem : NavigationViewItemBase
         UpdateVisualState(true);
     }
 
-    void OnPresenterPointerEntered(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerEntered(object? sender, PointerRoutedEventArgs args)
     {
         ProcessPointerOver(args);
     }
 
-    void OnPresenterPointerMoved(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerMoved(object? sender, PointerRoutedEventArgs args)
     {
         ProcessPointerOver(args);
     }
 
-    void OnPresenterPointerExited(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerExited(object? sender, PointerRoutedEventArgs args)
     {
         m_isPointerOver = false;
         UpdateVisualState(true);
     }
 
-    void OnPresenterPointerCanceled(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerCanceled(object? sender, PointerRoutedEventArgs args)
     {
         ProcessPointerCanceled(args);
     }
 
-    void OnPresenterPointerCaptureLost(object sender, PointerRoutedEventArgs args)
+    void OnPresenterPointerCaptureLost(object? sender, PointerRoutedEventArgs args)
     {
         ProcessPointerCanceled(args);
     }
 
-    void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs args)
+    void OnIsEnabledChanged(object? sender, DependencyPropertyChangedEventArgs args)
     {
         if (!IsEnabled)
         {

@@ -216,7 +216,7 @@ public class TimePicker : Control
     // Event handlers
     // ------------------------------------------------------------------
 
-    private void OnFlyoutButtonClick(object sender, RoutedEventArgs e)
+    private void OnFlyoutButtonClick(object? sender, RoutedEventArgs e)
     {
         if (_popup == null) return;
 
@@ -230,14 +230,14 @@ public class TimePicker : Control
         _popup.IsOpen = true;
     }
 
-    private void OnPresenterConfirmed(object sender, RoutedEventArgs e)
+    private void OnPresenterConfirmed(object? sender, RoutedEventArgs e)
     {
         if (_presenter != null)
             SelectedTime = _presenter.GetSelectedTime();
         ClosePopup();
     }
 
-    private void OnPresenterDismissed(object sender, RoutedEventArgs e)
+    private void OnPresenterDismissed(object? sender, RoutedEventArgs e)
     {
         ClosePopup();
     }

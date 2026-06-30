@@ -25,7 +25,7 @@ internal class GettingFocusHelper : IDisposable
 
     public event TypedEventHandler<UIElement, GettingFocusEventArgs> GettingFocus;
 
-    private void OnPreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+    private void OnPreviewGotKeyboardFocus(object? sender, KeyboardFocusChangedEventArgs e)
     {
         if (_ignoreGotFocus)
         {

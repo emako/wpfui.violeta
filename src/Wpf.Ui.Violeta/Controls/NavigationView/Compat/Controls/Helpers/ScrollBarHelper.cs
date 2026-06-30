@@ -128,7 +128,7 @@ public static class ScrollBarHelper
 
     #endregion ExpandedThumbBackgroundColor
 
-    private static void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private static void OnIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         if ((bool)e.NewValue)
         {
@@ -138,7 +138,7 @@ public static class ScrollBarHelper
         }
     }
 
-    private static void OnIsMouseOverChanged(object sender, MouseEventArgs e)
+    private static void OnIsMouseOverChanged(object? sender, MouseEventArgs e)
     {
         var scrollBar = (ScrollBar)sender;
         if (scrollBar.IsEnabled)
@@ -147,7 +147,7 @@ public static class ScrollBarHelper
         }
     }
 
-    private static void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private static void OnIsEnabledChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         var scrollBar = (ScrollBar)sender;
         UpdateVisualState(scrollBar);

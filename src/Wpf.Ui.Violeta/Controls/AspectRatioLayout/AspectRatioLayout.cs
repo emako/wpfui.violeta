@@ -44,7 +44,7 @@ public class AspectRatioLayout : ContentControl
         Loaded += OnLoaded;
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;
         UpdateContent(forceUpdate: true);

@@ -222,7 +222,7 @@ public class DatePicker : Control
     // Event handlers
     // ------------------------------------------------------------------
 
-    private void OnFlyoutButtonClick(object sender, RoutedEventArgs e)
+    private void OnFlyoutButtonClick(object? sender, RoutedEventArgs e)
     {
         if (_popup == null) return;
 
@@ -233,7 +233,7 @@ public class DatePicker : Control
         _popup.IsOpen = true;
     }
 
-    private void OnPresenterConfirmed(object sender, RoutedEventArgs e)
+    private void OnPresenterConfirmed(object? sender, RoutedEventArgs e)
     {
         if (_presenter != null)
         {
@@ -243,7 +243,7 @@ public class DatePicker : Control
         ClosePopup();
     }
 
-    private void OnPresenterDismissed(object sender, RoutedEventArgs e)
+    private void OnPresenterDismissed(object? sender, RoutedEventArgs e)
     {
         ClosePopup();
     }

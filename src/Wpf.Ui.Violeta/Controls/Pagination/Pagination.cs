@@ -379,11 +379,11 @@ public class Pagination : Control
 
     // --- Event handlers ----------------------------------------------------------
 
-    private void OnPreviousButtonClick(object sender, RoutedEventArgs e) => AddCurrentPage(-1);
+    private void OnPreviousButtonClick(object? sender, RoutedEventArgs e) => AddCurrentPage(-1);
 
-    private void OnNextButtonClick(object sender, RoutedEventArgs e) => AddCurrentPage(1);
+    private void OnNextButtonClick(object? sender, RoutedEventArgs e) => AddCurrentPage(1);
 
-    private void OnPageButtonClick(object sender, RoutedEventArgs e)
+    private void OnPageButtonClick(object? sender, RoutedEventArgs e)
     {
         if (sender is PaginationButton btn)
         {
@@ -396,13 +396,13 @@ public class Pagination : Control
         }
     }
 
-    private void OnQuickJumpKeyDown(object sender, KeyEventArgs e)
+    private void OnQuickJumpKeyDown(object? sender, KeyEventArgs e)
     {
         if (e.Key is Key.Enter or Key.Return)
             SyncQuickJump();
     }
 
-    private void OnQuickJumpLostFocus(object sender, RoutedEventArgs e) => SyncQuickJump();
+    private void OnQuickJumpLostFocus(object? sender, RoutedEventArgs e) => SyncQuickJump();
 
     private void SyncPageSizeSelector()
     {
@@ -411,7 +411,7 @@ public class Pagination : Control
         _pageSizeSelector.SelectedItem = PageSize;
     }
 
-    private void OnPageSizeSelectorChanged(object sender, SelectionChangedEventArgs e)
+    private void OnPageSizeSelectorChanged(object? sender, SelectionChangedEventArgs e)
     {
         if (_pageSizeSelector?.SelectedItem is int newSize && newSize > 0)
         {

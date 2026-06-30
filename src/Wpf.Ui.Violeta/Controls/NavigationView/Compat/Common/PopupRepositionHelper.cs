@@ -25,7 +25,7 @@ internal class PopupRepositionHelper : IDisposable
         OnPopupClosed(null, null);
     }
 
-    private void OnPopupOpened(object sender, EventArgs e)
+    private void OnPopupOpened(object? sender, EventArgs e)
     {
         if (m_isPopupOpen)
         {
@@ -43,7 +43,7 @@ internal class PopupRepositionHelper : IDisposable
         }
     }
 
-    private void OnPopupClosed(object sender, EventArgs e)
+    private void OnPopupClosed(object? sender, EventArgs e)
     {
         m_target.LayoutUpdated -= OnTargetLayoutUpdated;
 
@@ -57,12 +57,12 @@ internal class PopupRepositionHelper : IDisposable
         m_popupPosition = default;
     }
 
-    private void OnTargetLayoutUpdated(object sender, EventArgs e)
+    private void OnTargetLayoutUpdated(object? sender, EventArgs e)
     {
         RepositionPopup();
     }
 
-    private void OnHostWindowLocationChanged(object sender, EventArgs e)
+    private void OnHostWindowLocationChanged(object? sender, EventArgs e)
     {
         RepositionPopup();
     }

@@ -119,13 +119,13 @@ public class ButtonSpinner : ContentControl
         if (_decreaseButton != null) _decreaseButton.Click += OnDecreaseClick;
     }
 
-    private void OnIncreaseClick(object sender, RoutedEventArgs e)
+    private void OnIncreaseClick(object? sender, RoutedEventArgs e)
     {
         if (AllowSpin)
             RaiseEvent(new SpinEventArgs(SpinEvent, SpinDirection.Increase));
     }
 
-    private void OnDecreaseClick(object sender, RoutedEventArgs e)
+    private void OnDecreaseClick(object? sender, RoutedEventArgs e)
     {
         if (AllowSpin)
             RaiseEvent(new SpinEventArgs(SpinEvent, SpinDirection.Decrease));

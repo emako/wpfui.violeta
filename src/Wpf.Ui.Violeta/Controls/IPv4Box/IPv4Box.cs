@@ -77,7 +77,7 @@ public class IPv4Box : Control
         DataObject.AddPastingHandler(tb, OnPaste);
     }
 
-    private void Octet_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    private void Octet_PreviewTextInput(object? sender, TextCompositionEventArgs e)
     {
         if (string.IsNullOrEmpty(e.Text))
         {

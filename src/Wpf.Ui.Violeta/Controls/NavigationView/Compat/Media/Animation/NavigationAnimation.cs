@@ -48,7 +48,7 @@ internal class NavigationAnimation
         _element.InvalidateProperty(UIElement.RenderTransformOriginProperty);
     }
 
-    private void OnCurrentStateInvalidated(object sender, EventArgs e)
+    private void OnCurrentStateInvalidated(object? sender, EventArgs e)
     {
         if (sender is Clock clock)
         {
@@ -56,7 +56,7 @@ internal class NavigationAnimation
         }
     }
 
-    private void OnCompleted(object sender, EventArgs e)
+    private void OnCompleted(object? sender, EventArgs e)
     {
         Completed?.Invoke(this, EventArgs.Empty);
     }

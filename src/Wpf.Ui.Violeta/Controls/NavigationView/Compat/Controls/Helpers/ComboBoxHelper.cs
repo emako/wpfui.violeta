@@ -87,7 +87,7 @@ public sealed class ComboBoxHelper
         }
     }
 
-    private static void OnDropDownOpened(object sender, object args)
+    private static void OnDropDownOpened(object? sender, object args)
     {
         var comboBox = (ComboBox)sender;
         // We need to know whether the dropDown opens above or below the ComboBox in order to update corner radius correctly.
@@ -99,7 +99,7 @@ public sealed class ComboBoxHelper
             });
     }
 
-    private static void OnDropDownClosed(object sender, object args)
+    private static void OnDropDownClosed(object? sender, object args)
     {
         var comboBox = (ComboBox)sender;
         UpdateCornerRadius(comboBox, /*IsDropDownOpen=*/false);

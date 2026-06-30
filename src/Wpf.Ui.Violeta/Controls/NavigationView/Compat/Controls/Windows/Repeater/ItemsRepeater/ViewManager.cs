@@ -756,7 +756,7 @@ internal class ViewManager
         }
     }
 
-    private void OnFocusChanged(object sender, RoutedEventArgs args)
+    private void OnFocusChanged(object? sender, RoutedEventArgs args)
     {
         UpdateFocusedElement();
     }

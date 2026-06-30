@@ -437,18 +437,18 @@ public abstract class FlyoutBase : DependencyObject
         return value;
     }
 
-    private void OnPopupOpened(object sender, EventArgs e)
+    private void OnPopupOpened(object? sender, EventArgs e)
     {
         OnOpened();
     }
 
-    private void OnPopupClosing(object sender, EventArgs e)
+    private void OnPopupClosing(object? sender, EventArgs e)
     {
         Closing?.Invoke(this, new FlyoutBaseClosingEventArgs()); // TODO: Cancel
         m_closing = true;
     }
 
-    private void OnPopupClosed(object sender, EventArgs e)
+    private void OnPopupClosed(object? sender, EventArgs e)
     {
         m_closing = false;
 
@@ -466,7 +466,7 @@ public abstract class FlyoutBase : DependencyObject
         OnClosed();
     }
 
-    private void OnPopupIsOpenChanged(object sender, EventArgs e)
+    private void OnPopupIsOpenChanged(object? sender, EventArgs e)
     {
         UpdateIsOpen();
     }

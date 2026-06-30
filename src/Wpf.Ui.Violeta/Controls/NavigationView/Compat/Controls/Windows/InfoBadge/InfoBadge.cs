@@ -173,7 +173,7 @@ public class InfoBadge : Control
         }
     }
 
-    void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         CornerRadius value()
         {

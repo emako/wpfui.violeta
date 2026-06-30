@@ -409,14 +409,14 @@ public static class TabControlHelper
 
     #endregion AddTabButtonCommandParameter
 
-    private static void OnLoaded(object sender, RoutedEventArgs e)
+    private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
         TabControl TabControl = sender as TabControl;
         Button AddButton = (Button)TabControl.FindDescendantByName("AddButton");
 
         if (AddButton != null)
         {
-            void OnAddButtonClick(object sender, RoutedEventArgs e)
+            void OnAddButtonClick(object? sender, RoutedEventArgs e)
             {
                 RoutedEventArgs args = new RoutedEventArgs(AddTabButtonClickEvent, TabControl);
                 TabControl.RaiseEvent(args);

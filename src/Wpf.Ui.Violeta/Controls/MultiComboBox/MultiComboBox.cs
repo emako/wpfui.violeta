@@ -235,7 +235,7 @@ public class MultiComboBox : ComboBox
         UpdateSelectedText();
     }
 
-    private void OnSelectAllCheckBoxClick(object sender, RoutedEventArgs e)
+    private void OnSelectAllCheckBoxClick(object? sender, RoutedEventArgs e)
     {
         if (_suppressSelectAllUpdate)
             return;

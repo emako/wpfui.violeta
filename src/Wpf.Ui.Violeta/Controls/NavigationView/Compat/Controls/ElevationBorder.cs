@@ -96,7 +96,7 @@ public class ElevationBorder : ContentControl
         RefreshElevationBrush();
     }
 
-    private void ElevationBorder_SizeChanged(object sender, SizeChangedEventArgs e)
+    private void ElevationBorder_SizeChanged(object? sender, SizeChangedEventArgs e)
     {
         RefreshElevationBrush();
     }
@@ -119,7 +119,7 @@ public class ElevationBorder : ContentControl
         (d as ElevationBorder)?.ElevationLengthProperty_ValueChanged(d, e);
     }
 
-    private void ElevationLengthProperty_ValueChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private void ElevationLengthProperty_ValueChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         RefreshElevationBrush();
     }

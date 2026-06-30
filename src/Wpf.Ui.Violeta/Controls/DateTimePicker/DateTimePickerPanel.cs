@@ -407,7 +407,7 @@ public class DateTimePickerPanel : Control
         }
     }
 
-    private void OnScrollViewerSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnScrollViewerSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         // Re-center when layout changes
         ScrollToSelected(animate: false);
@@ -417,7 +417,7 @@ public class DateTimePickerPanel : Control
     // Input handling
     // ------------------------------------------------------------------
 
-    private void OnMouseWheel(object sender, MouseWheelEventArgs e)
+    private void OnMouseWheel(object? sender, MouseWheelEventArgs e)
     {
         e.Handled = true;
         if (e.Delta > 0)

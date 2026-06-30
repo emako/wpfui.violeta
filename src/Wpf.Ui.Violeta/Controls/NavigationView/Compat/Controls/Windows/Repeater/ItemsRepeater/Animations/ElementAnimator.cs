@@ -170,7 +170,7 @@ public class ElementAnimator
         }
     }
 
-    private void OnRendering(object sender, EventArgs args)
+    private void OnRendering(object? sender, EventArgs args)
     {
         CompositionTarget.Rendering -= OnRendering;
 

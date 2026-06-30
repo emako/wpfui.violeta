@@ -330,12 +330,12 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         return canScrollInDirection;
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         BringSelectedTabItemIntoView();
     }
 
-    private void OnTabControlSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void OnTabControlSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         BringSelectedTabItemIntoView();
     }

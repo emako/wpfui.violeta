@@ -173,7 +173,7 @@ public class PasswordBoxHelper : DependencyObject
 
     private PasswordRevealMode PasswordRevealMode => GetPasswordRevealMode(_passwordBox);
 
-    private static void OnDisabledCommandCanExecute(object sender, CanExecuteRoutedEventArgs e)
+    private static void OnDisabledCommandCanExecute(object? sender, CanExecuteRoutedEventArgs e)
     {
         e.CanExecute = false;
         e.Handled = true;
@@ -211,7 +211,7 @@ public class PasswordBoxHelper : DependencyObject
         }
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         _passwordBox.Loaded -= OnLoaded;
         OnApplyTemplate();
@@ -236,7 +236,7 @@ public class PasswordBoxHelper : DependencyObject
         UpdateVisualState(false);
     }
 
-    private void OnGotFocus(object sender, RoutedEventArgs e)
+    private void OnGotFocus(object? sender, RoutedEventArgs e)
     {
         if (PasswordRevealMode == PasswordRevealMode.Visible && TextBox != null)
         {
@@ -255,12 +255,12 @@ public class PasswordBoxHelper : DependencyObject
         UpdateVisualState(true);
     }
 
-    private void OnLostFocus(object sender, RoutedEventArgs e)
+    private void OnLostFocus(object? sender, RoutedEventArgs e)
     {
         UpdateVisualState(true);
     }
 
-    private void OnPasswordChanged(object sender, RoutedEventArgs e)
+    private void OnPasswordChanged(object? sender, RoutedEventArgs e)
     {
         bool hasPassword = !string.IsNullOrEmpty(_passwordBox.Password);
 
@@ -274,7 +274,7 @@ public class PasswordBoxHelper : DependencyObject
         UpdateVisualState(true);
     }
 
-    private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
+    private void OnTextBoxTextChanged(object? sender, TextChangedEventArgs e)
     {
         if (PasswordRevealMode == PasswordRevealMode.Visible)
         {

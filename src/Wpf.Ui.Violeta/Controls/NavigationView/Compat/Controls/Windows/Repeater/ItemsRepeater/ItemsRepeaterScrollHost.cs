@@ -411,7 +411,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
         return m_anchorElement;
     }
 
-    private void OnScrollViewerScrollChanged(object sender, ScrollChangedEventArgs e)
+    private void OnScrollViewerScrollChanged(object? sender, ScrollChangedEventArgs e)
     {
         // WPF: Workaround for an issue where only the first item is realized
         if (e.ViewportWidthChange != 0 || e.ViewportHeightChange != 0)
@@ -435,7 +435,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
         ViewportChanged?.Invoke(this, true /* isFinal */);
     }
 
-    private void OnScrollViewerSizeChanged(object sender, SizeChangedEventArgs args)
+    private void OnScrollViewerSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         ViewportChanged?.Invoke(this, true /* isFinal */);
     }

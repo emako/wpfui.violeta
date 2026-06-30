@@ -46,7 +46,7 @@ public static class MenuDropAlignmentHelper
         }
     }
 
-    private static void SystemParameters_StaticPropertyChanged(object sender, PropertyChangedEventArgs e)
+    private static void SystemParameters_StaticPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(SystemParameters.MenuDropAlignment))
         {

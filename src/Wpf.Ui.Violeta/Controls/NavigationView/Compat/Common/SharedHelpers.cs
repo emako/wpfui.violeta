@@ -40,7 +40,7 @@ internal static class SharedHelpers
     {
         CompositionTarget.Rendering += onRendering;
 
-        void onRendering(object sender, EventArgs e)
+        void onRendering(object? sender, EventArgs e)
         {
             // Detach event or Rendering will keep calling us back.
             CompositionTarget.Rendering -= onRendering;

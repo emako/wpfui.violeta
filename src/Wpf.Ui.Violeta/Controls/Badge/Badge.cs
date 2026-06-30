@@ -242,7 +242,7 @@ public class Badge : ContentControl
         UpdateBadgePosition();
     }
 
-    private void OnBadgeSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnBadgeSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdateBadgePosition();
     }

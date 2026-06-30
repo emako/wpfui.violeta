@@ -115,12 +115,12 @@ public class TreeComboBox : ItemsControl
         _popup = GetTemplateChild(PART_Popup) as Popup;
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         _parentWindow = Window.GetWindow(this);
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs e)
+    private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         UnregisterWindowHandler();
     }
@@ -158,7 +158,7 @@ public class TreeComboBox : ItemsControl
     /// Window-level preview handler for light-dismiss: closes the popup when
     /// the user clicks outside both the header and the popup content.
     /// </summary>
-    private void OnWindowPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void OnWindowPreviewMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
         if (e.OriginalSource is not DependencyObject target)
             return;

@@ -42,7 +42,7 @@ public static class CalendarHelper
 
     #endregion AutoReleaseMouseCapture
 
-    private static void OnCalendarGotMouseCapture(object sender, MouseEventArgs e)
+    private static void OnCalendarGotMouseCapture(object? sender, MouseEventArgs e)
     {
         var calendar = (Calendar)sender;
         if (calendar.SelectionMode != CalendarSelectionMode.MultipleRange)

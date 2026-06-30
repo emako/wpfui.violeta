@@ -98,7 +98,7 @@ public class Banner : HeaderedContentControl
         _closeButton?.Click += OnCloseButtonClick;
     }
 
-    private void OnCloseButtonClick(object sender, RoutedEventArgs e)
+    private void OnCloseButtonClick(object? sender, RoutedEventArgs e)
     {
         Visibility = Visibility.Collapsed;
     }

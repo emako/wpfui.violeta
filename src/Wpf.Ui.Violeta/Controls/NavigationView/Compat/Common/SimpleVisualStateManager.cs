@@ -129,7 +129,7 @@ public class SimpleVisualStateManager : VisualStateManager
             if (transition.Storyboard != null/* && transition.ExplicitStoryboardCompleted == true*/)
             {
                 EventHandler transitionCompleted = null;
-                transitionCompleted = new EventHandler(delegate (object sender, EventArgs e)
+                transitionCompleted = new EventHandler(delegate (object? sender, EventArgs e)
                 {
                     if (ShouldRunStateStoryboard(control, stateGroupsRoot, state, group))
                     {

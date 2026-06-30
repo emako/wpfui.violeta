@@ -125,7 +125,7 @@ internal class InspectingDataSource : ItemsSourceView
     }
 
     private void OnCollectionChanged(
-         object sender,
+         object? sender,
          NotifyCollectionChangedEventArgs e)
     {
         OnItemsSourceChanged(e);

@@ -219,7 +219,7 @@ public static class TabItemHelper
 
     #endregion CloseRequestedEvent
 
-    private static void OnLoaded(object sender, RoutedEventArgs e)
+    private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
         TabItem TabItem = sender as TabItem;
         UpdateTabGeometry(TabItem);
@@ -265,7 +265,7 @@ public static class TabItemHelper
     {
         TabControl tabControl = item.FindAscendant<TabControl>();
 
-        void ExecutedCustomCommand(object sender, ExecutedRoutedEventArgs e)
+        void ExecutedCustomCommand(object? sender, ExecutedRoutedEventArgs e)
         {
             var eargs = new TabViewTabCloseRequestedEventArgs(TabControlHelper.TabCloseRequestedEvent, item.Content, item);
             tabControl.RaiseEvent(eargs);
@@ -283,7 +283,7 @@ public static class TabItemHelper
             e.Handled = true;
         }
 
-        void CanExecuteCustomCommand(object sender, CanExecuteRoutedEventArgs e)
+        void CanExecuteCustomCommand(object? sender, CanExecuteRoutedEventArgs e)
         {
             if (tabControl != null)
             {
@@ -323,7 +323,7 @@ public static class TabItemHelper
             ResourceAccessor.GetLocalizedStringResource(ResourceAccessor.SR_TabViewCloseButtonTooltipWithKA);
     }
 
-    private static void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private static void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdateTabGeometry(sender as TabItem);
     }

@@ -141,19 +141,19 @@ public static class TextBoxHelper
 
     #endregion IsDeleteButtonVisible
 
-    private static void OnLoaded(object sender, RoutedEventArgs e)
+    private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
         var textBox = (TextBox)sender;
         UpdateVisualStates(textBox, GetIsDeleteButtonVisible(textBox));
     }
 
-    private static void OnTextChanged(object sender, TextChangedEventArgs e)
+    private static void OnTextChanged(object? sender, TextChangedEventArgs e)
     {
         var textBox = (TextBox)sender;
         UpdateHasText(textBox);
     }
 
-    private static void OnDeleteButtonClick(object sender, RoutedEventArgs e)
+    private static void OnDeleteButtonClick(object? sender, RoutedEventArgs e)
     {
         var button = (Button)sender;
         if (button.TemplatedParent is TextBox textBox)

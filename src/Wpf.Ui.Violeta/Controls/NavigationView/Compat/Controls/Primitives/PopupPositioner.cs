@@ -86,7 +86,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     internal bool DropOpposite => Delegates.GetDropOpposite(_popup);
 
-    private void OnWindowResize(object sender, AutoResizedEventArgs e)
+    private void OnWindowResize(object? sender, AutoResizedEventArgs e)
     {
         if (_positionInfo == null)
         {
@@ -729,7 +729,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     #endregion Positioner
 
-    private void OnPopupOpened(object sender, EventArgs e)
+    private void OnPopupOpened(object? sender, EventArgs e)
     {
         if (!_secHelper.AttachedToWindow &&
             _popup.Child is { } child &&
@@ -749,7 +749,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
         }
     }
 
-    private void OnPopupClosed(object sender, EventArgs e)
+    private void OnPopupClosed(object? sender, EventArgs e)
     {
         if (_secHelper.AttachedToWindow)
         {
@@ -765,7 +765,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
         }
     }
 
-    private void OnPopupPropertyChanged(object sender, EventArgs e)
+    private void OnPopupPropertyChanged(object? sender, EventArgs e)
     {
         Reposition();
     }

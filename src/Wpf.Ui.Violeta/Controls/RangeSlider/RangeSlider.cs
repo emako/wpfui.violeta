@@ -324,43 +324,43 @@ public class RangeSlider : Control
 
     // --- Drag: Lower Thumb ----------------------------------------------------
 
-    private void OnLowerThumbGotMouseCapture(object sender, MouseEventArgs e)
+    private void OnLowerThumbGotMouseCapture(object? sender, MouseEventArgs e)
         => _activeThumb = RangeSliderActiveThumb.Lower;
 
-    private void OnLowerThumbDragStarted(object sender, DragStartedEventArgs e)
+    private void OnLowerThumbDragStarted(object? sender, DragStartedEventArgs e)
         => _isDraggingLower = true;
 
-    private void OnLowerThumbDragDelta(object sender, DragDeltaEventArgs e)
+    private void OnLowerThumbDragDelta(object? sender, DragDeltaEventArgs e)
     {
         if (IsReadOnly || _track == null) return;
         double delta = GetDeltaValue(e.HorizontalChange, e.VerticalChange);
         MoveLowerValue(delta);
     }
 
-    private void OnLowerThumbDragCompleted(object sender, DragCompletedEventArgs e)
+    private void OnLowerThumbDragCompleted(object? sender, DragCompletedEventArgs e)
         => _isDraggingLower = false;
 
     // --- Drag: Upper Thumb ----------------------------------------------------
 
-    private void OnUpperThumbGotMouseCapture(object sender, MouseEventArgs e)
+    private void OnUpperThumbGotMouseCapture(object? sender, MouseEventArgs e)
         => _activeThumb = RangeSliderActiveThumb.Upper;
 
-    private void OnUpperThumbDragStarted(object sender, DragStartedEventArgs e)
+    private void OnUpperThumbDragStarted(object? sender, DragStartedEventArgs e)
         => _isDraggingUpper = true;
 
-    private void OnUpperThumbDragDelta(object sender, DragDeltaEventArgs e)
+    private void OnUpperThumbDragDelta(object? sender, DragDeltaEventArgs e)
     {
         if (IsReadOnly || _track == null) return;
         double delta = GetDeltaValue(e.HorizontalChange, e.VerticalChange);
         MoveUpperValue(delta);
     }
 
-    private void OnUpperThumbDragCompleted(object sender, DragCompletedEventArgs e)
+    private void OnUpperThumbDragCompleted(object? sender, DragCompletedEventArgs e)
         => _isDraggingUpper = false;
 
     // --- Track click ----------------------------------------------------------
 
-    private void OnTrackMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void OnTrackMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
         if (IsReadOnly || _track == null) return;
 

@@ -99,14 +99,14 @@ public class Anchor : ItemsControl
         Unloaded += OnAnchorUnloaded;
     }
 
-    private void OnAnchorLoaded(object sender, RoutedEventArgs e)
+    private void OnAnchorLoaded(object? sender, RoutedEventArgs e)
     {
         AttachScrollViewer(TargetContainer);
         InvalidateAnchorPositions();
         MarkSelectedContainerByPosition();
     }
 
-    private void OnAnchorUnloaded(object sender, RoutedEventArgs e)
+    private void OnAnchorUnloaded(object? sender, RoutedEventArgs e)
     {
         DetachScrollViewer(TargetContainer);
     }
@@ -136,7 +136,7 @@ public class Anchor : ItemsControl
         sv.Loaded -= OnTargetContainerLoaded;
     }
 
-    private void OnTargetContainerLoaded(object sender, RoutedEventArgs e)
+    private void OnTargetContainerLoaded(object? sender, RoutedEventArgs e)
     {
         InvalidateAnchorPositions();
         MarkSelectedContainerByPosition();
@@ -144,7 +144,7 @@ public class Anchor : ItemsControl
 
     // ---- Scroll event --------------------------------------------------------
 
-    private void OnScrollChanged(object sender, ScrollChangedEventArgs e)
+    private void OnScrollChanged(object? sender, ScrollChangedEventArgs e)
     {
         if (_scrollingFromSelection) return;
         MarkSelectedContainerByPosition();

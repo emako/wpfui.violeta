@@ -115,7 +115,7 @@ internal class MaximizedWindowFixer
         _isWindowPosAdjusted = false;
     }
 
-    private void WindowSourceInitialized(object sender, EventArgs e)
+    private void WindowSourceInitialized(object? sender, EventArgs e)
     {
         _hwnd = new WindowInteropHelper(_window).Handle;
         _hwndSource = HwndSource.FromHwnd(_hwnd);
@@ -124,20 +124,20 @@ internal class MaximizedWindowFixer
         UpdateWindowPadding();
     }
 
-    private void WindowStateChanged(object sender, EventArgs e)
+    private void WindowStateChanged(object? sender, EventArgs e)
     {
         UpdateWindowPadding();
     }
 
 #if NET462_OR_NEWER
-    private void WindowDpiChanged(object sender, DpiChangedEventArgs e)
+    private void WindowDpiChanged(object? sender, DpiChangedEventArgs e)
     {
         InvalidateMaximizedWindowBorder();
         UpdateWindowPadding();
     }
 #endif
 
-    private void WindowClosed(object sender, EventArgs e)
+    private void WindowClosed(object? sender, EventArgs e)
     {
         UnsetWindow();
     }
@@ -171,7 +171,7 @@ internal class MaximizedWindowFixer
 
     private unsafe void OnWindowPosChanging(IntPtr lParam)
     {
-        var pos = (WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(WINDOWPOS));
+        var pos = (WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(WINDOWPOS))!;
         if ((pos.flags & SET_WINDOW_POS_FLAGS.SWP_NOSIZE) == 0)
         {
             bool windowPosAdjusted = false;

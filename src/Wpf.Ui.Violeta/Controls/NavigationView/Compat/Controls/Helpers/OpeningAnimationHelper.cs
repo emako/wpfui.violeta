@@ -43,7 +43,7 @@ public static class OpeningAnimationHelper
 
     #endregion Storyboard
 
-    private static void OnElementLoaded(object sender, RoutedEventArgs e)
+    private static void OnElementLoaded(object? sender, RoutedEventArgs e)
     {
         var element = (FrameworkElement)sender;
         if (element.IsVisible && Helper.IsAnimationsEnabled && !DesignMode.DesignModeEnabled)

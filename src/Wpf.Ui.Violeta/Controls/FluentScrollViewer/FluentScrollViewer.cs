@@ -147,7 +147,7 @@ public class FluentScrollViewer : ScrollViewer
     // Load / Unload
     // ------------------------------------------------------------------
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         if (Content is not UIElement element)
             throw new InvalidOperationException(
@@ -168,7 +168,7 @@ public class FluentScrollViewer : ScrollViewer
         }
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs e)
+    private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         StopRendering();
         _hwndSource?.RemoveHook(WndProc);

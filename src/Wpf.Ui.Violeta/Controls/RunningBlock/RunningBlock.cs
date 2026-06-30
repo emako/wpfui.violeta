@@ -45,7 +45,7 @@ public class RunningBlock : ContentControl
         UpdateContent();
     }
 
-    private void ElementPanel_SizeChanged(object sender, SizeChangedEventArgs e) => UpdateContent();
+    private void ElementPanel_SizeChanged(object? sender, SizeChangedEventArgs e) => UpdateContent();
 
     public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
         nameof(Runaway), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.AffectsRender));

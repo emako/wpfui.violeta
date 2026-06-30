@@ -106,7 +106,7 @@ internal static class InputHelper
 
     #endregion Tapped
 
-    private static void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
         var element = (UIElement)sender;
 
@@ -116,7 +116,7 @@ internal static class InputHelper
         }
     }
 
-    private static void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
         var element = (UIElement)sender;
 
@@ -141,12 +141,12 @@ internal static class InputHelper
         }
     }
 
-    private static void OnLostMouseCapture(object sender, MouseEventArgs e)
+    private static void OnLostMouseCapture(object? sender, MouseEventArgs e)
     {
         SetIsPressed((UIElement)sender, false);
     }
 
-    private static void OnMouseLeave(object sender, MouseEventArgs e)
+    private static void OnMouseLeave(object? sender, MouseEventArgs e)
     {
         SetIsPressed((UIElement)sender, false);
     }

@@ -16,12 +16,12 @@ public partial class App : System.Windows.Application
 		TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
 	}
 
-	private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+	private void OnDispatcherUnhandledException(object? sender, DispatcherUnhandledExceptionEventArgs e)
 	{
 		WriteExceptionLog("DispatcherUnhandledException", e.Exception);
 	}
 
-	private void OnCurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+	private void OnCurrentDomainUnhandledException(object? sender, UnhandledExceptionEventArgs e)
 	{
 		WriteExceptionLog("CurrentDomainUnhandledException", e.ExceptionObject as Exception);
 	}

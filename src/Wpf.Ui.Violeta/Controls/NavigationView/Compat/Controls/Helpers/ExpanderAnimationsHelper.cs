@@ -97,14 +97,14 @@ public static class ExpanderAnimationsHelper
             expander.Loaded += TriggerExpandAnimationOnLoad;
         }
 
-        void TriggerExpandAnimationOnLoad(object sender, RoutedEventArgs routedEventArgs)
+        void TriggerExpandAnimationOnLoad(object? sender, RoutedEventArgs routedEventArgs)
         {
             InitializeExpanderState(expander);
             expander.Loaded -= TriggerExpandAnimationOnLoad;
         }
     }
 
-    private static void OnExpanderExpandedOrCollapsed(object sender, RoutedEventArgs e)
+    private static void OnExpanderExpandedOrCollapsed(object? sender, RoutedEventArgs e)
     {
         if (sender is not Expander expander)
         {

@@ -117,7 +117,7 @@ public partial class QrCode : FrameworkElement
         SizeChanged += OnSizeChanged;
     }
 
-    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         OnLayoutChanged(_encodedQrCode);
         InvalidateVisual();

@@ -369,14 +369,14 @@ public partial class NativeLikeTitleBar : ContentControl
         CloseButtonClick?.Invoke(this, e);
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         _ownerWindow = Window.GetWindow(this);
         _ownerWindow.Activated += OnOwnerWindowActivated;
         _ownerWindow.Deactivated += OnOwnerWindowDeactivated;
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs e)
+    private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         _ownerWindow.Activated -= OnOwnerWindowActivated;
         _ownerWindow.Deactivated -= OnOwnerWindowDeactivated;
@@ -392,12 +392,12 @@ public partial class NativeLikeTitleBar : ContentControl
         IsActive = false;
     }
 
-    private void OnBackButtonClick(object sender, RoutedEventArgs e)
+    private void OnBackButtonClick(object? sender, RoutedEventArgs e)
     {
         BackButtonClick?.Invoke(this, e);
     }
 
-    private void OnPaneToggleButtonClick(object sender, RoutedEventArgs e)
+    private void OnPaneToggleButtonClick(object? sender, RoutedEventArgs e)
     {
         PaneToggleButtonClick?.Invoke(this, e);
     }

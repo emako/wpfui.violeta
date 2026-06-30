@@ -253,7 +253,7 @@ public class TagInput : Control
 
     // -- TextBox event handlers --------------------------------------------
 
-    private void OnInputTextBoxKeyDown(object sender, KeyEventArgs e)
+    private void OnInputTextBoxKeyDown(object? sender, KeyEventArgs e)
     {
         switch (e.Key)
         {
@@ -274,7 +274,7 @@ public class TagInput : Control
         }
     }
 
-    private void OnInputTextBoxLostFocus(object sender, RoutedEventArgs e)
+    private void OnInputTextBoxLostFocus(object? sender, RoutedEventArgs e)
     {
         switch (LostFocusBehavior)
         {
@@ -288,7 +288,7 @@ public class TagInput : Control
         }
     }
 
-    private void OnInputTextBoxTextChanged(object sender, TextChangedEventArgs e)
+    private void OnInputTextBoxTextChanged(object? sender, TextChangedEventArgs e)
     {
         CheckPlaceholderVisibility();
     }

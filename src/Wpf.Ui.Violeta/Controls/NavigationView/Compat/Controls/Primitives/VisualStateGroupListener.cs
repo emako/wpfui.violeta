@@ -50,7 +50,7 @@ public class VisualStateGroupListener : FrameworkElement
         UpdateCurrentStateName(newGroup?.CurrentState);
     }
 
-    private void OnCurrentStateChanged(object sender, VisualStateChangedEventArgs e)
+    private void OnCurrentStateChanged(object? sender, VisualStateChangedEventArgs e)
     {
         UpdateCurrentStateName(e.NewState);
     }

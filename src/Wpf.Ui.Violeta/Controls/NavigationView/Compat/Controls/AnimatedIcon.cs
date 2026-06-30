@@ -265,7 +265,7 @@ public class AnimatedIcon : IconElement
         OnFallbackIconSourcePropertyChanged(new DependencyPropertyChangedEventArgs());
     }
 
-    private void OnAncestorAnimatedIconStatePropertyChanged(object sender, DependencyProperty args)
+    private void OnAncestorAnimatedIconStatePropertyChanged(object? sender, DependencyProperty args)
     {
         SetValue(StateProperty, ((DependencyObject)sender).GetValue(args));
     }

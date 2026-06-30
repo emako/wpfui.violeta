@@ -245,7 +245,7 @@ public partial class CaptionButtonBar : Control
         HelpButton.Click += OnHelpButtonClick;
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         _ownerWindow = Window.GetWindow(this);
         _ownerWindow.Activated += OnActivated;
@@ -265,7 +265,7 @@ public partial class CaptionButtonBar : Control
         _ = User32.SetWindowLong(hWnd, User32.GWL_STYLE, style);
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs e)
+    private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         _ownerWindow.StateChanged -= OnOwnerWindowStateChanged;
         _ownerWindow.Activated -= OnActivated;
@@ -288,13 +288,13 @@ public partial class CaptionButtonBar : Control
         IsActive = false;
     }
 
-    private void OnMinimizeButtonClick(object sender, RoutedEventArgs e)
+    private void OnMinimizeButtonClick(object? sender, RoutedEventArgs e)
     {
         MinimizeButtonClick?.Invoke(this, e);
         _ownerWindow.WindowState = WindowState.Minimized;
     }
 
-    private void OnMaximizeButtonClick(object sender, RoutedEventArgs e)
+    private void OnMaximizeButtonClick(object? sender, RoutedEventArgs e)
     {
         MaximizeButtonClick?.Invoke(this, e);
         if (_ownerWindow.WindowState is WindowState.Maximized)
@@ -307,13 +307,13 @@ public partial class CaptionButtonBar : Control
         }
     }
 
-    private void OnCloseButtonClick(object sender, RoutedEventArgs e)
+    private void OnCloseButtonClick(object? sender, RoutedEventArgs e)
     {
         CloseButtonClick?.Invoke(this, e);
         _ownerWindow.Close();
     }
 
-    private void OnHelpButtonClick(object sender, RoutedEventArgs e)
+    private void OnHelpButtonClick(object? sender, RoutedEventArgs e)
     {
         HelpButtonClick?.Invoke(this, EventArgs.Empty);
     }

@@ -45,7 +45,7 @@ public partial class MainWindow : ShellWindow
         Loaded += MainWindow_OnLoaded;
     }
 
-    private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+    private void MainWindow_OnLoaded(object? sender, RoutedEventArgs e)
     {
         BuildNavigationItems();
         TestNavigationView.PaneTitle = $"Navigation Lab ({TestNavigationView.MenuItems.Count})";
@@ -59,7 +59,7 @@ public partial class MainWindow : ShellWindow
         Dispatcher.BeginInvoke(DispatcherPriority.Loaded, new Action(DumpNavigationDiagnostics));
     }
 
-    private void PaneDisplayModeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void PaneDisplayModeComboBox_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if (PaneDisplayModeComboBox.SelectedItem is ComboBoxItem { Tag: NavigationViewPaneDisplayMode mode })
         {
@@ -68,7 +68,7 @@ public partial class MainWindow : ShellWindow
         }
     }
 
-    private void BackButtonVisibilityComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void BackButtonVisibilityComboBox_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if (BackButtonVisibilityComboBox.SelectedItem is ComboBoxItem { Tag: NavigationViewBackButtonVisible visibility })
         {
@@ -77,7 +77,7 @@ public partial class MainWindow : ShellWindow
         }
     }
 
-    private void TransitionModeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void TransitionModeComboBox_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if (TransitionModeComboBox.SelectedItem is not ComboBoxItem { Tag: string tag })
         {
@@ -98,27 +98,27 @@ public partial class MainWindow : ShellWindow
         PushEvent($"Transition => {_transitionMode}");
     }
 
-    private void TogglePaneButton_OnClick(object sender, RoutedEventArgs e)
+    private void TogglePaneButton_OnClick(object? sender, RoutedEventArgs e)
     {
         TestNavigationView.IsPaneOpen = !TestNavigationView.IsPaneOpen;
         UpdatePaneState();
         PushEvent($"IsPaneOpen => {TestNavigationView.IsPaneOpen}");
     }
 
-    private void TogglePaneVisibilityButton_OnClick(object sender, RoutedEventArgs e)
+    private void TogglePaneVisibilityButton_OnClick(object? sender, RoutedEventArgs e)
     {
         TestNavigationView.IsPaneVisible = !TestNavigationView.IsPaneVisible;
         UpdatePaneState();
         PushEvent($"IsPaneVisible => {TestNavigationView.IsPaneVisible}");
     }
 
-    private void ToggleSettingsButton_OnClick(object sender, RoutedEventArgs e)
+    private void ToggleSettingsButton_OnClick(object? sender, RoutedEventArgs e)
     {
         TestNavigationView.IsSettingsVisible = !TestNavigationView.IsSettingsVisible;
         PushEvent($"IsSettingsVisible => {TestNavigationView.IsSettingsVisible}");
     }
 
-    private void SelectSettingsButton_OnClick(object sender, RoutedEventArgs e)
+    private void SelectSettingsButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (TestNavigationView.SettingsItem is not null)
         {
@@ -127,7 +127,7 @@ public partial class MainWindow : ShellWindow
         }
     }
 
-    private void AddDynamicItemButton_OnClick(object sender, RoutedEventArgs e)
+    private void AddDynamicItemButton_OnClick(object? sender, RoutedEventArgs e)
     {
         NavigationViewItem item = CreateDynamicItem(_dynamicItemIndex++);
         _dynamicItems.Add(item);
@@ -135,7 +135,7 @@ public partial class MainWindow : ShellWindow
         PushEvent($"Added dynamic item => {item.Content}");
     }
 
-    private void RemoveDynamicItemButton_OnClick(object sender, RoutedEventArgs e)
+    private void RemoveDynamicItemButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_dynamicItems.Count == 0)
         {
@@ -149,7 +149,7 @@ public partial class MainWindow : ShellWindow
         PushEvent($"Removed dynamic item => {item.Content}");
     }
 
-    private void ExpandReportsButton_OnClick(object sender, RoutedEventArgs e)
+    private void ExpandReportsButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_reportsItem is null)
         {
@@ -160,7 +160,7 @@ public partial class MainWindow : ShellWindow
         PushEvent($"Reports.IsExpanded => {_reportsItem.IsExpanded}");
     }
 
-    private void SelectHomeButton_OnClick(object sender, RoutedEventArgs e)
+    private void SelectHomeButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_homeItem is not null)
         {
@@ -172,7 +172,7 @@ public partial class MainWindow : ShellWindow
         PushEvent("SelectedItem => Home");
     }
 
-    private void SelectReportsChildButton_OnClick(object sender, RoutedEventArgs e)
+    private void SelectReportsChildButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_reportsItem?.MenuItems.Count > 0)
         {
@@ -184,7 +184,7 @@ public partial class MainWindow : ShellWindow
         }
     }
 
-    private void ClearLogButton_OnClick(object sender, RoutedEventArgs e)
+    private void ClearLogButton_OnClick(object? sender, RoutedEventArgs e)
     {
         _eventLog.Clear();
         PushEvent("Log cleared");

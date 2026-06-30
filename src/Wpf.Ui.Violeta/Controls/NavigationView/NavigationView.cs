@@ -281,7 +281,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnFooterItemsSourceCollectionChanged(object sender, object e)
+    void OnFooterItemsSourceCollectionChanged(object? sender, object e)
     {
         UpdateFooterRepeaterItemsSource(false /*sourceCollectionReset*/, true /*sourceCollectionChanged*/);
 
@@ -289,7 +289,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         UpdatePaneLayout();
     }
 
-    void OnOverflowItemsSourceCollectionChanged(object sender, object e)
+    void OnOverflowItemsSourceCollectionChanged(object? sender, object e)
     {
         if (m_topNavRepeaterOverflowView.ItemsSourceView.Count == 0)
         {
@@ -967,7 +967,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnFlyoutClosing(object sender, FlyoutBaseClosingEventArgs args)
+    void OnFlyoutClosing(object? sender, FlyoutBaseClosingEventArgs args)
     {
         // If the user selected an parent item in the overflow flyout then the item has not been moved to top primary yet.
         // So we need to move it.
@@ -1438,7 +1438,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         return base.MeasureOverride(availableSize);
     }
 
-    void OnLayoutUpdated(object sender, object e)
+    void OnLayoutUpdated(object? sender, object e)
     {
         // We only need to handle once after MeasureOverride, so revoke the token.
         LayoutUpdated -= OnLayoutUpdated;
@@ -1463,7 +1463,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnSizeChanged(object sender, SizeChangedEventArgs args)
+    void OnSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         var width = args.NewSize.Width;
         UpdateOpenPaneWidth(width);
@@ -1475,7 +1475,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         UpdatePaneButtonsWidths();
     }
 
-    void OnItemsContainerSizeChanged(object sender, SizeChangedEventArgs e)
+    void OnItemsContainerSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdatePaneLayout();
     }
@@ -1723,7 +1723,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnPaneToggleButtonClick(object sender, RoutedEventArgs args)
+    void OnPaneToggleButtonClick(object? sender, RoutedEventArgs args)
     {
         if (IsPaneOpen)
         {
@@ -1737,7 +1737,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnPaneSearchButtonClick(object sender, RoutedEventArgs args)
+    void OnPaneSearchButtonClick(object? sender, RoutedEventArgs args)
     {
         m_wasForceClosed = false;
         OpenPane();
@@ -1751,7 +1751,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnPaneTitleHolderSizeChanged(object sender, SizeChangedEventArgs args)
+    void OnPaneTitleHolderSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         UpdateBackAndCloseButtonsVisibility();
     }
@@ -1940,7 +1940,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         //}
     }
 
-    void OnBackButtonClicked(object sender, RoutedEventArgs args)
+    void OnBackButtonClicked(object? sender, RoutedEventArgs args)
     {
         var eventArgs = new NavigationViewBackRequestedEventArgs();
         BackRequested?.Invoke(this, eventArgs);
@@ -2421,7 +2421,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnAnimationComplete(object sender, EventArgs args)
+    void OnAnimationComplete(object? sender, EventArgs args)
     {
         var indicator = m_prevIndicator;
         ResetElementAnimationProperties(indicator, 0.0);
@@ -2832,7 +2832,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnNavigationViewItemTapped(object sender, TappedRoutedEventArgs args)
+    void OnNavigationViewItemTapped(object? sender, TappedRoutedEventArgs args)
     {
         if (sender is NavigationViewItem nvi)
         {
@@ -2842,7 +2842,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnNavigationViewItemKeyDown(object sender, KeyEventArgs args)
+    void OnNavigationViewItemKeyDown(object? sender, KeyEventArgs args)
     {
         if (args.Key == Key.Enter ||
             args.Key == Key.Space)
@@ -3022,7 +3022,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnRepeaterGettingFocus(object sender, GettingFocusEventArgs args)
+    void OnRepeaterGettingFocus(object? sender, GettingFocusEventArgs args)
     {
         // if focus change was invoked by tab key
         // and there is selected item in ItemsRepeater that gatting focus
@@ -3092,7 +3092,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         m_TabKeyPrecedesFocusChange = false;
     }
 
-    void OnNavigationViewItemOnGotFocus(object sender, RoutedEventArgs e)
+    void OnNavigationViewItemOnGotFocus(object? sender, RoutedEventArgs e)
     {
         if (sender is NavigationViewItem nvi)
         {
@@ -3360,7 +3360,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     }
 
     /*
-    void OnAccessKeyInvoked(object sender, AccessKeyInvokedEventArgs args)
+    void OnAccessKeyInvoked(object? sender, AccessKeyInvokedEventArgs args)
     {
         if (args.Handled)
         {
@@ -3458,7 +3458,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         GetTemplateSettings().SingleSelectionFollowsFocus = IsNavigationViewListSingleSelectionFollowsFocus();
     }
 
-    void OnMenuItemsSourceCollectionChanged(object sender, object args)
+    void OnMenuItemsSourceCollectionChanged(object? sender, object args)
     {
         if (!IsTopNavigationView())
         {
@@ -4308,7 +4308,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         UpdateNavigationViewItemsFactory();
     }
 
-    void OnRepeaterIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    void OnRepeaterIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         if ((bool)e.NewValue)
         {
@@ -4323,7 +4323,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnRepeaterLoaded(object sender, RoutedEventArgs args)
+    void OnRepeaterLoaded(object? sender, RoutedEventArgs args)
     {
         if (SelectedItem is { } item)
         {
@@ -4341,7 +4341,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     // If app is .net app, the lifetime of NavigationView maybe depends on garbage collection.
     // Unlike other revoker, TitleBar is in global space and we need to stop receiving changed event when it's unloaded.
     // So we do hook it in Loaded and Unhook it in Unloaded
-    void OnUnloaded(object sender, RoutedEventArgs args)
+    void OnUnloaded(object? sender, RoutedEventArgs args)
     {
         if (m_coreTitleBar is { } coreTitleBar)
         {
@@ -4350,7 +4350,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
     }
 
-    void OnLoaded(object sender, RoutedEventArgs args)
+    void OnLoaded(object? sender, RoutedEventArgs args)
     {
         if (m_coreTitleBar is { } coreTitleBar)
         {
@@ -4873,7 +4873,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         return foundFirstSelected;
     }
 
-    void OnTitleBarMetricsChanged(object sender, object args)
+    void OnTitleBarMetricsChanged(object? sender, object args)
     {
         UpdateTitleBarPadding();
     }

@@ -409,13 +409,13 @@ public class Frame : System.Windows.Controls.Frame
 
         UpdateBackStackDepth();
 
-        void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        void OnCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             UpdateBackStackDepth();
         }
     }
 
-    private void OnNavigating(object sender, NavigatingCancelEventArgs e)
+    private void OnNavigating(object? sender, NavigatingCancelEventArgs e)
     {
         if (Content is Page newPage)
         {
@@ -438,7 +438,7 @@ public class Frame : System.Windows.Controls.Frame
         }
     }
 
-    private void OnNavigated(object sender, NavigationEventArgs e)
+    private void OnNavigated(object? sender, NavigationEventArgs e)
     {
         if (_transitionInfoOverride != null)
         {
@@ -473,13 +473,13 @@ public class Frame : System.Windows.Controls.Frame
         }
     }
 
-    private void OnNavigationStopped(object sender, NavigationEventArgs e)
+    private void OnNavigationStopped(object? sender, NavigationEventArgs e)
     {
         _transitionInfoOverride = null;
         _oldPage = null;
     }
 
-    private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+    private void OnNavigationFailed(object? sender, NavigationFailedEventArgs e)
     {
         _transitionInfoOverride = null;
         _oldPage = null;
@@ -530,7 +530,7 @@ public class Frame : System.Windows.Controls.Frame
         _enterAnimation.Begin();
     }
 
-    private void OnExitAnimationCompleted(object sender, EventArgs e)
+    private void OnExitAnimationCompleted(object? sender, EventArgs e)
     {
         if (_exitAnimation != null)
         {
@@ -548,7 +548,7 @@ public class Frame : System.Windows.Controls.Frame
         }
     }
 
-    private void OnEnterAnimationCompleted(object sender, EventArgs e)
+    private void OnEnterAnimationCompleted(object? sender, EventArgs e)
     {
         if (_enterAnimation != null)
         {

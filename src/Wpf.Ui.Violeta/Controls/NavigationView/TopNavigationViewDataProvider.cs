@@ -277,7 +277,7 @@ class TopNavigationViewDataProvider : SplitDataSourceT
         return IndexOfImpl(value, vectorID);
     }
 
-    private void OnDataSourceChanged(object sender, NotifyCollectionChangedEventArgs args)
+    private void OnDataSourceChanged(object? sender, NotifyCollectionChangedEventArgs args)
     {
         switch (args.Action)
         {

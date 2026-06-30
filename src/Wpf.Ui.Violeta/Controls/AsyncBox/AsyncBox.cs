@@ -76,7 +76,7 @@ public class AsyncBox : FrameworkElement
 
                 if (value is FrameworkElement element)
                 {
-                    void ChildLoaded(object sender, RoutedEventArgs e)
+                    void ChildLoaded(object? sender, RoutedEventArgs e)
                     {
                         element.Loaded -= ChildLoaded;
 
@@ -221,7 +221,7 @@ public class AsyncBox : FrameworkElement
         ActivateChild();
     }
 
-    private async void OnLoaded(object sender, RoutedEventArgs e)
+    private async void OnLoaded(object? sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;
         if (DesignerProperties.GetIsInDesignMode(this)) return;

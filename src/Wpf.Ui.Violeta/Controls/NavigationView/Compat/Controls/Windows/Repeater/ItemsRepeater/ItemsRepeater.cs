@@ -538,7 +538,7 @@ public partial class ItemsRepeater : Panel
             typeof(ItemsRepeater),
             null);
 
-    private void OnLoaded(object sender, RoutedEventArgs args)
+    private void OnLoaded(object? sender, RoutedEventArgs args)
     {
         // If we skipped an unload event, reset the scrollers now and invalidate measure so that we get a new
         // layout pass during which we will hookup new scrollers.
@@ -551,7 +551,7 @@ public partial class ItemsRepeater : Panel
         ++_loadedCounter;
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs args)
+    private void OnUnloaded(object? sender, RoutedEventArgs args)
     {
         ++_unloadedCounter;
         // Only reset the scrollers if this unload event is in-sync.
@@ -768,7 +768,7 @@ public partial class ItemsRepeater : Panel
         }
     }
 
-    private void OnItemsSourceViewChanged(object sender, NotifyCollectionChangedEventArgs args)
+    private void OnItemsSourceViewChanged(object? sender, NotifyCollectionChangedEventArgs args)
     {
         if (m_isLayoutInProgress)
         {
@@ -806,12 +806,12 @@ public partial class ItemsRepeater : Panel
         }
     }
 
-    private void InvalidateMeasureForLayout(object sender, object args)
+    private void InvalidateMeasureForLayout(object? sender, object args)
     {
         InvalidateMeasure();
     }
 
-    private void InvalidateArrangeForLayout(object sender, object args)
+    private void InvalidateArrangeForLayout(object? sender, object args)
     {
         InvalidateArrange();
     }

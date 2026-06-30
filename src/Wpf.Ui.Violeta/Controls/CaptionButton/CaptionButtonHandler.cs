@@ -30,9 +30,9 @@ public class CaptionButtonHandler
         }
     }
 
-    private void OnButtonIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private void OnButtonIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
-        CaptionButton button = (CaptionButton)sender;
+        CaptionButton button = (CaptionButton)sender!;
         if (button.IsVisible)
         {
             DependencyObject child = VisualTreeHelper.GetChild(button, 0);

@@ -44,7 +44,7 @@ public static class DataGridHelper
 
     #endregion IsEnabled
 
-    private static void OnLoadingRow(object sender, DataGridRowEventArgs e)
+    private static void OnLoadingRow(object? sender, DataGridRowEventArgs e)
     {
         Debug.Assert(sender is DataGrid);
         var row = e.Row;
@@ -332,7 +332,7 @@ public static class DataGridHelper
             }
         }
 
-        private void OnColumnsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void OnColumnsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
             {

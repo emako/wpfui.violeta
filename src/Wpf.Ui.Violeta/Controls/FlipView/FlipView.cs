@@ -205,13 +205,13 @@ public class FlipView : Selector
 
     // --- Click handlers -------------------------------------------------------
 
-    private void OnPreviousClick(object sender, RoutedEventArgs e) => MovePrevious();
+    private void OnPreviousClick(object? sender, RoutedEventArgs e) => MovePrevious();
 
-    private void OnNextClick(object sender, RoutedEventArgs e) => MoveNext();
+    private void OnNextClick(object? sender, RoutedEventArgs e) => MoveNext();
 
     // --- SizeChanged ----------------------------------------------------------
 
-    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdateItemSizes();
         ScrollToSelectedIndex(animate: false);

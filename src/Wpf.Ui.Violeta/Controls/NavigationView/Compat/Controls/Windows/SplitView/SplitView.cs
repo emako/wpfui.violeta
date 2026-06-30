@@ -81,22 +81,22 @@ public partial class SplitView : Control
         }, DispatcherPriority.DataBind);
     }
 
-    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdatePaneClipRectangle();
     }
 
-    private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private void OnIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         UpdateIsLightDismissActive();
     }
 
-    private void OnDisplayModeStatesCurrentStateChanging(object sender, VisualStateChangedEventArgs e)
+    private void OnDisplayModeStatesCurrentStateChanging(object? sender, VisualStateChangedEventArgs e)
     {
         _isDisplayModeStateChanging = true;
     }
 
-    private void OnDisplayModeStatesCurrentStateChanged(object sender, VisualStateChangedEventArgs e)
+    private void OnDisplayModeStatesCurrentStateChanged(object? sender, VisualStateChangedEventArgs e)
     {
         _isDisplayModeStateChanging = false;
 
@@ -112,7 +112,7 @@ public partial class SplitView : Control
         }
     }
 
-    private void OnWindowPreviewMouseDown(object sender, MouseButtonEventArgs e)
+    private void OnWindowPreviewMouseDown(object? sender, MouseButtonEventArgs e)
     {
         if (_paneRoot != null)
         {

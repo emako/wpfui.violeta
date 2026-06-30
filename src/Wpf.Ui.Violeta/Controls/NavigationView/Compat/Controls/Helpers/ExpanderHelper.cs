@@ -162,7 +162,7 @@ public class ExpanderHelper
 
     #endregion NegativeContentHeight
 
-    private static void OnContentSizeChanged(object sender, SizeChangedEventArgs args)
+    private static void OnContentSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         if (((FrameworkElement)sender).FindAscendant<Expander>() is Expander expander)
         {

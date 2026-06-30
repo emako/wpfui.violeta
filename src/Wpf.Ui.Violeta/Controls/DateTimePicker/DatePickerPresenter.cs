@@ -271,7 +271,7 @@ public class DatePickerPresenter : Control
         return Math.Max(0, year - _yearSelector.MinYear);
     }
 
-    private void OnSelectorSelectionChanged(object sender, RoutedEventArgs e)
+    private void OnSelectorSelectionChanged(object? sender, RoutedEventArgs e)
     {
         if (_suppressSync) return;
 

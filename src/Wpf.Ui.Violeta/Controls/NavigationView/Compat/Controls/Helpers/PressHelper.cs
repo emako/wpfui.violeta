@@ -72,22 +72,22 @@ public static class PressHelper
 
     #endregion IsPressed
 
-    private static void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
         UpdateIsPressed((UIElement)sender);
     }
 
-    private static void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
         UpdateIsPressed((UIElement)sender);
     }
 
-    private static void OnMouseEnter(object sender, MouseEventArgs e)
+    private static void OnMouseEnter(object? sender, MouseEventArgs e)
     {
         UpdateIsPressed((UIElement)sender);
     }
 
-    private static void OnMouseLeave(object sender, MouseEventArgs e)
+    private static void OnMouseLeave(object? sender, MouseEventArgs e)
     {
         UpdateIsPressed((UIElement)sender);
     }

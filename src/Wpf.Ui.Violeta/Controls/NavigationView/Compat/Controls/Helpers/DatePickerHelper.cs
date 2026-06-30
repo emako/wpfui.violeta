@@ -47,7 +47,7 @@ public static class DatePickerHelper
 
     #endregion IsEnabled
 
-    private static void OnLoaded(object sender, RoutedEventArgs e)
+    private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
         var datePicker = (DatePicker)sender;
         datePicker.Loaded -= OnLoaded;

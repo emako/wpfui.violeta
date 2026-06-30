@@ -43,7 +43,7 @@ public static class HyperlinkHelper
         }
     }
 
-    private static void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
         var hyperlink = (Hyperlink)sender;
         if (hyperlink.IsMouseCaptured && e.ButtonState == MouseButtonState.Pressed)
@@ -52,7 +52,7 @@ public static class HyperlinkHelper
         }
     }
 
-    private static void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
         var hyperlink = (Hyperlink)sender;
         if (GetIsPressed(hyperlink))

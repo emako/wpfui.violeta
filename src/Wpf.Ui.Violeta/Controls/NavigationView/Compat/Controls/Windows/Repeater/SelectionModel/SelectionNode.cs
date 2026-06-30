@@ -301,18 +301,12 @@ internal class SelectionNode
 
     void HookupCollectionChangedHandler()
     {
-        if (m_dataSource != null)
-        {
-            m_dataSource.CollectionChanged += OnSourceListChanged;
-        }
+        m_dataSource?.CollectionChanged += OnSourceListChanged;
     }
 
     void UnhookCollectionChangedHandler()
     {
-        if (m_dataSource != null)
-        {
-            m_dataSource.CollectionChanged -= OnSourceListChanged;
-        }
+        m_dataSource?.CollectionChanged -= OnSourceListChanged;
     }
 
     bool IsValidIndex(int index)
@@ -469,7 +463,7 @@ internal class SelectionNode
         return false;
     }
 
-    void OnSourceListChanged(object dataSource, NotifyCollectionChangedEventArgs args)
+    void OnSourceListChanged(object? dataSource, NotifyCollectionChangedEventArgs args)
     {
         bool selectionInvalidated = false;
         switch (args.Action)

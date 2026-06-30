@@ -14,7 +14,7 @@ public static class AnimationHelper
     {
         storyboard.CurrentStateInvalidated += OnStoryboardCurrentStateInvalidated;
 
-        static void OnStoryboardCurrentStateInvalidated(object sender, EventArgs e)
+        static void OnStoryboardCurrentStateInvalidated(object? sender, EventArgs e)
         {
             if (sender is Clock clock &&
                 clock.HasControllableRoot &&

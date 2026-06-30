@@ -69,7 +69,7 @@ public partial class MainWindow : ShellWindow
 
     // ── ButtonSpinner ─────────────────────────────────────────────
 
-    private void ButtonSpinnerDemo_OnSpin(object sender, SpinEventArgs e)
+    private void ButtonSpinnerDemo_OnSpin(object? sender, SpinEventArgs e)
     {
         if (sender is not ButtonSpinner spinner)
         {
@@ -670,7 +670,7 @@ public partial class MainWindow : ShellWindow
         }
     }
 
-    private void OnClearGestureClick(object sender, RoutedEventArgs e)
+    private void OnClearGestureClick(object? sender, RoutedEventArgs e)
     {
         ClearableGestureInput.Clear();
     }
@@ -1473,7 +1473,7 @@ public partial class MainWindow : ShellWindow
 
     // ── Hyperlink ─────────────────────────────────────────────────
 
-    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    private void Hyperlink_RequestNavigate(object? sender, RequestNavigateEventArgs e)
     {
     }
 }

@@ -77,7 +77,7 @@ public static class SliderAutoToolTipHelper
 
     #endregion OriginalCustomPopupPlacementCallback
 
-    private static void OnToolTipIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private static void OnToolTipIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
         var toolTip = (ToolTip)sender;
         Debug.Assert(toolTip.PlacementTarget is Thumb);
@@ -96,7 +96,7 @@ public static class SliderAutoToolTipHelper
         }
     }
 
-    private static void OnThumbSizeChanged(object sender, SizeChangedEventArgs e)
+    private static void OnThumbSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         var thumb = (Thumb)sender;
         if (thumb.ToolTip is ToolTip toolTip)
