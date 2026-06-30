@@ -1,0 +1,19 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Collections.ObjectModel;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Represents a collection of Transition objects. Each Transition object represents
+/// a different theme transition, part of the Windows Runtime animation library.
+/// </summary>
+public class TransitionCollection : Collection<Transition>
+{
+    /// <summary>
+    /// Initializes a new instance of the TransitionCollection class.
+    /// </summary>
+    public TransitionCollection()
+    {
+    }
+}

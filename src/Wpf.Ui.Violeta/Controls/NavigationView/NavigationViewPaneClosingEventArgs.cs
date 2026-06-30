@@ -1,0 +1,35 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
+using Wpf.Ui.Violeta.Controls.Compat;
+
+namespace Wpf.Ui.Violeta.Controls;
+
+public sealed class NavigationViewPaneClosingEventArgs : EventArgs
+{
+    internal NavigationViewPaneClosingEventArgs()
+    {
+    }
+
+    public bool Cancel
+    {
+        get => m_cancelled;
+        set
+        {
+            m_cancelled = value;
+
+            if (m_splitViewClosingArgs is { } args)
+            {
+                args.Cancel = value;
+            }
+        }
+    }
+
+    internal void SplitViewClosingArgs(SplitViewPaneClosingEventArgs value)
+    {
+        m_splitViewClosingArgs = value;
+    }
+
+    private SplitViewPaneClosingEventArgs m_splitViewClosingArgs;
+    private bool m_cancelled;
+}

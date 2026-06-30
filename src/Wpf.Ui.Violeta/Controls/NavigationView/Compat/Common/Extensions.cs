@@ -1,0 +1,43 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal static class Extensions
+{
+    public static FlyoutBase Flyout(this Button button)
+    {
+        return FlyoutService.GetFlyout(button);
+    }
+
+    public static string DefaultIfNullOrEmpty(this string s, string defaultValue)
+    {
+        return !string.IsNullOrEmpty(s) ? s : defaultValue;
+    }
+
+    /// <summary>
+    /// Executes the specified action if the element is loaded or at the loaded event if it's not loaded.
+    /// </summary>
+    /// <param name="element">The element where the action should be run.</param>
+    /// <param name="invokeAction">An action that takes no parameters.</param>
+    public static void ExecuteWhenLoaded(this FrameworkElement element, Action invokeAction)
+    {
+        if (element.IsLoaded)
+        {
+            element.RunOnUIThread(invokeAction);
+        }
+        else
+        {
+            void ElementLoaded(object o, RoutedEventArgs a)
+            {
+                element.Loaded -= ElementLoaded;
+                element.RunOnUIThread(invokeAction);
+            }
+
+            element.Loaded += ElementLoaded;
+        }
+    }
+}

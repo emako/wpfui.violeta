@@ -1,0 +1,76 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class FlyoutPresenter : ContentControl
+{
+    static FlyoutPresenter()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(FlyoutPresenter), new FrameworkPropertyMetadata(typeof(FlyoutPresenter)));
+    }
+
+    public FlyoutPresenter()
+    {
+    }
+
+    #region CornerRadius
+
+    public static readonly DependencyProperty CornerRadiusProperty =
+        ControlHelper.CornerRadiusProperty.AddOwner(typeof(FlyoutPresenter));
+
+    public CornerRadius CornerRadius
+    {
+        get => (CornerRadius)GetValue(CornerRadiusProperty);
+        set => SetValue(CornerRadiusProperty, value);
+    }
+
+    #endregion CornerRadius
+
+    #region IsDefaultShadowEnabled
+
+    public static readonly DependencyProperty IsDefaultShadowEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsDefaultShadowEnabled),
+            typeof(bool),
+            typeof(FlyoutPresenter),
+            new PropertyMetadata(true));
+
+    public bool IsDefaultShadowEnabled
+    {
+        get => (bool)GetValue(IsDefaultShadowEnabledProperty);
+        set => SetValue(IsDefaultShadowEnabledProperty, value);
+    }
+
+    #endregion IsDefaultShadowEnabled
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.Key == Key.Escape)
+        {
+            if (Parent is Popup popup && popup.IsOpen)
+            {
+                popup.SetCurrentValue(Popup.IsOpenProperty, false);
+                e.Handled = true;
+            }
+        }
+    }
+
+#if NET462_OR_NEWER
+    protected override void OnDpiChanged(DpiScale oldDpi, DpiScale newDpi)
+    {
+        base.OnDpiChanged(oldDpi, newDpi);
+
+        if (ShadowAssist.UseBitmapCache && CacheMode is BitmapCache bitmapCache)
+        {
+            bitmapCache.RenderAtScale = newDpi.PixelsPerDip;
+        }
+    }
+#endif
+}

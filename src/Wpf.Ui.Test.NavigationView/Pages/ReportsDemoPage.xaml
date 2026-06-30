@@ -1,0 +1,44 @@
+<Page
+    x:Class="Wpf.Ui.Test.NavigationView.Pages.ReportsDemoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="12" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock FontSize="26" FontWeight="SemiBold" Text="Reports Page" />
+            <TextBlock
+                x:Name="SectionTextBlock"
+                Margin="0,8,0,0"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="当前报表分组: overview" />
+        </StackPanel>
+
+        <Border
+            Grid.Row="2"
+            Padding="16"
+            Background="{DynamicResource ControlFillColorSecondaryBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="10">
+            <StackPanel>
+                <TextBlock FontWeight="SemiBold" Text="验证点" />
+                <TextBlock
+                    Margin="0,10,0,0"
+                    Text="1. 展开 Reports 子项后，点击 Daily/Weekly/Executive 应切换同一 Reports 页面，并更新分组文本。"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Margin="0,8,0,0"
+                    Text="2. 观察 SelectionChanged 与 ItemInvoked 的顺序是否符合预期。"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
