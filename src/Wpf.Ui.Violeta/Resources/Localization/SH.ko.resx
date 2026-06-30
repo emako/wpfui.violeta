@@ -148,10 +148,10 @@
     <value>예외 발생</value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>문제�?추적하기 위해 정보�?복사하거�?무시하고 시도하거�?프로그램�?종료하고 다시 시작�?�?있습니다.</value>
+    <value>문제를 추적하기 위해 정보를 복사하거나 무시하고 시도하거나 프로그램을 종료하고 다시 시작할 수 있습니다.</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>로딩 �?/value>
+    <value>로딩 중</value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
     <value>탐색 열기</value>
@@ -186,7 +186,7 @@
     <comment>Automation name for the nav view provided close button</comment>
   </data>
   <data name="NavigationOverflowButtonName" xml:space="preserve">
-    <value>자세�?/value>
+    <value>자세히</value>
     <comment>Automation name for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonText" xml:space="preserve">
@@ -194,7 +194,7 @@
     <comment>Text for the nav view more button when panel is on top</comment>
   </data>
   <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
-    <value>자세�?/value>
+    <value>자세히</value>
     <comment>ToolTip caption for the nav view more button when panel is on top</comment>
   </data>
   <data name="MultiComboBoxSelectAll" xml:space="preserve">
@@ -204,28 +204,28 @@
     <value>모두</value>
   </data>
   <data name="PleaseSelect" xml:space="preserve">
-    <value>선택하세�?..</value>
+    <value>선택하세요...</value>
   </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>이동</value>
   </data>
   <data name="DatePickerDayText" xml:space="preserve">
-    <value>�?/value>
+    <value>일</value>
   </data>
   <data name="DatePickerMonthText" xml:space="preserve">
-    <value>�?/value>
+    <value>월</value>
   </data>
   <data name="DatePickerYearText" xml:space="preserve">
-    <value>�?/value>
+    <value>년</value>
   </data>
   <data name="TimePickerHourText" xml:space="preserve">
-    <value>�?/value>
+    <value>시</value>
   </data>
   <data name="TimePickerMinuteText" xml:space="preserve">
-    <value>�?/value>
+    <value>분</value>
   </data>
   <data name="TimePickerSecondText" xml:space="preserve">
-    <value>�?/value>
+    <value>초</value>
   </data>
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>페이지</value>
