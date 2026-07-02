@@ -1,7 +1,6 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -10,43 +9,19 @@ namespace Wpf.Ui.Violeta.Controls;
 /// The flyout popup content for <see cref="TimePicker"/>.
 /// </summary>
 [TemplatePart(Name = PartPickerContainer, Type = typeof(Grid))]
-[TemplatePart(Name = PartHourHost, Type = typeof(Panel))]
-[TemplatePart(Name = PartMinuteHost, Type = typeof(Panel))]
-[TemplatePart(Name = PartSecondHost, Type = typeof(Panel))]
-[TemplatePart(Name = PartPeriodHost, Type = typeof(Panel))]
 [TemplatePart(Name = PartHourSelector, Type = typeof(DateTimePickerPanel))]
 [TemplatePart(Name = PartMinuteSelector, Type = typeof(DateTimePickerPanel))]
 [TemplatePart(Name = PartSecondSelector, Type = typeof(DateTimePickerPanel))]
 [TemplatePart(Name = PartPeriodSelector, Type = typeof(DateTimePickerPanel))]
-[TemplatePart(Name = PartHourUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartHourDownButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartMinuteUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartMinuteDownButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartSecondUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartSecondDownButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartPeriodUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartPeriodDownButton, Type = typeof(RepeatButton))]
 [TemplatePart(Name = PartAcceptButton, Type = typeof(Button))]
 [TemplatePart(Name = PartDismissButton, Type = typeof(Button))]
 public class TimePickerPresenter : Control
 {
     public const string PartPickerContainer = "PART_PickerContainer";
-    public const string PartHourHost = "PART_HourHost";
-    public const string PartMinuteHost = "PART_MinuteHost";
-    public const string PartSecondHost = "PART_SecondHost";
-    public const string PartPeriodHost = "PART_PeriodHost";
     public const string PartHourSelector = "PART_HourSelector";
     public const string PartMinuteSelector = "PART_MinuteSelector";
     public const string PartSecondSelector = "PART_SecondSelector";
     public const string PartPeriodSelector = "PART_PeriodSelector";
-    public const string PartHourUpButton = "PART_HourUpButton";
-    public const string PartHourDownButton = "PART_HourDownButton";
-    public const string PartMinuteUpButton = "PART_MinuteUpButton";
-    public const string PartMinuteDownButton = "PART_MinuteDownButton";
-    public const string PartSecondUpButton = "PART_SecondUpButton";
-    public const string PartSecondDownButton = "PART_SecondDownButton";
-    public const string PartPeriodUpButton = "PART_PeriodUpButton";
-    public const string PartPeriodDownButton = "PART_PeriodDownButton";
     public const string PartAcceptButton = "PART_AcceptButton";
     public const string PartDismissButton = "PART_DismissButton";
 
@@ -205,31 +180,12 @@ public class TimePickerPresenter : Control
             _periodSelector.ShouldLoop = false;
         }
 
-        // Wire RepeatButtons
-        WireRepeatButton(PartHourUpButton, () => _hourSelector?.MoveUp());
-        WireRepeatButton(PartHourDownButton, () => _hourSelector?.MoveDown());
-        WireRepeatButton(PartMinuteUpButton, () => _minuteSelector?.MoveUp());
-        WireRepeatButton(PartMinuteDownButton, () => _minuteSelector?.MoveDown());
-        WireRepeatButton(PartSecondUpButton, () => _secondSelector?.MoveUp());
-        WireRepeatButton(PartSecondDownButton, () => _secondSelector?.MoveDown());
-        WireRepeatButton(PartPeriodUpButton, () => _periodSelector?.MoveUp());
-        WireRepeatButton(PartPeriodDownButton, () => _periodSelector?.MoveDown());
-
         if (GetTemplateChild(PartAcceptButton) is Button accept)
             accept.Click += (_, _) => RaiseEvent(new RoutedEventArgs(ConfirmedEvent, this));
         if (GetTemplateChild(PartDismissButton) is Button dismiss)
             dismiss.Click += (_, _) => RaiseEvent(new RoutedEventArgs(DismissedEvent, this));
 
         SyncPanelsToTime();
-    }
-
-    private void WireRepeatButton(string partName, Action action)
-    {
-        if (GetTemplateChild(partName) is RepeatButton btn)
-        {
-            btn.Click -= (_, _) => action();
-            btn.Click += (_, _) => action();
-        }
     }
 
     // ------------------------------------------------------------------

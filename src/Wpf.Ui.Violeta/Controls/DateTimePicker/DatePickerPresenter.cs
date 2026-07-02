@@ -1,7 +1,6 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -10,35 +9,17 @@ namespace Wpf.Ui.Violeta.Controls;
 /// The flyout popup content for <see cref="DatePicker"/>.
 /// </summary>
 [TemplatePart(Name = PartPickerContainer, Type = typeof(Grid))]
-[TemplatePart(Name = PartMonthHost, Type = typeof(Panel))]
-[TemplatePart(Name = PartDayHost, Type = typeof(Panel))]
-[TemplatePart(Name = PartYearHost, Type = typeof(Panel))]
 [TemplatePart(Name = PartMonthSelector, Type = typeof(DateTimePickerPanel))]
 [TemplatePart(Name = PartDaySelector, Type = typeof(DateTimePickerPanel))]
 [TemplatePart(Name = PartYearSelector, Type = typeof(DateTimePickerPanel))]
-[TemplatePart(Name = PartMonthUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartMonthDownButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartDayUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartDayDownButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartYearUpButton, Type = typeof(RepeatButton))]
-[TemplatePart(Name = PartYearDownButton, Type = typeof(RepeatButton))]
 [TemplatePart(Name = PartAcceptButton, Type = typeof(Button))]
 [TemplatePart(Name = PartDismissButton, Type = typeof(Button))]
 public class DatePickerPresenter : Control
 {
     public const string PartPickerContainer = "PART_PickerContainer";
-    public const string PartMonthHost = "PART_MonthHost";
-    public const string PartDayHost = "PART_DayHost";
-    public const string PartYearHost = "PART_YearHost";
     public const string PartMonthSelector = "PART_MonthSelector";
     public const string PartDaySelector = "PART_DaySelector";
     public const string PartYearSelector = "PART_YearSelector";
-    public const string PartMonthUpButton = "PART_MonthUpButton";
-    public const string PartMonthDownButton = "PART_MonthDownButton";
-    public const string PartDayUpButton = "PART_DayUpButton";
-    public const string PartDayDownButton = "PART_DayDownButton";
-    public const string PartYearUpButton = "PART_YearUpButton";
-    public const string PartYearDownButton = "PART_YearDownButton";
     public const string PartAcceptButton = "PART_AcceptButton";
     public const string PartDismissButton = "PART_DismissButton";
 
@@ -209,14 +190,6 @@ public class DatePickerPresenter : Control
             _yearSelector.ShouldLoop = false;
         }
 
-        // Wire up RepeatButtons
-        WireRepeatButton(PartMonthUpButton, () => _monthSelector?.MoveUp());
-        WireRepeatButton(PartMonthDownButton, () => _monthSelector?.MoveDown());
-        WireRepeatButton(PartDayUpButton, () => _daySelector?.MoveUp());
-        WireRepeatButton(PartDayDownButton, () => _daySelector?.MoveDown());
-        WireRepeatButton(PartYearUpButton, () => _yearSelector?.MoveUp());
-        WireRepeatButton(PartYearDownButton, () => _yearSelector?.MoveDown());
-
         // Accept / Dismiss
         if (GetTemplateChild(PartAcceptButton) is Button accept)
             accept.Click += (_, _) => RaiseEvent(new RoutedEventArgs(ConfirmedEvent, this));
@@ -225,15 +198,6 @@ public class DatePickerPresenter : Control
 
         // Initialize panels from current Date
         SyncPanelsToDate();
-    }
-
-    private void WireRepeatButton(string partName, Action action)
-    {
-        if (GetTemplateChild(partName) is RepeatButton btn)
-        {
-            btn.Click -= (_, _) => action();
-            btn.Click += (_, _) => action();
-        }
     }
 
     // ------------------------------------------------------------------

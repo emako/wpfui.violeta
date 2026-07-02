@@ -52,19 +52,12 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!--  Year column  -->
-                                    <Grid Grid.Column="0" x:Name="PART_YearHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_YearSelector"
-                                            ItemHeight="36"
-                                            PanelType="Year"
-                                            ShouldLoop="False" />
-                                        <RepeatButton
-                                            x:Name="PART_YearUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_YearDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_YearSelector"
+                                        Grid.Column="0"
+                                        ItemHeight="36"
+                                        PanelType="Year"
+                                        ShouldLoop="False" />
 
                                     <!--  Separator 1  -->
                                     <Rectangle
@@ -72,19 +65,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <!--  Month column  -->
-                                    <Grid Grid.Column="2" x:Name="PART_MonthHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_MonthSelector"
-                                            ItemHeight="36"
-                                            PanelType="Month"
-                                            ShouldLoop="True" />
-                                        <RepeatButton
-                                            x:Name="PART_MonthUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_MonthDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_MonthSelector"
+                                        Grid.Column="2"
+                                        ItemHeight="36"
+                                        PanelType="Month"
+                                        ShouldLoop="True" />
 
                                     <!--  Separator 2  -->
                                     <Rectangle
@@ -92,19 +78,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <!--  Day column  -->
-                                    <Grid Grid.Column="4" x:Name="PART_DayHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_DaySelector"
-                                            ItemHeight="36"
-                                            PanelType="Day"
-                                            ShouldLoop="True" />
-                                        <RepeatButton
-                                            x:Name="PART_DayUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_DayDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_DaySelector"
+                                        Grid.Column="4"
+                                        ItemHeight="36"
+                                        PanelType="Day"
+                                        ShouldLoop="True" />
                                 </Grid>
 
                                 <!--  Accept / Dismiss row  -->
@@ -161,20 +140,6 @@
                             </Grid>
                         </Border>
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" SourceName="PART_MonthHost" Value="True">
-                            <Setter TargetName="PART_MonthUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_MonthDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="PART_DayHost" Value="True">
-                            <Setter TargetName="PART_DayUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_DayDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="PART_YearHost" Value="True">
-                            <Setter TargetName="PART_YearUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_YearDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

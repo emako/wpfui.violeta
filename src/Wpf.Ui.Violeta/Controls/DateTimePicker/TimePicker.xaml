@@ -54,19 +54,12 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!--  Hour column  -->
-                                    <Grid Grid.Column="0" x:Name="PART_HourHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_HourSelector"
-                                            ItemHeight="36"
-                                            PanelType="Hour"
-                                            ShouldLoop="True" />
-                                        <RepeatButton
-                                            x:Name="PART_HourUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_HourDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_HourSelector"
+                                        Grid.Column="0"
+                                        ItemHeight="36"
+                                        PanelType="Hour"
+                                        ShouldLoop="True" />
 
                                     <!--  Separator 1  -->
                                     <Rectangle
@@ -74,19 +67,12 @@
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <!--  Minute column  -->
-                                    <Grid Grid.Column="2" x:Name="PART_MinuteHost">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_MinuteSelector"
-                                            ItemHeight="36"
-                                            PanelType="Minute"
-                                            ShouldLoop="True" />
-                                        <RepeatButton
-                                            x:Name="PART_MinuteUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_MinuteDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_MinuteSelector"
+                                        Grid.Column="2"
+                                        ItemHeight="36"
+                                        PanelType="Minute"
+                                        ShouldLoop="True" />
 
                                     <!--  Separator 2 (only when UseSeconds=True)  -->
                                     <Rectangle
@@ -97,23 +83,14 @@
                                         Visibility="Collapsed" />
 
                                     <!--  Second column (only when UseSeconds=True)  -->
-                                    <Grid
-                                        x:Name="PART_SecondHost"
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_SecondSelector"
                                         Grid.Column="4"
                                         Width="80"
-                                        Visibility="Collapsed">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_SecondSelector"
-                                            ItemHeight="36"
-                                            PanelType="Second"
-                                            ShouldLoop="True" />
-                                        <RepeatButton
-                                            x:Name="PART_SecondUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_SecondDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                        ItemHeight="36"
+                                        PanelType="Second"
+                                        ShouldLoop="True"
+                                        Visibility="Collapsed" />
 
                                     <!--  Separator 3 (12h period)  -->
                                     <Rectangle
@@ -124,23 +101,14 @@
                                         Visibility="Collapsed" />
 
                                     <!--  Period column (AM/PM) only for 12h  -->
-                                    <Grid
-                                        x:Name="PART_PeriodHost"
+                                    <local:DateTimePickerPanel
+                                        x:Name="PART_PeriodSelector"
                                         Grid.Column="6"
                                         Width="60"
-                                        Visibility="Collapsed">
-                                        <local:DateTimePickerPanel
-                                            x:Name="PART_PeriodSelector"
-                                            ItemHeight="36"
-                                            PanelType="TimePeriod"
-                                            ShouldLoop="False" />
-                                        <RepeatButton
-                                            x:Name="PART_PeriodUpButton"
-                                            Style="{StaticResource DateTimePickerUpButtonStyle}" />
-                                        <RepeatButton
-                                            x:Name="PART_PeriodDownButton"
-                                            Style="{StaticResource DateTimePickerDownButtonStyle}" />
-                                    </Grid>
+                                        ItemHeight="36"
+                                        PanelType="TimePeriod"
+                                        ShouldLoop="False"
+                                        Visibility="Collapsed" />
                                 </Grid>
 
                                 <!--  Accept / Dismiss row  -->
@@ -199,31 +167,14 @@
                     <ControlTemplate.Triggers>
                         <!--  Show seconds  -->
                         <DataTrigger Binding="{Binding UseSeconds, RelativeSource={RelativeSource Self}}" Value="True">
-                            <Setter TargetName="PART_SecondHost" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_SecondSelector" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_SecondSpacer" Property="Visibility" Value="Visible" />
                         </DataTrigger>
                         <!--  Show AM/PM for 12h  -->
                         <DataTrigger Binding="{Binding ClockIdentifier, RelativeSource={RelativeSource Self}}" Value="12HourClock">
-                            <Setter TargetName="PART_PeriodHost" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_PeriodSelector" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_PeriodSpacer" Property="Visibility" Value="Visible" />
                         </DataTrigger>
-                        <!--  Hover up/down  -->
-                        <Trigger Property="IsMouseOver" SourceName="PART_HourHost" Value="True">
-                            <Setter TargetName="PART_HourUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_HourDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="PART_MinuteHost" Value="True">
-                            <Setter TargetName="PART_MinuteUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_MinuteDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="PART_SecondHost" Value="True">
-                            <Setter TargetName="PART_SecondUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_SecondDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" SourceName="PART_PeriodHost" Value="True">
-                            <Setter TargetName="PART_PeriodUpButton" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_PeriodDownButton" Property="Visibility" Value="Visible" />
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
