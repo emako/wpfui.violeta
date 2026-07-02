@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
@@ -93,6 +94,13 @@ public class DateTimePickerPanel : Control
             typeof(DateTimePickerPanel),
             new PropertyMetadata("24HourClock", OnPanelTypeChanged));
 
+    public static readonly DependencyProperty ItemsSourceProperty =
+        DependencyProperty.Register(
+            nameof(ItemsSource),
+            typeof(IEnumerable),
+            typeof(DateTimePickerPanel),
+            new PropertyMetadata(null, OnItemsSourceChanged));
+
     public static readonly RoutedEvent SelectionChangedEvent =
         EventManager.RegisterRoutedEvent(
             nameof(SelectionChanged),
@@ -150,6 +158,12 @@ public class DateTimePickerPanel : Control
     {
         get => (string)GetValue(ClockIdentifierProperty);
         set => SetValue(ClockIdentifierProperty, value);
+    }
+
+    public IEnumerable? ItemsSource
+    {
+        get => (IEnumerable?)GetValue(ItemsSourceProperty);
+        set => SetValue(ItemsSourceProperty, value);
     }
 
     public event RoutedEventHandler SelectionChanged
@@ -283,6 +297,17 @@ public class DateTimePickerPanel : Control
                 list.Add("AM");
                 list.Add("PM");
                 break;
+
+            case DateTimePickerPanelType.ValueList:
+                if (ItemsSource != null)
+                {
+                    foreach (var item in ItemsSource)
+                    {
+                        if (item != null)
+                            list.Add(item.ToString() ?? string.Empty);
+                    }
+                }
+                break;
         }
         return list;
     }
@@ -403,6 +428,20 @@ public class DateTimePickerPanel : Control
             int newMax = (int)e.NewValue;
             panel.BuildItems();
             panel.SelectedIndex = Math.Min(prevIndex, Math.Max(0, newMax - 1));
+            panel.ScrollToSelected(animate: false);
+        }
+    }
+
+    private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is DateTimePickerPanel panel
+            && panel.PanelType == DateTimePickerPanelType.ValueList
+            && !panel._isApplyingTemplate
+            && panel._itemsPanel != null)
+        {
+            int prevIndex = panel.SelectedIndex;
+            panel.BuildItems();
+            panel.SelectedIndex = Math.Min(prevIndex, Math.Max(0, panel.ItemCount - 1));
             panel.ScrollToSelected(animate: false);
         }
     }
