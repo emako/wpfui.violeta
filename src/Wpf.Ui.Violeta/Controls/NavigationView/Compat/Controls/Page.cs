@@ -1,6 +1,7 @@
 #pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Navigation;
@@ -15,6 +16,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 /// <summary>
 /// Represents content that a Frame control can navigate to.
 /// </summary>
+[SuppressMessage("Style", "IDE0001:Simplify name")]
 public class Page : System.Windows.Controls.Page
 {
     static Page()
