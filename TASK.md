@@ -1,12 +1,12 @@
 Feature Task
 
-- [ ] Navagation
+- [x] Navagation
 - [ ] ShellWindow (backdrop and so on)
 - [ ] Calendar
 - [ ] Color Picker
 - [ ] Task Dialog (dark mode)
-- [ ] Fix DateTimePicker style
-  - [ ] DateTimePickerUpButtonStyle / DateTimePickerDownButtonStyle
+- [x] Fix DateTimePicker style
+  - [x] DateTimePickerUpButtonStyle / DateTimePickerDownButtonStyle
   - [ ] DateTimePicker icons
 - [ ] Fix Form
 

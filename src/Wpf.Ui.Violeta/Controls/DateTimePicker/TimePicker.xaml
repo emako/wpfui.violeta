@@ -7,9 +7,11 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/DateTimePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--  ═══════════════════════════════════════════════════════════════
-          TimePickerPresenter
-          ═══════════════════════════════════════════════════════════════ -->
+    <!--
+        ═══════════════════════════════════════════════════════════════
+        TimePickerPresenter
+        ═══════════════════════════════════════════════════════════════
+    -->
     <Style TargetType="{x:Type local:TimePickerPresenter}">
         <Setter Property="Width" Value="260" />
         <Setter Property="MinWidth" Value="240" />
@@ -29,9 +31,7 @@
                         CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}"
                         Effect="{DynamicResource DateTimePickerPopupShadow}"
                         SnapsToDevicePixels="True">
-                        <Border
-                            ClipToBounds="True"
-                            CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}">
+                        <Border ClipToBounds="True" CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
@@ -62,9 +62,7 @@
                                         ShouldLoop="True" />
 
                                     <!--  Separator 1  -->
-                                    <Rectangle
-                                        Grid.Column="1"
-                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                    <Rectangle Grid.Column="1" Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <!--  Minute column  -->
                                     <local:DateTimePickerPanel
@@ -142,9 +140,7 @@
                                             StrokeThickness="1.8" />
                                     </Button>
 
-                                    <Rectangle
-                                        Grid.Column="1"
-                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+                                    <Rectangle Grid.Column="1" Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
 
                                     <Button
                                         x:Name="PART_DismissButton"
@@ -181,9 +177,11 @@
         </Setter>
     </Style>
 
-    <!--  ═══════════════════════════════════════════════════════════════
-          TimePicker
-          ═══════════════════════════════════════════════════════════════ -->
+    <!--
+        ═══════════════════════════════════════════════════════════════
+        TimePicker
+        ═══════════════════════════════════════════════════════════════
+    -->
     <Style TargetType="{x:Type local:TimePicker}">
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
@@ -253,6 +251,7 @@
                                         Text="{TemplateBinding MinuteText}" />
 
                                     <!--  Clock icon  -->
+                                    <!--
                                     <ui:SymbolIcon
                                         Grid.Column="3"
                                         Width="32"
@@ -261,6 +260,16 @@
                                         FontSize="16"
                                         Foreground="{DynamicResource DateTimePickerIconForeground}"
                                         Symbol="Clock24" />
+                                    -->
+                                    <TextBlock
+                                        Grid.Column="3"
+                                        Width="32"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource FluentSystemIcons}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource DateTimePickerIconForeground}"
+                                        Text="&#xF2DE;" />
                                 </Grid>
                             </Button>
 
