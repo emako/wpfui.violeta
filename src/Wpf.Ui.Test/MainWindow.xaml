@@ -5014,6 +5014,40 @@
                         <vio:TimePicker ClockIdentifier="12HourClock" UseSeconds="True" />
                     </ui:StackPanel>
 
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        ValuePicker
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ValuePicker" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Multi-column drum-roll picker for arbitrary string arrays." />
+                    <ui:StackPanel
+                        Margin="0,8,0,0"
+                        Orientation="Vertical"
+                        Spacing="12">
+                        <vio:ValuePicker
+                            x:Name="RegionValuePicker"
+                            MinWidth="320" />
+                        <TextBlock
+                            x:Name="RegionSelectionText"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Selected: (none)" />
+                        <vio:ValuePicker
+                            x:Name="ProductValuePicker"
+                            MinWidth="360" />
+                        <TextBlock
+                            x:Name="ProductSelectionText"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Selected: (none)" />
+                    </ui:StackPanel>
+
                 </StackPanel>
 
             </ScrollViewer>

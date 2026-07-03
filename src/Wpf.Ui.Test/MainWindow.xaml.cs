@@ -58,6 +58,7 @@ public partial class MainWindow : ShellWindow
         InitCascadingComboBoxDemoLevel4();
         InitCascadingComboBoxDemoMixedDepth();
         InitTreeComboBoxDemo();
+        InitValuePickerDemo();
 
         Dispatcher.BeginInvoke(async () =>
         {
@@ -507,6 +508,59 @@ public partial class MainWindow : ShellWindow
             ]),
             new TreeComboBoxNode("Item 3"),
         ];
+    }
+
+    // ── ValuePicker ───────────────────────────────────────────────────────────
+
+    private void InitValuePickerDemo()
+    {
+        RegionValuePicker.Columns =
+        [
+            new ValuePickerColumn
+            {
+                Placeholder = "State",
+                Items = ["California", "Texas", "New York"],
+            },
+            new ValuePickerColumn
+            {
+                Placeholder = "City",
+                Items = ["Los Angeles", "San Francisco", "Austin", "Houston", "New York City"],
+            },
+        ];
+        RegionValuePicker.SelectedValues = ["Texas", "Austin"];
+        RegionSelectionText.Text = $"Selected: {string.Join(" / ", RegionValuePicker.SelectedValues)}";
+        RegionValuePicker.SelectedValuesChanged += (_, _) =>
+        {
+            RegionSelectionText.Text = RegionValuePicker.SelectedValues is { Length: > 0 } values
+                ? $"Selected: {string.Join(" / ", values)}"
+                : "Selected: (none)";
+        };
+
+        ProductValuePicker.Columns =
+        [
+            new ValuePickerColumn
+            {
+                Placeholder = "Series",
+                Items = ["Standard", "Pro", "Ultra"],
+            },
+            new ValuePickerColumn
+            {
+                Placeholder = "Storage",
+                Items = ["128 GB", "256 GB", "512 GB", "1 TB"],
+            },
+            new ValuePickerColumn
+            {
+                Placeholder = "Color",
+                Items = ["Black", "White", "Blue"],
+                ShouldLoop = false,
+            },
+        ];
+        ProductValuePicker.SelectedValuesChanged += (_, _) =>
+        {
+            ProductSelectionText.Text = ProductValuePicker.SelectedValues is { Length: > 0 } values
+                ? $"Selected: {string.Join(" / ", values)}"
+                : "Selected: (none)";
+        };
     }
 
     // ── PinCode ──────────────────────────────────────────────────────────────
