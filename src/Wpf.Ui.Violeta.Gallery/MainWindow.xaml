@@ -55,7 +55,7 @@
             IsBackEnabled="False"
             IsPaneOpen="True"
             IsPaneToggleButtonVisible="True"
-            IsSettingsVisible="False"
+            IsSettingsVisible="True"
             OpenPaneLength="240"
             PaneTitle="Violeta Gallery"
             SelectionChanged="GalleryNav_OnSelectionChanged">

@@ -56,6 +56,6 @@ public partial class FeedbackPage : Wpf.Ui.Violeta.Controls.Page
 
     private void UpdateStatus()
     {
-        TransitionStatusText.Text = $"Slide {_slideIndex + 1}/{_slides.Length} | {TransitionContent.Transition}";
+        //TransitionStatusText.Text = $"Slide {_slideIndex + 1}/{_slides.Length} | {TransitionContent.Transition}";
     }
 }

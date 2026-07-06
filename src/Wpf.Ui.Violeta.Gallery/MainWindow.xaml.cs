@@ -2,18 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
 using Wpf.Ui.Violeta.Gallery.Pages;
-using Page = Wpf.Ui.Violeta.Controls.Compat.Page;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
 public partial class MainWindow : ShellWindow
 {
-    private readonly Dictionary<string, Page> _pageCache = [];
+    private readonly Dictionary<string, Wpf.Ui.Violeta.Controls.Page> _pageCache = [];
 
     public MainWindow()
     {
@@ -28,6 +26,14 @@ public partial class MainWindow : ShellWindow
 
     private void GalleryNav_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
+        if (args.IsSettingsSelected)
+        {
+            GalleryNav.Header = "设置";
+            GalleryNav.IsBackEnabled = ContentFrame.CanGoBack;
+            NavigateTo("settings");
+            return;
+        }
+
         if (args.SelectedItem is not NavigationViewItem item)
         {
             return;
@@ -51,7 +57,7 @@ public partial class MainWindow : ShellWindow
 
     private void NavigateTo(string? tag)
     {
-        Page page = tag switch
+        Wpf.Ui.Violeta.Controls.Page page = tag switch
         {
             "home" => GetOrCreate("home", () => new HomePage()),
             "toast" => GetOrCreate("toast", () => new ToastPage()),
@@ -60,13 +66,14 @@ public partial class MainWindow : ShellWindow
             "data" => GetOrCreate("data", () => new DataPage()),
             "feedback" => GetOrCreate("feedback", () => new FeedbackPage()),
             "layout" => GetOrCreate("layout", () => new LayoutPage()),
+            "settings" => GetOrCreate("settings", () => new SettingsPage()),
             _ => GetOrCreate("home", () => new HomePage()),
         };
 
         ContentFrame.Navigate(page, new EntranceNavigationTransitionInfo());
     }
 
-    private Page GetOrCreate(string key, Func<Page> factory)
+    private Wpf.Ui.Violeta.Controls.Page GetOrCreate(string key, Func<Wpf.Ui.Violeta.Controls.Page> factory)
     {
         if (!_pageCache.TryGetValue(key, out var page))
         {
