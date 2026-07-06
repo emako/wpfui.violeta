@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace Wpf.Ui.Test.NavigationView.Pages;
 
-public class GenericDemoPage : Page
+public class GenericDemoPage : Wpf.Ui.Violeta.Controls.Page
 {
     public GenericDemoPage(string title, string tag)
     {

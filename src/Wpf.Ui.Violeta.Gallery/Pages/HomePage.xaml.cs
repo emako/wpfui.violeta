@@ -1,8 +1,6 @@
-using Page = Wpf.Ui.Violeta.Controls.Compat.Page;
-
 namespace Wpf.Ui.Violeta.Gallery.Pages;
 
-public partial class HomePage : Page
+public partial class HomePage : Wpf.Ui.Violeta.Controls.Page
 {
     public HomePage()
     {

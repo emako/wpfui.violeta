@@ -1,13 +1,13 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls;
-using Page = Wpf.Ui.Violeta.Controls.Compat.Page;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages;
 
-public partial class InputPage : Page
+public partial class InputPage : Wpf.Ui.Violeta.Controls.Page
 {
     private static readonly string[] _spinnerWords = ["Apple", "Banana", "Cherry", "Durian", "Elderberry"];
     private int _spinnerIndex;

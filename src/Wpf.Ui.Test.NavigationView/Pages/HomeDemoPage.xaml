@@ -1,9 +1,10 @@
-<Page
+<vio:Page
     x:Class="Wpf.Ui.Test.NavigationView.Pages.HomeDemoPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     mc:Ignorable="d">
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -13,7 +14,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock FontSize="26" FontWeight="SemiBold" Text="Home Page" />
+            <TextBlock
+                FontSize="26"
+                FontWeight="SemiBold"
+                Text="Home Page" />
             <TextBlock
                 Margin="0,8,0,0"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -31,7 +35,10 @@
                 CornerRadius="10">
                 <StackPanel>
                     <TextBlock FontWeight="SemiBold" Text="导航状态" />
-                    <TextBlock Margin="0,8,0,0" Text="观察 Pane 模式切换、Back 按钮和设置项行为。" TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        Text="观察 Pane 模式切换、Back 按钮和设置项行为。"
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </Border>
             <Border
@@ -43,9 +50,12 @@
                 CornerRadius="10">
                 <StackPanel>
                     <TextBlock FontWeight="SemiBold" Text="交互测试" />
-                    <TextBlock Margin="0,8,0,0" Text="点击左侧菜单后，这个 Frame 会切到对应示例 Page。" TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        Text="点击左侧菜单后，这个 Frame 会切到对应示例 Page。"
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </Border>
         </UniformGrid>
     </Grid>
-</Page>
+</vio:Page>

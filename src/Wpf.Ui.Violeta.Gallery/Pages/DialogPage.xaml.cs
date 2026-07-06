@@ -5,11 +5,10 @@ using Wpf.Ui.Violeta.Controls;
 using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
 using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
 using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
-using Page = Wpf.Ui.Violeta.Controls.Compat.Page;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages;
 
-public partial class DialogPage : Page
+public partial class DialogPage : Wpf.Ui.Violeta.Controls.Page
 {
     public DialogPage()
     {

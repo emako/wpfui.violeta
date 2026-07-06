@@ -1,9 +1,8 @@
 using System;
-using System.Windows.Controls;
 
 namespace Wpf.Ui.Test.NavigationView.Pages;
 
-public partial class ReportsDemoPage : Page
+public partial class ReportsDemoPage : Wpf.Ui.Violeta.Controls.Page
 {
     public ReportsDemoPage(string tag)
     {

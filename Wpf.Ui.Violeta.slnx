@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
   <Project Path="src/Wpf.Ui.DependencyPropertyGenerator/Wpf.Ui.DependencyPropertyGenerator.csproj" />
   <Project Path="src/Wpf.Ui.Test.NavigationView/Wpf.Ui.Test.NavigationView.csproj" />
   <Project Path="src/Wpf.Ui.Test/Wpf.Ui.Test.csproj" />
