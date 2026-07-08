@@ -297,6 +297,126 @@
                 </StackPanel>
             </Border>
 
+            <!--  TreeComboBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeComboBox — 树形下拉框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="层级树形结构的下拉选择框，支持多层嵌套。" />
+                    <vio:TreeComboBox
+                        x:Name="TreeComboBoxDemo"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="请选择...">
+                        <vio:TreeComboBoxItem Header="技术栈">
+                            <vio:TreeComboBoxItem Header="前端">
+                                <vio:TreeComboBoxItem Header="React" />
+                                <vio:TreeComboBoxItem Header="Vue" />
+                                <vio:TreeComboBoxItem Header="Angular" />
+                            </vio:TreeComboBoxItem>
+                            <vio:TreeComboBoxItem Header="后端">
+                                <vio:TreeComboBoxItem Header="Node.js" />
+                                <vio:TreeComboBoxItem Header=".NET" />
+                                <vio:TreeComboBoxItem Header="Java" />
+                            </vio:TreeComboBoxItem>
+                        </vio:TreeComboBoxItem>
+                        <vio:TreeComboBoxItem Header="数据库">
+                            <vio:TreeComboBoxItem Header="SQL">
+                                <vio:TreeComboBoxItem Header="MySQL" />
+                                <vio:TreeComboBoxItem Header="PostgreSQL" />
+                            </vio:TreeComboBoxItem>
+                            <vio:TreeComboBoxItem Header="NoSQL">
+                                <vio:TreeComboBoxItem Header="MongoDB" />
+                                <vio:TreeComboBoxItem Header="Redis" />
+                            </vio:TreeComboBoxItem>
+                        </vio:TreeComboBoxItem>
+                        <vio:TreeComboBoxItem Header="移动开发" />
+                    </vio:TreeComboBox>
+                </StackPanel>
+            </Border>
+
+            <!--  ValuePicker  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ValuePicker — 多列滚轮选择器" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="多列滚轮选择器，适合日期、地区、规格等场景。" />
+                    <vio:ValuePicker
+                        x:Name="ValuePickerDemo"
+                        MinWidth="360"
+                        HorizontalAlignment="Left" />
+                    <TextBlock
+                        x:Name="ValuePickerResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="已选择：(无)" />
+                </StackPanel>
+            </Border>
+
+            <!--  KeyGestureInput  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="KeyGestureInput — 快捷键输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="快捷键录制输入框，支持修饰键组合和清除功能。" />
+                    <StackPanel Orientation="Vertical">
+                        <vio:KeyGestureInput
+                            x:Name="KeyGestureDemo"
+                            Width="280"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Left"
+                            PlaceholderText="按下快捷键..." />
+                        <vio:KeyGestureInput
+                            Width="280"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Left"
+                            ClearButtonEnabled="True"
+                            PlaceholderText="带清除按钮..." />
+                        <vio:KeyGestureInput
+                            Width="280"
+                            HorizontalAlignment="Left"
+                            ConsiderKeyModifiers="False"
+                            PlaceholderText="不使用修饰键..." />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

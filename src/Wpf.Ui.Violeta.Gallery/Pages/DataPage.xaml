@@ -229,6 +229,138 @@
                 </StackPanel>
             </Border>
 
+            <!--  TreeListView  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeListView — 树形列表视图" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结合树形结构和列表视图，支持展开/折叠和多列显示。" />
+                    <ui:TreeListView
+                        x:Name="StaffTreeListView"
+                        Height="280"
+                        ItemsSource="{Binding StaffList}">
+                        <ui:TreeListView.Columns>
+                            <GridViewColumnCollection>
+                                <ui:GridViewColumn Width="280" Header="姓名">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:TreeRowExpander Content="{Binding Name}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                                <ui:GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Age}"
+                                    Header="年龄" />
+                                <ui:GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Sex}"
+                                    Header="性别" />
+                                <ui:GridViewColumn
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding Duty}"
+                                    Header="职位" />
+                                <ui:GridViewColumn Width="100" Header="状态">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                            </GridViewColumnCollection>
+                        </ui:TreeListView.Columns>
+                        <ui:TreeListView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding StaffList}" />
+                        </ui:TreeListView.ItemTemplate>
+                    </ui:TreeListView>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <ui:Button
+                            Click="AddStaffNode_Click"
+                            Content="添加节点" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="ChangeStaffNode_Click"
+                            Content="修改节点" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  TreeModelListView  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeModelListView — 树模型列表视图" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="基于 ITreeModel 接口的树形列表，支持动态加载和自定义数据模型。" />
+                    <ui:TreeModelListView
+                        Height="240"
+                        Model="{Binding TreeTestModel}">
+                        <ui:GridView>
+                            <ui:GridView.Columns>
+                                <ui:GridViewColumn Width="280" Header="列1">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:TreeModelRowExpander Content="{Binding Column1}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                                <ui:GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Column2}"
+                                    Header="列2" />
+                                <ui:GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Column3}"
+                                    Header="列3" />
+                                <ui:GridViewColumn Width="100" Header="选中">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                            </ui:GridView.Columns>
+                        </ui:GridView>
+                    </ui:TreeModelListView>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <ui:Button
+                            Click="AddTreeModelRow_Click"
+                            Content="添加行" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="RemoveTreeModelRow_Click"
+                            Content="删除行" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="ClearTreeModel_Click"
+                            Content="清空" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
