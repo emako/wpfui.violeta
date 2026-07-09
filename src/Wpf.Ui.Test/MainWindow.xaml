@@ -2450,6 +2450,41 @@
 
                         <!--
                             ══════════════════════════════════════════════════════════════
+                            IPv4PortBox
+                            ══════════════════════════════════════════════════════════════
+                        -->
+                        <TextBlock
+                            MinWidth="120"
+                            Margin="0,8,0,0"
+                            FontSize="14"
+                            FontWeight="Black"
+                            Text="IPv4PortBox" />
+                        <StackPanel
+                            Margin="0,8,0,0"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Example" />
+                            <vio:IPv4PortBox Margin="16,0,0,0" Endpoint="192.168.0.10:8080" />
+                            <vio:IPv4PortBox
+                                Margin="16,0,0,0"
+                                Endpoint="10.0.0.1:34543"
+                                IsEnabled="False" />
+                            <TextBlock
+                                Margin="4,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="(Disabled)" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <!--  =============================  -->
+
+                        <!--
+                            ══════════════════════════════════════════════════════════════
                             TimeBox
                             ══════════════════════════════════════════════════════════════
                         -->

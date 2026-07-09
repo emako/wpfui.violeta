@@ -225,6 +225,31 @@
                 </StackPanel>
             </Border>
 
+            <!--  IPv4PortBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="IPv4PortBox — IP 地址 + 端口输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="IPv4 与端口组合输入（如 192.168.0.10:8080），按 . 或 : 可跳转到端口段。" />
+                    <vio:IPv4PortBox
+                        MaxWidth="280"
+                        HorizontalAlignment="Left"
+                        Endpoint="192.168.0.10:8080" />
+                </StackPanel>
+            </Border>
+
             <!--  TimeBox  -->
             <Border
                 Margin="0,0,0,16"
