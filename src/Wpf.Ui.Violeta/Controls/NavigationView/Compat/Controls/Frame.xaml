@@ -16,6 +16,12 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         ClipToBounds="True">
+                        <!--
+                        <ContentPresenter
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="{TemplateBinding Content}" />
+                        -->
                         <Grid>
                             <ContentPresenter
                                 x:Name="FirstContentPresenter"

@@ -21,9 +21,11 @@ public class Page : System.Windows.Controls.Page
 {
     static Page()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(Page), new FrameworkPropertyMetadata(typeof(Page)));
+        // Not overwriting will prevent rendering
+        // DefaultStyleKeyProperty.OverrideMetadata(typeof(Page), new FrameworkPropertyMetadata(typeof(Page)));
+
         BackgroundProperty.OverrideMetadata(typeof(Page), new FrameworkPropertyMetadata(Brushes.Transparent));
-        FontSizeProperty.OverrideMetadata(typeof(Page), new FrameworkPropertyMetadata(14d));
+        FontSizeProperty.OverrideMetadata(typeof(Page), new FrameworkPropertyMetadata(13d));
     }
 
     /// <summary>

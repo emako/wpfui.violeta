@@ -539,27 +539,32 @@
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PointerOver">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundPointerOver}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="Pressed">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundPressed}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="Selected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelected}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PointerOverSelected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelectedPointerOver}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPointerOver}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPointerOver}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPointerOver}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPointerOver}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PressedSelected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelectedPressed}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPressed}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPressed}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPressed}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelectedPressed}" />
                         </Trigger>
 
                         <Trigger SourceName="DisabledStatesListener" Property="CurrentStateName" Value="Disabled">
@@ -1083,31 +1088,37 @@
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PointerOver">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundPointerOver}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="Pressed">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundPressed}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="Selected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelected}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundSelected}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PointerOverSelected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelectedPointerOver}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPointerOver}" />
                         </Trigger>
                         <Trigger SourceName="PointerStatesListener" Property="CurrentStateName" Value="PressedSelected">
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewItemBackgroundSelectedPressed}" />
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
-                            <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource NavigationViewItemForegroundPressed}" />
                         </Trigger>
                         <Trigger SourceName="DisabledStatesListener" Property="CurrentStateName" Value="Disabled">
                             <Setter TargetName="IconBox" Property="Foreground" Value="{DynamicResource TopNavigationViewItemForegroundDisabled}" />
-                            <Setter Property="Foreground" Value="{DynamicResource TopNavigationViewItemForegroundDisabled}" />
+                            <Setter Property="Control.Foreground" Value="{DynamicResource TopNavigationViewItemForegroundDisabled}" />
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource TopNavigationViewItemForegroundDisabled}" />
                         </Trigger>
                         <Trigger SourceName="NavigationViewIconPositionStatesListener" Property="CurrentStateName" Value="ContentOnly">
                             <Setter TargetName="IconBox" Property="Visibility" Value="Collapsed" />
