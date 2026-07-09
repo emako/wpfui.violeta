@@ -23,6 +23,13 @@ public partial class ToastControl : UserControl
 
     public ToastConfig? Options { get; set; } = null!;
 
+    internal bool IsRegistered { get; set; }
+
+    /// <summary>
+    /// Captured at creation time from <see cref="ToastConfig.IsStacked"/> or <see cref="Toast.IsStacked"/>.
+    /// </summary>
+    public bool IsStacked { get; private set; }
+
     public ToastControl() : this(null!, string.Empty)
     {
     }
@@ -54,6 +61,7 @@ public partial class ToastControl : UserControl
         Message = message;
         Owner = owner ?? Application.Current.MainWindow;
         Window = Window.GetWindow(Owner);
+        IsStacked = options?.IsStacked ?? Toast.IsStacked;
         if (Window != null)
         {
             Window.Closed += (s, e) => Close();
@@ -87,6 +95,7 @@ public partial class ToastControl : UserControl
 
             // Register this toast with the manager
             Toast.RegisterToast(Window, this);
+            IsRegistered = true;
 
             SetPopupOffset(Popup, this);
 
@@ -110,6 +119,9 @@ public partial class ToastControl : UserControl
         Timer = new DispatcherTimer();
         Timer.Tick += (_, _) =>
         {
+            Timer.Stop();
+            // Reposition remaining toasts before this popup starts closing.
+            UnregisterSafely();
             Popup.IsOpen = false;
             Window.LocationChanged -= OnUpdatePosition;
             Window.SizeChanged -= OnUpdatePosition;
@@ -120,18 +132,53 @@ public partial class ToastControl : UserControl
 
     protected virtual void OnUpdatePosition(object? sender, EventArgs e)
     {
-        var up = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        if (up == null || Popup == null)
+        ApplyPositionUpdate();
+    }
+
+    private void ApplyPositionUpdate(bool forceReopen = false)
+    {
+        if (Popup == null || Window == null)
         {
             return;
         }
-        SetPopupOffset(Popup, this);
-        up.Invoke(Popup, null);
+
+        void Apply()
+        {
+            if (Popup == null || !Popup.IsOpen)
+            {
+                return;
+            }
+
+            SetPopupOffset(Popup, this);
+
+            if (forceReopen)
+            {
+                var animation = Popup.PopupAnimation;
+                Popup.PopupAnimation = PopupAnimation.None;
+                Popup.IsOpen = false;
+                SetPopupOffset(Popup, this);
+                Popup.IsOpen = true;
+                Popup.PopupAnimation = animation;
+                return;
+            }
+
+            var up = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            up?.Invoke(Popup, null);
+        }
+
+        if (Window.Dispatcher.CheckAccess())
+        {
+            Apply();
+        }
+        else
+        {
+            Window.Dispatcher.Invoke(Apply);
+        }
     }
 
-    internal void UpdatePosition()
+    internal void UpdatePosition(bool forceReopen = false)
     {
-        OnUpdatePosition(null, EventArgs.Empty);
+        ApplyPositionUpdate(forceReopen);
     }
 
     protected virtual void SetPopupOffset(Popup popup, ToastControl toast)
@@ -204,37 +251,39 @@ public partial class ToastControl : UserControl
 
     private double CalculateStackingOffset(ToastControl currentToast)
     {
-        // Check if stacking is enabled in config
-        if (!ToastConfig.IsStacked)
+        if (!currentToast.IsStacked)
         {
-            return 0; // No stacking if disabled
+            return 0;
         }
 
-        var activeToasts = Toast.GetActiveToasts(Window);
-        double offset = 0;
+        const double spacing = 10;
 
-        // Get all toasts with the same location that are currently open and came before this one
-        var relevantToasts = activeToasts
-            .Where(toast => toast != currentToast &&
-                           toast.Location == currentToast.Location &&
-                           toast.Popup != null &&
-                           toast.Popup.IsOpen)
+        // Preserve registration order; only stack against earlier toasts at the same location.
+        var sameLocationToasts = Toast.GetActiveToasts(Window)
+            .Where(toast => toast.Location == currentToast.Location &&
+                            toast.Popup is { IsOpen: true })
             .ToList();
 
-        // Apply max stacking limit if configured
-        if (relevantToasts.Count >= ToastConfig.MaxStacked)
+        var stackIndex = sameLocationToasts.IndexOf(currentToast);
+        if (stackIndex <= 0)
         {
-            // If we've reached the max, don't stack this toast - it will overlay the last one
-            // or we could implement a rotation/replacement strategy
-            relevantToasts = relevantToasts.Take(ToastConfig.MaxStacked - 1).ToList();
+            return 0;
         }
 
-        foreach (var toast in relevantToasts)
+        if (stackIndex >= ToastConfig.MaxStacked)
         {
-            // Calculate the height of the existing toast including margins
-            double toastHeight = toast.Popup.Child.RenderSize.Height;
-            if (toastHeight == 0) toastHeight = 48; // Default height if not yet rendered
-            double spacing = 10; // Spacing between toasts
+            stackIndex = ToastConfig.MaxStacked - 1;
+        }
+
+        double offset = 0;
+        for (var i = 0; i < stackIndex; i++)
+        {
+            var toast = sameLocationToasts[i];
+            double toastHeight = toast.Popup!.Child.RenderSize.Height;
+            if (toastHeight == 0)
+            {
+                toastHeight = 48;
+            }
 
             offset += toastHeight + spacing;
         }
@@ -249,12 +298,11 @@ public partial class ToastControl : UserControl
             Timer.Stop();
             Timer = null!;
         }
+
+        UnregisterSafely();
         Popup.IsOpen = false;
         Window.LocationChanged -= OnUpdatePosition;
         Window.SizeChanged -= OnUpdatePosition;
-
-        // Ensure toast is unregistered when manually closed
-        UnregisterSafely();
     }
 
     private void UnregisterSafely()

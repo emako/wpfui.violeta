@@ -742,8 +742,8 @@ public partial class MainWindow : ShellWindow
     private void ShowToast(Button self)
     {
         // Demonstrate toasts with stacking enabled
-        var originalIsStacked = ToastConfig.IsStacked;
-        ToastConfig.IsStacked = true;
+        var originalIsStacked = Toast.IsStacked;
+        Toast.IsStacked = true;
 
         string message = "This is a toast message";
         ToastLocation toastLocation = (ToastLocation)Enum.Parse(typeof(ToastLocation), self.Content.ToString()!);
@@ -777,7 +777,7 @@ public partial class MainWindow : ShellWindow
         }
 
         // Restore original setting after a delay
-        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
+        Task.Delay(100).ContinueWith(_ => Toast.IsStacked = originalIsStacked);
     }
 
 
@@ -796,8 +796,8 @@ public partial class MainWindow : ShellWindow
     private void ShowStackedToasts()
     {
         // Demonstrate toasts with stacking enabled
-        var originalIsStacked = ToastConfig.IsStacked;
-        ToastConfig.IsStacked = true;
+        var originalIsStacked = Toast.IsStacked;
+        Toast.IsStacked = true;
 
         Toast.Information("First toast message");
         Toast.Warning("Second toast message");
@@ -806,22 +806,22 @@ public partial class MainWindow : ShellWindow
         Toast.Question("Fifth toast message");
 
         // Restore original setting after a delay
-        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
+        Task.Delay(100).ContinueWith(_ => Toast.IsStacked = originalIsStacked);
     }
 
     [RelayCommand]
     private void ShowNonStackedToasts()
     {
         // Demonstrate toasts with stacking disabled
-        var originalIsStacked = ToastConfig.IsStacked;
-        ToastConfig.IsStacked = false;
+        var originalIsStacked = Toast.IsStacked;
+        Toast.IsStacked = false;
 
         Toast.Information("Non-stacked toast 1");
         Toast.Warning("Non-stacked toast 2");
         Toast.Error("Non-stacked toast 3");
 
         // Restore original setting after a delay
-        Task.Delay(100).ContinueWith(_ => ToastConfig.IsStacked = originalIsStacked);
+        Task.Delay(100).ContinueWith(_ => Toast.IsStacked = originalIsStacked);
     }
 
     [RelayCommand]
@@ -843,23 +843,14 @@ public partial class MainWindow : ShellWindow
     [RelayCommand]
     private void ShowMaintainPositionToasts()
     {
-        // Demonstrate position maintenance behavior
-        var originalIsStacked = ToastConfig.IsStacked;
-        var originalMaintainPosition = ToastConfig.IsStackedPosition;
-
-        ToastConfig.IsStacked = true;
-        ToastConfig.IsStackedPosition = true;
+        var originalIsStacked = Toast.IsStacked;
+        Toast.IsStacked = true;
 
         Toast.Information("Position maintained 1 (will keep position when others disappear)");
         Toast.Warning("Position maintained 2 (will keep position when others disappear)");
         Toast.Error("Position maintained 3 (will keep position when others disappear)");
 
-        // Restore original settings after a delay
-        Task.Delay(100).ContinueWith(_ =>
-        {
-            ToastConfig.IsStacked = originalIsStacked;
-            ToastConfig.IsStackedPosition = originalMaintainPosition;
-        });
+        Task.Delay(100).ContinueWith(_ => Toast.IsStacked = originalIsStacked);
     }
 
 
