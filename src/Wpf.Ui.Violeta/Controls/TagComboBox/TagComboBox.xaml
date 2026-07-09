@@ -212,6 +212,7 @@
 
                                         <!--  Selected-item chips  -->
                                         <ScrollViewer
+                                            x:Name="PART_HeaderScrollViewer"
                                             MaxHeight="{TemplateBinding MaxSelectionBoxHeight}"
                                             HorizontalScrollBarVisibility="Disabled"
                                             VerticalScrollBarVisibility="Auto">

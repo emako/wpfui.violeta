@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf.Ui.Violeta.Resources.Localization;
 
 #pragma warning disable CS0067
 
@@ -17,13 +18,16 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 [TemplatePart(Name = PART_HeaderPanel, Type = typeof(Panel))]
 [TemplatePart(Name = PART_Placeholder, Type = typeof(UIElement))]
+[TemplatePart(Name = PART_HeaderScrollViewer, Type = typeof(ScrollViewer))]
 public class TagComboBox : ComboBox
 {
     public const string PART_HeaderPanel = "PART_HeaderPanel";
     public const string PART_Placeholder = "PART_Placeholder";
+    public const string PART_HeaderScrollViewer = "PART_HeaderScrollViewer";
 
     private Panel? _headerPanel;
     private UIElement? _placeholder;
+    private ScrollViewer? _headerScrollViewer;
     private readonly ICommand _removeItemCommand;
 
     // -- Dependency Properties ----------------------------------------------
@@ -80,6 +84,11 @@ public class TagComboBox : ComboBox
     {
         SetCurrentValue(SelectedItemsProperty, new ObservableCollection<object>());
         _removeItemCommand = new RemoveItemCommandImpl(this);
+
+        if (ReadLocalValue(PlaceholderTextProperty) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(PlaceholderTextProperty, SH.PleaseSelect);
+        }
     }
 
     // -- DP change handlers ------------------------------------------------
@@ -111,6 +120,7 @@ public class TagComboBox : ComboBox
         base.OnApplyTemplate();
         _headerPanel = GetTemplateChild(PART_HeaderPanel) as Panel;
         _placeholder = GetTemplateChild(PART_Placeholder) as UIElement;
+        _headerScrollViewer = GetTemplateChild(PART_HeaderScrollViewer) as ScrollViewer;
         RebuildChips();
         CheckPlaceholderVisibility();
     }
@@ -185,10 +195,17 @@ public class TagComboBox : ComboBox
 
     private void CheckPlaceholderVisibility()
     {
-        if (_placeholder is null) return;
-        _placeholder.Visibility = SelectedItems is null || SelectedItems.Count == 0
-            ? Visibility.Visible
-            : Visibility.Collapsed;
+        bool isEmpty = SelectedItems is null || SelectedItems.Count == 0;
+
+        if (_placeholder is not null)
+        {
+            _placeholder.Visibility = isEmpty ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        if (_headerScrollViewer is not null)
+        {
+            _headerScrollViewer.Visibility = isEmpty ? Visibility.Collapsed : Visibility.Visible;
+        }
     }
 
     private void SyncDropDownCheckedStates()
