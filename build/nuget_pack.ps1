@@ -16,8 +16,8 @@ $projects = @(
 foreach ($proj in $projects) {
     Push-Location $proj
     Write-Host "Processing $proj..."
-    dotnet restore
-    dotnet build -c Release
+    dotnet restore /p:Configuration=Release
+    dotnet build -c Release --no-restore
     dotnet pack -c Release -o ../../build/
     Pop-Location
 }
