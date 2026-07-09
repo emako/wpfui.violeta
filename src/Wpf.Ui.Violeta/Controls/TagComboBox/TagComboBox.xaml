@@ -198,6 +198,20 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
+                                    <!--  Full-area transparent ToggleButton (behind chips so × remains clickable)  -->
+                                    <Grid
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2">
+                                        <ToggleButton
+                                            x:Name="ToggleButton"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            ClickMode="Press"
+                                            Focusable="False"
+                                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                            Style="{StaticResource TagComboBoxToggleButtonStyle}" />
+                                    </Grid>
+
                                     <!--  Chips area: placeholder overlay + scrollable WrapPanel  -->
                                     <Grid Grid.Column="0">
                                         <!--  Placeholder — visible only when nothing is selected  -->
@@ -223,8 +237,11 @@
                                         </ScrollViewer>
                                     </Grid>
 
-                                    <!--  Chevron  -->
-                                    <Grid Grid.Column="1" Margin="{StaticResource TagComboBoxChevronMargin}">
+                                    <!--  Chevron (hit-test disabled so clicks open the dropdown via ToggleButton below)  -->
+                                    <Grid
+                                        Grid.Column="1"
+                                        Margin="{StaticResource TagComboBoxChevronMargin}"
+                                        IsHitTestVisible="False">
                                         <controls:SymbolIcon
                                             x:Name="ChevronIcon"
                                             VerticalAlignment="Center"
@@ -236,20 +253,6 @@
                                                 <RotateTransform Angle="0" />
                                             </controls:SymbolIcon.RenderTransform>
                                         </controls:SymbolIcon>
-                                    </Grid>
-
-                                    <!--  Full-area transparent ToggleButton to toggle the dropdown  -->
-                                    <Grid
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2">
-                                        <ToggleButton
-                                            x:Name="ToggleButton"
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch"
-                                            ClickMode="Press"
-                                            Focusable="False"
-                                            IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                            Style="{StaticResource TagComboBoxToggleButtonStyle}" />
                                     </Grid>
 
                                     <!--  Dropdown Popup  -->
