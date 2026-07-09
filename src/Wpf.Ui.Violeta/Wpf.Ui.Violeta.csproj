@@ -14,7 +14,7 @@
         <DebugSymbols>true</DebugSymbols>
         <IncludeSymbols>true</IncludeSymbols>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <AssemblyVersion>4.3.0.2</AssemblyVersion>
         <FileVersion>4.3.0.2</FileVersion>
@@ -32,6 +32,14 @@
         <IsRoslynAnalyzer>true</IsRoslynAnalyzer>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <PackSatelliteAssemblies>false</PackSatelliteAssemblies>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <TargetFrameworks>net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
