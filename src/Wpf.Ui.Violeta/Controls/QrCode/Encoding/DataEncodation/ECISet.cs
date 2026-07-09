@@ -123,7 +123,8 @@ internal sealed class ECISet
         AppendECI("iso-8859-1", 1, option);
         AppendECI("IBM437", 2, option);
 
-        // AppendECI("iso-8859-1", 3, option);	//ECI value 1 is default encoding.
+        // AppendECI("iso-8859-1", 3, option);
+        // ECI value 1 is default encoding.
         AppendECI("iso-8859-2", 4, option);
         AppendECI("iso-8859-3", 5, option);
         AppendECI("iso-8859-4", 6, option);
