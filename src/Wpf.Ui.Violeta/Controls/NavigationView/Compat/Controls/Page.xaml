@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+
+    <Style BasedOn="{StaticResource {x:Type Page}}" TargetType="{x:Type local:Page}">
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlPageTextBaseHighBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Page">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource {x:Type Page}}" TargetType="{x:Type control:Page}">
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlPageTextBaseHighBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Page">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

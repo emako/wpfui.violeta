@@ -1,0 +1,58 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public abstract class AdvancedValueConverterBase<TFrom, TTo> : DependencyObject, IValueConverter
+{
+    public static readonly DependencyProperty ConvertDirectionProperty = DependencyProperty.Register(nameof(ConvertDirection), typeof(AdvancedValueConverterBaseDirection), typeof(AdvancedValueConverterBase<TFrom, TTo>), new PropertyMetadata(AdvancedValueConverterBaseDirection.Auto));
+
+    public AdvancedValueConverterBaseDirection ConvertDirection
+    {
+        get { return (AdvancedValueConverterBaseDirection)this.GetValue(ConvertDirectionProperty); }
+        set { this.SetValue(ConvertDirectionProperty, value); }
+    }
+
+    public virtual object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is TFrom from && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Normal))
+        {
+            return DoConvert(from);
+        }
+        else if (value is TTo to && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Inverted))
+        {
+            return DoConvertBack(to);
+        }
+
+        return null;
+    }
+
+    public virtual object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is TTo to && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Normal))
+        {
+            return DoConvertBack(to);
+        }
+        else if (value is TFrom from && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Inverted))
+        {
+            return DoConvert(from);
+        }
+
+        return null;
+    }
+
+    public abstract TTo DoConvert(TFrom from);
+
+    public abstract TFrom DoConvertBack(TTo to);
+}
+
+public enum AdvancedValueConverterBaseDirection
+{
+    Normal,
+    Inverted,
+    Auto
+}

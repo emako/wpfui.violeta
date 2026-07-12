@@ -1,0 +1,240 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.LayoutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="布局控件"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="布局与装饰控件" />
+
+            <!--  Banner  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Banner — 横幅通知" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="内嵌横幅通知，适合页面顶部的状态提示。" />
+                    <StackPanel>
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="这是一条信息横幅，用于展示重要提示。"
+                            Type="Information" />
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="操作已成功完成！"
+                            Type="Success" />
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="磁盘空间不足，请及时清理。"
+                            Type="Warning" />
+                        <vio:Banner Content="发生了一个错误，请联系管理员。" Type="Error" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  Divider  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Divider — 分割线" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="水平或垂直分割线，可选带文字标注。" />
+                    <vio:Divider Margin="0,0,0,8" />
+                    <vio:Divider Margin="0,0,0,8" Content="分组标题" />
+                    <StackPanel Height="60" Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="左侧内容" />
+                        <vio:Divider
+                            Width="1"
+                            Margin="12,0"
+                            Orientation="Vertical" />
+                        <TextBlock VerticalAlignment="Center" Text="右侧内容" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  RunningBlock  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="RunningBlock — 跑马灯" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="文字水平滚动展示，适用于公告、标语等场景。" />
+                    <vio:RunningBlock Height="36">
+                        这是一条跑马灯文字，将在容器内循环滚动。欢迎使用 Wpf.Ui.Violeta 控件库！
+                    </vio:RunningBlock>
+                </StackPanel>
+            </Border>
+
+            <!--  Badge  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Badge — 徽章" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="附着在元素上的计数/状态标识。" />
+                    <WrapPanel>
+                        <vio:Badge Margin="0,0,16,0" Content="NEW" />
+                        <vio:Badge Margin="0,0,16,0" Content="99+" />
+                        <vio:Badge Content="HOT" />
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  RangeSlider  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="RangeSlider — 范围滑块" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="双端点滑块，用于选择一个数值区间。" />
+                    <vio:RangeSlider
+                        LowerValue="25"
+                        Maximum="100"
+                        Minimum="0"
+                        UpperValue="75" />
+                </StackPanel>
+            </Border>
+
+            <!--  Form  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Form — 表单布局" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结构化表单布局，自动对齐标签和控件。" />
+                    <vio:Form>
+                        <vio:FormGroup Header="基本信息">
+                            <vio:FormItem Label="姓名">
+                                <ui:TextBox PlaceholderText="请输入姓名" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="邮箱">
+                                <ui:TextBox PlaceholderText="example@email.com" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="部门">
+                                <ComboBox MinWidth="200">
+                                    <ComboBoxItem Content="研发部" IsSelected="True" />
+                                    <ComboBoxItem Content="设计部" />
+                                    <ComboBoxItem Content="产品部" />
+                                    <ComboBoxItem Content="运营部" />
+                                </ComboBox>
+                            </vio:FormItem>
+                        </vio:FormGroup>
+                        <vio:FormGroup Header="账号设置">
+                            <vio:FormItem Label="启用通知">
+                                <CheckBox IsChecked="True" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="深色模式">
+                                <ToggleButton IsChecked="True" />
+                            </vio:FormItem>
+                        </vio:FormGroup>
+                    </vio:Form>
+                </StackPanel>
+            </Border>
+
+            <!--  SelectableTextBlock / Hyperlink  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="SelectableTextBlock / Hyperlink — 文本控件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="可选中文本块与超链接控件。" />
+                    <vio:SelectableTextBlock Margin="0,0,0,8" Text="这段文字可以被选中并复制。双击选词，三击选整行。" />
+                    <TextBlock>
+                        访问<Hyperlink NavigateUri="https://github.com/emako/wpfui.violeta">
+                            Wpf.Ui.Violeta 的 GitHub 主页
+                        </Hyperlink>
+                        获取更多信息。</TextBlock>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

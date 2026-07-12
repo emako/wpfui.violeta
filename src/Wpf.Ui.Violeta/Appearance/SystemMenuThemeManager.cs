@@ -45,7 +45,7 @@ public static class SystemMenuThemeManager
         }
     }
 
-    private static void OnUserPreferenceChangedEventHandler(object sender, UserPreferenceChangedEventArgs e)
+    private static void OnUserPreferenceChangedEventHandler(object? sender, UserPreferenceChangedEventArgs e)
     {
         if (ThemeManager.GetSystemTheme() == SystemTheme.Dark)
         {

@@ -41,7 +41,7 @@ public partial class Drawer : ContentControl
         Loaded += OnLoaded;
     }
 
-    private void OnLoaded(object sender, RoutedEventArgs e)
+    private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         Loaded -= OnLoaded;
         ApplyPlacement();

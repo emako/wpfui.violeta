@@ -1,7 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -94,5 +93,82 @@
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Lade</value>
+  </data>
+  <data name="NavigationButtonClosedName" xml:space="preserve">
+    <value>Navigation öffnen</value>
+    <comment>Automation name for the hamburger button when it is in a closed state</comment>
+  </data>
+  <data name="NavigationButtonOpenName" xml:space="preserve">
+    <value>Navigation schließen</value>
+    <comment>Automation name and tooltip caption for the hamburger button when it is in an open state, and tooltip caption for the close button</comment>
+  </data>
+  <data name="NavigationViewItemDefaultControlName" xml:space="preserve">
+    <value>NavigationViewItem</value>
+    <comment>Default automation id if no name or id is provided</comment>
+  </data>
+  <data name="SettingsButtonName" xml:space="preserve">
+    <value>Einstellungen</value>
+    <comment>Automation name for the settings button</comment>
+  </data>
+  <data name="NavigationViewSearchButtonName" xml:space="preserve">
+    <value>Klicken, um zu suchen</value>
+    <comment>Name for the compact view search button</comment>
+  </data>
+  <data name="NavigationBackButtonName" xml:space="preserve">
+    <value>Zurück</value>
+    <comment>Automation name for the nav view provided back button</comment>
+  </data>
+  <data name="NavigationBackButtonToolTip" xml:space="preserve">
+    <value>Zurück</value>
+    <comment>ToolTip caption for the back button</comment>
+  </data>
+  <data name="NavigationCloseButtonName" xml:space="preserve">
+    <value>Schließen</value>
+    <comment>Automation name for the nav view provided close button</comment>
+  </data>
+  <data name="NavigationOverflowButtonName" xml:space="preserve">
+    <value>Mehr</value>
+    <comment>Automation name for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="NavigationOverflowButtonText" xml:space="preserve">
+    <value>Mehr</value>
+    <comment>Text for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="NavigationOverflowButtonToolTip" xml:space="preserve">
+    <value>Mehr</value>
+    <comment>ToolTip caption for the nav view more button when panel is on top</comment>
+  </data>
+  <data name="MultiComboBoxSelectAll" xml:space="preserve">
+    <value>Alle auswählen</value>
+  </data>
+  <data name="MultiComboBoxAllSelected" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>Bitte auswählen...</value>
+  </data>
+  <data name="PaginationQuickJumpPrefix" xml:space="preserve">
+    <value>Gehe zu</value>
+  </data>
+  <data name="DatePickerDayText" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="DatePickerMonthText" xml:space="preserve">
+    <value>Monat</value>
+  </data>
+  <data name="DatePickerYearText" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
+  <data name="TimePickerHourText" xml:space="preserve">
+    <value>Stunde</value>
+  </data>
+  <data name="TimePickerMinuteText" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="TimePickerSecondText" xml:space="preserve">
+    <value>Sekunde</value>
+  </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>Seite</value>
   </data>
 </root>

@@ -1,0 +1,214 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="主页"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <!--  Hero  -->
+            <Border
+                Margin="0,0,0,24"
+                Padding="32,28"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="12">
+                <StackPanel>
+                    <TextBlock
+                        FontSize="32"
+                        FontWeight="Bold"
+                        Text="Wpf.Ui.Violeta" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        FontSize="16"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="基于 WPF-UI 的扩展控件库，提供 Fluent Design 风格的高级 UI 组件。" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="支持 .NET Framework 4.6.2 至 .NET 10，深色 / 浅色主题，11 种语言本地化。" />
+                </StackPanel>
+            </Border>
+
+            <!--  Feature Cards  -->
+            <TextBlock
+                Margin="0,0,0,12"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Text="控件分类" />
+
+            <UniformGrid Columns="2">
+
+                <Border
+                    Margin="0,0,12,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xEA0C;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="通知与对话" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            Toast 通知、ContentDialog、MessageBox、PendingBox 异步对话框
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xE773;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="数据输入" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            MultiComboBox、CascadingComboBox、TagInput、DateTimePicker、PinCode、IPv4Box、IPv4PortBox
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="0,0,12,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xE9D9;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="数据展示" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            DataGrid、FlipView、Calendar、Pagination、Timeline、TreeListView
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xE895;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="反馈与状态" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            BusyIndicator、Skeleton、BoolState、Expander、TransitioningContentControl
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="0,0,12,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xE8C1;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="布局与装饰" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            Banner、Divider、RunningBlock、Badge、RangeSlider、Form 表单
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,12"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <ui:FontIcon
+                            HorizontalAlignment="Left"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="&#xE71D;" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Text="导航" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap">
+                            NavigationView（本画廊即采用）、TabStrip、Anchor 锚点导航
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

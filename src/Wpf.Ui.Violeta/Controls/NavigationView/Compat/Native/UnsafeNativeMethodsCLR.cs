@@ -1,0 +1,18 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
+using System.Runtime.InteropServices;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+internal partial class UnsafeNativeMethods
+{
+    [DllImport(ExternDll.User32, EntryPoint = "SetWindowPos", ExactSpelling = true, CharSet = CharSet.Auto, SetLastError = true)]
+    public static extern bool SetWindowPos(HandleRef hWnd, HandleRef hWndInsertAfter, int x, int y, int cx, int cy, int flags);
+
+    [DllImport(ExternDll.User32, EntryPoint = "ClientToScreen", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto)]
+    private static extern int IntClientToScreen(HandleRef hWnd, [In, Out] POINT pt);
+
+    [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
+    public static extern IntPtr GetActiveWindow();
+}

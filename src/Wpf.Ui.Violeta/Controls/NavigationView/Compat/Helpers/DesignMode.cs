@@ -1,0 +1,22 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System;
+using System.ComponentModel;
+using System.Windows;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Enables you to detect whether your app is in design mode in a visual designer.
+/// </summary>
+public static class DesignMode
+{
+    private static readonly Lazy<bool> _designModeEnabled =
+        new Lazy<bool>(() => DesignerProperties.GetIsInDesignMode(new DependencyObject()));
+
+    /// <summary>
+    /// Gets a value that indicates whether the process is running in design mode.
+    /// </summary>
+    /// <returns>**True** if the process is running in design mode; otherwise **false**.</returns>
+    public static bool DesignModeEnabled => _designModeEnabled.Value;
+}

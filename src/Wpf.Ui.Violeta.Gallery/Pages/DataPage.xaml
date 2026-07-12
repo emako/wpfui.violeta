@@ -1,0 +1,366 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.DataPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="数据控件"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="数据展示控件" />
+
+            <!--  DataGrid  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="DataGrid — 数据表格" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="WPF-UI 风格的数据表格，支持排序、选择和虚拟化。" />
+                    <ui:DataGrid
+                        x:Name="SampleDataGrid"
+                        MaxHeight="300"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        IsReadOnly="True">
+                        <ui:DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Name}"
+                                Header="姓名" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Department}"
+                                Header="部门" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Score}"
+                                Header="分数" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Status}"
+                                Header="状态" />
+                        </ui:DataGrid.Columns>
+                    </ui:DataGrid>
+                </StackPanel>
+            </Border>
+
+            <!--  Calendar  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Calendar — 日历" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Fluent 风格日历，支持单选、范围选择模式。" />
+                    <Calendar HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  FlipView  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="FlipView — 翻转视图" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="类似轮播图的翻转视图控件，左右切换内容。" />
+                    <vio:FlipView
+                        Height="160"
+                        MaxWidth="500"
+                        HorizontalAlignment="Left">
+                        <vio:FlipViewItem>
+                            <Border Background="#2060C0" CornerRadius="6">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Foreground="White"
+                                    Text="第一页 — 欢迎使用 Violeta" />
+                            </Border>
+                        </vio:FlipViewItem>
+                        <vio:FlipViewItem>
+                            <Border Background="#20A060" CornerRadius="6">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Foreground="White"
+                                    Text="第二页 — Fluent Design" />
+                            </Border>
+                        </vio:FlipViewItem>
+                        <vio:FlipViewItem>
+                            <Border Background="#C04020" CornerRadius="6">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="SemiBold"
+                                    Foreground="White"
+                                    Text="第三页 — 多框架支持" />
+                            </Border>
+                        </vio:FlipViewItem>
+                    </vio:FlipView>
+                </StackPanel>
+            </Border>
+
+            <!--  Pagination  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Pagination — 分页控件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="标准分页导航，可绑定当前页码和总页数。" />
+                    <vio:Pagination
+                        HorizontalAlignment="Left"
+                        CurrentPage="3"
+                        TotalCount="100" />
+                </StackPanel>
+            </Border>
+
+            <!--  Timeline  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Timeline — 时间线" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="垂直时间线布局，展示事件顺序。" />
+                    <vio:Timeline>
+                        <vio:TimelineItem Header="项目启动">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                    Text="2024-01-01" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="项目正式立项，完成需求文档。" />
+                            </StackPanel>
+                        </vio:TimelineItem>
+                        <vio:TimelineItem Header="设计阶段">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                    Text="2024-02-15" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="UI 设计稿完成，通过评审。" />
+                            </StackPanel>
+                        </vio:TimelineItem>
+                        <vio:TimelineItem Header="开发完成">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                    Text="2024-05-01" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="核心功能开发完毕，进入测试阶段。" />
+                            </StackPanel>
+                        </vio:TimelineItem>
+                        <vio:TimelineItem Header="正式发布">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                    Text="2024-06-01" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="v1.0 正式对外发布。" />
+                            </StackPanel>
+                        </vio:TimelineItem>
+                    </vio:Timeline>
+                </StackPanel>
+            </Border>
+
+            <!--  TreeListView  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeListView — 树形列表视图" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结合树形结构和列表视图，支持展开/折叠和多列显示。" />
+                    <ui:TreeListView
+                        x:Name="StaffTreeListView"
+                        Height="280"
+                        ItemsSource="{Binding StaffList}">
+                        <ui:TreeListView.Columns>
+                            <GridViewColumnCollection>
+                                <ui:GridViewColumn Width="280" Header="姓名">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:TreeRowExpander Content="{Binding Name}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                                <ui:GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Age}"
+                                    Header="年龄" />
+                                <ui:GridViewColumn
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Sex}"
+                                    Header="性别" />
+                                <ui:GridViewColumn
+                                    Width="120"
+                                    DisplayMemberBinding="{Binding Duty}"
+                                    Header="职位" />
+                                <ui:GridViewColumn Width="100" Header="状态">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                            </GridViewColumnCollection>
+                        </ui:TreeListView.Columns>
+                        <ui:TreeListView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding StaffList}" />
+                        </ui:TreeListView.ItemTemplate>
+                    </ui:TreeListView>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <ui:Button
+                            Click="AddStaffNode_Click"
+                            Content="添加节点" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="ChangeStaffNode_Click"
+                            Content="修改节点" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  TreeModelListView  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeModelListView — 树模型列表视图" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="基于 ITreeModel 接口的树形列表，支持动态加载和自定义数据模型。" />
+                    <ui:TreeModelListView
+                        Height="240"
+                        Model="{Binding TreeTestModel}">
+                        <ui:GridView>
+                            <ui:GridView.Columns>
+                                <ui:GridViewColumn Width="280" Header="列1">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:TreeModelRowExpander Content="{Binding Column1}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                                <ui:GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Column2}"
+                                    Header="列2" />
+                                <ui:GridViewColumn
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Column3}"
+                                    Header="列3" />
+                                <ui:GridViewColumn Width="100" Header="选中">
+                                    <ui:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
+                                        </DataTemplate>
+                                    </ui:GridViewColumn.CellTemplate>
+                                </ui:GridViewColumn>
+                            </ui:GridView.Columns>
+                        </ui:GridView>
+                    </ui:TreeModelListView>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <ui:Button
+                            Click="AddTreeModelRow_Click"
+                            Content="添加行" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="RemoveTreeModelRow_Click"
+                            Content="删除行" />
+                        <ui:Button
+                            Margin="8,0,0,0"
+                            Click="ClearTreeModel_Click"
+                            Content="清空" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

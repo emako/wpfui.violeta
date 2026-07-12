@@ -1,0 +1,96 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+/// <summary>
+/// Represents an icon that uses an Image as its content.
+/// </summary>
+public class ImageIcon : IconElement
+{
+    static ImageIcon()
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the ImageIcon class.
+    /// </summary>
+    public ImageIcon()
+    {
+    }
+
+    #region Source
+
+    /// <summary>
+    /// Identifies the Source dependency property.
+    /// </summary>
+    public static readonly DependencyProperty SourceProperty =
+        Image.SourceProperty.AddOwner(
+            typeof(ImageIcon),
+            new FrameworkPropertyMetadata(OnSourceChanged));
+
+    /// <summary>
+    /// Gets or sets the URI of the image file to use as the icon.
+    /// </summary>
+    /// <value>The URI of the image file to use as the icon. The default is <see langword="null"/>.</value>
+    public ImageSource Source
+    {
+        get => (ImageSource)GetValue(SourceProperty);
+        set => SetValue(SourceProperty, value);
+    }
+
+    private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((ImageIcon)d).ApplySource();
+    }
+
+    #endregion Source
+
+    private protected override void InitializeChildren()
+    {
+        _image = new Image();
+
+        ApplySource();
+
+        Children.Add(_image);
+    }
+
+    private void ApplySource()
+    {
+        if (_image != null)
+        {
+            var source = Source;
+            if (source != null)
+            {
+                _image.Source = source;
+            }
+            else
+            {
+                _image.ClearValue(Image.SourceProperty);
+            }
+        }
+    }
+
+    private Image _image;
+
+    protected override IconSource CreateIconSourceCore()
+    {
+        var iconSource = new ImageIconSource();
+
+        var imageSource = Source;
+        if (imageSource != null)
+        {
+            iconSource.ImageSource = imageSource;
+        }
+
+        var newForeground = Foreground;
+        if (newForeground != null)
+        {
+            iconSource.Foreground = newForeground;
+        }
+        return iconSource;
+    }
+}

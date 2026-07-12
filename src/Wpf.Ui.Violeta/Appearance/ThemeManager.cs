@@ -220,7 +220,7 @@ public static class ThemeManager
             SystemEvents.UserPreferenceChanged -= OnSystemThemeChanged;
         }
 
-        static void OnSystemThemeChanged(object sender, UserPreferenceChangedEventArgs e)
+        static void OnSystemThemeChanged(object? sender, UserPreferenceChangedEventArgs e)
         {
             Dispatcher.CurrentDispatcher.Invoke(() => Apply(ApplicationTheme.Unknown));
         }

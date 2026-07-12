@@ -113,7 +113,7 @@ Similar to WPF UI.
   ```
   
 
-​	If you want to inherit `Wpf.Ui.Violeta.Controls.ContentDialog` to implement a custom dialog just using `Style="{StaticResource DefaultVioletaContentDialogStyle}"`.
+​    If you want to inherit `Wpf.Ui.Violeta.Controls.ContentDialog` to implement a custom dialog just using `Style="{StaticResource DefaultVioletaContentDialogStyle}"`.
 
 - **MessageBox**
 
@@ -183,7 +183,117 @@ Similar to WPF UI.
       </Grid>
   </StackPanel>
   ```
-  
+
+- **MultiComboBox**
+
+  > `MultiComboBox` supports multi-select with built-in select-all and exposes selected values through `MultiSelectedItems`.
+
+  ```xaml
+  <StackPanel Orientation="Horizontal">
+      <vio:MultiComboBox
+          Width="240"
+          MaxDropDownHeight="300"
+          PlaceholderText="Please select...">
+          <vio:MultiComboBoxItem Content="Option A" />
+          <vio:MultiComboBoxItem Content="Option B" />
+          <vio:MultiComboBoxItem Content="Option C" />
+      </vio:MultiComboBox>
+
+      <vio:MultiComboBox
+          x:Name="MultiComboBoxDemo"
+          Width="240"
+          Margin="16,0,0,0"
+          MaxDropDownHeight="300"
+          PlaceholderText="Binding demo (ItemsSource)" />
+  </StackPanel>
+  ```
+
+  ```c#
+  MultiComboBoxDemo.ItemsSource = new[] { "Apple", "Banana", "Cherry", "Durian", "Elderberry" };
+
+  MultiComboBoxDemo.MultiSelectedItems.CollectionChanged += (_, _) =>
+  {
+      string selectedText = MultiComboBoxDemo.MultiSelectedItems.Count == 0
+          ? "Selected: (none)"
+          : "Selected: " + string.Join(", ", MultiComboBoxDemo.MultiSelectedItems);
+  };
+  ```
+
+  `MultiComboBox` common properties:
+  `PlaceholderText` placeholder text when no item is selected.
+  `Separator` text separator used in selected display.
+  `SelectAllText` label of the select-all row.
+  `IsSelectAllEnabled` whether to show the select-all row.
+  `MultiSelectedItems` current selected items collection.
+
+- **CascadingComboBox**
+
+  > `CascadingComboBox` is a multi-level cascading dropdown. Each column displays the children of the selected item in the previous column. The number of visible columns grows automatically as the user navigates. When a leaf node (no children) is selected, the dropdown closes and the value is committed to `SelectedCascadingItem`.
+
+  ```xaml
+  <vio:CascadingComboBox
+      Width="240"
+      HorizontalAlignment="Left"
+      ItemsSource="{Binding CascadingComboBoxDemoItems}"
+      SelectedCascadingItem="{Binding CascadingComboBoxSelectedValue, Mode=TwoWay}" />
+  ```
+
+  ```c#
+  [ObservableProperty]
+  public partial ObservableCollection<ICascadingItem> CascadingComboBoxDemoItems { get; set; } = [];
+
+  [ObservableProperty]
+  public partial ICascadingItem? CascadingComboBoxSelectedValue { get; set; }
+
+  partial void OnCascadingComboBoxSelectedValueChanged(ICascadingItem? value)
+  {
+      string selectedText = value is null
+          ? "Selected: (none)"
+          : $"Selected: {value.Label}";
+  }
+
+  private void InitCascadingComboBoxDemo()
+  {
+      CascadingComboBoxDemoItems =
+      [
+          new CascadingItem("Food",
+          [
+              new CascadingItem("Fruits",
+              [
+                  new CascadingItem("Apple"),
+                  new CascadingItem("Banana"),
+                  new CascadingItem("Cherry"),
+              ]),
+              new CascadingItem("Vegetables",
+              [
+                  new CascadingItem("Carrot"),
+                  new CascadingItem("Broccoli"),
+                  new CascadingItem("Spinach"),
+              ]),
+          ]),
+          new CascadingItem("Drinks",
+          [
+              new CascadingItem("Hot",
+              [
+                  new CascadingItem("Coffee"),
+                  new CascadingItem("Tea"),
+              ]),
+              new CascadingItem("Cold",
+              [
+                  new CascadingItem("Water"),
+                  new CascadingItem("Juice"),
+              ]),
+          ]),
+      ];
+  }
+  ```
+
+  `CascadingComboBox` common properties:
+  `PlaceholderText` placeholder text when no item is selected.
+  `ItemsSource` root-level data source (`IEnumerable<ICascadingItem>`, setting a non-conforming type throws `ArgumentException`).
+  `Levels` (read-only) number of columns currently visible in the dropdown.
+  `SelectedCascadingItem` the leaf node selected by the user (`ICascadingItem?`, two-way bindable).
+
 - **Splash**
 
   > Show the Splash Screen in another UI thread.
@@ -696,6 +806,19 @@ Similar to WPF UI.
        </Border>
   </ui:Drawer>
   ```
+- **BusyMask**
+
+  > BusyIndicator here
+
+  ```xaml
+  <vio:BusyMask
+    Background="Transparent"
+    BusyContent="Bar"
+    IndicatorType="Bar"
+    IsBusy="True">
+      <UIElement />
+  </vio:BusyMask>
+  ```
 
 ### 📷 Screenshots
 
@@ -703,11 +826,4 @@ Under construction
 
 ### 💞Special Thanks
 
-- [🔗 WPF-UI](https://github.com/lepoco/wpfui)
-- [🔗 Fischless](https://github.com/GenshinMatrix/Fischless)
-- [🔗 ModernWpf](https://github.com/Kinnara/ModernWpf)
-- [🔗 TreeListView](https://www.codeproject.com/Articles/30721/WPF-TreeListView-Control)
-- [🔗 CachedImage](https://github.com/floydpink/CachedImage)
-- [🔗 WpfAutoGrid.Core](https://github.com/budul100/WpfAutoGrid.Core)
-- [🔗 NativeLikeCaptionButton-WPF](https://github.com/SuGar0218/NativeLikeCaptionButton-WPF)
-
+WPF-UI.Violeta is standing on shoulders of several open-source libraries, see [SHOULDERS](SHOULDERS.md).

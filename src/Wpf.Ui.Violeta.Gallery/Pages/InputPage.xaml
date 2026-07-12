@@ -1,0 +1,447 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.InputPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="输入控件"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="数据输入控件" />
+
+            <!--  MultiComboBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="MultiComboBox — 多选下拉框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="支持多选、标签展示、搜索过滤。" />
+                    <vio:MultiComboBox
+                        x:Name="MultiComboBoxDemo"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        SelectionChanged="MultiComboBoxDemo_OnSelectionChanged" />
+                    <TextBlock
+                        x:Name="MultiComboBoxResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="已选择：(无)" />
+                </StackPanel>
+            </Border>
+
+            <!--  TagComboBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TagComboBox — 标签下拉框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="以标签形式展示选项，支持搜索。" />
+                    <vio:TagComboBox
+                        x:Name="TagComboBoxDemo"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  TagInput  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TagInput — 标签输入框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="输入回车/逗号创建新标签，支持删除。" />
+                    <vio:TagInput MaxWidth="400" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  CascadingComboBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="CascadingComboBox — 级联下拉框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="父子级联选择，选中父项后展示对应子选项。" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:CascadingComboBox
+                            x:Name="CascadingLevel1"
+                            Width="160"
+                            Margin="0,0,8,0"
+                            PlaceholderText="省份"
+                            SelectionChanged="CascadingLevel1_SelectionChanged" />
+                        <vio:CascadingComboBox
+                            x:Name="CascadingLevel2"
+                            Width="160"
+                            Margin="0,0,8,0"
+                            IsEnabled="False"
+                            PlaceholderText="城市" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="CascadingResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="已选择：(无)" />
+                </StackPanel>
+            </Border>
+
+            <!--  NumericUpDown  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="NumericUpDown — 数值调节" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="支持最小/最大值、步进、格式化显示。" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:NumericIntUpDown
+                            Width="160"
+                            Margin="0,0,16,0"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="42" />
+                        <vio:NumericDecimalUpDown
+                            Width="160"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="3.14" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  ButtonSpinner  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ButtonSpinner — 旋转按钮" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="通过上下箭头切换值，支持默认/左侧/分割三种布局。" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:ButtonSpinner
+                            Margin="0,0,16,0"
+                            AllowSpin="True"
+                            Spin="ButtonSpinner_OnSpin">
+                            <TextBlock
+                                x:Name="SpinnerValueText"
+                                MinWidth="80"
+                                HorizontalAlignment="Center"
+                                Text="Apple" />
+                        </vio:ButtonSpinner>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  IPv4Box  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="IPv4Box — IP 地址输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="专用 IPv4 地址输入框，自动校验范围（0–255）。" />
+                    <vio:IPv4Box MaxWidth="220" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  IPv4PortBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="IPv4PortBox — IP 地址 + 端口输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="IPv4 与端口组合输入（如 192.168.0.10:8080），按 . 或 : 可跳转到端口段。" />
+                    <vio:IPv4PortBox
+                        MaxWidth="280"
+                        HorizontalAlignment="Left"
+                        Endpoint="192.168.0.10:8080" />
+                </StackPanel>
+            </Border>
+
+            <!--  TimeBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TimeBox — 时间输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="分段时间输入框，支持键盘和鼠标滚轮调节。" />
+                    <vio:TimeBox MaxWidth="200" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  DateTimePicker  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="DateTimePicker — 日期时间选择" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="弹出日历面板选择日期，内置时间段选择。" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:DatePicker
+                            MaxWidth="200"
+                            Margin="0,0,16,0"
+                            HorizontalAlignment="Left" />
+                        <vio:TimePicker MaxWidth="200" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  PinCode  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="PinCode — PIN 码输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="分格 PIN 码输入框，支持密码模式和自定义长度。" />
+                    <vio:PinCode HorizontalAlignment="Left" Count="6" />
+                </StackPanel>
+            </Border>
+
+            <!--  TreeComboBox  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TreeComboBox — 树形下拉框" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="层级树形结构的下拉选择框，支持多层嵌套。" />
+                    <vio:TreeComboBox
+                        x:Name="TreeComboBoxDemo"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="请选择...">
+                        <vio:TreeComboBoxItem Header="技术栈">
+                            <vio:TreeComboBoxItem Header="前端">
+                                <vio:TreeComboBoxItem Header="React" />
+                                <vio:TreeComboBoxItem Header="Vue" />
+                                <vio:TreeComboBoxItem Header="Angular" />
+                            </vio:TreeComboBoxItem>
+                            <vio:TreeComboBoxItem Header="后端">
+                                <vio:TreeComboBoxItem Header="Node.js" />
+                                <vio:TreeComboBoxItem Header=".NET" />
+                                <vio:TreeComboBoxItem Header="Java" />
+                            </vio:TreeComboBoxItem>
+                        </vio:TreeComboBoxItem>
+                        <vio:TreeComboBoxItem Header="数据库">
+                            <vio:TreeComboBoxItem Header="SQL">
+                                <vio:TreeComboBoxItem Header="MySQL" />
+                                <vio:TreeComboBoxItem Header="PostgreSQL" />
+                            </vio:TreeComboBoxItem>
+                            <vio:TreeComboBoxItem Header="NoSQL">
+                                <vio:TreeComboBoxItem Header="MongoDB" />
+                                <vio:TreeComboBoxItem Header="Redis" />
+                            </vio:TreeComboBoxItem>
+                        </vio:TreeComboBoxItem>
+                        <vio:TreeComboBoxItem Header="移动开发" />
+                    </vio:TreeComboBox>
+                </StackPanel>
+            </Border>
+
+            <!--  ValuePicker  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ValuePicker — 多列滚轮选择器" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="多列滚轮选择器，适合日期、地区、规格等场景。" />
+                    <vio:ValuePicker
+                        x:Name="ValuePickerDemo"
+                        MinWidth="360"
+                        HorizontalAlignment="Left" />
+                    <TextBlock
+                        x:Name="ValuePickerResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="已选择：(无)" />
+                </StackPanel>
+            </Border>
+
+            <!--  KeyGestureInput  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="KeyGestureInput — 快捷键输入" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="快捷键录制输入框，支持修饰键组合和清除功能。" />
+                    <StackPanel Orientation="Vertical">
+                        <vio:KeyGestureInput
+                            x:Name="KeyGestureDemo"
+                            Width="280"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Left"
+                            PlaceholderText="按下快捷键..." />
+                        <vio:KeyGestureInput
+                            Width="280"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Left"
+                            ClearButtonEnabled="True"
+                            PlaceholderText="带清除按钮..." />
+                        <vio:KeyGestureInput
+                            Width="280"
+                            HorizontalAlignment="Left"
+                            ConsiderKeyModifiers="False"
+                            PlaceholderText="不使用修饰键..." />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

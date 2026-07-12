@@ -1,0 +1,154 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--
+        SelectableTextBlock — WPF port of Avalonia's SelectableTextBlock.
+        The default style renders as a plain TextBlock but allows text selection.
+        Visual variants are exposed as named styles (BasedOn the default):
+        SecondarySelectableTextBlock
+        TertiarySelectableTextBlock
+        QuaternarySelectableTextBlock
+        SuccessSelectableTextBlock
+        WarningSelectableTextBlock
+        DangerSelectableTextBlock
+        MarkSelectableTextBlock
+        UnderlineSelectableTextBlock
+        DeleteSelectableTextBlock
+        UnderlineDeleteSelectableTextBlock
+    -->
+
+    <!--  Default style — transparent TextBox that looks like a TextBlock  -->
+    <Style TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="IsReadOnlyCaretVisible" Value="False" />
+        <Setter Property="CaretBrush" Value="Transparent" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+        <Setter Property="SelectionOpacity" Value="0.4" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="AllowDrop" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SelectableTextBlock}">
+                    <Border
+                        x:Name="PART_Border"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Focusable="False"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Secondary — maps to Avalonia .Secondary class  -->
+    <Style
+        x:Key="SecondarySelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+    </Style>
+
+    <!--  Tertiary — maps to Avalonia .Tertiary class  -->
+    <Style
+        x:Key="TertiarySelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
+    </Style>
+
+    <!--  Quaternary — maps to Avalonia .Quaternary class  -->
+    <Style
+        x:Key="QuaternarySelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+    </Style>
+
+    <!--  Success — maps to Avalonia .Success class  -->
+    <Style
+        x:Key="SuccessSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource SystemFillColorSuccessBrush}" />
+    </Style>
+
+    <!--  Warning — maps to Avalonia .Warning class  -->
+    <Style
+        x:Key="WarningSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource SystemFillColorCautionBrush}" />
+    </Style>
+
+    <!--  Danger — maps to Avalonia .Danger class  -->
+    <Style
+        x:Key="DangerSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource SystemFillColorCriticalBrush}" />
+    </Style>
+
+    <!--  Mark — maps to Avalonia .Mark class (highlighted background)  -->
+    <Style
+        x:Key="MarkSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="Background" Value="{DynamicResource SelectableTextBlockMarkBackground}" />
+    </Style>
+
+    <!--  Underline — maps to Avalonia .Underline class  -->
+    <Style
+        x:Key="UnderlineSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+
+    <!--  Delete (Strikethrough) — maps to Avalonia .Delete class  -->
+    <Style
+        x:Key="DeleteSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="TextDecorations" Value="Strikethrough" />
+    </Style>
+
+    <!--  Underline + Strikethrough combined — maps to Avalonia .Underline.Delete class  -->
+    <Style
+        x:Key="UnderlineDeleteSelectableTextBlock"
+        BasedOn="{StaticResource {x:Type local:SelectableTextBlock}}"
+        TargetType="{x:Type local:SelectableTextBlock}">
+        <Setter Property="TextDecorations">
+            <Setter.Value>
+                <TextDecorationCollection>
+                    <TextDecoration Location="Underline" />
+                    <TextDecoration Location="Strikethrough" />
+                </TextDecorationCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

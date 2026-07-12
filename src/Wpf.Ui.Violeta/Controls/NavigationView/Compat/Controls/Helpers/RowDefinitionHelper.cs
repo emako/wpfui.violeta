@@ -1,0 +1,44 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Windows;
+using System.Windows.Controls;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public static class RowDefinitionHelper
+{
+    #region PixelHeight
+
+    public static readonly DependencyProperty PixelHeightProperty =
+        DependencyProperty.RegisterAttached(
+            "PixelHeight",
+            typeof(double),
+            typeof(RowDefinitionHelper),
+            new PropertyMetadata(double.NaN, OnPixelHeightChanged));
+
+    public static double GetPixelHeight(RowDefinition rowDefinition)
+    {
+        return (double)rowDefinition.GetValue(PixelHeightProperty);
+    }
+
+    public static void SetPixelHeight(RowDefinition rowDefinition, double value)
+    {
+        rowDefinition.SetValue(PixelHeightProperty, value);
+    }
+
+    private static void OnPixelHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var rowDefinition = (RowDefinition)d;
+        var pixels = (double)e.NewValue;
+        if (double.IsNaN(pixels) || double.IsInfinity(pixels))
+        {
+            rowDefinition.ClearValue(RowDefinition.HeightProperty);
+        }
+        else
+        {
+            rowDefinition.Height = new GridLength(pixels);
+        }
+    }
+
+    #endregion PixelHeight
+}

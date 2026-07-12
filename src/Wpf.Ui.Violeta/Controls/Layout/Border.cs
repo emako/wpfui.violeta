@@ -6,23 +6,30 @@ namespace Wpf.Ui.Controls;
 
 public class Border : System.Windows.Controls.Border
 {
-    protected override Geometry? GetLayoutClip(Size layoutSlotSize)
+    /// <summary>
+    /// A geometry to clip the content of this border correctly.
+    /// </summary>
+    public Geometry? ContentClip
     {
-        if (!ClipToBounds)
+        get => (Geometry?)GetValue(ContentClipProperty);
+        set => SetValue(ContentClipProperty, value);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        SetValue(ContentClipPropertyKey, CalculateContentClip(this));
+
+        return base.ArrangeOverride(finalSize);
+    }
+
+    internal static Geometry? CalculateLayoutClip(Size layoutSlotSize, Thickness borderThickness, CornerRadius cornerRadius)
+    {
+        if (layoutSlotSize.Width <= 0 || layoutSlotSize.Height <= 0)
         {
-            return base.GetLayoutClip(layoutSlotSize);
+            return new RectangleGeometry(new Rect(0, 0, 0, 0));
         }
 
-        var borderThickness = BorderThickness;
-        var cornerRadius = CornerRadius;
-        var renderSize = RenderSize;
-
-        if (renderSize.Width <= 0 || renderSize.Height <= 0)
-        {
-            return null;
-        }
-
-        var rect = new Rect(0, 0, renderSize.Width, renderSize.Height);
+        var rect = new Rect(0, 0, layoutSlotSize.Width, layoutSlotSize.Height);
         var radii = new Radii(cornerRadius, borderThickness, true);
 
         var layoutGeometry = new StreamGeometry();
@@ -31,6 +38,41 @@ public class Border : System.Windows.Controls.Border
 
         layoutGeometry.Freeze();
         return layoutGeometry;
+    }
+
+    protected override Geometry? GetLayoutClip(Size layoutSlotSize)
+    {
+        if (!ClipToBounds)
+        {
+            return null;
+        }
+
+        return CalculateLayoutClip(layoutSlotSize, BorderThickness, CornerRadius);
+    }
+
+    private static StreamGeometry? CalculateContentClip(System.Windows.Controls.Border border)
+    {
+        var borderThickness = border.BorderThickness;
+        var cornerRadius = border.CornerRadius;
+        var renderSize = border.RenderSize;
+
+        var contentWidth = renderSize.Width - borderThickness.Left - borderThickness.Right;
+        var contentHeight = renderSize.Height - borderThickness.Top - borderThickness.Bottom;
+
+        if (contentWidth > 0 && contentHeight > 0)
+        {
+            var rect = new Rect(0, 0, contentWidth, contentHeight);
+            var radii = new Radii(cornerRadius, borderThickness, false);
+
+            var contentGeometry = new StreamGeometry();
+            using StreamGeometryContext ctx = contentGeometry.Open();
+            GenerateGeometry(ctx, rect, radii);
+
+            contentGeometry.Freeze();
+            return contentGeometry;
+        }
+
+        return null;
     }
 
     internal static void GenerateGeometry(StreamGeometryContext ctx, Rect rect, Radii radii)
@@ -56,7 +98,7 @@ public class Border : System.Windows.Controls.Border
         //  top edge is handled here
         if (topLeft.X > topRight.X)
         {
-            double v = (radii.LeftTop) / (radii.LeftTop + radii.RightTop) * rect.Width;
+            double v = radii.LeftTop / (radii.LeftTop + radii.RightTop) * rect.Width;
             topLeft.X = v;
             topRight.X = v;
         }
@@ -64,7 +106,7 @@ public class Border : System.Windows.Controls.Border
         //  right edge
         if (rightTop.Y > rightBottom.Y)
         {
-            double v = (radii.TopRight) / (radii.TopRight + radii.BottomRight) * rect.Height;
+            double v = radii.TopRight / (radii.TopRight + radii.BottomRight) * rect.Height;
             rightTop.Y = v;
             rightBottom.Y = v;
         }
@@ -72,7 +114,7 @@ public class Border : System.Windows.Controls.Border
         //  bottom edge
         if (bottomRight.X < bottomLeft.X)
         {
-            double v = (radii.LeftBottom) / (radii.LeftBottom + radii.RightBottom) * rect.Width;
+            double v = radii.LeftBottom / (radii.LeftBottom + radii.RightBottom) * rect.Width;
             bottomRight.X = v;
             bottomLeft.X = v;
         }
@@ -80,7 +122,7 @@ public class Border : System.Windows.Controls.Border
         // left edge
         if (leftBottom.Y < leftTop.Y)
         {
-            double v = (radii.TopLeft) / (radii.TopLeft + radii.BottomLeft) * rect.Height;
+            double v = radii.TopLeft / (radii.TopLeft + radii.BottomLeft) * rect.Height;
             leftBottom.Y = v;
             leftTop.Y = v;
         }
@@ -149,6 +191,16 @@ public class Border : System.Windows.Controls.Border
         }
     }
 
+    private static readonly DependencyPropertyKey ContentClipPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ContentClip),
+            typeof(Geometry),
+            typeof(Border),
+            new FrameworkPropertyMetadata(default(Geometry)));
+
+    public static readonly DependencyProperty ContentClipProperty =
+        ContentClipPropertyKey.DependencyProperty;
+
     internal struct Radii
     {
         internal Radii(CornerRadius radii, Thickness borders, bool outer)
@@ -169,6 +221,7 @@ public class Border : System.Windows.Controls.Border
                     LeftTop = radii.TopLeft + left;
                     TopLeft = radii.TopLeft + top;
                 }
+
                 if (MathHelper.IsZero(radii.TopRight))
                 {
                     TopRight = RightTop = 0.0;
@@ -178,6 +231,7 @@ public class Border : System.Windows.Controls.Border
                     TopRight = radii.TopRight + top;
                     RightTop = radii.TopRight + right;
                 }
+
                 if (MathHelper.IsZero(radii.BottomRight))
                 {
                     RightBottom = BottomRight = 0.0;
@@ -187,6 +241,7 @@ public class Border : System.Windows.Controls.Border
                     RightBottom = radii.BottomRight + right;
                     BottomRight = radii.BottomRight + bottom;
                 }
+
                 if (MathHelper.IsZero(radii.BottomLeft))
                 {
                     BottomLeft = LeftBottom = 0.0;

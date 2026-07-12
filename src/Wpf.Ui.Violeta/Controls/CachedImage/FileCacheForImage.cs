@@ -59,7 +59,7 @@ public static class FileCacheForImage
         using (SHA1 sha1 = SHA1.Create())
         {
             var canonicalUrl = uri.ToString();
-            var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(canonicalUrl));
+            var hash = sha1.ComputeHash(System.Text.Encoding.UTF8.GetBytes(canonicalUrl));
             fileNameBuilder.Append(BitConverter.ToString(hash).Replace("-", "").ToLower());
             if (Path.HasExtension(canonicalUrl))
             {

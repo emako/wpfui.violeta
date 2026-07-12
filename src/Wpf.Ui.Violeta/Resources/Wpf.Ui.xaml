@@ -1,16 +1,28 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+        We don't need to actively join ttf for `FluentSystemIcons` and `FluentSystemIconsFilled`.
+        See also https://github.com/lepoco/wpfui/blob/main/src/Wpf.Ui/Resources/Fonts.xaml
+    -->
     <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
     <FontFamily x:Key="CustomSymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Violeta Fluent Icons.ttf#Violeta Fluent Icons</FontFamily>
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Variables.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/Compat/Controls/Frame.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/Compat/Controls/Page.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/MessageBox/MessageBoxDialog.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/FontIcon/FontIconFallback.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PersonPicture/PersonPicture.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Expander/Expander.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TextBox/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/IPv4Box/IPv4Box.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/IPv4PortBox/IPv4PortBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TimeBox/TimeBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Form/Form.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Button/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Button/LoadingButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeModelListView/TreeModelListView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeListView/TreeListView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/NavigationView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ContentDialog/ContentDialog.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DataGrid/DataGrid.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SmoothScrollViewer/SmoothScrollViewer.xaml" />
@@ -22,5 +34,41 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CaptionButtonBar/CaptionButtonBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBar/NativeLikeTitleBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ContentWindow/ContentWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/RunningBlock/RunningBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/BusyIndicator/BusyIndicator.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolTip/CalloutToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/MultiComboBox/MultiComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Banner/Banner.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Skeleton/Skeleton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/PinCode/PinCode.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/CascadingComboBox/CascadingComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeComboBox/TreeComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/QrCode/QrCode.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Timeline/Timeline.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/KeyGestureInput/KeyGestureInput.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Divider/Divider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Badge/Badge.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/AspectRatioLayout/AspectRatioLayout.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/AcrylicPanel/AcrylicPanel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Pagination/Pagination.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Hyperlink/Hyperlink.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/FlipView/FlipView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TransitioningContentControl/TransitioningContentControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TagInput/TagInput.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TagComboBox/TagComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/RangeSlider/RangeSlider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/GridSplitter/GridSplitter.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TabStrip/TabStrip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Anchor/Anchor.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SelectableTextBlock/SelectableTextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NumericUpDown/NumericUpDown.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ButtonSpinner/ButtonSpinner.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/DatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/TimePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ValuePicker/ValuePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Calendar/Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Calendar/CalendarDatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ToggleSwitch.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

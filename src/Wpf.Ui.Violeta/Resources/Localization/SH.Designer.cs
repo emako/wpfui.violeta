@@ -27,6 +27,8 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
+
+        private static readonly ILocalizationProvider _provider = new ResxLocalizationProvider("Resources/Localization/", "Wpf.Ui.Violeta");
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal SH() {
@@ -39,8 +41,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wpf.Ui.Violeta.Resources.Localization.SH", typeof(SH).Assembly);
-                    resourceMan = temp;
+                    resourceMan = new ResxResourceManager(_provider);
                 }
                 return resourceMan;
             }
@@ -57,6 +58,8 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
             }
             set {
                 resourceCulture = value;
+                _provider.Culture = value ?? global::System.Globalization.CultureInfo.CurrentUICulture;
+                _provider.Invalidate();
             }
         }
         
@@ -158,6 +161,51 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
                 return ResourceManager.GetString("MessageBoxCaptionWarning", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Go to.
+        /// </summary>
+        internal static string PaginationQuickJumpPrefix {
+            get {
+                return ResourceManager.GetString("PaginationQuickJumpPrefix", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to page.
+        /// </summary>
+        internal static string PaginationQuickJumpSuffix {
+            get {
+                return ResourceManager.GetString("PaginationQuickJumpSuffix", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select All.
+        /// </summary>
+        internal static string MultiComboBoxSelectAll {
+            get {
+                return ResourceManager.GetString("MultiComboBoxSelectAll", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        internal static string MultiComboBoxAllSelected {
+            get {
+                return ResourceManager.GetString("MultiComboBoxAllSelected", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Please select....
+        /// </summary>
+        internal static string PleaseSelect {
+            get {
+                return ResourceManager.GetString("PleaseSelect", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Loading.
@@ -165,6 +213,60 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         internal static string PendingBoxLoadingText {
             get {
                 return ResourceManager.GetString("PendingBoxLoadingText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to day.
+        /// </summary>
+        internal static string DatePickerDayText {
+            get {
+                return ResourceManager.GetString("DatePickerDayText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to month.
+        /// </summary>
+        internal static string DatePickerMonthText {
+            get {
+                return ResourceManager.GetString("DatePickerMonthText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        internal static string DatePickerYearText {
+            get {
+                return ResourceManager.GetString("DatePickerYearText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to hour.
+        /// </summary>
+        internal static string TimePickerHourText {
+            get {
+                return ResourceManager.GetString("TimePickerHourText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to minute.
+        /// </summary>
+        internal static string TimePickerMinuteText {
+            get {
+                return ResourceManager.GetString("TimePickerMinuteText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to second.
+        /// </summary>
+        internal static string TimePickerSecondText {
+            get {
+                return ResourceManager.GetString("TimePickerSecondText", resourceCulture);
             }
         }
     }

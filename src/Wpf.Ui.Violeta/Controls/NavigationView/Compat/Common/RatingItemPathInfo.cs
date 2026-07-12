@@ -1,0 +1,120 @@
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+
+using System.Windows;
+using System.Windows.Media;
+
+namespace Wpf.Ui.Violeta.Controls.Compat;
+
+public class RatingItemPathInfo : RatingItemInfo
+{
+    public RatingItemPathInfo()
+    {
+    }
+
+    #region DisabledData
+
+    public static readonly DependencyProperty DisabledDataProperty =
+        DependencyProperty.Register(
+            nameof(DisabledData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry DisabledData
+    {
+        get => (Geometry)GetValue(DisabledDataProperty);
+        set => SetValue(DisabledDataProperty, value);
+    }
+
+    #endregion DisabledData
+
+    #region Data
+
+    public static readonly DependencyProperty DataProperty =
+        DependencyProperty.Register(
+            nameof(Data),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry Data
+    {
+        get => (Geometry)GetValue(DataProperty);
+        set => SetValue(DataProperty, value);
+    }
+
+    #endregion Data
+
+    #region PlaceholderData
+
+    public static readonly DependencyProperty PlaceholderDataProperty =
+        DependencyProperty.Register(
+            nameof(PlaceholderData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry PlaceholderData
+    {
+        get => (Geometry)GetValue(PlaceholderDataProperty);
+        set => SetValue(PlaceholderDataProperty, value);
+    }
+
+    #endregion PlaceholderData
+
+    #region PointerOverData
+
+    public static readonly DependencyProperty PointerOverDataProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry PointerOverData
+    {
+        get => (Geometry)GetValue(PointerOverDataProperty);
+        set => SetValue(PointerOverDataProperty, value);
+    }
+
+    #endregion PointerOverData
+
+    #region PointerOverPlaceholderData
+
+    public static readonly DependencyProperty PointerOverPlaceholderDataProperty =
+        DependencyProperty.Register(
+            nameof(PointerOverPlaceholderData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry PointerOverPlaceholderData
+    {
+        get => (Geometry)GetValue(PointerOverPlaceholderDataProperty);
+        set => SetValue(PointerOverPlaceholderDataProperty, value);
+    }
+
+    #endregion PointerOverPlaceholderData
+
+    #region UnsetData
+
+    public static readonly DependencyProperty UnsetDataProperty =
+        DependencyProperty.Register(
+            nameof(UnsetData),
+            typeof(Geometry),
+            typeof(RatingItemPathInfo),
+            null);
+
+    public Geometry UnsetData
+    {
+        get => (Geometry)GetValue(UnsetDataProperty);
+        set => SetValue(UnsetDataProperty, value);
+    }
+
+    #endregion UnsetData
+
+    protected override Freezable CreateInstanceCore()
+    {
+        return new RatingItemPathInfo();
+    }
+}
