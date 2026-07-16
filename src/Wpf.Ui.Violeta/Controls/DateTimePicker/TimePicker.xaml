@@ -223,6 +223,10 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition x:Name="SecondSeparatorColumn" Width="Auto" />
+                                        <ColumnDefinition x:Name="SecondColumn" Width="Auto" />
+                                        <ColumnDefinition x:Name="PeriodSeparatorColumn" Width="Auto" />
+                                        <ColumnDefinition x:Name="PeriodColumn" Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
@@ -250,10 +254,47 @@
                                         FontSize="{TemplateBinding FontSize}"
                                         Text="{TemplateBinding MinuteText}" />
 
+                                    <!--  Second (only when UseSeconds=True)  -->
+                                    <Rectangle
+                                        x:Name="PART_SecondSeparator"
+                                        Grid.Column="3"
+                                        Width="1"
+                                        Height="18"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                                        Visibility="Collapsed" />
+
+                                    <TextBlock
+                                        x:Name="PART_SecondTextBlock"
+                                        Grid.Column="4"
+                                        Padding="12,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Text="{TemplateBinding SecondText}"
+                                        Visibility="Collapsed" />
+
+                                    <!--  AM/PM (only for 12h clock)  -->
+                                    <Rectangle
+                                        x:Name="PART_PeriodSeparator"
+                                        Grid.Column="5"
+                                        Width="1"
+                                        Height="18"
+                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                                        Visibility="Collapsed" />
+
+                                    <TextBlock
+                                        x:Name="PART_PeriodTextBlock"
+                                        Grid.Column="6"
+                                        Padding="12,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Visibility="Collapsed" />
+
                                     <!--  Clock icon  -->
                                     <!--
                                     <ui:SymbolIcon
-                                        Grid.Column="3"
+                                        Grid.Column="7"
                                         Width="32"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
@@ -262,7 +303,7 @@
                                         Symbol="Clock24" />
                                     -->
                                     <TextBlock
-                                        Grid.Column="3"
+                                        Grid.Column="7"
                                         Width="32"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
@@ -294,6 +335,16 @@
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding Header, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
                             <Setter TargetName="HeaderPresenter" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <!--  Show seconds  -->
+                        <DataTrigger Binding="{Binding UseSeconds, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="PART_SecondSeparator" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_SecondTextBlock" Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                        <!--  Show AM/PM for 12h  -->
+                        <DataTrigger Binding="{Binding ClockIdentifier, RelativeSource={RelativeSource Self}}" Value="12HourClock">
+                            <Setter TargetName="PART_PeriodSeparator" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_PeriodTextBlock" Property="Visibility" Value="Visible" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

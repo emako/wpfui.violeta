@@ -16,6 +16,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = PartThirdPickerHost, Type = typeof(Border))]
 [TemplatePart(Name = PartHourTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartMinuteTextBlock, Type = typeof(TextBlock))]
+[TemplatePart(Name = PartSecondTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartPeriodTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartPopup, Type = typeof(Popup))]
 [TemplatePart(Name = PartPresenter, Type = typeof(TimePickerPresenter))]
@@ -27,6 +28,7 @@ public class TimePicker : Control
     public const string PartThirdPickerHost = "PART_ThirdPickerHost";
     public const string PartHourTextBlock = "PART_HourTextBlock";
     public const string PartMinuteTextBlock = "PART_MinuteTextBlock";
+    public const string PartSecondTextBlock = "PART_SecondTextBlock";
     public const string PartPeriodTextBlock = "PART_PeriodTextBlock";
     public const string PartPopup = "PART_Popup";
     public const string PartPresenter = "PART_Presenter";
@@ -34,6 +36,7 @@ public class TimePicker : Control
     private Button? _flyoutButton;
     private TextBlock? _hourTextBlock;
     private TextBlock? _minuteTextBlock;
+    private TextBlock? _secondTextBlock;
     private TextBlock? _periodTextBlock;
     private Popup? _popup;
     private TimePickerPresenter? _presenter;
@@ -196,6 +199,7 @@ public class TimePicker : Control
         _flyoutButton = GetTemplateChild(PartFlyoutButton) as Button;
         _hourTextBlock = GetTemplateChild(PartHourTextBlock) as TextBlock;
         _minuteTextBlock = GetTemplateChild(PartMinuteTextBlock) as TextBlock;
+        _secondTextBlock = GetTemplateChild(PartSecondTextBlock) as TextBlock;
         _periodTextBlock = GetTemplateChild(PartPeriodTextBlock) as TextBlock;
         _popup = GetTemplateChild(PartPopup) as Popup;
         _presenter = GetTemplateChild(PartPresenter) as TimePickerPresenter;
@@ -275,6 +279,8 @@ public class TimePicker : Control
 
             if (_minuteTextBlock != null)
                 _minuteTextBlock.Text = time.Minutes.ToString("D2");
+            if (_secondTextBlock != null)
+                _secondTextBlock.Text = time.Seconds.ToString("D2");
         }
         else
         {
@@ -282,6 +288,8 @@ public class TimePicker : Control
                 _hourTextBlock.Text = HourText;
             if (_minuteTextBlock != null)
                 _minuteTextBlock.Text = MinuteText;
+            if (_secondTextBlock != null)
+                _secondTextBlock.Text = SecondText;
             if (_periodTextBlock != null)
                 _periodTextBlock.Text = string.Empty;
         }

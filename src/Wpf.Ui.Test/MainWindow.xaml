@@ -5067,16 +5067,12 @@
                         Margin="0,8,0,0"
                         Orientation="Vertical"
                         Spacing="12">
-                        <vio:ValuePicker
-                            x:Name="RegionValuePicker"
-                            MinWidth="320" />
+                        <vio:ValuePicker x:Name="RegionValuePicker" MinWidth="320" />
                         <TextBlock
                             x:Name="RegionSelectionText"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="Selected: (none)" />
-                        <vio:ValuePicker
-                            x:Name="ProductValuePicker"
-                            MinWidth="360" />
+                        <vio:ValuePicker x:Name="ProductValuePicker" MinWidth="360" />
                         <TextBlock
                             x:Name="ProductSelectionText"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
