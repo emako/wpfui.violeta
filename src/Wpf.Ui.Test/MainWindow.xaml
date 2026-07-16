@@ -4936,7 +4936,21 @@
                                 Margin="0,0,0,8"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="Line (default)" />
-                            <vio:TabStrip>
+                            <vio:TabStrip IndicatorAnimation="Fluent">
+                                <vio:TabStripItem Content="Overview" IsSelected="True" />
+                                <vio:TabStripItem Content="Details" />
+                                <vio:TabStripItem Content="Settings" />
+                                <vio:TabStripItem Content="History" />
+                            </vio:TabStrip>
+                        </StackPanel>
+
+                        <!--  LINE (Lengthening)  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Line (Lengthening)" />
+                            <vio:TabStrip IndicatorAnimation="Lengthening">
                                 <vio:TabStripItem Content="Overview" IsSelected="True" />
                                 <vio:TabStripItem Content="Details" />
                                 <vio:TabStripItem Content="Settings" />

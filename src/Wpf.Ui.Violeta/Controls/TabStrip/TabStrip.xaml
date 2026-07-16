@@ -124,7 +124,13 @@
                                     VerticalAlignment="Bottom"
                                     Fill="{DynamicResource AccentFillColorDefaultBrush}"
                                     IsHitTestVisible="False"
-                                    SnapsToDevicePixels="True" />
+                                    RenderTransformOrigin="0.5,0.5"
+                                    SnapsToDevicePixels="True">
+                                    <!--  Replaced with a fresh, unfrozen ScaleTransform in code-behind — see TabStrip.OnApplyTemplate  -->
+                                    <Rectangle.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
                             </Grid>
                             <Rectangle
                                 Grid.Row="1"
