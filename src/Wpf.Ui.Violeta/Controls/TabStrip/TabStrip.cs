@@ -62,11 +62,6 @@ public class TabStrip : ListBox
 
         if (_indicator is not null)
         {
-            // The ScaleTransform declared inline in the template has no bindings,
-            // so WPF freezes it for perf — a frozen Freezable can't be animated or
-            // have its properties set. Replace it with a fresh, unfrozen instance.
-            _indicator.RenderTransform = new ScaleTransform(0, 1);
-
             // Containers may not exist yet at this point (they're generated
             // asynchronously), so an immediate attempt often no-ops. Re-run
             // once the generator reports containers are ready.
@@ -118,30 +113,45 @@ public class TabStrip : ListBox
         var transform = container.TransformToVisual(this);
         var itemLeft = transform.Transform(default).X;
 
-        _indicator.Margin = new Thickness(itemLeft, 0, 0, 0);
-        _indicator.Width = itemWidth;
-
         if (animate)
         {
+            // Mirrors YouiToolkit's CheckTitleButton PART_Rect animation: drive
+            // Width/Margin directly (no RenderTransform) with a steep PowerEase
+            // EaseOut — most of the travel happens immediately and only the
+            // tail eases out, so it reads as quick rather than sluggish.
+            var easing = new PowerEase { Power = 8, EasingMode = EasingMode.EaseOut };
+            var duration = TimeSpan.FromMilliseconds(300);
+
             var storyboard = new Storyboard();
 
-            var scaleAnim = new DoubleAnimation
+            var widthAnim = new DoubleAnimation
             {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromMilliseconds(180),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
+                From = _indicator.ActualWidth,
+                To = itemWidth,
+                Duration = duration,
+                EasingFunction = easing
             };
+            Storyboard.SetTarget(widthAnim, _indicator);
+            Storyboard.SetTargetProperty(widthAnim, new PropertyPath(WidthProperty));
+            storyboard.Children.Add(widthAnim);
 
-            Storyboard.SetTarget(scaleAnim, _indicator);
-            Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
-            storyboard.Children.Add(scaleAnim);
+            var marginAnim = new ThicknessAnimation
+            {
+                From = _indicator.Margin,
+                To = new Thickness(itemLeft, 0, 0, 0),
+                Duration = duration,
+                EasingFunction = easing
+            };
+            Storyboard.SetTarget(marginAnim, _indicator);
+            Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
+            storyboard.Children.Add(marginAnim);
+
             storyboard.Begin();
         }
         else
         {
-            if (_indicator.RenderTransform is ScaleTransform scale)
-                scale.ScaleX = 1;
+            _indicator.Margin = new Thickness(itemLeft, 0, 0, 0);
+            _indicator.Width = itemWidth;
         }
     }
 }
