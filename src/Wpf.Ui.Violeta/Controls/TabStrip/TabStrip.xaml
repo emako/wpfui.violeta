@@ -20,7 +20,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0,0,0,2" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="8,6" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -43,7 +43,6 @@
                         <!--  Selected  -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter Property="BorderBrush" Value="{DynamicResource AccentFillColorDefaultBrush}" />
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -115,7 +114,23 @@
                                 <!--  1 px separator  -->
                                 <RowDefinition Height="1" />
                             </Grid.RowDefinitions>
-                            <ItemsPresenter Grid.Row="0" />
+                            <Grid Grid.Row="0">
+                                <ItemsPresenter />
+                                <Rectangle
+                                    x:Name="PART_Indicator"
+                                    Width="0"
+                                    Height="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}"
+                                    IsHitTestVisible="False"
+                                    RenderTransformOrigin="0.5,0.5"
+                                    SnapsToDevicePixels="True">
+                                    <Rectangle.RenderTransform>
+                                        <ScaleTransform ScaleX="0" ScaleY="1" />
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
                             <Rectangle
                                 Grid.Row="1"
                                 Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
@@ -143,8 +158,13 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <!--
+            Border is always 3-sided so the selected state only swaps colors,
+            never the box size — sizing the border in via a trigger shifts
+            every following item and makes the row visibly jump on selection.
+        -->
+        <Setter Property="BorderThickness" Value="1,1,1,0" />
         <Setter Property="Margin" Value="0,0,4,0" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="Padding" Value="12,6" />
@@ -171,7 +191,7 @@
                         <!--  Selected: show 3-sided border + card bg + overlap separator by 1 px  -->
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter TargetName="Root" Property="BorderThickness" Value="1,1,1,0" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
                             <Setter TargetName="Root" Property="Background" Value="{DynamicResource LayerFillColorDefaultBrush}" />
                             <!--  Extend 1 px below to cover the separator line  -->
                             <Setter TargetName="Root" Property="Margin" Value="0,0,0,-1" />
@@ -308,11 +328,11 @@
                 <ControlTemplate TargetType="{x:Type local:TabStrip}">
                     <!--  Single card, no separator  -->
                     <Border
+                        Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="6"
-                        Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="True">
                         <ItemsPresenter />
                     </Border>
