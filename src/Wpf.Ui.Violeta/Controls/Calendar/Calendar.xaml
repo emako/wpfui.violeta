@@ -140,8 +140,14 @@
                                     x:Name="Views"
                                     Grid.Row="2"
                                     ClipToBounds="True">
+                                    <Border x:Name="BackgroundLayer" RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform x:Name="BackgroundTransform" />
+                                        </Border.RenderTransform>
+                                    </Border>
                                     <Grid
                                         x:Name="PART_MonthView"
+                                        RenderTransformOrigin="0.5,0.5"
                                         TextElement.Foreground="{DynamicResource CalendarViewCalendarItemForeground}"
                                         Visibility="Visible">
                                         <Grid.ColumnDefinitions>
@@ -162,8 +168,14 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
+                                        <Grid.RenderTransform>
+                                            <ScaleTransform x:Name="MonthViewTransform" />
+                                        </Grid.RenderTransform>
                                     </Grid>
-                                    <Grid x:Name="PART_YearView" Visibility="Hidden">
+                                    <Grid
+                                        x:Name="PART_YearView"
+                                        RenderTransformOrigin="0.5,0.5"
+                                        Visibility="Hidden">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
@@ -175,26 +187,224 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
+                                        <Grid.RenderTransform>
+                                            <ScaleTransform x:Name="YearViewTransform" />
+                                        </Grid.RenderTransform>
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Border>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="DisplayModeStates">
+                                <VisualState x:Name="Month" />
+                                <VisualState x:Name="Year">
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="IsEnabled">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Decade">
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="IsEnabled">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="Month" To="Year">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundLayer" Storyboard.TargetProperty="Opacity">
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.200" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="PART_HeaderButton"
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.167" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Year" To="Month">
+                                        <Storyboard>
+                                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="IsHitTestVisible">
+                                                <DiscreteBooleanKeyFrame KeyTime="0" Value="False" />
+                                            </BooleanAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundTransform" Storyboard.TargetProperty="ScaleX">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundTransform" Storyboard.TargetProperty="ScaleY">
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundLayer" Storyboard.TargetProperty="Opacity">
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.200" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="PART_HeaderButton"
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.167" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Year" To="Decade">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="1.29" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundLayer" Storyboard.TargetProperty="Opacity">
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.200" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="PART_HeaderButton"
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.167" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Decade" To="Year">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_MonthView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_YearView" Storyboard.TargetProperty="Opacity">
+                                                <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
+                                                <DiscreteDoubleKeyFrame KeyTime="0:0:0.150" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleX">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="YearViewTransform" Storyboard.TargetProperty="ScaleY">
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="0.84" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundLayer" Storyboard.TargetProperty="Opacity">
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.200" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.500" Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="PART_HeaderButton"
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.167" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="PART_MonthView" Property="TextElement.Foreground" Value="{DynamicResource CalendarViewWeekDayForegroundDisabled}" />
                         </Trigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Year">
-                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
-                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Year" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Month">
-                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Month" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Decade">
-                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
-                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Decade" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -525,9 +735,20 @@
                 <ControlTemplate TargetType="{x:Type Calendar}">
                     <primitives:ThemeShadowChrome
                         x:Name="Shdw"
+                        chelper:OpeningAnimationHelper.Storyboard="{DynamicResource CalendarDatePickerOpeningStoryboard}"
                         CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
                         IsShadowEnabled="True"
                         SnapsToDevicePixels="True">
+                        <primitives:ThemeShadowChrome.Resources>
+                            <Storyboard x:Key="CalendarDatePickerOpeningStoryboard">
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=Shdw}"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.100" />
+                            </Storyboard>
+                        </primitives:ThemeShadowChrome.Resources>
                         <StackPanel x:Name="PART_Root">
                             <CalendarItem
                                 x:Name="PART_CalendarItem"
