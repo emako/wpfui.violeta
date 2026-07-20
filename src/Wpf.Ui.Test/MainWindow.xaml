@@ -5063,6 +5063,45 @@
                         <vio:TimePicker ClockIdentifier="12HourClock" UseSeconds="True" />
                     </ui:StackPanel>
 
+                    <!--  DatePicker + TimePicker combined  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="DateTimePicker (DatePicker + TimePicker)" />
+                    <ui:StackPanel
+                        Margin="0,8,0,24"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                        <vio:DatePicker />
+                        <vio:TimePicker UseSeconds="True" />
+                    </ui:StackPanel>
+
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        Calendar / CalendarDatePicker
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <TextBlock
+                        Margin="0,24,0,0"
+                        FontSize="22"
+                        FontWeight="Bold"
+                        Text="Calendar / CalendarDatePicker" />
+                    <ui:StackPanel
+                        Margin="0,8,0,24"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                        <Calendar />
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                            <DatePicker Width="220" />
+                            <DatePicker
+                                Width="220"
+                                Margin="0,8,0,0"
+                                IsEnabled="False"
+                                SelectedDate="2026-07-20" />
+                        </StackPanel>
+                    </ui:StackPanel>
+
                     <!--
                         ══════════════════════════════════════════════════════════════
                         ValuePicker
