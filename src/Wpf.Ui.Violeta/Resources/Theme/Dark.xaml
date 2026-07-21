@@ -112,10 +112,10 @@
     <m:StaticResource x:Key="CalendarViewDisabledForeground" ResourceKey="TextFillColorDisabledBrush" />
     <m:StaticResource x:Key="CalendarViewBlackoutForeground" ResourceKey="TextFillColorPrimaryBrush" />
     <m:StaticResource x:Key="CalendarViewBlackoutBackground" ResourceKey="ControlFillColorDefaultBrush" />
-    <m:StaticResource x:Key="CalendarViewOutOfScopeForeground" ResourceKey="TextFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="CalendarViewOutOfScopeForeground" ResourceKey="TextFillColorTertiaryBrush" />
     <m:StaticResource x:Key="CalendarViewOutOfScopeHoverForeground" ResourceKey="TextFillColorPrimaryBrush" />
     <m:StaticResource x:Key="CalendarViewOutOfScopePressedForeground" ResourceKey="TextFillColorSecondaryBrush" />
-    <m:StaticResource x:Key="CalendarViewOutOfScopeBackground" ResourceKey="ControlFillColorDefaultBrush" />
+    <m:StaticResource x:Key="CalendarViewOutOfScopeBackground" ResourceKey="SubtleFillColorTransparentBrush" />
     <m:StaticResource x:Key="CalendarViewCalendarItemBackground" ResourceKey="ControlFillColorTransparentBrush" />
     <m:StaticResource x:Key="CalendarViewCalendarItemHoverBackground" ResourceKey="SubtleFillColorSecondaryBrush" />
     <m:StaticResource x:Key="CalendarViewCalendarItemPressedBackground" ResourceKey="SubtleFillColorTertiaryBrush" />
