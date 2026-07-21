@@ -10,11 +10,14 @@ using Wpf.Ui.Violeta.Resources.Localization;
 namespace Wpf.Ui.Violeta.Controls;
 
 [TemplatePart(Name = PART_SelectedText, Type = typeof(TextBlock))]
+[TemplatePart(Name = PART_ClearButton, Type = typeof(Button))]
 public class CascadingComboBox : ComboBox
 {
     public const string PART_SelectedText = "PART_SelectedText";
+    public const string PART_ClearButton = "PART_ClearButton";
 
     private bool _isAutoExpanding;
+    private Button? _clearButton;
 
     public static readonly DependencyProperty PlaceholderTextProperty =
         DependencyProperty.Register(nameof(PlaceholderText), typeof(string), typeof(CascadingComboBox), new PropertyMetadata(string.Empty));
@@ -28,6 +31,12 @@ public class CascadingComboBox : ComboBox
         DependencyProperty.Register(nameof(SelectedCascadingItem), typeof(ICascadingItem), typeof(CascadingComboBox),
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedCascadingItemChanged));
 
+    public static readonly DependencyProperty ClearButtonEnabledProperty =
+        DependencyProperty.Register(nameof(ClearButtonEnabled), typeof(bool), typeof(CascadingComboBox), new PropertyMetadata(true));
+
+    public static readonly DependencyProperty ClearButtonToolTipProperty =
+        DependencyProperty.Register(nameof(ClearButtonToolTip), typeof(string), typeof(CascadingComboBox), new PropertyMetadata(string.Empty));
+
     static CascadingComboBox()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(CascadingComboBox), new FrameworkPropertyMetadata(typeof(CascadingComboBox)));
@@ -39,6 +48,11 @@ public class CascadingComboBox : ComboBox
         if (ReadLocalValue(PlaceholderTextProperty) == DependencyProperty.UnsetValue)
         {
             SetCurrentValue(PlaceholderTextProperty, SH.PleaseSelect);
+        }
+
+        if (ReadLocalValue(ClearButtonToolTipProperty) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(ClearButtonToolTipProperty, SH.CascadingComboBoxClearSelection);
         }
     }
 
@@ -63,9 +77,52 @@ public class CascadingComboBox : ComboBox
     }
 
     /// <summary>
+    /// Gets or sets whether the clear button is available when an item is selected.
+    /// </summary>
+    public bool ClearButtonEnabled
+    {
+        get => (bool)GetValue(ClearButtonEnabledProperty);
+        set => SetValue(ClearButtonEnabledProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the tooltip and automation name of the clear button.
+    /// </summary>
+    public string ClearButtonToolTip
+    {
+        get => (string)GetValue(ClearButtonToolTipProperty);
+        set => SetValue(ClearButtonToolTipProperty, value);
+    }
+
+    /// <summary>
     /// Internal columns collection that drives the dynamic popup layout.
     /// </summary>
     public ObservableCollection<CascadingColumnData> Columns { get; } = [];
+
+    public override void OnApplyTemplate()
+    {
+        _clearButton?.Click -= OnClearButtonClick;
+
+        base.OnApplyTemplate();
+
+        _clearButton = GetTemplateChild(PART_ClearButton) as Button;
+        _clearButton?.Click += OnClearButtonClick;
+    }
+
+    /// <summary>
+    /// Clears the selected item and resets the cascading columns to their initial state.
+    /// </summary>
+    public void Clear()
+    {
+        SetCurrentValue(IsDropDownOpenProperty, false);
+        ResetColumns();
+    }
+
+    private void OnClearButtonClick(object? sender, RoutedEventArgs e)
+    {
+        Clear();
+        e.Handled = true;
+    }
 
     private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -91,6 +148,7 @@ public class CascadingComboBox : ComboBox
             col.PropertyChanged -= OnColumnSelectionChanged;
         }
         Columns.Clear();
+        SetValue(LevelsPropertyKey, 0);
         SetCurrentValue(SelectedCascadingItemProperty, null);
 
         var root = (ItemsSource as IEnumerable<ICascadingItem>)?.ToList();

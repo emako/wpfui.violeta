@@ -206,6 +206,9 @@
   <data name="PleaseSelect" xml:space="preserve">
     <value>Vui lòng chọn...</value>
   </data>
+  <data name="CascadingComboBoxClearSelection" xml:space="preserve">
+    <value>Xóa lựa chọn</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Đi đến</value>
   </data>

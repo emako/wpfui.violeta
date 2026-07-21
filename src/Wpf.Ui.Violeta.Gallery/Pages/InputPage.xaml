@@ -113,26 +113,23 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="父子级联选择，选中父项后展示对应子选项。" />
-                    <StackPanel Orientation="Horizontal">
-                        <vio:CascadingComboBox
-                            x:Name="CascadingLevel1"
-                            Width="160"
-                            Margin="0,0,8,0"
-                            PlaceholderText="省份"
-                            SelectionChanged="CascadingLevel1_SelectionChanged" />
-                        <vio:CascadingComboBox
-                            x:Name="CascadingLevel2"
-                            Width="160"
-                            Margin="0,0,8,0"
-                            IsEnabled="False"
-                            PlaceholderText="城市" />
-                    </StackPanel>
+                        Text="父子级联选择，选中父项后展示对应子选项；选中叶节点后可通过右侧按钮清空。" />
+                    <vio:CascadingComboBox
+                        x:Name="CascadingComboBoxDemo"
+                        Width="320"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="请选择省份 / 城市" />
                     <TextBlock
-                        x:Name="CascadingResultText"
                         Margin="0,8,0,0"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="已选择：(无)" />
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+                        <TextBlock.Text>
+                            <Binding
+                                ElementName="CascadingComboBoxDemo"
+                                Path="SelectedCascadingItem.Label"
+                                StringFormat="已选择：{0}"
+                                TargetNullValue="已选择：(无)" />
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Border>
 
