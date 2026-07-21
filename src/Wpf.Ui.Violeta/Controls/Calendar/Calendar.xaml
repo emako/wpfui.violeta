@@ -729,7 +729,9 @@
         x:Key="CalendarDatePickerCalendarStyle"
         BasedOn="{StaticResource DefaultCalendarStyle}"
         TargetType="{x:Type Calendar}">
-        <Setter Property="Background" Value="{DynamicResource CalendarDatePickerPopupBackground}" />
+        <Setter Property="Background" Value="{DynamicResource ComboBoxDropDownBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxDropDownBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Calendar}">

@@ -104,7 +104,6 @@
     <m:StaticResource x:Key="CalendarDatePickerBorderBrushPointerOver" ResourceKey="ControlElevationBorderBrush" />
     <m:StaticResource x:Key="CalendarDatePickerBorderBrushPressed" ResourceKey="ControlStrokeColorDefaultBrush" />
     <m:StaticResource x:Key="CalendarDatePickerBorderBrushDisabled" ResourceKey="ControlStrokeColorDefaultBrush" />
-    <m:StaticResource x:Key="CalendarDatePickerPopupBackground" ResourceKey="ControlFillColorDefaultBrush" />
 
     <m:StaticResource x:Key="CalendarViewForeground" ResourceKey="TextFillColorPrimaryBrush" />
     <m:StaticResource x:Key="CalendarViewBackground" ResourceKey="ControlFillColorDefaultBrush" />
