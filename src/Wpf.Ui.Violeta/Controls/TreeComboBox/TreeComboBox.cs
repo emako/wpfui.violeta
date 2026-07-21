@@ -132,6 +132,7 @@ public class TreeComboBox : ItemsControl
         if (_parentWindow is not null && !_windowHandlerRegistered)
         {
             _parentWindow.PreviewMouseLeftButtonDown += OnWindowPreviewMouseLeftButtonDown;
+            _parentWindow.PreviewMouseWheel += OnWindowPreviewMouseWheel;
             _windowHandlerRegistered = true;
         }
     }
@@ -141,8 +142,26 @@ public class TreeComboBox : ItemsControl
         if (_parentWindow is not null && _windowHandlerRegistered)
         {
             _parentWindow.PreviewMouseLeftButtonDown -= OnWindowPreviewMouseLeftButtonDown;
+            _parentWindow.PreviewMouseWheel -= OnWindowPreviewMouseWheel;
             _windowHandlerRegistered = false;
         }
+    }
+
+    /// <summary>
+    /// While the popup is open, block mouse-wheel events that don't occur over the popup
+    /// content itself, so the host panel behind the control can't be scrolled — matching
+    /// the standard <see cref="ComboBox"/> drop-down behavior (which achieves this via
+    /// mouse capture).
+    /// </summary>
+    private void OnWindowPreviewMouseWheel(object? sender, MouseWheelEventArgs e)
+    {
+        if (e.OriginalSource is not DependencyObject target)
+            return;
+
+        if (_popup?.Child is UIElement popupChild && IsVisualDescendantOf(target, popupChild))
+            return;
+
+        e.Handled = true;
     }
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

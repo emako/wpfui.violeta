@@ -300,6 +300,28 @@
                 </StackPanel>
             </Border>
 
+            <!--  CalendarDateTimePicker  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="CalendarDateTimePicker — 日历+时间一体选择" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="文本框 + 下拉弹出层，弹出层同时渲染日历和时间转轮。" />
+                    <vio:CalendarDateTimePicker MaxWidth="360" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
             <!--  PinCode  -->
             <Border
                 Margin="0,0,0,16"

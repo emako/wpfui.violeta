@@ -2,6 +2,8 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -33,6 +35,8 @@ public class DatePicker : Control
     private TextBlock? _yearTextBlock;
     private Popup? _popup;
     private DatePickerPresenter? _presenter;
+    private Window? _parentWindow;
+    private bool _windowHandlerRegistered;
 
     // ------------------------------------------------------------------
     // Dependency Properties
@@ -198,6 +202,11 @@ public class DatePicker : Control
             _presenter.Confirmed -= OnPresenterConfirmed;
             _presenter.Dismissed -= OnPresenterDismissed;
         }
+        if (_popup != null)
+        {
+            _popup.Opened -= OnPopupOpened;
+            _popup.Closed -= OnPopupClosed;
+        }
 
         _flyoutButton = GetTemplateChild(PartFlyoutButton) as Button;
         _monthTextBlock = GetTemplateChild(PartMonthTextBlock) as TextBlock;
@@ -213,6 +222,12 @@ public class DatePicker : Control
         {
             _presenter.Confirmed += OnPresenterConfirmed;
             _presenter.Dismissed += OnPresenterDismissed;
+        }
+
+        if (_popup != null)
+        {
+            _popup.Opened += OnPopupOpened;
+            _popup.Closed += OnPopupClosed;
         }
 
         UpdateTextBlocks();
@@ -252,6 +267,53 @@ public class DatePicker : Control
     {
         if (_popup != null)
             _popup.IsOpen = false;
+    }
+
+    /// <summary>
+    /// While the popup is open, block mouse-wheel events that don't occur over the popup
+    /// content itself, so the host panel behind the control can't be scrolled — matching
+    /// the standard <see cref="ComboBox"/> drop-down behavior (which achieves this via
+    /// mouse capture).
+    /// </summary>
+    private void OnPopupOpened(object? sender, EventArgs e)
+    {
+        _parentWindow ??= Window.GetWindow(this);
+        if (_parentWindow is not null && !_windowHandlerRegistered)
+        {
+            _parentWindow.PreviewMouseWheel += OnWindowPreviewMouseWheel;
+            _windowHandlerRegistered = true;
+        }
+    }
+
+    private void OnPopupClosed(object? sender, EventArgs e)
+    {
+        if (_parentWindow is not null && _windowHandlerRegistered)
+        {
+            _parentWindow.PreviewMouseWheel -= OnWindowPreviewMouseWheel;
+            _windowHandlerRegistered = false;
+        }
+    }
+
+    private void OnWindowPreviewMouseWheel(object? sender, MouseWheelEventArgs e)
+    {
+        if (e.OriginalSource is not DependencyObject target)
+            return;
+
+        if (_popup?.Child is UIElement popupChild && IsVisualDescendantOf(target, popupChild))
+            return;
+
+        e.Handled = true;
+    }
+
+    private static bool IsVisualDescendantOf(DependencyObject element, DependencyObject ancestor)
+    {
+        DependencyObject? current = element;
+        while (current is not null)
+        {
+            if (current == ancestor) return true;
+            current = VisualTreeHelper.GetParent(current);
+        }
+        return false;
     }
 
     // ------------------------------------------------------------------

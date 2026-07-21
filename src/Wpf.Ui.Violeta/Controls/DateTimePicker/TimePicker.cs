@@ -2,6 +2,8 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -16,6 +18,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = PartThirdPickerHost, Type = typeof(Border))]
 [TemplatePart(Name = PartHourTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartMinuteTextBlock, Type = typeof(TextBlock))]
+[TemplatePart(Name = PartSecondTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartPeriodTextBlock, Type = typeof(TextBlock))]
 [TemplatePart(Name = PartPopup, Type = typeof(Popup))]
 [TemplatePart(Name = PartPresenter, Type = typeof(TimePickerPresenter))]
@@ -27,6 +30,7 @@ public class TimePicker : Control
     public const string PartThirdPickerHost = "PART_ThirdPickerHost";
     public const string PartHourTextBlock = "PART_HourTextBlock";
     public const string PartMinuteTextBlock = "PART_MinuteTextBlock";
+    public const string PartSecondTextBlock = "PART_SecondTextBlock";
     public const string PartPeriodTextBlock = "PART_PeriodTextBlock";
     public const string PartPopup = "PART_Popup";
     public const string PartPresenter = "PART_Presenter";
@@ -34,9 +38,12 @@ public class TimePicker : Control
     private Button? _flyoutButton;
     private TextBlock? _hourTextBlock;
     private TextBlock? _minuteTextBlock;
+    private TextBlock? _secondTextBlock;
     private TextBlock? _periodTextBlock;
     private Popup? _popup;
     private TimePickerPresenter? _presenter;
+    private Window? _parentWindow;
+    private bool _windowHandlerRegistered;
 
     // ------------------------------------------------------------------
     // Dependency Properties
@@ -192,10 +199,16 @@ public class TimePicker : Control
             _presenter.Confirmed -= OnPresenterConfirmed;
             _presenter.Dismissed -= OnPresenterDismissed;
         }
+        if (_popup != null)
+        {
+            _popup.Opened -= OnPopupOpened;
+            _popup.Closed -= OnPopupClosed;
+        }
 
         _flyoutButton = GetTemplateChild(PartFlyoutButton) as Button;
         _hourTextBlock = GetTemplateChild(PartHourTextBlock) as TextBlock;
         _minuteTextBlock = GetTemplateChild(PartMinuteTextBlock) as TextBlock;
+        _secondTextBlock = GetTemplateChild(PartSecondTextBlock) as TextBlock;
         _periodTextBlock = GetTemplateChild(PartPeriodTextBlock) as TextBlock;
         _popup = GetTemplateChild(PartPopup) as Popup;
         _presenter = GetTemplateChild(PartPresenter) as TimePickerPresenter;
@@ -207,6 +220,12 @@ public class TimePicker : Control
         {
             _presenter.Confirmed += OnPresenterConfirmed;
             _presenter.Dismissed += OnPresenterDismissed;
+        }
+
+        if (_popup != null)
+        {
+            _popup.Opened += OnPopupOpened;
+            _popup.Closed += OnPopupClosed;
         }
 
         UpdateTextBlocks();
@@ -248,6 +267,53 @@ public class TimePicker : Control
             _popup.IsOpen = false;
     }
 
+    /// <summary>
+    /// While the popup is open, block mouse-wheel events that don't occur over the popup
+    /// content itself, so the host panel behind the control can't be scrolled — matching
+    /// the standard <see cref="ComboBox"/> drop-down behavior (which achieves this via
+    /// mouse capture).
+    /// </summary>
+    private void OnPopupOpened(object? sender, EventArgs e)
+    {
+        _parentWindow ??= Window.GetWindow(this);
+        if (_parentWindow is not null && !_windowHandlerRegistered)
+        {
+            _parentWindow.PreviewMouseWheel += OnWindowPreviewMouseWheel;
+            _windowHandlerRegistered = true;
+        }
+    }
+
+    private void OnPopupClosed(object? sender, EventArgs e)
+    {
+        if (_parentWindow is not null && _windowHandlerRegistered)
+        {
+            _parentWindow.PreviewMouseWheel -= OnWindowPreviewMouseWheel;
+            _windowHandlerRegistered = false;
+        }
+    }
+
+    private void OnWindowPreviewMouseWheel(object? sender, MouseWheelEventArgs e)
+    {
+        if (e.OriginalSource is not DependencyObject target)
+            return;
+
+        if (_popup?.Child is UIElement popupChild && IsVisualDescendantOf(target, popupChild))
+            return;
+
+        e.Handled = true;
+    }
+
+    private static bool IsVisualDescendantOf(DependencyObject element, DependencyObject ancestor)
+    {
+        DependencyObject? current = element;
+        while (current is not null)
+        {
+            if (current == ancestor) return true;
+            current = VisualTreeHelper.GetParent(current);
+        }
+        return false;
+    }
+
     // ------------------------------------------------------------------
     // Helpers
     // ------------------------------------------------------------------
@@ -275,6 +341,8 @@ public class TimePicker : Control
 
             if (_minuteTextBlock != null)
                 _minuteTextBlock.Text = time.Minutes.ToString("D2");
+            if (_secondTextBlock != null)
+                _secondTextBlock.Text = time.Seconds.ToString("D2");
         }
         else
         {
@@ -282,6 +350,8 @@ public class TimePicker : Control
                 _hourTextBlock.Text = HourText;
             if (_minuteTextBlock != null)
                 _minuteTextBlock.Text = MinuteText;
+            if (_secondTextBlock != null)
+                _secondTextBlock.Text = SecondText;
             if (_periodTextBlock != null)
                 _periodTextBlock.Text = string.Empty;
         }

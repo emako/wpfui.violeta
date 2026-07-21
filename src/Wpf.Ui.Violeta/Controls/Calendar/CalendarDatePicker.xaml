@@ -1,4 +1,220 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls" />
+    xmlns:chelper="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+
+    <!--
+        CalendarDatePicker is a control that provides a calendar-style interface for selecting dates.
+        It is only available in WinUI 3 and its equivalent in WPF is the DatePicker control.
+        This explains why CalendarDatePicker adopts a DatePicker-based design.
+    -->
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Calendar/Calendar.xaml" />
+        <ResourceDictionary>
+            <local:CalendarPlacementRectangleConverter x:Key="CalendarDatePickerPlacementRectangleConverter" Margin="0,0" />
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultCalendarDatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerTextForegroundSelected}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Border
+                            x:Name="ContentElement"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <ContentControl
+                            x:Name="PART_Watermark"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            Foreground="{DynamicResource CalendarDatePickerTextForeground}"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Margin="0"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="WatermarkStates">
+                                <VisualState x:Name="Unwatermarked" />
+                                <VisualState x:Name="Watermarked">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ContentElement"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_Watermark"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_ContentHost" Property="Foreground" Value="{DynamicResource CalendarDatePickerTextForegroundDisabled}" />
+                            <Setter TargetName="PART_Watermark" Property="Foreground" Value="{DynamicResource CalendarDatePickerTextForegroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultCalendarDatePickerTextBoxStyle}" TargetType="{x:Type DatePickerTextBox}" />
+
+    <Style x:Key="DefaultCalendarDatePickerStyle" TargetType="{x:Type DatePicker}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
+        <Setter Property="IsTodayHighlighted" Value="True" />
+        <Setter Property="SelectedDateFormat" Value="Short" />
+        <Setter Property="CalendarStyle" Value="{StaticResource CalendarDatePickerCalendarStyle}" />
+        <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource TextBoxBorderThemeThickness}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
+        <Setter Property="MinWidth" Value="{DynamicResource TextControlThemeMinWidth}" />
+        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="local:CalendarDatePickerScrollBlock.IsEnabled" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Grid x:Name="PART_Root" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="32" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="ContentBorder"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            MinWidth="{TemplateBinding MinWidth}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}" />
+                        <DatePickerTextBox
+                            x:Name="PART_TextBox"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Focusable="{TemplateBinding Focusable}" />
+                        <Button
+                            x:Name="PART_Button"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Content="&#xE252;"
+                            Focusable="False"
+                            FontFamily="{DynamicResource FluentSystemIcons}"
+                            FontSize="12"
+                            Foreground="{DynamicResource CalendarDatePickerCalendarGlyphForeground}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <TextBlock
+                                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        Text="{TemplateBinding Content}" />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Popup
+                            x:Name="PART_Popup"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            AllowsTransparency="True"
+                            Placement="Bottom"
+                            StaysOpen="False">
+                            <Popup.PlacementRectangle>
+                                <MultiBinding Converter="{StaticResource CalendarDatePickerPlacementRectangleConverter}">
+                                    <Binding ElementName="PART_Root" Path="ActualWidth" />
+                                    <Binding ElementName="PART_Root" Path="ActualHeight" />
+                                </MultiBinding>
+                            </Popup.PlacementRectangle>
+                        </Popup>
+
+                        <!--  Accent border / bottom focus indicator  -->
+                        <Border
+                            x:Name="AccentBorder"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                            BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
+                            CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
+                            IsHitTestVisible="False" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="PART_TextBox" Property="IsSelectionActive" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition SourceName="PART_Root" Property="IsMouseOver" Value="True" />
+                                <Condition SourceName="PART_TextBox" Property="IsSelectionActive" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
+                        </MultiTrigger>
+                        <Trigger SourceName="PART_Button" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundPointerOver}" />
+                        </Trigger>
+                        <Trigger SourceName="PART_Button" Property="IsPressed" Value="True">
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="PART_TextBox" Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultCalendarDatePickerStyle}" TargetType="{x:Type DatePicker}" />
+
+</ResourceDictionary>
