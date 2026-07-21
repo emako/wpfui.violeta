@@ -119,7 +119,7 @@
                                         HorizontalContentAlignment="Center"
                                         Content="&#xE2BC;"
                                         Focusable="False"
-                                        FontFamily="{DynamicResource FluentSystemIcons}"
+                                        FontFamily="{DynamicResource FluentSystemIconsFilled}"
                                         Style="{StaticResource NavigationButtonStyle}" />
                                     <Button
                                         x:Name="PART_NextButton"
@@ -128,7 +128,7 @@
                                         HorizontalContentAlignment="Center"
                                         Content="&#xF260;"
                                         Focusable="False"
-                                        FontFamily="{DynamicResource FluentSystemIcons}"
+                                        FontFamily="{DynamicResource FluentSystemIconsFilled}"
                                         Style="{StaticResource NavigationButtonStyle}" />
                                 </Grid>
                                 <Border

@@ -5,6 +5,12 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
 
+    <!--
+        CalendarDatePicker is a control that provides a calendar-style interface for selecting dates.
+        It is only available in WinUI 3 and its equivalent in WPF is the DatePicker control.
+        This explains why CalendarDatePicker adopts a DatePicker-based design.
+    -->
+
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Calendar/Calendar.xaml" />
         <ResourceDictionary>
