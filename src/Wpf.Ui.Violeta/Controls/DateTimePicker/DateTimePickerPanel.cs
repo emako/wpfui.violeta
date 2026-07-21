@@ -21,8 +21,6 @@ public class DateTimePickerPanel : Control
     public const string PartScrollViewer = "PART_ScrollViewer";
     public const string PartItemsPanel = "PART_ItemsPanel";
 
-    private const int VisibleItemCount = 5;
-
     private ScrollViewer? _scrollViewer;
     private StackPanel? _itemsPanel;
     private bool _isApplyingTemplate;
@@ -62,6 +60,16 @@ public class DateTimePickerPanel : Control
             typeof(bool),
             typeof(DateTimePickerPanel),
             new PropertyMetadata(true));
+
+    /// <summary>
+    /// Number of items shown at once (must be odd, so the selected item can sit centered). Default 5.
+    /// </summary>
+    public static readonly DependencyProperty VisibleItemCountProperty =
+        DependencyProperty.Register(
+            nameof(VisibleItemCount),
+            typeof(int),
+            typeof(DateTimePickerPanel),
+            new PropertyMetadata(5, OnVisibleItemCountChanged));
 
     // MinYear / MaxYear for the Year panel
     public static readonly DependencyProperty MinYearProperty =
@@ -134,6 +142,12 @@ public class DateTimePickerPanel : Control
     {
         get => (bool)GetValue(ShouldLoopProperty);
         set => SetValue(ShouldLoopProperty, value);
+    }
+
+    public int VisibleItemCount
+    {
+        get => (int)GetValue(VisibleItemCountProperty);
+        set => SetValue(VisibleItemCountProperty, value);
     }
 
     public int MinYear
@@ -412,6 +426,15 @@ public class DateTimePickerPanel : Control
     }
 
     private static void OnItemHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is DateTimePickerPanel panel && !panel._isApplyingTemplate && panel._itemsPanel != null)
+        {
+            panel.BuildItems();
+            panel.ScrollToSelected(animate: false);
+        }
+    }
+
+    private static void OnVisibleItemCountChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is DateTimePickerPanel panel && !panel._isApplyingTemplate && panel._itemsPanel != null)
         {

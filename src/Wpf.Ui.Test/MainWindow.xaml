@@ -5102,6 +5102,28 @@
                         </StackPanel>
                     </ui:StackPanel>
 
+                    <!--  CalendarDateTimePicker  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="CalendarDateTimePicker" />
+                    <ui:StackPanel
+                        Margin="0,8,0,24"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                        <vio:CalendarDateTimePicker Width="240" />
+                        <vio:CalendarDateTimePicker
+                            Width="240"
+                            SelectedDateTime="2026-07-20 13:45:00"
+                            UseSeconds="True" />
+                        <vio:CalendarDateTimePicker
+                            Width="240"
+                            ClockIdentifier="12HourClock"
+                            IsEnabled="False"
+                            SelectedDateTime="2026-07-20 13:45:00" />
+                    </ui:StackPanel>
+
                     <!--
                         ══════════════════════════════════════════════════════════════
                         ValuePicker

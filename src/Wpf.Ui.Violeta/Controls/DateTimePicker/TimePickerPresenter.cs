@@ -55,6 +55,17 @@ public class TimePickerPresenter : Control
             typeof(TimePickerPresenter),
             new PropertyMetadata("24HourClock", OnClockIdentifierChanged));
 
+    /// <summary>
+    /// Number of items shown at once in each drum-roll column. Forwarded to every
+    /// child <see cref="DateTimePickerPanel"/>. Default 5.
+    /// </summary>
+    public static readonly DependencyProperty VisibleItemCountProperty =
+        DependencyProperty.Register(
+            nameof(VisibleItemCount),
+            typeof(int),
+            typeof(TimePickerPresenter),
+            new PropertyMetadata(5, OnVisibleItemCountChanged));
+
     public static readonly DependencyProperty HourTextProperty =
         DependencyProperty.Register(
             nameof(HourText),
@@ -102,6 +113,12 @@ public class TimePickerPresenter : Control
     {
         get => (string)GetValue(ClockIdentifierProperty);
         set => SetValue(ClockIdentifierProperty, value);
+    }
+
+    public int VisibleItemCount
+    {
+        get => (int)GetValue(VisibleItemCountProperty);
+        set => SetValue(VisibleItemCountProperty, value);
     }
 
     public string HourText
@@ -185,6 +202,7 @@ public class TimePickerPresenter : Control
         if (GetTemplateChild(PartDismissButton) is Button dismiss)
             dismiss.Click += (_, _) => RaiseEvent(new RoutedEventArgs(DismissedEvent, this));
 
+        ApplyVisibleItemCount();
         SyncPanelsToTime();
     }
 
@@ -236,6 +254,21 @@ public class TimePickerPresenter : Control
             p._hourSelector.ClockIdentifier = (string)e.NewValue;
             p.SyncPanelsToTime();
         }
+    }
+
+    private static void OnVisibleItemCountChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is TimePickerPresenter p && p._hourSelector != null)
+            p.ApplyVisibleItemCount();
+    }
+
+    private void ApplyVisibleItemCount()
+    {
+        int count = VisibleItemCount;
+        if (_hourSelector != null) _hourSelector.VisibleItemCount = count;
+        if (_minuteSelector != null) _minuteSelector.VisibleItemCount = count;
+        if (_secondSelector != null) _secondSelector.VisibleItemCount = count;
+        if (_periodSelector != null) _periodSelector.VisibleItemCount = count;
     }
 
     // ------------------------------------------------------------------
