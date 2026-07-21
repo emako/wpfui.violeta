@@ -11,6 +11,44 @@
     <Thickness x:Key="CascadingComboBoxItemPadding">10,8,10,8</Thickness>
     <system:Double x:Key="CascadingComboBoxChevronSize">11.0</system:Double>
 
+    <!--  Clear button shown between the selected value and the drop-down chevron  -->
+    <Style x:Key="CascadingComboBoxClearButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{DynamicResource ComboBoxDropDownGlyphForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="ButtonBackground"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="4">
+                        <ui:SymbolIcon
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="10"
+                            Foreground="{TemplateBinding Foreground}"
+                            Symbol="Dismiss16" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="DefaultCascadingComboBoxListViewItemStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Foreground" Value="{DynamicResource ComboBoxForeground}" />
@@ -105,6 +143,7 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition x:Name="ClearButtonColumn" Width="28" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
@@ -128,7 +167,7 @@
                                 </Grid>
 
                                 <!--  Chevron icon  -->
-                                <Grid Grid.Column="1" Margin="0">
+                                <Grid Grid.Column="2" Margin="0">
                                     <ui:SymbolIcon
                                         x:Name="PART_ChevronIcon"
                                         Margin="0"
@@ -155,6 +194,18 @@
                             ClickMode="Press"
                             Focusable="False"
                             IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                        <!--  Clear the committed leaf selection without opening the drop-down  -->
+                        <Button
+                            x:Name="PART_ClearButton"
+                            Margin="0,0,25,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="{TemplateBinding ClearButtonToolTip}"
+                            Focusable="False"
+                            Style="{StaticResource CascadingComboBoxClearButtonStyle}"
+                            ToolTip="{TemplateBinding ClearButtonToolTip}"
+                            Visibility="Visible" />
 
                         <!--  Dropdown Popup  -->
                         <Popup
@@ -274,6 +325,12 @@
                         <Trigger Property="SelectedCascadingItem" Value="{x:Null}">
                             <Setter TargetName="PART_SelectedText" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_SelectedValueText" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
+                        </Trigger>
+                        <Trigger Property="ClearButtonEnabled" Value="False">
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -293,6 +350,8 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource ComboBoxBackgroundDisabled}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ComboBoxBorderBrushDisabled}" />
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
                             <Setter Property="Foreground" Value="{DynamicResource ComboBoxForegroundDisabled}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

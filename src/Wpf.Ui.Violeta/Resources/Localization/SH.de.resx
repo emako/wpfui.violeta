@@ -147,6 +147,9 @@
   <data name="PleaseSelect" xml:space="preserve">
     <value>Bitte auswählen...</value>
   </data>
+  <data name="CascadingComboBoxClearSelection" xml:space="preserve">
+    <value>Auswahl löschen</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Gehe zu</value>
   </data>

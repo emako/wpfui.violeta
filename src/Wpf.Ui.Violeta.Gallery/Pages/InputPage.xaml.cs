@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls;
@@ -27,11 +24,29 @@ public partial class InputPage : Wpf.Ui.Violeta.Controls.Page
         TagComboBoxDemo.ItemsSource = new[] { "前端", "后端", "DevOps", "UI/UX", "移动端", "数据库" };
 
         // CascadingComboBox – 省份/城市
-        CascadingLevel1.ItemsSource = new ObservableCollection<ICascadingItem>
+        CascadingComboBoxDemo.ItemsSource = new ICascadingItem[]
         {
-            new CascadingItem("广东"),
-            new CascadingItem("浙江"),
-            new CascadingItem("江苏"),
+            new CascadingItem("广东",
+            [
+                new CascadingItem("广州"),
+                new CascadingItem("深圳"),
+                new CascadingItem("东莞"),
+                new CascadingItem("佛山"),
+            ]),
+            new CascadingItem("浙江",
+            [
+                new CascadingItem("杭州"),
+                new CascadingItem("宁波"),
+                new CascadingItem("温州"),
+                new CascadingItem("嘉兴"),
+            ]),
+            new CascadingItem("江苏",
+            [
+                new CascadingItem("南京"),
+                new CascadingItem("苏州"),
+                new CascadingItem("无锡"),
+                new CascadingItem("常州"),
+            ]),
         };
 
         // ValuePicker - 产品规格选择器
@@ -72,43 +87,6 @@ public partial class InputPage : Wpf.Ui.Violeta.Controls.Page
         {
             MultiComboBoxResultText.Text = "已选择：" + string.Join("、", MultiComboBoxDemo.MultiSelectedItems);
         }
-    }
-
-    private void CascadingLevel1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var cityMap = new Dictionary<string, string[]>
-        {
-            ["广东"] = ["广州", "深圳", "东莞", "佛山"],
-            ["浙江"] = ["杭州", "宁波", "温州", "嘉兴"],
-            ["江苏"] = ["南京", "苏州", "无锡", "常州"],
-        };
-
-        if (CascadingLevel1.SelectedItem is ICascadingItem item && cityMap.TryGetValue(item.Label, out var cities))
-        {
-            CascadingLevel2.IsEnabled = true;
-            CascadingLevel2.ItemsSource = cities.Select(c => new CascadingItem(c)).ToList();
-            CascadingLevel2.SelectedCascadingItem = null;
-        }
-        else
-        {
-            CascadingLevel2.IsEnabled = false;
-            CascadingLevel2.ItemsSource = null;
-        }
-
-        UpdateCascadingResult();
-    }
-
-    private void UpdateCascadingResult()
-    {
-        var province = CascadingLevel1.SelectedCascadingItem?.Label;
-        var city = CascadingLevel2.SelectedCascadingItem?.Label;
-
-        CascadingResultText.Text = (province, city) switch
-        {
-            (not null, not null) => $"已选择：{province} - {city}",
-            (not null, null) => $"已选择：{province}（请选择城市）",
-            _ => "已选择：(无)",
-        };
     }
 
     private void ButtonSpinner_OnSpin(object sender, SpinEventArgs e)

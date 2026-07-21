@@ -293,6 +293,9 @@ Similar to WPF UI.
   `ItemsSource` root-level data source (`IEnumerable<ICascadingItem>`, setting a non-conforming type throws `ArgumentException`).
   `Levels` (read-only) number of columns currently visible in the dropdown.
   `SelectedCascadingItem` the leaf node selected by the user (`ICascadingItem?`, two-way bindable).
+  `ClearButtonEnabled` whether to show the clear button after a leaf node is selected (default `true`).
+  `ClearButtonToolTip` localized tooltip and automation name for the clear button.
+  `Clear()` clears the selected item and resets the cascading columns.
 
 - **Splash**
 
