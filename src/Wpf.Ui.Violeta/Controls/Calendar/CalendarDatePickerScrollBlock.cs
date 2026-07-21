@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Attached behavior that, while the built-in <see cref="DatePicker"/>'s drop-down popup
+/// Attached behavior that, while the built-in <see cref="System.Windows.Controls.DatePicker"/>'s drop-down popup
 /// (styled as a CalendarDatePicker) is open, blocks mouse-wheel events that don't occur over
 /// the popup content itself — so the host panel behind the control can't be scrolled,
 /// matching the standard <see cref="ComboBox"/> drop-down behavior (which achieves this via
@@ -28,7 +28,7 @@ public static class CalendarDatePickerScrollBlock
         public MouseWheelEventHandler? WheelHandler;
     }
 
-    private static readonly ConditionalWeakTable<System.Windows.Controls.DatePicker, State> States = [];
+    private static readonly ConditionalWeakTable<System.Windows.Controls.DatePicker, State> States = new();
 
     public static readonly DependencyProperty IsEnabledProperty =
         DependencyProperty.RegisterAttached(
