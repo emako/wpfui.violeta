@@ -1,1055 +1,1676 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
 namespace Wpf.Ui.Violeta.Win32;
 
 /// <summary>
-/// Win32 TaskDialog wrapper with optional dark-mode support.
-/// Call <see cref="SetTheme"/> before displaying any TaskDialog to choose dark or light.
-/// Ported from https://github.com/SFTRS/DarkTaskDialog
-/// Pure C# re-implementation using window subclassing instead of Microsoft Detours.
-/// Dark mode is applied via:
-///   * DwmSetWindowAttribute (DWMWA_USE_IMMERSIVE_DARK_MODE) for the title bar
-///   * SetWindowTheme("DarkMode_Explorer") on buttons, scrollbars, DirectUIHWND
-///   * Window subclassing to handle WM_ERASEBKGND / WM_CTLCOLORDLG
-///   * SysLink color override via LM_SETITEM / LIS_DEFAULTCOLORS
+/// Displays a Task Dialog.
 /// </summary>
-public static class TaskDialog
+/// <remarks>
+/// The task dialog contains an application-defined message text and title, icons, and any combination of predefined push buttons.
+/// Task Dialogs are supported only on Windows Vista and above. No fallback is provided; if you wish to use task dialogs
+/// and support operating systems older than Windows Vista, you must provide a fallback yourself. Check the <see cref="OSSupportsTaskDialogs"/>
+/// property to see if task dialogs are supported. It is safe to instantiate the <see cref="TaskDialog"/> class on an older
+/// OS, but calling <see cref="Show"/> or <see cref="ShowDialog()"/> will throw an exception.
+/// </remarks>
+/// <threadsafety static="true" instance="false" />
+[DefaultProperty("MainInstruction"), DefaultEvent("ButtonClicked"), Description("Displays a task dialog.")]
+public partial class TaskDialog : Component
 {
-    // -- Standard icon "MAKEINTRESOURCE" handles ------------------------------
-    public static readonly nint IconWarning = 0xFFFF; // TD_WARNING_ICON
+    #region Events
 
-    public static readonly nint IconError = 0xFFFE; // TD_ERROR_ICON
-    public static readonly nint IconInformation = 0xFFFD; // TD_INFORMATION_ICON
-    public static readonly nint IconShield = 0xFFFC; // TD_SHIELD_ICON
-    public static readonly nint IconShieldBlue = 0xFFFB;
-    public static readonly nint IconShieldGray = 0xFFFA;
-    public static readonly nint IconShieldWarningYellow = 0xFFF9;
-    public static readonly nint IconShieldErrorRed = 0xFFF8;
-    public static readonly nint IconShieldSuccessGreen = 0xFFF7;
+    /// <summary>
+    /// Event raised when the task dialog has been created.
+    /// </summary>
+    /// <remarks>
+    /// This event is raised once after calling <see cref="ShowDialog(nint)"/>, after the dialog
+    /// is created and before it is displayed.
+    /// </remarks>
+    [Category("Behavior"), Description("Event raised when the task dialog has been created.")]
+    public event EventHandler Created;
 
-    // -- Theme ----------------------------------------------------------------
-    public enum Theme { Dark, Light }
+    /// <summary>
+    /// Event raised when the task dialog has been destroyed.
+    /// </summary>
+    /// <remarks>
+    /// The task dialog window no longer exists when this event is raised.
+    /// </remarks>
+    [Category("Behavior"), Description("Event raised when the task dialog has been destroyed.")]
+    public event EventHandler Destroyed;
 
-    private static volatile Theme _theme = Theme.Light;
-    private static readonly object _lock = new();
+    /// <summary>
+    /// Event raised when the user clicks a button on the task dialog.
+    /// </summary>
+    /// <remarks>
+    /// Set the <see cref="CancelEventArgs.Cancel"/> property to <see langword="true" /> to prevent the dialog from being closed.
+    /// </remarks>
+    [Category("Action"), Description("Event raised when the user clicks a button.")]
+    public event EventHandler<TaskDialogItemClickedEventArgs> ButtonClicked;
 
-    // GDI brushes (created once, never destroyed – process-lifetime)
-    private static nint _darkBrush = IntPtr.Zero; // RGB(36,36,36)
+    /// <summary>
+    /// Event raised when the user clicks a radio button on the task dialog.
+    /// </summary>
+    /// <remarks>
+    /// The <see cref="CancelEventArgs.Cancel"/> property is ignored for this event.
+    /// </remarks>
+    [Category("Action"), Description("Event raised when the user clicks a button.")]
+    public event EventHandler<TaskDialogItemClickedEventArgs> RadioButtonClicked;
 
-    private static nint _notSoDarkBrush = IntPtr.Zero; // RGB(54,54,54)
+    /// <summary>
+    /// Event raised when the user clicks a hyperlink.
+    /// </summary>
+    [Category("Action"), Description("Event raised when the user clicks a hyperlink.")]
+    public event EventHandler<HyperlinkClickedEventArgs> HyperlinkClicked;
 
-    // Static delegate fields – MUST be kept alive (prevent GC collection)
-    private static TaskDialogCallbackProc? _callbackProc;
+    /// <summary>
+    /// Event raised when the user clicks the verification check box.
+    /// </summary>
+    [Category("Action"), Description("Event raised when the user clicks the verification check box.")]
+    public event EventHandler VerificationClicked;
 
-    private static SubclassProcDelegate? _subclassProc;
-    private static EnumChildProcDelegate? _enumChildProc;
+    /// <summary>
+    /// Event raised periodically while the dialog is displayed.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    ///   This event is raised only when the <see cref="RaiseTimerEvent"/> property is set to <see langword="true" />. The event is
+    ///   raised approximately every 200 milliseconds.
+    /// </para>
+    /// <para>
+    ///   To reset the tick count, set the <see cref="TimerEventArgs.ResetTickCount" />
+    ///   property to <see langword="true" />.
+    /// </para>
+    /// </remarks>
+    [Category("Behavior"), Description("Event raised periodically while the dialog is displayed.")]
+    public event EventHandler<TimerEventArgs> Timer;
 
-    // Currently visible dialogs
-    private static readonly HashSet<nint> _activeDialogs = [];
+    /// <summary>
+    /// Event raised when the user clicks the expand button on the task dialog.
+    /// </summary>
+    /// <remarks>
+    /// The <see cref="ExpandButtonClickedEventArgs.Expanded"/> property indicates if the expanded information is visible
+    /// or not after the click.
+    /// </remarks>
+    [Category("Action"), Description("Event raised when the user clicks the expand button on the task dialog.")]
+    public event EventHandler<ExpandButtonClickedEventArgs> ExpandButtonClicked;
 
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
+    /// <summary>
+    /// Event raised when the user presses F1 while the dialog has focus.
+    /// </summary>
+    [Category("Action"), Description("Event raised when the user presses F1 while the dialog has focus.")]
+    public event EventHandler HelpRequested;
 
-    /// <summary>Set the dark/light theme for all future (and existing) TaskDialogs.</summary>
-    public static void SetTheme(Theme theme)
+    #endregion Events
+
+    #region Fields
+
+    private TaskDialogItemCollection<TaskDialogButton> _buttons;
+    private TaskDialogItemCollection<TaskDialogRadioButton> _radioButtons;
+    private TaskDialogNativeMethods.TASKDIALOGCONFIG _config = new();
+    private TaskDialogIcon _mainIcon;
+    private nint _customMainIcon;
+    private nint _customFooterIcon;
+    private TaskDialogIcon _footerIcon;
+    private Dictionary<int, TaskDialogButton> _buttonsById;
+    private Dictionary<int, TaskDialogRadioButton> _radioButtonsById;
+    private nint _handle;
+    private int _progressBarMarqueeAnimationSpeed = 100;
+    private int _progressBarMinimimum;
+    private int _progressBarMaximum = 100;
+    private int _progressBarValue;
+    private ProgressBarState _progressBarState = ProgressBarState.Normal;
+    private int _inEventHandler;
+    private bool _updatePending;
+    private object _tag;
+    private nint _windowIcon;
+
+    #endregion Fields
+
+    #region Constructors
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TaskDialog"/> class.
+    /// </summary>
+    public TaskDialog()
     {
-        Theme old;
-        lock (_lock) { old = _theme; _theme = theme; }
-        if (old == theme) return;
+        InitializeComponent();
 
-        lock (_lock)
+        _config.cbSize = (uint)Marshal.SizeOf(_config);
+        _config.pfCallback = new TaskDialogNativeMethods.TaskDialogCallback(TaskDialogCallback);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TaskDialog"/> class with the specified container.
+    /// </summary>
+    /// <param name="container">The <see cref="IContainer"/> to add the <see cref="TaskDialog"/> to.</param>
+    public TaskDialog(IContainer container)
+    {
+        container?.Add(this);
+
+        InitializeComponent();
+
+        _config.cbSize = (uint)Marshal.SizeOf(_config);
+        _config.pfCallback = new TaskDialogNativeMethods.TaskDialogCallback(TaskDialogCallback);
+    }
+
+    #endregion Constructors
+
+    #region Public Properties
+
+    /// <summary>
+    /// Gets a value that indicates whether the current operating system supports task dialogs.
+    /// </summary>
+    /// <value>
+    /// Returns <see langword="true" /> for Windows Vista or later; otherwise <see langword="false" />.
+    /// </value>
+    public static bool OSSupportsTaskDialogs => TaskDialogNativeMethods.IsWindowsVistaOrLater;
+
+    /// <summary>
+    /// Gets a value that indicates whether the current operating system supports task dialog dark mode.
+    /// </summary>
+    /// <value>
+    /// Returns <see langword="true" /> on Windows 10 version 1809 (build 17763) or later; otherwise
+    /// <see langword="false" /> and dialogs are rendered using the light theme.
+    /// </value>
+    public static bool SupportsDarkMode => TaskDialogNativeMethods.SupportsTaskDialogDarkMode;
+
+    /// <summary>
+    /// Sets the visual theme used by task dialogs created by this library.
+    /// </summary>
+    /// <param name="theme">
+    /// The theme to apply. Use <see cref="TaskDialogTheme.System"/> to follow the Windows app theme preference,
+    /// <see cref="TaskDialogTheme.Dark"/> to force dark mode, or <see cref="TaskDialogTheme.Light"/> to force light mode.
+    /// </param>
+    /// <remarks>
+    /// Call this method before showing a task dialog, and again whenever the theme should change.
+    /// The setting applies to task dialogs created by this library in the current process.
+    /// When <see cref="TaskDialogTheme.System"/> is used, open dialogs also react to system theme changes.
+    /// On operating systems older than Windows 10 version 1809 (build 17763), dark mode is not supported and
+    /// dialogs always use the light theme regardless of this setting.
+    /// </remarks>
+    public static void SetTheme(TaskDialogTheme theme)
+    {
+        TaskDialogThemeHost.SetTheme(theme);
+    }
+
+    /// <summary>
+    /// Gets a list of the buttons on the Task Dialog.
+    /// </summary>
+    /// <value>
+    /// A list of the buttons on the Task Dialog.
+    /// </value>
+    /// <remarks>
+    /// Custom buttons are displayed in the order they have in the collection. Standard buttons will always be displayed
+    /// in the Windows-defined order, regardless of the order of the buttons in the collection.
+    /// </remarks>
+    [Localizable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), Category("Appearance"), Description("A list of the buttons on the Task Dialog.")]
+    public TaskDialogItemCollection<TaskDialogButton> Buttons => _buttons ??= new TaskDialogItemCollection<TaskDialogButton>(this);
+
+    /// <summary>
+    /// Gets a list of the radio buttons on the Task Dialog.
+    /// </summary>
+    /// <value>
+    /// A list of the radio buttons on the Task Dialog.
+    /// </value>
+    [Localizable(true), DesignerSerializationVisibility(DesignerSerializationVisibility.Content), Category("Appearance"), Description("A list of the radio buttons on the Task Dialog.")]
+    public TaskDialogItemCollection<TaskDialogRadioButton> RadioButtons
+    {
+        get => _radioButtons ??= new TaskDialogItemCollection<TaskDialogRadioButton>(this);
+        private set => _radioButtons = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the window title of the task dialog.
+    /// </summary>
+    /// <value>
+    /// The window title of the task dialog. The default is an empty string ("").
+    /// </value>
+    [Localizable(true), Category("Appearance"), Description("The window title of the task dialog."), DefaultValue("")]
+    public string WindowTitle
+    {
+        get => _config.pszWindowTitle ?? string.Empty;
+        set
         {
-            foreach (nint hwnd in _activeDialogs)
-                ApplyThemeToWindow(hwnd, isThemeSwitch: true);
+            _config.pszWindowTitle = string.IsNullOrEmpty(value) ? null : value;
+            UpdateDialog();
         }
     }
 
-    /// <summary>Show a TaskDialog using the provided <paramref name="config"/>.</summary>
-    /// <returns>The button ID that closed the dialog (IDOK = 1, IDCANCEL = 2, etc.),
-    /// or the custom button ID.</returns>
-    public static int ShowIndirect(TaskDialogConfig config) =>
-        ShowIndirect(config, out _, out _);
-
-    /// <inheritdoc cref="ShowIndirect(TaskDialogConfig)"/>
-    public static int ShowIndirect(
-        TaskDialogConfig config,
-        out int radioButtonId,
-        out bool verificationChecked)
+    /// <summary>
+    /// Gets or sets the dialog's main instruction.
+    /// </summary>
+    /// <value>
+    /// The dialog's main instruction. The default is an empty string ("").
+    /// </value>
+    /// <remarks>
+    /// The main instruction of a task dialog will be displayed in a larger font and a different color than
+    /// the other text of the task dialog.
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The dialog's main instruction."), DefaultValue("")]
+    public string MainInstruction
     {
-        EnsureStaticDelegates();
-        EnsureBrushes();
-
-        var wrapper = new CallbackWrapper
+        get => _config.pszMainInstruction ?? string.Empty;
+        set
         {
-            UserCallback = config.Callback,
-            UserData = config.CallbackData,
-        };
+            _config.pszMainInstruction = string.IsNullOrEmpty(value) ? null : value;
+            SetElementText(TaskDialogNativeMethods.TaskDialogElements.MainInstruction, MainInstruction);
+        }
+    }
 
-        var allocations = new List<nint>();
-        GCHandle wrapperHandle = default;
+    /// <summary>
+    /// Gets or sets the dialog's primary content.
+    /// </summary>
+    /// <value>
+    /// The dialog's primary content. The default is an empty string ("").
+    /// </value>
+    [Localizable(true), Category("Appearance"), Description("The dialog's primary content."), DefaultValue("")]
+    public string Content
+    {
+        get => _config.pszContent ?? string.Empty;
+        set
+        {
+            _config.pszContent = string.IsNullOrEmpty(value) ? null : value;
+            SetElementText(TaskDialogNativeMethods.TaskDialogElements.Content, Content);
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the icon to be used in the title bar of the dialog.
+    /// </summary>
+    /// <value>
+    /// An icon handle (<see cref="nint"/>) that represents the icon of the task dialog's window.
+    /// </value>
+    /// <remarks>
+    /// This property is used only when the dialog is shown as a modeless dialog; if the dialog
+    /// is modal, it will have no icon.
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The icon to be used in the title bar of the dialog. Used only when the dialog is shown as a modeless dialog."), DefaultValue(typeof(nint), "0")]
+    public nint WindowIcon
+    {
+        get
+        {
+            if (IsDialogRunning)
+            {
+                return TaskDialogNativeMethods.SendMessage(Handle, TaskDialogNativeMethods.WM_GETICON, (IntPtr)(int)TaskDialogNativeMethods.ICON_SMALL, IntPtr.Zero);
+            }
+            return _windowIcon;
+        }
+        set => _windowIcon = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the icon to display in the task dialog.
+    /// </summary>
+    /// <value>
+    /// A <see cref="TaskDialogIcon"/> that indicates the icon to display in the main content area of the task dialog.
+    /// The default is <see cref="TaskDialogIcon.Custom"/>.
+    /// </value>
+    /// <remarks>
+    /// When this property is set to <see cref="TaskDialogIcon.Custom"/>, use the <see cref="CustomMainIcon"/> property to
+    /// specify the icon to use.
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The icon to display in the task dialog."), DefaultValue(TaskDialogIcon.Custom)]
+    public TaskDialogIcon MainIcon
+    {
+        get => _mainIcon;
+        set
+        {
+            if (_mainIcon != value)
+            {
+                _mainIcon = value;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a custom icon to display in the dialog.
+    /// </summary>
+    /// <value>
+    /// An icon handle (<see cref="nint"/>) that represents the icon to display in the main content area of the task dialog,
+    /// or zero if no custom icon is used. The default value is zero.
+    /// </value>
+    /// <remarks>
+    /// This property is ignored if the <see cref="MainIcon"/> property has a value other than <see cref="TaskDialogIcon.Custom"/>.
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("A custom icon to display in the dialog."), DefaultValue(typeof(nint), "0")]
+    public nint CustomMainIcon
+    {
+        get => _customMainIcon;
+        set
+        {
+            if (_customMainIcon != value)
+            {
+                _customMainIcon = value;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the icon to display in the footer area of the task dialog.
+    /// </summary>
+    /// <value>
+    /// A <see cref="TaskDialogIcon"/> that indicates the icon to display in the footer area of the task dialog.
+    /// The default is <see cref="TaskDialogIcon.Custom"/>.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   When this property is set to <see cref="TaskDialogIcon.Custom"/>, use the <see cref="CustomFooterIcon"/> property to
+    ///   specify the icon to use.
+    /// </para>
+    /// <para>
+    ///   The footer icon is displayed only if the <see cref="Footer"/> property is not an empty string ("").
+    /// </para>
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The icon to display in the footer area of the task dialog."), DefaultValue(TaskDialogIcon.Custom)]
+    public TaskDialogIcon FooterIcon
+    {
+        get => _footerIcon;
+        set
+        {
+            if (_footerIcon != value)
+            {
+                _footerIcon = value;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a custom icon to display in the footer area of the task dialog.
+    /// </summary>
+    /// <value>
+    /// An icon handle (<see cref="nint"/>) that represents the icon to display in the footer area of the task dialog,
+    /// or zero if no custom icon is used. The default value is zero.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   This property is ignored if the <see cref="FooterIcon"/> property has a value other than <see cref="TaskDialogIcon.Custom"/>.
+    /// </para>
+    /// <para>
+    ///   The footer icon is displayed only if the <see cref="Footer"/> property is not an empty string ("").
+    /// </para>
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("A custom icon to display in the footer area of the task dialog."), DefaultValue(typeof(nint), "0")]
+    public nint CustomFooterIcon
+    {
+        get => _customFooterIcon;
+        set
+        {
+            if (_customFooterIcon != value)
+            {
+                _customFooterIcon = value;
+                // TODO: This and customMainIcon don't need to use UpdateDialog, they can use TDM_UPDATE_ICON
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether custom buttons should be displayed as normal buttons or command links.
+    /// </summary>
+    /// <value>
+    /// A <see cref="TaskDialogButtonStyle"/> that indicates the display style of custom buttons on the dialog.
+    /// The default value is <see cref="TaskDialogButtonStyle.Standard"/>.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   This property affects only custom buttons, not standard ones.
+    /// </para>
+    /// <para>
+    ///   If a custom button is being displayed on a task dialog
+    ///   with <see cref="TaskDialog.ButtonStyle"/> set to <see cref="Wpf.Ui.Violeta.Win32.TaskDialogButtonStyle.CommandLinks"/>
+    ///   or <see cref="Wpf.Ui.Violeta.Win32.TaskDialogButtonStyle.CommandLinksNoIcon"/>, you delineate the command from the
+    ///   note by placing a line break in the string specified by <see cref="TaskDialogItem.Text"/> property.
+    /// </para>
+    /// </remarks>
+    [Category("Behavior"), Description("Indicates whether custom buttons should be displayed as normal buttons or command links."), DefaultValue(TaskDialogButtonStyle.Standard)]
+    public TaskDialogButtonStyle ButtonStyle
+    {
+        get
+        {
+            return GetFlag(TaskDialogNativeMethods.TaskDialogFlags.UseCommandLinksNoIcon) ? TaskDialogButtonStyle.CommandLinksNoIcon :
+                GetFlag(TaskDialogNativeMethods.TaskDialogFlags.UseCommandLinks) ? TaskDialogButtonStyle.CommandLinks :
+                TaskDialogButtonStyle.Standard;
+        }
+        set
+        {
+            SetFlag(TaskDialogNativeMethods.TaskDialogFlags.UseCommandLinks, value == TaskDialogButtonStyle.CommandLinks);
+            SetFlag(TaskDialogNativeMethods.TaskDialogFlags.UseCommandLinksNoIcon, value == TaskDialogButtonStyle.CommandLinksNoIcon);
+            UpdateDialog();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the label for the verification checkbox.
+    /// </summary>
+    /// <value>
+    /// The label for the verification checkbox, or an empty string ("") if no verification checkbox
+    /// is shown. The default value is an empty string ("").
+    /// </value>
+    /// <remarks>
+    /// If no text is set, the verification checkbox will not be shown.
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The label for the verification checkbox."), DefaultValue("")]
+    public string VerificationText
+    {
+        get => _config.pszVerificationText ?? string.Empty;
+        set
+        {
+            string? realValue = string.IsNullOrEmpty(value) ? null : value;
+            if (_config.pszVerificationText != realValue)
+            {
+                _config.pszVerificationText = realValue;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether the verification checkbox is checked ot not.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the verficiation checkbox is checked; otherwise, <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   Set this property before displaying the dialog to determine the initial state of the check box.
+    ///   Use this property after displaying the dialog to determine whether the check box was checked when
+    ///   the user closed the dialog.
+    /// </para>
+    /// <note>
+    ///   This property is only used if <see cref="VerificationText"/> is not an empty string ("").
+    /// </note>
+    /// </remarks>
+    [Category("Behavior"), Description("Indicates whether the verification checkbox is checked ot not."), DefaultValue(false)]
+    public bool IsVerificationChecked
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.VerificationFlagChecked);
+        set
+        {
+            if (value != IsVerificationChecked)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.VerificationFlagChecked, value);
+                if (IsDialogRunning)
+                    ClickVerification(value, false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets additional information to be displayed on the dialog.
+    /// </summary>
+    /// <value>
+    /// Additional information to be displayed on the dialog. The default value is an empty string ("").
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   When this property is not an empty string (""), a control is shown on the task dialog that
+    ///   allows the user to expand and collapse the text specified in this property.
+    /// </para>
+    /// <para>
+    ///   The text is collapsed by default unless <see cref="ExpandedByDefault"/> is set to <see langword="true" />.
+    /// </para>
+    /// <para>
+    ///   The expanded text is shown in the main content area of the dialog, unless <see cref="ExpandFooterArea"/>
+    ///   is set to <see langword="true" />, in which case it is shown in the footer area.
+    /// </para>
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("Additional information to be displayed on the dialog."), DefaultValue("")]
+    public string ExpandedInformation
+    {
+        get => _config.pszExpandedInformation ?? string.Empty;
+        set
+        {
+            _config.pszExpandedInformation = string.IsNullOrEmpty(value) ? null : value;
+            SetElementText(TaskDialogNativeMethods.TaskDialogElements.ExpandedInformation, ExpandedInformation);
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the text to use for the control for collapsing the expandable information specified in <see cref="ExpandedInformation"/>.
+    /// </summary>
+    /// <value>
+    /// The text to use for the control for collapsing the expandable information, or an empty string ("") if the
+    /// operating system's default text is to be used. The default is an empty string ("")
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   If this text is not specified and <see cref="CollapsedControlText"/> is specified, the value of <see cref="CollapsedControlText"/>
+    ///   will be used for this property as well. If neither is specified, the operating system's default text is used.
+    /// </para>
+    /// <note>
+    ///   The control for collapsing or expanding the expandable information is displayed only if <see cref="ExpandedInformation"/> is not
+    ///   an empty string ("")
+    /// </note>
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The text to use for the control for collapsing the expandable information."), DefaultValue("")]
+    public string ExpandedControlText
+    {
+        get => _config.pszExpandedControlText ?? string.Empty;
+        set
+        {
+            string? realValue = string.IsNullOrEmpty(value) ? null : value;
+            if (_config.pszExpandedControlText != realValue)
+            {
+                _config.pszExpandedControlText = realValue;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the text to use for the control for expading the expandable information specified in <see cref="ExpandedInformation"/>.
+    /// </summary>
+    /// <value>
+    /// The text to use for the control for expanding the expandable information, or an empty string ("") if the
+    /// operating system's default text is to be used. The default is an empty string ("")
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   If this text is not specified and <see cref="ExpandedControlText"/> is specified, the value of <see cref="ExpandedControlText"/>
+    ///   will be used for this property as well. If neither is specified, the operating system's default text is used.
+    /// </para>
+    /// <note>
+    ///   The control for collapsing or expanding the expandable information is displayed only if <see cref="ExpandedInformation"/> is not
+    ///   an empty string ("")
+    /// </note>
+    /// </remarks>
+    [Localizable(true), Category("Appearance"), Description("The text to use for the control for expanding the expandable information."), DefaultValue("")]
+    public string CollapsedControlText
+    {
+        get => _config.pszCollapsedControlText ?? string.Empty;
+        set
+        {
+            string? realValue = string.IsNullOrEmpty(value) ? null : value;
+            if (_config.pszCollapsedControlText != realValue)
+            {
+                _config.pszCollapsedControlText = realValue;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the text to be used in the footer area of the task dialog.
+    /// </summary>
+    /// <value>
+    /// The text to be used in the footer area of the task dialog, or an empty string ("")
+    /// if the footer area is not displayed. The default value is an empty string ("").
+    /// </value>
+    [Localizable(true), Category("Appearance"), Description("The text to be used in the footer area of the task dialog."), DefaultValue("")]
+    public string Footer
+    {
+        get => _config.pszFooter ?? string.Empty;
+        set
+        {
+            _config.pszFooter = string.IsNullOrEmpty(value) ? null : value;
+            SetElementText(TaskDialogNativeMethods.TaskDialogElements.Footer, Footer);
+        }
+    }
+
+    /// <summary>
+    /// Specifies the width of the task dialog's client area in DLU's.
+    /// </summary>
+    /// <value>
+    /// The width of the task dialog's client area in DLU's, or 0 to have the task dialog calculate the ideal width.
+    /// The default value is 0.
+    /// </value>
+    [Localizable(true), Category("Appearance"), Description("the width of the task dialog's client area in DLU's. If 0, task dialog will calculate the ideal width."), DefaultValue(0)]
+    public int Width
+    {
+        get => (int)_config.cxWidth;
+        set
+        {
+            if (_config.cxWidth != (uint)value)
+            {
+                _config.cxWidth = (uint)value;
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether hyperlinks are allowed for the <see cref="Content"/>, <see cref="ExpandedInformation"/>
+    /// and <see cref="Footer"/> properties.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> when hyperlinks are allowed for the <see cref="Content"/>, <see cref="ExpandedInformation"/>
+    /// and <see cref="Footer"/> properties; otherwise, <see langword="false" />. The default value is <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   When  this property is <see langword="true" />, the <see cref="Content"/>, <see cref="ExpandedInformation"/>
+    ///   and <see cref="Footer"/> properties can use hyperlinks in the following form: <c>&lt;A HREF="executablestring"&gt;Hyperlink Text&lt;/A&gt;</c>
+    /// </para>
+    /// <note>
+    ///   Enabling hyperlinks when using content from an unsafe source may cause security vulnerabilities.
+    /// </note>
+    /// <para>
+    ///   Task dialogs will not actually execute hyperlinks. To take action when the user presses a hyperlink, handle the
+    ///   <see cref="HyperlinkClicked"/> event.
+    /// </para>
+    /// </remarks>
+    [Category("Behavior"), Description("Indicates whether hyperlinks are allowed for the Content, ExpandedInformation and Footer properties."), DefaultValue(false)]
+    public bool EnableHyperlinks
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.EnableHyperLinks);
+        set
+        {
+            if (EnableHyperlinks != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.EnableHyperLinks, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates that the dialog should be able to be closed using Alt-F4, Escape and the title
+    /// bar's close button even if no cancel button is specified.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the dialog can be closed using Alt-F4, Escape and the title
+    /// bar's close button even if no cancel button is specified; otherwise, <see langword="false" />.
+    /// The default value is <see langword="false" />.
+    /// </value>
+    [Category("Behavior"), Description("Indicates that the dialog should be able to be closed using Alt-F4, Escape and the title bar's close button even if no cancel button is specified."), DefaultValue(false)]
+    public bool AllowDialogCancellation
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.AllowDialogCancellation);
+        set
+        {
+            if (AllowDialogCancellation != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.AllowDialogCancellation, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates that the string specified by the <see cref="ExpandedInformation" /> property
+    /// should be displayed at the bottom of the dialog's footer area instead of immediately after the dialog's content.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the string specified by the <see cref="ExpandedInformation" /> property
+    /// should be displayed at the bottom of the dialog's footer area instead of immediately after the dialog's content;
+    /// otherwise, <see langword="false" />. The default value is <see langword="false" />.
+    /// </value>
+    [Category("Behavior"), Description("Indicates that the string specified by the ExpandedInformation property should be displayed at the bottom of the dialog's footer area instead of immediately after the dialog's content."), DefaultValue(false)]
+    public bool ExpandFooterArea
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.ExpandFooterArea);
+        set
+        {
+            if (ExpandFooterArea != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.ExpandFooterArea, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates that the string specified by the <see cref="ExpandedInformation"/> property
+    /// should be displayed by default.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the string specified by the <see cref="ExpandedInformation"/> property
+    /// should be displayed by default; <see langword="false" /> if it is hidden by default. The default value is
+    /// <see langword="false" />.
+    /// </value>
+    [Category("Behavior"), Description("Indicates that the string specified by the ExpandedInformation property should be displayed by default."), DefaultValue(false)]
+    public bool ExpandedByDefault
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.ExpandedByDefault);
+        set
+        {
+            if (ExpandedByDefault != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.ExpandedByDefault, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether the <see cref="Timer"/> event is raised periodically while the dialog
+    /// is visible.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> when the <see cref="Timer"/> event is raised periodically while the dialog is visible; otherwise,
+    /// <see langword="false" />. The default value is <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// The <see cref="Timer"/> event will be raised approximately every 200 milliseconds if this property is <see langword="true" />.
+    /// </remarks>
+    [Category("Behavior"), Description("Indicates whether the Timer event is raised periodically while the dialog is visible."), DefaultValue(false)]
+    public bool RaiseTimerEvent
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.CallbackTimer);
+        set
+        {
+            if (RaiseTimerEvent != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.CallbackTimer, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the preferred parent window for the dialog.
+    /// </summary>
+    [Category("Layout"), Description("The preferred parent window handle."), DefaultValue(0)]
+    public nint PreferParent { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether the dialog is centered in the parent window instead of the screen.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> when the dialog is centered relative to the parent window; <see langword="false" /> when it is centered on the screen.
+    /// The default value is <see langword="false" />.
+    /// </value>
+    [Category("Layout"), Description("Indicates whether the dialog is centered in the parent window instead of the screen."), DefaultValue(false)]
+    public bool CenterParent
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.PositionRelativeToWindow);
+        set
+        {
+            if (CenterParent != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.PositionRelativeToWindow, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether text is displayed right to left.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> when the content of the dialog is displayed right to left; otherwise, <see langword="false" />.
+    /// The default value is <see langword="false" />.
+    /// </value>
+    [Localizable(true), Category("Appearance"), Description("Indicates whether text is displayed right to left."), DefaultValue(false)]
+    public bool RightToLeft
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.RtlLayout);
+        set
+        {
+            if (RightToLeft != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.RtlLayout, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value that indicates whether the dialog has a minimize box on its caption bar.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the dialog has a minimize box on its caption bar when modeless; otherwise,
+    /// <see langword="false" />. The default is <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// A task dialog can only have a minimize box if it is displayed as a modeless dialog. The minimize box
+    /// will never appear when using the designer "Preview" option, since that displays the dialog modally.
+    /// </remarks>
+    [Category("Window Style"), Description("Indicates whether the dialog has a minimize box on its caption bar."), DefaultValue(false)]
+    public bool MinimizeBox
+    {
+        get => GetFlag(TaskDialogNativeMethods.TaskDialogFlags.CanBeMinimized);
+        set
+        {
+            if (MinimizeBox != value)
+            {
+                SetFlag(TaskDialogNativeMethods.TaskDialogFlags.CanBeMinimized, value);
+                UpdateDialog();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the type of progress bar displayed on the dialog.
+    /// </summary>
+    /// <value>
+    /// A <see cref="ProgressBarStyle"/> that indicates the type of progress bar shown on the task dialog.
+    /// </value>
+    /// <remarks>
+    /// <para>
+    ///   If this property is set to <see cref="ProgressBarStyle.MarqueeProgressBar"/>, the marquee will
+    ///   scroll as long as the dialog is visible.
+    /// </para>
+    /// <para>
+    ///   If this property is set to <see cref="ProgressBarStyle.ProgressBar"/>, the value of the
+    ///   <see cref="ProgressBarValue" /> property must be updated to advance the progress bar. This can be done e.g. by
+    ///   an asynchronous operation or from the <see cref="Timer"/> event.
+    /// </para>
+    /// <note>
+    ///   Updating the value of the progress bar using the <see cref="ProgressBarValue"/> while the dialog is visible property may only be done from
+    ///   the thread on which the task dialog was created.
+    /// </note>
+    /// </remarks>
+    [Category("Behavior"), Description("The type of progress bar displayed on the dialog."), DefaultValue(ProgressBarStyle.None)]
+    public ProgressBarStyle ProgressBarStyle
+    {
+        get
+        {
+            if (GetFlag(TaskDialogNativeMethods.TaskDialogFlags.ShowMarqueeProgressBar))
+                return ProgressBarStyle.MarqueeProgressBar;
+            else if (GetFlag(TaskDialogNativeMethods.TaskDialogFlags.ShowProgressBar))
+                return ProgressBarStyle.ProgressBar;
+            else
+                return ProgressBarStyle.None;
+        }
+        set
+        {
+            SetFlag(TaskDialogNativeMethods.TaskDialogFlags.ShowMarqueeProgressBar, value == ProgressBarStyle.MarqueeProgressBar);
+            SetFlag(TaskDialogNativeMethods.TaskDialogFlags.ShowProgressBar, value == ProgressBarStyle.ProgressBar);
+            UpdateProgressBarStyle();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the marquee animation speed of the progress bar in milliseconds.
+    /// </summary>
+    /// <value>
+    /// The marquee animation speed of the progress bar in milliseconds. The default value is 100.
+    /// </value>
+    /// <remarks>
+    /// This property is only used if the <see cref="ProgressBarStyle"/> property is
+    /// <see cref="ProgressBarStyle.MarqueeProgressBar"/>.
+    /// </remarks>
+    [Category("Behavior"), Description("The marquee animation speed of the progress bar in milliseconds."), DefaultValue(100)]
+    public int ProgressBarMarqueeAnimationSpeed
+    {
+        get => _progressBarMarqueeAnimationSpeed;
+        set
+        {
+            _progressBarMarqueeAnimationSpeed = value;
+            UpdateProgressBarMarqueeSpeed();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the lower bound of the range of the task dialog's progress bar.
+    /// </summary>
+    /// <value>
+    /// The lower bound of the range of the task dialog's progress bar. The default value is 0.
+    /// </value>
+    /// <remarks>
+    /// This property is only used if the <see cref="ProgressBarStyle"/> property is
+    /// <see cref="ProgressBarStyle.ProgressBar"/>.
+    /// </remarks>
+    /// <exception cref="ArgumentOutOfRangeException">The new property value is not smaller than <see cref="ProgressBarMaximum"/>.</exception>
+    [Category("Behavior"), Description("The lower bound of the range of the task dialog's progress bar."), DefaultValue(0)]
+    public int ProgressBarMinimum
+    {
+        get => _progressBarMinimimum;
+        set
+        {
+#pragma warning disable IDE0011 // Suppress IDE0011: Temporarily disable "add braces" style warning
+#pragma warning disable CA1512 // Suppress CA1512: Disable rule to allow manual ArgumentOutOfRange check
+            if (_progressBarMaximum <= value)
+                throw new ArgumentOutOfRangeException(nameof(value));
+#pragma warning restore IDE0011 // Restore IDE0011 mandatory braces style check
+#pragma warning restore CA1512 // Restore CA1512 out-of-range argument helper rule
+            _progressBarMinimimum = value;
+            UpdateProgressBarRange();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the upper bound of the range of the task dialog's progress bar.
+    /// </summary>
+    /// <value>
+    /// The upper bound of the range of the task dialog's progress bar. The default value is 100.
+    /// </value>
+    /// <remarks>
+    /// This property is only used if the <see cref="ProgressBarStyle"/> property is
+    /// <see cref="ProgressBarStyle.ProgressBar"/>.
+    /// </remarks>
+    /// <exception cref="ArgumentOutOfRangeException">The new property value is not larger than <see cref="ProgressBarMinimum"/>.</exception>
+    [Category("Behavior"), Description("The upper bound of the range of the task dialog's progress bar."), DefaultValue(100)]
+    public int ProgressBarMaximum
+    {
+        get => _progressBarMaximum;
+        set
+        {
+#pragma warning disable IDE0011 // Suppress IDE0011: Temporarily disable "add braces" style warning
+#pragma warning disable CA1512 // Suppress CA1512: Disable rule to allow manual ArgumentOutOfRange check
+            if (value <= _progressBarMinimimum)
+                throw new ArgumentOutOfRangeException(nameof(value));
+#pragma warning restore IDE0011 // Restore IDE0011 mandatory braces style check
+#pragma warning restore CA1512 // Restore CA1512 out-of-range argument helper rule
+            _progressBarMaximum = value;
+            UpdateProgressBarRange();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the current value of the task dialog's progress bar.
+    /// </summary>
+    /// <value>
+    /// The current value of the task dialog's progress bar. The default value is 0.
+    /// </value>
+    /// <remarks>
+    /// This property is only used if the <see cref="ProgressBarStyle"/> property is
+    /// <see cref="ProgressBarStyle.ProgressBar"/>.
+    /// <note>
+    ///   Updating the value of the progress bar while the dialog is visible  may only be done from
+    ///   the thread on which the task dialog was created.
+    /// </note>
+    /// </remarks>
+    /// <exception cref="ArgumentOutOfRangeException">The new property value is smaller than <see cref="ProgressBarMinimum"/> or larger than <see cref="ProgressBarMaximum"/>.</exception>
+    [Category("Behavior"), Description("The current value of the task dialog's progress bar."), DefaultValue(0)]
+    public int ProgressBarValue
+    {
+        get => _progressBarValue;
+        set
+        {
+            if (value < ProgressBarMinimum || value > ProgressBarMaximum)
+                throw new ArgumentOutOfRangeException(nameof(value));
+
+            _progressBarValue = value;
+            UpdateProgressBarValue();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets the state of the task dialog's progress bar.
+    /// </summary>
+    /// <value>
+    /// A <see cref="ProgressBarState"/> indicating the state of the task dialog's progress bar.
+    /// The default value is <see cref="ProgressBarState.Normal"/>.
+    /// </value>
+    /// <remarks>
+    /// This property is only used if the <see cref="ProgressBarStyle"/> property is
+    /// <see cref="ProgressBarStyle.ProgressBar"/>.
+    /// </remarks>
+    [Category("Behavior"), Description("The state of the task dialog's progress bar."), DefaultValue(ProgressBarState.Normal)]
+    public ProgressBarState ProgressBarState
+    {
+        get => _progressBarState;
+        set
+        {
+            _progressBarState = value;
+            UpdateProgressBarState();
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets an object that contains data about the dialog.
+    /// </summary>
+    /// <value>
+    /// An object that contains data about the dialog. The default value is <see langword="null" />.
+    /// </value>
+    /// <remarks>
+    /// Use this property to store arbitrary information about the dialog.
+    /// </remarks>
+    [Category("Data"), Description("User-defined data about the component."), DefaultValue(null)]
+    public object Tag
+    {
+        get => _tag;
+        set => _tag = value;
+    }
+
+    #endregion Public Properties
+
+    #region Public methods
+
+    /// <summary>
+    /// Shows the task dialog as a modeless dialog.
+    /// </summary>
+    /// <returns>The button that the user clicked. Can be <see langword="null" /> if the user cancelled the dialog using the
+    /// title bar close button.</returns>
+    /// <remarks>
+    /// <note>
+    ///   Although the dialog is modeless, this method does not return until the task dialog is closed.
+    /// </note>
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">
+    /// <para>
+    ///   One of the properties or a combination of properties is not valid.
+    /// </para>
+    /// <para>
+    ///   -or-
+    /// </para>
+    /// <para>
+    ///   The dialog is already running.
+    /// </para>
+    /// </exception>
+    /// <exception cref="NotSupportedException">Task dialogs are not supported on the current operating system.</exception>
+    public TaskDialogButton Show()
+    {
+        return ShowDialog(0);
+    }
+
+    /// <summary>
+    /// Shows the task dialog as a modal dialog.
+    /// </summary>
+    /// <returns>The button that the user clicked. Can be <see langword="null" /> if the user cancelled the dialog using the
+    /// title bar close button.</returns>
+    /// <remarks>
+    /// The dialog will use the active window as its owner. If the current process has no active window,
+    /// the dialog will be displayed as a modeless dialog (identical to calling <see cref="Show"/>).
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">
+    /// <para>
+    ///   One of the properties or a combination of properties is not valid.
+    /// </para>
+    /// <para>
+    ///   -or-
+    /// </para>
+    /// <para>
+    ///   The dialog is already running.
+    /// </para>
+    /// </exception>
+    /// <exception cref="NotSupportedException">Task dialogs are not supported on the current operating system.</exception>
+    public TaskDialogButton ShowDialog()
+    {
+        return ShowDialog(0);
+    }
+
+    /// <summary>
+    /// Shows the task dialog as a modal dialog.
+    /// </summary>
+    /// <param name="owner">The owner window handle (<see cref="nint"/>).</param>
+    /// <returns>The button that the user clicked. Can be <see langword="null" /> if the user cancelled the dialog using the
+    /// title bar close button.</returns>
+    public TaskDialogButton ShowDialog(nint owner)
+    {
+        nint ownerHandle = owner == 0 ? TaskDialogNativeMethods.GetActiveWindow() : owner;
+        return ShowDialogCore(ownerHandle);
+    }
+
+    /// <summary>
+    /// Shows the task dialog as a modal dialog.
+    /// </summary>
+    /// <param name="owner">The <see cref="IntPtr"/> Win32 handle that is the owner of this task dialog.</param>
+    /// <returns>The button that the user clicked. Can be <see langword="null" /> if the user cancelled the dialog using the
+    /// title bar close button.</returns>
+    private TaskDialogButton ShowDialogCore(nint owner)
+    {
+        if (!OSSupportsTaskDialogs)
+            throw new NotSupportedException(TaskDialogResources.TaskDialogsNotSupportedError);
+
+        if (IsDialogRunning)
+            throw new InvalidOperationException(TaskDialogResources.TaskDialogRunningError);
+
+        if (_buttons is null || _buttons.Count == 0)
+            throw new InvalidOperationException(TaskDialogResources.TaskDialogNoButtonsError);
+
+        _config.hwndParent = owner;
+        _config.dwCommonButtons = 0;
+        _config.pButtons = default;
+        _config.cButtons = 0;
+        List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> buttons = SetupButtons();
+        List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> radioButtons = SetupRadioButtons();
+
+        SetupIcon();
+
         try
         {
-            wrapperHandle = GCHandle.Alloc(wrapper);
-            NativeTaskDialogConfig nc = BuildNativeConfig(config, wrapperHandle, allocations);
+            MarshalButtons(buttons, out var pButtons, out _config.cButtons);
+            _config.pButtons = pButtons;
+            MarshalButtons(radioButtons, out var pRadioButtons, out _config.cRadioButtons);
+            _config.pRadioButtons = pRadioButtons;
+            int buttonId;
+            int radioButton;
+            bool verificationFlagChecked;
+            using (new ComCtlv6ActivationContext(true))
+            {
+                TaskDialogNativeMethods.TaskDialogIndirect(ref _config, out buttonId, out radioButton, out verificationFlagChecked);
+            }
+            IsVerificationChecked = verificationFlagChecked;
 
-            int hresult = TaskDialogIndirect(
-                ref nc,
-                out int btn,
-                out int radio,
-                out int verifChecked);
+            if (_radioButtonsById.TryGetValue(radioButton, out TaskDialogRadioButton? selectedRadioButton))
+                selectedRadioButton.Checked = true;
 
-            radioButtonId = radio;
-            verificationChecked = verifChecked != 0;
-
-            if (hresult != 0)
-                Marshal.ThrowExceptionForHR(hresult);
-
-            return btn;
+            if (_buttonsById.TryGetValue(buttonId, out TaskDialogButton? selectedButton))
+                return selectedButton;
+            else
+                return null!;
         }
         finally
         {
-            if (wrapperHandle.IsAllocated && !wrapper.HandleFreedByCallback)
-                wrapperHandle.Free();
-
-            foreach (nint p in allocations)
-                if (p != IntPtr.Zero)
-                    Marshal.FreeHGlobal(p);
+            nint pButtons = _config.pButtons;
+            nint pRadioButtons = _config.pRadioButtons;
+            CleanUpButtons(ref pButtons, ref _config.cButtons);
+            CleanUpButtons(ref pRadioButtons, ref _config.cRadioButtons);
         }
     }
 
-    /// <summary>Convenience overload matching the C++ sample usage.</summary>
-    public static int Show(
-        nint ownerHwnd,
-        string? title,
-        string? mainInstruction,
-        string? content,
-        TaskDialogCommonButton commonButtons = TaskDialogCommonButton.OK,
-        nint mainIcon = default,
-        TaskDialogFlags flags = TaskDialogFlags.None,
-        TaskDialogCallbackDelegate? callback = null,
-        object? callbackData = null)
+    /// <summary>
+    /// Simulates a click on the verification checkbox of the <see cref="TaskDialog"/>, if it exists.
+    /// </summary>
+    /// <param name="checkState"><see langword="true" /> to set the state of the checkbox to be checked; <see langword="false" /> to set it to be unchecked.</param>
+    /// <param name="setFocus"><see langword="true" /> to set the keyboard focus to the checkbox; otherwise <see langword="false" />.</param>
+    /// <exception cref="InvalidOperationException">The task dialog is not being displayed.</exception>
+    public void ClickVerification(bool checkState, bool setFocus)
     {
-        return ShowIndirect(new TaskDialogConfig
-        {
-            ParentWindow = ownerHwnd,
-            Title = title,
-            MainInstruction = mainInstruction,
-            Content = content,
-            CommonButtons = commonButtons,
-            MainIcon = mainIcon,
-            Flags = flags,
-            Callback = callback,
-            CallbackData = callbackData,
-        });
+        if (!IsDialogRunning)
+            throw new InvalidOperationException(TaskDialogResources.TaskDialogNotRunningError);
+
+        TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.ClickVerification, (IntPtr)(int)(checkState ? 1 : 0), new IntPtr(setFocus ? 1 : 0));
     }
 
-    // -------------------------------------------------------------------------
-    // Internals – delegate lifetime helpers
-    // -------------------------------------------------------------------------
+    #endregion Public methods
 
-    private static void EnsureStaticDelegates()
+    #region Protected methods
+
+    /// <summary>
+    /// Raises the <see cref="HyperlinkClicked"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="HyperlinkClickedEventArgs"/> containing the data for the event.</param>
+    protected virtual void OnHyperlinkClicked(HyperlinkClickedEventArgs e)
     {
-        if (_callbackProc is not null) return;
-        _callbackProc = InternalTaskDialogCallback;
-        _subclassProc = SubclassProcImpl;
-        _enumChildProc = EnumChildProcImpl;
-        EnsureNativeExports();
+        HyperlinkClicked?.Invoke(this, e);
     }
 
-    // Native-export availability checks to avoid EntryPointNotFoundException
-    private static bool _nativeExportsChecked = false;
-
-    private static bool _hasComCtlSubclassApi = false;
-    private static bool _hasDefSubclassProcApi = false;
-    private static bool _hasSetWindowThemeApi = false;
-    private static bool _hasDwmSetWindowAttributeApi = false;
-
-    private static void EnsureNativeExports()
+    /// <summary>
+    /// Raises the <see cref="ButtonClicked"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="TaskDialogItemClickedEventArgs"/> containing the data for the event.</param>
+    protected virtual void OnButtonClicked(TaskDialogItemClickedEventArgs e)
     {
-        if (_nativeExportsChecked) return;
-        _nativeExportsChecked = true;
+        ButtonClicked?.Invoke(this, e);
+    }
 
-        try
+    /// <summary>
+    /// Raises the <see cref="RadioButtonClicked"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="TaskDialogItemClickedEventArgs"/> containing the data for the event.</param>
+    protected virtual void OnRadioButtonClicked(TaskDialogItemClickedEventArgs e)
+    {
+        RadioButtonClicked?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="VerificationClicked"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="EventArgs"/> containing the data for the event.</param>
+    protected virtual void OnVerificationClicked(EventArgs e)
+    {
+        VerificationClicked?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="Created"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="EventArgs"/> containing the data for the event.</param>
+    protected virtual void OnCreated(EventArgs e)
+    {
+        Created?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="Timer"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="TimerEventArgs"/> containing the data for the event.</param>
+    protected virtual void OnTimer(TimerEventArgs e)
+    {
+        Timer?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="Destroyed"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="EventArgs"/> containing the data for the event.</param>
+    protected virtual void OnDestroyed(EventArgs e)
+    {
+        Destroyed?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="ExpandButtonClicked"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="ExpandButtonClickedEventArgs"/> containing the data for the event.</param>
+    protected virtual void OnExpandButtonClicked(ExpandButtonClickedEventArgs e)
+    {
+        ExpandButtonClicked?.Invoke(this, e);
+    }
+
+    /// <summary>
+    /// Raises the <see cref="HelpRequested"/> event.
+    /// </summary>
+    /// <param name="e">The <see cref="EventArgs"/> containing the data for the event.</param>
+    protected virtual void OnHelpRequested(EventArgs e)
+    {
+        HelpRequested?.Invoke(this, e);
+    }
+
+    #endregion Protected methods
+
+    #region Internal Members
+
+    internal void SetItemEnabled(TaskDialogItem item)
+    {
+        if (IsDialogRunning)
         {
-            nint hComCtl = GetModuleHandle("comctl32.dll");
-            if (hComCtl == IntPtr.Zero)
-                hComCtl = LoadLibrary("comctl32.dll");
-
-            _hasComCtlSubclassApi = hComCtl != IntPtr.Zero && GetProcAddress(hComCtl, "SetWindowSubclass") != IntPtr.Zero;
-            _hasDefSubclassProcApi = hComCtl != IntPtr.Zero && GetProcAddress(hComCtl, "DefSubclassProc") != IntPtr.Zero;
-
-            nint hUx = GetModuleHandle("uxtheme.dll");
-            if (hUx == IntPtr.Zero) hUx = LoadLibrary("uxtheme.dll");
-            _hasSetWindowThemeApi = hUx != IntPtr.Zero && GetProcAddress(hUx, "SetWindowTheme") != IntPtr.Zero;
-
-            nint hDwm = GetModuleHandle("dwmapi.dll");
-            if (hDwm == IntPtr.Zero) hDwm = LoadLibrary("dwmapi.dll");
-            _hasDwmSetWindowAttributeApi = hDwm != IntPtr.Zero && GetProcAddress(hDwm, "DwmSetWindowAttribute") != IntPtr.Zero;
-
-            Log("Native exports: comctl32.SetWindowSubclass={0}, comctl32.DefSubclassProc={1}, uxtheme.SetWindowTheme={2}, dwmapi.DwmSetWindowAttribute={3}",
-                _hasComCtlSubclassApi, _hasDefSubclassProcApi, _hasSetWindowThemeApi, _hasDwmSetWindowAttributeApi);
+            TaskDialogNativeMethods.SendMessage(Handle, (int)(item is TaskDialogButton ? TaskDialogNativeMethods.TaskDialogMessages.EnableButton : TaskDialogNativeMethods.TaskDialogMessages.EnableRadioButton), new IntPtr(item.Id), new IntPtr(item.Enabled ? 1 : 0));
         }
-        catch (Exception ex)
+    }
+
+    internal void SetButtonElevationRequired(TaskDialogButton button)
+    {
+        if (IsDialogRunning)
         {
-            Log("EnsureNativeExports failed: {0}\n{1}", ex, ex.StackTrace!);
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetButtonElevationRequiredState, (IntPtr)(int)button.Id, new IntPtr(button.ElevationRequired ? 1 : 0));
         }
     }
 
-    private static void EnsureBrushes()
+    internal void ClickItem(TaskDialogItem item)
     {
-        if (_darkBrush != IntPtr.Zero) return;
-        _darkBrush = CreateSolidBrush(0x00242424u); // RGB(36,36,36)
-        _notSoDarkBrush = CreateSolidBrush(0x00363636u); // RGB(54,54,54)
+        if (!IsDialogRunning)
+            throw new InvalidOperationException(TaskDialogResources.TaskDialogNotRunningError);
+
+        TaskDialogNativeMethods.SendMessage(Handle, (int)(item is TaskDialogButton ? TaskDialogNativeMethods.TaskDialogMessages.ClickButton : TaskDialogNativeMethods.TaskDialogMessages.ClickRadioButton), (IntPtr)(int)item.Id, IntPtr.Zero);
     }
 
-    // -------------------------------------------------------------------------
-    // Native config builder
-    // -------------------------------------------------------------------------
+    #endregion Internal Members
 
-    private static NativeTaskDialogConfig BuildNativeConfig(
-        TaskDialogConfig config,
-        GCHandle wrapperHandle,
-        List<nint> allocations)
+    #region Private members
+
+    internal void UpdateDialog()
     {
-        var nc = new NativeTaskDialogConfig
+        if (IsDialogRunning)
         {
-            cbSize = (uint)Marshal.SizeOf<NativeTaskDialogConfig>(),
-            hwndParent = config.ParentWindow,
-            hInstance = IntPtr.Zero,
-            dwFlags = (uint)config.Flags,
-            dwCommonButtons = (uint)config.CommonButtons,
-            pszWindowTitle = AllocString(config.Title, allocations),
-            mainIconUnion = config.MainIcon,
-            pszMainInstruction = AllocString(config.MainInstruction, allocations),
-            pszContent = AllocString(config.Content, allocations),
-            nDefaultButton = config.DefaultButton,
-            nDefaultRadioButton = config.DefaultRadioButton,
-            pszVerificationText = AllocString(config.VerificationText, allocations),
-            pszExpandedInformation = AllocString(config.ExpandedInformation, allocations),
-            pszExpandedControlText = AllocString(config.ExpandedControlText, allocations),
-            pszCollapsedControlText = AllocString(config.CollapsedControlText, allocations),
-            footerIconUnion = config.FooterIcon,
-            pszFooter = AllocString(config.Footer, allocations),
-            pfCallback = Marshal.GetFunctionPointerForDelegate(_callbackProc!),
-            lpCallbackData = GCHandle.ToIntPtr(wrapperHandle),
-            cxWidth = config.Width,
-        };
-
-        if (config.Buttons is { Count: > 0 })
-        {
-            nc.cButtons = (uint)config.Buttons.Count;
-            nc.pButtons = AllocButtons(config.Buttons, allocations);
-        }
-
-        if (config.RadioButtons is { Count: > 0 })
-        {
-            nc.cRadioButtons = (uint)config.RadioButtons.Count;
-            nc.pRadioButtons = AllocButtons(config.RadioButtons, allocations);
-        }
-
-        return nc;
-    }
-
-    private static nint AllocString(string? s, List<nint> allocations)
-    {
-        if (s is null) return IntPtr.Zero;
-        var ptr = Marshal.StringToHGlobalUni(s);
-        allocations.Add(ptr);
-        return ptr;
-    }
-
-    private static nint AllocButtons(IList<TaskDialogButtonSpec> buttons, List<nint> allocations)
-    {
-        int btnSize = Marshal.SizeOf<NativeTaskDialogButton>();
-        nint array = Marshal.AllocHGlobal(btnSize * buttons.Count);
-        allocations.Add(array);
-
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            var nb = new NativeTaskDialogButton
+            // If the navigate page message is sent from within the callback, the navigation won't
+            // take place until the callback returns. Any further messages sent after the navigate
+            // page message before the end of the callback will then be lost as the navigation occurs.
+            // For that reason, we defer it all the way until the end.
+            if (_inEventHandler > 0)
+                _updatePending = true;
+            else
             {
-                nButtonID = buttons[i].Id,
-                pszButtonText = AllocString(buttons[i].Text, allocations),
-            };
-            Marshal.StructureToPtr(nb, IntPtr.Add(array, i * btnSize), false);
-        }
-        return array;
-    }
+                _updatePending = false;
+                var pButtons = (IntPtr)_config.pButtons;
+                var pRadioButtons = (IntPtr)_config.pRadioButtons;
+                CleanUpButtons(ref pButtons, ref _config.cButtons);
+                CleanUpButtons(ref pRadioButtons, ref _config.cRadioButtons);
+                _config.dwCommonButtons = 0;
 
-    // -------------------------------------------------------------------------
-    // Internal TaskDialog callback – mirrors taskdialogcallback() in C++
-    // -------------------------------------------------------------------------
+                List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> buttons = SetupButtons();
+                List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> radioButtons = SetupRadioButtons();
 
-    private const uint TDN_CREATED = 0;
-    private const uint TDN_NAVIGATED = 1;
-    private const uint TDN_DESTROYED = 5;
-    private const uint TDN_DIALOG_CONSTRUCTED = 7;
+                SetupIcon();
 
-    private const uint WM_USER = 0x0400;
-    private const uint MY_APPLY_THEME_MSG = WM_USER + 0x100;
-    private const uint RDW_INVALIDATE = 0x0001;
-    private const uint RDW_ERASE = 0x0004;
-    private const uint RDW_ALLCHILDREN = 0x0080;
-    private const uint RDW_UPDATENOW = 0x0100;
-    private const uint WM_THEMECHANGED = 0x031A;
+                MarshalButtons(buttons, out pButtons, out _config.cButtons);
+                _config.pButtons = pButtons;
+                MarshalButtons(radioButtons, out pRadioButtons, out _config.cRadioButtons);
+                _config.pRadioButtons = pRadioButtons;
 
-    private static int InternalTaskDialogCallback(
-        nint hwnd,
-        uint msg,
-        nint wParam,
-        nint lParam,
-        nint lpRefData)
-    {
-        try
-        {
-            Log("InternalTaskDialogCallback msg={0}", msg);
-            GCHandle handle = GCHandle.FromIntPtr(lpRefData);
-            CallbackWrapper wrapper = (CallbackWrapper)handle.Target!;
-
-            if (msg == TDN_CREATED)
-            {
-                lock (_lock) _activeDialogs.Add(hwnd);
-
-                // Subclass the dialog itself for WM_ERASEBKGND / WM_CTLCOLORDLG
-                // and post a message so the theme application runs on the dialog's
-                // message loop instead of inside the TaskDialog callback context.
+                int size = Marshal.SizeOf(_config);
+                nint memory = Marshal.AllocHGlobal(size);
                 try
                 {
-                    if (_hasComCtlSubclassApi)
-                    {
-                        SetWindowSubclass(hwnd, _subclassProc!, (nint)1, IntPtr.Zero);
-                    }
-                    else
-                    {
-                        Log("SetWindowSubclass not available; skipping subclassing for hwnd={0}", hwnd);
-                    }
-                    PostMessage(hwnd, MY_APPLY_THEME_MSG, IntPtr.Zero, IntPtr.Zero);
+                    Marshal.StructureToPtr(_config, memory, false);
+                    TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.NavigatePage, IntPtr.Zero, memory);
                 }
-                catch (EntryPointNotFoundException ex)
+                finally
                 {
-                    Log("SetWindowSubclass EntryPointNotFound: {0}", ex);
-                    _hasComCtlSubclassApi = false;
-                }
-                catch (Exception ex)
-                {
-                    Log("SetWindowSubclass/PostMessage failed: {0}", ex);
+#pragma warning disable CA2263 // Prefer generic overload when type is known
+                    Marshal.DestroyStructure(memory, typeof(TaskDialogNativeMethods.TASKDIALOGCONFIG));
+#pragma warning restore CA2263 // Prefer generic overload when type is known
+                    Marshal.FreeHGlobal(memory);
                 }
             }
-            else if (msg == TDN_DIALOG_CONSTRUCTED)
-            {
-                // Called on first show AND after each TDM_NAVIGATE_PAGE – re-apply theming
-                // Post message so enumeration and theme changes execute on the
-                // dialog thread normally and outside the TaskDialog callback.
-                try
-                {
-                    PostMessage(hwnd, MY_APPLY_THEME_MSG, IntPtr.Zero, IntPtr.Zero);
-                }
-                catch (Exception ex)
-                {
-                    Log("PostMessage for DIALOG_CONSTRUCTED failed: {0}", ex);
-                }
-            }
-            else if (msg == TDN_DESTROYED)
-            {
-                lock (_lock) _activeDialogs.Remove(hwnd);
-                wrapper.HandleFreedByCallback = true;
-                handle.Free();
-            }
+        }
+    }
 
+    private bool IsDialogRunning
+    {
+        get
+        {
+            // Intentially not using the Handle property, since the cross-thread call check should not be performed here.
+            return _handle != IntPtr.Zero;
+        }
+    }
+
+    private void SetElementText(TaskDialogNativeMethods.TaskDialogElements element, string text)
+    {
+        if (IsDialogRunning)
+        {
+            nint newTextPtr = Marshal.StringToHGlobalUni(text);
             try
             {
-                return wrapper.UserCallback?.Invoke(
-                    hwnd,
-                    (TaskDialogNotification)msg,
-                    wParam,
-                    lParam,
-                    wrapper.UserData) ?? 0;
+                nint result = TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetElementText, (nint)element, newTextPtr);
             }
-            catch (Exception ex)
+            finally
             {
-                Log("User callback threw: {0}\n{1}", ex, ex.StackTrace!);
-                return 0;
+                if (newTextPtr != IntPtr.Zero)
+                    Marshal.FreeHGlobal(newTextPtr);
             }
-        }
-        catch (Exception ex)
-        {
-            Log("Unhandled exception in InternalTaskDialogCallback: {0}\n{1}", ex, ex.StackTrace!);
-            return 0;
         }
     }
 
-    // -------------------------------------------------------------------------
-    // Dark mode application – mirrors update() + EnumChildProc in C++
-    // -------------------------------------------------------------------------
-
-    private static void ApplyThemeToWindow(nint hwnd, bool isThemeSwitch)
+    private void SetupIcon()
     {
-        int dark = _theme == Theme.Dark ? 1 : 0;
-        _ = DwmSetWindowAttribute(hwnd, 20 /*DWMWA_USE_IMMERSIVE_DARK_MODE*/, ref dark, sizeof(int));
-        // Attempt to set theme on the dialog window itself first
-        try
-        {
-            TrySetWindowTheme(hwnd, _theme == Theme.Dark);
-        }
-        catch (Exception ex)
-        {
-            Log("TrySetWindowTheme on dialog hwnd={0} failed: {1}", hwnd, ex);
-        }
-
-        EnumChildWindows(hwnd, _enumChildProc!, isThemeSwitch ? (nint)1 : IntPtr.Zero);
-        try
-        {
-            // Force redraw of the dialog and all children to apply visual changes
-            uint flags = RDW_INVALIDATE | RDW_ERASE | RDW_ALLCHILDREN | RDW_UPDATENOW;
-            RedrawWindow(hwnd, IntPtr.Zero, IntPtr.Zero, flags);
-        }
-        catch (Exception ex)
-        {
-            Log("RedrawWindow failed for hwnd={0}: {1}", hwnd, ex);
-        }
-        try
-        {
-            // Notify theme change in case controls respond to WM_THEMECHANGED
-            SendMessage(hwnd, WM_THEMECHANGED, IntPtr.Zero, IntPtr.Zero);
-        }
-        catch (Exception ex)
-        {
-            Log("SendMessage(WM_THEMECHANGED) failed for hwnd={0}: {1}", hwnd, ex);
-        }
+        SetupIcon(MainIcon, CustomMainIcon, TaskDialogNativeMethods.TaskDialogFlags.UseHIconMain);
+        SetupIcon(FooterIcon, CustomFooterIcon, TaskDialogNativeMethods.TaskDialogFlags.UseHIconFooter);
     }
 
-    private static bool EnumChildProcImpl(nint hwnd, nint lParam)
+    private void SetupIcon(TaskDialogIcon icon, nint customIcon, TaskDialogNativeMethods.TaskDialogFlags flag)
     {
-        try
+        SetFlag(flag, false);
+        if (icon == TaskDialogIcon.Custom)
         {
-            bool isDark = _theme == Theme.Dark;
-            string cls = GetWindowClass(hwnd);
-
-            // Diagnostic: log each enumerated child to help find which window hosts content
-            Log("EnumChild: hwnd={0}, class={1}, isDark={2}", hwnd, cls, isDark);
-
-            // Recursively enumerate grandchildren first (same order as C++ original)
-            EnumChildWindows(hwnd, _enumChildProc!, lParam);
-
-            // Special-case DirectUIHWND: apply theme but DO NOT subclass it,
-            // because subclassing DirectUIHWND can prevent its internal renderer
-            // from receiving paint/erase messages and lead to a blank area.
-            if (cls == "DirectUIHWND")
+            if (customIcon != 0)
             {
-                if (isDark)
-                {
-                    nint parent = GetParent(hwnd);
-                    GetWindowPlacement(parent, out NATIVE_WINDOWPLACEMENT placement);
-                    TrySetWindowTheme(hwnd, true);
-                    SetWindowPlacement(parent, ref placement);
-                    try
-                    {
-                        RedrawWindow(hwnd, IntPtr.Zero, IntPtr.Zero, RDW_INVALIDATE | RDW_ERASE | RDW_UPDATENOW);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log("RedrawWindow for DirectUIHWND failed for hwnd={0}: {1}", hwnd, ex);
-                    }
-                    try
-                    {
-                        SendMessage(hwnd, WM_THEMECHANGED, IntPtr.Zero, IntPtr.Zero);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log("SendMessage(WM_THEMECHANGED) for DirectUIHWND failed for hwnd={0}: {1}", hwnd, ex);
-                    }
-                }
+                SetFlag(flag, true);
+                if (flag == TaskDialogNativeMethods.TaskDialogFlags.UseHIconMain)
+                    _config.hMainIcon = customIcon;
                 else
+                    _config.hFooterIcon = customIcon;
+            }
+        }
+        else
+        {
+            if (flag == TaskDialogNativeMethods.TaskDialogFlags.UseHIconMain)
+                _config.hMainIcon = new IntPtr((int)icon);
+            else
+                _config.hFooterIcon = new IntPtr((int)icon);
+        }
+    }
+
+    private static void CleanUpButtons(ref IntPtr buttons, ref uint count)
+    {
+        if (buttons != IntPtr.Zero)
+        {
+            int elementSize = Marshal.SizeOf<TaskDialogNativeMethods.TASKDIALOG_BUTTON>();
+            for (int x = 0; x < count; ++x)
+            {
+                // This'll be safe until they introduce 128 bit machines. :)
+                // It's the only way to do it without unsafe code.
+                nint offset = (nint)(buttons.ToInt64() + x * elementSize);
+#pragma warning disable CA2263 // Prefer generic overload when type is known
+                Marshal.DestroyStructure(offset, typeof(TaskDialogNativeMethods.TASKDIALOG_BUTTON));
+#pragma warning restore CA2263 // Prefer generic overload when type is known
+            }
+            Marshal.FreeHGlobal(buttons);
+            buttons = IntPtr.Zero;
+            count = 0;
+        }
+    }
+
+    private static void MarshalButtons(List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> buttons, out nint buttonsPtr, out uint count)
+    {
+        buttonsPtr = IntPtr.Zero;
+        count = 0;
+        if (buttons.Count > 0)
+        {
+            int elementSize = Marshal.SizeOf<TaskDialogNativeMethods.TASKDIALOG_BUTTON>();
+            buttonsPtr = Marshal.AllocHGlobal(elementSize * buttons.Count);
+            for (int x = 0; x < buttons.Count; ++x)
+            {
+                // This'll be safe until they introduce 128 bit machines. :)
+                // It's the only way to do it without unsafe code.
+                nint offset = (nint)((long)buttonsPtr + x * elementSize);
+                Marshal.StructureToPtr(buttons[x], offset, false);
+            }
+            count = (uint)buttons.Count;
+        }
+    }
+
+    private List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> SetupButtons()
+    {
+        _buttonsById = [];
+        List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> buttons = [];
+        _config.nDefaultButton = 0;
+        foreach (TaskDialogButton button in Buttons)
+        {
+            if (button.Id < 1)
+                throw new InvalidOperationException(TaskDialogResources.InvalidTaskDialogItemIdError);
+            _buttonsById.Add(button.Id, button);
+            if (button.Default)
+                _config.nDefaultButton = button.Id;
+            if (button.ButtonType == ButtonType.Custom)
+            {
+                if (string.IsNullOrEmpty(button.Text))
+                    throw new InvalidOperationException(TaskDialogResources.TaskDialogEmptyButtonLabelError);
+
+                TaskDialogNativeMethods.TASKDIALOG_BUTTON taskDialogButton = new()
                 {
-                    _ = SetWindowTheme(hwnd, null, null);
-                    try
-                    {
-                        RedrawWindow(hwnd, IntPtr.Zero, IntPtr.Zero, RDW_INVALIDATE | RDW_ERASE | RDW_UPDATENOW);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log("RedrawWindow for DirectUIHWND failed for hwnd={0}: {1}", hwnd, ex);
-                    }
-                }
+                    nButtonID = button.Id,
+                    pszButtonText = button.Text,
+                };
+                if (ButtonStyle == TaskDialogButtonStyle.CommandLinks || ButtonStyle == TaskDialogButtonStyle.CommandLinksNoIcon && !string.IsNullOrEmpty(button.CommandLinkNote))
+                    taskDialogButton.pszButtonText += "\n" + button.CommandLinkNote;
 
-                // Skip subclassing and other changes for DirectUIHWND.
-                return true;
-            }
-
-            if (cls == "SysLink")
-            {
-                // Control link default colors: clear them in dark mode so text stays white
-                try { ApplySysLinkColors(hwnd, isDark); }
-                catch (Exception ex) { Log("ApplySysLinkColors failed for {0}: {1}", hwnd, ex); }
-            }
-
-            if (_hasComCtlSubclassApi)
-            {
-                try
-                {
-                    if (isDark)
-                    {
-                        // Only subclass if not already subclassed
-                        if (!GetWindowSubclass(hwnd, _subclassProc!, (nint)1, out _))
-                            SetWindowSubclass(hwnd, _subclassProc!, (nint)1, IntPtr.Zero);
-                    }
-                    else
-                    {
-                        RemoveWindowSubclass(hwnd, _subclassProc!, (nint)1);
-                    }
-                }
-                catch (EntryPointNotFoundException ex)
-                {
-                    Log("Subclass API EntryPointNotFound during use: {0}", ex);
-                    _hasComCtlSubclassApi = false;
-                }
-                catch (Exception ex)
-                {
-                    Log("Subclass API call failed: {0}", ex);
-                }
-            }
-
-            if (cls is "Button" or "ScrollBar")
-            {
-                try { TrySetWindowTheme(hwnd, isDark); }
-                catch (Exception ex) { Log("TrySetWindowTheme failed for {0} ({1}): {2}", cls, hwnd, ex); }
-            }
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Log("Unhandled exception in EnumChildProcImpl for hwnd={0}: {1}\n{2}", hwnd, ex, ex.StackTrace!);
-            // Returning true continues enumeration despite the error.
-            return true;
-        }
-    }
-
-    private static void ApplySysLinkColors(nint hwnd, bool darkMode)
-    {
-        // LM_SETITEM = WM_USER + 2 = 0x0402
-        // LITEM.mask = LIF_ITEMINDEX | LIF_STATE, stateMask = LIS_DEFAULTCOLORS
-        // When darkMode: state = 0 (clear LIS_DEFAULTCOLORS so system won't paint blue links)
-        // When lightMode: state = LIS_DEFAULTCOLORS (restore)
-        const uint LM_SETITEM = 0x0402;
-        const uint LIF_ITEMINDEX = 0x0001;
-        const uint LIF_STATE = 0x0002;
-        const uint LIS_DEFAULTCOLORS = 0x0004;
-
-        // LITEM layout (Pack=1):
-        //   mask:      UINT   (4)
-        //   iLink:     int    (4)
-        //   state:     UINT   (4)
-        //   stateMask: UINT   (4)
-        //   szID:      WCHAR[48] (96 bytes)
-        //   szUrl:     WCHAR[2084] (4168 bytes)
-        // Total = 4280 bytes – allocate on heap to avoid stack overflow risk
-        int litemSize = 4 + 4 + 4 + 4 + 96 + 4168;
-        nint litem = Marshal.AllocHGlobal(litemSize);
-        try
-        {
-            const int MAX_LINKS = 1024; // safety cap to avoid infinite loops
-            for (int i = 0; i < MAX_LINKS; i++)
-            {
-                // Clear the allocation to zero for each iteration
-                for (int b = 0; b < litemSize; b++)
-                    Marshal.WriteByte(litem, b, 0);
-
-                Marshal.WriteInt32(litem, 0, (int)(LIF_ITEMINDEX | LIF_STATE));
-                Marshal.WriteInt32(litem, 4, i);
-                Marshal.WriteInt32(litem, 8, darkMode ? 0 : (int)LIS_DEFAULTCOLORS);
-                Marshal.WriteInt32(litem, 12, (int)LIS_DEFAULTCOLORS);
-
-                nint result = SendMessage(hwnd, LM_SETITEM, IntPtr.Zero, litem);
-                if (result == IntPtr.Zero) break; // no more items
-                // If we've reached the cap, log a warning.
-                if (i == MAX_LINKS - 1)
-                    Log("ApplySysLinkColors: reached MAX_LINKS for hwnd={0}", hwnd);
-            }
-        }
-        finally
-        {
-            Marshal.FreeHGlobal(litem);
-        }
-    }
-
-    // -------------------------------------------------------------------------
-    // Window subclass procedure – mirrors Subclassproc() in C++
-    // -------------------------------------------------------------------------
-
-    private static nint SubclassProcImpl(
-        nint hWnd,
-        uint uMsg,
-        nint wParam,
-        nint lParam,
-        nint uIdSubclass,
-        nint dwRefData)
-    {
-        try
-        {
-            if (_theme != Theme.Dark)
-                return DefSubclassProc(hWnd, uMsg, wParam, lParam);
-
-            const uint WM_ERASEBKGND = 0x0014;
-            const uint WM_CTLCOLORDLG = 0x0136;
-
-            switch (uMsg)
-            {
-                case WM_ERASEBKGND:
-                    {
-                        // Set white text for SysLink controls (which inherit from parent WM_ERASEBKGND)
-                        _ = SetTextColor(wParam, 0x00FFFFFF); // white
-
-                        string cls = GetWindowClass(hWnd);
-                        if (cls == "SysLink")
-                        {
-                            // Don't erase background for links – avoids white flash on page switches
-                            return 1;
-                        }
-
-                        // Let DirectUIHWND default handling occur – subclassing it may
-                        // interfere with its internal renderer and produce blank content.
-                        if (cls == "DirectUIHWND")
-                        {
-                            return DefSubclassProc(hWnd, uMsg, wParam, lParam);
-                        }
-
-                        GetClientRect(hWnd, out NATIVE_RECT rect);
-                        FillRect(wParam, ref rect, _notSoDarkBrush);
-                        return (nint)1;
-                    }
-
-                case WM_CTLCOLORDLG:
-                    // Window background colour when the expander resizes upward (Win10)
-                    return _darkBrush;
-
-                case MY_APPLY_THEME_MSG:
-                    {
-                        try
-                        {
-                            ApplyThemeToWindow(hWnd, isThemeSwitch: false);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log("MY_APPLY_THEME_MSG ApplyThemeToWindow failed: {0}", ex);
-                        }
-                        // If DefSubclassProc isn't available fallback to DefWindowProc
-                        if (_hasDefSubclassProcApi)
-                            return DefSubclassProc(hWnd, uMsg, wParam, lParam);
-                        else
-                            return DefWindowProc(hWnd, uMsg, wParam, lParam);
-                    }
-            }
-
-            return DefSubclassProc(hWnd, uMsg, wParam, lParam);
-        }
-        catch (Exception ex)
-        {
-            Log("Unhandled exception in SubclassProcImpl for hwnd={0}, msg={1}: {2}\n{3}", hWnd, uMsg, ex, ex.StackTrace!);
-            return DefSubclassProc(hWnd, uMsg, wParam, lParam);
-        }
-    }
-
-    // -------------------------------------------------------------------------
-    // Helpers
-    // -------------------------------------------------------------------------
-
-    private static string GetWindowClass(nint hwnd)
-    {
-        var sb = new StringBuilder(256);
-        _ = GetClassName(hwnd, sb, 256);
-        return sb.ToString();
-    }
-
-    private static readonly string _logFile = Path.Combine(Path.GetTempPath(), "taskdialog-log.txt");
-
-    private static void Log(string format, params object[]? args)
-    {
-        try
-        {
-            args ??= [];
-#if DEBUG
-            string line = DateTime.Now.ToString("o") + " [" + Thread.CurrentThread.ManagedThreadId + "] " + string.Format(format, args);
-            File.AppendAllText(_logFile, line + Environment.NewLine);
-#else
-            // ...
-#endif
-        }
-        catch
-        {
-            // Swallow logging errors
-        }
-    }
-
-    // -------------------------------------------------------------------------
-    // Native types (Pack=1 matches Windows SDK layout for TASKDIALOGCONFIG)
-    // -------------------------------------------------------------------------
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Unicode)]
-    private struct NativeTaskDialogConfig
-    {
-        public uint cbSize;
-        public nint hwndParent;
-        public nint hInstance;
-        public uint dwFlags;
-        public uint dwCommonButtons;
-        public nint pszWindowTitle;
-        public nint mainIconUnion;        // union: HICON or PCWSTR
-        public nint pszMainInstruction;
-        public nint pszContent;
-        public uint cButtons;
-        public nint pButtons;
-        public int nDefaultButton;
-        public uint cRadioButtons;
-        public nint pRadioButtons;
-        public int nDefaultRadioButton;
-        public nint pszVerificationText;
-        public nint pszExpandedInformation;
-        public nint pszExpandedControlText;
-        public nint pszCollapsedControlText;
-        public nint footerIconUnion;      // union: HICON or PCWSTR
-        public nint pszFooter;
-        public nint pfCallback;
-        public nint lpCallbackData;
-        public uint cxWidth;
-    }
-
-    [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Unicode)]
-    private struct NativeTaskDialogButton
-    {
-        public int nButtonID;
-        public nint pszButtonText;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    private struct NATIVE_RECT
-    {
-        public int Left, Top, Right, Bottom;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    private struct NATIVE_POINT
-    {
-        public int X, Y;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    private struct NATIVE_WINDOWPLACEMENT
-    {
-        public uint length;
-        public uint flags;
-        public uint showCmd;
-        public NATIVE_POINT ptMinPosition;
-        public NATIVE_POINT ptMaxPosition;
-        public NATIVE_RECT rcNormalPosition;
-    }
-
-    // -------------------------------------------------------------------------
-    // Private delegates
-    // -------------------------------------------------------------------------
-
-    private delegate int TaskDialogCallbackProc(nint hwnd, uint msg, nint wParam, nint lParam, nint lpRefData);
-
-    private delegate nint SubclassProcDelegate(nint hWnd, uint uMsg, nint wParam, nint lParam, nint uIdSubclass, nint dwRefData);
-
-    private delegate bool EnumChildProcDelegate(nint hwnd, nint lParam);
-
-    // -------------------------------------------------------------------------
-    // P/Invoke – comctl32
-    // -------------------------------------------------------------------------
-
-    // TaskDialogIndirect exists only in comctl32 v6.  WPF itself loads v6, so we
-    // locate it via GetProcAddress on the already-loaded module rather than relying
-    // on the OS loader picking up v5 through a plain DllImport.
-    private delegate int TaskDialogIndirectDelegate(
-        ref NativeTaskDialogConfig pTaskConfig,
-        out int pnButton,
-        out int pnRadioButton,
-        out int pfVerificationFlagChecked);
-
-    private static TaskDialogIndirectDelegate? _taskDialogIndirectDelegate;
-
-    private static int TaskDialogIndirect(
-        ref NativeTaskDialogConfig pTaskConfig,
-        out int pnButton,
-        out int pnRadioButton,
-        out int pfVerificationFlagChecked)
-    {
-        if (_taskDialogIndirectDelegate is null)
-        {
-            // WPF loads comctl32 v6 via its own activation context.  Use
-            // GetModuleHandle first (it is already mapped into the process);
-            // fall back to LoadLibrary so the function also works in non-WPF hosts.
-            nint hMod = GetModuleHandle("comctl32.dll");
-            if (hMod == IntPtr.Zero)
-                hMod = LoadLibrary("comctl32.dll");
-            if (hMod == IntPtr.Zero)
-                throw new DllNotFoundException("comctl32.dll");
-
-            nint proc = GetProcAddress(hMod, "TaskDialogIndirect");
-            if (proc == IntPtr.Zero)
-                throw new EntryPointNotFoundException(
-                    "TaskDialogIndirect was not found in comctl32.dll. "
-                    + "Ensure the application manifest references Common Controls v6.");
-
-            _taskDialogIndirectDelegate =
-                Marshal.GetDelegateForFunctionPointer<TaskDialogIndirectDelegate>(proc);
-        }
-        return _taskDialogIndirectDelegate(
-            ref pTaskConfig, out pnButton, out pnRadioButton, out pfVerificationFlagChecked);
-    }
-
-    [DllImport("comctl32.dll")]
-    private static extern bool SetWindowSubclass(
-        nint hWnd, SubclassProcDelegate pfnSubclass,
-        nint uIdSubclass, nint dwRefData);
-
-    [DllImport("comctl32.dll")]
-    private static extern nint DefSubclassProc(
-        nint hWnd, uint uMsg, nint wParam, nint lParam);
-
-    [DllImport("user32.dll")]
-    private static extern nint DefWindowProc(nint hWnd, uint Msg, nint wParam, nint lParam);
-
-    [DllImport("comctl32.dll")]
-    private static extern bool RemoveWindowSubclass(
-        nint hWnd, SubclassProcDelegate pfnSubclass, nint uIdSubclass);
-
-    [DllImport("comctl32.dll")]
-    private static extern bool GetWindowSubclass(
-        nint hWnd, SubclassProcDelegate pfnSubclass,
-        nint uIdSubclass, out nint pdwRefData);
-
-    // -------------------------------------------------------------------------
-    // P/Invoke – dwmapi
-    // -------------------------------------------------------------------------
-
-    [DllImport("dwmapi.dll")]
-    private static extern int DwmSetWindowAttribute(
-        nint hwnd, int dwAttribute, ref int pvAttribute, int cbAttribute);
-
-    // -------------------------------------------------------------------------
-    // P/Invoke – uxtheme
-    // -------------------------------------------------------------------------
-
-    [DllImport("uxtheme.dll", CharSet = CharSet.Unicode)]
-    private static extern int SetWindowTheme(nint hwnd, string? pszSubAppName, string? pszSubIdList);
-
-    private static void TrySetWindowTheme(nint hwnd, bool isDark)
-    {
-        if (!_hasSetWindowThemeApi) return;
-        try
-        {
-            if (isDark)
-            {
-                int r = SetWindowTheme(hwnd, "DarkMode_Explorer", null);
-                if (r != 0)
-                {
-                    // Fallback to Explorer if DarkMode_Explorer isn't supported
-                    _ = SetWindowTheme(hwnd, "Explorer", null);
-                }
+                buttons.Add(taskDialogButton);
             }
             else
             {
-                _ = SetWindowTheme(hwnd, null, null);
+                _config.dwCommonButtons |= button.ButtonFlag;
             }
         }
-        catch (EntryPointNotFoundException)
-        {
-            _hasSetWindowThemeApi = false;
-        }
-        catch (Exception ex)
-        {
-            Log("TrySetWindowTheme failed for hwnd={0}: {1}", hwnd, ex);
-        }
+        return buttons;
     }
 
-    // -------------------------------------------------------------------------
-    // P/Invoke – user32
-    // -------------------------------------------------------------------------
-
-    [DllImport("user32.dll")]
-    private static extern bool EnumChildWindows(
-        nint hwndParent, EnumChildProcDelegate lpEnumFunc, nint lParam);
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    private static extern int GetClassName(nint hWnd, StringBuilder lpClassName, int nMaxCount);
-
-    [DllImport("user32.dll")]
-    private static extern bool GetClientRect(nint hWnd, out NATIVE_RECT lpRect);
-
-    [DllImport("user32.dll")]
-    private static extern bool FillRect(nint hDC, ref NATIVE_RECT lprc, nint hbr);
-
-    [DllImport("gdi32.dll")]
-    private static extern uint SetTextColor(nint hdc, uint crColor);
-
-    [DllImport("user32.dll")]
-    private static extern nint GetParent(nint hWnd);
-
-    [DllImport("user32.dll")]
-    private static extern bool GetWindowPlacement(nint hWnd, out NATIVE_WINDOWPLACEMENT lpwndpl);
-
-    [DllImport("user32.dll")]
-    private static extern bool SetWindowPlacement(nint hWnd, ref NATIVE_WINDOWPLACEMENT lpwndpl);
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    private static extern nint SendMessage(nint hWnd, uint Msg, nint wParam, nint lParam);
-
-    [DllImport("user32.dll")]
-    private static extern bool PostMessage(nint hWnd, uint Msg, nint wParam, nint lParam);
-
-    [DllImport("user32.dll")]
-    private static extern bool RedrawWindow(nint hWnd, nint lprcUpdate, nint hrgnUpdate, uint flags);
-
-    // -------------------------------------------------------------------------
-    // P/Invoke – kernel32 (for dynamic comctl32 v6 loading)
-    // -------------------------------------------------------------------------
-
-    [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-    private static extern nint GetModuleHandle(string lpModuleName);
-
-    [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-    private static extern nint LoadLibrary(string lpFileName);
-
-    [DllImport("kernel32.dll", CharSet = CharSet.Ansi, BestFitMapping = false)]
-    private static extern nint GetProcAddress(nint hModule, string procName);
-
-    // -------------------------------------------------------------------------
-    // P/Invoke – gdi32
-    // -------------------------------------------------------------------------
-
-    [DllImport("gdi32.dll")]
-    private static extern nint CreateSolidBrush(uint crColor);
-
-    // -------------------------------------------------------------------------
-    // Helper class
-    // -------------------------------------------------------------------------
-
-    private sealed class CallbackWrapper
+    private List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> SetupRadioButtons()
     {
-        public TaskDialogCallbackDelegate? UserCallback;
-        public object? UserData;
-
-        /// <summary>Set by TDN_DESTROYED to avoid double-free in ShowIndirect finally.</summary>
-        public bool HandleFreedByCallback;
+        _radioButtonsById = [];
+        List<TaskDialogNativeMethods.TASKDIALOG_BUTTON> radioButtons = [];
+        _config.nDefaultRadioButton = 0;
+        foreach (TaskDialogRadioButton radioButton in RadioButtons)
+        {
+            if (string.IsNullOrEmpty(radioButton.Text))
+                throw new InvalidOperationException(TaskDialogResources.TaskDialogEmptyButtonLabelError);
+            if (radioButton.Id < 1)
+                throw new InvalidOperationException(TaskDialogResources.InvalidTaskDialogItemIdError);
+            _radioButtonsById.Add(radioButton.Id, radioButton);
+            if (radioButton.Checked)
+                _config.nDefaultRadioButton = radioButton.Id;
+            TaskDialogNativeMethods.TASKDIALOG_BUTTON taskDialogButton = new()
+            {
+                nButtonID = radioButton.Id,
+                pszButtonText = radioButton.Text,
+            };
+            radioButtons.Add(taskDialogButton);
+        }
+        SetFlag(TaskDialogNativeMethods.TaskDialogFlags.NoDefaultRadioButton, _config.nDefaultRadioButton == 0);
+        return radioButtons;
     }
-}
 
-/// <summary>
-/// Callback raised for TaskDialog notifications.
-/// </summary>
-/// <returns>Returning a non-zero HRESULT will affect dialog behaviour for some notifications.</returns>
-public delegate int TaskDialogCallbackDelegate(
-    nint hwnd,
-    TaskDialogNotification notification,
-    nint wParam,
-    nint lParam,
-    object? data);
-
-/// <summary>TaskDialog notification identifiers (TDN_*).</summary>
-public enum TaskDialogNotification : uint
-{
-    Created = 0,
-    NavigatedPage = 1,
-    ButtonClicked = 2,
-    HyperlinkClicked = 3,
-    Timer = 4,
-    Destroyed = 5,
-    RadioButtonClicked = 6,
-    DialogConstructed = 7,
-    VerificationClicked = 8,
-    Help = 9,
-    ExpandoButtonClicked = 10,
-}
-
-/// <summary>TASKDIALOG_FLAGS subset.</summary>
-[Flags]
-public enum TaskDialogFlags : uint
-{
-    None = 0x0000,
-    EnableHyperlinks = 0x0001,
-    UseHiconMain = 0x0002,
-    UseHiconFooter = 0x0004,
-    AllowDialogCancellation = 0x0008,
-    UseCommandLinks = 0x0010,
-    UseCommandLinksNoIcon = 0x0020,
-    ExpandFooterArea = 0x0040,
-    ExpandedByDefault = 0x0080,
-    VerificationFlagChecked = 0x0100,
-    ShowProgressBar = 0x0200,
-    ShowMarqueeProgressBar = 0x0400,
-    CallbackTimer = 0x0800,
-    PositionRelativeToWindow = 0x1000,
-    RtlLayout = 0x2000,
-    NoDefaultRadioButton = 0x4000,
-    CanBeMinimized = 0x8000,
-    NoSetForeground = 0x00010000,
-    SizeToContent = 0x01000000,
-}
-
-/// <summary>TASKDIALOG_COMMON_BUTTON_FLAGS subset.</summary>
-[Flags]
-public enum TaskDialogCommonButton : uint
-{
-    None = 0x0000,
-    OK = 0x0001,
-    Yes = 0x0002,
-    No = 0x0004,
-    Cancel = 0x0008,
-    Retry = 0x0010,
-    Close = 0x0020,
-}
-
-/// <summary>Describes a custom button or radio button.</summary>
-public sealed class TaskDialogButtonSpec
-{
-    public int Id { get; set; }
-    public string Text { get; set; } = string.Empty;
-
-    public TaskDialogButtonSpec(int id, string text)
+    private void SetFlag(TaskDialogNativeMethods.TaskDialogFlags flag, bool value)
     {
-        Id = id; Text = text;
+        if (value)
+            _config.dwFlags |= flag;
+        else
+            _config.dwFlags &= ~flag;
     }
-}
 
-/// <summary>Managed configuration equivalent to TASKDIALOGCONFIG.</summary>
-public sealed class TaskDialogConfig
-{
-    public nint ParentWindow { get; set; }
-    public TaskDialogFlags Flags { get; set; }
-    public TaskDialogCommonButton CommonButtons { get; set; }
-    public string? Title { get; set; }
+    private bool GetFlag(TaskDialogNativeMethods.TaskDialogFlags flag)
+    {
+        return (_config.dwFlags & flag) != 0;
+    }
+
+    private uint TaskDialogCallback(nint hwnd, uint uNotification, nint wParam, nint lParam, nint dwRefData)
+    {
+        Interlocked.Increment(ref _inEventHandler);
+        try
+        {
+            switch ((TaskDialogNativeMethods.TaskDialogNotifications)uNotification)
+            {
+                case TaskDialogNativeMethods.TaskDialogNotifications.Created:
+                    _handle = hwnd;
+                    DialogCreated();
+                    TaskDialogThemeHost.RegisterDialog(hwnd);
+                    OnCreated(EventArgs.Empty);
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.Destroyed:
+                    TaskDialogThemeHost.UnregisterDialog(hwnd);
+                    _handle = IntPtr.Zero;
+                    OnDestroyed(EventArgs.Empty);
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.Navigated:
+                    DialogCreated();
+                    TaskDialogThemeHost.ApplyTheme(hwnd);
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.HyperlinkClicked:
+                    string? url = Marshal.PtrToStringUni(lParam);
+                    OnHyperlinkClicked(new HyperlinkClickedEventArgs(url ?? string.Empty));
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.ButtonClicked:
+                    if (_buttonsById.TryGetValue((int)wParam, out TaskDialogButton? button))
+                    {
+                        TaskDialogItemClickedEventArgs e = new(button);
+                        OnButtonClicked(e);
+                        if (e.Cancel)
+                            return 1;
+                    }
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.VerificationClicked:
+                    IsVerificationChecked = ((int)wParam) == 1;
+                    OnVerificationClicked(EventArgs.Empty);
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.RadioButtonClicked:
+                    if (_radioButtonsById.TryGetValue((int)wParam, out TaskDialogRadioButton? radioButton))
+                    {
+                        radioButton.Checked = true; // there's no way to click a radio button without checking it, is there?
+                        TaskDialogItemClickedEventArgs e = new(radioButton);
+                        OnRadioButtonClicked(e);
+                    }
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.Timer:
+                    TimerEventArgs timerEventArgs = new((int)wParam);
+                    OnTimer(timerEventArgs);
+                    return (uint)(timerEventArgs.ResetTickCount ? 1 : 0);
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.ExpandoButtonClicked:
+                    OnExpandButtonClicked(new ExpandButtonClickedEventArgs(wParam != 0));
+                    break;
+
+                case TaskDialogNativeMethods.TaskDialogNotifications.Help:
+                    OnHelpRequested(EventArgs.Empty);
+                    break;
+            }
+            return 0;
+        }
+        finally
+        {
+            Interlocked.Decrement(ref _inEventHandler);
+            if (_updatePending)
+                UpdateDialog();
+        }
+    }
+
+    private void DialogCreated()
+    {
+        if (_config.hwndParent == IntPtr.Zero && _windowIcon != 0)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, TaskDialogNativeMethods.WM_SETICON, TaskDialogNativeMethods.ICON_SMALL, _windowIcon);
+        }
+
+        foreach (TaskDialogButton button in Buttons)
+        {
+            if (!button.Enabled)
+                SetItemEnabled(button);
+            if (button.ElevationRequired)
+                SetButtonElevationRequired(button);
+        }
+        UpdateProgressBarStyle();
+        UpdateProgressBarMarqueeSpeed();
+        UpdateProgressBarRange();
+        UpdateProgressBarValue();
+        UpdateProgressBarState();
+    }
+
+    private void UpdateProgressBarStyle()
+    {
+        if (IsDialogRunning)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetMarqueeProgressBar, (IntPtr)(int)(ProgressBarStyle == ProgressBarStyle.MarqueeProgressBar ? 1 : 0), IntPtr.Zero);
+        }
+    }
+
+    private void UpdateProgressBarMarqueeSpeed()
+    {
+        if (IsDialogRunning)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetProgressBarMarquee, (IntPtr)(int)(ProgressBarMarqueeAnimationSpeed > 0 ? 1 : 0), (IntPtr)ProgressBarMarqueeAnimationSpeed);
+        }
+    }
+
+    private void UpdateProgressBarRange()
+    {
+        if (IsDialogRunning)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetProgressBarRange, 0, new IntPtr(ProgressBarMaximum << 16 | ProgressBarMinimum));
+        }
+        if (ProgressBarValue < ProgressBarMinimum)
+            ProgressBarValue = ProgressBarMinimum;
+        if (ProgressBarValue > ProgressBarMaximum)
+            ProgressBarValue = ProgressBarMaximum;
+    }
+
+    private void UpdateProgressBarValue()
+    {
+        if (IsDialogRunning)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetProgressBarPos, (IntPtr)(int)ProgressBarValue, IntPtr.Zero);
+        }
+    }
+
+    private void UpdateProgressBarState()
+    {
+        if (IsDialogRunning)
+        {
+            TaskDialogNativeMethods.SendMessage(Handle, (int)TaskDialogNativeMethods.TaskDialogMessages.SetProgressBarState, new IntPtr((int)ProgressBarState + 1), IntPtr.Zero);
+        }
+    }
+
+    private void CheckCrossThreadCall()
+    {
+        IntPtr handle = _handle;
+        if (handle != IntPtr.Zero)
+        {
+            var windowThreadId = TaskDialogNativeMethods.GetWindowThreadProcessId(handle, out _);
+            var threadId = TaskDialogNativeMethods.GetCurrentThreadId();
+            if (windowThreadId != threadId)
+                throw new InvalidOperationException(TaskDialogResources.TaskDialogIllegalCrossThreadCallError);
+        }
+    }
+
+    #endregion Private members
+
+    #region Handle
 
     /// <summary>
-    /// Standard icon: use <see cref="TaskDialog.IconWarning"/>,
-    /// <see cref="TaskDialog.IconError"/> etc., or an HICON handle when
-    /// <see cref="TaskDialogFlags.UseHiconMain"/> is set.
+    /// Gets the window handle of the task dialog.
     /// </summary>
-    public nint MainIcon { get; set; }
+    /// <value>
+    /// The window handle of the task dialog when it is being displayed, or zero when the dialog
+    /// is not being displayed.
+    /// </value>
+    [Browsable(false)]
+    public nint Handle
+    {
+        get
+        {
+            CheckCrossThreadCall();
+            return _handle;
+        }
+    }
 
-    public string? MainInstruction { get; set; }
-    public string? Content { get; set; }
-    public IList<TaskDialogButtonSpec>? Buttons { get; set; }
-    public int DefaultButton { get; set; }
-    public IList<TaskDialogButtonSpec>? RadioButtons { get; set; }
-    public int DefaultRadioButton { get; set; }
-    public string? VerificationText { get; set; }
-    public string? ExpandedInformation { get; set; }
-    public string? ExpandedControlText { get; set; }
-    public string? CollapsedControlText { get; set; }
-
-    /// <summary>See <see cref="MainIcon"/> for icon value conventions.</summary>
-    public nint FooterIcon { get; set; }
-
-    public string? Footer { get; set; }
-    public TaskDialogCallbackDelegate? Callback { get; set; }
-    public object? CallbackData { get; set; }
-    public uint Width { get; set; }
+    #endregion Handle
 }
+
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.

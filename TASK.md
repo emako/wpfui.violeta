@@ -1,9 +1,8 @@
 Feature Task
 
 - [ ] ShellWindow (backdrop and so on)
-- [ ] Calendar
+- [ ] Calendar Range
 - [ ] Color Picker
-- [ ] Task Dialog (dark mode)
 - [ ] Fix Form
 
 Wiki Task

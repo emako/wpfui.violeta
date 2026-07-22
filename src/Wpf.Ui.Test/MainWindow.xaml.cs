@@ -954,112 +954,122 @@ public partial class MainWindow : ShellWindow
     {
         var tag = self.Content.ToString();
 
-        // Theme toggle buttons
         if (tag == "Dark")
         {
-            TaskDialog.SetTheme(TaskDialog.Theme.Dark);
+            TaskDialog.SetTheme(TaskDialogTheme.Dark);
             return;
         }
         if (tag == "Light")
         {
-            TaskDialog.SetTheme(TaskDialog.Theme.Light);
+            TaskDialog.SetTheme(TaskDialogTheme.Light);
             return;
         }
 
-        IntPtr owner = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+        nint owner = new System.Windows.Interop.WindowInteropHelper(this).Handle;
 
         if (tag == "Information")
         {
-            TaskDialog.Show(
-                owner,
-                title: "TaskDialog — Information",
-                mainInstruction: "This is an information TaskDialog",
-                content: "Dark-mode support is applied via DWM + SetWindowTheme + window subclassing.\n\nNo external Detours DLL is required.",
-                commonButtons: TaskDialogCommonButton.OK,
-                mainIcon: TaskDialog.IconInformation);
+            using TaskDialog dialog = new()
+            {
+                WindowTitle = "TaskDialog — Information",
+                MainInstruction = "This is an information TaskDialog",
+                Content = "Dark-mode support is applied via DWM + SetWindowTheme + window subclassing.\n\nNo external Detours DLL is required.",
+                MainIcon = TaskDialogIcon.Information,
+            };
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
+            dialog.ShowDialog(owner);
         }
         else if (tag == "Warning")
         {
-            TaskDialog.Show(
-                owner,
-                title: "TaskDialog — Warning",
-                mainInstruction: "Something may need your attention",
-                content: "This is a warning TaskDialog with a Shield icon in the footer.",
-                commonButtons: TaskDialogCommonButton.OK | TaskDialogCommonButton.Cancel,
-                mainIcon: TaskDialog.IconWarning,
-                flags: TaskDialogFlags.EnableHyperlinks,
-                callback: (hwnd, notif, _, lParam, _) =>
-                {
-                    if (notif == TaskDialogNotification.HyperlinkClicked)
-                    {
-                        var url = Marshal.PtrToStringUni(lParam) ?? string.Empty;
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(url) { UseShellExecute = true });
-                    }
-                    return 0;
-                });
+            using TaskDialog dialog = new()
+            {
+                WindowTitle = "TaskDialog — Warning",
+                MainInstruction = "Something may need your attention",
+                Content = "This is a warning TaskDialog with a Shield icon in the footer.\n\nVisit <A HREF=\"https://github.com/emako/wpfui.violeta\">WPF UI Violeta</A> for more.",
+                MainIcon = TaskDialogIcon.Warning,
+                FooterIcon = TaskDialogIcon.Shield,
+                EnableHyperlinks = true,
+            };
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Cancel));
+            dialog.HyperlinkClicked += (_, e) =>
+            {
+                if (!string.IsNullOrEmpty(e.Href))
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Href) { UseShellExecute = true });
+            };
+            dialog.ShowDialog(owner);
         }
         else if (tag == "Error")
         {
-            TaskDialog.ShowIndirect(new TaskDialogConfig
+            using TaskDialog dialog = new()
             {
-                ParentWindow = owner,
-                Title = "TaskDialog — Error",
+                WindowTitle = "TaskDialog — Error",
                 MainInstruction = "A critical error has occurred",
                 Content = "This TaskDialog demonstrates the error icon and a Retry / Cancel choice.",
-                CommonButtons = TaskDialogCommonButton.Retry | TaskDialogCommonButton.Cancel,
-                MainIcon = TaskDialog.IconError,
+                MainIcon = TaskDialogIcon.Error,
                 Footer = "Error code: 0x80004005",
-                FooterIcon = TaskDialog.IconShield,
-            });
+                FooterIcon = TaskDialogIcon.Shield,
+            };
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Retry));
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Cancel));
+            dialog.ShowDialog(owner);
         }
         else if (tag == "CommandLinks")
         {
-            TaskDialog.ShowIndirect(new TaskDialogConfig
+            using TaskDialog dialog = new()
             {
-                ParentWindow = owner,
-                Title = "TaskDialog — Command Links",
+                WindowTitle = "TaskDialog — Command Links",
                 MainInstruction = "Choose an action",
                 Content = "This TaskDialog uses command-link buttons.",
-                Flags = TaskDialogFlags.UseCommandLinks | TaskDialogFlags.AllowDialogCancellation,
-                Buttons =
-                [
-                    new(10, "Continue\nProceed with the current operation"),
-                    new(11, "Retry\nStart the operation over from the beginning"),
-                    new(12, "Cancel\nAbort and return to the previous screen"),
-                ],
-                DefaultButton = 10,
-                MainIcon = TaskDialog.IconInformation,
-            });
+                MainIcon = TaskDialogIcon.Information,
+                ButtonStyle = TaskDialogButtonStyle.CommandLinks,
+                AllowDialogCancellation = true,
+            };
+            TaskDialogButton continueButton = new(ButtonType.Custom)
+            {
+                Text = "Continue",
+                CommandLinkNote = "Proceed with the current operation",
+                Default = true,
+            };
+            TaskDialogButton retryButton = new(ButtonType.Custom)
+            {
+                Text = "Retry",
+                CommandLinkNote = "Start the operation over from the beginning",
+            };
+            TaskDialogButton cancelButton = new(ButtonType.Custom)
+            {
+                Text = "Cancel",
+                CommandLinkNote = "Abort and return to the previous screen",
+            };
+            dialog.Buttons.Add(continueButton);
+            dialog.Buttons.Add(retryButton);
+            dialog.Buttons.Add(cancelButton);
+            dialog.ShowDialog(owner);
         }
         else if (tag == "Expanded")
         {
-            TaskDialog.ShowIndirect(new TaskDialogConfig
+            using TaskDialog dialog = new()
             {
-                ParentWindow = owner,
-                Title = "TaskDialog — Expanded Info",
+                WindowTitle = "TaskDialog — Expanded Info",
                 MainInstruction = "Expandable task dialog",
                 Content = "Click the expander to reveal additional details.",
-                CommonButtons = TaskDialogCommonButton.OK,
-                MainIcon = TaskDialog.IconInformation,
-                //Flags = TaskDialogFlags.ExpandFooterArea,
+                MainIcon = TaskDialogIcon.Information,
                 VerificationText = "Don't show this again",
                 ExpandedInformation = "This area can contain detailed technical information,\nstack traces, log snippets, or links.",
                 ExpandedControlText = "Hide details",
                 CollapsedControlText = "Show details",
                 Footer = "Switch theme: <A HREF=\"dark\">Dark</A>  |  <A HREF=\"light\">Light</A>",
-                FooterIcon = TaskDialog.IconShield,
-                Flags = TaskDialogFlags.EnableHyperlinks | TaskDialogFlags.ExpandFooterArea,
-                Callback = (_, notif, _, lParam, _) =>
-                {
-                    if (notif == TaskDialogNotification.HyperlinkClicked)
-                    {
-                        var link = Marshal.PtrToStringUni(lParam);
-                        if (link == "dark") TaskDialog.SetTheme(TaskDialog.Theme.Dark);
-                        if (link == "light") TaskDialog.SetTheme(TaskDialog.Theme.Light);
-                    }
-                    return 0;
-                },
-            });
+                FooterIcon = TaskDialogIcon.Shield,
+                EnableHyperlinks = true,
+                ExpandFooterArea = true,
+            };
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
+            dialog.HyperlinkClicked += (_, e) =>
+            {
+                if (e.Href == "dark") TaskDialog.SetTheme(TaskDialogTheme.Dark);
+                if (e.Href == "light") TaskDialog.SetTheme(TaskDialogTheme.Light);
+            };
+            dialog.ShowDialog(owner);
         }
     }
 

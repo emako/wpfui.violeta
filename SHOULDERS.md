@@ -15,4 +15,5 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries, named
 - [🔗 SlimeNull/LightDarkModeSwitchAnimation](https://github.com/SlimeNull/LightDarkModeSwitchAnimation)
 - [🔗 irihitech/Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia)
 - [🔗 TwilightLemon/FluentWpfCore](https://github.com/TwilightLemon/FluentWpfCore)
+- [🔗 ookii-dialogs/ookii-dialogs-wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf)
 
