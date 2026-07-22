@@ -947,13 +947,18 @@ public partial class MainWindow : ShellWindow
     }
 
 
-    // ── TaskDialog ────────────────────────────────────────────────
+    // ── NativeDialog (TaskDialog / NativeMessageBox) ──────────────
 
     [RelayCommand]
     private void ShowTaskDialog(Button self)
     {
         var tag = self.Content.ToString();
 
+        if (tag == "System")
+        {
+            TaskDialog.SetTheme(TaskDialogTheme.System);
+            return;
+        }
         if (tag == "Dark")
         {
             TaskDialog.SetTheme(TaskDialogTheme.Dark);
@@ -1025,25 +1030,22 @@ public partial class MainWindow : ShellWindow
                 ButtonStyle = TaskDialogButtonStyle.CommandLinks,
                 AllowDialogCancellation = true,
             };
-            TaskDialogButton continueButton = new(ButtonType.Custom)
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
             {
                 Text = "Continue",
                 CommandLinkNote = "Proceed with the current operation",
                 Default = true,
-            };
-            TaskDialogButton retryButton = new(ButtonType.Custom)
+            });
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
             {
                 Text = "Retry",
                 CommandLinkNote = "Start the operation over from the beginning",
-            };
-            TaskDialogButton cancelButton = new(ButtonType.Custom)
+            });
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
             {
                 Text = "Cancel",
                 CommandLinkNote = "Abort and return to the previous screen",
-            };
-            dialog.Buttons.Add(continueButton);
-            dialog.Buttons.Add(retryButton);
-            dialog.Buttons.Add(cancelButton);
+            });
             dialog.ShowDialog(owner);
         }
         else if (tag == "Expanded")
@@ -1071,6 +1073,77 @@ public partial class MainWindow : ShellWindow
             };
             dialog.ShowDialog(owner);
         }
+        else if (tag == "Radio")
+        {
+            using TaskDialog dialog = new()
+            {
+                WindowTitle = "TaskDialog — Radio Buttons",
+                MainInstruction = "Select an installation option",
+                Content = "Choose how you want to install the application.",
+                MainIcon = TaskDialogIcon.Information,
+            };
+            dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "Typical installation", Checked = true });
+            dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "Custom installation" });
+            dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "Complete installation" });
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Cancel));
+            dialog.ShowDialog(owner);
+        }
+        else if (tag == "Progress")
+        {
+            using TaskDialog dialog = new()
+            {
+                WindowTitle = "TaskDialog — Progress",
+                MainInstruction = "Working…",
+                Content = "This TaskDialog shows a marquee progress bar.",
+                MainIcon = TaskDialogIcon.Information,
+                ProgressBarStyle = ProgressBarStyle.MarqueeProgressBar,
+                ProgressBarMarqueeAnimationSpeed = 60,
+            };
+            dialog.Buttons.Add(new TaskDialogButton(ButtonType.Cancel));
+            dialog.ShowDialog(owner);
+        }
+    }
+
+    [RelayCommand]
+    private void ShowNativeMessageBox(Button self)
+    {
+        nint owner = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+        var tag = self.Content.ToString();
+
+        NativeMessageBoxResult result = tag switch
+        {
+            "OK" => NativeMessageBox.Show(
+                owner,
+                "This is a native Win32 MessageBox.",
+                "NativeMessageBox — OK",
+                NativeMessageBoxButton.OK,
+                NativeMessageBoxImage.Information),
+            "YesNo" => NativeMessageBox.Show(
+                owner,
+                "Do you want to continue?",
+                "NativeMessageBox — Yes/No",
+                NativeMessageBoxButton.YesNo,
+                NativeMessageBoxImage.Question,
+                NativeMessageBoxResult.Yes),
+            "OKCancel" => NativeMessageBox.Show(
+                owner,
+                "Something may need your attention.\nClick OK to proceed.",
+                "NativeMessageBox — OK/Cancel",
+                NativeMessageBoxButton.OKCancel,
+                NativeMessageBoxImage.Warning,
+                NativeMessageBoxResult.OK),
+            "YesNoCancel" => NativeMessageBox.Show(
+                owner,
+                "Save changes before closing?",
+                "NativeMessageBox — Yes/No/Cancel",
+                NativeMessageBoxButton.YesNoCancel,
+                NativeMessageBoxImage.Question,
+                NativeMessageBoxResult.Cancel),
+            _ => NativeMessageBoxResult.None,
+        };
+
+        Toast.Information($"NativeMessageBox result: {result}");
     }
 
 

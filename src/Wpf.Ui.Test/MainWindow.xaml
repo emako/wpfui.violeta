@@ -644,7 +644,7 @@
 
                         <!--
                             ══════════════════════════════════════════════════════════════
-                            TaskDialog Win32 (Experimental)
+                            NativeDialog (TaskDialog / NativeMessageBox)
                             ══════════════════════════════════════════════════════════════
                         -->
                         <TextBlock
@@ -652,7 +652,7 @@
                             Margin="0,8,0,0"
                             FontSize="14"
                             FontWeight="Black"
-                            Text="TaskDialog Win32 (Experimental)" />
+                            Text="NativeDialog (Win32)" />
                         <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
                             <TextBlock
                                 MinWidth="80"
@@ -660,6 +660,11 @@
                                 FontSize="14"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="Theme" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="System" />
                             <ui:Button
                                 Margin="16,0,0,0"
                                 Command="{Binding ShowTaskDialogCommand}"
@@ -677,7 +682,7 @@
                                 VerticalAlignment="Center"
                                 FontSize="14"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Dialog" />
+                                Text="TaskDialog" />
                             <ui:Button
                                 Margin="16,0,0,0"
                                 Command="{Binding ShowTaskDialogCommand}"
@@ -703,6 +708,44 @@
                                 Command="{Binding ShowTaskDialogCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                                 Content="Expanded" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Radio" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="Progress" />
+                        </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="MessageBox" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNativeMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="OK" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNativeMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="YesNo" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNativeMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="OKCancel" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowNativeMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="YesNoCancel" />
                         </StackPanel>
 
                         <!--

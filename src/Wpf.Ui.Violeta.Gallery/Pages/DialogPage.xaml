@@ -133,6 +133,142 @@
                 </StackPanel>
             </Border>
 
+            <!--  TaskDialog (Win32)  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TaskDialog" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Win32 TaskDialog，支持暗色主题、命令链接、单选、进度条与可展开信息。" />
+                    <TextBlock
+                        Margin="0,0,0,8"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="主题" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="跟随系统"
+                            Tag="System" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="深色"
+                            Tag="Dark" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="浅色"
+                            Tag="Light" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,4,0,8"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="对话框" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="信息"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="警告"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="错误"
+                            Tag="Error" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="命令链接"
+                            Tag="CommandLinks" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="可展开"
+                            Tag="Expanded" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="单选"
+                            Tag="Radio" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowTaskDialog_Click"
+                            Content="进度条"
+                            Tag="Progress" />
+                    </WrapPanel>
+                    <TextBlock
+                        x:Name="TaskDialogResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结果：(等待操作)" />
+                </StackPanel>
+            </Border>
+
+            <!--  NativeMessageBox (Win32)  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="NativeMessageBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="原生 Win32 MessageBoxW 封装，不依赖 WPF MessageBox。" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="确定"
+                            Tag="OK" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="是/否"
+                            Tag="YesNo" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="确定/取消"
+                            Tag="OKCancel" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="是/否/取消"
+                            Tag="YesNoCancel" />
+                    </WrapPanel>
+                    <TextBlock
+                        x:Name="NativeMessageBoxResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结果：(等待操作)" />
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

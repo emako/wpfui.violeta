@@ -68,7 +68,7 @@
                             Margin="0,4,0,0"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             TextWrapping="Wrap">
-                            Toast 通知、ContentDialog、MessageBox、PendingBox 异步对话框
+                            Toast 通知、ContentDialog、MessageBox、PendingBox、TaskDialog、NativeMessageBox
                         </TextBlock>
                     </StackPanel>
                 </Border>
