@@ -177,7 +177,7 @@ public class TimeBoxPickerPresenter : Control
         }
 
         int i = 0;
-        while (i < format.Length)
+        while (i < format!.Length)
         {
             char c = format[i];
 

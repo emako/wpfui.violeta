@@ -28,7 +28,7 @@ public class ToggleSwitchAutomationPeer : FrameworkElementAutomationPeer, IToggl
 
     protected override string GetNameCore()
     {
-        string name = base.GetNameCore();
+        string? name = base.GetNameCore();
 
         if (string.IsNullOrEmpty(name))
         {
