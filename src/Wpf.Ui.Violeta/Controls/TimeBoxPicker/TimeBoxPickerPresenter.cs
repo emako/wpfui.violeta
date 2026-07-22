@@ -227,6 +227,11 @@ public class TimeBoxPickerPresenter : Control
             }
 
             FlushField();
+            if (c is 't')
+            {
+                i++;
+                continue;
+            }
             literal.Append(c);
             i++;
         }
