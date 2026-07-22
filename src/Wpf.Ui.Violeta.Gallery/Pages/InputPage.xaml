@@ -319,6 +319,42 @@
                 </StackPanel>
             </Border>
 
+            <!--  TimeBoxPicker  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TimeBoxPicker — 自定义格式时间选择" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="文本框 + 下拉弹出层，支持自定义 .NET 时间格式，不含 AM/PM 选择列。" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:TimeBoxPicker
+                            MaxWidth="200"
+                            Margin="0,0,16,0"
+                            HorizontalAlignment="Left" />
+                        <vio:TimeBoxPicker
+                            MaxWidth="200"
+                            Margin="0,0,16,0"
+                            HorizontalAlignment="Left"
+                            Format="HH:mm:ss.fff" />
+                        <vio:TimeBoxPicker
+                            MaxWidth="200"
+                            HorizontalAlignment="Left"
+                            ClockIdentifier="12HourClock" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
             <!--  PinCode  -->
             <Border
                 Margin="0,0,0,16"
@@ -457,6 +493,77 @@
                             HorizontalAlignment="Left"
                             ConsiderKeyModifiers="False"
                             PlaceholderText="不使用修饰键..." />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  ToggleSwitch  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ToggleSwitch — 开关切换" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="带滑动动画的开关控件，支持拖拽、标题、On/Off 自定义内容，适合用于设置项。" />
+                    <StackPanel Orientation="Vertical">
+                        <ui:StackPanel Margin="0,0,0,8" Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="基本" />
+                            <vio:ToggleSwitch />
+                        </ui:StackPanel>
+                        <ui:StackPanel Margin="0,0,0,8" Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="默认开" />
+                            <vio:ToggleSwitch IsOn="True" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Margin="0,0,0,8" Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="带标题" />
+                            <vio:ToggleSwitch IsOn="True" Header="Wi-Fi" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Margin="0,0,0,8" Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="自定义内容" />
+                            <vio:ToggleSwitch OffContent="隐藏" OnContent="显示" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Margin="0,0,0,8" Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="禁用" />
+                            <vio:ToggleSwitch IsEnabled="False" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="右侧紧凑" />
+                            <vio:ToggleSwitch IsOn="True" IsRightAlignedCompact="True" Header="蓝牙" />
+                        </ui:StackPanel>
                     </StackPanel>
                 </StackPanel>
             </Border>

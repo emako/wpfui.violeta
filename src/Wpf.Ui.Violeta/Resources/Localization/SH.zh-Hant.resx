@@ -233,4 +233,11 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>頁</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>關</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>開</value>
+  </data>
 </root>
+

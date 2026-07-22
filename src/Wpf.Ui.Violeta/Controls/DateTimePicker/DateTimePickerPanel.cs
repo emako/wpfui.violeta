@@ -307,6 +307,11 @@ public class DateTimePickerPanel : Control
                     list.Add(i.ToString("D2"));
                 break;
 
+            case DateTimePickerPanelType.Millisecond:
+                for (int i = 0; i <= 999; i++)
+                    list.Add(i.ToString("D3"));
+                break;
+
             case DateTimePickerPanelType.TimePeriod:
                 list.Add("AM");
                 list.Add("PM");

@@ -8,6 +8,7 @@ public enum DateTimePickerPanelType
     Hour,
     Minute,
     Second,
+    Millisecond,
     TimePeriod,
     ValueList,
 }

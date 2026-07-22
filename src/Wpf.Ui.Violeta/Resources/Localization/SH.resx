@@ -233,4 +233,10 @@
   <data name="TimePickerSecondText" xml:space="preserve">
     <value>second</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>On</value>
+  </data>
 </root>

@@ -233,4 +233,11 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>trang</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>Mở</value>
+  </data>
 </root>
+

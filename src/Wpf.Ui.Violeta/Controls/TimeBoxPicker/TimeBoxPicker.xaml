@@ -1,0 +1,300 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:chelper="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+
+    <!--
+        TimeBoxPicker mirrors CalendarDateTimePicker's TextBox + drop-down button structure,
+        but its popup renders a TimeBoxPickerPresenter — one drum-roll column per Hour/Minute/
+        Second/Millisecond field parsed out of Format, with literal separators (":", ".", etc.)
+        taken verbatim from Format. There is no AM/PM picker column.
+    -->
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DateTimePicker/DateTimePicker.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--
+        ═══════════════════════════════════════════════════════════════
+        TimeBoxPickerPresenter
+        ═══════════════════════════════════════════════════════════════
+    -->
+    <Style TargetType="{x:Type local:TimeBoxPickerPresenter}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TimeBoxPickerPresenter}">
+                    <!--
+                        PART_PickerContainer's height is pinned to VisibleItemCount * ItemHeight
+                        (11 * 36 = 396) so the ScrollViewer's actual viewport always matches what
+                        DateTimePickerPanel's centering/scroll math assumes — without an explicit
+                        height, the ScrollViewer measures to full content size and gets stretched/
+                        clipped by the surrounding layout instead, desyncing the "selected item
+                        lands in the middle" math from the actual viewport size.
+                    -->
+                    <Grid
+                        x:Name="PART_PickerContainer"
+                        Height="396"
+                        MinWidth="180" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        ═══════════════════════════════════════════════════════════════
+        TimeBoxPicker
+        ═══════════════════════════════════════════════════════════════
+    -->
+    <Style x:Key="DefaultTimeBoxPickerStyle" TargetType="{x:Type local:TimeBoxPicker}">
+        <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerTextForegroundSelected}" />
+        <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource TextBoxBorderThemeThickness}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
+        <Setter Property="MinWidth" Value="180" />
+        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TimeBoxPicker}">
+                    <StackPanel>
+                        <!--  Optional header  -->
+                        <ContentPresenter
+                            x:Name="HeaderPresenter"
+                            Margin="0,0,0,4"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Visibility="Collapsed" />
+
+                        <Grid x:Name="PART_Root" SnapsToDevicePixels="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="32" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                                x:Name="ContentBorder"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                MinWidth="{TemplateBinding MinWidth}"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}" />
+                            <Grid Grid.Column="0" Grid.ColumnSpan="2">
+                                <TextBox
+                                    x:Name="PART_TextBox"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    CaretBrush="{TemplateBinding Foreground}"
+                                    Focusable="{TemplateBinding Focusable}"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+                                <TextBlock
+                                    x:Name="PART_PlaceholderText"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{DynamicResource CalendarDatePickerTextForeground}"
+                                    IsHitTestVisible="False"
+                                    Text="{TemplateBinding PlaceholderText}"
+                                    Visibility="Collapsed" />
+                            </Grid>
+                            <Button
+                                x:Name="PART_Button"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Content="&#xF2DE;"
+                                Focusable="False"
+                                FontFamily="{DynamicResource FluentSystemIcons}"
+                                FontSize="14"
+                                Foreground="{DynamicResource CalendarDatePickerCalendarGlyphForeground}">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <TextBlock
+                                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                            FontFamily="{TemplateBinding FontFamily}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            Foreground="{TemplateBinding Foreground}"
+                                            Text="{TemplateBinding Content}" />
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <Popup
+                                x:Name="PART_Popup"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                AllowsTransparency="True"
+                                Placement="Bottom"
+                                StaysOpen="False">
+                                <primitives:ThemeShadowChrome
+                                    x:Name="Shdw"
+                                    chelper:OpeningAnimationHelper.Storyboard="{DynamicResource TimeBoxPickerOpeningStoryboard}"
+                                    CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}"
+                                    IsShadowEnabled="True"
+                                    SnapsToDevicePixels="True">
+                                    <primitives:ThemeShadowChrome.Resources>
+                                        <Storyboard x:Key="TimeBoxPickerOpeningStoryboard">
+                                            <DoubleAnimation
+                                                Storyboard.Target="{Binding ElementName=Shdw}"
+                                                Storyboard.TargetProperty="Opacity"
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.100" />
+                                        </Storyboard>
+                                    </primitives:ThemeShadowChrome.Resources>
+                                    <Border
+                                        Background="{DynamicResource DateTimePickerPopupBackground}"
+                                        BorderBrush="{DynamicResource DateTimePickerPopupBorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}"
+                                        SnapsToDevicePixels="True">
+                                        <Border ClipToBounds="True" CornerRadius="{DynamicResource DateTimePickerPopupCornerRadius}">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <local:TimeBoxPickerPresenter
+                                                    x:Name="PART_Presenter"
+                                                    Grid.Row="0"
+                                                    VisibleItemCount="11" />
+
+                                                <!--  Accept / Dismiss row  -->
+                                                <Grid Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="1" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Rectangle
+                                                        Grid.Column="0"
+                                                        Grid.ColumnSpan="3"
+                                                        Height="1"
+                                                        VerticalAlignment="Top"
+                                                        Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                                    <Button
+                                                        x:Name="PART_AcceptButton"
+                                                        Grid.Column="0"
+                                                        Height="40"
+                                                        HorizontalAlignment="Stretch"
+                                                        Style="{StaticResource DateTimePickerPopupButtonStyle}">
+                                                        <Path
+                                                            Width="14"
+                                                            Height="10"
+                                                            Data="M 0,5 L 5,10 L 14,0"
+                                                            Stretch="Fill"
+                                                            Stroke="{DynamicResource DateTimePickerFlyoutButtonForeground}"
+                                                            StrokeLineJoin="Round"
+                                                            StrokeThickness="1.8" />
+                                                    </Button>
+
+                                                    <Rectangle Grid.Column="1" Fill="{DynamicResource DateTimePickerSeparatorBackground}" />
+
+                                                    <Button
+                                                        x:Name="PART_DismissButton"
+                                                        Grid.Column="2"
+                                                        Height="40"
+                                                        HorizontalAlignment="Stretch"
+                                                        Style="{StaticResource DateTimePickerPopupButtonStyle}">
+                                                        <Path
+                                                            Width="10"
+                                                            Height="10"
+                                                            Data="M 0,0 L 10,10 M 0,10 L 10,0"
+                                                            Stretch="Fill"
+                                                            Stroke="{DynamicResource DateTimePickerFlyoutButtonForeground}"
+                                                            StrokeThickness="1.5" />
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                        </Border>
+                                    </Border>
+                                </primitives:ThemeShadowChrome>
+                            </Popup>
+
+                            <!--  Accent border / bottom focus indicator  -->
+                            <Border
+                                x:Name="AccentBorder"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
+                                CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
+                                IsHitTestVisible="False" />
+                        </Grid>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Header, RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                            <Setter TargetName="HeaderPresenter" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <Trigger SourceName="PART_TextBox" Property="Text" Value="">
+                            <Setter TargetName="PART_PlaceholderText" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger SourceName="PART_TextBox" Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition SourceName="PART_Root" Property="IsMouseOver" Value="True" />
+                                <Condition SourceName="PART_TextBox" Property="IsKeyboardFocused" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
+                        </MultiTrigger>
+                        <Trigger SourceName="PART_Button" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundPointerOver}" />
+                        </Trigger>
+                        <Trigger SourceName="PART_Button" Property="IsPressed" Value="True">
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="PART_TextBox" Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
+                            <Setter TargetName="PART_PlaceholderText" Property="Foreground" Value="{DynamicResource TextControlForegroundDisabled}" />
+                            <Setter TargetName="PART_Button" Property="Foreground" Value="{DynamicResource CalendarDatePickerCalendarGlyphForegroundDisabled}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultTimeBoxPickerStyle}" TargetType="{x:Type local:TimeBoxPicker}" />
+
+</ResourceDictionary>

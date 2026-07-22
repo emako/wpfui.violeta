@@ -278,5 +278,23 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
                 return ResourceManager.GetString("TimePickerSecondText", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        internal static string ToggleSwitchOff {
+            get {
+                return ResourceManager.GetString("ToggleSwitchOff", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        internal static string ToggleSwitchOn {
+            get {
+                return ResourceManager.GetString("ToggleSwitchOn", resourceCulture);
+            }
+        }
     }
 }

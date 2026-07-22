@@ -5124,6 +5124,100 @@
                             SelectedDateTime="2026-07-20 13:45:00" />
                     </ui:StackPanel>
 
+                    <!--  TimeBoxPicker  -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="TimeBoxPicker" />
+                    <ui:StackPanel
+                        Margin="0,8,0,24"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                        <vio:TimeBoxPicker Width="200" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            Format="HH:mm:ss.fff"
+                            SelectedTime="13:45:01.234" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            ClockIdentifier="12HourClock"
+                            SelectedTime="13:45:01" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            Format="mm:ss"
+                            IsEnabled="False"
+                            SelectedTime="00:45:01" />
+                    </ui:StackPanel>
+
+                    <!--
+                        ══════════════════════════════════════════════════════════════
+                        ToggleSwitch
+                        ══════════════════════════════════════════════════════════════
+                    -->
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ToggleSwitch" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="A toggle switch control with On/Off states, drag support, and header." />
+                    <ui:StackPanel
+                        Margin="0,8,0,0"
+                        Orientation="Vertical"
+                        Spacing="8">
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Basic" />
+                            <vio:ToggleSwitch />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="IsOn=True" />
+                            <vio:ToggleSwitch IsOn="True" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="With Header" />
+                            <vio:ToggleSwitch IsOn="True" Header="Wi-Fi" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Custom Content" />
+                            <vio:ToggleSwitch OffContent="隐藏" OnContent="显示" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Disabled" />
+                            <vio:ToggleSwitch IsEnabled="False" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Compact Right" />
+                            <vio:ToggleSwitch IsOn="True" IsRightAlignedCompact="True" Header="蓝牙" />
+                        </ui:StackPanel>
+                    </ui:StackPanel>
+
                     <!--
                         ══════════════════════════════════════════════════════════════
                         ValuePicker

@@ -174,4 +174,11 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>Seite</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>Ein</value>
+  </data>
 </root>
+

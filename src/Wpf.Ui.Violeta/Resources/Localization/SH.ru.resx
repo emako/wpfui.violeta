@@ -233,4 +233,11 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>странице</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>Выкл</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>Вкл</value>
+  </data>
 </root>
+

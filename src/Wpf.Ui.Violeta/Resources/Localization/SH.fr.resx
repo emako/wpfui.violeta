@@ -233,4 +233,11 @@
   <data name="PaginationQuickJumpSuffix" xml:space="preserve">
     <value>page</value>
   </data>
+  <data name="ToggleSwitchOff" xml:space="preserve">
+    <value>Arrêt</value>
+  </data>
+  <data name="ToggleSwitchOn" xml:space="preserve">
+    <value>Marche</value>
+  </data>
 </root>
+
