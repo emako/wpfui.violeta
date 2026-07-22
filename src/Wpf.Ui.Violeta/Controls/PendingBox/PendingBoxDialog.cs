@@ -39,12 +39,11 @@ public partial class PendingBoxDialog : Window
 
     protected static void OnIsShowCancelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
+        _ = e;
+
         if (d is PendingBoxDialog self)
         {
-            if (self.CancelButton != null)
-            {
-                self.CancelButton.Visibility = self.IsShowCancel ? Visibility.Visible : Visibility.Collapsed;
-            }
+            self.CancelButton?.Visibility = self.IsShowCancel ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 
@@ -106,16 +105,10 @@ public partial class PendingBoxDialog : Window
 
         if (string.IsNullOrWhiteSpace(Title))
         {
-            if (TitleTextBlock != null)
-            {
-                TitleTextBlock.Visibility = Visibility.Collapsed;
-            }
+            TitleTextBlock?.Visibility = Visibility.Collapsed;
         }
 
-        if (CancelButton != null)
-        {
-            CancelButton.Click -= OnCancelButtonClick;
-        }
+        CancelButton?.Click -= OnCancelButtonClick;
 
         CancelButton = (Button)GetTemplateChild("PART_CancelButton");
 
@@ -141,10 +134,7 @@ public partial class PendingBoxDialog : Window
     {
         Canceled?.Invoke(this, e);
 
-        if (CancelButton != null)
-        {
-            CancelButton.IsEnabled = false;
-        }
+        CancelButton?.IsEnabled = false;
 
         // Don't call Close() here, let the handler do it.
     }
