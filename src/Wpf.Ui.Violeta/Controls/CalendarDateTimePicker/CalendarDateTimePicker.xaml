@@ -182,7 +182,8 @@
                                     FontSize="{TemplateBinding FontSize}"
                                     Foreground="{TemplateBinding Foreground}"
                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                                    ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+                                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
                                     x:Name="PART_PlaceholderText"
                                     Margin="{TemplateBinding Padding}"
