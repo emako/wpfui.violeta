@@ -209,6 +209,9 @@
   <data name="CascadingComboBoxClearSelection" xml:space="preserve">
     <value>Hapus pilihan</value>
   </data>
+  <data name="TreeComboBoxClearSelection" xml:space="preserve">
+    <value>Hapus pilihan</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Ke</value>
   </data>

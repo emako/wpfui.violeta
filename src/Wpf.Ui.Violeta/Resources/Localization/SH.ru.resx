@@ -209,6 +209,9 @@
   <data name="CascadingComboBoxClearSelection" xml:space="preserve">
     <value>Очистить выбор</value>
   </data>
+  <data name="TreeComboBoxClearSelection" xml:space="preserve">
+    <value>Очистить выбор</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Перейти к</value>
   </data>

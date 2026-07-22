@@ -5092,7 +5092,7 @@
                         Orientation="Horizontal"
                         Spacing="16">
                         <Calendar />
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                        <StackPanel VerticalAlignment="Top" Orientation="Vertical">
                             <DatePicker Width="220" />
                             <DatePicker
                                 Width="220"
@@ -5173,6 +5173,14 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Original" />
+                            <ui:ToggleSwitch />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="Basic" />
                             <vio:ToggleSwitch />
                         </ui:StackPanel>
@@ -5190,7 +5198,7 @@
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="With Header" />
-                            <vio:ToggleSwitch IsOn="True" Header="Wi-Fi" />
+                            <vio:ToggleSwitch Header="Wi-Fi" IsOn="True" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <TextBlock
@@ -5214,7 +5222,10 @@
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="Compact Right" />
-                            <vio:ToggleSwitch IsOn="True" IsRightAlignedCompact="True" Header="蓝牙" />
+                            <vio:ToggleSwitch
+                                Header="蓝牙"
+                                IsOn="True"
+                                IsRightAlignedCompact="True" />
                         </ui:StackPanel>
                     </ui:StackPanel>
 

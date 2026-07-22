@@ -209,6 +209,9 @@
   <data name="CascadingComboBoxClearSelection" xml:space="preserve">
     <value>선택 지우기</value>
   </data>
+  <data name="TreeComboBoxClearSelection" xml:space="preserve">
+    <value>선택 지우기</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>이동</value>
   </data>

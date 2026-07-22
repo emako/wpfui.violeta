@@ -67,6 +67,44 @@
         </Setter>
     </Style>
 
+    <!--  Clear button style shown between the selected value and the drop-down chevron  -->
+    <Style x:Key="TreeComboBoxClearButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{DynamicResource ComboBoxDropDownGlyphForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="ButtonBackground"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="4">
+                        <ui:SymbolIcon
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="10"
+                            Foreground="{TemplateBinding Foreground}"
+                            Symbol="Dismiss16" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--  TreeComboBoxItem default style  -->
     <Style x:Key="DefaultTreeComboBoxItemStyle" TargetType="{x:Type local:TreeComboBoxItem}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -236,6 +274,21 @@
                             </ToggleButton.Style>
                         </ToggleButton>
 
+                        <!--  Clear button (after toggle so it is on top and clickable)  -->
+                        <Button
+                            x:Name="PART_ClearButton"
+                            Width="24"
+                            Height="24"
+                            Padding="0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Margin="0,0,30,0"
+                            AutomationProperties.Name="{TemplateBinding ClearButtonToolTip}"
+                            Focusable="False"
+                            Style="{StaticResource TreeComboBoxClearButtonStyle}"
+                            ToolTip="{TemplateBinding ClearButtonToolTip}"
+                            Visibility="Visible" />
+
                         <!--  Drop-down popup  -->
                         <Popup
                             x:Name="PART_Popup"
@@ -267,6 +320,11 @@
                         <Trigger Property="SelectionBoxItem" Value="{x:Null}">
                             <Setter TargetName="PART_PlaceholderTextBlock" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_SelectionBoxItem" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <!--  Hide clear button when disabled  -->
+                        <Trigger Property="ClearButtonEnabled" Value="False">
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <!--  Rotate chevron when dropdown is open  -->
                         <Trigger Property="IsDropDownOpen" Value="True">
@@ -301,6 +359,7 @@
                         <!--  Disabled state  -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource ComboBoxBackgroundDisabled}" />
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
                             <Setter Property="Foreground" Value="{DynamicResource ComboBoxForegroundDisabled}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

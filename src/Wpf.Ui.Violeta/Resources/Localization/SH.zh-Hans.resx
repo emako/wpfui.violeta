@@ -209,6 +209,9 @@
   <data name="CascadingComboBoxClearSelection" xml:space="preserve">
     <value>清空选择</value>
   </data>
+  <data name="TreeComboBoxClearSelection" xml:space="preserve">
+    <value>清空选择</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>前往</value>
   </data>

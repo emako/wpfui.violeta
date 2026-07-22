@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -11,11 +12,14 @@ namespace Wpf.Ui.Violeta.Controls;
 /// Mirrors the logic of Ursa.Avalonia's TreeComboBox.
 /// </summary>
 [TemplatePart(Name = PART_Popup, Type = typeof(Popup))]
+[TemplatePart(Name = PART_ClearButton, Type = typeof(Button))]
 public class TreeComboBox : ItemsControl
 {
     public const string PART_Popup = "PART_Popup";
+    public const string PART_ClearButton = "PART_ClearButton";
 
     private Popup? _popup;
+    private Button? _clearButton;
     private Window? _parentWindow;
     private bool _windowHandlerRegistered;
 
@@ -94,6 +98,30 @@ public class TreeComboBox : ItemsControl
         private set => SetValue(SelectionBoxItemPropertyKey, value);
     }
 
+    public static readonly DependencyProperty ClearButtonEnabledProperty =
+        DependencyProperty.Register(nameof(ClearButtonEnabled), typeof(bool), typeof(TreeComboBox), new PropertyMetadata(true));
+
+    public static readonly DependencyProperty ClearButtonToolTipProperty =
+        DependencyProperty.Register(nameof(ClearButtonToolTip), typeof(string), typeof(TreeComboBox), new PropertyMetadata(string.Empty));
+
+    /// <summary>
+    /// Gets or sets whether the clear button is available when an item is selected.
+    /// </summary>
+    public bool ClearButtonEnabled
+    {
+        get => (bool)GetValue(ClearButtonEnabledProperty);
+        set => SetValue(ClearButtonEnabledProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the tooltip and automation name of the clear button.
+    /// </summary>
+    public string ClearButtonToolTip
+    {
+        get => (string)GetValue(ClearButtonToolTipProperty);
+        set => SetValue(ClearButtonToolTipProperty, value);
+    }
+
     #endregion Dependency Properties
 
     static TreeComboBox()
@@ -105,14 +133,24 @@ public class TreeComboBox : ItemsControl
 
     public TreeComboBox()
     {
+        if (ReadLocalValue(ClearButtonToolTipProperty) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(ClearButtonToolTipProperty, SH.TreeComboBoxClearSelection);
+        }
+
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
     }
 
     public override void OnApplyTemplate()
     {
+        _clearButton?.Click -= OnClearButtonClick;
+
         base.OnApplyTemplate();
+
         _popup = GetTemplateChild(PART_Popup) as Popup;
+        _clearButton = GetTemplateChild(PART_ClearButton) as Button;
+        _clearButton?.Click += OnClearButtonClick;
     }
 
     private void OnLoaded(object? sender, RoutedEventArgs e)
@@ -260,10 +298,17 @@ public class TreeComboBox : ItemsControl
         SetCurrentValue(IsDropDownOpenProperty, false);
     }
 
-    /// <summary>Clears the current selection.</summary>
+    /// <summary>Clears the current selection and closes the drop-down if open.</summary>
     public void Clear()
     {
+        SetCurrentValue(IsDropDownOpenProperty, false);
         SelectedItem = null;
+    }
+
+    private void OnClearButtonClick(object? sender, RoutedEventArgs e)
+    {
+        Clear();
+        e.Handled = true;
     }
 
     private static void OnSelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

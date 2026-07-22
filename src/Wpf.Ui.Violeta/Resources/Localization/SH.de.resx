@@ -150,6 +150,9 @@
   <data name="CascadingComboBoxClearSelection" xml:space="preserve">
     <value>Auswahl löschen</value>
   </data>
+  <data name="TreeComboBoxClearSelection" xml:space="preserve">
+    <value>Auswahl löschen</value>
+  </data>
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>Gehe zu</value>
   </data>

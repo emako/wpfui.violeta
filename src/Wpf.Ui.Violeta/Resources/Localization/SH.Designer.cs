@@ -215,6 +215,15 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
                 return ResourceManager.GetString("CascadingComboBoxClearSelection", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Clear selection.
+        /// </summary>
+        internal static string TreeComboBoxClearSelection {
+            get {
+                return ResourceManager.GetString("TreeComboBoxClearSelection", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Loading.
