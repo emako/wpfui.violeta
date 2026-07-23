@@ -7,10 +7,40 @@ namespace Wpf.Ui.Violeta.Win32;
 /// <summary>Win32 corner rounding preference (requires Windows 11+).</summary>
 public enum WindowCornerPreference
 {
+    /// <summary>
+    /// Let the system decide whether or not to round window corners.
+    /// Equivalent to DWMWCP_DEFAULT
+    /// </summary>
     Default = 0,
+
+    /// <summary>
+    /// Never round window corners.
+    /// Equivalent to DWMWCP_DONOTROUND
+    /// </summary>
     DoNotRound = 1,
+
+    /// <summary>
+    /// Round the corners if appropriate.
+    /// Equivalent to DWMWCP_ROUND
+    /// </summary>
     Round = 2,
+
+    /// <summary>
+    /// Round the corners if appropriate, with a small radius.
+    /// Equivalent to DWMWCP_ROUNDSMALL
+    /// </summary>
     RoundSmall = 3,
+}
+
+public enum SystembackdropType
+{
+    Auto = 0,
+    None = 1,
+    Mica = 2,
+    Acrylic = 3, // Automatically selects the best Acrylic effect available on the system (Acrylic11 > Acrylic10)
+    Tabbed = 4,
+    Acrylic10 = 5, // Windows 10 style, supported on Windows 10 and 11
+    Acrylic11 = 6, // Windows 11 style, supported on Windows 11 22523+ (Insider) and 22621+ (Stable)
 }
 
 /// <summary>
@@ -23,7 +53,7 @@ internal static class DwmApi
     // Enumerations
     // ------------------------------------------------------------------
 
-    private enum DWMWINDOWATTRIBUTE
+    internal enum DWMWINDOWATTRIBUTE
     {
         DWMWA_TRANSITIONS_FORCEDISABLED = 3,
         DWMWA_USE_IMMERSIVE_DARK_MODE_OLD = 19,
@@ -34,7 +64,7 @@ internal static class DwmApi
         MICA_EFFECT = 1029,
     }
 
-    private enum AccentState
+    internal enum AccentState
     {
         ACCENT_DISABLED = 0,
         ACCENT_ENABLE_GRADIENT = 1,
@@ -44,7 +74,7 @@ internal static class DwmApi
         ACCENT_INVALID_STATE = 5,
     }
 
-    private enum WindowCompositionAttribute
+    internal enum WindowCompositionAttribute
     {
         WCA_ACCENT_POLICY = 19,
     }
@@ -54,7 +84,7 @@ internal static class DwmApi
     // ------------------------------------------------------------------
 
     [StructLayout(LayoutKind.Sequential)]
-    private struct AccentPolicy
+    internal struct AccentPolicy
     {
         public AccentState AccentState;
         public int AccentFlags;
@@ -63,7 +93,7 @@ internal static class DwmApi
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    private struct WindowCompositionAttributeData
+    internal struct WindowCompositionAttributeData
     {
         public WindowCompositionAttribute Attribute;
         public nint Data;
@@ -71,12 +101,16 @@ internal static class DwmApi
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    private struct Margins
+    internal struct Margins(int leftWidth, int rightWidth, int topHeight, int bottomHeight)
     {
-        public int LeftWidth;
-        public int RightWidth;
-        public int TopHeight;
-        public int BottomHeight;
+        public int LeftWidth = leftWidth;
+        public int RightWidth = rightWidth;
+        public int TopHeight = topHeight;
+        public int BottomHeight = bottomHeight;
+
+        public Margins() : this(0, 0, 0, 0)
+        {
+        }
     }
 
     // ------------------------------------------------------------------
@@ -84,13 +118,13 @@ internal static class DwmApi
     // ------------------------------------------------------------------
 
     [DllImport("dwmapi.dll")]
-    private static extern nint DwmExtendFrameIntoClientArea(nint hwnd, ref Margins margins);
+    internal static extern nint DwmExtendFrameIntoClientArea(nint hwnd, ref Margins margins);
 
     [DllImport("dwmapi.dll")]
-    private static extern int DwmSetWindowAttribute(nint hwnd, DWMWINDOWATTRIBUTE attr, ref int pvAttr, int cbAttr);
+    internal static extern int DwmSetWindowAttribute(nint hwnd, DWMWINDOWATTRIBUTE attr, ref int pvAttr, int cbAttr);
 
     [DllImport("user32.dll", SetLastError = true)]
-    private static extern int SetWindowCompositionAttribute(nint hwnd, ref WindowCompositionAttributeData data);
+    internal static extern int SetWindowCompositionAttribute(nint hwnd, ref WindowCompositionAttributeData data);
 
     // ------------------------------------------------------------------
     // Internal helpers

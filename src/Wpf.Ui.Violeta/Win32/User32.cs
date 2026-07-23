@@ -138,6 +138,10 @@ internal static class User32
 
     public delegate nint WndProcDelegate(nint hWnd, uint msg, nint wParam, nint lParam);
 
+    [DllImport("user32.dll")]
+    public static extern int SetWindowCompositionAttribute(nint hwnd,
+        ref BackdropHelper.WindowCompositionAttributeData data);
+
     [Flags]
     public enum DialogBoxCommand : uint
     {
