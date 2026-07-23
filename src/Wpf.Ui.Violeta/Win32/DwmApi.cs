@@ -25,9 +25,13 @@ internal static class DwmApi
 
     private enum DWMWINDOWATTRIBUTE
     {
+        DWMWA_TRANSITIONS_FORCEDISABLED = 3,
+        DWMWA_USE_IMMERSIVE_DARK_MODE_OLD = 19,
         DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
         WINDOW_CORNER_PREFERENCE = 33,
+        CAPTION_COLOR = 35,
         DWMWA_SYSTEMBACKDROP_TYPE = 38,
+        MICA_EFFECT = 1029,
     }
 
     private enum AccentState
@@ -95,6 +99,13 @@ internal static class DwmApi
     /// <summary>Converts a WPF <see cref="Color"/> to Win32 COLORREF (ABGR layout used by GradientColor).</summary>
     internal static int ToWin32Color(Color c) =>
         c.R | (c.G << 8) | (c.B << 16) | (c.A << 24);
+
+    /// <summary>Enables or disables DWM window transition animations.</summary>
+    internal static void SetTransitionsForceDisabled(nint hwnd, bool disabled)
+    {
+        int value = disabled ? 1 : 0;
+        _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, ref value, Marshal.SizeOf<int>());
+    }
 
     /// <summary>Extends the DWM frame into the client area so WPF can paint over it transparently.</summary>
     internal static void ExtendFrameIntoClientArea(nint hwnd, int margin = 1)

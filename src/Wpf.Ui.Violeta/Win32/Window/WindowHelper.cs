@@ -1,34 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media;
-using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Win32;
 
 public static class WindowHelper
 {
+    public static void ShowWithoutTransition(this Window window)
+    {
+        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        DwmApi.SetTransitionsForceDisabled(hwnd, disabled: true);
+        window.Show();
+        DwmApi.SetTransitionsForceDisabled(hwnd, disabled: false);
+    }
+
     public static void BringToFront(this Window window, bool keep)
     {
-        var handle = new WindowInteropHelper(window).Handle;
+        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
         keep |= window.Topmost;
 
-        User32.SetWindowPos(handle, User32.HWND_TOPMOST, 0, 0, 0, 0,
+        User32.SetWindowPos(hwnd, User32.HWND_TOPMOST, 0, 0, 0, 0,
             User32.SET_WINDOW_POS_FLAGS.SWP_NOMOVE | User32.SET_WINDOW_POS_FLAGS.SWP_NOSIZE | User32.SET_WINDOW_POS_FLAGS.SWP_NOACTIVATE);
 
         if (!keep)
-            User32.SetWindowPos(handle, User32.HWND_NOTOPMOST, 0, 0, 0, 0,
+            User32.SetWindowPos(hwnd, User32.HWND_NOTOPMOST, 0, 0, 0, 0,
                 User32.SET_WINDOW_POS_FLAGS.SWP_NOMOVE | User32.SET_WINDOW_POS_FLAGS.SWP_NOSIZE | User32.SET_WINDOW_POS_FLAGS.SWP_NOACTIVATE);
     }
 
     public static void SetNoactivate(this Window window)
     {
-        var hwnd = new WindowInteropHelper(window).Handle;
+        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
         _ = User32.SetWindowLong(hwnd, User32.GWL_EXSTYLE,
             User32.GetWindowLong(hwnd, User32.GWL_EXSTYLE) |
             User32.WS_EX_NOACTIVATE);
