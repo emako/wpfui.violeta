@@ -7,7 +7,16 @@ namespace Wpf.Ui.Violeta.Win32;
 internal static class User32
 {
     public const int GWL_STYLE = -16;
+    public const int GWL_EXSTYLE = -20;
     public const int WS_SYSMENU = 0x00080000;
+    public const int WS_MINIMIZEBOX = 0x00020000;
+    public const int WS_MAXIMIZEBOX = 0x00010000;
+    public const int WS_EX_NOACTIVATE = 0x08000000;
+
+    public const nint HWND_TOPMOST = -1;
+    public const nint HWND_NOTOPMOST = -2;
+    public const nint HWND_TOP = 0;
+    public const nint HWND_BOTTOM = 1;
 
     [DllImport("user32.dll")]
     public static extern bool PostMessage(nint hWnd, uint Msg, nint wParam, nint lParam);
@@ -218,6 +227,7 @@ internal static class User32
     {
         [MarshalAs(UnmanagedType.Bool)]
         public bool fIcon;
+
         public uint xHotspot;
         public uint yHotspot;
         public nint hbmMask;
