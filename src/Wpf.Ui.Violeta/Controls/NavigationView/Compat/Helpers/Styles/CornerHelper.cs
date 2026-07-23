@@ -1,4 +1,4 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
+#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625, CA2101
 
 using System;
 using System.Collections.Generic;
@@ -68,14 +68,14 @@ public static class CornerHelper
     [DllImport("User32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool SetWindowCompositionAttribute(
-        IntPtr hwnd,
+        nint hwnd,
         ref WindowCompositionAttributeData data);
 
     [StructLayout(LayoutKind.Sequential)]
     private struct WindowCompositionAttributeData
     {
         public WindowCompositionAttribute Attribute;
-        public IntPtr Data;
+        public nint Data;
         public int SizeOfData;
     }
 
@@ -107,9 +107,9 @@ public static class CornerHelper
     }
 
     [DllImport("User32.dll", SetLastError = true)]
-    private static extern IntPtr FindWindowEx(
-        IntPtr hwndParent,
-        IntPtr hwndChildAfter,
+    private static extern nint FindWindowEx(
+        nint hwndParent,
+        nint hwndChildAfter,
         string lpszClass,
         string lpszWindow);
 
@@ -117,19 +117,19 @@ public static class CornerHelper
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool EnumWindows(
         EnumWindowsProc lpEnumFunc,
-        IntPtr lParam);
+        nint lParam);
 
     [return: MarshalAs(UnmanagedType.Bool)]
     private delegate bool EnumWindowsProc(
-        IntPtr hWnd,
-        IntPtr lParam);
+        nint hWnd,
+        nint lParam);
 
     [DllImport("User32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool GetCursorPos(out POINT lpPoint);
 
     [DllImport("User32.dll")]
-    private static extern IntPtr WindowFromPoint(POINT Point);
+    private static extern nint WindowFromPoint(POINT Point);
 
     [StructLayout(LayoutKind.Sequential)]
     public struct POINT
@@ -137,20 +137,20 @@ public static class CornerHelper
         public int x;
         public int y;
 
-        public static implicit operator Point(POINT point) => new Point(point.x, point.y);
+        public static implicit operator Point(POINT point) => new(point.x, point.y);
 
-        public static implicit operator POINT(Point point) => new POINT { x = (int)point.X, y = (int)point.Y };
+        public static implicit operator POINT(Point point) => new() { x = (int)point.X, y = (int)point.Y };
     }
 
     [DllImport("User32.dll")]
-    private static extern IntPtr GetDesktopWindow();
+    private static extern nint GetDesktopWindow();
 
     [DllImport("User32.dll")]
-    private static extern IntPtr GetParent(IntPtr hWnd);
+    private static extern nint GetParent(nint hWnd);
 
     [DllImport("User32.dll")]
-    private static extern IntPtr GetAncestor(
-        IntPtr hwnd,
+    private static extern nint GetAncestor(
+        nint hwnd,
         GA gaFlags);
 
     private enum GA : uint
@@ -161,8 +161,8 @@ public static class CornerHelper
     }
 
     [DllImport("User32.dll")]
-    private static extern IntPtr GetWindow(
-        IntPtr hWnd,
+    private static extern nint GetWindow(
+        nint hWnd,
         GW uCmd);
 
     private enum GW : uint
@@ -178,7 +178,7 @@ public static class CornerHelper
 
     [DllImport("User32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     private static extern int GetClassName(
-        IntPtr hWnd,
+        nint hWnd,
         StringBuilder lpClassName,
         int nMaxCount);
 
@@ -191,7 +191,7 @@ public static class CornerHelper
         return SetWindowCorners(windowHandle, preference);
     }
 
-    public static bool SetWindowCorners(IntPtr windowHandle, WindowCornerStyle preference)
+    public static bool SetWindowCorners(nint windowHandle, WindowCornerStyle preference)
     {
         var value = (uint)preference;
 
@@ -209,7 +209,7 @@ public static class CornerHelper
         return EnableBackgroundBlur(windowHandle);
     }
 
-    public static bool EnableBackgroundBlur(IntPtr windowHandle)
+    public static bool EnableBackgroundBlur(nint windowHandle)
     {
         var accent = new AccentPolicy { AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND };
         var accentSize = Marshal.SizeOf(accent);
@@ -239,17 +239,17 @@ public static class CornerHelper
 
     public static IntPtr[] GetWindows()
     {
-        var list = new List<IntPtr>();
+        var list = new List<nint>();
 
         if (EnumWindows(
             Proc,
             IntPtr.Zero))
         {
-            return list.ToArray();
+            return [.. list];
         }
-        return new IntPtr[] { }; //Array.Empty<IntPtr>();
+        return [];
 
-        bool Proc(IntPtr windowHandle, IntPtr lParam)
+        bool Proc(nint windowHandle, nint lParam)
         {
             if (windowHandle != IntPtr.Zero)
                 list.Add(windowHandle);
@@ -258,7 +258,7 @@ public static class CornerHelper
         }
     }
 
-    public static IEnumerable<IntPtr> EnumerateWindowsUnderCursor()
+    public static IEnumerable<nint> EnumerateWindowsUnderCursor()
     {
         if (!GetCursorPos(out POINT point))
             yield break;
@@ -277,7 +277,7 @@ public static class CornerHelper
         }
     }
 
-    public static string GetWindowClassName(IntPtr windowHandle)
+    public static string GetWindowClassName(nint windowHandle)
     {
         if (windowHandle != IntPtr.Zero)
         {
@@ -294,7 +294,7 @@ public static class CornerHelper
         return null;
     }
 
-    public static IntPtr GetParentOrOwner(IntPtr windowHandle)
+    public static nint GetParentOrOwner(nint windowHandle)
     {
         var handle = GetParent(windowHandle);
         if (handle == IntPtr.Zero)
