@@ -2,7 +2,6 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Shell;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -190,35 +189,6 @@ public partial class ShellWindow : Window
     protected virtual void OnExtendsContentIntoTitleBarChanged(bool oldValue, bool newValue)
     {
         SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
-        _ = UnsafeNativeMethods.RemoveWindowTitlebarContents(this);
-    }
-}
-
-/// <summary>
-/// Reflective access to `Wpf.Ui.Interop.UnsafeNativeMethods` methods.
-/// </summary>
-file static class UnsafeNativeMethods
-{
-    private static readonly Type? _interopType
-        = Type.GetType("Wpf.Ui.Interop.UnsafeNativeMethods, Wpf.Ui");
-
-    /// <summary>
-    /// Tries to remove titlebar from selected <see cref="Window"/>.
-    /// </summary>
-    /// <param name="window">The window to which the effect is to be applied.</param>
-    /// <returns><see langword="true"/> if invocation of native Windows function succeeds.</returns>
-    public static bool RemoveWindowTitlebarContents(Window? window)
-    {
-        if (_interopType == null) return false;
-
-        MethodInfo? method = _interopType.GetMethod(
-            "RemoveWindowTitlebarContents",
-            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-            null,
-            [typeof(Window)],
-            null
-        );
-        if (method == null) return false;
-        return (bool)method.Invoke(null, [window])!;
+        _ = WindowBackdrop.RemoveWindowTitlebarContents(this);
     }
 }

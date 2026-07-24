@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shell;
-using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Win32;
 
@@ -246,6 +245,39 @@ public static class WindowBackdrop
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// Tries to remove titlebar from selected <see cref="Window"/>.
+    /// </summary>
+    /// <param name="window">The window to which the effect is to be applied.</param>
+    /// <returns><see langword="true"/> if invocation of native Windows function succeeds.</returns>
+    public static bool RemoveWindowTitlebarContents(this Window window)
+    {
+        if (window == null)
+            return false;
+
+        if (window.IsLoaded)
+        {
+            nint hwnd = new WindowInteropHelper(window).Handle;
+            return RemoveWindowTitlebarContents(hwnd);
+        }
+
+        window.Loaded += (_1, _2) =>
+        {
+            nint hwnd = new WindowInteropHelper(window).Handle;
+            _ = RemoveWindowTitlebarContents(hwnd);
+        };
+
+        return true;
+
+        static bool RemoveWindowTitlebarContents(nint hwnd)
+        {
+            int style = User32.GetWindowLong(hwnd, User32.GWL_STYLE);
+            style &= ~User32.WS_SYSMENU;
+            int result = User32.SetWindowLong(hwnd, User32.GWL_STYLE, style);
+            return result > 0;
+        }
     }
 
     /// <summary>
