@@ -9,6 +9,7 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Win32;
 using Button = System.Windows.Controls.Button;
+using Clipboard = System.Windows.Clipboard;
 using MessageBoxButton = System.Windows.MessageBoxButton;
 using MessageBoxResult = System.Windows.MessageBoxResult;
 

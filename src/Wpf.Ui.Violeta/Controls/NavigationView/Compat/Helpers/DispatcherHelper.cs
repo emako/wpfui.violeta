@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,7 +24,7 @@ public static class DispatcherHelper
     {
         ((DispatcherFrame)f).Continue = false;
 
-        return null;
+        return null!;
     }
 
     public static void RunOnMainThread(Action action)
@@ -53,7 +51,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task ExecuteOnUIThreadAsync(Action function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        return Application.Current?.ExecuteOnUIThreadAsync(function, priority);
+        return Application.Current?.ExecuteOnUIThreadAsync(function, priority)!;
     }
 
     /// <summary>
@@ -66,7 +64,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task<T> ExecuteOnUIThreadAsync<T>(Func<T> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        return Application.Current?.ExecuteOnUIThreadAsync(function, priority);
+        return Application.Current?.ExecuteOnUIThreadAsync(function, priority)!;
     }
 
     /// <summary>
@@ -78,7 +76,7 @@ public static class DispatcherHelper
     /// <returns>An awaitable <see cref="Task"/> for the operation.</returns>
     public static Task ExecuteOnUIThreadAsync(Func<Task> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        return Application.Current?.ExecuteOnUIThreadAsync(function, priority);
+        return Application.Current?.ExecuteOnUIThreadAsync(function, priority)!;
     }
 
     /// <summary>
@@ -91,7 +89,7 @@ public static class DispatcherHelper
     /// <returns>An awaitable <see cref="Task{T}"/> for the operation.</returns>
     public static Task<T> ExecuteOnUIThreadAsync<T>(Func<Task<T>> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        return Application.Current?.ExecuteOnUIThreadAsync(function, priority);
+        return Application.Current?.ExecuteOnUIThreadAsync(function, priority)!;
     }
 
     /// <summary>
@@ -220,7 +218,7 @@ public static class DispatcherHelper
             {
                 function();
 
-                taskCompletionSource.SetResult(null);
+                taskCompletionSource.SetResult(null!);
             }
             catch (Exception e)
             {
@@ -334,7 +332,7 @@ public static class DispatcherHelper
                 {
                     await awaitableResult.ConfigureAwait(false);
 
-                    taskCompletionSource.SetResult(null);
+                    taskCompletionSource.SetResult(null!);
                 }
                 else
                 {

@@ -7,6 +7,7 @@ using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Resources.Localization;
 using Wpf.Ui.Violeta.Win32;
+using Clipboard = System.Windows.Clipboard;
 
 namespace Wpf.Ui.Violeta.Controls;
 

@@ -1,11 +1,9 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Wpf.Ui.Violeta.Controls.Compat;
+namespace Wpf.Ui.Violeta.Win32;
 
-internal static partial class Utility
+internal static partial class LParamHelper
 {
     [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
     public static int GET_X_LPARAM(IntPtr lParam)

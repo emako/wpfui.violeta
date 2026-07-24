@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -12,7 +10,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 public static class DesignMode
 {
     private static readonly Lazy<bool> _designModeEnabled =
-        new Lazy<bool>(() => DesignerProperties.GetIsInDesignMode(new DependencyObject()));
+        new(() => DesignerProperties.GetIsInDesignMode(new DependencyObject()));
 
     /// <summary>
     /// Gets a value that indicates whether the process is running in design mode.
