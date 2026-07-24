@@ -3,11 +3,11 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Resources.Localization;
 using Wpf.Ui.Violeta.Win32;
 using Clipboard = System.Windows.Clipboard;
+using WindowBackdrop = Wpf.Ui.Violeta.Win32.WindowBackdrop;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -112,10 +112,9 @@ public partial class ExceptionWindow : FluentWindow
     {
         base.OnSourceInitialized(e);
 
-        if (WindowBackdrop.IsSupported(WindowBackdropType.Mica))
+        if (WindowBackdrop.IsSupported(WindowBackdropPreference.Mica))
         {
-            Background = new SolidColorBrush(Colors.Transparent);
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropPreference.Mica);
         }
     }
 

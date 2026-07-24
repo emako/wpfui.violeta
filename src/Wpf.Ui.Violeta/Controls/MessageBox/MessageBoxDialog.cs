@@ -12,6 +12,7 @@ using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
 using MessageBoxButton = System.Windows.MessageBoxButton;
 using MessageBoxResult = System.Windows.MessageBoxResult;
+using WindowBackdrop = Wpf.Ui.Violeta.Win32.WindowBackdrop;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -320,45 +321,24 @@ public partial class MessageBoxDialog : Window
     {
         base.OnApplyTemplate();
 
-        if (OKButton != null)
-        {
-            OKButton.Click -= OnButtonClick;
-        }
+        OKButton?.Click -= OnButtonClick;
 
-        if (YesButton != null)
-        {
-            YesButton.Click -= OnButtonClick;
-        }
+        YesButton?.Click -= OnButtonClick;
 
-        if (NoButton != null)
-        {
-            NoButton.Click -= OnButtonClick;
-        }
+        NoButton?.Click -= OnButtonClick;
 
-        if (CancelButton != null)
-        {
-            CancelButton.Click -= OnButtonClick;
-        }
+        CancelButton?.Click -= OnButtonClick;
 
         OKButton = (Button)GetTemplateChild("PART_OKButton");
         YesButton = (Button)GetTemplateChild("PART_YesButton");
         NoButton = (Button)GetTemplateChild("PART_NoButton");
         CancelButton = (Button)GetTemplateChild("PART_CancelButton");
 
-        if (OKButton != null)
-        {
-            OKButton.Click += OnButtonClick;
-        }
+        OKButton?.Click += OnButtonClick;
 
-        if (YesButton != null)
-        {
-            YesButton.Click += OnButtonClick;
-        }
+        YesButton?.Click += OnButtonClick;
 
-        if (NoButton != null)
-        {
-            NoButton.Click += OnButtonClick;
-        }
+        NoButton?.Click += OnButtonClick;
 
         if (CancelButton != null)
         {
@@ -377,10 +357,9 @@ public partial class MessageBoxDialog : Window
         base.OnSourceInitialized(e);
         InvalidateMeasure();
 
-        if (WindowBackdrop.IsSupported(WindowBackdropType.Mica))
+        if (WindowBackdrop.IsSupported(WindowBackdropPreference.Mica))
         {
-            Background = new SolidColorBrush(Colors.Transparent);
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropPreference.Mica);
         }
     }
 
@@ -470,6 +449,7 @@ public partial class MessageBoxDialog : Window
         return Regex.Replace(sb.Replace("&", string.Empty).ToString(), @"\([^)]*\)", string.Empty);
     }
 
+    [SuppressMessage("Style", "IDE0038:Use pattern matching")]
     private void UpdateMessageState()
     {
         string stateName = Caption == null || (Caption is string && string.IsNullOrEmpty((string)Caption)) ? TitleCollapsedState : TitleVisibleState;

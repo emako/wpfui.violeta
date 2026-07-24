@@ -4,100 +4,28 @@ using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Win32;
 
-/// <summary>Win32 corner rounding preference (requires Windows 11+).</summary>
-public enum WindowCornerPreference
-{
-    /// <summary>
-    /// Let the system decide whether or not to round window corners.
-    /// Equivalent to DWMWCP_DEFAULT
-    /// </summary>
-    Default = 0,
-
-    /// <summary>
-    /// Never round window corners.
-    /// Equivalent to DWMWCP_DONOTROUND
-    /// </summary>
-    DoNotRound = 1,
-
-    /// <summary>
-    /// Round the corners if appropriate.
-    /// Equivalent to DWMWCP_ROUND
-    /// </summary>
-    Round = 2,
-
-    /// <summary>
-    /// Round the corners if appropriate, with a small radius.
-    /// Equivalent to DWMWCP_ROUNDSMALL
-    /// </summary>
-    RoundSmall = 3,
-}
-
-public enum SystembackdropType
-{
-    Auto = 0,
-    None = 1,
-    Mica = 2,
-    Acrylic = 3, // Automatically selects the best Acrylic effect available on the system (Acrylic11 > Acrylic10)
-    Tabbed = 4,
-    Acrylic10 = 5, // Windows 10 style, supported on Windows 10 and 11
-    Acrylic11 = 6, // Windows 11 style, supported on Windows 11 22523+ (Insider) and 22621+ (Stable)
-}
-
 /// <summary>
 /// DWM / User32 helpers for applying acrylic blur, rounded corners and composition effects
 /// to arbitrary native windows (e.g. popup HWNDs).
 /// </summary>
 internal static class DwmApi
 {
-    // ------------------------------------------------------------------
-    // Enumerations
-    // ------------------------------------------------------------------
+    public const int DWMWA_COLOR_DEFAULT = -1; // =4294967295U, =0xFFFFFFFF
+    public const int DWMWA_COLOR_NONE = -2; // =4294967294U, =0xFFFFFFFE
 
-    internal enum DWMWINDOWATTRIBUTE
+    /// <summary>Flags used by the [DwmGetWindowAttribute](/windows/desktop/api/dwmapi/nf-dwmapi-dwmgetwindowattribute) and [DwmSetWindowAttribute](/windows/desktop/api/dwmapi/nf-dwmapi-dwmsetwindowattribute) functions.</summary>
+    /// <remarks>
+    /// <para><see href="https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute">Learn more about this API from learn.microsoft.com</see>.</para>
+    /// </remarks>
+    internal enum DWMWINDOWATTRIBUTE : int
     {
         DWMWA_TRANSITIONS_FORCEDISABLED = 3,
         DWMWA_USE_IMMERSIVE_DARK_MODE_OLD = 19,
         DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
-        WINDOW_CORNER_PREFERENCE = 33,
-        CAPTION_COLOR = 35,
+        DWMWA_WINDOW_CORNER_PREFERENCE = 33,
+        DWMWA_CAPTION_COLOR = 35,
         DWMWA_SYSTEMBACKDROP_TYPE = 38,
-        MICA_EFFECT = 1029,
-    }
-
-    internal enum AccentState
-    {
-        ACCENT_DISABLED = 0,
-        ACCENT_ENABLE_GRADIENT = 1,
-        ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
-        ACCENT_ENABLE_BLURBEHIND = 3,
-        ACCENT_ENABLE_ACRYLICBLURBEHIND = 4,
-        ACCENT_INVALID_STATE = 5,
-    }
-
-    internal enum WindowCompositionAttribute
-    {
-        WCA_ACCENT_POLICY = 19,
-    }
-
-    // ------------------------------------------------------------------
-    // Structures
-    // ------------------------------------------------------------------
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct AccentPolicy
-    {
-        public AccentState AccentState;
-        public int AccentFlags;
-        public int GradientColor;
-        public int AnimationId;
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct WindowCompositionAttributeData
-    {
-        public WindowCompositionAttribute Attribute;
-        public nint Data;
-        public int SizeOfData;
+        DWMWA_MICA_EFFECT = 1029,
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -152,7 +80,7 @@ internal static class DwmApi
     internal static void SetWindowCorner(nint hwnd, WindowCornerPreference corner)
     {
         int val = (int)corner;
-        _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.WINDOW_CORNER_PREFERENCE, ref val, Marshal.SizeOf<int>());
+        _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE, ref val, Marshal.SizeOf<int>());
     }
 
     /// <summary>Enables or disables the immersive dark mode frame rendering on the given HWND.</summary>
@@ -170,7 +98,7 @@ internal static class DwmApi
         {
             accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
             // Use supplied tint, or a near-transparent default so the effect is visible
-            accent.GradientColor = tintColor.HasValue ? ToWin32Color(tintColor.Value) : 0x01000000;
+            accent.GradientColor = tintColor.HasValue ? (uint)ToWin32Color(tintColor.Value) : 0x01000000;
         }
         else
         {

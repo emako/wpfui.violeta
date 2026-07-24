@@ -4,6 +4,10 @@
     xmlns:m="clr-namespace:Wpf.Ui.Violeta.Markup"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
+    <!--  ShellWindow  -->
+    <SolidColorBrush x:Key="MainWindowBackground" Color="#CC292929" />
+    <SolidColorBrush x:Key="MainWindowBackgroundNoTransparent" Color="#FF292929" />
+
     <!--  ContentDialog  -->
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="{StaticResource LayerFillColorAlt}" />
     <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="{DynamicResource SystemAltMediumColor}" />

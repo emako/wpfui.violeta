@@ -9,7 +9,7 @@ public static class WindowHelper
 {
     public static void ShowWithoutTransition(this Window window)
     {
-        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        nint hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
         DwmApi.SetTransitionsForceDisabled(hwnd, disabled: true);
         window.Show();
         DwmApi.SetTransitionsForceDisabled(hwnd, disabled: false);
@@ -17,7 +17,7 @@ public static class WindowHelper
 
     public static void BringToFront(this Window window, bool keep)
     {
-        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        nint hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
         keep |= window.Topmost;
 
         User32.SetWindowPos(hwnd, User32.HWND_TOPMOST, 0, 0, 0, 0,

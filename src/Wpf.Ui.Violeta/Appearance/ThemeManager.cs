@@ -4,6 +4,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Appearance;
 
@@ -193,7 +194,7 @@ public static class ThemeManager
         }
     }
 
-    public static void Apply(ApplicationTheme theme)
+    public static void Apply(ApplicationTheme theme, WindowBackdropPreference backgroundEffect = WindowBackdropPreference.Mica, bool updateAccent = true)
     {
         if (theme == ApplicationTheme.Unknown)
         {
@@ -204,7 +205,7 @@ public static class ThemeManager
 
         if (ApplicationThemeManager.GetAppTheme() != theme)
         {
-            ApplicationThemeManager.Apply(theme, backgroundEffect: WindowBackdropType.Mica, updateAccent: true);
+            ApplicationThemeManager.Apply(theme, (WindowBackdropType)backgroundEffect, updateAccent);
         }
     }
 

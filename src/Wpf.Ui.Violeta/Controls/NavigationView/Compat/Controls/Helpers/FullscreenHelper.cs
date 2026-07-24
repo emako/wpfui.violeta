@@ -47,7 +47,7 @@ public static partial class FullscreenHelper
         if (window.GetValue(BeforeFullscreenWindowPlacementProperty) == null &&
         window.GetValue(BeforeFullscreenWindowStyleProperty) == null)
         {
-            var hwnd = new WindowInteropHelper(window).EnsureHandle();
+            nint hwnd = new WindowInteropHelper(window).EnsureHandle();
             var hwndSource = HwndSource.FromHwnd(hwnd);
 
             // Get and save current window placement
@@ -103,7 +103,7 @@ public static partial class FullscreenHelper
         if (window.GetValue(BeforeFullscreenWindowPlacementProperty) is WINDOWPLACEMENT placement
         && window.GetValue(BeforeFullscreenWindowStyleProperty) is WindowStyles style)
         {
-            var hwnd = new WindowInteropHelper(window).Handle;
+            nint hwnd = new WindowInteropHelper(window).Handle;
 
             if (hwnd == IntPtr.Zero)
             {

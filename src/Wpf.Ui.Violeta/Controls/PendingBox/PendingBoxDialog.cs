@@ -12,6 +12,7 @@ using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Win32;
 using Button = System.Windows.Controls.Button;
 using TextBlock = System.Windows.Controls.TextBlock;
+using WindowBackdrop = Wpf.Ui.Violeta.Win32.WindowBackdrop;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -83,10 +84,9 @@ public partial class PendingBoxDialog : Window
         base.OnSourceInitialized(e);
         InvalidateMeasure();
 
-        if (WindowBackdrop.IsSupported(WindowBackdropType.Mica))
+        if (WindowBackdrop.IsSupported(WindowBackdropPreference.Mica))
         {
-            Background = new SolidColorBrush(Colors.Transparent);
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropType.Mica);
+            WindowBackdrop.ApplyBackdrop(this, WindowBackdropPreference.Mica);
         }
 
         // Hide the all window control buttons

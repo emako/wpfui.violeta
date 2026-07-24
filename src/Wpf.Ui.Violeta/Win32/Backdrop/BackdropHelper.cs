@@ -9,11 +9,31 @@ namespace Wpf.Ui.Violeta.Win32;
 
 public static class BackdropHelper
 {
+    public static void EnableMicaBlur(Window window, bool isDarkTheme)
+    {
+        EnableDwmBlur(window, isDarkTheme, (uint)DwmApi.DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT, 1);
+    }
+
+    public static void EnableBackdropMicaBlur(Window window, bool isDarkTheme)
+    {
+        EnableDwmBlur(window, isDarkTheme, (uint)DwmApi.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, (int)WindowBackdropPreference.Mica);
+    }
+
+    public static void EnableBackdropAcrylicBlur(Window window, bool isDarkTheme)
+    {
+        EnableDwmBlur(window, isDarkTheme, (uint)DwmApi.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, (int)WindowBackdropPreference.Acrylic);
+    }
+
+    public static void EnableBackdropTabbedBlur(Window window, bool isDarkTheme)
+    {
+        EnableDwmBlur(window, isDarkTheme, (uint)DwmApi.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, (int)WindowBackdropPreference.Tabbed);
+    }
+
     public static void EnableBlur(Window window)
     {
         var accent = new AccentPolicy();
         var accentStructSize = Marshal.SizeOf(accent);
-        accent.AccentState = AccentState.AccentEnableBlurbehind;
+        accent.AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND;
         accent.AccentFlags = 2;
         accent.GradientColor = 0x99FFFFFF;
 
@@ -22,12 +42,12 @@ public static class BackdropHelper
 
         var data = new WindowCompositionAttributeData
         {
-            Attribute = WindowCompositionAttribute.WcaAccentPolicy,
+            Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
             SizeOfData = accentStructSize,
             Data = accentPtr
         };
 
-        _ = User32.SetWindowCompositionAttribute(new WindowInteropHelper(window).Handle, ref data);
+        _ = User32.SetWindowCompositionAttribute(new WindowInteropHelper(window).EnsureHandle(), ref data);
 
         Marshal.FreeHGlobal(accentPtr);
     }
@@ -36,7 +56,7 @@ public static class BackdropHelper
     {
         window.Background = Brushes.Transparent;
 
-        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        nint hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
 
         if (!window.AllowsTransparency && hwnd != IntPtr.Zero && HwndSource.FromHwnd(hwnd) is HwndSource hwndSource)
         {
@@ -45,8 +65,8 @@ public static class BackdropHelper
 
         if (Environment.OSVersion.Version >= new Version(10, 0, 22000))
         {
-            var captionColor = -2;
-            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
+            int captionColor = DwmApi.DWMWA_COLOR_NONE;
+            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
         }
 
         SetImmersiveDarkMode(hwnd, isDarkTheme);
@@ -56,7 +76,7 @@ public static class BackdropHelper
 
         var accent = new AccentPolicy();
         var accentStructSize = Marshal.SizeOf(accent);
-        accent.AccentState = AccentState.AccentEnableAcrylicblurbehind;
+        accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
         accent.GradientColor = ToAbgr(tintColor, tintOpacity);
 
         var accentPtr = Marshal.AllocHGlobal(accentStructSize);
@@ -64,7 +84,7 @@ public static class BackdropHelper
 
         var data = new WindowCompositionAttributeData
         {
-            Attribute = WindowCompositionAttribute.WcaAccentPolicy,
+            Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
             SizeOfData = accentStructSize,
             Data = accentPtr
         };
@@ -78,19 +98,19 @@ public static class BackdropHelper
     {
         var accent = new AccentPolicy();
         var accentStructSize = Marshal.SizeOf(accent);
-        accent.AccentState = AccentState.AccentDisabled;
+        accent.AccentState = AccentState.ACCENT_DISABLED;
 
         var accentPtr = Marshal.AllocHGlobal(accentStructSize);
         Marshal.StructureToPtr(accent, accentPtr, false);
 
         var data = new WindowCompositionAttributeData
         {
-            Attribute = WindowCompositionAttribute.WcaAccentPolicy,
+            Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
             SizeOfData = accentStructSize,
             Data = accentPtr
         };
 
-        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        nint hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
         _ = User32.SetWindowCompositionAttribute(hwnd, ref data);
 
         Marshal.FreeHGlobal(accentPtr);
@@ -100,20 +120,20 @@ public static class BackdropHelper
 
         if (Environment.OSVersion.Version >= new Version(10, 0, 21996))
         {
-            var micaEnabled = 0;
-            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.MICA_EFFECT, ref micaEnabled, Marshal.SizeOf<int>());
+            int micaEnabled = 0;
+            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_MICA_EFFECT, ref micaEnabled, Marshal.SizeOf<int>());
         }
 
         if (Environment.OSVersion.Version >= new Version(10, 0, 22523))
         {
-            var backdropType = (int)SystembackdropType.None;
+            int backdropType = (int)WindowBackdropPreference.None;
             _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, ref backdropType, Marshal.SizeOf<int>());
         }
 
         if (Environment.OSVersion.Version >= new Version(10, 0, 22000))
         {
-            var captionColor = -1;
-            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
+            int captionColor = DwmApi.DWMWA_COLOR_DEFAULT;
+            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
         }
 
         SetImmersiveDarkMode(hwnd, false);
@@ -122,7 +142,7 @@ public static class BackdropHelper
         if (Environment.OSVersion.Version >= new Version(10, 0, 22000))
         {
             int cornerPreference = (int)WindowCornerPreference.Round;
-            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.WINDOW_CORNER_PREFERENCE, ref cornerPreference, Marshal.SizeOf<int>());
+            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE, ref cornerPreference, Marshal.SizeOf<int>());
         }
     }
 
@@ -131,7 +151,7 @@ public static class BackdropHelper
         if (hwnd == IntPtr.Zero || Environment.OSVersion.Version < new Version(10, 0, 17763))
             return;
 
-        var darkMode = enabled ? 1 : 0;
+        int darkMode = enabled ? 1 : 0;
         var attribute = Environment.OSVersion.Version < new Version(10, 0, 18985)
             ? DwmApi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE_OLD
             : DwmApi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE;
@@ -141,10 +161,10 @@ public static class BackdropHelper
 
     private static void EnableDwmBlur(Window window, bool isDarkTheme, uint dwAttribute, int pvAttribute)
     {
-        // Mica will handle the color
-        window.Background = Brushes.Transparent;
+        // Mica will handle the color — use SetCurrentValue so style DynamicResource cannot override it later.
+        window.SetCurrentValue(System.Windows.Controls.Control.BackgroundProperty, Brushes.Transparent);
 
-        var hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
+        nint hwnd = new WindowInteropHelper(window).EnsureHandleSafe();
 
         if (!window.AllowsTransparency && hwnd != IntPtr.Zero && HwndSource.FromHwnd(hwnd) is HwndSource hwndSource)
         {
@@ -153,41 +173,18 @@ public static class BackdropHelper
 
         if (Environment.OSVersion.Version >= new Version(10, 0, 22000))
         {
-            var captionColor = -2;
-            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
+            int captionColor = DwmApi.DWMWA_COLOR_NONE;
+            _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_CAPTION_COLOR, ref captionColor, Marshal.SizeOf<int>());
         }
 
-        var isDarkThemeInt = isDarkTheme ? 1 : 0;
+        int isDarkThemeInt = isDarkTheme ? 1 : 0;
         _ = DwmApi.DwmSetWindowAttribute(hwnd, DwmApi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE, ref isDarkThemeInt, Marshal.SizeOf<int>());
 
         var margins = new DwmApi.Margins(-1, -1, -1, -1);
         DwmApi.DwmExtendFrameIntoClientArea(hwnd, ref margins);
 
-        var val = pvAttribute;
+        int val = pvAttribute;
         _ = DwmApi.DwmSetWindowAttribute(hwnd, (DwmApi.DWMWINDOWATTRIBUTE)dwAttribute, ref val, Marshal.SizeOf<int>());
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    public struct WindowCompositionAttributeData
-    {
-        public WindowCompositionAttribute Attribute;
-        public nint Data;
-        public int SizeOfData;
-    }
-
-    public enum WindowCompositionAttribute
-    {
-        WcaAccentPolicy = 19,
-    }
-
-    private enum AccentState
-    {
-        AccentDisabled = 0,
-        AccentEnableGradient = 1,
-        AccentEnableTransparentgradient = 2,
-        AccentEnableBlurbehind = 3,
-        AccentEnableAcrylicblurbehind = 4,
-        AccentInvalidState = 5,
     }
 
     private static uint ToAbgr(Color color, double alphaScale)
@@ -196,15 +193,6 @@ public static class BackdropHelper
             color.G << 8 |
             color.B << 16 |
             (int)(color.A * alphaScale) << 24);
-    }
-
-    [StructLayout(LayoutKind.Sequential)]
-    private struct AccentPolicy
-    {
-        public AccentState AccentState;
-        public int AccentFlags;
-        public uint GradientColor;
-        public readonly int AnimationId;
     }
 }
 

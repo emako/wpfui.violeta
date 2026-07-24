@@ -3,8 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Shell;
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Controls;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -28,9 +27,9 @@ public partial class ShellWindow : Window
 
     public static readonly DependencyProperty WindowBackdropTypeProperty = DependencyProperty.Register(
         nameof(WindowBackdropType),
-        typeof(WindowBackdropType),
+        typeof(WindowBackdropPreference),
         typeof(ShellWindow),
-        new PropertyMetadata(WindowBackdropType.None, OnWindowBackdropTypeChanged)
+        new PropertyMetadata(WindowBackdropPreference.None, OnWindowBackdropTypeChanged)
     );
 
     public static readonly DependencyProperty ExtendsContentIntoTitleBarProperty =
@@ -53,9 +52,9 @@ public partial class ShellWindow : Window
     /// <summary>
     /// Gets or sets a value determining preferred backdrop type for current <see cref="Window"/>.
     /// </summary>
-    public WindowBackdropType WindowBackdropType
+    public WindowBackdropPreference WindowBackdropType
     {
-        get => (WindowBackdropType)GetValue(WindowBackdropTypeProperty);
+        get => (WindowBackdropPreference)GetValue(WindowBackdropTypeProperty);
         set => SetValue(WindowBackdropTypeProperty, value);
     }
 
@@ -96,14 +95,10 @@ public partial class ShellWindow : Window
     private static void OnWindowCornerPreferenceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is not ShellWindow window)
-        {
             return;
-        }
 
         if (e.OldValue == e.NewValue)
-        {
             return;
-        }
 
         window.OnCornerPreferenceChanged(
             (WindowCornerPreference)e.OldValue,
@@ -121,7 +116,7 @@ public partial class ShellWindow : Window
             return;
         }
 
-        _ = UnsafeNativeMethods.ApplyWindowCornerPreference(InteropHelper.Handle, newValue);
+        _ = CornerHelper.SetWindowCorner(InteropHelper.Handle, newValue);
     }
 
     /// <summary>
@@ -139,25 +134,22 @@ public partial class ShellWindow : Window
             return;
         }
 
-        window.OnBackdropTypeChanged((WindowBackdropType)e.OldValue, (WindowBackdropType)e.NewValue);
+        window.OnBackdropTypeChanged((WindowBackdropPreference)e.OldValue, (WindowBackdropPreference)e.NewValue);
     }
 
     /// <summary>
     /// This virtual method is called when <see cref="WindowBackdropType"/> is changed.
     /// </summary>
-    protected virtual void OnBackdropTypeChanged(WindowBackdropType oldValue, WindowBackdropType newValue)
+    protected virtual void OnBackdropTypeChanged(WindowBackdropPreference oldValue, WindowBackdropPreference newValue)
     {
-        if (ApplicationThemeManager.GetAppTheme() == ApplicationTheme.HighContrast)
-        {
-            newValue = WindowBackdropType.None;
-        }
-
         if (InteropHelper.Handle == IntPtr.Zero)
         {
             return;
         }
 
-        if (newValue == WindowBackdropType.None)
+        _ = WindowBackdrop.SetWindowChrome(this, newValue);
+
+        if (newValue == WindowBackdropPreference.None)
         {
             _ = WindowBackdrop.RemoveBackdrop(this);
 
@@ -174,7 +166,6 @@ public partial class ShellWindow : Window
         if (WindowBackdrop.IsSupported(newValue) && WindowBackdrop.RemoveBackground(this))
         {
             _ = WindowBackdrop.ApplyBackdrop(this, newValue);
-
             _ = WindowBackdrop.RemoveTitlebarBackground(this);
         }
     }
@@ -185,14 +176,10 @@ public partial class ShellWindow : Window
     private static void OnExtendsContentIntoTitleBarChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is not ShellWindow window)
-        {
             return;
-        }
 
         if (e.OldValue == e.NewValue)
-        {
             return;
-        }
 
         window.OnExtendsContentIntoTitleBarChanged((bool)e.OldValue, (bool)e.NewValue);
     }
@@ -202,23 +189,7 @@ public partial class ShellWindow : Window
     /// </summary>
     protected virtual void OnExtendsContentIntoTitleBarChanged(bool oldValue, bool newValue)
     {
-        // AllowsTransparency = true;
         SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
-
-        WindowChrome.SetWindowChrome(
-            this,
-            new WindowChrome
-            {
-                CaptionHeight = 0,
-                CornerRadius = default,
-                GlassFrameThickness = new Thickness(-1),
-                ResizeBorderThickness = ResizeMode == ResizeMode.NoResize ? default : new Thickness(4),
-                UseAeroCaptionButtons = false,
-            }
-        );
-
-        // WindowStyleProperty.OverrideMetadata(typeof(FluentWindow), new FrameworkPropertyMetadata(WindowStyle.SingleBorderWindow));
-        // AllowsTransparencyProperty.OverrideMetadata(typeof(FluentWindow), new FrameworkPropertyMetadata(false));
         _ = UnsafeNativeMethods.RemoveWindowTitlebarContents(this);
     }
 }
@@ -230,21 +201,6 @@ file static class UnsafeNativeMethods
 {
     private static readonly Type? _interopType
         = Type.GetType("Wpf.Ui.Interop.UnsafeNativeMethods, Wpf.Ui");
-
-    /// <summary>
-    /// Tries to set the corner preference of the selected window.
-    /// </summary>
-    /// <param name="handle">Selected window handle.</param>
-    /// <param name="cornerPreference">Window corner preference.</param>
-    /// <returns><see langword="true"/> if invocation of native Windows function succeeds.</returns>
-    public static bool ApplyWindowCornerPreference(nint handle, object cornerPreference)
-    {
-        if (_interopType == null) return false;
-
-        MethodInfo? method = _interopType.GetMethod("ApplyWindowCornerPreference", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-        if (method == null) return false;
-        return (bool)method.Invoke(null, [handle, cornerPreference])!;
-    }
 
     /// <summary>
     /// Tries to remove titlebar from selected <see cref="Window"/>.

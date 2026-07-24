@@ -140,7 +140,7 @@ internal static class User32
 
     [DllImport("user32.dll")]
     public static extern int SetWindowCompositionAttribute(nint hwnd,
-        ref BackdropHelper.WindowCompositionAttributeData data);
+        ref WindowCompositionAttributeData data);
 
     [Flags]
     public enum DialogBoxCommand : uint
