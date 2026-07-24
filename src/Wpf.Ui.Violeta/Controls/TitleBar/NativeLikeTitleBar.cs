@@ -12,12 +12,11 @@ namespace Wpf.Ui.Violeta.Controls;
 public partial class NativeLikeTitleBar : ContentControl
 {
     static NativeLikeTitleBar()
-        => DefaultStyleKeyProperty.OverrideMetadata(typeof(NativeLikeTitleBar), new FrameworkPropertyMetadata(typeof(NativeLikeTitleBar)));
-
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(NativeLikeTitleBar), new FrameworkPropertyMetadata(typeof(NativeLikeTitleBar)));
+    }
 
     public NativeLikeTitleBar()
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
@@ -402,13 +401,13 @@ public partial class NativeLikeTitleBar : ContentControl
         PaneToggleButtonClick?.Invoke(this, e);
     }
 
-    private Window _ownerWindow;
+    private Window _ownerWindow = null!;
 
-    private ContentControl PART_CustomHeaderContentControl;
-    private ContentPresenter PART_CenterContentPresenter;
-    private ContentControl PART_CustomFooterContentControl;
+    private ContentControl PART_CustomHeaderContentControl = null!;
+    private ContentPresenter PART_CenterContentPresenter = null!;
+    private ContentControl PART_CustomFooterContentControl = null!;
 
-    private TitleBarButton PART_BackButton;
-    private TitleBarButton PART_PaneToggleButton;
-    private CaptionButtonBar PART_CaptionButtonBar;
+    private TitleBarButton PART_BackButton = null!;
+    private TitleBarButton PART_PaneToggleButton = null!;
+    private CaptionButtonBar PART_CaptionButtonBar = null!;
 }
