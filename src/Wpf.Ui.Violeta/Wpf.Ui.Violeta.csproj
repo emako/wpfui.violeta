@@ -45,11 +45,13 @@
     <ItemGroup>
         <None Remove="Resources\Fonts\*.ttf" />
         <None Remove="Resources\Images\*.png" />
+        <None Remove="Resources\Images\*.ico" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Resources\Fonts\*.ttf" />
         <Resource Include="Resources\Images\*.png" />
+        <Resource Include="Resources\Images\*.ico" />
     </ItemGroup>
 
     <!-- Legacy code, keep it for reference. -->
