@@ -747,6 +747,39 @@
                                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                                 Content="YesNoCancel" />
                         </StackPanel>
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="TaskMessageBox" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="OK" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="OKCancel" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="YesNo" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="YesNoCancel" />
+                            <ui:Button
+                                Margin="16,0,0,0"
+                                Command="{Binding ShowTaskDialogMessageBoxCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                Content="AutoWidth" />
+                        </StackPanel>
 
                         <!--
                             ══════════════════════════════════════════════════════════════

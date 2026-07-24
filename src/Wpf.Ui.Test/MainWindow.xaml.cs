@@ -1133,6 +1133,69 @@ public partial class MainWindow : ShellWindow
         Toast.Information($"NativeMessageBox result: {result}");
     }
 
+    [RelayCommand]
+    private void ShowTaskDialogMessageBox(Button self)
+    {
+        nint owner = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+        string tag = self.Content.ToString()!;
+
+        NativeMessageBoxResult result = tag switch
+        {
+            "OK" => TaskDialogMessageBox.Show(
+                owner,
+                "TaskDialogMessageBox provides a MessageBox-style API rendered with a TaskDialog.",
+                "TaskDialogMessageBox — OK",
+                NativeMessageBoxButton.OK,
+                NativeMessageBoxImage.Asterisk),
+            "OKCancel" => TaskDialogMessageBox.Show(
+                owner,
+                "Something may need your attention. Click OK to continue or Cancel to stop.",
+                "TaskDialogMessageBox — OK/Cancel",
+                NativeMessageBoxButton.OKCancel,
+                NativeMessageBoxImage.Exclamation,
+                NativeMessageBoxResult.Cancel),
+            "YesNo" => TaskDialogMessageBox.Show(
+                owner,
+                "Do you want to continue with the operation?",
+                "TaskDialogMessageBox — Yes/No",
+                NativeMessageBoxButton.YesNo,
+                NativeMessageBoxImage.Question,
+                NativeMessageBoxResult.No),
+            "YesNoCancel" => TaskDialogMessageBox.Show(
+                owner,
+                "Save your changes before closing the document?",
+                "TaskDialogMessageBox — Yes/No/Cancel",
+                NativeMessageBoxButton.YesNoCancel,
+                NativeMessageBoxImage.Question,
+                NativeMessageBoxResult.Cancel),
+            "AutoWidth" => ShowAutoWidthTaskDialogMessageBox(owner),
+            _ => NativeMessageBoxResult.None,
+        };
+
+        Toast.Information($"TaskDialogMessageBox result: {result}");
+    }
+
+    private static NativeMessageBoxResult ShowAutoWidthTaskDialogMessageBox(nint owner)
+    {
+        bool previousAutoAdjustWidth = TaskDialogMessageBox.AutoAdjustWidth;
+
+        try
+        {
+            TaskDialogMessageBox.AutoAdjustWidth = true;
+            return TaskDialogMessageBox.Show(
+                owner,
+                "This long message demonstrates automatic dialog-width adjustment. The message box selects a width that keeps the content readable while accommodating the selected buttons and icon.",
+                "TaskDialogMessageBox — Auto Width",
+                NativeMessageBoxButton.YesNoCancel,
+                NativeMessageBoxImage.Asterisk,
+                NativeMessageBoxResult.Yes);
+        }
+        finally
+        {
+            TaskDialogMessageBox.AutoAdjustWidth = previousAutoAdjustWidth;
+        }
+    }
+
     // ── Notification ──────────────────────────────────────────────
 
     [RelayCommand]
