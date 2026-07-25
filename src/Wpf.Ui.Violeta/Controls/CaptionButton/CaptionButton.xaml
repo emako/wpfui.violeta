@@ -27,12 +27,12 @@
         <Setter Property="Focusable" Value="False" />
         <Style.Triggers>
             <Trigger Property="IsMouseOverInTitleBar" Value="True">
-                <Setter Property="Background" Value="{StaticResource TitleBarButtonHoverBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonHoverForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonHoverForeground}" />
             </Trigger>
             <Trigger Property="IsPressedInTitleBar" Value="True">
-                <Setter Property="Background" Value="{StaticResource TitleBarButtonPressedBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonPressedForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonPressedForeground}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -80,20 +80,20 @@
         <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonHoverBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonHoverForeground}" />
+                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonHoverForeground}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonPressedBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonPressedForeground}" />
+                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonPressedForeground}" />
             </Trigger>
             <Trigger Property="IsMouseOverInTitleBar" Value="True">
-                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonHoverBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonHoverForeground}" />
+                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonHoverForeground}" />
             </Trigger>
             <Trigger Property="IsPressedInTitleBar" Value="True">
-                <Setter Property="Background" Value="{StaticResource CaptionCloseButtonPressedBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource CaptionCloseButtonPressedForeground}" />
+                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonPressedForeground}" />
             </Trigger>
         </Style.Triggers>
     </Style>

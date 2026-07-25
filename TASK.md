@@ -1,6 +1,5 @@
 Feature Task
 
-- [ ] ShellWindow (backdrop and so on)
 - [ ] Calendar Range
 - [ ] Color Picker
 - [ ] Fix Form
