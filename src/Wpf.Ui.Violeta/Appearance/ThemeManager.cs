@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Text;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Appearance;
@@ -81,17 +82,18 @@ public static class ThemeManager
     /// </returns>
     public static ApplicationTheme GetApplicationTheme()
     {
-        using RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
-        object? registryValueObject = key?.GetValue("AppsUseLightTheme");
+        uint dataSize = sizeof(uint);
+        int result = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
+            @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+            "AppsUseLightTheme",
+            AdvApi32.RRF_RT_REG_DWORD, IntPtr.Zero, out uint data, ref dataSize);
 
-        if (registryValueObject == null)
+        if (result != 0)
         {
             return ApplicationTheme.Light;
         }
 
-        var registryValue = (int)registryValueObject;
-
-        return registryValue > 0 ? ApplicationTheme.Light : ApplicationTheme.Dark;
+        return data > 0 ? ApplicationTheme.Light : ApplicationTheme.Dark;
     }
 
     /// <summary>
@@ -112,13 +114,14 @@ public static class ThemeManager
 
         static SystemTheme Get()
         {
-            var currentTheme =
-                Registry.GetValue(
-                    "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes",
-                    "CurrentTheme",
-                    "aero.theme"
-                ) as string
-                ?? string.Empty;
+            StringBuilder themeBuilder = new(520);
+            uint themeDataSize = (uint)(themeBuilder.Capacity * sizeof(char));
+            int themeResult = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes",
+                "CurrentTheme",
+                AdvApi32.RRF_RT_REG_SZ, IntPtr.Zero, themeBuilder, ref themeDataSize);
+
+            var currentTheme = themeResult == 0 ? themeBuilder.ToString() : "aero.theme";
 
             if (!string.IsNullOrEmpty(currentTheme))
             {
@@ -183,12 +186,13 @@ public static class ThemeManager
 
             /*if (currentTheme.Contains("custom.theme"))
                 return ; custom can be light or dark*/
-            var rawSystemUsesLightTheme =
-                Registry.GetValue(
-                    "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
-                    "SystemUsesLightTheme",
-                    1
-                ) ?? 1;
+            uint dataSize = sizeof(uint);
+            int result = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
+                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                "SystemUsesLightTheme",
+                AdvApi32.RRF_RT_REG_DWORD, IntPtr.Zero, out uint data, ref dataSize);
+
+            var rawSystemUsesLightTheme = result == 0 ? data : 1u;
 
             return rawSystemUsesLightTheme is 0 ? SystemTheme.Dark : SystemTheme.Light;
         }
