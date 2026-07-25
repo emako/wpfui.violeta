@@ -29,7 +29,7 @@ public partial class MainWindow : ShellWindow
         if (args.IsSettingsSelected)
         {
             GalleryNav.Header = "设置";
-            GalleryNav.IsBackEnabled = ContentFrame.CanGoBack;
+            UpdateBackButtonState();
             NavigateTo("settings");
             return;
         }
@@ -42,7 +42,7 @@ public partial class MainWindow : ShellWindow
         var tag = item.Tag as string;
         var header = item.Content?.ToString() ?? string.Empty;
         GalleryNav.Header = header;
-        GalleryNav.IsBackEnabled = ContentFrame.CanGoBack;
+        UpdateBackButtonState();
         NavigateTo(tag);
     }
 
@@ -51,8 +51,28 @@ public partial class MainWindow : ShellWindow
         if (ContentFrame.CanGoBack)
         {
             ContentFrame.GoBack();
-            GalleryNav.IsBackEnabled = ContentFrame.CanGoBack;
+            UpdateBackButtonState();
         }
+    }
+
+    private void GalleryTitleBar_OnBackButtonClick(object? sender, EventArgs e)
+    {
+        if (ContentFrame.CanGoBack)
+        {
+            ContentFrame.GoBack();
+            UpdateBackButtonState();
+        }
+    }
+
+    private void GalleryTitleBar_OnPaneToggleButtonClick(object? sender, EventArgs e)
+    {
+        GalleryNav.IsPaneOpen = !GalleryNav.IsPaneOpen;
+    }
+
+    private void UpdateBackButtonState()
+    {
+        GalleryNav.IsBackEnabled = ContentFrame.CanGoBack;
+        GalleryTitleBar.IsBackButtonEnabled = ContentFrame.CanGoBack;
     }
 
     private void NavigateTo(string? tag)

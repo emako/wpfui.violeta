@@ -21,26 +21,40 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--  Theme Switcher in TitleBar area  -->
-        <StackPanel
+        <vio:TitleBar
+            x:Name="GalleryTitleBar"
             Grid.Row="0"
-            Margin="16,42,16,8"
-            HorizontalAlignment="Left"
-            Orientation="Horizontal">
-            <TextBlock
-                VerticalAlignment="Center"
-                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="主题" />
-            <ComboBox
-                x:Name="ThemeComboBox"
-                MinWidth="100"
-                Margin="8,0,0,0"
-                SelectionChanged="ThemeComboBox_OnSelectionChanged">
-                <ComboBoxItem Content="跟随系统" />
-                <ComboBoxItem Content="深色" IsSelected="True" />
-                <ComboBoxItem Content="浅色" />
-            </ComboBox>
-        </StackPanel>
+            BackButtonClick="GalleryTitleBar_OnBackButtonClick"
+            IsBackButtonEnabled="False"
+            PaneToggleButtonClick="GalleryTitleBar_OnPaneToggleButtonClick">
+            <vio:TitleBar.CustomHeader>
+                <TextBlock
+                    Margin="8,0"
+                    VerticalAlignment="Center"
+                    Text="Wpf.Ui.Violeta Gallery" />
+            </vio:TitleBar.CustomHeader>
+            <vio:TitleBar.CustomFooter>
+                <StackPanel
+                    Margin="0,0,8,0"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="主题" />
+                    <ComboBox
+                        x:Name="ThemeComboBox"
+                        MinWidth="100"
+                        Margin="8,0,0,0"
+                        SelectionChanged="ThemeComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="跟随系统" />
+                        <ComboBoxItem Content="深色" IsSelected="True" />
+                        <ComboBoxItem Content="浅色" />
+                    </ComboBox>
+                </StackPanel>
+            </vio:TitleBar.CustomFooter>
+        </vio:TitleBar>
 
         <!--  NavigationView  -->
         <vio:NavigationView
