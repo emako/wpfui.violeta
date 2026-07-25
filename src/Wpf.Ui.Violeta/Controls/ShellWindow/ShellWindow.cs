@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;

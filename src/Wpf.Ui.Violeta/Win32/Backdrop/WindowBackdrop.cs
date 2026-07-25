@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shell;
+using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 
 namespace Wpf.Ui.Violeta.Win32;
 
@@ -43,7 +45,7 @@ public static class WindowBackdrop
     public static bool ApplyBackdrop(this Window window, WindowBackdropPreference backdrop, bool? isDarkTheme = null)
     {
         bool result = false;
-        bool isDark = isDarkTheme ?? OSThemeHelper.AppsUseDarkTheme();
+        bool isDark = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
 
         switch (backdrop)
         {
