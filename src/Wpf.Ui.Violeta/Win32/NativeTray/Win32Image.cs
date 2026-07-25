@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
+using Wpf.Ui.Violeta.Appearance;
 
 namespace Wpf.Ui.Violeta.Win32;
 
@@ -200,7 +201,7 @@ public class Win32Image : IDisposable
         TrayThemeMode effectiveTheme = themeMode;
 
         if (effectiveTheme == TrayThemeMode.System)
-            effectiveTheme = OSThemeHelper.SystemUsesDarkTheme() ? TrayThemeMode.Dark : TrayThemeMode.Light;
+            effectiveTheme = ThemeManager.SystemUsesDarkTheme() ? TrayThemeMode.Dark : TrayThemeMode.Light;
 
         return effectiveTheme == TrayThemeMode.Dark ? 0xFFFFFFFFu : 0xFF000000u;
     }

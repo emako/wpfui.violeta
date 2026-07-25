@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using Wpf.Ui.Violeta.Appearance;
 
 namespace Wpf.Ui.Violeta.Win32;
 
@@ -37,7 +38,7 @@ internal static class Acrylic10Helper
             }
         }
 
-        return (isDarkTheme ?? OSThemeHelper.AppsUseDarkTheme())
+        return (isDarkTheme ?? ThemeManager.AppsUseDarkTheme())
             ? Color.FromRgb(0x17, 0x17, 0x17)
             : Color.FromRgb(0xF2, 0xF2, 0xF2);
     }

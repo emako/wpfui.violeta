@@ -45,7 +45,7 @@ public static class WindowBackdrop
     public static bool ApplyBackdrop(this Window window, WindowBackdropPreference backdrop, bool? isDarkTheme = null)
     {
         bool result = false;
-        bool isDark = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
+        bool isDark = isDarkTheme ?? ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
 
         switch (backdrop)
         {

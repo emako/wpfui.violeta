@@ -1,4 +1,5 @@
 using System;
+using Wpf.Ui.Violeta.Appearance;
 
 namespace Wpf.Ui.Violeta.Win32;
 
@@ -11,7 +12,7 @@ public partial class TrayIconHost
         {
             if (theme == TrayThemeMode.System)
             {
-                if (OSThemeHelper.SystemUsesDarkTheme())
+                if (ThemeManager.SystemUsesDarkTheme())
                 {
                     _ = UxTheme.SetPreferredAppMode(UxTheme.PreferredAppMode.ForceDark);
                     UxTheme.FlushMenuThemes();
@@ -37,7 +38,7 @@ public partial class TrayIconHost
 
     protected static void OnUserPreferenceChangedEventHandler(object? sender, EventArgs e)
     {
-        if (OSThemeHelper.SystemUsesDarkTheme())
+        if (ThemeManager.SystemUsesDarkTheme())
         {
             _ = UxTheme.SetPreferredAppMode(UxTheme.PreferredAppMode.ForceDark);
             UxTheme.FlushMenuThemes();
