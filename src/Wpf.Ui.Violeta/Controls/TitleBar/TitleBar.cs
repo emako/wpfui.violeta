@@ -9,14 +9,14 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = nameof(PART_CenterContentPresenter), Type = typeof(ContentPresenter))]
 [TemplatePart(Name = nameof(PART_CustomFooterContentControl), Type = typeof(ContentControl))]
 [TemplatePart(Name = nameof(PART_CaptionButtonBar), Type = typeof(CaptionButtonBar))]
-public partial class NativeLikeTitleBar : ContentControl
+public partial class TitleBar : ContentControl
 {
-    static NativeLikeTitleBar()
+    static TitleBar()
     {
-        DefaultStyleKeyProperty.OverrideMetadata(typeof(NativeLikeTitleBar), new FrameworkPropertyMetadata(typeof(NativeLikeTitleBar)));
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(TitleBar), new FrameworkPropertyMetadata(typeof(TitleBar)));
     }
 
-    public NativeLikeTitleBar()
+    public TitleBar()
     {
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
@@ -38,7 +38,7 @@ public partial class NativeLikeTitleBar : ContentControl
     DependencyProperty.Register(
         nameof(BackButtonCommand),
         typeof(ICommand),
-        typeof(NativeLikeTitleBar),
+        typeof(TitleBar),
         new PropertyMetadata(null)
     );
 
@@ -52,7 +52,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(PaneToggleButtonCommand),
             typeof(ICommand),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -66,7 +66,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(MinimizeButtonCommand),
             typeof(ICommand),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -80,7 +80,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(MaximizeButtonCommand),
             typeof(ICommand),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -94,7 +94,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(CloseButtonCommand),
             typeof(ICommand),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -108,7 +108,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(HelpButtonCommand),
             typeof(ICommand),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -122,7 +122,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(BackButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Visible)
         );
 
@@ -136,7 +136,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(PaneToggleButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Visible)
         );
 
@@ -150,7 +150,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(MinimizeButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Visible)
         );
 
@@ -164,7 +164,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(MaximizeButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Visible)
         );
 
@@ -178,7 +178,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(CloseButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Visible)
         );
 
@@ -192,7 +192,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(HelpButtonVisibility),
             typeof(Visibility),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(Visibility.Collapsed)
         );
 
@@ -206,7 +206,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsBackButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -220,7 +220,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsPaneToggleButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -234,7 +234,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsMinimizeButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -248,7 +248,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsMaximizeButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -262,7 +262,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsCloseButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -276,7 +276,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsHelpButtonEnabled),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -290,7 +290,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(IsActive),
             typeof(bool),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(true)
         );
 
@@ -304,7 +304,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(CustomHeader),
             typeof(object),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 
@@ -318,7 +318,7 @@ public partial class NativeLikeTitleBar : ContentControl
         DependencyProperty.Register(
             nameof(CustomFooter),
             typeof(object),
-            typeof(NativeLikeTitleBar),
+            typeof(TitleBar),
             new PropertyMetadata(null)
         );
 

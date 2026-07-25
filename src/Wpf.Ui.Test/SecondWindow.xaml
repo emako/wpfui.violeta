@@ -14,7 +14,7 @@
     WindowBackdropType="Mica"
     mc:Ignorable="d">
     <ui:Grid RowDefinitions="Auto,*">
-        <vio:NativeLikeTitleBar
+        <vio:TitleBar
             Grid.Row="0"
             Height="{Binding TitleBarHeight, Mode=OneWay}"
             BackButtonVisibility="{Binding IsBackButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -32,7 +32,7 @@
             PaneToggleButtonClick="PaneToggleButtonClick"
             PaneToggleButtonVisibility="{Binding IsPaneToggleButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
 
-            <vio:NativeLikeTitleBar.CustomHeader>
+            <vio:TitleBar.CustomHeader>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -68,9 +68,9 @@
                         </MenuItem>
                     </Menu>
                 </Grid>
-            </vio:NativeLikeTitleBar.CustomHeader>
+            </vio:TitleBar.CustomHeader>
 
-            <vio:NativeLikeTitleBar.CustomFooter>
+            <vio:TitleBar.CustomFooter>
                 <StackPanel Orientation="Horizontal">
                     <vio:TitleBarButton
                         IsEnabled="{Binding IsPersonPictureEnabled, Mode=OneWay}"
@@ -110,7 +110,7 @@
                             Glyph="&#xE740;" />
                     </vio:TitleBarButton>
                 </StackPanel>
-            </vio:NativeLikeTitleBar.CustomFooter>
+            </vio:TitleBar.CustomFooter>
 
             <TextBox
                 Width="300"
@@ -119,7 +119,7 @@
                 VerticalContentAlignment="Center"
                 Text="Lorem ipsum set amet"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
-        </vio:NativeLikeTitleBar>
+        </vio:TitleBar>
 
         <Grid Grid.Row="1">
             <TextBlock Text="Content" />
