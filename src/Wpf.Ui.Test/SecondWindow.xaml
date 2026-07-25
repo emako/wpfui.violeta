@@ -115,10 +115,15 @@
             <TextBox
                 Width="300"
                 MaxHeight="30"
+                Padding="6,0,0,0"
                 VerticalContentAlignment="Center"
                 Text="Lorem ipsum set amet"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
         </vio:NativeLikeTitleBar>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="Content" />
+        </Grid>
 
     </ui:Grid>
 </vio:ShellWindow>
