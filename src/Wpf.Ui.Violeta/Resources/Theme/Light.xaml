@@ -84,6 +84,18 @@
     <m:StaticResource x:Key="TopNavigationViewItemRevealContentForegroundFocused" ResourceKey="TextFillColorPrimaryBrush" />
     <m:StaticResource x:Key="NavigationViewBackButtonBackground" ResourceKey="SubtleFillColorTransparentBrush" />
 
+    <!--  TitleBarButton  -->
+    <Color x:Key="TitleBarButtonHoverBackgroundColor">#10000000</Color>
+    <Color x:Key="TitleBarButtonPressedBackgroundColor">#08000000</Color>
+    <SolidColorBrush x:Key="TitleBarButtonForeground" Color="#FF000000" />
+    <SolidColorBrush x:Key="TitleBarButtonBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="TitleBarButtonHoverForeground" Color="#FF000000" />
+    <SolidColorBrush x:Key="TitleBarButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonPressedForeground" Color="#FF000000" Opacity="0.618" />
+    <SolidColorBrush x:Key="TitleBarButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
+    <SolidColorBrush x:Key="TitleBarButtonDisabledForeground" Color="#FF000000" Opacity="0.382" />
+    <SolidColorBrush x:Key="TitleBarButtonDisabledBackground" Color="Transparent" />
+
     <!--  CalloutToolTip  -->
     <SolidColorBrush x:Key="CalloutToolTipForeground" Color="White" />
     <SolidColorBrush x:Key="CalloutToolTipBackground" Color="#FF232323" />

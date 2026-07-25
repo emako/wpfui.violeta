@@ -10,27 +10,10 @@
     <system:Double x:Key="TitleBarButtonPressedForegroundOpacity">0.618</system:Double>
     <system:Double x:Key="TitleBarButtonDisabledForegroundOpacity">0.382</system:Double>
 
-    <Color x:Key="TitleBarButtonHoverBackgroundColor">#10000000</Color>
-    <Color x:Key="TitleBarButtonPressedBackgroundColor">#08000000</Color>
-
-    <SolidColorBrush x:Key="TitleBarButtonForeground" Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
-    <SolidColorBrush x:Key="TitleBarButtonBackground" Color="Transparent" />
-    <SolidColorBrush x:Key="TitleBarButtonHoverForeground" Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
-    <SolidColorBrush x:Key="TitleBarButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
-    <SolidColorBrush
-        x:Key="TitleBarButtonPressedForeground"
-        Opacity="{StaticResource TitleBarButtonPressedForegroundOpacity}"
-        Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
-    <SolidColorBrush x:Key="TitleBarButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
-    <SolidColorBrush
-        x:Key="TitleBarButtonDisabledForeground"
-        Opacity="{StaticResource TitleBarButtonDisabledForegroundOpacity}"
-        Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
-    <SolidColorBrush x:Key="TitleBarButtonDisabledBackground" Color="Transparent" />
-
     <Style x:Key="TitleBarButtonDefaultStyle" TargetType="{x:Type local:TitleBarButton}">
         <Setter Property="Width" Value="{StaticResource TitleBarButtonWidth}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource TitleBarButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TitleBarButton}">
@@ -61,16 +44,16 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" Value="{StaticResource TitleBarButtonDisabledBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonDisabledForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarButtonDisabledBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonDisabledForeground}" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource TitleBarButtonHoverBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonHoverForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarButtonHoverBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonHoverForeground}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource TitleBarButtonPressedBackground}" />
-                <Setter Property="Foreground" Value="{StaticResource TitleBarButtonPressedForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarButtonPressedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource TitleBarButtonPressedForeground}" />
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -79,9 +79,9 @@
     <SolidColorBrush x:Key="CaptionRestoreButtonHoverForeground" Color="{x:Static SystemColors.ActiveCaptionTextColor}" />
     <SolidColorBrush x:Key="CaptionCloseButtonHoverForeground" Color="{x:Static SystemColors.HighlightTextColor}" />
 
-    <SolidColorBrush x:Key="CaptionMinimizeButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
-    <SolidColorBrush x:Key="CaptionMaximizeButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
-    <SolidColorBrush x:Key="CaptionRestoreButtonHoverBackground" Color="{StaticResource TitleBarButtonHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionMinimizeButtonHoverBackground" Color="{DynamicResource TitleBarButtonHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionMaximizeButtonHoverBackground" Color="{DynamicResource TitleBarButtonHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionRestoreButtonHoverBackground" Color="{DynamicResource TitleBarButtonHoverBackgroundColor}" />
     <SolidColorBrush x:Key="CaptionCloseButtonHoverBackground" Color="{StaticResource CaptionCloseButtonHoverBackgroundColor}" />
 
     <!--  Pressed  -->
@@ -103,9 +103,9 @@
         Opacity="{StaticResource TitleBarButtonPressedForegroundOpacity}"
         Color="{x:Static SystemColors.HighlightTextColor}" />
 
-    <SolidColorBrush x:Key="CaptionMinimizeButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
-    <SolidColorBrush x:Key="CaptionMaximizeButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
-    <SolidColorBrush x:Key="CaptionRestoreButtonPressedBackground" Color="{StaticResource TitleBarButtonPressedBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionMinimizeButtonPressedBackground" Color="{DynamicResource TitleBarButtonPressedBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionMaximizeButtonPressedBackground" Color="{DynamicResource TitleBarButtonPressedBackgroundColor}" />
+    <SolidColorBrush x:Key="CaptionRestoreButtonPressedBackground" Color="{DynamicResource TitleBarButtonPressedBackgroundColor}" />
     <SolidColorBrush x:Key="CaptionCloseButtonPressedBackground" Color="{StaticResource CaptionCloseButtonPressedBackgroundColor}" />
 
     <!--  Disabled  -->
