@@ -11,6 +11,7 @@
     <Thickness x:Key="TagComboBoxItemMargin">6,4,6,0</Thickness>
     <Thickness x:Key="TagComboBoxItemContentMargin">10,8,8,8</Thickness>
     <system:Double x:Key="TagComboBoxChevronSize">11.0</system:Double>
+    <system:Double x:Key="TagComboBoxMinHeight">36.0</system:Double>
     <system:Double x:Key="TagComboBoxPopupMinHeight">32.0</system:Double>
 
     <!--  Transparent ToggleButton that covers the entire header to open/close the popup  -->
@@ -154,8 +155,8 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{StaticResource TagComboBoxMinHeight}" />
         <Setter Property="MinWidth" Value="{DynamicResource TextControlThemeMinWidth}" />
         <Setter Property="Padding" Value="{StaticResource TagComboBoxPadding}" />
         <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
