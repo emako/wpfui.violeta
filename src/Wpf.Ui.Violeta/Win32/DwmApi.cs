@@ -19,6 +19,8 @@ internal static class DwmApi
     /// </remarks>
     internal enum DWMWINDOWATTRIBUTE : int
     {
+        DWMWA_NCRENDERING_ENABLED = 1,
+        DWMWA_NCRENDERING_POLICY = 2,
         DWMWA_TRANSITIONS_FORCEDISABLED = 3,
         DWMWA_USE_IMMERSIVE_DARK_MODE_OLD = 19,
         DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
@@ -26,6 +28,14 @@ internal static class DwmApi
         DWMWA_CAPTION_COLOR = 35,
         DWMWA_SYSTEMBACKDROP_TYPE = 38,
         DWMWA_MICA_EFFECT = 1029,
+    }
+
+    /// <summary>Values for <see cref="DWMWINDOWATTRIBUTE.DWMWA_NCRENDERING_POLICY"/>.</summary>
+    internal enum DWMNCRENDERINGPOLICY : int
+    {
+        DWMNCRP_USEWINDOWSTYLE = 0,
+        DWMNCRP_DISABLED = 1,
+        DWMNCRP_ENABLED = 2,
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -67,6 +77,15 @@ internal static class DwmApi
     {
         int value = disabled ? 1 : 0;
         _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, ref value, Marshal.SizeOf<int>());
+    }
+
+    /// <summary>
+    /// Enables or disables DWM non-client rendering (including the system drop shadow).
+    /// </summary>
+    internal static void SetNcRenderingEnabled(nint hwnd, bool enabled)
+    {
+        int policy = (int)(enabled ? DWMNCRENDERINGPOLICY.DWMNCRP_ENABLED : DWMNCRENDERINGPOLICY.DWMNCRP_DISABLED);
+        _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_NCRENDERING_POLICY, ref policy, Marshal.SizeOf<int>());
     }
 
     /// <summary>Extends the DWM frame into the client area so WPF can paint over it transparently.</summary>
