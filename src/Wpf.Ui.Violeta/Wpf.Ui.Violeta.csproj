@@ -157,7 +157,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.10" />
         <PackageReference Include="WPF-UI" Version="4.3.0" />
     </ItemGroup>
 

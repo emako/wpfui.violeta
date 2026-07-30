@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Wpf.Ui.Violeta.Win32;
+namespace Wpf.Ui.Violeta.Win32.NativeDialog;
 
 /// <summary>
 /// Represents a Windows Security dialog for entering generic credentials.
@@ -180,7 +180,7 @@ public sealed class CredentialDialog
 
         var protectedPassword = ProtectedData.Protect(
             Encoding.UTF8.GetBytes(credential.Password ?? string.Empty),
-            additionalEntropy,
+            additionalEntropy!,
             DataProtectionScope.CurrentUser);
         var passwordBuffer = Marshal.AllocHGlobal(protectedPassword.Length);
         try
@@ -234,7 +234,7 @@ public sealed class CredentialDialog
             string password;
             try
             {
-                password = Encoding.UTF8.GetString(ProtectedData.Unprotect(encryptedPassword, additionalEntropy, DataProtectionScope.CurrentUser));
+                password = Encoding.UTF8.GetString(ProtectedData.Unprotect(encryptedPassword, additionalEntropy!, DataProtectionScope.CurrentUser));
             }
             catch (CryptographicException)
             {

@@ -18,6 +18,7 @@ using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Threading;
 using Wpf.Ui.Violeta.Win32;
+using Wpf.Ui.Violeta.Win32.NativeDialog;
 using ContentDialog = Wpf.Ui.Violeta.Controls.ContentDialog;
 using ContentDialogButton = Wpf.Ui.Violeta.Controls.ContentDialogButton;
 
