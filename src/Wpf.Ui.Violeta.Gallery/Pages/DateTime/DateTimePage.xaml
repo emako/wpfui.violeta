@@ -33,6 +33,12 @@
                     NavigateTag="date-time/time-picker" />
                 <ctrl:SampleCard
                     Width="260"
+                    Title="CalendarDatePicker"
+                    Description="日历日期选择"
+                    Glyph="&#xE787;"
+                    NavigateTag="date-time/calendar-date-picker" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="CalendarDateTimePicker"
                     Description="日历与时间一体选择"
                     Glyph="&#xE787;"

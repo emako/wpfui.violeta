@@ -21,6 +21,24 @@
             <WrapPanel>
                 <ctrl:SampleCard
                     Width="260"
+                    Title="Image"
+                    Description="图片控件"
+                    Glyph="&#xE91B;"
+                    NavigateTag="media/image" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Canvas"
+                    Description="画布绘图"
+                    Glyph="&#xE790;"
+                    NavigateTag="media/canvas" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="WebBrowser"
+                    Description="内嵌浏览器"
+                    Glyph="&#xE774;"
+                    NavigateTag="media/web-browser" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="ImageView"
                     Description="可缩放平移的图片查看器"
                     Glyph="&#xE91B;"

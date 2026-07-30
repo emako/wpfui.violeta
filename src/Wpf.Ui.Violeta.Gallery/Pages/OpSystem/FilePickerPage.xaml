@@ -1,0 +1,191 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.OpSystem.FilePickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="FilePicker"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="FilePicker" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="选择单个文件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Microsoft.Win32.OpenFileDialog，Filter 为所有文件。"
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <ui:Button Click="OpenFile_Click" Content="打开文件" />
+                        <TextBlock
+                            x:Name="OpenedFilePathText"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="选择图片文件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="限定 Filter 为常见图片格式。"
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <ui:Button Click="OpenPicture_Click" Content="打开图片" />
+                        <TextBlock
+                            x:Name="OpenedPicturePathText"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="选择多个文件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Multiselect = true，可同时选择多个文件。"
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <ui:Button Click="OpenMultiple_Click" Content="打开多个文件" />
+                        <TextBlock
+                            x:Name="OpenedMultiplePathText"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="选择文件夹" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Microsoft.Win32.OpenFolderDialog（.NET 8+）。"
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <ui:Button Click="OpenFolder_Click" Content="打开文件夹" />
+                        <TextBlock
+                            x:Name="OpenedFolderPathText"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Visibility="Collapsed" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="保存文件" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Microsoft.Win32.SaveFileDialog，将文本写入用户选择的路径。"
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            Text="文件名：" />
+                        <ui:TextBox
+                            x:Name="FileToSaveNameTextBox"
+                            MinWidth="180"
+                            PlaceholderText="输入文件名..." />
+                        <TextBlock VerticalAlignment="Center" Text=".txt" />
+                    </ui:StackPanel>
+                    <ui:StackPanel Margin="0,8,0,0" Orientation="Horizontal" Spacing="8">
+                        <TextBlock
+                            MinWidth="80"
+                            VerticalAlignment="Center"
+                            Text="文件内容：" />
+                        <ui:TextBox
+                            x:Name="FileToSaveContentsTextBox"
+                            MinWidth="210"
+                            PlaceholderText="输入文件内容..." />
+                    </ui:StackPanel>
+                    <ui:StackPanel Margin="0,12,0,0" Orientation="Horizontal" Spacing="16">
+                        <ui:Button Click="SaveFile_Click" Content="保存文件" />
+                        <TextBlock
+                            x:Name="SavedFileNoticeText"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Visibility="Collapsed" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

@@ -17,6 +17,12 @@
             <WrapPanel>
                 <ctrl:SampleCard
                     Width="260"
+                    Title="Snackbar"
+                    Description="底部轻量通知"
+                    Glyph="&#xE7E7;"
+                    NavigateTag="notifications/snackbar" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="Toast"
                     Description="弹出式轻量通知"
                     Glyph="&#xE7E7;"

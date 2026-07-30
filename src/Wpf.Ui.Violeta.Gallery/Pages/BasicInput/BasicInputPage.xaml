@@ -25,6 +25,72 @@
             <WrapPanel>
                 <ctrl:SampleCard
                     Width="260"
+                    Title="Button"
+                    Description="按钮"
+                    Glyph="&#xE768;"
+                    NavigateTag="basic-input/button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="DropDownButton"
+                    Description="下拉按钮"
+                    Glyph="&#xE70D;"
+                    NavigateTag="basic-input/drop-down-button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="HyperlinkButton"
+                    Description="超链接按钮"
+                    Glyph="&#xE71B;"
+                    NavigateTag="basic-input/hyperlink-button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ToggleButton"
+                    Description="切换按钮"
+                    Glyph="&#xE8FD;"
+                    NavigateTag="basic-input/toggle-button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="CheckBox"
+                    Description="复选框"
+                    Glyph="&#xE739;"
+                    NavigateTag="basic-input/check-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ComboBox"
+                    Description="下拉框"
+                    Glyph="&#xE8B7;"
+                    NavigateTag="basic-input/combo-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="RadioButton"
+                    Description="单选按钮"
+                    Glyph="&#xE738;"
+                    NavigateTag="basic-input/radio-button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Rating"
+                    Description="星级评分"
+                    Glyph="&#xE734;"
+                    NavigateTag="basic-input/rating" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ThumbRate"
+                    Description="赞踩评分"
+                    Glyph="&#xE8EC;"
+                    NavigateTag="basic-input/thumb-rate" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="SplitButton"
+                    Description="拆分按钮"
+                    Glyph="&#xE768;"
+                    NavigateTag="basic-input/split-button" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Slider"
+                    Description="滑块"
+                    Glyph="&#xE76B;"
+                    NavigateTag="basic-input/slider" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="LoadingButton"
                     Description="带加载状态的按钮"
                     Glyph="&#xE768;"

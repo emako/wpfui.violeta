@@ -1,0 +1,148 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Status.InfoBadgePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="InfoBadge"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="InfoBadge" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="NavigationView 中的 InfoBadge" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="可在 NavigationViewItem 上附加 InfoBadge 显示未读数或状态。"
+                        TextWrapping="Wrap" />
+                    <ui:NavigationView
+                        MinHeight="260"
+                        IsBackButtonVisible="Auto"
+                        IsPaneOpen="True"
+                        IsPaneToggleVisible="True"
+                        PaneDisplayMode="Left">
+                        <ui:NavigationView.MenuItems>
+                            <ui:NavigationViewItem Content="Dashboard" Icon="{ui:SymbolIcon Home24}" />
+                            <ui:NavigationViewItem Content="Items" Icon="{ui:SymbolIcon Library24}">
+                                <ui:NavigationViewItem.InfoBadge>
+                                    <ui:InfoBadge Severity="Attention" Value="3" />
+                                </ui:NavigationViewItem.InfoBadge>
+                            </ui:NavigationViewItem>
+                        </ui:NavigationView.MenuItems>
+                        <ui:NavigationView.FooterMenuItems>
+                            <ui:NavigationViewItem Content="Settings" Icon="{ui:SymbolIcon Settings24}" />
+                        </ui:NavigationView.FooterMenuItems>
+                    </ui:NavigationView>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="样式与 Severity" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Icon / Value / Dot 三种样式，配合不同 Severity 颜色。"
+                        TextWrapping="Wrap" />
+                    <WrapPanel HorizontalAlignment="Center">
+                        <ui:InfoBadge
+                            Margin="10"
+                            CornerRadius="30"
+                            Icon="{ui:SymbolIcon Alert16}"
+                            Severity="Attention"
+                            Style="{DynamicResource IconInfoBadgeStyle}" />
+                        <ui:InfoBadge
+                            Margin="10"
+                            Severity="Informational"
+                            Style="{DynamicResource ValueInfoBadgeStyle}"
+                            Value="1" />
+                        <ui:InfoBadge
+                            Margin="10"
+                            Severity="Success"
+                            Style="{DynamicResource DotInfoBadgeStyle}"
+                            Value="2" />
+                        <ui:InfoBadge
+                            Margin="10"
+                            Severity="Caution"
+                            Style="{DynamicResource ValueInfoBadgeStyle}"
+                            Value="9" />
+                        <ui:InfoBadge
+                            Margin="10"
+                            Severity="Critical"
+                            Style="{DynamicResource DotInfoBadgeStyle}" />
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="叠加在其他控件上" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Dot 样式可角标显示在按钮右上角。"
+                        TextWrapping="Wrap" />
+                    <ui:Button
+                        Width="200"
+                        Height="60"
+                        Padding="0"
+                        HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Stretch"
+                        ToolTip="Refresh required">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <ui:SymbolIcon
+                                HorizontalAlignment="Center"
+                                Symbol="ArrowSync24" />
+                            <ui:InfoBadge
+                                Margin="0,-10,5,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Severity="Critical"
+                                Style="{DynamicResource DotInfoBadgeStyle}" />
+                        </Grid>
+                    </ui:Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

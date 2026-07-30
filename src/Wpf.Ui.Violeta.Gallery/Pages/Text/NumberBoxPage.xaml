@@ -1,0 +1,149 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Text.NumberBoxPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="NumberBox"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="NumberBox" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="基础 NumberBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="数值输入框，支持占位符。" />
+                    <ui:NumberBox
+                        Width="320"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Enter your age" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="SpinButton 放置模式" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Hidden / Compact / Inline 三种微调按钮布局。" />
+                    <ui:StackPanel Orientation="Vertical" Spacing="8">
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Hidden" />
+                            <ui:NumberBox
+                                Width="240"
+                                Icon="{ui:SymbolIcon NumberSymbolSquare24}"
+                                LargeChange="2.25"
+                                Maximum="10"
+                                Minimum="-10"
+                                PlaceholderText="Enter your age"
+                                SmallChange="0.25"
+                                SpinButtonPlacementMode="Hidden"
+                                Value="1.50" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Compact" />
+                            <ui:NumberBox
+                                Width="240"
+                                Icon="{ui:SymbolIcon NumberSymbolSquare24}"
+                                LargeChange="2.25"
+                                Maximum="10"
+                                Minimum="-10"
+                                PlaceholderText="Enter your age"
+                                SmallChange="0.25"
+                                SpinButtonPlacementMode="Compact"
+                                Value="1.50" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="80"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Inline" />
+                            <ui:NumberBox
+                                Width="240"
+                                Icon="{ui:SymbolIcon NumberSymbolSquare24}"
+                                LargeChange="2.25"
+                                Maximum="10"
+                                Minimum="-10"
+                                PlaceholderText="Enter your age"
+                                SmallChange="0.25"
+                                SpinButtonPlacementMode="Inline"
+                                Value="1.50" />
+                        </ui:StackPanel>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="整数 NumberBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="MaxDecimalPlaces=0，仅允许整数输入。" />
+                    <ui:NumberBox
+                        Width="320"
+                        HorizontalAlignment="Left"
+                        Icon="{ui:SymbolIcon NumberSymbolSquare24}"
+                        MaxDecimalPlaces="0"
+                        Maximum="100"
+                        Minimum="0"
+                        PlaceholderText="Enter your age"
+                        SmallChange="1"
+                        SpinButtonPlacementMode="Inline"
+                        Value="12" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

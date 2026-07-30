@@ -16,7 +16,9 @@
             <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="点击卡片进入对应控件演示页面。" TextWrapping="Wrap" />
             <WrapPanel>
                 <ctrl:SampleCard Width="260" Title="DataGrid" Description="数据表格" Glyph="&#xE80A;" NavigateTag="collections/data-grid" />
+                <ctrl:SampleCard Width="260" Title="ListBox" Description="列表框" Glyph="&#xE8FD;" NavigateTag="collections/list-box" />
                 <ctrl:SampleCard Width="260" Title="ListView" Description="列表视图" Glyph="&#xE8FD;" NavigateTag="collections/list-view" />
+                <ctrl:SampleCard Width="260" Title="TreeView" Description="树形视图" Glyph="&#xE8A5;" NavigateTag="collections/tree-view" />
                 <ctrl:SampleCard Width="260" Title="TreeListView" Description="树形列表视图" Glyph="&#xE8FD;" NavigateTag="collections/tree-list-view" />
                 <ctrl:SampleCard Width="260" Title="TreeModelListView" Description="树模型列表视图" Glyph="&#xE8A5;" NavigateTag="collections/tree-model-list-view" />
                 <ctrl:SampleCard Width="260" Title="FlipView" Description="翻转视图" Glyph="&#xE76C;" NavigateTag="collections/flip-view" />

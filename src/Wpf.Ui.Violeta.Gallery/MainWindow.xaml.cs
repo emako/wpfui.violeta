@@ -17,6 +17,7 @@ using Wpf.Ui.Violeta.Gallery.Pages.Layout;
 using Wpf.Ui.Violeta.Gallery.Pages.Media;
 using Wpf.Ui.Violeta.Gallery.Pages.Navigation;
 using Wpf.Ui.Violeta.Gallery.Pages.Notifications;
+using Wpf.Ui.Violeta.Gallery.Pages.OpSystem;
 using Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 using Wpf.Ui.Violeta.Gallery.Pages.Settings;
 using Wpf.Ui.Violeta.Gallery.Pages.Status;
@@ -43,6 +44,17 @@ public partial class MainWindow : ShellWindow
         ["design/colors"] = static () => new ColorsPage(),
 
         ["basic-input"] = static () => new BasicInputPage(),
+        ["basic-input/button"] = static () => new ButtonPage(),
+        ["basic-input/drop-down-button"] = static () => new DropDownButtonPage(),
+        ["basic-input/hyperlink-button"] = static () => new HyperlinkButtonPage(),
+        ["basic-input/toggle-button"] = static () => new ToggleButtonPage(),
+        ["basic-input/check-box"] = static () => new CheckBoxPage(),
+        ["basic-input/combo-box"] = static () => new ComboBoxPage(),
+        ["basic-input/radio-button"] = static () => new RadioButtonPage(),
+        ["basic-input/rating"] = static () => new RatingPage(),
+        ["basic-input/thumb-rate"] = static () => new ThumbRatePage(),
+        ["basic-input/split-button"] = static () => new SplitButtonPage(),
+        ["basic-input/slider"] = static () => new SliderPage(),
         ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
         ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
         ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
@@ -56,6 +68,12 @@ public partial class MainWindow : ShellWindow
 
         ["text"] = static () => new TextPage(),
         ["text/textbox"] = static () => new TextBoxPage(),
+        ["text/auto-suggest-box"] = static () => new AutoSuggestBoxPage(),
+        ["text/number-box"] = static () => new NumberBoxPage(),
+        ["text/password-box"] = static () => new PasswordBoxPage(),
+        ["text/rich-text-box"] = static () => new RichTextBoxPage(),
+        ["text/label"] = static () => new LabelPage(),
+        ["text/text-block"] = static () => new TextBlockPage(),
         ["text/selectable-text-block"] = static () => new SelectableTextBlockPage(),
         ["text/hyperlink"] = static () => new HyperlinkPage(),
         ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
@@ -72,6 +90,7 @@ public partial class MainWindow : ShellWindow
         ["date-time"] = static () => new DateTimePage(),
         ["date-time/date-picker"] = static () => new DatePickerPage(),
         ["date-time/time-picker"] = static () => new TimePickerPage(),
+        ["date-time/calendar-date-picker"] = static () => new CalendarDatePickerPage(),
         ["date-time/calendar-date-time-picker"] = static () => new CalendarDateTimePickerPage(),
         ["date-time/time-box-picker"] = static () => new TimeBoxPickerPage(),
         ["date-time/time-box"] = static () => new TimeBoxPage(),
@@ -89,13 +108,16 @@ public partial class MainWindow : ShellWindow
         ["dialogs/fluent-popup"] = static () => new FluentPopupPage(),
 
         ["notifications"] = static () => new NotificationsPage(),
+        ["notifications/snackbar"] = static () => new SnackbarPage(),
         ["notifications/toast"] = static () => new ToastPage(),
         ["notifications/banner"] = static () => new BannerPage(),
         ["notifications/tray-icon"] = static () => new TrayIconPage(),
 
         ["collections"] = static () => new CollectionsPage(),
         ["collections/data-grid"] = static () => new DataGridPage(),
+        ["collections/list-box"] = static () => new ListBoxPage(),
         ["collections/list-view"] = static () => new ListViewPage(),
+        ["collections/tree-view"] = static () => new TreeViewPage(),
         ["collections/tree-list-view"] = static () => new TreeListViewPage(),
         ["collections/tree-model-list-view"] = static () => new TreeModelListViewPage(),
         ["collections/flip-view"] = static () => new FlipViewPage(),
@@ -104,10 +126,16 @@ public partial class MainWindow : ShellWindow
 
         ["navigation"] = static () => new NavigationPage(),
         ["navigation/navigation-view"] = static () => new NavigationViewPage(),
+        ["navigation/breadcrumb-bar"] = static () => new BreadcrumbBarPage(),
+        ["navigation/menu"] = static () => new MenuPage(),
+        ["navigation/tab-control"] = static () => new TabControlPage(),
+        ["navigation/tab-view"] = static () => new TabViewPage(),
         ["navigation/tab-strip"] = static () => new TabStripPage(),
         ["navigation/anchor"] = static () => new AnchorPage(),
 
         ["layout"] = static () => new LayoutPage(),
+        ["layout/card-control"] = static () => new CardControlPage(),
+        ["layout/card-action"] = static () => new CardActionPage(),
         ["layout/auto-grid"] = static () => new AutoGridPage(),
         ["layout/border"] = static () => new BorderPage(),
         ["layout/drop-shadow-chrome"] = static () => new DropShadowChromePage(),
@@ -120,6 +148,10 @@ public partial class MainWindow : ShellWindow
         ["layout/fluent-scroll-viewer"] = static () => new FluentScrollViewerPage(),
 
         ["status"] = static () => new StatusPage(),
+        ["status/info-badge"] = static () => new InfoBadgePage(),
+        ["status/info-bar"] = static () => new InfoBarPage(),
+        ["status/progress-bar"] = static () => new ProgressBarPage(),
+        ["status/progress-ring"] = static () => new ProgressRingPage(),
         ["status/badge"] = static () => new BadgePage(),
         ["status/skeleton"] = static () => new SkeletonPage(),
         ["status/busy-mask"] = static () => new BusyMaskPage(),
@@ -127,7 +159,10 @@ public partial class MainWindow : ShellWindow
         ["status/tool-tip"] = static () => new ToolTipPage(),
 
         ["media"] = static () => new MediaPage(),
+        ["media/image"] = static () => new ImagePage(),
         ["media/image-view"] = static () => new ImageViewPage(),
+        ["media/canvas"] = static () => new CanvasPage(),
+        ["media/web-browser"] = static () => new WebBrowserPage(),
         ["media/person-picture"] = static () => new PersonPicturePage(),
         ["media/bitmap-icon"] = static () => new BitmapIconPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
@@ -145,6 +180,10 @@ public partial class MainWindow : ShellWindow
         ["windows/content-window"] = static () => new ContentWindowPage(),
         ["windows/title-bar"] = static () => new TitleBarPage(),
         ["windows/caption-button-bar"] = static () => new CaptionButtonBarPage(),
+
+        ["op-system"] = static () => new OpSystemPage(),
+        ["op-system/clipboard"] = static () => new ClipboardPage(),
+        ["op-system/file-picker"] = static () => new FilePickerPage(),
 
         ["settings"] = static () => new SettingsPage(),
     };

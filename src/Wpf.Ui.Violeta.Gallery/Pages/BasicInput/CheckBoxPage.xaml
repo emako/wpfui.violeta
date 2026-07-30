@@ -1,0 +1,111 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.CheckBoxPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="CheckBox"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="CheckBox" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Two-state CheckBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="双态复选框：选中 / 未选中。" />
+                    <CheckBox Content="Two-state CheckBox" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Three-state CheckBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="三态复选框：选中 / 未选中 / 不确定。" />
+                    <CheckBox
+                        Content="Three-state CheckBox"
+                        IsChecked="{x:Null}"
+                        IsThreeState="True" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Select all" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="三态「全选」复选框联动子选项。" />
+                    <CheckBox
+                        x:Name="SelectAllCheckBox"
+                        Checked="SelectAll_Checked"
+                        Content="Select all"
+                        Indeterminate="SelectAll_Indeterminate"
+                        IsThreeState="True"
+                        Unchecked="SelectAll_Unchecked" />
+                    <CheckBox
+                        x:Name="Option1CheckBox"
+                        Margin="24,8,0,0"
+                        Checked="Option_CheckedChanged"
+                        Content="Option 1"
+                        Unchecked="Option_CheckedChanged" />
+                    <CheckBox
+                        x:Name="Option2CheckBox"
+                        Margin="24,0,0,0"
+                        Checked="Option_CheckedChanged"
+                        Content="Option 2"
+                        Unchecked="Option_CheckedChanged" />
+                    <CheckBox
+                        x:Name="Option3CheckBox"
+                        Margin="24,0,0,0"
+                        Checked="Option_CheckedChanged"
+                        Content="Option 3"
+                        Unchecked="Option_CheckedChanged" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

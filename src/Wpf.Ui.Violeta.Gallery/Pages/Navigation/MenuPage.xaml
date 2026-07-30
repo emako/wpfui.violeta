@@ -1,0 +1,74 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="Menu"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Menu" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="标准 Menu + ui:MenuItem" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="WPF Menu 配合 ui:MenuItem 获得 Fluent 图标与样式。"
+                        TextWrapping="Wrap" />
+                    <Menu FontSize="14">
+                        <ui:MenuItem Header="File" Icon="{ui:SymbolIcon Document24}">
+                            <ui:MenuItem Header="New" InputGestureText="CTRL+N" />
+                            <ui:MenuItem Header="Open..." InputGestureText="CTRL+O" />
+                            <ui:MenuItem Header="Save" InputGestureText="CTRL+S" />
+                            <ui:MenuItem Header="Save As..." InputGestureText="CTRL+SHIFT+S" />
+                            <Separator />
+                            <ui:MenuItem Header="Exit" />
+                        </ui:MenuItem>
+                        <ui:MenuItem Header="Edit" Icon="{ui:SymbolIcon DocumentEdit20}">
+                            <ui:MenuItem Header="Undo" InputGestureText="CTRL+Z" />
+                            <Separator />
+                            <ui:MenuItem Header="Cut" InputGestureText="CTRL+X" />
+                            <ui:MenuItem Header="Copy" InputGestureText="CTRL+C" />
+                            <ui:MenuItem Header="Paste" InputGestureText="CTRL+V" />
+                            <ui:MenuItem IsEnabled="False" />
+                            <Separator />
+                            <ui:MenuItem
+                                Header="Word wrap"
+                                InputGestureText="CTRL+SHIFT+W"
+                                IsCheckable="True"
+                                IsChecked="True" />
+                            <ui:MenuItem Header="Find..." InputGestureText="CTRL+F" />
+                            <ui:MenuItem Header="Find next" InputGestureText="F3" />
+                            <Separator />
+                            <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
+                        </ui:MenuItem>
+                        <Separator />
+                        <ui:MenuItem Icon="{ui:SymbolIcon TextBold20}" />
+                        <ui:MenuItem Icon="{ui:SymbolIcon TextItalic20}" />
+                        <ui:MenuItem Icon="{ui:SymbolIcon TextUnderline20}" />
+                    </Menu>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

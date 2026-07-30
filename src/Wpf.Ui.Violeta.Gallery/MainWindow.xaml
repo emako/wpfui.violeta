@@ -107,6 +107,17 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE73E;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Button" Tag="basic-input/button" />
+                        <vio:NavigationViewItem Content="DropDownButton" Tag="basic-input/drop-down-button" />
+                        <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
+                        <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />
+                        <vio:NavigationViewItem Content="CheckBox" Tag="basic-input/check-box" />
+                        <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
+                        <vio:NavigationViewItem Content="RadioButton" Tag="basic-input/radio-button" />
+                        <vio:NavigationViewItem Content="Rating" Tag="basic-input/rating" />
+                        <vio:NavigationViewItem Content="ThumbRate" Tag="basic-input/thumb-rate" />
+                        <vio:NavigationViewItem Content="SplitButton" Tag="basic-input/split-button" />
+                        <vio:NavigationViewItem Content="Slider" Tag="basic-input/slider" />
                         <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
                         <vio:NavigationViewItem Content="ToggleSwitch" Tag="basic-input/toggle-switch" />
                         <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
@@ -126,6 +137,12 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="TextBox" Tag="text/textbox" />
+                        <vio:NavigationViewItem Content="AutoSuggestBox" Tag="text/auto-suggest-box" />
+                        <vio:NavigationViewItem Content="NumberBox" Tag="text/number-box" />
+                        <vio:NavigationViewItem Content="PasswordBox" Tag="text/password-box" />
+                        <vio:NavigationViewItem Content="RichTextBox" Tag="text/rich-text-box" />
+                        <vio:NavigationViewItem Content="Label" Tag="text/label" />
+                        <vio:NavigationViewItem Content="TextBlock" Tag="text/text-block" />
                         <vio:NavigationViewItem Content="SelectableTextBlock" Tag="text/selectable-text-block" />
                         <vio:NavigationViewItem Content="Hyperlink" Tag="text/hyperlink" />
                         <vio:NavigationViewItem Content="BoolStateTextBlock" Tag="text/bool-state-text-block" />
@@ -158,6 +175,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="DatePicker" Tag="date-time/date-picker" />
                         <vio:NavigationViewItem Content="TimePicker" Tag="date-time/time-picker" />
+                        <vio:NavigationViewItem Content="CalendarDatePicker" Tag="date-time/calendar-date-picker" />
                         <vio:NavigationViewItem Content="CalendarDateTimePicker" Tag="date-time/calendar-date-time-picker" />
                         <vio:NavigationViewItem Content="TimeBoxPicker" Tag="date-time/time-box-picker" />
                         <vio:NavigationViewItem Content="TimeBox" Tag="date-time/time-box" />
@@ -187,6 +205,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA0C;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Snackbar" Tag="notifications/snackbar" />
                         <vio:NavigationViewItem Content="Toast" Tag="notifications/toast" />
                         <vio:NavigationViewItem Content="Banner" Tag="notifications/banner" />
                         <vio:NavigationViewItem Content="TrayIcon" Tag="notifications/tray-icon" />
@@ -199,7 +218,9 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="DataGrid" Tag="collections/data-grid" />
+                        <vio:NavigationViewItem Content="ListBox" Tag="collections/list-box" />
                         <vio:NavigationViewItem Content="ListView" Tag="collections/list-view" />
+                        <vio:NavigationViewItem Content="TreeView" Tag="collections/tree-view" />
                         <vio:NavigationViewItem Content="TreeListView" Tag="collections/tree-list-view" />
                         <vio:NavigationViewItem Content="TreeModelListView" Tag="collections/tree-model-list-view" />
                         <vio:NavigationViewItem Content="FlipView" Tag="collections/flip-view" />
@@ -214,6 +235,10 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="NavigationView" Tag="navigation/navigation-view" />
+                        <vio:NavigationViewItem Content="BreadcrumbBar" Tag="navigation/breadcrumb-bar" />
+                        <vio:NavigationViewItem Content="Menu" Tag="navigation/menu" />
+                        <vio:NavigationViewItem Content="TabControl" Tag="navigation/tab-control" />
+                        <vio:NavigationViewItem Content="TabView" Tag="navigation/tab-view" />
                         <vio:NavigationViewItem Content="TabStrip" Tag="navigation/tab-strip" />
                         <vio:NavigationViewItem Content="Anchor" Tag="navigation/anchor" />
                     </vio:NavigationViewItem.MenuItems>
@@ -224,6 +249,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8A5;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="CardControl" Tag="layout/card-control" />
+                        <vio:NavigationViewItem Content="CardAction" Tag="layout/card-action" />
                         <vio:NavigationViewItem Content="AutoGrid" Tag="layout/auto-grid" />
                         <vio:NavigationViewItem Content="Border" Tag="layout/border" />
                         <vio:NavigationViewItem Content="DropShadowChrome" Tag="layout/drop-shadow-chrome" />
@@ -242,6 +269,10 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="InfoBadge" Tag="status/info-badge" />
+                        <vio:NavigationViewItem Content="InfoBar" Tag="status/info-bar" />
+                        <vio:NavigationViewItem Content="ProgressBar" Tag="status/progress-bar" />
+                        <vio:NavigationViewItem Content="ProgressRing" Tag="status/progress-ring" />
                         <vio:NavigationViewItem Content="Badge" Tag="status/badge" />
                         <vio:NavigationViewItem Content="Skeleton" Tag="status/skeleton" />
                         <vio:NavigationViewItem Content="BusyMask" Tag="status/busy-mask" />
@@ -255,7 +286,10 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B9;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Image" Tag="media/image" />
                         <vio:NavigationViewItem Content="ImageView" Tag="media/image-view" />
+                        <vio:NavigationViewItem Content="Canvas" Tag="media/canvas" />
+                        <vio:NavigationViewItem Content="WebBrowser" Tag="media/web-browser" />
                         <vio:NavigationViewItem Content="PersonPicture" Tag="media/person-picture" />
                         <vio:NavigationViewItem Content="BitmapIcon" Tag="media/bitmap-icon" />
                         <vio:NavigationViewItem Content="QrCode" Tag="media/qr-code" />
@@ -285,6 +319,16 @@
                         <vio:NavigationViewItem Content="ContentWindow" Tag="windows/content-window" />
                         <vio:NavigationViewItem Content="TitleBar" Tag="windows/title-bar" />
                         <vio:NavigationViewItem Content="CaptionButtonBar" Tag="windows/caption-button-bar" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="操作系统" Tag="op-system">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE770;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Clipboard" Tag="op-system/clipboard" />
+                        <vio:NavigationViewItem Content="FilePicker" Tag="op-system/file-picker" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
             </vio:NavigationView.MenuItems>

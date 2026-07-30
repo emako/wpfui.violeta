@@ -1,0 +1,66 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.TabViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="TabView"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="TabView" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ui:TabView" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="WPF UI 提供的 TabView 控件，风格接近 WinUI TabView。"
+                        TextWrapping="Wrap" />
+                    <ui:TabView Margin="0,8,0,0">
+                        <ui:TabViewItem>
+                            <ui:TabViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:SymbolIcon Margin="0,0,6,0" Symbol="XboxConsole24" />
+                                    <TextBlock Text="Hello" />
+                                </StackPanel>
+                            </ui:TabViewItem.Header>
+                            <Grid>
+                                <TextBlock Margin="12" Text="World" />
+                            </Grid>
+                        </ui:TabViewItem>
+                        <ui:TabViewItem IsSelected="True">
+                            <ui:TabViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:SymbolIcon Margin="0,0,6,0" Symbol="StoreMicrosoft16" />
+                                    <TextBlock Text="The cake" />
+                                </StackPanel>
+                            </ui:TabViewItem.Header>
+                            <Grid>
+                                <TextBlock Margin="12" Text="Is a lie." />
+                            </Grid>
+                        </ui:TabViewItem>
+                    </ui:TabView>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

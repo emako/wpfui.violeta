@@ -15,6 +15,8 @@
             <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="布局" />
             <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="点击卡片进入对应控件演示页面。" TextWrapping="Wrap" />
             <WrapPanel>
+                <ctrl:SampleCard Width="260" Title="CardControl" Description="卡片容器" Glyph="&#xE8A5;" NavigateTag="layout/card-control" />
+                <ctrl:SampleCard Width="260" Title="CardAction" Description="可操作卡片" Glyph="&#xE8A5;" NavigateTag="layout/card-action" />
                 <ctrl:SampleCard Width="260" Title="AutoGrid" Description="自动行列网格" Glyph="&#xE80A;" NavigateTag="layout/auto-grid" />
                 <ctrl:SampleCard Width="260" Title="Border" Description="圆角边框与裁剪" Glyph="&#xE8A5;" NavigateTag="layout/border" />
                 <ctrl:SampleCard Width="260" Title="DropShadowChrome" Description="投影装饰" Glyph="&#xE790;" NavigateTag="layout/drop-shadow-chrome" />

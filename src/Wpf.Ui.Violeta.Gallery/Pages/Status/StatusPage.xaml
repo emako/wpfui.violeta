@@ -21,6 +21,30 @@
             <WrapPanel>
                 <ctrl:SampleCard
                     Width="260"
+                    Title="InfoBadge"
+                    Description="信息角标"
+                    Glyph="&#xE7C3;"
+                    NavigateTag="status/info-badge" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="InfoBar"
+                    Description="信息栏提示"
+                    Glyph="&#xE789;"
+                    NavigateTag="status/info-bar" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ProgressBar"
+                    Description="进度条"
+                    Glyph="&#xE9F5;"
+                    NavigateTag="status/progress-bar" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ProgressRing"
+                    Description="环形进度"
+                    Glyph="&#xE895;"
+                    NavigateTag="status/progress-ring" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="Badge"
                     Description="角标与圆点提示"
                     Glyph="&#xE7C3;"

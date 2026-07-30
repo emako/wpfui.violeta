@@ -31,6 +31,42 @@
                     NavigateTag="text/textbox" />
                 <ctrl:SampleCard
                     Width="260"
+                    Title="AutoSuggestBox"
+                    Description="自动建议输入"
+                    Glyph="&#xE721;"
+                    NavigateTag="text/auto-suggest-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="NumberBox"
+                    Description="数字输入框"
+                    Glyph="&#xE8EF;"
+                    NavigateTag="text/number-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="PasswordBox"
+                    Description="密码输入框"
+                    Glyph="&#xE72E;"
+                    NavigateTag="text/password-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="RichTextBox"
+                    Description="富文本编辑"
+                    Glyph="&#xE8D2;"
+                    NavigateTag="text/rich-text-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Label"
+                    Description="标签文本"
+                    Glyph="&#xE8D2;"
+                    NavigateTag="text/label" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="TextBlock"
+                    Description="文本块"
+                    Glyph="&#xE8C8;"
+                    NavigateTag="text/text-block" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="SelectableTextBlock"
                     Description="可选中复制的文本块"
                     Glyph="&#xE8C8;"
