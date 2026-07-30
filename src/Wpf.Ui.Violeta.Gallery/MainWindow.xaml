@@ -175,6 +175,7 @@
                         <vio:NavigationViewItem Content="PendingBox" Tag="dialogs/pending-box" />
                         <vio:NavigationViewItem Content="TaskDialog" Tag="dialogs/task-dialog" />
                         <vio:NavigationViewItem Content="NativeMessageBox" Tag="dialogs/native-message-box" />
+                        <vio:NavigationViewItem Content="CredentialDialog" Tag="dialogs/credential-dialog" />
                         <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
                         <vio:NavigationViewItem Content="Flyout" Tag="dialogs/flyout" />
                         <vio:NavigationViewItem Content="FluentPopup" Tag="dialogs/fluent-popup" />

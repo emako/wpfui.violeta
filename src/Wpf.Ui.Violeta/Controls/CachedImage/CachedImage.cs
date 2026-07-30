@@ -73,9 +73,6 @@ public class CachedImage : System.Windows.Controls.Image
                     // ignored, in case the downloaded file is a broken or not an image.
                 }
                 break;
-
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 }

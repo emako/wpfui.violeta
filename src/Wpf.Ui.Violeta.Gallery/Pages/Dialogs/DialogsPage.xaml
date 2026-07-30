@@ -51,6 +51,12 @@
                     NavigateTag="dialogs/native-message-box" />
                 <ctrl:SampleCard
                     Width="260"
+                    Title="CredentialDialog"
+                    Description="Windows 安全凭据对话框"
+                    Glyph="&#xE72E;"
+                    NavigateTag="dialogs/credential-dialog" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="OpenFolderDialog"
                     Description="原生文件夹选择对话框"
                     Glyph="&#xE8B7;"

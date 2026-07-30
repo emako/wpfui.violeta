@@ -79,6 +79,7 @@
                 <ctrl:SampleCard Width="240" Title="PendingBox" Description="等待对话框" Glyph="&#xE895;" NavigateTag="dialogs/pending-box" />
                 <ctrl:SampleCard Width="240" Title="TaskDialog" Description="Win32 TaskDialog" Glyph="&#xE8BD;" NavigateTag="dialogs/task-dialog" />
                 <ctrl:SampleCard Width="240" Title="NativeMessageBox" Description="原生消息框" Glyph="&#xE8BD;" NavigateTag="dialogs/native-message-box" />
+                <ctrl:SampleCard Width="240" Title="CredentialDialog" Description="Windows 安全凭据" Glyph="&#xE72E;" NavigateTag="dialogs/credential-dialog" />
                 <ctrl:SampleCard Width="240" Title="OpenFolderDialog" Description="文件夹选择" Glyph="&#xE8B7;" NavigateTag="dialogs/open-folder-dialog" />
                 <ctrl:SampleCard Width="240" Title="Flyout" Description="浮出层" Glyph="&#xE8B7;" NavigateTag="dialogs/flyout" />
                 <ctrl:SampleCard Width="240" Title="FluentPopup" Description="Fluent 弹出" Glyph="&#xE8B7;" NavigateTag="dialogs/fluent-popup" />

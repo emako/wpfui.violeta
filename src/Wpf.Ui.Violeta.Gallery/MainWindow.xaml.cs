@@ -83,6 +83,7 @@ public partial class MainWindow : ShellWindow
         ["dialogs/pending-box"] = static () => new PendingBoxPage(),
         ["dialogs/task-dialog"] = static () => new TaskDialogPage(),
         ["dialogs/native-message-box"] = static () => new NativeMessageBoxPage(),
+        ["dialogs/credential-dialog"] = static () => new CredentialDialogPage(),
         ["dialogs/open-folder-dialog"] = static () => new OpenFolderDialogPage(),
         ["dialogs/flyout"] = static () => new FlyoutPage(),
         ["dialogs/fluent-popup"] = static () => new FluentPopupPage(),
