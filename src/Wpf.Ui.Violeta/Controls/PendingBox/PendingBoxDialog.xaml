@@ -36,6 +36,7 @@
                                 x:Name="PART_Title"
                                 Grid.Row="0"
                                 Margin="8,8,0,0"
+                                FontSize="14"
                                 Text="{TemplateBinding Title}"
                                 TextTrimming="CharacterEllipsis"
                                 TextWrapping="NoWrap" />
