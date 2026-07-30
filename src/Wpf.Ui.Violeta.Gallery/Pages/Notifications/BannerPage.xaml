@@ -1,0 +1,58 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Notifications.BannerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="Banner"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Banner" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Banner — 横幅通知" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="内嵌横幅通知，适合页面顶部的状态提示。" />
+                    <StackPanel>
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="这是一条信息横幅，用于展示重要提示。"
+                            Type="Information" />
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="操作已成功完成！"
+                            Type="Success" />
+                        <vio:Banner
+                            Margin="0,0,0,8"
+                            Content="磁盘空间不足，请及时清理。"
+                            Type="Warning" />
+                        <vio:Banner Content="发生了一个错误，请联系管理员。" Type="Error" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

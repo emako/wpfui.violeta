@@ -1,0 +1,61 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Media.QrCodePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="QrCode"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="QrCode" />
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="QrCode — 二维码" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="根据文本数据生成二维码，可调整纠错级别与圆角。"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:QrCode
+                            x:Name="DemoQrCode"
+                            Width="200"
+                            Height="200"
+                            CornerRadius="8"
+                            Data="https://github.com/emako/wpfui.violeta"
+                            ErrorCorrection="Medium"
+                            SymbolCornerRatio="0.2" />
+                        <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Margin="0,0,0,4" Text="内容" />
+                            <TextBox
+                                x:Name="QrDataTextBox"
+                                Width="240"
+                                Text="https://github.com/emako/wpfui.violeta"
+                                TextChanged="QrDataTextBox_OnTextChanged" />
+                            <TextBlock Margin="0,12,0,4" Text="圆角比例" />
+                            <Slider
+                                x:Name="CornerRatioSlider"
+                                Width="240"
+                                IsSnapToTickEnabled="True"
+                                Maximum="0.5"
+                                Minimum="0"
+                                TickFrequency="0.05"
+                                Value="0.2"
+                                ValueChanged="CornerRatioSlider_OnValueChanged" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

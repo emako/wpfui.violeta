@@ -5,17 +5,153 @@ using System.Windows.Controls;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Gallery.Pages;
+using Wpf.Ui.Violeta.Gallery.Pages.AllSamples;
+using Wpf.Ui.Violeta.Gallery.Pages.BasicInput;
+using Wpf.Ui.Violeta.Gallery.Pages.Collections;
+using Wpf.Ui.Violeta.Gallery.Pages.DateTime;
+using Wpf.Ui.Violeta.Gallery.Pages.Design;
+using Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
+using Wpf.Ui.Violeta.Gallery.Pages.Feedback;
+using Wpf.Ui.Violeta.Gallery.Pages.Home;
+using Wpf.Ui.Violeta.Gallery.Pages.Layout;
+using Wpf.Ui.Violeta.Gallery.Pages.Media;
+using Wpf.Ui.Violeta.Gallery.Pages.Navigation;
+using Wpf.Ui.Violeta.Gallery.Pages.Notifications;
+using Wpf.Ui.Violeta.Gallery.Pages.Selectors;
+using Wpf.Ui.Violeta.Gallery.Pages.Settings;
+using Wpf.Ui.Violeta.Gallery.Pages.Status;
+using Wpf.Ui.Violeta.Gallery.Pages.TagInput;
+using Wpf.Ui.Violeta.Gallery.Pages.Text;
+using Wpf.Ui.Violeta.Gallery.Pages.Windows;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
 public partial class MainWindow : ShellWindow
 {
     private readonly Dictionary<string, Wpf.Ui.Violeta.Controls.Page> _pageCache = [];
+    private bool _syncingSelection;
+
+    private static readonly Dictionary<string, Func<Wpf.Ui.Violeta.Controls.Page>> PageFactories = new()
+    {
+        ["home"] = static () => new HomePage(),
+        ["all"] = static () => new AllSamplesPage(),
+        ["all-samples"] = static () => new AllSamplesPage(),
+
+        ["design"] = static () => new DesignPage(),
+        ["design/typography"] = static () => new TypographyPage(),
+        ["design/icons"] = static () => new IconsPage(),
+        ["design/colors"] = static () => new ColorsPage(),
+
+        ["basic-input"] = static () => new BasicInputPage(),
+        ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
+        ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
+        ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
+        ["basic-input/button-spinner"] = static () => new ButtonSpinnerPage(),
+        ["basic-input/range-slider"] = static () => new RangeSliderPage(),
+        ["basic-input/key-gesture-input"] = static () => new KeyGestureInputPage(),
+        ["basic-input/pin-code"] = static () => new PinCodePage(),
+        ["basic-input/toggle-button-group"] = static () => new ToggleButtonGroupPage(),
+        ["basic-input/ipv4-box"] = static () => new IPv4BoxPage(),
+        ["basic-input/ipv4-port-box"] = static () => new IPv4PortBoxPage(),
+
+        ["text"] = static () => new TextPage(),
+        ["text/textbox"] = static () => new TextBoxPage(),
+        ["text/selectable-text-block"] = static () => new SelectableTextBlockPage(),
+        ["text/hyperlink"] = static () => new HyperlinkPage(),
+        ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
+
+        ["selectors"] = static () => new SelectorsPage(),
+        ["selectors/multi-combo-box"] = static () => new MultiComboBoxPage(),
+        ["selectors/cascading-combo-box"] = static () => new CascadingComboBoxPage(),
+        ["selectors/tag-combo-box"] = static () => new TagComboBoxPage(),
+        ["selectors/tree-combo-box"] = static () => new TreeComboBoxPage(),
+        ["selectors/value-picker"] = static () => new ValuePickerPage(),
+
+        ["tag-input"] = static () => new TagInputPage(),
+
+        ["date-time"] = static () => new DateTimePage(),
+        ["date-time/date-picker"] = static () => new DatePickerPage(),
+        ["date-time/time-picker"] = static () => new TimePickerPage(),
+        ["date-time/calendar-date-time-picker"] = static () => new CalendarDateTimePickerPage(),
+        ["date-time/time-box-picker"] = static () => new TimeBoxPickerPage(),
+        ["date-time/time-box"] = static () => new TimeBoxPage(),
+        ["date-time/calendar"] = static () => new CalendarPage(),
+
+        ["dialogs"] = static () => new DialogsPage(),
+        ["dialogs/content-dialog"] = static () => new ContentDialogPage(),
+        ["dialogs/message-box"] = static () => new MessageBoxPage(),
+        ["dialogs/pending-box"] = static () => new PendingBoxPage(),
+        ["dialogs/task-dialog"] = static () => new TaskDialogPage(),
+        ["dialogs/native-message-box"] = static () => new NativeMessageBoxPage(),
+        ["dialogs/open-folder-dialog"] = static () => new OpenFolderDialogPage(),
+        ["dialogs/flyout"] = static () => new FlyoutPage(),
+        ["dialogs/fluent-popup"] = static () => new FluentPopupPage(),
+
+        ["notifications"] = static () => new NotificationsPage(),
+        ["notifications/toast"] = static () => new ToastPage(),
+        ["notifications/banner"] = static () => new BannerPage(),
+        ["notifications/tray-icon"] = static () => new TrayIconPage(),
+
+        ["collections"] = static () => new CollectionsPage(),
+        ["collections/data-grid"] = static () => new DataGridPage(),
+        ["collections/list-view"] = static () => new ListViewPage(),
+        ["collections/tree-list-view"] = static () => new TreeListViewPage(),
+        ["collections/tree-model-list-view"] = static () => new TreeModelListViewPage(),
+        ["collections/flip-view"] = static () => new FlipViewPage(),
+        ["collections/pagination"] = static () => new PaginationPage(),
+        ["collections/timeline"] = static () => new TimelinePage(),
+
+        ["navigation"] = static () => new NavigationPage(),
+        ["navigation/navigation-view"] = static () => new NavigationViewPage(),
+        ["navigation/tab-strip"] = static () => new TabStripPage(),
+        ["navigation/anchor"] = static () => new AnchorPage(),
+
+        ["layout"] = static () => new LayoutPage(),
+        ["layout/auto-grid"] = static () => new AutoGridPage(),
+        ["layout/border"] = static () => new BorderPage(),
+        ["layout/drop-shadow-chrome"] = static () => new DropShadowChromePage(),
+        ["layout/aspect-ratio-layout"] = static () => new AspectRatioLayoutPage(),
+        ["layout/form"] = static () => new FormPage(),
+        ["layout/grid-splitter"] = static () => new GridSplitterPage(),
+        ["layout/divider"] = static () => new DividerPage(),
+        ["layout/drawer"] = static () => new DrawerPage(),
+        ["layout/expander"] = static () => new ExpanderPage(),
+        ["layout/fluent-scroll-viewer"] = static () => new FluentScrollViewerPage(),
+
+        ["status"] = static () => new StatusPage(),
+        ["status/badge"] = static () => new BadgePage(),
+        ["status/skeleton"] = static () => new SkeletonPage(),
+        ["status/busy-mask"] = static () => new BusyMaskPage(),
+        ["status/bool-state-content-control"] = static () => new BoolStateContentControlPage(),
+        ["status/tool-tip"] = static () => new ToolTipPage(),
+
+        ["media"] = static () => new MediaPage(),
+        ["media/image-view"] = static () => new ImageViewPage(),
+        ["media/person-picture"] = static () => new PersonPicturePage(),
+        ["media/bitmap-icon"] = static () => new BitmapIconPage(),
+        ["media/qr-code"] = static () => new QrCodePage(),
+        ["media/cached-image"] = static () => new CachedImagePage(),
+
+        ["feedback"] = static () => new FeedbackPage(),
+        ["feedback/transitioning-content-control"] = static () => new TransitioningContentControlPage(),
+        ["feedback/running-block"] = static () => new RunningBlockPage(),
+        ["feedback/async-box"] = static () => new AsyncBoxPage(),
+        ["feedback/splash"] = static () => new SplashPage(),
+        ["feedback/exception-report"] = static () => new ExceptionReportPage(),
+
+        ["windows"] = static () => new WindowsPage(),
+        ["windows/shell-window"] = static () => new ShellWindowPage(),
+        ["windows/content-window"] = static () => new ContentWindowPage(),
+        ["windows/title-bar"] = static () => new TitleBarPage(),
+        ["windows/caption-button-bar"] = static () => new CaptionButtonBarPage(),
+
+        ["settings"] = static () => new SettingsPage(),
+    };
 
     public MainWindow()
     {
         InitializeComponent();
+        GalleryNavigator.NavigateRequested = OnNavigateRequested;
         Loaded += MainWindow_OnLoaded;
     }
 
@@ -24,12 +160,45 @@ public partial class MainWindow : ShellWindow
         GalleryNav.SelectedItem = HomeItem;
     }
 
+    private void OnNavigateRequested(string? tag)
+    {
+        if (string.IsNullOrWhiteSpace(tag))
+        {
+            return;
+        }
+
+        var item = FindMenuItemByTag(GalleryNav.MenuItems, tag);
+        if (item is not null)
+        {
+            _syncingSelection = true;
+            try
+            {
+                GalleryNav.SelectedItem = item;
+                GalleryNav.Header = item.Content?.ToString() ?? tag;
+            }
+            finally
+            {
+                _syncingSelection = false;
+            }
+        }
+        else
+        {
+            GalleryNav.Header = tag;
+        }
+
+        NavigateTo(tag);
+    }
+
     private void GalleryNav_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
+        if (_syncingSelection)
+        {
+            return;
+        }
+
         if (args.IsSettingsSelected)
         {
             GalleryNav.Header = "设置";
-            UpdateBackButtonState();
             NavigateTo("settings");
             return;
         }
@@ -40,9 +209,7 @@ public partial class MainWindow : ShellWindow
         }
 
         var tag = item.Tag as string;
-        var header = item.Content?.ToString() ?? string.Empty;
-        GalleryNav.Header = header;
-        UpdateBackButtonState();
+        GalleryNav.Header = item.Content?.ToString() ?? string.Empty;
         NavigateTo(tag);
     }
 
@@ -77,20 +244,20 @@ public partial class MainWindow : ShellWindow
 
     private void NavigateTo(string? tag)
     {
-        Wpf.Ui.Violeta.Controls.Page page = tag switch
+        if (string.IsNullOrWhiteSpace(tag))
         {
-            "home" => GetOrCreate("home", () => new HomePage()),
-            "toast" => GetOrCreate("toast", () => new ToastPage()),
-            "dialog" => GetOrCreate("dialog", () => new DialogPage()),
-            "input" => GetOrCreate("input", () => new InputPage()),
-            "data" => GetOrCreate("data", () => new DataPage()),
-            "feedback" => GetOrCreate("feedback", () => new FeedbackPage()),
-            "layout" => GetOrCreate("layout", () => new LayoutPage()),
-            "settings" => GetOrCreate("settings", () => new SettingsPage()),
-            _ => GetOrCreate("home", () => new HomePage()),
-        };
+            tag = "home";
+        }
 
+        if (!PageFactories.TryGetValue(tag, out var factory))
+        {
+            tag = "home";
+            factory = PageFactories["home"];
+        }
+
+        var page = GetOrCreate(tag, factory);
         ContentFrame.Navigate(page, new EntranceNavigationTransitionInfo());
+        UpdateBackButtonState();
     }
 
     private Wpf.Ui.Violeta.Controls.Page GetOrCreate(string key, Func<Wpf.Ui.Violeta.Controls.Page> factory)
@@ -102,6 +269,35 @@ public partial class MainWindow : ShellWindow
         }
 
         return page;
+    }
+
+    private static NavigationViewItem? FindMenuItemByTag(System.Collections.IEnumerable? items, string tag)
+    {
+        if (items is null)
+        {
+            return null;
+        }
+
+        foreach (var obj in items)
+        {
+            if (obj is not NavigationViewItem item)
+            {
+                continue;
+            }
+
+            if (string.Equals(item.Tag as string, tag, StringComparison.OrdinalIgnoreCase))
+            {
+                return item;
+            }
+
+            var child = FindMenuItemByTag(item.MenuItems, tag);
+            if (child is not null)
+            {
+                return child;
+            }
+        }
+
+        return null;
     }
 
     private void ThemeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

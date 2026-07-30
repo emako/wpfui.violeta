@@ -1,0 +1,37 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Windows.ShellWindowPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="ShellWindow"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="ShellWindow" />
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="ShellWindow — 外壳窗口" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="本 Gallery 主窗口即继承自 ShellWindow。点击按钮打开一个简单的演示窗口。"
+                        TextWrapping="Wrap" />
+                    <ui:Button
+                        HorizontalAlignment="Left"
+                        Click="OpenShellWindow_Click"
+                        Content="打开 ShellWindow 演示" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

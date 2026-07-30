@@ -1,0 +1,64 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Dialogs.NativeMessageBoxPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="NativeMessageBox"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="NativeMessageBox" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="NativeMessageBox" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="原生 Win32 MessageBoxW 封装，不依赖 WPF MessageBox。" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="确定"
+                            Tag="OK" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="是/否"
+                            Tag="YesNo" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="确定/取消"
+                            Tag="OKCancel" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowNativeMessageBox_Click"
+                            Content="是/否/取消"
+                            Tag="YesNoCancel" />
+                    </WrapPanel>
+                    <TextBlock
+                        x:Name="NativeMessageBoxResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结果：(等待操作)" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

@@ -1,0 +1,90 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.ToggleButtonGroupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="ToggleButtonGroup"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="ToggleButtonGroup" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ToggleButtonGroup" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="将多个 ToggleButton 归入同一组，实现互斥选中（可取消）。" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ui:StackPanel.Resources>
+                            <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" IsCanCancel="True" />
+                        </ui:StackPanel.Resources>
+                        <ToggleButton
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
+                            Content="1st"
+                            IsChecked="True" />
+                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="2nd" />
+                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="3rd" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="RadioButtonGroup" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="跨容器的 RadioButton 互斥分组。" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ui:StackPanel.Resources>
+                            <vio:RadioButtonGroup x:Key="RadioButtonGroup" />
+                        </ui:StackPanel.Resources>
+                        <RadioButton
+                            MinWidth="0"
+                            vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
+                            Content="1st"
+                            IsChecked="True" />
+                        <RadioButton
+                            MinWidth="0"
+                            vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
+                            Content="2nd" />
+                        <RadioButton
+                            MinWidth="0"
+                            vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
+                            Content="3rd" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

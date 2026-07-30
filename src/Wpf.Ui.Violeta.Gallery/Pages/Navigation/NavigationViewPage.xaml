@@ -1,0 +1,58 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.NavigationViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="NavigationView"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="NavigationView" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="本 Gallery 已使用 NavigationView" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextWrapping="Wrap"
+                        Text="主窗口左侧导航即 NavigationView。此处汇总常用配置要点，避免在页面内再嵌套一整套导航框架。" />
+
+                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="配置要点" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• MenuItems / FooterMenuItems：定义主导航与页脚项，每项可绑定 TargetPageType 或 Tag。" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• PaneDisplayMode：Left / LeftMinimal / Top 等，控制面板展开形态。" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• IsPaneOpen / IsBackEnabled：控制面板开合与返回按钮。" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• Frame / Content：承载页面导航；Gallery 通过 Tag 与 GalleryNavigator 联动切换。" />
+                    <TextBlock Margin="0,0,0,12" TextWrapping="Wrap" Text="• Header / TitleBar：可与窗口标题栏、面包屑组合使用。" />
+
+                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="常见属性" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="PaneTitle — 面板标题文字" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="OpenPaneLength — 展开时面板宽度" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="CompactPaneLength — 收起时图标栏宽度" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="IsSettingsVisible — 是否显示设置入口" />
+                    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="AutoSuggestBox — 可选的导航搜索框" />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

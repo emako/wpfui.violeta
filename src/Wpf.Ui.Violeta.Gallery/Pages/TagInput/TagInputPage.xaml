@@ -1,0 +1,131 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.TagInput.TagInputPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="TagInput"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="TagInput" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Basic" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="输入文字后按 Enter 添加标签。" />
+                    <vio:TagInput
+                        x:Name="TagInputBasic"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="输入后按 Enter…" />
+                    <TextBlock
+                        x:Name="TagInputBasicResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="标签：(无)" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Separator (,)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="支持逗号分隔，粘贴 a,b,c 可一次添加多个标签。" />
+                    <vio:TagInput
+                        x:Name="TagInputSeparator"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="输入或粘贴逗号分隔内容…"
+                        Separator="," />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="MaxCount = 3" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="最多允许 3 个标签。" />
+                    <vio:TagInput
+                        x:Name="TagInputMaxCount"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        MaxCount="3"
+                        PlaceholderText="最多 3 个标签…" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Prefilled" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="预填充标签，也演示禁用状态。" />
+                    <vio:TagInput
+                        x:Name="TagInputPrefilled"
+                        MaxWidth="400"
+                        Margin="0,0,0,8"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="输入后按 Enter…" />
+                    <vio:TagInput
+                        x:Name="TagInputDisabled"
+                        MaxWidth="400"
+                        HorizontalAlignment="Left"
+                        IsEnabled="False"
+                        PlaceholderText="已禁用…" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

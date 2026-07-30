@@ -1,0 +1,55 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Media.MediaPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    Title="媒体控件"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="媒体控件" />
+            <TextBlock
+                Margin="0,0,0,12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="点击卡片进入对应控件演示页面。"
+                TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ImageView"
+                    Description="可缩放平移的图片查看器"
+                    Glyph="&#xE91B;"
+                    NavigateTag="media/image-view" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="PersonPicture"
+                    Description="人物头像与徽标"
+                    Glyph="&#xE77B;"
+                    NavigateTag="media/person-picture" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="BitmapIcon"
+                    Description="位图图标元素"
+                    Glyph="&#xE8B9;"
+                    NavigateTag="media/bitmap-icon" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="QrCode"
+                    Description="二维码生成"
+                    Glyph="&#xED14;"
+                    NavigateTag="media/qr-code" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="CachedImage"
+                    Description="带缓存的网络图片"
+                    Glyph="&#xE8B9;"
+                    NavigateTag="media/cached-image" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

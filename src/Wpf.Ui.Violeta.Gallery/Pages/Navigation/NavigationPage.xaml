@@ -1,0 +1,24 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.NavigationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    Title="导航"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="导航" />
+            <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="点击卡片进入对应控件演示页面。" TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard Width="260" Title="NavigationView" Description="侧边导航框架" Glyph="&#xE700;" NavigateTag="navigation/navigation-view" />
+                <ctrl:SampleCard Width="260" Title="TabStrip" Description="页签指示条" Glyph="&#xE8A5;" NavigateTag="navigation/tab-strip" />
+                <ctrl:SampleCard Width="260" Title="Anchor" Description="页面内锚点导航" Glyph="&#xE71B;" NavigateTag="navigation/anchor" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

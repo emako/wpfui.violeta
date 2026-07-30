@@ -1,0 +1,37 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Windows.ContentWindowPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="ContentWindow"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="ContentWindow" />
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="ContentWindow — 内容窗口" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="ContentWindow 继承自 ShellWindow，配合 ContentWindowControl 承载自定义内容，并返回 ContentWindowResult（OK / Cancel 等）。适合需要独立窗口而非 ContentDialog 的场景。"
+                        TextWrapping="Wrap" />
+                    <ui:Button
+                        HorizontalAlignment="Left"
+                        Click="OpenContentWindow_Click"
+                        Content="打开 ContentWindow 演示" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

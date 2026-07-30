@@ -1,0 +1,71 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Feedback.RunningBlockPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="RunningBlock"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="RunningBlock" />
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="RunningBlock — 跑马灯" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="水平滚动文本，可控制方向、速度与 AutoRun。"
+                        TextWrapping="Wrap" />
+                    <vio:RunningBlock
+                        Width="500"
+                        Margin="0,0,0,12"
+                        Padding="10,0"
+                        HorizontalAlignment="Left"
+                        AutoRun="True"
+                        Content="This is a RunningBlock demo (AutoRun: true)"
+                        FontSize="16"
+                        Foreground="DodgerBlue"
+                        Runaway="True"
+                        RunningDirection="EndToStart"
+                        Speed="60"
+                        Duration="0:0:1" />
+                    <vio:RunningBlock
+                        Width="500"
+                        Margin="0,0,0,12"
+                        Padding="10,0"
+                        HorizontalAlignment="Left"
+                        AutoRun="False"
+                        Content="This is a RunningBlock demo (AutoRun: false, Runaway: false)"
+                        FontSize="16"
+                        Foreground="DodgerBlue"
+                        Runaway="False"
+                        RunningDirection="StartToEnd"
+                        Speed="60"
+                        Duration="0:0:1" />
+                    <vio:RunningBlock
+                        Width="500"
+                        Padding="10,0"
+                        HorizontalAlignment="Left"
+                        AutoRun="False"
+                        Content="This is a RunningBlock demo (AutoRun: false, Runaway: true)"
+                        FontSize="16"
+                        Foreground="DodgerBlue"
+                        Runaway="True"
+                        RunningDirection="EndToStart"
+                        Speed="60"
+                        Duration="0:0:1" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

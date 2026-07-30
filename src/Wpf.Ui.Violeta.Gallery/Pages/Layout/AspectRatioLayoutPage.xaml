@@ -1,0 +1,123 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Layout.AspectRatioLayoutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="AspectRatioLayout"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="AspectRatioLayout" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="按宽高比切换布局项" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="调整宽高，观察不同 AspectRatioMode 的切换（tolerance=0.3）。" />
+
+                    <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                        <TextBlock Width="56" VerticalAlignment="Center" Text="Width" />
+                        <Slider
+                            x:Name="AspectRatioWidthSlider"
+                            Width="180"
+                            Maximum="640"
+                            Minimum="80"
+                            Value="320" />
+                        <TextBlock
+                            Width="48"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="{Binding ElementName=AspectRatioWidthSlider, Path=Value, StringFormat=F0}" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
+                        <TextBlock Width="56" VerticalAlignment="Center" Text="Height" />
+                        <Slider
+                            x:Name="AspectRatioHeightSlider"
+                            Width="180"
+                            Maximum="360"
+                            Minimum="80"
+                            Value="160" />
+                        <TextBlock
+                            Width="48"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="{Binding ElementName=AspectRatioHeightSlider, Path=Value, StringFormat=F0}" />
+                    </StackPanel>
+
+                    <vio:AspectRatioLayout
+                        Width="{Binding ElementName=AspectRatioWidthSlider, Path=Value}"
+                        Height="{Binding ElementName=AspectRatioHeightSlider, Path=Value}"
+                        HorizontalAlignment="Left"
+                        AspectRatioTolerance="0.3">
+                        <vio:AspectRatioLayoutItem AcceptAspectRatioMode="HorizontalRectangle">
+                            <Border Background="Red" CornerRadius="6">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Foreground="White"
+                                        Text="Horizontal Rectangle"
+                                        TextAlignment="Center" />
+                                    <TextBlock
+                                        Foreground="White"
+                                        Text="Width &gt; Height × 1.3"
+                                        TextAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+                        </vio:AspectRatioLayoutItem>
+                        <vio:AspectRatioLayoutItem AcceptAspectRatioMode="Square">
+                            <Border Background="Orange" CornerRadius="6">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="Square"
+                                        TextAlignment="Center" />
+                                    <TextBlock Text="0.7 ≤ W/H &lt; 1.3" TextAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+                        </vio:AspectRatioLayoutItem>
+                        <vio:AspectRatioLayoutItem AcceptAspectRatioMode="VerticalRectangle">
+                            <Border Background="Green" CornerRadius="6">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Foreground="White"
+                                        Text="Vertical Rectangle"
+                                        TextAlignment="Center" />
+                                    <TextBlock
+                                        Foreground="White"
+                                        Text="Height &gt; Width × 1.3"
+                                        TextAlignment="Center" />
+                                </StackPanel>
+                            </Border>
+                        </vio:AspectRatioLayoutItem>
+                    </vio:AspectRatioLayout>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

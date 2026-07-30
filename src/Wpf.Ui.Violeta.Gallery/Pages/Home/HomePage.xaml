@@ -1,0 +1,66 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Home.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="主页"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <Border
+                Margin="0,0,0,24"
+                Padding="32,28"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="12">
+                <StackPanel>
+                    <TextBlock
+                        FontSize="32"
+                        FontWeight="Bold"
+                        Text="Wpf.Ui.Violeta" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        FontSize="16"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="基于 WPF-UI 的扩展控件库，提供 Fluent Design 风格的高级 UI 组件。" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="支持 .NET Framework 4.6.2 至 .NET 10，深色 / 浅色主题。左侧按分组浏览全部示例。" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock
+                Margin="0,0,0,12"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Text="控件分类" />
+            <WrapPanel>
+                <ctrl:SampleCard Width="260" Title="设计指南" Description="Typography、Icons、Colors" Glyph="&#xE790;" NavigateTag="design" />
+                <ctrl:SampleCard Width="260" Title="全部示例" Description="按分组浏览所有控件" Glyph="&#xEA37;" NavigateTag="all" />
+                <ctrl:SampleCard Width="260" Title="基础输入" Description="LoadingButton、ToggleSwitch、PinCode、IPv4Box 等" Glyph="&#xE73E;" NavigateTag="basic-input" />
+                <ctrl:SampleCard Width="260" Title="文本" Description="TextBox、SelectableTextBlock、Hyperlink" Glyph="&#xE8D2;" NavigateTag="text" />
+                <ctrl:SampleCard Width="260" Title="选择器" Description="MultiComboBox、CascadingComboBox、ValuePicker" Glyph="&#xE8B7;" NavigateTag="selectors" />
+                <ctrl:SampleCard Width="260" Title="标签输入" Description="TagInput 标签芯片输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
+                <ctrl:SampleCard Width="260" Title="日期与时间" Description="DatePicker、TimePicker、Calendar、TimeBox" Glyph="&#xE787;" NavigateTag="date-time" />
+                <ctrl:SampleCard Width="260" Title="对话框与浮出" Description="ContentDialog、MessageBox、Flyout、FluentPopup" Glyph="&#xE8BD;" NavigateTag="dialogs" />
+                <ctrl:SampleCard Width="260" Title="通知与横幅" Description="Toast、Banner、TrayIcon" Glyph="&#xEA0C;" NavigateTag="notifications" />
+                <ctrl:SampleCard Width="260" Title="集合" Description="DataGrid、TreeListView、FlipView、Timeline" Glyph="&#xE9D9;" NavigateTag="collections" />
+                <ctrl:SampleCard Width="260" Title="导航" Description="NavigationView、TabStrip、Anchor" Glyph="&#xE700;" NavigateTag="navigation" />
+                <ctrl:SampleCard Width="260" Title="布局" Description="AutoGrid、Form、Drawer、Divider" Glyph="&#xE8A5;" NavigateTag="layout" />
+                <ctrl:SampleCard Width="260" Title="状态与信息" Description="Badge、Skeleton、BusyMask" Glyph="&#xE946;" NavigateTag="status" />
+                <ctrl:SampleCard Width="260" Title="媒体" Description="ImageView、PersonPicture、QrCode" Glyph="&#xE8B9;" NavigateTag="media" />
+                <ctrl:SampleCard Width="260" Title="反馈与动画" Description="RunningBlock、AsyncBox、Splash" Glyph="&#xE895;" NavigateTag="feedback" />
+                <ctrl:SampleCard Width="260" Title="窗口与外壳" Description="ShellWindow、TitleBar、Caption" Glyph="&#xE737;" NavigateTag="windows" />
+                <ctrl:SampleCard Width="260" Title="设置" Description="主题切换与关于信息" Glyph="&#xE713;" NavigateTag="settings" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

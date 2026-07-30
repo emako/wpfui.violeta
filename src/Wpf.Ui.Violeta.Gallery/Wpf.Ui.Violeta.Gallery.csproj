@@ -18,4 +18,9 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Resource Include="Resources\Images\*.ico" />
+        <Resource Include="Resources\Images\*.png" />
+    </ItemGroup>
+
 </Project>

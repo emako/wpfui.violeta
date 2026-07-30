@@ -1,0 +1,55 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Selectors.SelectorsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    Title="选择器"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="选择器" />
+            <TextBlock
+                Margin="0,0,0,12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="点击卡片进入对应控件演示页面。"
+                TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="MultiComboBox"
+                    Description="多选下拉框，支持标签展示与搜索"
+                    Glyph="&#xE8A5;"
+                    NavigateTag="selectors/multi-combo-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="CascadingComboBox"
+                    Description="父子级联选择下拉框"
+                    Glyph="&#xE8FD;"
+                    NavigateTag="selectors/cascading-combo-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="TagComboBox"
+                    Description="以标签形式展示选项"
+                    Glyph="&#xE8EC;"
+                    NavigateTag="selectors/tag-combo-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="TreeComboBox"
+                    Description="层级树形结构下拉选择"
+                    Glyph="&#xE71A;"
+                    NavigateTag="selectors/tree-combo-box" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ValuePicker"
+                    Description="多列滚轮选择器"
+                    Glyph="&#xE81E;"
+                    NavigateTag="selectors/value-picker" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

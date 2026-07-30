@@ -1,0 +1,120 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Dialogs.FluentPopupPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="FluentPopup"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="FluentPopup" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="FluentPopup" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Fluent 风格弹出层，支持 Slide / Fade / None 动画。" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <StackPanel>
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Slide" />
+                            <ToggleButton
+                                x:Name="PopupSlideToggle"
+                                Margin="0,4,0,0"
+                                Content="Open Slide Popup" />
+                            <vio:FluentPopup
+                                ExtPopupAnimation="Slide"
+                                IsOpen="{Binding IsChecked, ElementName=PopupSlideToggle, Mode=TwoWay}"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PopupSlideToggle}"
+                                StaysOpen="False">
+                                <Border
+                                    Width="220"
+                                    Padding="16,12"
+                                    Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                                    CornerRadius="8">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                            Text="Acrylic · Slide animation · Rounded corners"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:FluentPopup>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Fade" />
+                            <ToggleButton
+                                x:Name="PopupFadeToggle"
+                                Margin="0,4,0,0"
+                                Content="Open Fade Popup" />
+                            <vio:FluentPopup
+                                ExtPopupAnimation="Fade"
+                                IsOpen="{Binding IsChecked, ElementName=PopupFadeToggle, Mode=TwoWay}"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PopupFadeToggle}"
+                                StaysOpen="False">
+                                <Border
+                                    Width="220"
+                                    Padding="16,12"
+                                    Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+                                    CornerRadius="8">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                            Text="Acrylic · Fade animation · Rounded corners"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:FluentPopup>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="No animation + tint" />
+                            <ToggleButton
+                                x:Name="PopupNoneToggle"
+                                Margin="0,4,0,0"
+                                Content="Open Tinted Popup" />
+                            <vio:FluentPopup
+                                Background="#3300AAFF"
+                                ExtPopupAnimation="None"
+                                IsOpen="{Binding IsChecked, ElementName=PopupNoneToggle, Mode=TwoWay}"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PopupNoneToggle}"
+                                StaysOpen="False">
+                                <Border Width="220" Padding="16,12" CornerRadius="8">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                            Text="Acrylic + blue tint · No animation"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Border>
+                            </vio:FluentPopup>
+                        </StackPanel>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

@@ -1,0 +1,40 @@
+﻿<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Design.DesignPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    Title="设计指南"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="设计指南" />
+            <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="点击卡片进入对应控件演示页面。" TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Typography"
+                    Description="字体与排版层级"
+                    Glyph="&#xE8D2;"
+                    NavigateTag="design/typography" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Icons"
+                    Description="Fluent 图标符号"
+                    Glyph="&#xE790;"
+                    NavigateTag="design/icons" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Colors"
+                    Description="主题颜色资源"
+                    Glyph="&#xE790;"
+                    NavigateTag="design/colors" />
+            </WrapPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

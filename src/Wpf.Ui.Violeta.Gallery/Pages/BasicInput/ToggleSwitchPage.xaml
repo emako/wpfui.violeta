@@ -1,0 +1,102 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.ToggleSwitchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="ToggleSwitch"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="ToggleSwitch" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ToggleSwitch" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="带滑动动画的开关控件，支持拖拽、标题、On/Off 自定义内容。" />
+                    <ui:StackPanel Orientation="Vertical" Spacing="8">
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Wpf.Ui" />
+                            <ui:ToggleSwitch />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Basic" />
+                            <vio:ToggleSwitch />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="IsOn" />
+                            <vio:ToggleSwitch IsOn="True" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Header" />
+                            <vio:ToggleSwitch Header="Wi-Fi" IsOn="True" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="OnOffContent" />
+                            <vio:ToggleSwitch OffContent="隐藏" OnContent="显示" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Disabled" />
+                            <vio:ToggleSwitch IsEnabled="False" />
+                        </ui:StackPanel>
+                        <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                            <TextBlock
+                                MinWidth="100"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="Compact Right" />
+                            <vio:ToggleSwitch
+                                Header="蓝牙"
+                                IsOn="True"
+                                IsRightAlignedCompact="True" />
+                        </ui:StackPanel>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

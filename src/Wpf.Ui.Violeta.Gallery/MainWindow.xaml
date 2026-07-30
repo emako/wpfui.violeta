@@ -56,7 +56,6 @@
             </vio:TitleBar.CustomFooter>
         </vio:TitleBar>
 
-        <!--  NavigationView  -->
         <vio:NavigationView
             x:Name="GalleryNav"
             Grid.Row="1"
@@ -65,12 +64,12 @@
             BackRequested="GalleryNav_OnBackRequested"
             CompactPaneLength="52"
             Header="欢迎"
-            IsBackButtonVisible="Visible"
+            IsBackButtonVisible="Collapsed"
             IsBackEnabled="False"
             IsPaneOpen="True"
             IsPaneToggleButtonVisible="True"
             IsSettingsVisible="True"
-            OpenPaneLength="240"
+            OpenPaneLength="260"
             PaneTitle="Violeta Gallery"
             SelectionChanged="GalleryNav_OnSelectionChanged">
 
@@ -84,54 +83,211 @@
                     </vio:NavigationViewItem.Icon>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItemHeader Content="通知与对话" />
-
-                <vio:NavigationViewItem Content="Toast 通知" Tag="toast">
+                <vio:NavigationViewItem Content="设计指南" Tag="design">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA0C;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Typography" Tag="design/typography" />
+                        <vio:NavigationViewItem Content="Icons" Tag="design/icons" />
+                        <vio:NavigationViewItem Content="Colors" Tag="design/colors" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="全部示例" Tag="all">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA37;" />
                     </vio:NavigationViewItem.Icon>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="对话框" Tag="dialog">
+                <vio:NavigationViewItemSeparator />
+
+                <vio:NavigationViewItem Content="基础输入" Tag="basic-input">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE73E;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
+                        <vio:NavigationViewItem Content="ToggleSwitch" Tag="basic-input/toggle-switch" />
+                        <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
+                        <vio:NavigationViewItem Content="ButtonSpinner" Tag="basic-input/button-spinner" />
+                        <vio:NavigationViewItem Content="RangeSlider" Tag="basic-input/range-slider" />
+                        <vio:NavigationViewItem Content="KeyGestureInput" Tag="basic-input/key-gesture-input" />
+                        <vio:NavigationViewItem Content="PinCode" Tag="basic-input/pin-code" />
+                        <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
+                        <vio:NavigationViewItem Content="IPv4Box" Tag="basic-input/ipv4-box" />
+                        <vio:NavigationViewItem Content="IPv4PortBox" Tag="basic-input/ipv4-port-box" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="文本" Tag="text">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8D2;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="TextBox" Tag="text/textbox" />
+                        <vio:NavigationViewItem Content="SelectableTextBlock" Tag="text/selectable-text-block" />
+                        <vio:NavigationViewItem Content="Hyperlink" Tag="text/hyperlink" />
+                        <vio:NavigationViewItem Content="BoolStateTextBlock" Tag="text/bool-state-text-block" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="选择器" Tag="selectors">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
                     </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="MultiComboBox" Tag="selectors/multi-combo-box" />
+                        <vio:NavigationViewItem Content="CascadingComboBox" Tag="selectors/cascading-combo-box" />
+                        <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />
+                        <vio:NavigationViewItem Content="TreeComboBox" Tag="selectors/tree-combo-box" />
+                        <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
+                    </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItemHeader Content="数据输入" />
-
-                <vio:NavigationViewItem Content="输入控件" Tag="input">
+                <vio:NavigationViewItem Content="标签输入" Tag="tag-input">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE773;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8EC;" />
                     </vio:NavigationViewItem.Icon>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItemHeader Content="数据展示" />
+                <vio:NavigationViewItem Content="日期与时间" Tag="date-time">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE787;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="DatePicker" Tag="date-time/date-picker" />
+                        <vio:NavigationViewItem Content="TimePicker" Tag="date-time/time-picker" />
+                        <vio:NavigationViewItem Content="CalendarDateTimePicker" Tag="date-time/calendar-date-time-picker" />
+                        <vio:NavigationViewItem Content="TimeBoxPicker" Tag="date-time/time-box-picker" />
+                        <vio:NavigationViewItem Content="TimeBox" Tag="date-time/time-box" />
+                        <vio:NavigationViewItem Content="Calendar" Tag="date-time/calendar" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="数据控件" Tag="data">
+                <vio:NavigationViewItem Content="对话框与浮出" Tag="dialogs">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8BD;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="ContentDialog" Tag="dialogs/content-dialog" />
+                        <vio:NavigationViewItem Content="MessageBox" Tag="dialogs/message-box" />
+                        <vio:NavigationViewItem Content="PendingBox" Tag="dialogs/pending-box" />
+                        <vio:NavigationViewItem Content="TaskDialog" Tag="dialogs/task-dialog" />
+                        <vio:NavigationViewItem Content="NativeMessageBox" Tag="dialogs/native-message-box" />
+                        <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
+                        <vio:NavigationViewItem Content="Flyout" Tag="dialogs/flyout" />
+                        <vio:NavigationViewItem Content="FluentPopup" Tag="dialogs/fluent-popup" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="通知与横幅" Tag="notifications">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA0C;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Toast" Tag="notifications/toast" />
+                        <vio:NavigationViewItem Content="Banner" Tag="notifications/banner" />
+                        <vio:NavigationViewItem Content="TrayIcon" Tag="notifications/tray-icon" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="集合" Tag="collections">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE9D9;" />
                     </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="DataGrid" Tag="collections/data-grid" />
+                        <vio:NavigationViewItem Content="ListView" Tag="collections/list-view" />
+                        <vio:NavigationViewItem Content="TreeListView" Tag="collections/tree-list-view" />
+                        <vio:NavigationViewItem Content="TreeModelListView" Tag="collections/tree-model-list-view" />
+                        <vio:NavigationViewItem Content="FlipView" Tag="collections/flip-view" />
+                        <vio:NavigationViewItem Content="Pagination" Tag="collections/pagination" />
+                        <vio:NavigationViewItem Content="Timeline" Tag="collections/timeline" />
+                    </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItemHeader Content="反馈与状态" />
+                <vio:NavigationViewItem Content="导航" Tag="navigation">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE700;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="NavigationView" Tag="navigation/navigation-view" />
+                        <vio:NavigationViewItem Content="TabStrip" Tag="navigation/tab-strip" />
+                        <vio:NavigationViewItem Content="Anchor" Tag="navigation/anchor" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="反馈控件" Tag="feedback">
+                <vio:NavigationViewItem Content="布局" Tag="layout">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8A5;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="AutoGrid" Tag="layout/auto-grid" />
+                        <vio:NavigationViewItem Content="Border" Tag="layout/border" />
+                        <vio:NavigationViewItem Content="DropShadowChrome" Tag="layout/drop-shadow-chrome" />
+                        <vio:NavigationViewItem Content="AspectRatioLayout" Tag="layout/aspect-ratio-layout" />
+                        <vio:NavigationViewItem Content="Form" Tag="layout/form" />
+                        <vio:NavigationViewItem Content="GridSplitter" Tag="layout/grid-splitter" />
+                        <vio:NavigationViewItem Content="Divider" Tag="layout/divider" />
+                        <vio:NavigationViewItem Content="Drawer" Tag="layout/drawer" />
+                        <vio:NavigationViewItem Content="Expander" Tag="layout/expander" />
+                        <vio:NavigationViewItem Content="FluentScrollViewer" Tag="layout/fluent-scroll-viewer" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="状态与信息" Tag="status">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Badge" Tag="status/badge" />
+                        <vio:NavigationViewItem Content="Skeleton" Tag="status/skeleton" />
+                        <vio:NavigationViewItem Content="BusyMask" Tag="status/busy-mask" />
+                        <vio:NavigationViewItem Content="BoolStateContentControl" Tag="status/bool-state-content-control" />
+                        <vio:NavigationViewItem Content="ToolTip" Tag="status/tool-tip" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="媒体" Tag="media">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B9;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="ImageView" Tag="media/image-view" />
+                        <vio:NavigationViewItem Content="PersonPicture" Tag="media/person-picture" />
+                        <vio:NavigationViewItem Content="BitmapIcon" Tag="media/bitmap-icon" />
+                        <vio:NavigationViewItem Content="QrCode" Tag="media/qr-code" />
+                        <vio:NavigationViewItem Content="CachedImage" Tag="media/cached-image" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="反馈与动画" Tag="feedback">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE895;" />
                     </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="TransitioningContentControl" Tag="feedback/transitioning-content-control" />
+                        <vio:NavigationViewItem Content="RunningBlock" Tag="feedback/running-block" />
+                        <vio:NavigationViewItem Content="AsyncBox" Tag="feedback/async-box" />
+                        <vio:NavigationViewItem Content="Splash" Tag="feedback/splash" />
+                        <vio:NavigationViewItem Content="ExceptionReport" Tag="feedback/exception-report" />
+                    </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItemHeader Content="布局与装饰" />
-
-                <vio:NavigationViewItem Content="布局控件" Tag="layout">
+                <vio:NavigationViewItem Content="窗口与外壳" Tag="windows">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C1;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE737;" />
                     </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="ShellWindow" Tag="windows/shell-window" />
+                        <vio:NavigationViewItem Content="ContentWindow" Tag="windows/content-window" />
+                        <vio:NavigationViewItem Content="TitleBar" Tag="windows/title-bar" />
+                        <vio:NavigationViewItem Content="CaptionButtonBar" Tag="windows/caption-button-bar" />
+                    </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
             </vio:NavigationView.MenuItems>
 
-            <!--  Page Content Frame  -->
             <compat:Frame x:Name="ContentFrame" NavigationUIVisibility="Hidden" />
         </vio:NavigationView>
     </Grid>

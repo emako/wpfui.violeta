@@ -1,0 +1,132 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Layout.DrawerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="Drawer"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Drawer" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="四向抽屉" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="从容器四边滑出面板。点击按钮切换对应方向。" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowDrawer_Click"
+                            Content="Left"
+                            Tag="Left" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowDrawer_Click"
+                            Content="Top"
+                            Tag="Top" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowDrawer_Click"
+                            Content="Right"
+                            Tag="Right" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowDrawer_Click"
+                            Content="Bottom"
+                            Tag="Bottom" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="CloseAll_Click"
+                            Content="全部关闭" />
+                    </WrapPanel>
+
+                    <Grid
+                        Height="280"
+                        Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                        ClipToBounds="True">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                            Text="Drawer Container" />
+
+                        <ui:Drawer
+                            x:Name="LeftDrawer"
+                            Width="180"
+                            HorizontalAlignment="Left"
+                            Placement="Left">
+                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Drawer - Left" />
+                            </Border>
+                        </ui:Drawer>
+
+                        <ui:Drawer
+                            x:Name="TopDrawer"
+                            Height="80"
+                            VerticalAlignment="Top"
+                            Placement="Top">
+                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Drawer - Top" />
+                            </Border>
+                        </ui:Drawer>
+
+                        <ui:Drawer
+                            x:Name="RightDrawer"
+                            Width="180"
+                            HorizontalAlignment="Right"
+                            Placement="Right">
+                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Drawer - Right" />
+                            </Border>
+                        </ui:Drawer>
+
+                        <ui:Drawer
+                            x:Name="BottomDrawer"
+                            Height="80"
+                            VerticalAlignment="Bottom"
+                            Placement="Bottom">
+                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Drawer - Bottom" />
+                            </Border>
+                        </ui:Drawer>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

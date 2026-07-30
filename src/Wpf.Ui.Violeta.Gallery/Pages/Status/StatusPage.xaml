@@ -1,0 +1,55 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Status.StatusPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    Title="状态控件"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="状态控件" />
+            <TextBlock
+                Margin="0,0,0,12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="点击卡片进入对应控件演示页面。"
+                TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Badge"
+                    Description="角标与圆点提示"
+                    Glyph="&#xE7C3;"
+                    NavigateTag="status/badge" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="Skeleton"
+                    Description="骨架屏加载占位"
+                    Glyph="&#xE9F5;"
+                    NavigateTag="status/skeleton" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="BusyMask"
+                    Description="忙碌遮罩与指示器"
+                    Glyph="&#xE895;"
+                    NavigateTag="status/busy-mask" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="BoolStateContentControl"
+                    Description="按布尔值切换内容"
+                    Glyph="&#xE73E;"
+                    NavigateTag="status/bool-state-content-control" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ToolTip"
+                    Description="提示与 Callout 样式"
+                    Glyph="&#xE897;"
+                    NavigateTag="status/tool-tip" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

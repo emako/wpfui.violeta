@@ -1,0 +1,202 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.NumericUpDownPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="NumericUpDown"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="NumericUpDown" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="基本类型" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="NumericUpDown 为抽象基类，请使用具体类型如 NumericIntUpDown。" />
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="int (−100…100, step 5)" />
+                            <vio:NumericIntUpDown
+                                Width="200"
+                                Maximum="100"
+                                Minimum="-100"
+                                PlaceholderText="enter int…"
+                                Step="5" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="double (0…1, step 0.1)" />
+                            <vio:NumericDoubleUpDown
+                                Width="200"
+                                FormatString="N2"
+                                Maximum="1"
+                                Minimum="0"
+                                PlaceholderText="0.00"
+                                Step="0.1" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="decimal (step 0.01)" />
+                            <vio:NumericDecimalUpDown
+                                Width="200"
+                                FormatString="N2"
+                                PlaceholderText="decimal…"
+                                Step="0.01" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="byte (0…255)" />
+                            <vio:NumericByteUpDown Width="200" PlaceholderText="0-255" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="前缀 / 后缀" />
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="prefix" />
+                            <vio:NumericDoubleUpDown
+                                Width="200"
+                                FormatString="N2"
+                                InnerLeftContent="$"
+                                Maximum="9999"
+                                Minimum="0"
+                                PlaceholderText="0.00" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="suffix" />
+                            <vio:NumericDoubleUpDown
+                                Width="200"
+                                FormatString="N1"
+                                InnerRightContent="kg"
+                                Maximum="9999"
+                                Minimum="0"
+                                PlaceholderText="weight" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="状态" />
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="no spinner" />
+                            <vio:NumericIntUpDown
+                                Width="200"
+                                PlaceholderText="no buttons"
+                                ShowButtonSpinner="False" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="read-only" />
+                            <vio:NumericIntUpDown
+                                Width="200"
+                                IsReadOnly="True"
+                                Value="42" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="disabled" />
+                            <vio:NumericIntUpDown
+                                Width="200"
+                                IsEnabled="False"
+                                Value="99" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="AllowDrag" />
+                            <vio:NumericIntUpDown
+                                Width="200"
+                                AllowDrag="True"
+                                Maximum="1000"
+                                Minimum="-1000"
+                                PlaceholderText="drag or dbl-click"
+                                Step="10"
+                                Value="0" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

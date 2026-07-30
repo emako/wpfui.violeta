@@ -1,0 +1,53 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.DateTime.TimeBoxPickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="TimeBoxPicker"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="TimeBoxPicker" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="自定义格式时间选择" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="文本框 + 下拉弹出层，支持自定义 .NET 时间格式。" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="16">
+                        <vio:TimeBoxPicker Width="200" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            Format="HH:mm:ss.fff"
+                            SelectedTime="13:45:01.234" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            ClockIdentifier="12HourClock"
+                            SelectedTime="13:45:01" />
+                        <vio:TimeBoxPicker
+                            Width="200"
+                            Format="mm:ss"
+                            IsEnabled="False"
+                            SelectedTime="00:45:01" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>
