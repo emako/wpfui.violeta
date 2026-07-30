@@ -221,6 +221,38 @@
                 </StackPanel>
             </Border>
 
+            <!--  CredentialDialog (Win32)  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="CredentialDialog" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="原生 Windows Security 凭据对话框，可选择保存密码。示例不会保存输入的凭据。" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowCredentialDialog_Click"
+                            Content="输入凭据" />
+                    </WrapPanel>
+                    <TextBlock
+                        x:Name="CredentialDialogResultText"
+                        Margin="0,8,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="结果：(等待操作)" />
+                </StackPanel>
+            </Border>
+
             <!--  OpenFolderDialog (Win32)  -->
             <Border
                 Margin="0,0,0,16"

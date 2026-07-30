@@ -275,6 +275,28 @@ public partial class DialogPage : Wpf.Ui.Violeta.Controls.Page
         return dialog.ShowDialog(owner);
     }
 
+    private void ShowCredentialDialog_Click(object sender, RoutedEventArgs e)
+    {
+        CredentialDialog dialog = new()
+        {
+            Target = "Wpf.Ui.Violeta.Gallery.CredentialDialog",
+            MainInstruction = "登录 Violeta Gallery 示例服务",
+            Content = "请输入用于演示的凭据。此示例不会保存输入的密码。",
+            ShowSaveCheckBox = true,
+            UseApplicationInstanceCredentialCache = true,
+        };
+
+        if (dialog.ShowDialog(OwnerHandle))
+        {
+            dialog.ConfirmCredentials(confirm: false);
+            CredentialDialogResultText.Text = $"结果：已接收用户 {dialog.UserName} 的凭据（未保存）";
+        }
+        else
+        {
+            CredentialDialogResultText.Text = "结果：已取消";
+        }
+    }
+
     private void ShowOpenFolderDialog_Click(object sender, RoutedEventArgs e)
     {
         if (sender is not Button button)

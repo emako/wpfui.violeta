@@ -1134,6 +1134,29 @@ public partial class MainWindow : ShellWindow
     }
 
     [RelayCommand]
+    private void ShowCredentialDialog()
+    {
+        CredentialDialog dialog = new()
+        {
+            Target = "Wpf.Ui.Violeta.Test.CredentialDialog",
+            MainInstruction = "Sign in to the Violeta test service",
+            Content = "Enter test credentials. They are not saved unless you select Save password and confirm them.",
+            ShowSaveCheckBox = true,
+            UseApplicationInstanceCredentialCache = true,
+        };
+
+        if (dialog.ShowDialog(new System.Windows.Interop.WindowInteropHelper(this).Handle))
+        {
+            dialog.ConfirmCredentials(confirm: false);
+            Toast.Success($"Credential received for: {dialog.UserName}");
+        }
+        else
+        {
+            Toast.Information("Credential prompt was cancelled.");
+        }
+    }
+
+    [RelayCommand]
     private void ShowOpenFolderDialog(Button self)
     {
         bool multiselect = self.Content?.ToString() == "Multiple";
