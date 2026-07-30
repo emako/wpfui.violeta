@@ -1134,6 +1134,32 @@ public partial class MainWindow : ShellWindow
     }
 
     [RelayCommand]
+    private void ShowOpenFolderDialog(Button self)
+    {
+        bool multiselect = self.Content?.ToString() == "Multiple";
+        Wpf.Ui.Violeta.Win32.OpenFolderDialog dialog = new()
+        {
+            Description = multiselect
+                ? "Select one or more folders."
+                : "Select a folder.",
+            UseDescriptionForTitle = true,
+            Multiselect = multiselect,
+        };
+
+        bool? result = dialog.ShowDialog(new System.Windows.Interop.WindowInteropHelper(this).Handle);
+        if (result == true)
+        {
+            Toast.Success(multiselect
+                ? $"Selected folders: {string.Join("; ", dialog.SelectedPaths)}"
+                : $"Selected folder: {dialog.SelectedPath}");
+        }
+        else
+        {
+            Toast.Information("Folder selection was cancelled.");
+        }
+    }
+
+    [RelayCommand]
     private void ShowTaskDialogMessageBox(Button self)
     {
         nint owner = new System.Windows.Interop.WindowInteropHelper(this).Handle;

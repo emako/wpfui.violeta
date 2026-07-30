@@ -275,6 +275,29 @@ public partial class DialogPage : Wpf.Ui.Violeta.Controls.Page
         return dialog.ShowDialog(owner);
     }
 
+    private void ShowOpenFolderDialog_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is not Button button)
+        {
+            return;
+        }
+
+        bool multiselect = button.Tag?.ToString() == "Multiple";
+        OpenFolderDialog dialog = new()
+        {
+            Description = multiselect ? "请选择一个或多个文件夹。" : "请选择一个文件夹。",
+            UseDescriptionForTitle = true,
+            Multiselect = multiselect,
+        };
+
+        bool? result = dialog.ShowDialog(OwnerHandle);
+        OpenFolderDialogResultText.Text = result == true
+            ? multiselect
+                ? $"结果：已选择 {dialog.SelectedPaths.Length} 个文件夹 — {string.Join("；", dialog.SelectedPaths)}"
+                : $"结果：{dialog.SelectedPath}"
+            : "结果：已取消";
+    }
+
     private void ShowNativeMessageBox_Click(object sender, RoutedEventArgs e)
     {
         if (sender is not Button btn)
