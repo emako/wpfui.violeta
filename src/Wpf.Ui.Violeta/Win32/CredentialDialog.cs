@@ -18,7 +18,7 @@ public sealed class CredentialDialog
     private const int CredUiMaxUserNameLength = 513;
     private const int CredUiMaxPasswordLength = 256;
 
-    private static readonly Dictionary<string, NetworkCredential> ApplicationInstanceCredentialCache = new();
+    private static readonly Dictionary<string, NetworkCredential> ApplicationInstanceCredentialCache = [];
 
     private readonly NetworkCredential _credentials = new();
     private string? _confirmTarget;
@@ -175,10 +175,8 @@ public sealed class CredentialDialog
     public static void StoreCredential(string target, NetworkCredential credential, byte[]? additionalEntropy = null)
     {
         ValidateTarget(target);
-        if (credential is null)
-        {
-            throw new ArgumentNullException(nameof(credential));
-        }
+
+        _ = credential ?? throw new ArgumentNullException(nameof(credential));
 
         var protectedPassword = ProtectedData.Protect(
             Encoding.UTF8.GetBytes(credential.Password ?? string.Empty),
@@ -386,10 +384,7 @@ public sealed class CredentialDialog
 
     private static void ValidateTarget(string target)
     {
-        if (target is null)
-        {
-            throw new ArgumentNullException(nameof(target));
-        }
+        _ = target ?? throw new ArgumentNullException(nameof(target));
 
         if (target.Length == 0)
         {
@@ -456,6 +451,7 @@ public sealed class CredentialDialog
     }
 
     private enum CredentialType : uint { Generic = 1 }
+
     private enum CredentialPersist : uint { Enterprise = 3 }
 
     [Flags]
@@ -484,8 +480,10 @@ public enum DownlevelTextMode
 {
     /// <summary>Shows the main instruction and content.</summary>
     MainInstructionAndContent,
+
     /// <summary>Shows only the main instruction.</summary>
     MainInstructionOnly,
+
     /// <summary>Shows only the content.</summary>
     ContentOnly,
 }
