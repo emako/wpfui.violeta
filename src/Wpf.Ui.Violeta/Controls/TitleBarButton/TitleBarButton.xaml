@@ -32,12 +32,76 @@
                             VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                            RenderTransformOrigin="0.5,0.5">
+                            <ContentPresenter.RenderTransform>
+                                <ScaleTransform x:Name="IconScaleTransform" ScaleX="1.0" ScaleY="1.0" />
+                            </ContentPresenter.RenderTransform>
+                        </ContentPresenter>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsActive" Value="False">
                             <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="{StaticResource TitleBarButtonInactiveForegroundOpacity}" />
                         </Trigger>
+                        <Trigger Property="PressAnimation" Value="RightToLeft">
+                            <Setter TargetName="PART_ContentPresenter" Property="RenderTransformOrigin" Value="1,0.5" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="PressAnimation" Value="Center" />
+                                <Condition Property="IsPressed" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0.66"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.0"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="PressAnimation" Value="RightToLeft" />
+                                <Condition Property="IsPressed" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0.66"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.0"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

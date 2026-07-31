@@ -1,19 +1,26 @@
+using System;
 using System.Reflection;
 using System.Runtime.Versioning;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Settings;
 
 public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 {
+    private bool _syncingAppearance;
+
     public SettingsPage()
     {
         InitializeComponent();
         Loaded += SettingsPage_OnLoaded;
     }
 
-    private void SettingsPage_OnLoaded(object sender, System.Windows.RoutedEventArgs e)
+    private void SettingsPage_OnLoaded(object sender, RoutedEventArgs e)
     {
         var assembly = typeof(Wpf.Ui.Violeta.Controls.Page).Assembly;
         var version = assembly.GetName().Version;
@@ -25,9 +32,70 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         RuntimeVersionText.Text = target ?? System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
     }
 
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        SyncAppearanceFromShell();
+    }
+
+    private void SyncAppearanceFromShell()
+    {
+        _syncingAppearance = true;
+        try
+        {
+            if (Window.GetWindow(this) is MainWindow mainWindow)
+            {
+                ThemeComboBox.SelectedIndex = mainWindow.ThemeComboBoxSelectedIndex;
+                SelectBackdropItem(mainWindow.WindowBackdropType);
+            }
+            else if (Window.GetWindow(this) is ShellWindow shell)
+            {
+                SelectBackdropItem(shell.WindowBackdropType);
+            }
+
+            UpdateBackdropItemAvailability();
+        }
+        finally
+        {
+            _syncingAppearance = false;
+        }
+    }
+
+    private void UpdateBackdropItemAvailability()
+    {
+        foreach (var item in BackdropComboBox.Items)
+        {
+            if (item is not ComboBoxItem comboItem || comboItem.Tag is not string tag)
+            {
+                continue;
+            }
+
+            if (!Enum.TryParse<WindowBackdropPreference>(tag, out var preference))
+            {
+                continue;
+            }
+
+            comboItem.IsEnabled = WindowBackdrop.IsSupported(preference);
+        }
+    }
+
+    private void SelectBackdropItem(WindowBackdropPreference preference)
+    {
+        for (var i = 0; i < BackdropComboBox.Items.Count; i++)
+        {
+            if (BackdropComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+                && Enum.TryParse<WindowBackdropPreference>(tag, out var itemPreference)
+                && itemPreference == preference)
+            {
+                BackdropComboBox.SelectedIndex = i;
+                return;
+            }
+        }
+    }
+
     private void ThemeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (!IsLoaded)
+        if (!IsLoaded || _syncingAppearance)
         {
             return;
         }
@@ -47,6 +115,35 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         else
         {
             ApplicationThemeManager.Apply(theme);
+        }
+
+        if (Window.GetWindow(this) is MainWindow mainWindow)
+        {
+            mainWindow.SyncThemeComboBox(ThemeComboBox.SelectedIndex);
+        }
+    }
+
+    private void BackdropComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!IsLoaded || _syncingAppearance)
+        {
+            return;
+        }
+
+        if (BackdropComboBox.SelectedItem is not ComboBoxItem { Tag: string tag }
+            || !Enum.TryParse<WindowBackdropPreference>(tag, out var preference))
+        {
+            return;
+        }
+
+        if (!WindowBackdrop.IsSupported(preference))
+        {
+            return;
+        }
+
+        if (Window.GetWindow(this) is ShellWindow shell)
+        {
+            shell.WindowBackdropType = preference;
         }
     }
 }

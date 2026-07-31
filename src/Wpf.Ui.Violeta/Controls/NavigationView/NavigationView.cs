@@ -1386,8 +1386,16 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
 
         var settingsItem = m_settingsItem;
-        var settingsIcon = new FontIcon(SegoeFluentIcons.Settings); //SymbolIcon(Symbol.Setting);
+        var settingsIcon = new FontIcon(SegoeFluentIcons.Settings) // SymbolIcon(Symbol.Setting);
+        {
+            Width = 16,
+            Height = 16,
+            // Match settings gear: rotate around icon center
+            RenderTransformOrigin = new Point(0.5, 0.5),
+            RenderTransform = new RotateTransform { Angle = 0 },
+        };
         settingsItem.Icon = settingsIcon;
+        EnsureSettingsIconRotationAnimation(settingsItem);
 
         // Do localization for settings item label and Automation Name
         var localizedSettingsName = ResourceAccessor.GetLocalizedStringResource(SR_SettingsButtonName);
@@ -1407,6 +1415,93 @@ public partial class NavigationView : ContentControl, IControlProtected
 
         // hook up SettingsItem
         SetValue(SettingsItemPropertyKey, settingsItem);
+    }
+
+    /// <summary>
+    /// Settings gear rotation: press winds back slightly, release spins a full turn.
+    /// </summary>
+    void EnsureSettingsIconRotationAnimation(NavigationViewItem settingsItem)
+    {
+        if (m_settingsIconRotationHooked)
+        {
+            return;
+        }
+
+        m_settingsIconRotationHooked = true;
+
+        settingsItem.PreviewMouseLeftButtonDown += OnSettingsItemPreviewMouseLeftButtonDown;
+        settingsItem.PreviewMouseLeftButtonUp += OnSettingsItemPreviewMouseLeftButtonUp;
+    }
+
+    void OnSettingsItemPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        // Match settings gear: wind back to -22.5° in 0.1s (CircleEase EaseIn)
+        BeginSettingsIconRotation(toAngle: -22.5, durationSeconds: 0.1, easingMode: EasingMode.EaseIn, resetAfter: false);
+    }
+
+    void OnSettingsItemPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    {
+        // Match settings gear: spin to 360° in 0.5s (CircleEase EaseOut), then snap angle back to 0
+        BeginSettingsIconRotation(toAngle: 360, durationSeconds: 0.5, easingMode: EasingMode.EaseOut, resetAfter: true);
+    }
+
+    FrameworkElement? TryGetSettingsIconElement()
+    {
+        if (m_settingsItem?.Icon is not FrameworkElement iconElement)
+        {
+            return null;
+        }
+
+        if (iconElement.RenderTransform is not RotateTransform)
+        {
+            iconElement.RenderTransformOrigin = new Point(0.5, 0.5);
+            iconElement.RenderTransform = new RotateTransform { Angle = 0 };
+        }
+
+        return iconElement;
+    }
+
+    void BeginSettingsIconRotation(double toAngle, double durationSeconds, EasingMode easingMode, bool resetAfter)
+    {
+        if (TryGetSettingsIconElement() is not { } iconElement)
+        {
+            return;
+        }
+
+        m_settingsIconRotationStoryboard?.Stop();
+
+        // Animate via the icon element path (same idea as settings gear).
+        var anglePath = new PropertyPath("(UIElement.RenderTransform).(RotateTransform.Angle)");
+
+        var animation = new DoubleAnimation
+        {
+            To = toAngle,
+            Duration = TimeSpan.FromSeconds(durationSeconds),
+            EasingFunction = new CircleEase { EasingMode = easingMode },
+            FillBehavior = FillBehavior.HoldEnd,
+        };
+
+        var storyboard = new Storyboard();
+        Storyboard.SetTarget(animation, iconElement);
+        Storyboard.SetTargetProperty(animation, anglePath);
+        storyboard.Children.Add(animation);
+
+        if (resetAfter)
+        {
+            var reset = new DoubleAnimation
+            {
+                To = 0,
+                BeginTime = TimeSpan.FromSeconds(durationSeconds),
+                Duration = TimeSpan.Zero,
+                FillBehavior = FillBehavior.HoldEnd,
+            };
+            Storyboard.SetTarget(reset, iconElement);
+            Storyboard.SetTargetProperty(reset, anglePath);
+            storyboard.Children.Add(reset);
+        }
+
+        m_settingsIconRotationStoryboard = storyboard;
+        storyboard.Begin();
     }
 
     protected override Size MeasureOverride(Size availableSize)
@@ -5860,6 +5955,8 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private SplitView m_rootSplitView;
     private NavigationViewItem m_settingsItem;
+    private bool m_settingsIconRotationHooked;
+    private Storyboard? m_settingsIconRotationStoryboard;
     private RowDefinition m_itemsContainerRow;
     private FrameworkElement m_menuItemsScrollViewer;
     private FrameworkElement m_footerItemsScrollViewer;

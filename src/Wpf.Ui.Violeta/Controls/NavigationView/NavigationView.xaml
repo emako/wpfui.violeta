@@ -112,7 +112,12 @@
                                     FontFamily="{TemplateBinding FontFamily}"
                                     FontSize="{TemplateBinding FontSize}"
                                     Foreground="{TemplateBinding Foreground}"
-                                    Glyph="&#xF4E1;" />
+                                    Glyph="&#xF4E1;"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <ui:FontIcon.RenderTransform>
+                                        <ScaleTransform x:Name="IconScaleTransform" ScaleX="1.0" ScaleY="1.0" />
+                                    </ui:FontIcon.RenderTransform>
+                                </ui:FontIcon>
                             </Border>
 
                             <ui:ContentPresenterEx
@@ -140,6 +145,31 @@
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundDisabled}" />
                             <Setter Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundDisabled}" />
                         </Trigger>
+                        <!-- Match wpfui BasePaneButtonStyle: horizontal squash press feedback on the hamburger icon -->
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="IconScaleTransform"
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                        From="1.0"
+                                        To="0.66"
+                                        Duration="0:0:0.08" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonUp">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="IconScaleTransform"
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                        From="0.66"
+                                        To="1.0"
+                                        Duration="0:0:0.08" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -191,7 +221,12 @@
                             FontFamily="{TemplateBinding FontFamily}"
                             FontSize="{TemplateBinding FontSize}"
                             Foreground="{TemplateBinding Foreground}"
-                            Glyph="{TemplateBinding Content}" />
+                            Glyph="{TemplateBinding Content}"
+                            RenderTransformOrigin="1,0.5">
+                            <ui:FontIcon.RenderTransform>
+                                <ScaleTransform x:Name="IconScaleTransform" ScaleX="1" ScaleY="1" />
+                            </ui:FontIcon.RenderTransform>
+                        </ui:FontIcon>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -204,6 +239,30 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Content" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundDisabled}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0.66"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1179,6 +1238,7 @@
                                 <Button
                                     x:Name="NavigationViewBackButton"
                                     Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerPaneToggleButtonWidth}"
+                                    HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
                                     IsEnabled="{TemplateBinding IsBackEnabled}"
                                     Style="{DynamicResource NavigationBackButtonNormalStyle}"
