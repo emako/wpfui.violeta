@@ -7,7 +7,8 @@
     xmlns:ikw="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
-    xmlns:ui="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+    xmlns:ui="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:wui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/Compat/Controls/Windows/SplitView/SplitView.xaml" />
         <ResourceDictionary>
@@ -1198,7 +1199,7 @@
                                 <Button
                                     x:Name="TogglePaneButton"
                                     MinWidth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerPaneToggleButtonWidth}"
-                                    HorizontalAlignment="Left"
+                                    HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     helpers:FocusVisualHelper.FocusVisualMargin="0"
                                     Style="{TemplateBinding PaneToggleButtonStyle}"
@@ -1501,13 +1502,13 @@
 
                                                 <!--  MenuItems  -->
                                                 <ui:ItemsRepeaterScrollHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                                    <ui:ScrollViewerEx
+                                                    <wui:DynamicScrollViewer
                                                         x:Name="MenuItemsScrollViewer"
                                                         KeyboardNavigation.TabNavigation="Local"
                                                         VerticalScrollBarVisibility="Auto">
                                                         <!--  Left nav ItemsRepeater  -->
                                                         <ui:ItemsRepeater x:Name="MenuItemsHost" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}" />
-                                                    </ui:ScrollViewerEx>
+                                                    </wui:DynamicScrollViewer>
                                                 </ui:ItemsRepeaterScrollHost>
 
                                                 <local:NavigationViewItemSeparator
@@ -1530,10 +1531,10 @@
 
                                                 <!--  FooterItems  -->
                                                 <ui:ItemsRepeaterScrollHost Grid.Row="3">
-                                                    <ui:ScrollViewerEx x:Name="FooterItemsScrollViewer">
+                                                    <wui:DynamicScrollViewer x:Name="FooterItemsScrollViewer">
                                                         <!--  contract7Present:VerticalAnchorRatio="1"  -->
                                                         <ui:ItemsRepeater x:Name="FooterMenuItemsHost" />
-                                                    </ui:ScrollViewerEx>
+                                                    </wui:DynamicScrollViewer>
                                                 </ui:ItemsRepeaterScrollHost>
                                             </Grid>
 
@@ -1798,41 +1799,6 @@
                             <Setter TargetName="TopNavOverflowButton" Property="Style" Value="{DynamicResource NavigationViewOverflowButtonNoLabelStyleWhenPaneOnTop}" />
                         </Trigger>
 
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsPaneOpen" Value="False" />
-                                <Condition Property="DisplayMode" Value="Compact" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="TogglePaneButton" Property="HorizontalAlignment" Value="Center" />
-                            <Setter TargetName="TogglePaneButton" Property="Padding" Value="{DynamicResource NavigationViewItemButtonNormalMargin}" />
-                        </MultiTrigger>
-
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsPaneOpen" Value="False" />
-                                <Condition Property="DisplayMode" Value="Expanded" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="TogglePaneButton" Property="HorizontalAlignment" Value="Center" />
-                            <Setter TargetName="TogglePaneButton" Property="Padding" Value="{DynamicResource NavigationViewItemButtonNormalMargin}" />
-                        </MultiTrigger>
-
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="PaneTitle" Value="" />
-                                <Condition Property="DisplayMode" Value="Compact" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="TogglePaneButton" Property="Padding" Value="0" />
-                            <Setter TargetName="TogglePaneButton" Property="HorizontalAlignment" Value="Center" />
-                        </MultiTrigger>
-
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="PaneTitle" Value="" />
-                                <Condition Property="DisplayMode" Value="Expanded" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="TogglePaneButton" Property="Padding" Value="0" />
-                            <Setter TargetName="TogglePaneButton" Property="HorizontalAlignment" Value="Center" />
-                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

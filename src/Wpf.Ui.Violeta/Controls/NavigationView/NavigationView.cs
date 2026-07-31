@@ -4634,7 +4634,11 @@ public partial class NavigationView : ContentControl, IControlProtected
         {
             if (m_rootSplitView is { } splitView)
             {
-                double width = GetPaneToggleButtonWidth();
+                // Match WinUI: use TemplateSettings.PaneToggleButtonWidth (CompactPaneLength),
+                // not the PaneToggleButtonWidth resource (40). Closed compact needs the full
+                // compact width so Style Padding (4,2) + icon column (Compact-8) stay aligned
+                // with NavigationViewItem icons.
+                double width = GetTemplateSettings().PaneToggleButtonWidth;
                 double togglePaneButtonWidth = width;
 
                 if (ShouldShowBackButton() && splitView.DisplayMode == SplitViewDisplayMode.Overlay)
@@ -4974,26 +4978,23 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (setPaneTitleHolderFrameworkElementMargin || setPaneToggleButtonMargin)
             {
+                // Match WinUI: only offset for back/close; the 4,2 inset comes from PaneToggleButtonStyle Padding.
                 var thickness = ThicknessHelper.FromLengths(0, 0, 0, 0);
-                var thicknessToggleButton = ThicknessHelper.FromLengths(4, 2, 4, 2);
 
                 if (ShouldShowBackButton())
                 {
                     if (IsOverlay())
                     {
                         thickness = ThicknessHelper.FromLengths(c_backButtonWidth, 0, 0, 0);
-                        thicknessToggleButton = thickness;
                     }
                     else
                     {
                         thickness = ThicknessHelper.FromLengths(0, c_backButtonHeight, 0, 0);
-                        thicknessToggleButton = thickness;
                     }
                 }
                 else if (ShouldShowCloseButton() && IsOverlay())
                 {
                     thickness = ThicknessHelper.FromLengths(c_backButtonWidth, 0, 0, 0);
-                    thicknessToggleButton = thickness;
                 }
 
                 if (setPaneTitleHolderFrameworkElementMargin)
@@ -5004,7 +5005,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                 else
                 {
                     // The PaneHeader is hosted by PaneToggleButton
-                    paneToggleButton.Margin = thicknessToggleButton;
+                    paneToggleButton.Margin = thickness;
                 }
             }
         }
