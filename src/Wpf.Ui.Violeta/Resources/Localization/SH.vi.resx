@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>Mở</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>Mẹo</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>Nhấn F6 để chuyển đến thông báo mới từ {0}, {1}.</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>Nhấn F6 để chuyển đến thông báo mới, {0}.</value>
+  </data>
 </root>
-

@@ -204,10 +204,7 @@ internal class ResourceAccessor
                 return sharedValue;
             }
 
-            if (_resourceManager is null)
-            {
-                _resourceManager = CreateResourceManager();
-            }
+            _resourceManager ??= CreateResourceManager();
 
             string? scopedValue = _resourceManager.GetString(resourceName);
             if (!string.IsNullOrWhiteSpace(scopedValue))

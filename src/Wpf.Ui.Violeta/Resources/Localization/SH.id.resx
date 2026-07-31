@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>Aktif</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>Tekan F6 untuk membuka pemberitahuan baru dari {0}, {1}.</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>Tekan F6 untuk membuka pemberitahuan baru, {0}.</value>
+  </data>
 </root>
-

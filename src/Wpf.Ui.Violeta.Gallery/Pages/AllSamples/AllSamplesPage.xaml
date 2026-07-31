@@ -101,6 +101,7 @@
                 <ctrl:SampleCard Width="240" Title="OpenFolderDialog" Description="文件夹选择" Glyph="&#xE8B7;" NavigateTag="dialogs/open-folder-dialog" />
                 <ctrl:SampleCard Width="240" Title="Flyout" Description="浮出层" Glyph="&#xE8B7;" NavigateTag="dialogs/flyout" />
                 <ctrl:SampleCard Width="240" Title="FluentPopup" Description="Fluent 弹出" Glyph="&#xE8B7;" NavigateTag="dialogs/fluent-popup" />
+                <ctrl:SampleCard Width="240" Title="TeachingTip" Description="教学提示" Glyph="&#xE8BD;" NavigateTag="dialogs/teaching-tip" />
             </WrapPanel>
 
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="通知与横幅" />

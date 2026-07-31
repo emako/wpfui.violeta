@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>켜기</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>팁</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>F6 키를 눌러 {0}, {1}의 새 알림으로 이동하세요.</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>F6 키를 눌러 새 알림, {0}(으)로 이동하세요.</value>
+  </data>
 </root>
-

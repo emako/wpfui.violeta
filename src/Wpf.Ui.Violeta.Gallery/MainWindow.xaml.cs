@@ -106,6 +106,7 @@ public partial class MainWindow : ShellWindow
         ["dialogs/open-folder-dialog"] = static () => new OpenFolderDialogPage(),
         ["dialogs/flyout"] = static () => new FlyoutPage(),
         ["dialogs/fluent-popup"] = static () => new FluentPopupPage(),
+        ["dialogs/teaching-tip"] = static () => new TeachingTipPage(),
 
         ["notifications"] = static () => new NotificationsPage(),
         ["notifications/snackbar"] = static () => new SnackbarPage(),
@@ -358,5 +359,20 @@ public partial class MainWindow : ShellWindow
         {
             ApplicationThemeManager.Apply(theme);
         }
+    }
+
+    internal int ThemeComboBoxSelectedIndex => ThemeComboBox.SelectedIndex;
+
+    /// <summary>
+    /// Keeps the title-bar theme combo in sync when theme is changed from Settings.
+    /// </summary>
+    internal void SyncThemeComboBox(int selectedIndex)
+    {
+        if (ThemeComboBox.SelectedIndex == selectedIndex)
+        {
+            return;
+        }
+
+        ThemeComboBox.SelectedIndex = selectedIndex;
     }
 }

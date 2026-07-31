@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>オン</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>ヒント</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>{0} からの新しい通知 ({1}) にアクセスするには、F6 キーを押してください。</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>新しい通知 ({0}) にアクセスするには、F6 キーを押してください。</value>
+  </data>
 </root>
-

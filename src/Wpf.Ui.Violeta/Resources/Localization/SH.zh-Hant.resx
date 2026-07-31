@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>開</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>按一下 F6，前往來自 {0}，{1} 的新通知。</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>按一下 F6 前往新通知，{0}。</value>
+  </data>
 </root>
-

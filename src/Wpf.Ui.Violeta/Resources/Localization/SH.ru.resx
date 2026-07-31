@@ -242,5 +242,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>Вкл</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>Совет</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>Нажмите клавишу F6, чтобы перейти к новому уведомлению от {0}, {1}.</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>Нажмите клавишу F6, чтобы перейти к новому уведомлению, {0}.</value>
+  </data>
 </root>
-

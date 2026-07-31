@@ -183,5 +183,19 @@
   <data name="ToggleSwitchOn" xml:space="preserve">
     <value>Ein</value>
   </data>
+  <data name="TeachingTipAlternateCloseButtonName" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="TeachingTipAlternateCloseButtonTooltip" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="TeachingTipCustomLandmarkName" xml:space="preserve">
+    <value>Tipp</value>
+  </data>
+  <data name="TeachingTipNotification" xml:space="preserve">
+    <value>Drücken Sie F6, um auf die neue Benachrichtigung zu {0}, {1} zuzugreifen.</value>
+  </data>
+  <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
+    <value>Drücken Sie F6, um auf die neue Benachrichtigung zu {0} zuzugreifen.</value>
+  </data>
 </root>
-

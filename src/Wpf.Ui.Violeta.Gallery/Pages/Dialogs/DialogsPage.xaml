@@ -73,6 +73,12 @@
                     Description="Fluent 风格弹出层"
                     Glyph="&#xE71B;"
                     NavigateTag="dialogs/fluent-popup" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="TeachingTip"
+                    Description="教学提示浮层"
+                    Glyph="&#xE8BD;"
+                    NavigateTag="dialogs/teaching-tip" />
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

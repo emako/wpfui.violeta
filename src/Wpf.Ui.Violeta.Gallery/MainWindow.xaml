@@ -197,6 +197,7 @@
                         <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
                         <vio:NavigationViewItem Content="Flyout" Tag="dialogs/flyout" />
                         <vio:NavigationViewItem Content="FluentPopup" Tag="dialogs/fluent-popup" />
+                        <vio:NavigationViewItem Content="TeachingTip" Tag="dialogs/teaching-tip" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
