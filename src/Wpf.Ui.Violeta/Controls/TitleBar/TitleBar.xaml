@@ -46,6 +46,7 @@
                                     Command="{TemplateBinding BackButtonCommand}"
                                     IsActive="{TemplateBinding IsActive}"
                                     IsEnabled="{TemplateBinding IsBackButtonEnabled}"
+                                    PressAnimation="RightToLeft"
                                     Visibility="{TemplateBinding BackButtonVisibility}"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
                                     <ui:FontIcon
@@ -62,6 +63,7 @@
                                     Command="{TemplateBinding PaneToggleButtonCommand}"
                                     IsActive="{TemplateBinding IsActive}"
                                     IsEnabled="{TemplateBinding IsPaneToggleButtonEnabled}"
+                                    PressAnimation="Center"
                                     Visibility="{TemplateBinding PaneToggleButtonVisibility}"
                                     WindowChrome.IsHitTestVisibleInChrome="True">
                                     <ui:FontIcon
