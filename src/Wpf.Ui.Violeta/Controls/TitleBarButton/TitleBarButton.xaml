@@ -10,6 +10,22 @@
     <system:Double x:Key="TitleBarButtonPressedForegroundOpacity">0.618</system:Double>
     <system:Double x:Key="TitleBarButtonDisabledForegroundOpacity">0.382</system:Double>
 
+    <Storyboard x:Key="TitleBarButtonRightToLeftPressStoryboard">
+        <DoubleAnimation
+            Storyboard.TargetName="IconScaleTransform"
+            Storyboard.TargetProperty="ScaleX"
+            To="0.66"
+            Duration="0:0:0.08" />
+    </Storyboard>
+
+    <Storyboard x:Key="TitleBarButtonRightToLeftReleaseStoryboard">
+        <DoubleAnimation
+            Storyboard.TargetName="IconScaleTransform"
+            Storyboard.TargetProperty="ScaleX"
+            To="1.0"
+            Duration="0:0:0.08" />
+    </Storyboard>
+
     <Style x:Key="TitleBarButtonDefaultStyle" TargetType="{x:Type local:TitleBarButton}">
         <Setter Property="Width" Value="{StaticResource TitleBarButtonWidth}" />
         <Setter Property="Background" Value="{DynamicResource TitleBarButtonBackground}" />
@@ -52,26 +68,10 @@
                                 <Condition Property="IsPressed" Value="True" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="0.66"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftPressStoryboard}" />
                             </MultiTrigger.EnterActions>
                             <MultiTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1.0"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftReleaseStoryboard}" />
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
                         <MultiTrigger>
@@ -80,26 +80,10 @@
                                 <Condition Property="IsPressed" Value="True" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="0.66"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftPressStoryboard}" />
                             </MultiTrigger.EnterActions>
                             <MultiTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1.0"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftReleaseStoryboard}" />
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>

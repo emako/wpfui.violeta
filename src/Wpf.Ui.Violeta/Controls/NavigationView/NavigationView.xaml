@@ -11,6 +11,7 @@
     xmlns:wui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/Compat/Controls/Windows/SplitView/SplitView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TitleBarButton/TitleBarButton.xaml" />
         <ResourceDictionary>
             <primitives:BindingProxy x:Key="OverlayCornerRadiusProxy" Value="{DynamicResource OverlayCornerRadius}" />
             <conv:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="Right" />
@@ -242,26 +243,10 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="0.66"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftPressStoryboard}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="IconScaleTransform"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1"
-                                            Duration="0:0:0.08" />
-                                    </Storyboard>
-                                </BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource TitleBarButtonRightToLeftReleaseStoryboard}" />
                             </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
