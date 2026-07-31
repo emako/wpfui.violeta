@@ -82,36 +82,14 @@ public class TeachingTipAutomationPeer(TeachingTip owner) : FrameworkElementAuto
         return true;
     }
 
-    // Didn't implement these as AutomationEvents.WindowOpened & AutomationEvents.WindowClosed are not present in WPF
-
+    // WPF does not expose AutomationEvents.WindowOpened / WindowClosed like WinUI.
     internal void RaiseWindowClosedEvent()
     {
-        //We only report as a window when light dismiss is enabled.
-        //if (GetTeachingTip().IsLightDismissEnabled &&
-        //    ListenerExists(AutomationEvents.WindowClosed))
-        //{
-        //    RaiseAutomationEvent(AutomationEvents.WindowClosed);
-        //}
     }
 
     internal void RaiseWindowOpenedEvent(string displayString)
     {
-        //AutomationPeer automationPeer7 = this;
-        //if (automationPeer7 != null)
-        //{
-        //    //automationPeer7.RaiseNotificationEvent(
-        //    //    Automation.Peers.AutomationNotificationKind.Other,
-        //    //    Peers.AutomationNotificationProcessing.CurrentThenMostRecent,
-        //    //    displayString,
-        //    //    L"TeachingTipOpenedActivityId");
-        //}
-
-        //// We only report as a window when light dismiss is enabled.
-        //if (GetTeachingTip().IsLightDismissEnabled &&
-        //    AutomationPeer.ListenerExists(AutomationEvents.WindowOpened))
-        //{
-        //    RaiseAutomationEvent(AutomationEvents.WindowOpened);
-        //}
+        _ = displayString;
     }
 
     private TeachingTip GetTeachingTip()

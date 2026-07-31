@@ -50,31 +50,14 @@ public partial class TeachingTip : ContentControl, IControlProtected
     public override void OnApplyTemplate()
     {
         PreviewKeyDown -= OnF6AcceleratorKeyClicked;
-        //m_acceleratorKeyActivatedRevoker.revoke();
-        //m_effectiveViewportChangedRevoker.revoke();
 
-        if (m_tailOcclusionGrid != null)
-        {
-            m_tailOcclusionGrid.SizeChanged -= OnContentSizeChanged;
-        }
-        if (m_closeButton != null)
-        {
-            m_closeButton.Click -= OnCloseButtonClicked;
-        }
-        if (m_alternateCloseButton != null)
-        {
-            m_alternateCloseButton.Click -= OnCloseButtonClicked;
-        }
-        if (m_actionButton != null)
-        {
-            m_actionButton.Click -= OnActionButtonClicked;
-        }
+        m_tailOcclusionGrid?.SizeChanged -= OnContentSizeChanged;
+        m_closeButton?.Click -= OnCloseButtonClicked;
+        m_alternateCloseButton?.Click -= OnCloseButtonClicked;
+        m_actionButton?.Click -= OnActionButtonClicked;
 
         var window = Window.GetWindow(this);
-        if (window != null)
-        {
-            window.SizeChanged -= WindowSizeChanged;
-        }
+        window?.SizeChanged -= WindowSizeChanged;
 
         IControlProtected controlProtected = this;
 
@@ -93,16 +76,10 @@ public partial class TeachingTip : ContentControl, IControlProtected
         ToggleVisibilityForEmptyContent(c_SubtitleTextBlockVisibleStateName, c_SubtitleTextBlockCollapsedStateName, Subtitle);
 
         var container = m_container;
-        if (container != null)
-        {
-            container.Child = null;
-        }
+        container?.Child = null;
 
         var tailOcclusionGrid = m_tailOcclusionGrid;
-        if (tailOcclusionGrid != null)
-        {
-            tailOcclusionGrid.SizeChanged += OnContentSizeChanged;
-        }
+        tailOcclusionGrid?.SizeChanged += OnContentSizeChanged;
 
         var contentRootGrid = m_contentRootGrid;
         if (contentRootGrid != null)
@@ -111,10 +88,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
 
         var closeButton = m_closeButton;
-        if (closeButton != null)
-        {
-            closeButton.Click += OnCloseButtonClicked;
-        }
+        closeButton?.Click += OnCloseButtonClicked;
 
         var alternateCloseButton = m_alternateCloseButton;
         if (alternateCloseButton != null)
@@ -129,17 +103,12 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
 
         var actionButton = m_actionButton;
-        if (actionButton != null)
-        {
-            actionButton.Click += OnActionButtonClicked;
-        }
+        actionButton?.Click += OnActionButtonClicked;
 
         UpdateButtonsState();
         OnIsLightDismissEnabledChanged();
         OnIconSourceChanged();
         OnHeroContentPlacementChanged();
-
-        EstablishShadows();
 
         m_isTemplateApplied = true;
     }
@@ -292,12 +261,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
     private void CreateLightDismissIndicatorPopup()
     {
         var popup = new Popup { AllowsTransparency = true };
-        //// Set XamlRoot on the popup to handle XamlIsland/AppWindow scenarios.
-        //UIElement uiElement10 = this
-        //if (uiElement10 != null)
-        //{
-        //    popup.XamlRoot = uiElement10.XamlRoot;
-        //}
 
         // A Popup needs contents to open, so set a child that doesn't do anything.
         var grid = new Grid();
@@ -495,100 +458,9 @@ public partial class TeachingTip : ContentControl, IControlProtected
 
     private bool PositionTargetedPopup()
     {
-        bool tipDoesNotFit = UpdateTail();
-        //var offset = PlacementMargin;
-
-        //(double tipHeight, double tipWidth) GetTipSize()
-        //{
-        //    var tailOcclusionGrid = m_tailOcclusionGrid;
-        //    if (tailOcclusionGrid != null)
-        //    {
-        //        var tipHeight = tailOcclusionGrid.ActualHeight;
-        //        var tipWidth = tailOcclusionGrid.ActualWidth;
-        //        return (tipHeight, tipWidth);
-        //    }
-        //    return (0.0, 0.0);
-        //}
-
-        //var (tipHeight, tipWidth) = GetTipSize();
-
-        //var popup = m_popup;
-        //if (popup != null)
-        //{
-        //    // Depending on the effective placement mode of the tip we use a combination of the tip's size, the target's position within the app, the target's
-        //    // size, and the target offset property to determine the appropriate vertical and horizontal offsets of the popup that the tip is contained in.
-        //    switch (m_currentEffectiveTipPlacementMode)
-        //    {
-        //        case TeachingTipPlacementMode.Top:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y - tipHeight - offset.Top;
-        //            popup.HorizontalOffset = ((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width - tipWidth) / 2.0f;
-        //            break;
-
-        //        case TeachingTipPlacementMode.Bottom:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y + m_currentTargetBoundsInCoreWindowSpace.Height + (float)offset.Bottom;
-        //            popup.HorizontalOffset = ((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width - tipWidth) / 2.0f;
-        //            break;
-
-        //        case TeachingTipPlacementMode.Left:
-        //            popup.VerticalOffset = ((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height - tipHeight) / 2.0f;
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X - tipWidth - offset.Left;
-        //            break;
-
-        //        case TeachingTipPlacementMode.Right:
-        //            popup.VerticalOffset = ((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height - tipHeight) / 2.0f;
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X + m_currentTargetBoundsInCoreWindowSpace.Width + (float)offset.Right;
-        //            break;
-
-        //        case TeachingTipPlacementMode.TopRight:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y - tipHeight - offset.Top;
-        //            popup.HorizontalOffset = (((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width) / 2.0f) - MinimumTipEdgeToTailCenter();
-        //            break;
-
-        //        case TeachingTipPlacementMode.TopLeft:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y - tipHeight - offset.Top;
-        //            popup.HorizontalOffset = (((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width) / 2.0f) - tipWidth + MinimumTipEdgeToTailCenter();
-        //            break;
-
-        //        case TeachingTipPlacementMode.BottomRight:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y + m_currentTargetBoundsInCoreWindowSpace.Height + (float)offset.Bottom;
-        //            popup.HorizontalOffset = (((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width) / 2.0f) - MinimumTipEdgeToTailCenter();
-        //            break;
-
-        //        case TeachingTipPlacementMode.BottomLeft:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y + m_currentTargetBoundsInCoreWindowSpace.Height + (float)offset.Bottom;
-        //            popup.HorizontalOffset = (((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width) / 2.0f) - tipWidth + MinimumTipEdgeToTailCenter();
-        //            break;
-
-        //        case TeachingTipPlacementMode.LeftTop:
-        //            popup.VerticalOffset = (((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height) / 2.0f) - tipHeight + MinimumTipEdgeToTailCenter();
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X - tipWidth - offset.Left;
-        //            break;
-
-        //        case TeachingTipPlacementMode.LeftBottom:
-        //            popup.VerticalOffset = (((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height) / 2.0f) - MinimumTipEdgeToTailCenter();
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X - tipWidth - offset.Left;
-        //            break;
-
-        //        case TeachingTipPlacementMode.RightTop:
-        //            popup.VerticalOffset = (((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height) / 2.0f) - tipHeight + MinimumTipEdgeToTailCenter();
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X + m_currentTargetBoundsInCoreWindowSpace.Width + (float)offset.Right;
-        //            break;
-
-        //        case TeachingTipPlacementMode.RightBottom:
-        //            popup.VerticalOffset = (((m_currentTargetBoundsInCoreWindowSpace.Y * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Height) / 2.0f) - MinimumTipEdgeToTailCenter();
-        //            popup.HorizontalOffset = m_currentTargetBoundsInCoreWindowSpace.X + m_currentTargetBoundsInCoreWindowSpace.Width + (float)offset.Right;
-        //            break;
-
-        //        case TeachingTipPlacementMode.Center:
-        //            popup.VerticalOffset = m_currentTargetBoundsInCoreWindowSpace.Y + (m_currentTargetBoundsInCoreWindowSpace.Height / 2.0f) - tipHeight - offset.Top;
-        //            popup.HorizontalOffset = ((m_currentTargetBoundsInCoreWindowSpace.X * 2.0f) + m_currentTargetBoundsInCoreWindowSpace.Width - tipWidth) / 2.0f;
-        //            break;
-
-        //        default:
-        //            throw new InvalidOperationException("Provided placement is not supported");
-        //    }
-        //}
-        return tipDoesNotFit;
+        // Targeted placement is driven by Popup.PlacementTarget + tail visual states (UpdateTail).
+        // WinUI calculated popup offsets manually here; WPF relies on the popup placement APIs instead.
+        return UpdateTail();
     }
 
     private bool PositionUntargetedPopup()
@@ -983,7 +855,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
 
         PreviewKeyDown += OnF6AcceleratorKeyClicked;
-        //m_acceleratorKeyActivatedRevoker = Dispatcher().AcceleratorKeyActivated(auto_revoke, { this, &OnF6AcceleratorKeyClicked });
 
         // Make sure we are in the correct VSM state after ApplyTemplate and moving the template content from the Control to the Popup:
         OnIsLightDismissEnabledChanged();
@@ -1248,26 +1119,23 @@ public partial class TeachingTip : ContentControl, IControlProtected
 
     private void OnCloseButtonClicked(object sender, RoutedEventArgs args)
     {
-        CloseButtonClick?.Invoke(this, null);
+        CloseButtonClick?.Invoke(this, null!);
         m_lastCloseReason = TeachingTipCloseReason.CloseButton;
         IsOpen = false;
     }
 
-    private void OnActionButtonClicked(object sender, RoutedEventArgs args)
+    private void OnActionButtonClicked(object? sender, RoutedEventArgs args)
     {
-        ActionButtonClick?.Invoke(this, null);
+        ActionButtonClick?.Invoke(this, null!);
     }
 
-    private void OnPopupOpened(object sender, object args)
+    private void OnPopupOpened(object? sender, object args)
     {
         UIElement uiElement10 = this;
         if (uiElement10 != null)
         {
             var window = Window.GetWindow(this);
-            if (window != null)
-            {
-                window.SizeChanged += WindowSizeChanged;
-            }
+            window?.SizeChanged += WindowSizeChanged;
         }
 
         // Expand animation requires IUIElement9
@@ -1334,11 +1202,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
         {
             window.SizeChanged -= WindowSizeChanged;
         }
-        //if (m_xamlRoot != null)
-        //{
-        //    m_xamlRoot.SizeChanged -= XamlRootChanged;
-        //}
-        //m_xamlRoot = null;
 
         var lightDismissIndicatorPopup = m_lightDismissIndicatorPopup;
         if (lightDismissIndicatorPopup != null)
@@ -1530,7 +1393,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
             m_target.LayoutUpdated -= OnTargetLayoutUpdated;
             m_target.Loaded -= OnTargetLoaded;
         }
-        //m_targetEffectiveViewportChangedRevoker.revoke();
 
         var target = Target;
         m_target = target;
@@ -1565,18 +1427,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
     {
         if (m_tipFollowsTarget)
         {
-            // EffectiveViewPortChanged is only available on RS5 and higher.
-            FrameworkElement targetAsFE7 = target;
-            if (targetAsFE7 != null)
-            {
-                target.LayoutUpdated += OnTargetLayoutUpdated;
-                //targetAsFE7.EffectiveViewportChanged += OnTargetLayoutUpdated;
-                //EffectiveViewportChanged += OnTargetLayoutUpdated;
-            }
-            else
-            {
-                //m_targetLayoutUpdatedRevoker = target.LayoutUpdated(auto_revoke, { this, &OnTargetLayoutUpdated });
-            }
+            target.LayoutUpdated += OnTargetLayoutUpdated;
         }
     }
 
@@ -1586,8 +1437,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
         {
             m_target.LayoutUpdated -= OnTargetLayoutUpdated;
         }
-        //m_targetEffectiveViewportChangedRevoker.revoke();
-        //m_effectiveViewportChangedRevoker.revoke();
     }
 
     private void WindowSizeChanged(object sender, SizeChangedEventArgs args)
@@ -1595,19 +1444,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
         // Reposition popup when target/window has finished determining sizes
         SharedHelpers.QueueCallbackForCompositionRendering(() => RepositionPopup());
     }
-
-    //private void XamlRootChanged(XamlRoot xamlRoot, XamlRootChangedEventArgs args)
-    //{
-    //    // Reposition popup when target has finished determining its own position.
-    //    SharedHelpers.QueueCallbackForCompositionRendering(() =>
-    //    {
-    //        if (xamlRoot.Size != m_currentXamlRootSize)
-    //        {
-    //            m_currentXamlRootSize = xamlRootSize;
-    //            RepositionPopup();
-    //        }
-    //    });
-    //}
 
     private void RepositionPopup()
     {
@@ -2243,15 +2079,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
 
     private Rect GetWindowBounds()
     {
-        //UIElement uiElement10 = this;
-        //if (uiElement10 != null)
-        //{
-        //    var xamlRoot = uiElement10.XamlRoot;
-        //    if (xamlRoot != null)
-        //    {
-        //        return new Rect(0, 0, xamlRoot.Size.Width, xamlRoot.Size.Height);
-        //    }
-        //}
         var win = Window.GetWindow(this);
         return win != null ? new Rect(win.Left, win.Top, win.ActualWidth, win.ActualHeight) : Rect.Empty;
     }
@@ -2320,59 +2147,9 @@ public partial class TeachingTip : ContentControl, IControlProtected
         return priorityList;
     }
 
-    private void EstablishShadows()
+    private void TrySetCenterPoint(UIElement? element, Point centerPoint)
     {
-        //if (IUIElement10 tailPolygon_uiElement10 = m_tailPolygon)
-        //{
-        //    if (m_tipShadow)
-        //    {
-        //        if (!tailPolygon_uiElement10.Shadow())
-        //        {
-        //            // This facilitates an experiment around faking a proper tail shadow, shadows are expensive though so we don't want it present for release builds.
-        //            var const tailShadow = Windows.UI.Xaml.Media.ThemeShadow{ };
-        //            tailShadow.Receivers().Append(m_target);
-        //            tailPolygon_uiElement10.Shadow(tailShadow);
-        //            if (var && tailPolygon = m_tailPolygon)
-        //            {
-        //                var const tailPolygonTranslation = tailPolygon.Translation()
-        //                        tailPolygon.Translation({ tailPolygonTranslation.x, tailPolygonTranslation.y, m_tailElevation });
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tailPolygon_uiElement10.Shadow(null);
-        //    }
-        //}
-
-        var m_contentRootGrid_uiElement10 = m_contentRootGrid;
-        if (m_contentRootGrid_uiElement10 != null)
-        {
-            if (m_tipShouldHaveShadow)
-            {
-                //if (m_contentRootGrid_uiElement10.Shadow == null)
-                //{
-                //    m_contentRootGrid_uiElement10.Shadow(ThemeShadow{ });
-                //    if (var && contentRootGrid = m_contentRootGrid)
-                //    {
-                //        const var contentRootGridTranslation = contentRootGrid.Translation();
-                //        contentRootGrid.Translation({ contentRootGridTranslation.x, contentRootGridTranslation.y, m_contentElevation });
-                //    }
-                //}
-            }
-            else
-            {
-                //m_contentRootGrid_uiElement10.Shadow = null;
-            }
-        }
-    }
-
-    private void TrySetCenterPoint(UIElement element, Point centerPoint)
-    {
-        if (element != null)
-        {
-            element.RenderTransformOrigin = centerPoint;
-        }
+        element?.RenderTransformOrigin = centerPoint;
     }
 
     private float TailLongSideActualLength()
@@ -2453,42 +2230,9 @@ public partial class TeachingTip : ContentControl, IControlProtected
 
     internal void SetTipShouldHaveShadow(bool tipShouldHaveShadow)
     {
-        if (m_tipShouldHaveShadow != tipShouldHaveShadow)
-        {
-            m_tipShouldHaveShadow = tipShouldHaveShadow;
-            EstablishShadows();
-        }
+        // ThemeShadow / Translation Z elevation is a WinUI Composition feature; WPF has no equivalent here.
+        _ = tipShouldHaveShadow;
     }
-
-    //void SetContentElevation(float elevation)
-    //{
-    //    m_contentElevation = elevation;
-    //    if (SharedHelpers.IsRS5OrHigher())
-    //    {
-    //        if (var && contentRootGrid = m_contentRootGrid)
-    //        {
-    //            var const contentRootGridTranslation = contentRootGrid.Translation();
-    //            m_contentRootGrid.Translation({ contentRootGridTranslation.x, contentRootGridTranslation.y, m_contentElevation });
-    //        }
-    //        if (m_expandElevationAnimation)
-    //        {
-    //            m_expandElevationAnimation.SetScalarParameter("contentElevation", m_contentElevation);
-    //        }
-    //    }
-    //}
-
-    //void SetTailElevation(float elevation)
-    //{
-    //    m_tailElevation = elevation;
-    //    if (SharedHelpers.IsRS5OrHigher() && m_tailPolygon)
-    //    {
-    //        if (var && tailPolygon = m_tailPolygon)
-    //        {
-    //            var const tailPolygonTranslation = tailPolygon.Translation();
-    //            tailPolygon.Translation({ tailPolygonTranslation.x, tailPolygonTranslation.y, m_tailElevation });
-    //        }
-    //    }
-    //}
 
     internal void SetUseTestWindowBounds(bool useTestWindowBounds)
     {
@@ -2670,7 +2414,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
 
     internal Popup m_popup;
     private Popup m_lightDismissIndicatorPopup;
-    private ContentControl m_popupContentControl;
 
     private UIElement m_rootElement;
     private Grid m_tailOcclusionGrid;
@@ -2682,8 +2425,6 @@ public partial class TeachingTip : ContentControl, IControlProtected
     private Button m_closeButton;
     private Polygon m_tailPolygon;
     private Grid m_tailEdgeBorder;
-    private UIElement m_titleTextBlock;
-    private UIElement m_subtitleTextBlock;
 
     private WeakReference<IInputElement> m_previouslyFocusedElement;
 
@@ -2701,30 +2442,19 @@ public partial class TeachingTip : ContentControl, IControlProtected
     private Rect m_currentBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
     private Rect m_currentTargetBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
 
-    private Size m_currentXamlRootSize = new Size(0, 0);
-
-    private bool m_ignoreNextIsOpenChanged = false;
     private bool m_isTemplateApplied = false;
     private bool m_createNewPopupOnOpen = false;
 
     private bool m_isExpandAnimationPlaying = false;
     private bool m_isContractAnimationPlaying = false;
 
-    private bool m_hasF6BeenInvoked = false;
-
     private bool m_useTestWindowBounds = false;
     private Rect m_testWindowBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
     private bool m_useTestScreenBounds = false;
     private Rect m_testScreenBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
 
-    private bool m_tipShouldHaveShadow = true;
-
     private bool m_tipFollowsTarget = false;
     private bool m_returnTopForOutOfWindowPlacement = true;
-
-    private float m_contentElevation = 32.0f;
-    private float m_tailElevation = 0.0f;
-    private bool m_tailShadowTargetsShadowTarget = false;
 
     private TimeSpan m_expandAnimationDuration = TimeSpan.FromMilliseconds(300);
     private TimeSpan m_contractAnimationDuration = TimeSpan.FromMilliseconds(200);

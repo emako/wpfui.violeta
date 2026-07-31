@@ -41,22 +41,6 @@ internal class TeachingTipTestHooks
         teachingTip?.SetTipShouldHaveShadow(tipShouldHaveShadow);
     }
 
-    //internal static void SetContentElevation(TeachingTip teachingTip, float elevation)
-    //{
-    //    if (teachingTip)
-    //    {
-    //        teachingTip.SetContentElevation(elevation);
-    //    }
-    //}
-
-    //internal static void SetTailElevation(TeachingTip teachingTip, float elevation)
-    //{
-    //    if (teachingTip)
-    //    {
-    //        teachingTip.SetTailElevation(elevation);
-    //    }
-    //}
-
     internal static void SetUseTestWindowBounds(TeachingTip teachingTip, bool useTestWindowBounds)
     {
         teachingTip?.SetUseTestWindowBounds(useTestWindowBounds);
