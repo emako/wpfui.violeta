@@ -35,11 +35,14 @@
                             x:Name="TransitionContent"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
+                            Content="Slide 1 — 欢迎使用 Violeta"
+                            RestartTransitionOnContentChange="True"
                             Transition="Right">
-                            <TextBlock
-                                x:Name="TransitionText"
-                                FontSize="16"
-                                Text="Slide 1 — 欢迎使用 Violeta" />
+                            <vio:TransitioningContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="16" Text="{Binding}" />
+                                </DataTemplate>
+                            </vio:TransitioningContentControl.ContentTemplate>
                         </vio:TransitioningContentControl>
                     </Border>
                     <WrapPanel>

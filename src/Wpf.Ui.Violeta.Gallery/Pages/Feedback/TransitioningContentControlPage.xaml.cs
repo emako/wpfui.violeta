@@ -36,8 +36,9 @@ public partial class TransitioningContentControlPage : Wpf.Ui.Violeta.Controls.P
 
     private void UpdateSlide()
     {
-        TransitionText.Text = _slides[_slideIndex];
-        TransitionContent.Content = TransitionText;
+        // Content 必须换成新的引用，OnContentChanged 才会触发过渡动画。
+        // 复用同一个 UIElement 只改内部属性时，Content 引用不变，动画不会播放。
+        TransitionContent.Content = _slides[_slideIndex];
         UpdateStatus();
     }
 
