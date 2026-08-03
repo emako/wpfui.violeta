@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        WPF-UI ships ComboBoxPadding as 10,8,10,8 in ComboBox.xaml, which overrides the
+        WinUI-aligned value in Variables.xaml (10,8,0,8). Because the chevron lives in its
+        own column, the non-zero right padding double-counts gutter and clips selected text
+        in narrow ComboBoxes (e.g. ColorView ColorModelComboBox Width=80).
+        Restore the Variables / WinUI padding: right = 0.
+        See: https://github.com/lepoco/wpfui/blob/main/src/Wpf.Ui/Resources/Variables.xaml
+    -->
+    <Thickness x:Key="ComboBoxPadding">10,8,0,8</Thickness>
+
+</ResourceDictionary>
