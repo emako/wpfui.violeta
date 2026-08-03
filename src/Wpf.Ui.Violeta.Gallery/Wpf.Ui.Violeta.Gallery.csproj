@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -8,6 +8,7 @@
         <LangVersion>preview</LangVersion>
         <AssemblyTitle>Wpf.Ui.Violeta Gallery</AssemblyTitle>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <ApplicationIcon>Resources\Images\wpfui.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>

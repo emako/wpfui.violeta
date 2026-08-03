@@ -143,6 +143,9 @@ internal static class User32
     public static extern int SetWindowCompositionAttribute(nint hwnd,
         ref WindowCompositionAttributeData data);
 
+    [DllImport("user32.dll")]
+    public static extern bool GetWindowPlacement(nint hWnd, ref WINDOWPLACEMENT lpwndpl);
+
     [Flags]
     public enum DialogBoxCommand : uint
     {
@@ -238,6 +241,48 @@ internal static class User32
         public uint yHotspot;
         public nint hbmMask;
         public nint hbmColor;
+    }
+
+    /// <summary>Contains information about the placement of a window on the screen.</summary>
+    /// <remarks>
+    /// <para>If the window is a top-level window that does not have the <b>WS_EX_TOOLWINDOW</b> window style, then the coordinates represented by the following members are in workspace coordinates: <b>ptMinPosition</b>, <b>ptMaxPosition</b>, and <b>rcNormalPosition</b>. Otherwise, these members are in screen coordinates. Workspace coordinates differ from screen coordinates in that they take the locations and sizes of application toolbars (including the taskbar) into account. Workspace coordinate (0,0) is the upper-left corner of the workspace area, the area of the screen not being used by application toolbars. The coordinates used in a <b>WINDOWPLACEMENT</b> structure should be used only by the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-getwindowplacement">GetWindowPlacement</a> and <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowplacement">SetWindowPlacement</a> functions. Passing workspace coordinates to functions which expect screen coordinates (such as <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos">SetWindowPos</a>) will result in the window appearing in the wrong location. For example, if the taskbar is at the top of the screen, saving window coordinates using <b>GetWindowPlacement</b> and restoring them using <b>SetWindowPos</b> causes the window to appear to "creep" up the screen.</para>
+    /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#">Read more on docs.microsoft.com</see>.</para>
+    /// </remarks>
+    internal partial struct WINDOWPLACEMENT
+    {
+        /// <summary>
+        /// <para>Type: <b>UINT</b> The length of the structure, in bytes. Before calling the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-getwindowplacement">GetWindowPlacement</a> or <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowplacement">SetWindowPlacement</a> functions, set this member to <c>sizeof(WINDOWPLACEMENT)</c>.</para>
+        /// <para><a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-getwindowplacement">GetWindowPlacement</a> and <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowplacement">SetWindowPlacement</a> fail if this member is not set correctly.</para>
+        /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
+        /// </summary>
+        internal uint length;
+
+        /// <summary>Type: <b>UINT</b></summary>
+        internal WINDOWPLACEMENT_FLAGS flags;
+
+        /// <summary>
+        /// <para>Type: <b>UINT</b> The current show state of the window. It can be any of the values that can be specified in the <i>nCmdShow</i> parameter for the <a href="https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-showwindow">ShowWindow</a> function.</para>
+        /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
+        /// </summary>
+        internal SHOW_WINDOW_CMD showCmd;
+
+        /// <summary>
+        /// <para>Type: <b><a href="https://docs.microsoft.com/previous-versions/dd162805(v=vs.85)">POINT</a></b> The coordinates of the window's upper-left corner when the window is minimized.</para>
+        /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
+        /// </summary>
+        internal POINT ptMinPosition;
+
+        /// <summary>
+        /// <para>Type: <b><a href="https://docs.microsoft.com/previous-versions/dd162805(v=vs.85)">POINT</a></b> The coordinates of the window's upper-left corner when the window is maximized.</para>
+        /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
+        /// </summary>
+        internal POINT ptMaxPosition;
+
+        /// <summary>
+        /// <para>Type: <b><a href="https://docs.microsoft.com/windows/desktop/api/windef/ns-windef-rect">RECT</a></b> The window's coordinates when the window is in the restored position.</para>
+        /// <para><see href="https://docs.microsoft.com/windows/win32/api//winuser/ns-winuser-windowplacement#members">Read more on docs.microsoft.com</see>.</para>
+        /// </summary>
+        internal RECT rcNormalPosition;
     }
 
     [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
@@ -455,6 +500,43 @@ internal static class User32
     }
 
     [Flags]
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
+    public enum SHOW_WINDOW_CMD : uint
+    {
+        SW_FORCEMINIMIZE = 0x0000000B,
+        SW_HIDE = 0x00000000,
+        SW_MAXIMIZE = 0x00000003,
+        SW_MINIMIZE = 0x00000006,
+        SW_RESTORE = 0x00000009,
+        SW_SHOW = 0x00000005,
+        SW_SHOWDEFAULT = 0x0000000A,
+        SW_SHOWMAXIMIZED = 0x00000003,
+        SW_SHOWMINIMIZED = 0x00000002,
+        SW_SHOWMINNOACTIVE = 0x00000007,
+        SW_SHOWNA = 0x00000008,
+        SW_SHOWNOACTIVATE = 0x00000004,
+        SW_SHOWNORMAL = 0x00000001,
+        SW_NORMAL = 0x00000001,
+        SW_MAX = 0x0000000B,
+        SW_PARENTCLOSING = 0x00000001,
+        SW_OTHERZOOM = 0x00000002,
+        SW_PARENTOPENING = 0x00000003,
+        SW_OTHERUNZOOM = 0x00000004,
+        SW_SCROLLCHILDREN = 0x00000001,
+        SW_INVALIDATE = 0x00000002,
+        SW_ERASE = 0x00000004,
+        SW_SMOOTHSCROLL = 0x00000010,
+    }
+
+    [Flags]
+    public enum WINDOWPLACEMENT_FLAGS : uint
+    {
+        WPF_ASYNCWINDOWPLACEMENT = 0x00000004,
+        WPF_RESTORETOMAXIMIZED = 0x00000002,
+        WPF_SETMINPOSITION = 0x00000001,
+    }
+
+    [Flags]
     public enum MenuFlags : uint
     {
         MF_STRING = 0x0000,
@@ -532,5 +614,112 @@ internal static class User32
         TPM_NOANIMATION = 0x4000u,
         TPM_LAYOUTRTL = 0x8000u,
         TPM_WORKAREA = 0x10000u,
+    }
+
+    public enum MONITOR_FROM_FLAGS : uint
+    {
+        MONITOR_DEFAULTTONEAREST = 2U,
+        MONITOR_DEFAULTTONULL = 0U,
+        MONITOR_DEFAULTTOPRIMARY = 1U,
+    }
+
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
+    public enum SYSTEM_METRICS_INDEX : uint
+    {
+        SM_ARRANGE = 56U,
+        SM_CLEANBOOT = 67U,
+        SM_CMONITORS = 80U,
+        SM_CMOUSEBUTTONS = 43U,
+        SM_CONVERTIBLESLATEMODE = 8195U,
+        SM_CXBORDER = 5U,
+        SM_CXCURSOR = 13U,
+        SM_CXDLGFRAME = 7U,
+        SM_CXDOUBLECLK = 36U,
+        SM_CXDRAG = 68U,
+        SM_CXEDGE = 45U,
+        SM_CXFIXEDFRAME = 7U,
+        SM_CXFOCUSBORDER = 83U,
+        SM_CXFRAME = 32U,
+        SM_CXFULLSCREEN = 16U,
+        SM_CXHSCROLL = 21U,
+        SM_CXHTHUMB = 10U,
+        SM_CXICON = 11U,
+        SM_CXICONSPACING = 38U,
+        SM_CXMAXIMIZED = 61U,
+        SM_CXMAXTRACK = 59U,
+        SM_CXMENUCHECK = 71U,
+        SM_CXMENUSIZE = 54U,
+        SM_CXMIN = 28U,
+        SM_CXMINIMIZED = 57U,
+        SM_CXMINSPACING = 47U,
+        SM_CXMINTRACK = 34U,
+        SM_CXPADDEDBORDER = 92U,
+        SM_CXSCREEN = 0U,
+        SM_CXSIZE = 30U,
+        SM_CXSIZEFRAME = 32U,
+        SM_CXSMICON = 49U,
+        SM_CXSMSIZE = 52U,
+        SM_CXVIRTUALSCREEN = 78U,
+        SM_CXVSCROLL = 2U,
+        SM_CYBORDER = 6U,
+        SM_CYCAPTION = 4U,
+        SM_CYCURSOR = 14U,
+        SM_CYDLGFRAME = 8U,
+        SM_CYDOUBLECLK = 37U,
+        SM_CYDRAG = 69U,
+        SM_CYEDGE = 46U,
+        SM_CYFIXEDFRAME = 8U,
+        SM_CYFOCUSBORDER = 84U,
+        SM_CYFRAME = 33U,
+        SM_CYFULLSCREEN = 17U,
+        SM_CYHSCROLL = 3U,
+        SM_CYICON = 12U,
+        SM_CYICONSPACING = 39U,
+        SM_CYKANJIWINDOW = 18U,
+        SM_CYMAXIMIZED = 62U,
+        SM_CYMAXTRACK = 60U,
+        SM_CYMENU = 15U,
+        SM_CYMENUCHECK = 72U,
+        SM_CYMENUSIZE = 55U,
+        SM_CYMIN = 29U,
+        SM_CYMINIMIZED = 58U,
+        SM_CYMINSPACING = 48U,
+        SM_CYMINTRACK = 35U,
+        SM_CYSCREEN = 1U,
+        SM_CYSIZE = 31U,
+        SM_CYSIZEFRAME = 33U,
+        SM_CYSMCAPTION = 51U,
+        SM_CYSMICON = 50U,
+        SM_CYSMSIZE = 53U,
+        SM_CYVIRTUALSCREEN = 79U,
+        SM_CYVSCROLL = 20U,
+        SM_CYVTHUMB = 9U,
+        SM_DBCSENABLED = 42U,
+        SM_DEBUG = 22U,
+        SM_DIGITIZER = 94U,
+        SM_IMMENABLED = 82U,
+        SM_MAXIMUMTOUCHES = 95U,
+        SM_MEDIACENTER = 87U,
+        SM_MENUDROPALIGNMENT = 40U,
+        SM_MIDEASTENABLED = 74U,
+        SM_MOUSEPRESENT = 19U,
+        SM_MOUSEHORIZONTALWHEELPRESENT = 91U,
+        SM_MOUSEWHEELPRESENT = 75U,
+        SM_NETWORK = 63U,
+        SM_PENWINDOWS = 41U,
+        SM_REMOTECONTROL = 8193U,
+        SM_REMOTESESSION = 4096U,
+        SM_SAMEDISPLAYFORMAT = 81U,
+        SM_SECURE = 44U,
+        SM_SERVERR2 = 89U,
+        SM_SHOWSOUNDS = 70U,
+        SM_SHUTTINGDOWN = 8192U,
+        SM_SLOWMACHINE = 73U,
+        SM_STARTER = 88U,
+        SM_SWAPBUTTON = 23U,
+        SM_SYSTEMDOCKED = 8196U,
+        SM_TABLETPC = 86U,
+        SM_XVIRTUALSCREEN = 76U,
+        SM_YVIRTUALSCREEN = 77U,
     }
 }

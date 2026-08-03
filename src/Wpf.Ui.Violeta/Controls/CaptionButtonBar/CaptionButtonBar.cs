@@ -290,7 +290,8 @@ public partial class CaptionButtonBar : Control
     private void OnMinimizeButtonClick(object? sender, RoutedEventArgs e)
     {
         MinimizeButtonClick?.Invoke(this, e);
-        _ownerWindow.WindowState = WindowState.Minimized;
+        //_ownerWindow.WindowState = WindowState.Minimized;
+        SystemCommands.MinimizeWindow(_ownerWindow);
     }
 
     private void OnMaximizeButtonClick(object? sender, RoutedEventArgs e)
@@ -298,11 +299,13 @@ public partial class CaptionButtonBar : Control
         MaximizeButtonClick?.Invoke(this, e);
         if (_ownerWindow.WindowState is WindowState.Maximized)
         {
-            _ownerWindow.WindowState = WindowState.Normal;
+            //_ownerWindow.WindowState = WindowState.Normal;
+            SystemCommands.RestoreWindow(_ownerWindow);
         }
         else
         {
-            _ownerWindow.WindowState = WindowState.Maximized;
+            //_ownerWindow.WindowState = WindowState.Maximized;
+            SystemCommands.MaximizeWindow(_ownerWindow);
         }
     }
 

@@ -10,6 +10,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
+using static Wpf.Ui.Violeta.Win32.User32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 

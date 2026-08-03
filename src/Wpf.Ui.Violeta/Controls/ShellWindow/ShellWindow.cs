@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;
@@ -80,11 +81,11 @@ public partial class ShellWindow : Window
 
     protected override void OnSourceInitialized(EventArgs e)
     {
+        base.OnSourceInitialized(e);
+
         OnCornerPreferenceChanged(default, WindowCornerPreference);
         OnExtendsContentIntoTitleBarChanged(default, ExtendsContentIntoTitleBar);
         OnBackdropTypeChanged(default, WindowBackdropType);
-
-        base.OnSourceInitialized(e);
     }
 
     /// <summary>
@@ -187,7 +188,7 @@ public partial class ShellWindow : Window
     /// </summary>
     protected virtual void OnExtendsContentIntoTitleBarChanged(bool oldValue, bool newValue)
     {
-        SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
+        //SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
         _ = WindowBackdrop.RemoveWindowTitlebarContents(this);
     }
 }

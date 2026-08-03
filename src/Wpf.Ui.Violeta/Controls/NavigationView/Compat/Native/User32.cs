@@ -2,6 +2,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using static Wpf.Ui.Violeta.Win32.User32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 

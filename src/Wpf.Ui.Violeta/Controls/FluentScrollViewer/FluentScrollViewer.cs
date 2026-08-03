@@ -179,7 +179,7 @@ public class FluentScrollViewer : ScrollViewer
     // WndProc — horizontal touchpad scroll (WM_MOUSEHWHEEL)
     // ------------------------------------------------------------------
 
-    private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+    private nint WndProc(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
     {
         if (msg != WM_MOUSEHWHEEL) return IntPtr.Zero;
 
@@ -194,7 +194,7 @@ public class FluentScrollViewer : ScrollViewer
         if (InputHitTest(mousePos) is DependencyObject hitElement &&
             FindParentFluentScrollViewer(hitElement) == this)
         {
-            int delta = (short)((wParam.ToInt64() >> 16) & 0xFFFF);
+            int delta = (short)((wParam >> 16) & 0xFFFF);
             bool isPrecise = delta % Mouse.MouseWheelDeltaForOneLine != 0;
             HandleScroll(0, -delta, isPrecise);
             handled = true;
