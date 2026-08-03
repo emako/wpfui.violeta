@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:m="clr-namespace:Wpf.Ui.Violeta.Markup"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
@@ -195,6 +196,24 @@
         Direction="270"
         Opacity="0.12"
         ShadowDepth="4" />
+
+    <!--  ColorPicker  -->
+    <m:StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="AccentFillColorDefaultBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="SubtleFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonPressedBackground" ResourceKey="SubtleFillColorTertiaryBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonCheckedForeground" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonCheckedBackground" ResourceKey="AccentFillColorDefaultBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonCheckedPointeroverBackground" ResourceKey="AccentFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="ColorViewRadioButtonCheckedPressedBackground" ResourceKey="AccentFillColorTertiaryBrush" />
+    <m:StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="AccentFillColorDefaultBrush" />
+    <SolidColorBrush x:Key="ColorSliderDefaultBorderBrush" Color="Black" />
+    <SolidColorBrush x:Key="ColorSliderLightBorderBrush" Color="White" />
+    <SolidColorBrush x:Key="ColorSliderDarkBorderBrush" Color="Black" />
+    <m:StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="ControlStrokeColorDefaultBrush" />
+    <SolidColorBrush x:Key="ColorViewContentBackgroundBrush" Color="Transparent" />
+    <m:StaticResource x:Key="ColorViewContentBorderBrush" ResourceKey="ControlStrokeColorDefaultBrush" />
+    <controls:SemiColorLightPalette x:Key="SemiColorPalette" />
 
     <!--  TeachingTip  -->
     <m:StaticResource x:Key="TeachingTipBorderBrush" ResourceKey="SurfaceStrokeColorDefaultBrush" />

@@ -76,6 +76,7 @@
                 <ctrl:SampleCard Width="240" Title="TagComboBox" Description="标签下拉" Glyph="&#xE8EC;" NavigateTag="selectors/tag-combo-box" />
                 <ctrl:SampleCard Width="240" Title="TreeComboBox" Description="树形下拉" Glyph="&#xE8B7;" NavigateTag="selectors/tree-combo-box" />
                 <ctrl:SampleCard Width="240" Title="ValuePicker" Description="鼓轮选择" Glyph="&#xE76C;" NavigateTag="selectors/value-picker" />
+                <ctrl:SampleCard Width="240" Title="ColorPicker" Description="颜色选择器" Glyph="&#xE790;" NavigateTag="selectors/color-picker" />
                 <ctrl:SampleCard Width="240" Title="TagInput" Description="标签输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
             </WrapPanel>
 

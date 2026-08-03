@@ -1,6 +1,6 @@
 Feature Task
 
 - [ ] Calendar Range
-- [ ] Color Picker
+- [x] Color Picker
 - [ ] Fix Form
 

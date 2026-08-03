@@ -49,6 +49,12 @@
                     Description="多列滚轮选择器"
                     Glyph="&#xE81E;"
                     NavigateTag="selectors/value-picker" />
+                <ctrl:SampleCard
+                    Width="260"
+                    Title="ColorPicker"
+                    Description="光谱 / 调色板颜色选择"
+                    Glyph="&#xE790;"
+                    NavigateTag="selectors/color-picker" />
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

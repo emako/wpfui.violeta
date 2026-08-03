@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using Wpf.Ui.Violeta.Converters;
+
+namespace Wpf.Ui.Violeta.Controls;
+
+/// <summary>
+/// Presents a color for user editing using a spectrum, palette and component sliders.
+/// </summary>
+[TemplatePart(Name = "PART_HexTextBox", Type = typeof(TextBox))]
+public partial class ColorView : Control
+{
+    public event EventHandler<ColorChangedEventArgs>? ColorChanged;
+
+    private TextBox? _hexTextBox;
+    protected bool _ignorePropertyChanged;
+
+    static ColorView()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(
+            typeof(ColorView),
+            new FrameworkPropertyMetadata(typeof(ColorView)));
+    }
+
+    private void GetColorFromHexTextBox()
+    {
+        if (_hexTextBox != null)
+        {
+            var convertedColor = ColorToHexConverter.ParseHexString(_hexTextBox.Text ?? string.Empty, HexInputAlphaPosition);
+            if (convertedColor is Color color)
+                SetCurrentValue(ColorProperty, color);
+            SetColorToHexTextBox();
+        }
+    }
+
+    private void SetColorToHexTextBox()
+    {
+        _hexTextBox?.Text = ColorToHexConverter.ToHexString(
+            Color,
+            HexInputAlphaPosition,
+            includeAlpha: IsAlphaEnabled && IsAlphaVisible,
+            includeSymbol: false
+        );
+    }
+
+    public override void OnApplyTemplate()
+    {
+        if (_hexTextBox != null)
+        {
+            _hexTextBox.KeyDown -= HexTextBox_KeyDown;
+            _hexTextBox.LostFocus -= HexTextBox_LostFocus;
+        }
+
+        _hexTextBox = GetTemplateChild("PART_HexTextBox") as TextBox;
+        SetColorToHexTextBox();
+
+        if (_hexTextBox != null)
+        {
+            _hexTextBox.KeyDown += HexTextBox_KeyDown;
+            _hexTextBox.LostFocus += HexTextBox_LostFocus;
+        }
+
+        base.OnApplyTemplate();
+    }
+
+    internal void HandleColorChanged(Color oldColor, Color newColor)
+    {
+        if (_ignorePropertyChanged)
+            return;
+
+        _ignorePropertyChanged = true;
+        SetCurrentValue(HsvColorProperty, newColor.ToHsv());
+        SetColorToHexTextBox();
+        OnColorChanged(new ColorChangedEventArgs(oldColor, newColor));
+        _ignorePropertyChanged = false;
+    }
+
+    internal void HandleHsvColorChanged(HsvColor oldHsv, HsvColor newHsv)
+    {
+        if (_ignorePropertyChanged)
+            return;
+
+        _ignorePropertyChanged = true;
+        SetCurrentValue(ColorProperty, newHsv.ToRgb());
+        SetColorToHexTextBox();
+        OnColorChanged(new ColorChangedEventArgs(oldHsv.ToRgb(), newHsv.ToRgb()));
+        _ignorePropertyChanged = false;
+    }
+
+    internal void HandlePaletteChanged()
+    {
+        IColorPalette? palette = Palette;
+        if (palette != null)
+        {
+            SetCurrentValue(PaletteColumnCountProperty, palette.ColorCount);
+            var newPaletteColors = new List<Color>();
+            for (int shadeIndex = 0; shadeIndex < palette.ShadeCount; shadeIndex++)
+            {
+                for (int colorIndex = 0; colorIndex < palette.ColorCount; colorIndex++)
+                    newPaletteColors.Add(palette.GetColor(colorIndex, shadeIndex));
+            }
+            SetCurrentValue(PaletteColorsProperty, newPaletteColors);
+        }
+    }
+
+    protected virtual void OnColorChanged(ColorChangedEventArgs e) => ColorChanged?.Invoke(this, e);
+
+    protected virtual Color OnCoerceColor(Color value)
+    {
+        if (!IsAlphaEnabled)
+            return Color.FromArgb(255, value.R, value.G, value.B);
+        return value;
+    }
+
+    protected virtual HsvColor OnCoerceHsvColor(HsvColor value)
+    {
+        if (!IsAlphaEnabled)
+            return new HsvColor(1.0, value.H, value.S, value.V);
+        return value;
+    }
+
+    private void HexTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+            GetColorFromHexTextBox();
+    }
+
+    private void HexTextBox_LostFocus(object sender, RoutedEventArgs e) => GetColorFromHexTextBox();
+}

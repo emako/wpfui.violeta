@@ -159,6 +159,7 @@
                         <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />
                         <vio:NavigationViewItem Content="TreeComboBox" Tag="selectors/tree-combo-box" />
                         <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
+                        <vio:NavigationViewItem Content="ColorPicker" Tag="selectors/color-picker" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
