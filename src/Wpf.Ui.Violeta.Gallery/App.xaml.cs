@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Wpf.Ui.Violeta.Appearance;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
@@ -10,6 +11,9 @@ public partial class App : Application
 {
     public App()
     {
+        SystemMenuThemeManager.Apply();
+        TrayIconManager.Start();
+
         DispatcherUnhandledException += OnDispatcherUnhandledException;
         AppDomain.CurrentDomain.UnhandledException += OnCurrentDomainUnhandledException;
         TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;

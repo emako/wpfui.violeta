@@ -35,21 +35,26 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         TextWrapping="Wrap"
-                        Text="TrayIconHost / TrayMenuItem 用于在系统通知区域显示图标与右键菜单。完整示例见 Wpf.Ui.Test 的 TrayIconManager；Gallery 以 Toast 模拟托盘通知交互。" />
+                        Text="Gallery 启动时已通过 TrayIconHost 创建真实托盘图标。关闭主窗口会最小化到托盘；双击托盘图标或使用右键菜单可显示/隐藏窗口。" />
                     <TextBlock
                         Margin="0,0,0,8"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                         TextWrapping="Wrap"
-                        Text="典型用法：创建 TrayIconHost，设置 Icon / ToolTipText / Menu，并处理 LeftDoubleClick 以还原主窗口。" />
+                        Text="右键菜单提供：显示/隐藏、显示通知、重启、退出。真正退出请使用托盘菜单中的「退出」。" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
-                            Click="SimulateTrayBalloon_Click"
-                            Content="模拟托盘气球通知" />
+                            Appearance="Primary"
+                            Click="ShowTrayBalloon_Click"
+                            Content="显示托盘气球通知" />
                         <ui:Button
                             Margin="0,0,8,8"
-                            Click="SimulateTrayMenu_Click"
-                            Content="模拟菜单操作提示" />
+                            Click="HideToTray_Click"
+                            Content="隐藏到托盘" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowFromTray_Click"
+                            Content="从托盘显示窗口" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

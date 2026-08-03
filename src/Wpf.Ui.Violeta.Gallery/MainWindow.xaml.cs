@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Appearance;
@@ -24,6 +25,7 @@ using Wpf.Ui.Violeta.Gallery.Pages.Status;
 using Wpf.Ui.Violeta.Gallery.Pages.TagInput;
 using Wpf.Ui.Violeta.Gallery.Pages.Text;
 using Wpf.Ui.Violeta.Gallery.Pages.Windows;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
@@ -194,6 +196,22 @@ public partial class MainWindow : ShellWindow
         InitializeComponent();
         GalleryNavigator.NavigateRequested = OnNavigateRequested;
         Loaded += MainWindow_OnLoaded;
+        Closing += MainWindow_OnClosing;
+    }
+
+    private void MainWindow_OnClosing(object? sender, CancelEventArgs e)
+    {
+        if (TrayIconManager.IsExitRequested)
+        {
+            return;
+        }
+
+        e.Cancel = true;
+        Hide();
+        TrayIconManager.ShowNotification(
+            "Wpf.Ui.Violeta Gallery",
+            "应用已最小化到系统托盘。双击图标可重新打开窗口。",
+            ToolTipIcon.Info);
     }
 
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)

@@ -1,7 +1,5 @@
-using System;
 using System.Windows;
-using System.Windows.Controls;
-using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Notifications;
 
@@ -12,13 +10,32 @@ public partial class TrayIconPage : Wpf.Ui.Violeta.Controls.Page
         InitializeComponent();
     }
 
-    private void SimulateTrayBalloon_Click(object sender, RoutedEventArgs e)
+    private void ShowTrayBalloon_Click(object sender, RoutedEventArgs e)
     {
-        Toast.Information("托盘气球：应用已在后台运行");
+        TrayIconManager.ShowNotification(
+            "Wpf.Ui.Violeta Gallery",
+            "这是来自 TrayIconHost 的真实托盘气球通知。",
+            ToolTipIcon.Info);
     }
 
-    private void SimulateTrayMenu_Click(object sender, RoutedEventArgs e)
+    private void HideToTray_Click(object sender, RoutedEventArgs e)
     {
-        Toast.Success("托盘菜单：已执行「显示主窗口」");
+        if (Application.Current.MainWindow is { } window)
+        {
+            window.Hide();
+            TrayIconManager.ShowNotification(
+                "Wpf.Ui.Violeta Gallery",
+                "主窗口已隐藏。双击托盘图标可重新打开。",
+                ToolTipIcon.Info);
+        }
+    }
+
+    private void ShowFromTray_Click(object sender, RoutedEventArgs e)
+    {
+        if (Application.Current.MainWindow is { } window)
+        {
+            window.Show();
+            window.Activate();
+        }
     }
 }
