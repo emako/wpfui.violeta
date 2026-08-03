@@ -318,7 +318,7 @@
                             ShadowDepth="4" />
                     </Border.Effect>
                     <local:ColorView
-                        Width="280"
+                        Width="304"
                         MinHeight="280"
                         Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorSpectrumComponents="{Binding ColorSpectrumComponents, RelativeSource={RelativeSource TemplatedParent}}"

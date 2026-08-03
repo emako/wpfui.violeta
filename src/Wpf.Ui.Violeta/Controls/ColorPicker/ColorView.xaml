@@ -540,7 +540,7 @@
     <!--  SimpleColorView  -->
     <Style x:Key="SimpleColorView" TargetType="{x:Type local:ColorView}">
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="Width" Value="280" />
+        <Setter Property="Width" Value="304" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
         <Setter Property="Template">
             <Setter.Value>
@@ -610,12 +610,13 @@
                             <Border
                                 Width="20"
                                 Height="20"
+                                VerticalAlignment="Center"
                                 Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorPickerToBrushConverter}}"
                                 CornerRadius="4" />
                             <Grid
                                 x:Name="PART_TextBoxPanel"
                                 Width="116"
-                                Margin="4,0,0,0"
+                                Margin="8,0,0,0"
                                 VerticalAlignment="Center">
                                 <Grid x:Name="HexInputPanel" Visibility="Visible">
                                     <Grid.ColumnDefinitions>
@@ -648,6 +649,7 @@
                             <local:NumericDoubleUpDown
                                 x:Name="AlphaComponentNumericUpDown"
                                 Width="60"
+                                Margin="8,0,0,0"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
                                 InnerRightContent="%"
@@ -661,6 +663,7 @@
                             <ComboBox
                                 x:Name="ColorModelComboBox"
                                 Width="80"
+                                Margin="8,0,0,0"
                                 VerticalAlignment="Center"
                                 SelectedIndex="0">
                                 <ComboBoxItem Content="Hex" />
@@ -686,7 +689,7 @@
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Visible" />
                         </DataTrigger>
                         <Trigger Property="IsAlphaVisible" Value="False">
-                            <Setter TargetName="PART_TextBoxPanel" Property="Width" Value="176" />
+                            <Setter TargetName="PART_TextBoxPanel" Property="Width" Value="184" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
