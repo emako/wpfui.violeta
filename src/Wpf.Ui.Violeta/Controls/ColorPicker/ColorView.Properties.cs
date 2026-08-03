@@ -106,8 +106,28 @@ public partial class ColorView
             new PropertyMetadata(null, OnPaletteChanged));
 
     public static readonly DependencyProperty SelectedIndexProperty =
-        DependencyProperty.Register(nameof(SelectedIndex), typeof(int), typeof(ColorView),
-            new PropertyMetadata((int)ColorViewTab.Spectrum));
+        DependencyProperty.Register(
+            nameof(SelectedIndex),
+            typeof(int),
+            typeof(ColorView),
+            new FrameworkPropertyMetadata(
+                (int)ColorViewTab.Spectrum,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnSelectedIndexChanged,
+                CoerceSelectedIndex));
+
+    private static object CoerceSelectedIndex(DependencyObject d, object baseValue)
+    {
+        // ListBox/TabStrip may transiently write -1 while containers generate; keep a valid page.
+        int value = baseValue is int i ? i : (int)ColorViewTab.Spectrum;
+        return value < 0 ? (int)ColorViewTab.Spectrum : value;
+    }
+
+    private static void OnSelectedIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ColorView view)
+            view.SyncTabStripSelection();
+    }
 
     public Color Color
     {
