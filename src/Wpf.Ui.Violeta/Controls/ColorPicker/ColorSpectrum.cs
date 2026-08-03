@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -49,7 +48,6 @@ public partial class ColorSpectrum : Control
         private Ellipse? _spectrumOverlayEllipse;
         private Canvas? _inputTarget;
         private Panel? _selectionEllipsePanel;
-        private ToolTip? _selectionToolTip;
 
         // Put the spectrum images in a bitmap, which is then given to an ImageBrush.
         private WriteableBitmap? _hueRedBitmap;
@@ -140,9 +138,6 @@ public partial class ColorSpectrum : Control
             if (_selectionEllipsePanel != null)
                 DependencyPropertyDescriptor.FromProperty(FlowDirectionProperty, typeof(FrameworkElement))
                     ?.AddValueChanged(_selectionEllipsePanel, (_, __) => UpdateEllipse());
-
-            if (_selectionEllipsePanel != null && ColorHelper.ToDisplayNameExists)
-                UpdateSelectionToolTipContent();
 
             if (_hsvValues.Count == 0)
                 CreateBitmapsAndColorMap();
@@ -306,45 +301,21 @@ public partial class ColorSpectrum : Control
         /// <inheritdoc/>
         protected override void OnGotFocus(RoutedEventArgs e)
         {
-            // We only want to bother with the color name tool tip if we can provide color names.
-            if (_selectionEllipsePanel != null &&
-                ColorHelper.ToDisplayNameExists)
-            {
-                SetSelectionToolTipOpen(true);
-            }
-
             UpdatePseudoClasses();
-
             base.OnGotFocus(e);
         }
 
         /// <inheritdoc/>
         protected override void OnLostFocus(RoutedEventArgs e)
         {
-            // We only want to bother with the color name tool tip if we can provide color names.
-            if (_selectionEllipsePanel != null &&
-                ColorHelper.ToDisplayNameExists)
-            {
-                SetSelectionToolTipOpen(false);
-            }
-
             UpdatePseudoClasses();
-
             base.OnLostFocus(e);
         }
 
         /// <inheritdoc/>
         protected override void OnMouseLeave(MouseEventArgs e)
         {
-            // We only want to bother with the color name tool tip if we can provide color names.
-            if (_selectionEllipsePanel != null &&
-                ColorHelper.ToDisplayNameExists)
-            {
-                SetSelectionToolTipOpen(false);
-            }
-
             UpdatePseudoClasses();
-
             base.OnMouseLeave(e);
         }
 
@@ -459,12 +430,6 @@ public partial class ColorSpectrum : Control
             {
                 var colorChangedEventArgs = new ColorChangedEventArgs(_oldColor, newColor);
                 ColorChanged?.Invoke(this, colorChangedEventArgs);
-
-                if (_selectionEllipsePanel != null &&
-                    ColorHelper.ToDisplayNameExists)
-                {
-                    UpdateSelectionToolTipContent();
-                }
             }
         }
 
@@ -856,16 +821,6 @@ public partial class ColorSpectrum : Control
             Canvas.SetLeft(_selectionEllipsePanel, (xPosition / scale) - (_selectionEllipsePanel.Width / 2));
             Canvas.SetTop(_selectionEllipsePanel, (yPosition / scale) - (_selectionEllipsePanel.Height / 2));
 
-            // Only force-open the color name tip for keyboard focus, not while dragging —
-            // repeatedly opening tooltips during pointer moves leaves orphan WPF popups.
-            if (IsFocused &&
-                !_isPointerPressed &&
-                _selectionEllipsePanel != null &&
-                ColorHelper.ToDisplayNameExists)
-            {
-                SetSelectionToolTipOpen(true);
-            }
-
             UpdatePseudoClasses();
         }
 
@@ -889,7 +844,6 @@ public partial class ColorSpectrum : Control
             Focus();
             _isPointerPressed = true;
             _shouldShowLargeSelection = false;
-            SetSelectionToolTipOpen(false);
             _inputTarget?.CaptureMouse();
             UpdateColorFromPoint(args.GetPosition(_inputTarget));
             UpdatePseudoClasses();
@@ -1605,34 +1559,4 @@ public partial class ColorSpectrum : Control
 
         private static int Clamp(int value, int min, int max) =>
             value < min ? min : value > max ? max : value;
-
-        private void UpdateSelectionToolTipContent()
-        {
-            if (_selectionEllipsePanel == null || !ColorHelper.ToDisplayNameExists)
-                return;
-
-            string name = ColorHelper.ToDisplayName(Color);
-            if (_selectionToolTip == null)
-            {
-                _selectionToolTip = new ToolTip
-                {
-                    Placement = PlacementMode.Top,
-                    VerticalOffset = -10,
-                };
-                ToolTipService.SetToolTip(_selectionEllipsePanel, _selectionToolTip);
-            }
-
-            _selectionToolTip.Content = name;
-        }
-
-        private void SetSelectionToolTipOpen(bool isOpen)
-        {
-            if (_selectionEllipsePanel == null)
-                return;
-
-            UpdateSelectionToolTipContent();
-
-            if (_selectionToolTip != null)
-                _selectionToolTip.IsOpen = isOpen;
-        }
 }

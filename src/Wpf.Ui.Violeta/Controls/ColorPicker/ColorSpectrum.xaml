@@ -56,8 +56,7 @@
                                 <Grid
                                     x:Name="PART_SelectionEllipsePanel"
                                     Width="16"
-                                    Height="16"
-                                    ToolTipService.Placement="Top">
+                                    Height="16">
                                     <Ellipse
                                         x:Name="FocusEllipse"
                                         Margin="-2"
