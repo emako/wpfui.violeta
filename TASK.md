@@ -4,7 +4,3 @@ Feature Task
 - [ ] Color Picker
 - [ ] Fix Form
 
-Wiki Task
-
-- [ ] Provide separate wiki for each control
-
