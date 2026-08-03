@@ -7,10 +7,7 @@
     <system:Double x:Key="MainWindowCaptionHeight">32</system:Double>
     <Thickness x:Key="MainWindowResizeThickness">6</Thickness>
 
-    <Style
-        x:Key="DefaultShellWindowStyle"
-        BasedOn="{StaticResource {x:Type Window}}"
-        TargetType="{x:Type controls:ShellWindow}">
+    <Style x:Key="DefaultShellWindowStyle" TargetType="{x:Type controls:ShellWindow}">
         <Setter Property="Background" Value="{DynamicResource WindowBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -23,23 +20,30 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="WindowStyle" Value="SingleBorderWindow" />
         <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="AllowsTransparency" Value="False" />
+        <Setter Property="ResizeMode" Value="CanResize" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <AdornerDecorator>
+                        <controls:ClientAreaBorder
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="ContentPresenter" />
+                        </controls:ClientAreaBorder>
+                    </AdornerDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <!--
             WindowChrome is applied in ShellWindow.SetWindowChrome so GlassFrameThickness
             can switch between -1 (system backdrop) and 1 (solid background).
         -->
-        <Style.Triggers>
-            <!--
-                Wpf.Ui's implicit Window style (inherited via BasedOn) forces ResizeMode to
-                NoResize while maximized, which strips WS_MINIMIZEBOX from the native window
-                and makes the taskbar button unable to minimize it. Keep ResizeMode stable.
-            -->
-            <Trigger Property="WindowState" Value="Maximized">
-                <Setter Property="ResizeMode" Value="CanResize" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style BasedOn="{StaticResource DefaultShellWindowStyle}" TargetType="{x:Type controls:ShellWindow}" />

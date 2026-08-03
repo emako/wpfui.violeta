@@ -5,7 +5,7 @@ internal static class DpiHelper
     public static float ScaleX => GetScale().X;
     public static float ScaleY => GetScale().Y;
 
-    private static (float X, float Y) GetScale()
+    public static (float X, float Y) GetScale()
     {
         nint hdc = User32.GetDC(0);
         float scaleX = Gdi32.GetDeviceCaps(hdc, Gdi32.DeviceCap.LOGPIXELSX);

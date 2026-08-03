@@ -146,6 +146,13 @@ internal static class User32
     [DllImport("user32.dll")]
     public static extern bool GetWindowPlacement(nint hWnd, ref WINDOWPLACEMENT lpwndpl);
 
+    /// <summary>
+    /// Retrieves the specified system metric or system configuration setting.
+    /// Note that all dimensions retrieved by GetSystemMetrics are in pixels.
+    /// </summary>
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern int GetSystemMetrics(SYSTEM_METRICS_INDEX nIndex);
+
     [Flags]
     public enum DialogBoxCommand : uint
     {

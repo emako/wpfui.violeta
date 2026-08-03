@@ -308,15 +308,8 @@ internal static class User32
             : new IntPtr(GetWindowLong(hWnd, nIndex));
     }
 
-    /// <summary>
-    /// Retrieves the specified system metric or system configuration setting.
-    /// Note that all dimensions retrieved by GetSystemMetrics are in pixels.
-    /// </summary>
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern int GetSystemMetrics(int nIndex);
-
     [DllImport("user32.dll", CharSet = CharSet.Auto, EntryPoint = "GetWindowLongPtr")]
-    public static extern IntPtr GetWindowLongPtr_x64(IntPtr hWnd, int nIndex);
+    public static extern nint GetWindowLongPtr_x64(nint hWnd, int nIndex);
 
     /// <summary>
     /// Retrieves information about the specified window.
