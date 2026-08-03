@@ -14,7 +14,10 @@
             <ColumnDefinition Width="280" />
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer Grid.Column="0">
+        <ScrollViewer
+            Grid.Column="0"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="24,16,24,24">
                 <TextBlock
                     Margin="0,0,0,16"
@@ -33,8 +36,12 @@
                     BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                     BorderThickness="1"
                     CornerRadius="10">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Margin="0,0,24,0">
+                    <!--
+                        Stack vertically: Default (300) + Simple (320) side-by-side overflows typical
+                        Gallery widths and ScrollViewer clips the right edge (missing slider corners / half thumb).
+                    -->
+                    <StackPanel>
+                        <StackPanel>
                             <TextBlock
                                 Margin="0,0,0,12"
                                 FontSize="16"
@@ -89,7 +96,7 @@
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel>
+                        <StackPanel Margin="0,24,0,0">
                             <TextBlock
                                 Margin="0,0,0,12"
                                 FontSize="16"

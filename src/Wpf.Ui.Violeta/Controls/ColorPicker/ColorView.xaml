@@ -540,7 +540,7 @@
     <!--  SimpleColorView  -->
     <Style x:Key="SimpleColorView" TargetType="{x:Type local:ColorView}">
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="Width" Value="304" />
+        <Setter Property="Width" Value="320" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
         <Setter Property="Template">
             <Setter.Value>
@@ -648,7 +648,7 @@
 
                             <local:NumericDoubleUpDown
                                 x:Name="AlphaComponentNumericUpDown"
-                                Width="60"
+                                Width="68"
                                 Margin="8,0,0,0"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
@@ -662,7 +662,7 @@
 
                             <ComboBox
                                 x:Name="ColorModelComboBox"
-                                Width="80"
+                                Width="88"
                                 Margin="8,0,0,0"
                                 VerticalAlignment="Center"
                                 SelectedIndex="0">
@@ -689,7 +689,7 @@
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Visible" />
                         </DataTrigger>
                         <Trigger Property="IsAlphaVisible" Value="False">
-                            <Setter TargetName="PART_TextBoxPanel" Property="Width" Value="184" />
+                            <Setter TargetName="PART_TextBoxPanel" Property="Width" Value="200" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
