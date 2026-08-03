@@ -18,7 +18,7 @@ public partial class TrayIconHost : IDisposable
 
     public TrayThemeMode ThemeMode
     {
-        get => field;
+        get;
         set => SetThemeMode(field = value);
     } = TrayThemeMode.None;
 
@@ -61,7 +61,7 @@ public partial class TrayIconHost : IDisposable
 
     public string BalloonTipText
     {
-        get => field;
+        get;
         set
         {
             if (value != field)
@@ -71,7 +71,7 @@ public partial class TrayIconHost : IDisposable
 
     public ToolTipIcon BalloonTipIcon
     {
-        get => field;
+        get;
         set
         {
             if ((int)value < 0 || (int)value > 3)
@@ -84,7 +84,7 @@ public partial class TrayIconHost : IDisposable
 
     public string BalloonTipTitle
     {
-        get => field;
+        get;
         set
         {
             if (value != field)
@@ -101,18 +101,31 @@ public partial class TrayIconHost : IDisposable
     public TrayContextMenuVerticalAlignment MenuVerticalAlignment { get; set; } = TrayContextMenuVerticalAlignment.Top;
 
     public event EventHandler<EventArgs>? UserPreferenceChanged = null;
+
     public event EventHandler<EventArgs>? BalloonTipClicked = null;
+
     public event EventHandler<EventArgs>? BalloonTipClosed = null;
+
     public event EventHandler<EventArgs>? BalloonTipShown = null;
+
     public event EventHandler<EventArgs>? Click = null;
+
     public event EventHandler<EventArgs>? RightDown = null;
+
     public event EventHandler<EventArgs>? RightClick = null;
+
     public event EventHandler<EventArgs>? RightDoubleClick = null;
+
     public event EventHandler<EventArgs>? LeftDown = null;
+
     public event EventHandler<EventArgs>? LeftClick = null;
+
     public event EventHandler<EventArgs>? LeftDoubleClick = null;
+
     public event EventHandler<EventArgs>? MiddleDown = null;
+
     public event EventHandler<EventArgs>? MiddleClick = null;
+
     public event EventHandler<EventArgs>? MiddleDoubleClick = null;
 
     public TrayIconHost()
@@ -177,43 +190,55 @@ public partial class TrayIconHost : IDisposable
                     case User32.WindowMessage.WM_ENDSESSION:
                         _ = Shell32.Shell_NotifyIcon((int)Shell32.NOTIFY_COMMAND.NIM_DELETE, ref notifyIconData);
                         break;
+
                     case User32.WindowMessage.WM_LBUTTONDOWN:
                         LeftDown?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_LBUTTONUP:
                         LeftClick?.Invoke(this, EventArgs.Empty);
                         Click?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_LBUTTONDBLCLK:
                         LeftDoubleClick?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_RBUTTONDOWN:
                         RightDown?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_RBUTTONUP:
                         RightClick?.Invoke(this, EventArgs.Empty);
                         ShowContextMenu();
                         break;
+
                     case User32.WindowMessage.WM_RBUTTONDBLCLK:
                         RightDoubleClick?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_MBUTTONDOWN:
                         MiddleDown?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_MBUTTONUP:
                         MiddleClick?.Invoke(this, EventArgs.Empty);
                         Click?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_MBUTTONDBLCLK:
                         MiddleDoubleClick?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_NOTIFYICON_BALLOONSHOW:
                         BalloonTipShown?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_NOTIFYICON_BALLOONHIDE:
                     case User32.WindowMessage.WM_NOTIFYICON_BALLOONTIMEOUT:
                         BalloonTipClosed?.Invoke(this, EventArgs.Empty);
                         break;
+
                     case User32.WindowMessage.WM_NOTIFYICON_BALLOONUSERCLICK:
                         BalloonTipClicked?.Invoke(this, EventArgs.Empty);
                         break;

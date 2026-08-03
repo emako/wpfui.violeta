@@ -3,27 +3,6 @@ using System.Windows.Controls.Primitives;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-/// <summary>
-/// Defines the press animation used by a <see cref="TitleBarButton"/>.
-/// </summary>
-public enum TitleBarButtonPressAnimation
-{
-    /// <summary>
-    /// Disables press animation.
-    /// </summary>
-    None,
-
-    /// <summary>
-    /// Compresses the content horizontally toward its center, then restores it from the center.
-    /// </summary>
-    Center,
-
-    /// <summary>
-    /// Compresses the content horizontally toward the right, then restores it from the left.
-    /// </summary>
-    RightToLeft,
-}
-
 public partial class TitleBarButton : ButtonBase
 {
     static TitleBarButton()
@@ -55,4 +34,25 @@ public partial class TitleBarButton : ButtonBase
         get => (bool)GetValue(IsActiveProperty);
         set => SetValue(IsActiveProperty, value);
     }
+}
+
+/// <summary>
+/// Defines the press animation used by a <see cref="TitleBarButton"/>.
+/// </summary>
+public enum TitleBarButtonPressAnimation
+{
+    /// <summary>
+    /// Disables press animation.
+    /// </summary>
+    None,
+
+    /// <summary>
+    /// Compresses the content horizontally toward its center, then restores it from the center.
+    /// </summary>
+    Center,
+
+    /// <summary>
+    /// Compresses the content horizontally toward the right, then restores it from the left.
+    /// </summary>
+    RightToLeft,
 }

@@ -4,3 +4,4 @@
 [assembly: SuppressMessage("Interoperability", "SYSLIB1054:Use 'LibraryImportAttribute' instead of 'DllImportAttribute' to generate P/Invoke marshalling code at compile time")]
 [assembly: SuppressMessage("Style", "IDE0330:Use 'System.Threading.Lock'")]
 [assembly: SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression")]
+[assembly: SuppressMessage("Maintainability", "CA1512:Use ArgumentOutOfRangeException throw helper")]

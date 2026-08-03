@@ -3,6 +3,7 @@
 // Ported from https://github.com/lindexi/lindexi_gd/blob/master/KenafearcuweYemjecahee/FullscreenHelper.cs
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -515,8 +516,8 @@ public const CharSet BuildCharSet = CharSet.Ansi;
         /// </summary>
         public int Width
         {
-            get { return unchecked((int)(Right - Left)); }
-            set { Right = unchecked((int)(Left + value)); }
+            readonly get => unchecked(Right - Left);
+            set => Right = unchecked(Left + value);
         }
 
         /// <summary>
@@ -524,16 +525,16 @@ public const CharSet BuildCharSet = CharSet.Ansi;
         /// </summary>
         public int Height
         {
-            get { return unchecked((int)(Bottom - Top)); }
-            set { Bottom = unchecked((int)(Top + value)); }
+            readonly get => unchecked(Bottom - Top);
+            set => Bottom = unchecked(Top + value);
         }
 
-        public bool Equals(Rectangle other)
+        public readonly bool Equals(Rectangle other)
         {
             return (Left == other.Left) && (Right == other.Right) && (Top == other.Top) && (Bottom == other.Bottom);
         }
 
-        public override bool Equals(object? obj)
+        public readonly override bool Equals(object? obj)
         {
             return obj is Rectangle rectangle && Equals(rectangle);
         }
@@ -543,14 +544,15 @@ public const CharSet BuildCharSet = CharSet.Ansi;
             return left.Equals(right);
         }
 
-        public override int GetHashCode()
+        [SuppressMessage("Style", "IDE0070:Use 'System.HashCode'")]
+        public readonly override int GetHashCode()
         {
             unchecked
             {
-                var hashCode = (int)Left;
-                hashCode = (hashCode * 397) ^ (int)Top;
-                hashCode = (hashCode * 397) ^ (int)Right;
-                hashCode = (hashCode * 397) ^ (int)Bottom;
+                int hashCode = Left;
+                hashCode = (hashCode * 397) ^ Top;
+                hashCode = (hashCode * 397) ^ Right;
+                hashCode = (hashCode * 397) ^ Bottom;
                 return hashCode;
             }
         }
@@ -562,19 +564,19 @@ public const CharSet BuildCharSet = CharSet.Ansi;
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    struct Point
+    private struct Point
     {
         public int X;
         public int Y;
     }
 
     [Flags]
-    enum WindowPlacementFlags
+    private enum WindowPlacementFlags
     {
     }
 
     [Flags]
-    enum WindowStyles
+    private enum WindowStyles
     {
         /// <summary>
         /// The window is initially maximized.

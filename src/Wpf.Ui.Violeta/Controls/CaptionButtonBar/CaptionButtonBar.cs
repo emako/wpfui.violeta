@@ -8,7 +8,9 @@ using Wpf.Ui.Violeta.Win32;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// CaptionButtonBar 会自行根据所在窗口是否在前台改变样式，按钮也会操作所在窗口的状态。
+/// CaptionButtonBar will automatically change its style based on
+/// whether the window is in the front end, and the buttons will
+/// also control the status of the window.
 /// </summary>
 [TemplatePart(Name = nameof(MinimizeButton), Type = typeof(CaptionMinimizeButton))]
 [TemplatePart(Name = nameof(MaximizeButton), Type = typeof(CaptionMaximizeButton))]
@@ -19,22 +21,19 @@ public partial class CaptionButtonBar : Control
     static CaptionButtonBar()
         => DefaultStyleKeyProperty.OverrideMetadata(typeof(CaptionButtonBar), new FrameworkPropertyMetadata(typeof(CaptionButtonBar)));
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-
     public CaptionButtonBar()
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
     }
 
-    public CaptionMinimizeButton MinimizeButton { get; private set; }
-    public CaptionMaximizeButton MaximizeButton { get; private set; }
-    public CaptionCloseButton CloseButton { get; private set; }
-    public CaptionHelpButton HelpButton { get; private set; }
+    public CaptionMinimizeButton? MinimizeButton { get; private set; }
+    public CaptionMaximizeButton? MaximizeButton { get; private set; }
+    public CaptionCloseButton? CloseButton { get; private set; }
+    public CaptionHelpButton? HelpButton { get; private set; }
 
     /// <summary>
-    /// 用于触发切换最大化/还原按钮的触发器
+    /// A trigger used to trigger the maximized/restore switch button
     /// </summary>
     public WindowState OwnerWindowState
     {
@@ -254,14 +253,14 @@ public partial class CaptionButtonBar : Control
 
         _ownerHwndSource = HwndSource.FromHwnd(new WindowInteropHelper(_ownerWindow).Handle);
         _captionButtonHandler = new CaptionButtonHandler(_ownerHwndSource);
-        _captionButtonHandler.Add(MinimizeButton);
-        _captionButtonHandler.Add(MaximizeButton);
-        _captionButtonHandler.Add(CloseButton);
-        _captionButtonHandler.Add(HelpButton);
+        _captionButtonHandler.Add(MinimizeButton!);
+        _captionButtonHandler.Add(MaximizeButton!);
+        _captionButtonHandler.Add(CloseButton!);
+        _captionButtonHandler.Add(HelpButton!);
 
         nint hWnd = _ownerHwndSource.Handle;
         int style = User32.GetWindowLong(hWnd, User32.GWL_STYLE);
-        style &= ~WS_SYSMENU;
+        style &= ~User32.WS_SYSMENU;
         _ = User32.SetWindowLong(hWnd, User32.GWL_STYLE, style);
     }
 
@@ -318,11 +317,7 @@ public partial class CaptionButtonBar : Control
         HelpButtonClick?.Invoke(this, EventArgs.Empty);
     }
 
-    private Window _ownerWindow;
-    private HwndSource _ownerHwndSource;
-    private CaptionButtonHandler _captionButtonHandler;
-
-    private const int WS_MAXIMIZEBOX = 0x00010000;
-    private const int WS_MINIMIZEBOX = 0x00020000;
-    private const int WS_SYSMENU = 0x00080000;
+    private Window _ownerWindow = null!;
+    private HwndSource _ownerHwndSource = null!;
+    private CaptionButtonHandler _captionButtonHandler = null!;
 }

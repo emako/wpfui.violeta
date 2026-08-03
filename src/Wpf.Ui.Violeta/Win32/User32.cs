@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -159,6 +160,7 @@ internal static class User32
     }
 
     [Flags]
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
     internal enum SET_WINDOW_POS_FLAGS : uint
     {
         SWP_ASYNCWINDOWPOS = 0x00004000,
@@ -238,6 +240,7 @@ internal static class User32
         public nint hbmColor;
     }
 
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
     public enum WindowMessage
     {
         WM_NULL = 0x0000,
@@ -492,6 +495,7 @@ internal static class User32
     }
 
     [Flags]
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
     public enum MenuItemState : uint
     {
         MFS_ENABLED = 0x00000000,
@@ -505,6 +509,7 @@ internal static class User32
     }
 
     [Flags]
+    [SuppressMessage("Design", "CA1069:Enums values should not be duplicated")]
     public enum TrackPopupMenuFlags : uint
     {
         TPM_LEFTBUTTON = 0u,
