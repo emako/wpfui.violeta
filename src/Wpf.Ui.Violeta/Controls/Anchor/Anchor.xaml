@@ -24,10 +24,7 @@
                             Padding="{TemplateBinding Padding}"
                             Background="{TemplateBinding Background}"
                             CornerRadius="4">
-                            <Grid
-                                Margin="{Binding Level,
-                                                 RelativeSource={RelativeSource TemplatedParent},
-                                                 Converter={StaticResource AnchorLevelToMarginConverter}}">
+                            <Grid Margin="{Binding Level, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AnchorLevelToMarginConverter}}">
                                 <Grid.ColumnDefinitions>
                                     <!--  Left accent bar  -->
                                     <ColumnDefinition Width="3" />

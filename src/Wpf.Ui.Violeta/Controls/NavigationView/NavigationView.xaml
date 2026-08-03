@@ -146,7 +146,7 @@
                             <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundDisabled}" />
                             <Setter Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundDisabled}" />
                         </Trigger>
-                        <!-- Match wpfui BasePaneButtonStyle: horizontal squash press feedback on the hamburger icon -->
+                        <!--  Match wpfui BasePaneButtonStyle: horizontal squash press feedback on the hamburger icon  -->
                         <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
                             <BeginStoryboard>
                                 <Storyboard>

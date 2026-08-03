@@ -19,8 +19,7 @@
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             Focusable="False"
-                            IsTabStop="False"
-                            />
+                            IsTabStop="False" />
 
                         <Border x:Name="BusyContent" Background="{TemplateBinding Background}">
 
@@ -28,10 +27,10 @@
                                 <local:Indicator x:Name="Indicator" IndicatorType="{TemplateBinding IndicatorType}" />
 
                                 <TextBlock
+                                    Margin="{TemplateBinding BusyContentMargin}"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Text="{TemplateBinding BusyContent}"
-                                    Margin="{TemplateBinding BusyContentMargin}"/>
+                                    Text="{TemplateBinding BusyContent}" />
                             </StackPanel>
                         </Border>
                         <VisualStateManager.VisualStateGroups>
@@ -41,8 +40,7 @@
                                         <ObjectAnimationUsingKeyFrames
                                             BeginTime="00:00:00"
                                             Storyboard.TargetName="BusyContent"
-                                            Storyboard.TargetProperty="(UIElement.Visibility)"
-                                            >
+                                            Storyboard.TargetProperty="(UIElement.Visibility)">
                                             <DiscreteObjectKeyFrame KeyTime="00:00:00">
                                                 <DiscreteObjectKeyFrame.Value>
                                                     <Visibility>Visible</Visibility>
@@ -52,8 +50,7 @@
                                         <ObjectAnimationUsingKeyFrames
                                             BeginTime="00:00:00"
                                             Storyboard.TargetName="Content"
-                                            Storyboard.TargetProperty="(Control.IsEnabled)"
-                                            >
+                                            Storyboard.TargetProperty="(Control.IsEnabled)">
                                             <DiscreteObjectKeyFrame KeyTime="00:00:00">
                                                 <DiscreteObjectKeyFrame.Value>
                                                     <sys:Boolean>False</sys:Boolean>
@@ -67,8 +64,7 @@
                                         <ObjectAnimationUsingKeyFrames
                                             BeginTime="00:00:00"
                                             Storyboard.TargetName="BusyContent"
-                                            Storyboard.TargetProperty="(UIElement.Visibility)"
-                                            >
+                                            Storyboard.TargetProperty="(UIElement.Visibility)">
                                             <DiscreteObjectKeyFrame KeyTime="00:00:00">
                                                 <DiscreteObjectKeyFrame.Value>
                                                     <Visibility>Collapsed</Visibility>
@@ -78,8 +74,7 @@
                                         <ObjectAnimationUsingKeyFrames
                                             BeginTime="00:00:00"
                                             Storyboard.TargetName="Content"
-                                            Storyboard.TargetProperty="(Control.IsEnabled)"
-                                            >
+                                            Storyboard.TargetProperty="(Control.IsEnabled)">
                                             <DiscreteObjectKeyFrame KeyTime="00:00:00">
                                                 <DiscreteObjectKeyFrame.Value>
                                                     <sys:Boolean>True</sys:Boolean>
@@ -95,6 +90,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-     
-    <Style TargetType="local:BusyMask" BasedOn="{StaticResource BusyMaskStyle}"/>
+
+    <Style BasedOn="{StaticResource BusyMaskStyle}" TargetType="local:BusyMask" />
 </ResourceDictionary>

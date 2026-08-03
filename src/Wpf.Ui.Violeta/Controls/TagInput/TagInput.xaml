@@ -26,9 +26,7 @@
                         x:Name="Bd"
                         Background="{TemplateBinding Background}"
                         CornerRadius="2">
-                        <ContentPresenter
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -65,10 +63,10 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="3"
                         SnapsToDevicePixels="True">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                             <ContentPresenter
-                                VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
                                 TextElement.FontSize="12"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
                             <Button
@@ -80,9 +78,7 @@
                                 CommandParameter="{TemplateBinding CommandParameter}"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Style="{StaticResource ClosableTagCloseButtonStyle}">
-                                <controls:SymbolIcon
-                                    FontSize="9"
-                                    Symbol="Dismiss24" />
+                                <controls:SymbolIcon FontSize="9" Symbol="Dismiss24" />
                             </Button>
                         </StackPanel>
                     </Border>
@@ -129,9 +125,7 @@
                             CornerRadius="{TemplateBinding Border.CornerRadius}">
                             <Grid Margin="{TemplateBinding Padding}">
                                 <!--  Tag chips + trailing TextBox live here (populated in code-behind)  -->
-                                <local:TagInputPanel
-                                    x:Name="PART_TagPanel"
-                                    TrailingMinWidth="60" />
+                                <local:TagInputPanel x:Name="PART_TagPanel" TrailingMinWidth="60" />
 
                                 <!--  Placeholder — shown only when the control is empty  -->
                                 <TextBlock

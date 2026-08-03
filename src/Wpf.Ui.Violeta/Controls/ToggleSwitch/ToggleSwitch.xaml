@@ -1,9 +1,9 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Primitives"
-    xmlns:common="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,4</Thickness>
@@ -134,9 +134,15 @@
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition x:Name="ColumnDefinition_LeftGap" Width="0" MaxWidth="{StaticResource ToggleSwitchLabelGap}" />
+                                    <ColumnDefinition
+                                        x:Name="ColumnDefinition_LeftGap"
+                                        Width="0"
+                                        MaxWidth="{StaticResource ToggleSwitchLabelGap}" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition x:Name="ColumnDefinition_RightGap" Width="{StaticResource ToggleSwitchLabelGapGL}" MaxWidth="{StaticResource ToggleSwitchLabelGap}" />
+                                    <ColumnDefinition
+                                        x:Name="ColumnDefinition_RightGap"
+                                        Width="{StaticResource ToggleSwitchLabelGapGL}"
+                                        MaxWidth="{StaticResource ToggleSwitchLabelGap}" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Border
@@ -196,8 +202,8 @@
                                     StrokeThickness="{DynamicResource ToggleSwitchOnStrokeThickness}" />
                                 <Grid
                                     x:Name="SwitchKnob"
-                                    Grid.Column="2"
                                     Grid.Row="1"
+                                    Grid.Column="2"
                                     Width="20"
                                     Height="20"
                                     HorizontalAlignment="Left">
@@ -558,8 +564,8 @@
                         <Trigger Property="IsRightAlignedCompact" Value="True">
                             <Setter TargetName="OffContentPresenter" Property="Grid.Column" Value="0" />
                             <Setter TargetName="OnContentPresenter" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="ColumnDefinition_LeftGap" Property="Width" Value="{StaticResource ToggleSwitchLabelGapGL}"/>
-                            <Setter TargetName="ColumnDefinition_RightGap" Property="Width" Value="0"/>
+                            <Setter TargetName="ColumnDefinition_LeftGap" Property="Width" Value="{StaticResource ToggleSwitchLabelGapGL}" />
+                            <Setter TargetName="ColumnDefinition_RightGap" Property="Width" Value="0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

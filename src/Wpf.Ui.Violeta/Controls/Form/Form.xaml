@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--  ═══════════════════════════════════════════════════  -->
-    <!--  Form                                                  -->
+    <!--  Form  -->
     <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:Form">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -30,7 +30,7 @@
     </Style>
 
     <!--  ═══════════════════════════════════════════════════  -->
-    <!--  FormGroup                                             -->
+    <!--  FormGroup  -->
     <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:FormGroup">
         <Setter Property="Focusable" Value="False" />
@@ -77,7 +77,7 @@
     </Style>
 
     <!--  ═══════════════════════════════════════════════════  -->
-    <!--  FormItem – shared resources                           -->
+    <!--  FormItem – shared resources  -->
     <!--  ═══════════════════════════════════════════════════  -->
 
     <!--  Required asterisk style  -->
@@ -106,9 +106,7 @@
 
             <!--  Label row (hidden when NoLabel = true)  -->
             <Grid x:Name="PART_LabelRow" Margin="0,0,0,4">
-                <StackPanel
-                    HorizontalAlignment="{TemplateBinding LabelAlignment}"
-                    Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
                     <ContentPresenter
                         Content="{TemplateBinding Label}"
                         RecognizesAccessKey="True"
@@ -165,9 +163,7 @@
                 x:Name="PART_LabelBorder"
                 Grid.Column="0"
                 VerticalAlignment="Center">
-                <StackPanel
-                    HorizontalAlignment="{TemplateBinding LabelAlignment}"
-                    Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
                     <ContentPresenter
                         Content="{TemplateBinding Label}"
                         RecognizesAccessKey="True"
@@ -206,7 +202,7 @@
     </ControlTemplate>
 
     <!--  ═══════════════════════════════════════════════════  -->
-    <!--  FormItem Style – switches template via trigger        -->
+    <!--  FormItem Style – switches template via trigger  -->
     <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:FormItem">
         <Setter Property="Margin" Value="0,4" />

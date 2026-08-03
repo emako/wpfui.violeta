@@ -174,9 +174,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TagComboBox}">
-                    <Grid
-                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
                         <Border
                             x:Name="ContentBorder"
                             Width="{TemplateBinding Width}"
@@ -200,9 +198,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!--  Full-area transparent ToggleButton (behind chips so × remains clickable)  -->
-                                    <Grid
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2">
+                                    <Grid Grid.Column="0" Grid.ColumnSpan="2">
                                         <ToggleButton
                                             x:Name="ToggleButton"
                                             HorizontalAlignment="Stretch"
