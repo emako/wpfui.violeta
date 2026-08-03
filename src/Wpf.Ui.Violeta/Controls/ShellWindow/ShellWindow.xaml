@@ -30,6 +30,16 @@
             WindowChrome is applied in ShellWindow.SetWindowChrome so GlassFrameThickness
             can switch between -1 (system backdrop) and 1 (solid background).
         -->
+        <Style.Triggers>
+            <!--
+                Wpf.Ui's implicit Window style (inherited via BasedOn) forces ResizeMode to
+                NoResize while maximized, which strips WS_MINIMIZEBOX from the native window
+                and makes the taskbar button unable to minimize it. Keep ResizeMode stable.
+            -->
+            <Trigger Property="WindowState" Value="Maximized">
+                <Setter Property="ResizeMode" Value="CanResize" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style BasedOn="{StaticResource DefaultShellWindowStyle}" TargetType="{x:Type controls:ShellWindow}" />
