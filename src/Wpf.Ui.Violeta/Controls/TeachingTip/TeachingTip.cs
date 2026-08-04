@@ -20,7 +20,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public partial class TeachingTip : ContentControl, IControlProtected
 {
-    public FrameworkElement m_target;
+    public FrameworkElement m_target = null!;
     public bool m_isIdle = true;
 
     private const string c_TitleTextBlockVisibleStateName = "ShowTitleTextBlock";
@@ -934,7 +934,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
         else
         {
-            templateSettings.IconElement = null;
+            templateSettings.IconElement = null!;
             VisualStateManager.GoToState(this, "NoIcon", false);
         }
     }
@@ -1071,7 +1071,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
                 if (m_previouslyFocusedElement.TryGetTarget(out var previouslyFocusedElement))
                 {
                     args.Handled = previouslyFocusedElement.Focus();
-                    m_previouslyFocusedElement = null;
+                    m_previouslyFocusedElement = null!;
                 }
             }
             else
@@ -1093,7 +1093,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
                     {
                         return secondButton;
                     }
-                    return null;
+                    return null!;
                 }
 
                 Button f6Button = GetF6Button();
@@ -1139,6 +1139,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
 
         // Expand animation requires IUIElement9
+#pragma warning disable IDE0150 // Prefer 'null' check over type check
         if (this is UIElement && SharedHelpers.IsAnimationsEnabled)
         {
             StartExpandToOpen();
@@ -1148,6 +1149,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
             // We won't be playing an animation so we're immediately idle.
             SetIsIdle(true);
         }
+#pragma warning restore IDE0150 // Prefer 'null' check over type check
 
         #region WPF specific
 
@@ -1195,24 +1197,15 @@ public partial class TeachingTip : ContentControl, IControlProtected
         #endregion WPF specific
     }
 
-    private void OnPopupClosed(object sender, object args)
+    private void OnPopupClosed(object? sender, object args)
     {
         var window = Window.GetWindow(this);
-        if (window != null)
-        {
-            window.SizeChanged -= WindowSizeChanged;
-        }
+        window?.SizeChanged -= WindowSizeChanged;
 
         var lightDismissIndicatorPopup = m_lightDismissIndicatorPopup;
-        if (lightDismissIndicatorPopup != null)
-        {
-            lightDismissIndicatorPopup.IsOpen = false;
-        }
+        lightDismissIndicatorPopup?.IsOpen = false;
         var popup = m_popup;
-        if (popup != null)
-        {
-            popup.Child = null;
-        }
+        popup?.Child = null;
         var myArgs = new TeachingTipClosedEventArgs(m_lastCloseReason);
 
         Closed?.Invoke(this, myArgs);
@@ -1226,22 +1219,19 @@ public partial class TeachingTip : ContentControl, IControlProtected
                 previouslyFocusedElement.Focus();
             }
         }
-        m_previouslyFocusedElement = null;
+        m_previouslyFocusedElement = null!;
 
         var teachingTipPeer = FrameworkElementAutomationPeer.FromElement(this) as TeachingTipAutomationPeer;
-        if (teachingTipPeer != null)
-        {
-            teachingTipPeer.RaiseWindowClosedEvent();
-        }
+        teachingTipPeer?.RaiseWindowClosedEvent();
     }
 
-    private void ClosePopupOnUnloadEvent(object sender, RoutedEventArgs args)
+    private void ClosePopupOnUnloadEvent(object? sender, RoutedEventArgs args)
     {
         IsOpen = false;
         ClosePopup();
     }
 
-    private void OnLightDismissIndicatorPopupClosed(object sender, object args)
+    private void OnLightDismissIndicatorPopupClosed(object? sender, object args)
     {
         if (IsOpen)
         {
@@ -1439,7 +1429,7 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
     }
 
-    private void WindowSizeChanged(object sender, SizeChangedEventArgs args)
+    private void WindowSizeChanged(object? sender, SizeChangedEventArgs args)
     {
         // Reposition popup when target/window has finished determining sizes
         SharedHelpers.QueueCallbackForCompositionRendering(() => RepositionPopup());
@@ -1492,12 +1482,12 @@ public partial class TeachingTip : ContentControl, IControlProtected
         }
     }
 
-    private void OnTargetLoaded(object sender, object args)
+    private void OnTargetLoaded(object? sender, object args)
     {
         RepositionPopup();
     }
 
-    private void OnTargetLayoutUpdated(object sender, object args)
+    private void OnTargetLayoutUpdated(object? sender, object args)
     {
         RepositionPopup();
     }
@@ -2410,37 +2400,37 @@ public partial class TeachingTip : ContentControl, IControlProtected
         return GetTeachingTipCornerRadius().TopRight;
     }
 
-    private Border m_container;
+    private Border m_container = null!;
 
-    internal Popup m_popup;
-    private Popup m_lightDismissIndicatorPopup;
+    internal Popup m_popup = null!;
+    private Popup m_lightDismissIndicatorPopup = null!;
 
-    private UIElement m_rootElement;
-    private Grid m_tailOcclusionGrid;
-    private Border m_contentRootGrid;
-    private Grid m_nonHeroContentRootGrid;
-    private Border m_heroContentBorder;
-    private Button m_actionButton;
-    private Button m_alternateCloseButton;
-    private Button m_closeButton;
-    private Polygon m_tailPolygon;
-    private Grid m_tailEdgeBorder;
+    private UIElement m_rootElement = null!;
+    private Grid m_tailOcclusionGrid = null!;
+    private Border m_contentRootGrid = null!;
+    private Grid m_nonHeroContentRootGrid = null!;
+    private Border m_heroContentBorder = null!;
+    private Button m_actionButton = null!;
+    private Button m_alternateCloseButton = null!;
+    private Button m_closeButton = null!;
+    private Polygon m_tailPolygon = null!;
+    private Grid m_tailEdgeBorder = null!;
 
-    private WeakReference<IInputElement> m_previouslyFocusedElement;
+    private WeakReference<IInputElement> m_previouslyFocusedElement = null!;
 
-    private AnimationTimeline m_expandAnimation;
-    private AnimationTimeline m_contractAnimation;
-    private AnimationTimeline m_expandElevationAnimation;
-    private AnimationTimeline m_contractElevationAnimation;
-    private EasingFunctionBase m_expandEasingFunction;
-    private EasingFunctionBase m_contractEasingFunction;
+    private AnimationTimeline m_expandAnimation = null!;
+    private AnimationTimeline m_contractAnimation = null!;
+    private AnimationTimeline m_expandElevationAnimation = null!;
+    private AnimationTimeline m_contractElevationAnimation = null!;
+    private EasingFunctionBase m_expandEasingFunction = null!;
+    private EasingFunctionBase m_contractEasingFunction = null!;
 
     private TeachingTipPlacementMode m_currentEffectiveTipPlacementMode = TeachingTipPlacementMode.Auto;
     private TeachingTipPlacementMode m_currentEffectiveTailPlacementMode = TeachingTipPlacementMode.Auto;
     private TeachingTipHeroContentPlacementMode m_currentHeroContentEffectivePlacementMode = TeachingTipHeroContentPlacementMode.Auto;
 
-    private Rect m_currentBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
-    private Rect m_currentTargetBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
+    private Rect m_currentBoundsInCoreWindowSpace = new(0, 0, 0, 0);
+    private Rect m_currentTargetBoundsInCoreWindowSpace = new(0, 0, 0, 0);
 
     private bool m_isTemplateApplied = false;
     private bool m_createNewPopupOnOpen = false;
@@ -2449,9 +2439,9 @@ public partial class TeachingTip : ContentControl, IControlProtected
     private bool m_isContractAnimationPlaying = false;
 
     private bool m_useTestWindowBounds = false;
-    private Rect m_testWindowBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
+    private Rect m_testWindowBoundsInCoreWindowSpace = new(0, 0, 0, 0);
     private bool m_useTestScreenBounds = false;
-    private Rect m_testScreenBoundsInCoreWindowSpace = new Rect(0, 0, 0, 0);
+    private Rect m_testScreenBoundsInCoreWindowSpace = new(0, 0, 0, 0);
 
     private bool m_tipFollowsTarget = false;
     private bool m_returnTopForOutOfWindowPlacement = true;
@@ -2574,10 +2564,10 @@ public partial class TeachingTip : ContentControl, IControlProtected
     private const string s_accentButtonStyleName = "AccentButtonStyle";
     private const string s_teachingTipTopHighlightBrushName = "TeachingTipTopHighlightBrush";
 
-    private static readonly Point s_expandAnimationEasingCurveControlPoint1 = new Point(0.1, 0.9);
-    private static readonly Point s_expandAnimationEasingCurveControlPoint2 = new Point(0.2, 1.0);
-    private static readonly Point s_contractAnimationEasingCurveControlPoint1 = new Point(0.7, 0.0);
-    private static readonly Point s_contractAnimationEasingCurveControlPoint2 = new Point(1.0, 0.5);
+    private static readonly Point s_expandAnimationEasingCurveControlPoint1 = new(0.1, 0.9);
+    private static readonly Point s_expandAnimationEasingCurveControlPoint2 = new(0.2, 1.0);
+    private static readonly Point s_contractAnimationEasingCurveControlPoint1 = new(0.7, 0.0);
+    private static readonly Point s_contractAnimationEasingCurveControlPoint2 = new(1.0, 0.5);
 
     //It is possible this should be exposed as a property, but you can adjust what it does with margin.
     private const float s_untargetedTipWindowEdgeMargin = 24F;

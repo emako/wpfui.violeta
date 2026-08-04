@@ -5,7 +5,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 public sealed class TeachingTipClosingEventArgs : EventArgs
 {
-    private TeachingTipDeferral m_deferral;
+    private TeachingTipDeferral? m_deferral;
     private int m_deferralCount;
 
     internal TeachingTipClosingEventArgs(TeachingTipCloseReason reason)
@@ -35,7 +35,7 @@ public sealed class TeachingTipClosingEventArgs : EventArgs
         m_deferralCount--;
         if (m_deferralCount == 0)
         {
-            m_deferral.Complete();
+            m_deferral?.Complete();
         }
     }
 

@@ -503,11 +503,11 @@ public partial class TeachingTip
 
     #endregion CornerRadius
 
-    public event TypedEventHandler<TeachingTip, object> ActionButtonClick;
+    public event TypedEventHandler<TeachingTip, object>? ActionButtonClick;
 
-    public event TypedEventHandler<TeachingTip, object> CloseButtonClick;
+    public event TypedEventHandler<TeachingTip, object>? CloseButtonClick;
 
-    public event TypedEventHandler<TeachingTip, TeachingTipClosingEventArgs> Closing;
+    public event TypedEventHandler<TeachingTip, TeachingTipClosingEventArgs>? Closing;
 
-    public event TypedEventHandler<TeachingTip, TeachingTipClosedEventArgs> Closed;
+    public event TypedEventHandler<TeachingTip, TeachingTipClosedEventArgs>? Closed;
 }
