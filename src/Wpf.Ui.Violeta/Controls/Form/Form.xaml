@@ -13,8 +13,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:Form">
-                    <!--  Grid.IsSharedSizeScope enables label-column alignment across all child FormItems  -->
-                    <StackPanel Grid.IsSharedSizeScope="True">
+                    <!--
+                        PART_Root hosts Grid.IsSharedSizeScope (toggled in code for Star/Absolute LabelWidth).
+                        This aligns label columns across FormItem / FormGroup descendants.
+                    -->
+                    <StackPanel x:Name="PART_Root">
                         <ItemsPresenter />
                     </StackPanel>
                 </ControlTemplate>
@@ -34,11 +37,12 @@
     <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:FormGroup">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="Margin" Value="0,16,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:FormGroup">
-                    <StackPanel>
+                    <StackPanel HorizontalAlignment="Stretch">
                         <!--  Header row (title + separator line)  -->
                         <StackPanel x:Name="PART_HeaderPanel" Visibility="Collapsed">
                             <ContentPresenter
@@ -56,7 +60,7 @@
                                 SnapsToDevicePixels="True" />
                         </StackPanel>
 
-                        <ItemsPresenter />
+                        <ItemsPresenter HorizontalAlignment="Stretch" />
                     </StackPanel>
 
                     <ControlTemplate.Triggers>
@@ -70,7 +74,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <StackPanel />
+                    <StackPanel HorizontalAlignment="Stretch" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -100,9 +104,11 @@
     <!--
         TOP template (label above field).
         Default when LabelPosition = Top.
+        Content is Left-aligned so fixed-width fields sit under the label
+        instead of drifting to the far right of a stretched Form.
     -->
     <ControlTemplate x:Key="FormItemTopTemplate" TargetType="local:FormItem">
-        <StackPanel x:Name="Root" Margin="{TemplateBinding Margin}">
+        <StackPanel x:Name="Root" HorizontalAlignment="Stretch" Margin="{TemplateBinding Margin}">
 
             <!--  Label row (hidden when NoLabel = true)  -->
             <Grid x:Name="PART_LabelRow" Margin="0,0,0,4">
@@ -119,8 +125,9 @@
                 </StackPanel>
             </Grid>
 
-            <!--  Field  -->
+            <!--  Field — alignment follows HorizontalContentAlignment (Top defaults to Left)  -->
             <ContentPresenter
+                x:Name="PART_ContentPresenter"
                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                 Content="{TemplateBinding Content}"
@@ -142,27 +149,30 @@
     <!--
         LEFT template (label to the left of field).
         Used when LabelPosition = Left.
-        The label column uses SharedSizeGroup so all labels within the same
-        Grid.IsSharedSizeScope (set on the Form's template) align to the same width.
-        LabelWidth (double, NaN = auto) optionally forces an explicit label width.
+        Label column uses SharedSizeGroup so all labels within the Form's shared-size scope align.
+        LabelWidth (NaN = auto / star, absolute = fixed px) is applied to the label border.
     -->
     <ControlTemplate x:Key="FormItemLeftTemplate" TargetType="local:FormItem">
-        <Grid x:Name="Root" Margin="{TemplateBinding Margin}">
+        <Grid
+            x:Name="Root"
+            HorizontalAlignment="Stretch"
+            Margin="{TemplateBinding Margin}">
             <Grid.ColumnDefinitions>
-                <!--  SharedSizeGroup aligns labels across all FormItems in the same Form  -->
                 <ColumnDefinition
                     x:Name="LabelColumn"
                     Width="Auto"
-                    SharedSizeGroup="FormLabel" />
-                <ColumnDefinition Width="8" />
-                <ColumnDefinition Width="*" />
+                    SharedSizeGroup="WpfUiVioletaFormLabel" />
+                <ColumnDefinition Width="*" MinWidth="0" />
             </Grid.ColumnDefinitions>
 
-            <!--  Label cell  -->
+            <!--  Label cell — Width binds LabelWidth (NaN → Auto)  -->
             <Border
                 x:Name="PART_LabelBorder"
                 Grid.Column="0"
-                VerticalAlignment="Center">
+                Width="{TemplateBinding LabelWidth}"
+                Margin="0,0,12,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
                     <ContentPresenter
                         Content="{TemplateBinding Label}"
@@ -176,11 +186,11 @@
                 </StackPanel>
             </Border>
 
-            <!--  Field  -->
+            <!--  Field — stretch to fill remaining space; children keep their own alignment  -->
             <ContentPresenter
                 x:Name="PART_ContentPresenter"
-                Grid.Column="2"
-                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                 Content="{TemplateBinding Content}"
                 ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -195,8 +205,9 @@
             <!--  NoLabel: span full width, collapse label column  -->
             <Trigger Property="NoLabel" Value="True">
                 <Setter TargetName="PART_LabelBorder" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_LabelBorder" Property="Margin" Value="0" />
                 <Setter TargetName="PART_ContentPresenter" Property="Grid.Column" Value="0" />
-                <Setter TargetName="PART_ContentPresenter" Property="Grid.ColumnSpan" Value="3" />
+                <Setter TargetName="PART_ContentPresenter" Property="Grid.ColumnSpan" Value="2" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -206,6 +217,7 @@
     <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:FormItem">
         <Setter Property="Margin" Value="0,4" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Focusable" Value="False" />
@@ -214,6 +226,15 @@
         <Style.Triggers>
             <Trigger Property="LabelPosition" Value="Left">
                 <Setter Property="Template" Value="{StaticResource FormItemLeftTemplate}" />
+            </Trigger>
+            <!--
+                Top layout: keep fields under the label (Left), unless the item
+                explicitly wants Stretch (default). The Top template trigger above
+                already maps Stretch → full-width ContentPresenter; for the common
+                fixed-Width demo fields we force Left so they don't sit on the far right.
+            -->
+            <Trigger Property="LabelPosition" Value="Top">
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
             </Trigger>
         </Style.Triggers>
     </Style>

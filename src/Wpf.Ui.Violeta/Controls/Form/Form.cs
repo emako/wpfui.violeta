@@ -10,6 +10,10 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 public class Form : ItemsControl
 {
+    private const string PartRoot = "PART_Root";
+
+    private Panel? _root;
+
     static Form()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(Form), new FrameworkPropertyMetadata(typeof(Form)));
@@ -27,7 +31,8 @@ public class Form : ItemsControl
     /// Width of the label column.
     /// <list type="bullet">
     ///   <item><term>Absolute</term><description>Fixed pixel width for all labels.</description></item>
-    ///   <item><term>Star / Auto</term><description>Labels align to the widest label via shared-size scope.</description></item>
+    ///   <item><term>Star</term><description>Labels align to the widest label via shared-size scope.</description></item>
+    ///   <item><term>Auto</term><description>Each label sizes independently (no shared alignment).</description></item>
     /// </list>
     /// </summary>
     public GridLength LabelWidth
@@ -66,6 +71,13 @@ public class Form : ItemsControl
 
     #region ItemsControl Overrides
 
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+        _root = GetTemplateChild(PartRoot) as Panel;
+        UpdateSharedSizeScope();
+    }
+
     protected override bool IsItemItsOwnContainerOverride(object item)
         => item is FormItem || item is FormGroup;
 
@@ -86,7 +98,21 @@ public class Form : ItemsControl
     {
         if (d is Form form)
         {
+            if (e.Property == LabelWidthProperty)
+            {
+                form.UpdateSharedSizeScope();
+            }
+
             form.PropagateToAllContainers();
+        }
+    }
+
+    private void UpdateSharedSizeScope()
+    {
+        // Mirror Ursa: Star / Absolute enable shared-size alignment; Auto does not.
+        if (_root is not null)
+        {
+            Grid.SetIsSharedSizeScope(_root, LabelWidth.IsStar || LabelWidth.IsAbsolute);
         }
     }
 
@@ -118,7 +144,7 @@ public class Form : ItemsControl
 
     /// <summary>
     /// Converts <see cref="LabelWidth"/> to a pixel value for <see cref="FormItem.LabelWidth"/>.
-    /// Returns <see cref="double.NaN"/> when shared-size (Star / Auto) alignment should be used.
+    /// Returns <see cref="double.NaN"/> when Auto / Star sizing should be used.
     /// </summary>
     internal double GetItemLabelWidth()
     {

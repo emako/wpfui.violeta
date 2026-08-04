@@ -76,7 +76,7 @@ public class FormItem : ContentControl
         nameof(LabelWidth),
         typeof(double),
         typeof(FormItem),
-        new PropertyMetadata(double.NaN));
+        new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange));
 
     /// <summary>
     /// Pixel width of the label column when <see cref="LabelPosition"/> is <see cref="FormLabelPosition.Left"/>.

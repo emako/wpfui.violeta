@@ -71,7 +71,7 @@
                                 <ui:TextBox PlaceholderText="请输入姓名" />
                             </vio:FormItem>
                             <vio:FormItem Label="部门">
-                                <ComboBox MinWidth="200">
+                                <ComboBox>
                                     <ComboBoxItem Content="研发部" IsSelected="True" />
                                     <ComboBoxItem Content="设计部" />
                                     <ComboBoxItem Content="产品部" />
@@ -81,10 +81,10 @@
                         </vio:FormGroup>
                         <vio:FormGroup Header="账号设置">
                             <vio:FormItem Label="启用通知">
-                                <CheckBox IsChecked="True" />
+                                <CheckBox Content="接收邮件通知" IsChecked="True" />
                             </vio:FormItem>
                             <vio:FormItem Label="深色模式">
-                                <ToggleButton IsChecked="True" />
+                                <ui:ToggleSwitch IsChecked="True" />
                             </vio:FormItem>
                         </vio:FormGroup>
                         <vio:FormItem NoLabel="True">
