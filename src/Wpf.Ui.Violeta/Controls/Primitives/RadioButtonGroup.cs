@@ -6,8 +6,23 @@ namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 /// <summary>
 /// Represents a group of <see cref="RadioButton"/> controls that enforces
-/// single-selection behavior among the grouped radio buttons.
+/// single-selection behavior across containers (where WPF's built-in grouping is insufficient).
 /// </summary>
+/// <remarks>
+/// <para>
+/// WPF <see cref="RadioButton"/> already performs mutual exclusion on its own:
+/// when one is checked, siblings that share the same <see cref="RadioButton.GroupName"/>
+/// (or the same parent when <see cref="RadioButton.GroupName"/> is empty) are unchecked
+/// by the framework via its internal radio-group update logic.
+/// </para>
+/// <para>
+/// This class layers cross-container grouping on top of that behavior. Handlers must
+/// therefore cooperate with the built-in exclusion rather than fight it: never force
+/// <c>IsChecked = true</c> on uncheck while another group member is already checked,
+/// or the framework and this group will re-enter each other and cause a
+/// <see cref="System.StackOverflowException"/>.
+/// </para>
+/// </remarks>
 public class RadioButtonGroup : List<RadioButton>
 {
     /// <summary>
@@ -72,37 +87,74 @@ public class RadioButtonGroup : List<RadioButton>
     /// <param name="radioButton">Radio button to add to the group.</param>
     public void Join(RadioButton radioButton)
     {
+        // Already joined (e.g. Join -> SetGroup -> OnGroupChanged -> Join).
+        if (Contains(radioButton))
+        {
+            return;
+        }
+
         Add(radioButton);
 
         // When a radio button is checked, uncheck other buttons in the same group.
         radioButton.Checked += (s, e) =>
         {
-            if (s is RadioButton cb && GetGroup(cb) is RadioButtonGroup group)
+            if (Handling || s is not RadioButton cb || GetGroup(cb) is not RadioButtonGroup group)
             {
-                Handling = true; // prevent Unchecked handler from fighting back
+                return;
+            }
+
+            Handling = true;
+            try
+            {
                 foreach (RadioButton tb in group)
                 {
-                    if (tb != cb)
+                    if (tb != cb && tb.IsChecked != false)
                     {
                         tb.IsChecked = false;
                     }
                 }
+            }
+            finally
+            {
                 Handling = false;
             }
         };
 
-        // When a radio button is unchecked, revert the action unless it was caused
-        // by internal handling. This keeps one item always selected in the group.
+        // When a radio button is unchecked, keep one item selected — but only if no other
+        // group member is checked. Blindly forcing IsChecked=true re-enters RadioButton's
+        // built-in sibling/GroupName mutual exclusion and causes StackOverflowException.
         radioButton.Unchecked += (s, e) =>
         {
-            if (!Handling && s is RadioButton tb)
+            if (Handling || s is not RadioButton tb)
+            {
+                return;
+            }
+
+            foreach (RadioButton other in this)
+            {
+                if (other != tb && other.IsChecked == true)
+                {
+                    return;
+                }
+            }
+
+            Handling = true;
+            try
             {
                 tb.IsChecked = true;
+            }
+            finally
+            {
+                Handling = false;
             }
         };
 
         // Store the group on the radio button so other code can retrieve it via GetGroup.
-        SetGroup(radioButton, this);
+        // Skip if already attached to avoid re-entrancy through OnGroupChanged.
+        if (!ReferenceEquals(GetGroup(radioButton), this))
+        {
+            SetGroup(radioButton, this);
+        }
     }
 
     /// <summary>
