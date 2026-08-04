@@ -6,6 +6,8 @@
 
     <system:Double x:Key="NumericUpDownSpinButtonWidth">22</system:Double>
     <system:Double x:Key="NumericUpDownSpinButtonHeight">14</system:Double>
+    <!--  Match NumberBoxButtonMargin right inset so hover fill sits inside the rounded border  -->
+    <Thickness x:Key="NumericUpDownSpinButtonMargin">0,0,3,0</Thickness>
 
     <!--  Internal spin-button style (shared by IncreaseButton and DecreaseButton)  -->
     <Style x:Key="NumericUpDownSpinButtonStyle" TargetType="{x:Type RepeatButton}">
@@ -164,7 +166,10 @@
                                     Visibility="Collapsed" />
 
                                 <!--  SpinnerPanel: vertical separator + up/down repeat buttons  -->
-                                <Grid x:Name="PART_SpinnerPanel" Grid.Column="3">
+                                <Grid
+                                    x:Name="PART_SpinnerPanel"
+                                    Grid.Column="3"
+                                    Margin="{StaticResource NumericUpDownSpinButtonMargin}">
 
                                     <StackPanel
                                         Grid.Column="0"
