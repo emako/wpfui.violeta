@@ -69,6 +69,7 @@
                                         <RotateTransform x:Name="SpinnerLeftRotate" Angle="0" />
                                     </Grid.RenderTransform>
                                     <Ellipse
+                                        x:Name="SpinnerLeftEllipse"
                                         StrokeDashArray="15.71 3.14"
                                         StrokeDashCap="Round"
                                         StrokeThickness="2">
@@ -92,6 +93,7 @@
                                         <RotateTransform x:Name="SpinnerTopRotate" Angle="0" />
                                     </Grid.RenderTransform>
                                     <Ellipse
+                                        x:Name="SpinnerTopEllipse"
                                         StrokeDashArray="15.71 3.14"
                                         StrokeDashCap="Round"
                                         StrokeThickness="2">
@@ -115,6 +117,7 @@
                                         <RotateTransform x:Name="SpinnerRightRotate" Angle="0" />
                                     </Grid.RenderTransform>
                                     <Ellipse
+                                        x:Name="SpinnerRightEllipse"
                                         StrokeDashArray="15.71 3.14"
                                         StrokeDashCap="Round"
                                         StrokeThickness="2">
@@ -138,6 +141,7 @@
                                         <RotateTransform x:Name="SpinnerBottomRotate" Angle="0" />
                                     </Grid.RenderTransform>
                                     <Ellipse
+                                        x:Name="SpinnerBottomEllipse"
                                         StrokeDashArray="15.71 3.14"
                                         StrokeDashCap="Round"
                                         StrokeThickness="2">
@@ -199,6 +203,10 @@
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="SpinnerLeftEllipse" Property="Stroke" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="SpinnerTopEllipse" Property="Stroke" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="SpinnerRightEllipse" Property="Stroke" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="SpinnerBottomEllipse" Property="Stroke" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <!--  Disabled  -->
@@ -207,6 +215,10 @@
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="SpinnerLeftEllipse" Property="Stroke" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="SpinnerTopEllipse" Property="Stroke" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="SpinnerRightEllipse" Property="Stroke" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="SpinnerBottomEllipse" Property="Stroke" Value="{DynamicResource ButtonForegroundDisabled}" />
                         </Trigger>
 
                         <!--  Icon margin — hide gap when there is no content  -->
