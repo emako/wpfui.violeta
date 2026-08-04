@@ -10,7 +10,6 @@
     Title="Wpf.Ui.Violeta Gallery"
     Width="1280"
     Height="800"
-    d:Background="#1C1C1C"
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"

@@ -48,7 +48,7 @@
         <Setter Property="CancelButtonStyle" Value="{DynamicResource DefaultButtonStyle}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="FontFamily" Value="{DynamicResource TextThemeFontFamily}" />
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="WindowChrome.WindowChrome" Value="{StaticResource MessageBoxAeroWindowChrome}" />
@@ -107,7 +107,7 @@
                                                             VerticalAlignment="Top"
                                                             Content="{TemplateBinding Caption}"
                                                             ContentTemplate="{TemplateBinding CaptionTemplate}"
-                                                            FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                            FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                             FontSize="20"
                                                             FontWeight="SemiBold"
                                                             Foreground="{TemplateBinding Foreground}"
@@ -190,28 +190,28 @@
                                                     Grid.Column="0"
                                                     HorizontalAlignment="Stretch"
                                                     Content="{Binding TemplateSettings.OKButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                    FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                     Style="{TemplateBinding OKButtonStyle}" />
                                                 <Button
                                                     x:Name="PART_YesButton"
                                                     Grid.Column="0"
                                                     HorizontalAlignment="Stretch"
                                                     Content="{Binding TemplateSettings.YesButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                    FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                     Style="{TemplateBinding YesButtonStyle}" />
                                                 <Button
                                                     x:Name="PART_NoButton"
                                                     Grid.Column="2"
                                                     HorizontalAlignment="Stretch"
                                                     Content="{Binding TemplateSettings.NoButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                    FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                     Style="{TemplateBinding NoButtonStyle}" />
                                                 <Button
                                                     x:Name="PART_CancelButton"
                                                     Grid.Column="4"
                                                     HorizontalAlignment="Stretch"
                                                     Content="{Binding TemplateSettings.CancelButtonText, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                                    FontFamily="{DynamicResource TextThemeFontFamily}"
+                                                    FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                     Style="{TemplateBinding CancelButtonStyle}" />
                                             </Grid>
                                         </Grid>

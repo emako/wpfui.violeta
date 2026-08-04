@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Fixed extra window unable to inherit fonts  -->
+    <Style
+        x:Key="HotfixFontFamilyToolTipStyle"
+        BasedOn="{StaticResource DefaultToolTipStyle}"
+        TargetType="{x:Type ToolTip}">
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource HotfixFontFamilyToolTipStyle}" TargetType="{x:Type ToolTip}" />
+
+</ResourceDictionary>

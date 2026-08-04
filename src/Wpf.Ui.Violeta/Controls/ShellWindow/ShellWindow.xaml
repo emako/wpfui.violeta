@@ -8,6 +8,7 @@
     <Thickness x:Key="MainWindowResizeThickness">6</Thickness>
 
     <Style x:Key="DefaultShellWindowStyle" TargetType="{x:Type controls:ShellWindow}">
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="Background" Value="{DynamicResource WindowBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />

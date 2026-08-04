@@ -12,6 +12,7 @@
                 <ui:ControlsDictionary />
                 <vio:ThemesDictionary Theme="Dark" />
                 <vio:ControlsDictionary />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Resource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
