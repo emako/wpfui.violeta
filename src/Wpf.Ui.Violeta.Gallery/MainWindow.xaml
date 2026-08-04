@@ -180,7 +180,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="ComboBox" Tag="combo-box">
+                <vio:NavigationViewItem Content="多选框" Tag="combo-box">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE70D;" />
                     </vio:NavigationViewItem.Icon>
