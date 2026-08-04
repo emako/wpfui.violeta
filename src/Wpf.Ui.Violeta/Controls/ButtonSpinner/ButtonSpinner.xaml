@@ -8,6 +8,9 @@
     <system:Double x:Key="ButtonSpinnerButtonWidth">22</system:Double>
     <system:Double x:Key="ButtonSpinnerButtonHeight">14</system:Double>
     <system:Double x:Key="ButtonSpinnerSplitButtonSize">28</system:Double>
+    <!--  Match NumericUpDownSpinButtonMargin inset so hover fill sits inside the rounded border  -->
+    <Thickness x:Key="ButtonSpinnerButtonMargin">0,0,3,0</Thickness>
+    <Thickness x:Key="ButtonSpinnerButtonMarginLeft">3,0,0,0</Thickness>
 
     <!--  Internal RepeatButton style (grouped variant — stacked ▲/▼)  -->
     <Style x:Key="ButtonSpinnerRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
@@ -139,6 +142,7 @@
                                 <Grid
                                     x:Name="PART_ButtonGroup"
                                     Grid.Column="2"
+                                    Margin="{StaticResource ButtonSpinnerButtonMargin}"
                                     VerticalAlignment="Center">
                                     <StackPanel VerticalAlignment="Center" Orientation="Vertical">
                                         <RepeatButton
@@ -190,6 +194,7 @@
                             <Setter TargetName="LeftButtonColumn" Property="Width" Value="Auto" />
                             <Setter TargetName="RightButtonColumn" Property="Width" Value="0" />
                             <Setter TargetName="PART_ButtonGroup" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="PART_ButtonGroup" Property="Margin" Value="{StaticResource ButtonSpinnerButtonMarginLeft}" />
                         </Trigger>
 
                         <!--  ShowButtonSpinner = False  -->
