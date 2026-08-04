@@ -57,12 +57,6 @@
                     NavigateTag="dialogs/credential-dialog" />
                 <ctrl:SampleCard
                     Width="260"
-                    Title="OpenFolderDialog"
-                    Description="原生文件夹选择对话框"
-                    Glyph="&#xE8B7;"
-                    NavigateTag="dialogs/open-folder-dialog" />
-                <ctrl:SampleCard
-                    Width="260"
                     Title="Flyout"
                     Description="ui:Flyout 弹出层"
                     Glyph="&#xE71B;"

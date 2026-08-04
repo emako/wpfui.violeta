@@ -1,0 +1,37 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.TextInput.TextInputPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="文本输入"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="文本输入" />
+            <TextBlock
+                Margin="0,0,0,12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="点击卡片进入对应控件演示页面。"
+                TextWrapping="Wrap" />
+            <WrapPanel>
+                <ctrl:SampleCard Width="260" Title="TextBox" Description="文本输入与清除按钮" Glyph="&#xE8D2;" NavigateTag="text/textbox" />
+                <ctrl:SampleCard Width="260" Title="PasswordBox" Description="密码输入框" Glyph="&#xE72E;" NavigateTag="text/password-box" />
+                <ctrl:SampleCard Width="260" Title="RichTextBox" Description="富文本编辑" Glyph="&#xE8D2;" NavigateTag="text/rich-text-box" />
+                <ctrl:SampleCard Width="260" Title="AutoSuggestBox" Description="自动建议输入" Glyph="&#xE721;" NavigateTag="text/auto-suggest-box" />
+                <ctrl:SampleCard Width="260" Title="PinCode" Description="分格 PIN 码输入" Glyph="&#xE192;" NavigateTag="basic-input/pin-code" />
+                <ctrl:SampleCard Width="260" Title="KeyGestureInput" Description="快捷键录制输入" Glyph="&#xE765;" NavigateTag="basic-input/key-gesture-input" />
+                <ctrl:SampleCard Width="260" Title="IPv4Box" Description="IPv4 地址输入" Glyph="&#xE774;" NavigateTag="basic-input/ipv4-box" />
+                <ctrl:SampleCard Width="260" Title="IPv4PortBox" Description="IPv4 地址与端口输入" Glyph="&#xE968;" NavigateTag="basic-input/ipv4-port-box" />
+                <ctrl:SampleCard Width="260" Title="TagInput" Description="标签芯片输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

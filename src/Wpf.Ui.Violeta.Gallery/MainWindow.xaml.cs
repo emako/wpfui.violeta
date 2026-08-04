@@ -8,7 +8,9 @@ using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
 using Wpf.Ui.Violeta.Gallery.Pages.AllSamples;
 using Wpf.Ui.Violeta.Gallery.Pages.BasicInput;
+using Wpf.Ui.Violeta.Gallery.Pages.Buttons;
 using Wpf.Ui.Violeta.Gallery.Pages.Collections;
+using Wpf.Ui.Violeta.Gallery.Pages.ComboBoxes;
 using Wpf.Ui.Violeta.Gallery.Pages.DateTime;
 using Wpf.Ui.Violeta.Gallery.Pages.Design;
 using Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
@@ -18,12 +20,18 @@ using Wpf.Ui.Violeta.Gallery.Pages.Layout;
 using Wpf.Ui.Violeta.Gallery.Pages.Media;
 using Wpf.Ui.Violeta.Gallery.Pages.Navigation;
 using Wpf.Ui.Violeta.Gallery.Pages.Notifications;
+using Wpf.Ui.Violeta.Gallery.Pages.NumberInput;
 using Wpf.Ui.Violeta.Gallery.Pages.OpSystem;
+using Wpf.Ui.Violeta.Gallery.Pages.Pickers;
+using Wpf.Ui.Violeta.Gallery.Pages.Selection;
 using Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 using Wpf.Ui.Violeta.Gallery.Pages.Settings;
+using Wpf.Ui.Violeta.Gallery.Pages.Sliders;
 using Wpf.Ui.Violeta.Gallery.Pages.Status;
 using Wpf.Ui.Violeta.Gallery.Pages.TagInput;
 using Wpf.Ui.Violeta.Gallery.Pages.Text;
+using Wpf.Ui.Violeta.Gallery.Pages.TextDisplay;
+using Wpf.Ui.Violeta.Gallery.Pages.TextInput;
 using Wpf.Ui.Violeta.Gallery.Pages.Windows;
 using Wpf.Ui.Violeta.Win32;
 
@@ -45,7 +53,22 @@ public partial class MainWindow : ShellWindow
         ["design/icons"] = static () => new IconsPage(),
         ["design/colors"] = static () => new ColorsPage(),
 
-        ["basic-input"] = static () => new BasicInputPage(),
+        // Group overview pages (by control family)
+        ["buttons"] = static () => new ButtonsPage(),
+        ["selection"] = static () => new SelectionPage(),
+        ["sliders"] = static () => new SlidersPage(),
+        ["number-input"] = static () => new NumberInputPage(),
+        ["text-input"] = static () => new TextInputPage(),
+        ["text-display"] = static () => new TextDisplayPage(),
+        ["combo-box"] = static () => new ComboBoxesPage(),
+        ["pickers"] = static () => new PickersPage(),
+
+        // Legacy group tags → new overview pages
+        ["basic-input"] = static () => new ButtonsPage(),
+        ["text"] = static () => new TextInputPage(),
+        ["selectors"] = static () => new ComboBoxesPage(),
+        ["date-time"] = static () => new PickersPage(),
+
         ["basic-input/button"] = static () => new ButtonPage(),
         ["basic-input/drop-down-button"] = static () => new DropDownButtonPage(),
         ["basic-input/hyperlink-button"] = static () => new HyperlinkButtonPage(),
@@ -68,7 +91,6 @@ public partial class MainWindow : ShellWindow
         ["basic-input/ipv4-box"] = static () => new IPv4BoxPage(),
         ["basic-input/ipv4-port-box"] = static () => new IPv4PortBoxPage(),
 
-        ["text"] = static () => new TextPage(),
         ["text/textbox"] = static () => new TextBoxPage(),
         ["text/auto-suggest-box"] = static () => new AutoSuggestBoxPage(),
         ["text/number-box"] = static () => new NumberBoxPage(),
@@ -80,7 +102,6 @@ public partial class MainWindow : ShellWindow
         ["text/hyperlink"] = static () => new HyperlinkPage(),
         ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
 
-        ["selectors"] = static () => new SelectorsPage(),
         ["selectors/multi-combo-box"] = static () => new MultiComboBoxPage(),
         ["selectors/cascading-combo-box"] = static () => new CascadingComboBoxPage(),
         ["selectors/tag-combo-box"] = static () => new TagComboBoxPage(),
@@ -90,7 +111,6 @@ public partial class MainWindow : ShellWindow
 
         ["tag-input"] = static () => new TagInputPage(),
 
-        ["date-time"] = static () => new DateTimePage(),
         ["date-time/date-picker"] = static () => new DatePickerPage(),
         ["date-time/time-picker"] = static () => new TimePickerPage(),
         ["date-time/calendar-date-picker"] = static () => new CalendarDatePickerPage(),

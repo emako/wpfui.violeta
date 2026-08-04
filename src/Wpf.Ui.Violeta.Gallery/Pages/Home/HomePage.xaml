@@ -33,7 +33,7 @@
                     <TextBlock
                         Margin="0,4,0,0"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="支持 .NET Framework 4.6.2 至 .NET 10，深色 / 浅色主题。左侧按分组浏览全部示例。" />
+                        Text="支持 .NET Framework 4.6.2 至 .NET 10，深色 / 浅色主题。左侧按控件类型分组浏览全部示例。" />
                 </StackPanel>
             </Border>
 
@@ -45,12 +45,15 @@
             <WrapPanel>
                 <ctrl:SampleCard Width="260" Title="设计指南" Description="Typography、Icons、Colors" Glyph="&#xE790;" NavigateTag="design" />
                 <ctrl:SampleCard Width="260" Title="全部示例" Description="按分组浏览所有控件" Glyph="&#xEA37;" NavigateTag="all" />
-                <ctrl:SampleCard Width="260" Title="基础输入" Description="LoadingButton、ToggleSwitch、PinCode、IPv4Box 等" Glyph="&#xE73E;" NavigateTag="basic-input" />
-                <ctrl:SampleCard Width="260" Title="文本" Description="TextBox、SelectableTextBlock、Hyperlink" Glyph="&#xE8D2;" NavigateTag="text" />
-                <ctrl:SampleCard Width="260" Title="选择器" Description="MultiComboBox、CascadingComboBox、ValuePicker" Glyph="&#xE8B7;" NavigateTag="selectors" />
-                <ctrl:SampleCard Width="260" Title="标签输入" Description="TagInput 标签芯片输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
-                <ctrl:SampleCard Width="260" Title="日期与时间" Description="DatePicker、TimePicker、Calendar、TimeBox" Glyph="&#xE787;" NavigateTag="date-time" />
-                <ctrl:SampleCard Width="260" Title="对话框与浮出" Description="ContentDialog、MessageBox、Flyout、FluentPopup" Glyph="&#xE8BD;" NavigateTag="dialogs" />
+                <ctrl:SampleCard Width="260" Title="按钮" Description="Button、SplitButton、LoadingButton 等" Glyph="&#xE73E;" NavigateTag="buttons" />
+                <ctrl:SampleCard Width="260" Title="选择开关" Description="CheckBox、RadioButton、ToggleSwitch、Rating" Glyph="&#xE739;" NavigateTag="selection" />
+                <ctrl:SampleCard Width="260" Title="滑块" Description="Slider、RangeSlider" Glyph="&#xE76B;" NavigateTag="sliders" />
+                <ctrl:SampleCard Width="260" Title="数值输入" Description="NumberBox、NumericUpDown、ButtonSpinner" Glyph="&#xE8EF;" NavigateTag="number-input" />
+                <ctrl:SampleCard Width="260" Title="文本输入" Description="TextBox、PasswordBox、PinCode、TagInput" Glyph="&#xE8D2;" NavigateTag="text-input" />
+                <ctrl:SampleCard Width="260" Title="文本显示" Description="Label、TextBlock、Hyperlink" Glyph="&#xE8C8;" NavigateTag="text-display" />
+                <ctrl:SampleCard Width="260" Title="ComboBox" Description="ComboBox、MultiComboBox、TreeComboBox" Glyph="&#xE70D;" NavigateTag="combo-box" />
+                <ctrl:SampleCard Width="260" Title="选择器" Description="DatePicker、ColorPicker、FilePicker" Glyph="&#xE8B7;" NavigateTag="pickers" />
+                <ctrl:SampleCard Width="260" Title="对话框与浮出" Description="ContentDialog、MessageBox、Flyout" Glyph="&#xE8BD;" NavigateTag="dialogs" />
                 <ctrl:SampleCard Width="260" Title="通知与横幅" Description="Toast、Banner、TrayIcon" Glyph="&#xEA0C;" NavigateTag="notifications" />
                 <ctrl:SampleCard Width="260" Title="集合" Description="DataGrid、TreeListView、FlipView、Timeline" Glyph="&#xE9D9;" NavigateTag="collections" />
                 <ctrl:SampleCard Width="260" Title="导航" Description="NavigationView、TabStrip、Anchor" Glyph="&#xE700;" NavigateTag="navigation" />
@@ -59,6 +62,7 @@
                 <ctrl:SampleCard Width="260" Title="媒体" Description="ImageView、PersonPicture、QrCode" Glyph="&#xE8B9;" NavigateTag="media" />
                 <ctrl:SampleCard Width="260" Title="反馈与动画" Description="RunningBlock、AsyncBox、Splash" Glyph="&#xE895;" NavigateTag="feedback" />
                 <ctrl:SampleCard Width="260" Title="窗口与外壳" Description="ShellWindow、TitleBar、Caption" Glyph="&#xE737;" NavigateTag="windows" />
+                <ctrl:SampleCard Width="260" Title="操作系统" Description="Clipboard" Glyph="&#xE770;" NavigateTag="op-system" />
                 <ctrl:SampleCard Width="260" Title="设置" Description="主题切换与关于信息" Glyph="&#xE713;" NavigateTag="settings" />
             </WrapPanel>
         </StackPanel>

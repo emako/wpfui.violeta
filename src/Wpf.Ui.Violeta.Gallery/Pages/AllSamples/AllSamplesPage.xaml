@@ -20,7 +20,7 @@
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="按分组浏览所有控件 Sample，点击卡片跳转。"
+                Text="按控件类型分组浏览所有 Sample，点击卡片跳转。"
                 TextWrapping="Wrap" />
 
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="设计指南" />
@@ -30,38 +30,54 @@
                 <ctrl:SampleCard Width="240" Title="Colors" Description="主题颜色" Glyph="&#xE790;" NavigateTag="design/colors" />
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="基础输入" />
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="按钮" />
             <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="Button" Description="按钮" Glyph="&#xE768;" NavigateTag="basic-input/button" />
                 <ctrl:SampleCard Width="240" Title="DropDownButton" Description="下拉按钮" Glyph="&#xE70D;" NavigateTag="basic-input/drop-down-button" />
                 <ctrl:SampleCard Width="240" Title="HyperlinkButton" Description="超链接按钮" Glyph="&#xE71B;" NavigateTag="basic-input/hyperlink-button" />
                 <ctrl:SampleCard Width="240" Title="ToggleButton" Description="切换按钮" Glyph="&#xE8FD;" NavigateTag="basic-input/toggle-button" />
-                <ctrl:SampleCard Width="240" Title="CheckBox" Description="复选框" Glyph="&#xE739;" NavigateTag="basic-input/check-box" />
-                <ctrl:SampleCard Width="240" Title="ComboBox" Description="下拉框" Glyph="&#xE8B7;" NavigateTag="basic-input/combo-box" />
-                <ctrl:SampleCard Width="240" Title="RadioButton" Description="单选按钮" Glyph="&#xE738;" NavigateTag="basic-input/radio-button" />
-                <ctrl:SampleCard Width="240" Title="Rating" Description="星级评分" Glyph="&#xE734;" NavigateTag="basic-input/rating" />
-                <ctrl:SampleCard Width="240" Title="ThumbRate" Description="赞踩评分" Glyph="&#xE8EC;" NavigateTag="basic-input/thumb-rate" />
                 <ctrl:SampleCard Width="240" Title="SplitButton" Description="拆分按钮" Glyph="&#xE768;" NavigateTag="basic-input/split-button" />
-                <ctrl:SampleCard Width="240" Title="Slider" Description="滑块" Glyph="&#xE76B;" NavigateTag="basic-input/slider" />
                 <ctrl:SampleCard Width="240" Title="LoadingButton" Description="加载按钮" Glyph="&#xE768;" NavigateTag="basic-input/loading-button" />
-                <ctrl:SampleCard Width="240" Title="ToggleSwitch" Description="开关" Glyph="&#xE9E9;" NavigateTag="basic-input/toggle-switch" />
-                <ctrl:SampleCard Width="240" Title="NumericUpDown" Description="数值微调" Glyph="&#xE8EF;" NavigateTag="basic-input/numeric-up-down" />
-                <ctrl:SampleCard Width="240" Title="ButtonSpinner" Description="旋转按钮" Glyph="&#xE74A;" NavigateTag="basic-input/button-spinner" />
-                <ctrl:SampleCard Width="240" Title="RangeSlider" Description="范围滑块" Glyph="&#xE9E9;" NavigateTag="basic-input/range-slider" />
-                <ctrl:SampleCard Width="240" Title="KeyGestureInput" Description="快捷键捕获" Glyph="&#xE765;" NavigateTag="basic-input/key-gesture-input" />
-                <ctrl:SampleCard Width="240" Title="PinCode" Description="验证码输入" Glyph="&#xE979;" NavigateTag="basic-input/pin-code" />
                 <ctrl:SampleCard Width="240" Title="ToggleButtonGroup" Description="互斥切换组" Glyph="&#xE8FD;" NavigateTag="basic-input/toggle-button-group" />
-                <ctrl:SampleCard Width="240" Title="IPv4Box" Description="IP 地址输入" Glyph="&#xE774;" NavigateTag="basic-input/ipv4-box" />
-                <ctrl:SampleCard Width="240" Title="IPv4PortBox" Description="IP+端口输入" Glyph="&#xE774;" NavigateTag="basic-input/ipv4-port-box" />
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="文本" />
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="选择开关" />
+            <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="CheckBox" Description="复选框" Glyph="&#xE739;" NavigateTag="basic-input/check-box" />
+                <ctrl:SampleCard Width="240" Title="RadioButton" Description="单选按钮" Glyph="&#xE738;" NavigateTag="basic-input/radio-button" />
+                <ctrl:SampleCard Width="240" Title="ToggleSwitch" Description="开关" Glyph="&#xE9E9;" NavigateTag="basic-input/toggle-switch" />
+                <ctrl:SampleCard Width="240" Title="Rating" Description="星级评分" Glyph="&#xE734;" NavigateTag="basic-input/rating" />
+                <ctrl:SampleCard Width="240" Title="ThumbRate" Description="赞踩评分" Glyph="&#xE8EC;" NavigateTag="basic-input/thumb-rate" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="滑块" />
+            <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="Slider" Description="滑块" Glyph="&#xE76B;" NavigateTag="basic-input/slider" />
+                <ctrl:SampleCard Width="240" Title="RangeSlider" Description="范围滑块" Glyph="&#xE9E9;" NavigateTag="basic-input/range-slider" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="数值输入" />
+            <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="NumberBox" Description="数字输入" Glyph="&#xE8EF;" NavigateTag="text/number-box" />
+                <ctrl:SampleCard Width="240" Title="NumericUpDown" Description="数值微调" Glyph="&#xE8EF;" NavigateTag="basic-input/numeric-up-down" />
+                <ctrl:SampleCard Width="240" Title="ButtonSpinner" Description="旋转按钮" Glyph="&#xE74A;" NavigateTag="basic-input/button-spinner" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="文本输入" />
             <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="TextBox" Description="文本框" Glyph="&#xE8D2;" NavigateTag="text/textbox" />
-                <ctrl:SampleCard Width="240" Title="AutoSuggestBox" Description="自动建议" Glyph="&#xE721;" NavigateTag="text/auto-suggest-box" />
-                <ctrl:SampleCard Width="240" Title="NumberBox" Description="数字输入" Glyph="&#xE8EF;" NavigateTag="text/number-box" />
                 <ctrl:SampleCard Width="240" Title="PasswordBox" Description="密码输入" Glyph="&#xE72E;" NavigateTag="text/password-box" />
                 <ctrl:SampleCard Width="240" Title="RichTextBox" Description="富文本" Glyph="&#xE8D2;" NavigateTag="text/rich-text-box" />
+                <ctrl:SampleCard Width="240" Title="AutoSuggestBox" Description="自动建议" Glyph="&#xE721;" NavigateTag="text/auto-suggest-box" />
+                <ctrl:SampleCard Width="240" Title="PinCode" Description="验证码输入" Glyph="&#xE979;" NavigateTag="basic-input/pin-code" />
+                <ctrl:SampleCard Width="240" Title="KeyGestureInput" Description="快捷键捕获" Glyph="&#xE765;" NavigateTag="basic-input/key-gesture-input" />
+                <ctrl:SampleCard Width="240" Title="IPv4Box" Description="IP 地址输入" Glyph="&#xE774;" NavigateTag="basic-input/ipv4-box" />
+                <ctrl:SampleCard Width="240" Title="IPv4PortBox" Description="IP+端口输入" Glyph="&#xE774;" NavigateTag="basic-input/ipv4-port-box" />
+                <ctrl:SampleCard Width="240" Title="TagInput" Description="标签输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="文本显示" />
+            <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="Label" Description="标签" Glyph="&#xE8D2;" NavigateTag="text/label" />
                 <ctrl:SampleCard Width="240" Title="TextBlock" Description="文本块" Glyph="&#xE8C8;" NavigateTag="text/text-block" />
                 <ctrl:SampleCard Width="240" Title="SelectableTextBlock" Description="可选中文本" Glyph="&#xE8C8;" NavigateTag="text/selectable-text-block" />
@@ -69,19 +85,19 @@
                 <ctrl:SampleCard Width="240" Title="BoolStateTextBlock" Description="布尔文本" Glyph="&#xE8D2;" NavigateTag="text/bool-state-text-block" />
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="选择器" />
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="ComboBox" />
             <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="ComboBox" Description="下拉框" Glyph="&#xE8B7;" NavigateTag="basic-input/combo-box" />
                 <ctrl:SampleCard Width="240" Title="MultiComboBox" Description="多选下拉" Glyph="&#xE8B7;" NavigateTag="selectors/multi-combo-box" />
                 <ctrl:SampleCard Width="240" Title="CascadingComboBox" Description="级联下拉" Glyph="&#xE8B7;" NavigateTag="selectors/cascading-combo-box" />
                 <ctrl:SampleCard Width="240" Title="TagComboBox" Description="标签下拉" Glyph="&#xE8EC;" NavigateTag="selectors/tag-combo-box" />
                 <ctrl:SampleCard Width="240" Title="TreeComboBox" Description="树形下拉" Glyph="&#xE8B7;" NavigateTag="selectors/tree-combo-box" />
-                <ctrl:SampleCard Width="240" Title="ValuePicker" Description="鼓轮选择" Glyph="&#xE76C;" NavigateTag="selectors/value-picker" />
-                <ctrl:SampleCard Width="240" Title="ColorPicker" Description="颜色选择器" Glyph="&#xE790;" NavigateTag="selectors/color-picker" />
-                <ctrl:SampleCard Width="240" Title="TagInput" Description="标签输入" Glyph="&#xE8EC;" NavigateTag="tag-input" />
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="日期与时间" />
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="选择器" />
             <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="ValuePicker" Description="鼓轮选择" Glyph="&#xE76C;" NavigateTag="selectors/value-picker" />
+                <ctrl:SampleCard Width="240" Title="ColorPicker" Description="颜色选择器" Glyph="&#xE790;" NavigateTag="selectors/color-picker" />
                 <ctrl:SampleCard Width="240" Title="DatePicker" Description="日期选择" Glyph="&#xE787;" NavigateTag="date-time/date-picker" />
                 <ctrl:SampleCard Width="240" Title="TimePicker" Description="时间选择" Glyph="&#xE823;" NavigateTag="date-time/time-picker" />
                 <ctrl:SampleCard Width="240" Title="CalendarDatePicker" Description="日历日期" Glyph="&#xE787;" NavigateTag="date-time/calendar-date-picker" />
@@ -89,6 +105,8 @@
                 <ctrl:SampleCard Width="240" Title="TimeBoxPicker" Description="鼓轮时间" Glyph="&#xE823;" NavigateTag="date-time/time-box-picker" />
                 <ctrl:SampleCard Width="240" Title="TimeBox" Description="分段时间输入" Glyph="&#xE823;" NavigateTag="date-time/time-box" />
                 <ctrl:SampleCard Width="240" Title="Calendar" Description="日历" Glyph="&#xE787;" NavigateTag="date-time/calendar" />
+                <ctrl:SampleCard Width="240" Title="FilePicker" Description="文件选择" Glyph="&#xE8E5;" NavigateTag="op-system/file-picker" />
+                <ctrl:SampleCard Width="240" Title="OpenFolderDialog" Description="文件夹选择" Glyph="&#xE8B7;" NavigateTag="dialogs/open-folder-dialog" />
             </WrapPanel>
 
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="对话框与浮出" />
@@ -99,7 +117,6 @@
                 <ctrl:SampleCard Width="240" Title="TaskDialog" Description="Win32 TaskDialog" Glyph="&#xE8BD;" NavigateTag="dialogs/task-dialog" />
                 <ctrl:SampleCard Width="240" Title="NativeMessageBox" Description="原生消息框" Glyph="&#xE8BD;" NavigateTag="dialogs/native-message-box" />
                 <ctrl:SampleCard Width="240" Title="CredentialDialog" Description="Windows 安全凭据" Glyph="&#xE72E;" NavigateTag="dialogs/credential-dialog" />
-                <ctrl:SampleCard Width="240" Title="OpenFolderDialog" Description="文件夹选择" Glyph="&#xE8B7;" NavigateTag="dialogs/open-folder-dialog" />
                 <ctrl:SampleCard Width="240" Title="Flyout" Description="浮出层" Glyph="&#xE8B7;" NavigateTag="dialogs/flyout" />
                 <ctrl:SampleCard Width="240" Title="FluentPopup" Description="Fluent 弹出" Glyph="&#xE8B7;" NavigateTag="dialogs/fluent-popup" />
                 <ctrl:SampleCard Width="240" Title="TeachingTip" Description="教学提示" Glyph="&#xE8BD;" NavigateTag="dialogs/teaching-tip" />
@@ -128,11 +145,11 @@
 
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="导航" />
             <WrapPanel Margin="0,0,0,16">
+                <ctrl:SampleCard Width="240" Title="NavigationView" Description="导航视图" Glyph="&#xE700;" NavigateTag="navigation/navigation-view" />
                 <ctrl:SampleCard Width="240" Title="BreadcrumbBar" Description="面包屑" Glyph="&#xE8B7;" NavigateTag="navigation/breadcrumb-bar" />
                 <ctrl:SampleCard Width="240" Title="Menu" Description="菜单" Glyph="&#xE700;" NavigateTag="navigation/menu" />
                 <ctrl:SampleCard Width="240" Title="TabControl" Description="选项卡" Glyph="&#xE8A5;" NavigateTag="navigation/tab-control" />
                 <ctrl:SampleCard Width="240" Title="TabView" Description="选项卡视图" Glyph="&#xE8A5;" NavigateTag="navigation/tab-view" />
-                <ctrl:SampleCard Width="240" Title="NavigationView" Description="导航视图" Glyph="&#xE700;" NavigateTag="navigation/navigation-view" />
                 <ctrl:SampleCard Width="240" Title="TabStrip" Description="标签栏" Glyph="&#xE8A5;" NavigateTag="navigation/tab-strip" />
                 <ctrl:SampleCard Width="240" Title="Anchor" Description="锚点导航" Glyph="&#xE71B;" NavigateTag="navigation/anchor" />
             </WrapPanel>
@@ -169,9 +186,9 @@
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="媒体" />
             <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="Image" Description="图片" Glyph="&#xE91B;" NavigateTag="media/image" />
+                <ctrl:SampleCard Width="240" Title="ImageView" Description="图片查看器" Glyph="&#xE91B;" NavigateTag="media/image-view" />
                 <ctrl:SampleCard Width="240" Title="Canvas" Description="画布" Glyph="&#xE790;" NavigateTag="media/canvas" />
                 <ctrl:SampleCard Width="240" Title="WebBrowser" Description="浏览器" Glyph="&#xE774;" NavigateTag="media/web-browser" />
-                <ctrl:SampleCard Width="240" Title="ImageView" Description="图片查看器" Glyph="&#xE91B;" NavigateTag="media/image-view" />
                 <ctrl:SampleCard Width="240" Title="PersonPicture" Description="人物头像" Glyph="&#xE77B;" NavigateTag="media/person-picture" />
                 <ctrl:SampleCard Width="240" Title="BitmapIcon" Description="位图图标" Glyph="&#xE8B9;" NavigateTag="media/bitmap-icon" />
                 <ctrl:SampleCard Width="240" Title="QrCode" Description="二维码" Glyph="&#xED14;" NavigateTag="media/qr-code" />
@@ -187,18 +204,17 @@
                 <ctrl:SampleCard Width="240" Title="ExceptionReport" Description="异常报告" Glyph="&#xE783;" NavigateTag="feedback/exception-report" />
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="操作系统" />
-            <WrapPanel Margin="0,0,0,16">
-                <ctrl:SampleCard Width="240" Title="Clipboard" Description="剪贴板" Glyph="&#xE77F;" NavigateTag="op-system/clipboard" />
-                <ctrl:SampleCard Width="240" Title="FilePicker" Description="文件选择" Glyph="&#xE8E5;" NavigateTag="op-system/file-picker" />
-            </WrapPanel>
-
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="窗口与外壳" />
-            <WrapPanel>
+            <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="ShellWindow" Description="外壳窗口" Glyph="&#xE8A7;" NavigateTag="windows/shell-window" />
                 <ctrl:SampleCard Width="240" Title="ContentWindow" Description="内容窗口" Glyph="&#xE8A5;" NavigateTag="windows/content-window" />
                 <ctrl:SampleCard Width="240" Title="TitleBar" Description="标题栏" Glyph="&#xE700;" NavigateTag="windows/title-bar" />
                 <ctrl:SampleCard Width="240" Title="CaptionButtonBar" Description="标题按钮栏" Glyph="&#xE8BB;" NavigateTag="windows/caption-button-bar" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="操作系统" />
+            <WrapPanel>
+                <ctrl:SampleCard Width="240" Title="Clipboard" Description="剪贴板" Glyph="&#xE77F;" NavigateTag="op-system/clipboard" />
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

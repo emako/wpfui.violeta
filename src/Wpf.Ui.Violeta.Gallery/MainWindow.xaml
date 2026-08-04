@@ -101,7 +101,7 @@
 
                 <vio:NavigationViewItemSeparator />
 
-                <vio:NavigationViewItem Content="基础输入" Tag="basic-input">
+                <vio:NavigationViewItem Content="按钮" Tag="buttons">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE73E;" />
                     </vio:NavigationViewItem.Icon>
@@ -110,36 +110,68 @@
                         <vio:NavigationViewItem Content="DropDownButton" Tag="basic-input/drop-down-button" />
                         <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
                         <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />
-                        <vio:NavigationViewItem Content="CheckBox" Tag="basic-input/check-box" />
-                        <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
-                        <vio:NavigationViewItem Content="RadioButton" Tag="basic-input/radio-button" />
-                        <vio:NavigationViewItem Content="Rating" Tag="basic-input/rating" />
-                        <vio:NavigationViewItem Content="ThumbRate" Tag="basic-input/thumb-rate" />
                         <vio:NavigationViewItem Content="SplitButton" Tag="basic-input/split-button" />
-                        <vio:NavigationViewItem Content="Slider" Tag="basic-input/slider" />
                         <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
-                        <vio:NavigationViewItem Content="ToggleSwitch" Tag="basic-input/toggle-switch" />
-                        <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
-                        <vio:NavigationViewItem Content="ButtonSpinner" Tag="basic-input/button-spinner" />
-                        <vio:NavigationViewItem Content="RangeSlider" Tag="basic-input/range-slider" />
-                        <vio:NavigationViewItem Content="KeyGestureInput" Tag="basic-input/key-gesture-input" />
-                        <vio:NavigationViewItem Content="PinCode" Tag="basic-input/pin-code" />
                         <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
-                        <vio:NavigationViewItem Content="IPv4Box" Tag="basic-input/ipv4-box" />
-                        <vio:NavigationViewItem Content="IPv4PortBox" Tag="basic-input/ipv4-port-box" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="文本" Tag="text">
+                <vio:NavigationViewItem Content="选择开关" Tag="selection">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE739;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="CheckBox" Tag="basic-input/check-box" />
+                        <vio:NavigationViewItem Content="RadioButton" Tag="basic-input/radio-button" />
+                        <vio:NavigationViewItem Content="ToggleSwitch" Tag="basic-input/toggle-switch" />
+                        <vio:NavigationViewItem Content="Rating" Tag="basic-input/rating" />
+                        <vio:NavigationViewItem Content="ThumbRate" Tag="basic-input/thumb-rate" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="滑块" Tag="sliders">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE76B;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="Slider" Tag="basic-input/slider" />
+                        <vio:NavigationViewItem Content="RangeSlider" Tag="basic-input/range-slider" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="数值输入" Tag="number-input">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8EF;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="NumberBox" Tag="text/number-box" />
+                        <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
+                        <vio:NavigationViewItem Content="ButtonSpinner" Tag="basic-input/button-spinner" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="文本输入" Tag="text-input">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8D2;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="TextBox" Tag="text/textbox" />
-                        <vio:NavigationViewItem Content="AutoSuggestBox" Tag="text/auto-suggest-box" />
-                        <vio:NavigationViewItem Content="NumberBox" Tag="text/number-box" />
                         <vio:NavigationViewItem Content="PasswordBox" Tag="text/password-box" />
                         <vio:NavigationViewItem Content="RichTextBox" Tag="text/rich-text-box" />
+                        <vio:NavigationViewItem Content="AutoSuggestBox" Tag="text/auto-suggest-box" />
+                        <vio:NavigationViewItem Content="PinCode" Tag="basic-input/pin-code" />
+                        <vio:NavigationViewItem Content="KeyGestureInput" Tag="basic-input/key-gesture-input" />
+                        <vio:NavigationViewItem Content="IPv4Box" Tag="basic-input/ipv4-box" />
+                        <vio:NavigationViewItem Content="IPv4PortBox" Tag="basic-input/ipv4-port-box" />
+                        <vio:NavigationViewItem Content="TagInput" Tag="tag-input" />
+                    </vio:NavigationViewItem.MenuItems>
+                </vio:NavigationViewItem>
+
+                <vio:NavigationViewItem Content="文本显示" Tag="text-display">
+                    <vio:NavigationViewItem.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
+                    </vio:NavigationViewItem.Icon>
+                    <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="Label" Tag="text/label" />
                         <vio:NavigationViewItem Content="TextBlock" Tag="text/text-block" />
                         <vio:NavigationViewItem Content="SelectableTextBlock" Tag="text/selectable-text-block" />
@@ -148,31 +180,26 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="选择器" Tag="selectors">
+                <vio:NavigationViewItem Content="ComboBox" Tag="combo-box">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE70D;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
                         <vio:NavigationViewItem Content="MultiComboBox" Tag="selectors/multi-combo-box" />
                         <vio:NavigationViewItem Content="CascadingComboBox" Tag="selectors/cascading-combo-box" />
                         <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />
                         <vio:NavigationViewItem Content="TreeComboBox" Tag="selectors/tree-combo-box" />
-                        <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
-                        <vio:NavigationViewItem Content="ColorPicker" Tag="selectors/color-picker" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="标签输入" Tag="tag-input">
+                <vio:NavigationViewItem Content="选择器" Tag="pickers">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8EC;" />
-                    </vio:NavigationViewItem.Icon>
-                </vio:NavigationViewItem>
-
-                <vio:NavigationViewItem Content="日期与时间" Tag="date-time">
-                    <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE787;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
+                        <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
+                        <vio:NavigationViewItem Content="ColorPicker" Tag="selectors/color-picker" />
                         <vio:NavigationViewItem Content="DatePicker" Tag="date-time/date-picker" />
                         <vio:NavigationViewItem Content="TimePicker" Tag="date-time/time-picker" />
                         <vio:NavigationViewItem Content="CalendarDatePicker" Tag="date-time/calendar-date-picker" />
@@ -180,6 +207,8 @@
                         <vio:NavigationViewItem Content="TimeBoxPicker" Tag="date-time/time-box-picker" />
                         <vio:NavigationViewItem Content="TimeBox" Tag="date-time/time-box" />
                         <vio:NavigationViewItem Content="Calendar" Tag="date-time/calendar" />
+                        <vio:NavigationViewItem Content="FilePicker" Tag="op-system/file-picker" />
+                        <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -194,7 +223,6 @@
                         <vio:NavigationViewItem Content="TaskDialog" Tag="dialogs/task-dialog" />
                         <vio:NavigationViewItem Content="NativeMessageBox" Tag="dialogs/native-message-box" />
                         <vio:NavigationViewItem Content="CredentialDialog" Tag="dialogs/credential-dialog" />
-                        <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
                         <vio:NavigationViewItem Content="Flyout" Tag="dialogs/flyout" />
                         <vio:NavigationViewItem Content="FluentPopup" Tag="dialogs/fluent-popup" />
                         <vio:NavigationViewItem Content="TeachingTip" Tag="dialogs/teaching-tip" />
@@ -329,7 +357,6 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="Clipboard" Tag="op-system/clipboard" />
-                        <vio:NavigationViewItem Content="FilePicker" Tag="op-system/file-picker" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
             </vio:NavigationView.MenuItems>
