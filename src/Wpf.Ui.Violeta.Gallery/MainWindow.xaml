@@ -81,7 +81,7 @@
                 <ui:AutoSuggestBox
                     x:Name="AutoSuggestBox"
                     AutomationProperties.AutomationId="NavigationAutoSuggestBox"
-                    PlaceholderText="Search">
+                    PlaceholderText="搜索...">
                     <ui:AutoSuggestBox.Icon>
                         <ui:IconSourceElement>
                             <ui:SymbolIconSource Symbol="Search24" />
@@ -284,6 +284,7 @@
                         <vio:NavigationViewItem Content="NavigationView" Tag="navigation/navigation-view" />
                         <vio:NavigationViewItem Content="BreadcrumbBar" Tag="navigation/breadcrumb-bar" />
                         <vio:NavigationViewItem Content="Menu" Tag="navigation/menu" />
+                        <vio:NavigationViewItem Content="ToolBar" Tag="navigation/tool-bar" />
                         <vio:NavigationViewItem Content="TabControl" Tag="navigation/tab-control" />
                         <vio:NavigationViewItem Content="TabView" Tag="navigation/tab-view" />
                         <vio:NavigationViewItem Content="TabStrip" Tag="navigation/tab-strip" />

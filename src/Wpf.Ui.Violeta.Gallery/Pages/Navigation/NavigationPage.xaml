@@ -17,6 +17,7 @@
             <WrapPanel>
                 <ctrl:SampleCard Width="260" Title="BreadcrumbBar" Description="面包屑导航" Glyph="&#xE8B7;" NavigateTag="navigation/breadcrumb-bar" />
                 <ctrl:SampleCard Width="260" Title="Menu" Description="菜单" Glyph="&#xE700;" NavigateTag="navigation/menu" />
+                <ctrl:SampleCard Width="260" Title="ToolBar" Description="工具栏" Glyph="&#xE70F;" NavigateTag="navigation/tool-bar" />
                 <ctrl:SampleCard Width="260" Title="TabControl" Description="选项卡控件" Glyph="&#xE8A5;" NavigateTag="navigation/tab-control" />
                 <ctrl:SampleCard Width="260" Title="TabView" Description="选项卡视图" Glyph="&#xE8A5;" NavigateTag="navigation/tab-view" />
                 <ctrl:SampleCard Width="260" Title="NavigationView" Description="侧边导航框架" Glyph="&#xE700;" NavigateTag="navigation/navigation-view" />

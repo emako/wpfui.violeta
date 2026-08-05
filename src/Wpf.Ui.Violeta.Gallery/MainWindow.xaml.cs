@@ -152,6 +152,7 @@ public partial class MainWindow : ShellWindow
         ["navigation/navigation-view"] = static () => new NavigationViewPage(),
         ["navigation/breadcrumb-bar"] = static () => new BreadcrumbBarPage(),
         ["navigation/menu"] = static () => new MenuPage(),
+        ["navigation/tool-bar"] = static () => new ToolBarPage(),
         ["navigation/tab-control"] = static () => new TabControlPage(),
         ["navigation/tab-view"] = static () => new TabViewPage(),
         ["navigation/tab-strip"] = static () => new TabStripPage(),

@@ -148,6 +148,7 @@
                 <ctrl:SampleCard Width="240" Title="NavigationView" Description="导航视图" Glyph="&#xE700;" NavigateTag="navigation/navigation-view" />
                 <ctrl:SampleCard Width="240" Title="BreadcrumbBar" Description="面包屑" Glyph="&#xE8B7;" NavigateTag="navigation/breadcrumb-bar" />
                 <ctrl:SampleCard Width="240" Title="Menu" Description="菜单" Glyph="&#xE700;" NavigateTag="navigation/menu" />
+                <ctrl:SampleCard Width="240" Title="ToolBar" Description="工具栏" Glyph="&#xE70F;" NavigateTag="navigation/tool-bar" />
                 <ctrl:SampleCard Width="240" Title="TabControl" Description="选项卡" Glyph="&#xE8A5;" NavigateTag="navigation/tab-control" />
                 <ctrl:SampleCard Width="240" Title="TabView" Description="选项卡视图" Glyph="&#xE8A5;" NavigateTag="navigation/tab-view" />
                 <ctrl:SampleCard Width="240" Title="TabStrip" Description="标签栏" Glyph="&#xE8A5;" NavigateTag="navigation/tab-strip" />
