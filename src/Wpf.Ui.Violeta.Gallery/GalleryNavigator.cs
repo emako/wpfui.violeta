@@ -1,4 +1,6 @@
 using System;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
@@ -9,5 +11,13 @@ public static class GalleryNavigator
 {
     public static Action<string?>? NavigateRequested { get; set; }
 
-    public static void Navigate(string tag) => NavigateRequested?.Invoke(tag);
+    public static ICommand NavigateCommand { get; } = new RelayCommand<string>(Navigate);
+
+    public static void Navigate(string? tag)
+    {
+        if (!string.IsNullOrWhiteSpace(tag))
+        {
+            NavigateRequested?.Invoke(tag);
+        }
+    }
 }
