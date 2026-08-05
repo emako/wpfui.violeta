@@ -47,4 +47,9 @@
         </Setter>
     </Style>
 
+    <Style
+        x:Key="ToolBarButtonStyle"
+        BasedOn="{StaticResource SimpleButtonStyle}"
+        TargetType="{x:Type Button}" />
+
 </ResourceDictionary>

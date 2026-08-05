@@ -19,8 +19,8 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TimeBox/TimeBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TimeBoxPicker/TimeBoxPicker.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Form/Form.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Button/Button.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Button/LoadingButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/LoadingButton/LoadingButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeModelListView/TreeModelListView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TreeListView/TreeListView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/NavigationView/NavigationView.xaml" />
