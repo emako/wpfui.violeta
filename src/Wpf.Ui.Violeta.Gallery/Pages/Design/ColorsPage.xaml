@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:ctrl="clr-namespace:Wpf.Ui.Violeta.Gallery.Controls"
     Title="Colors"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
