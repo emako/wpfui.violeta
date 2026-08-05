@@ -179,17 +179,94 @@
         </Setter>
     </Style>
 
-    <!--  NavigationViewPaneSearchButtonStyle  -->
+    <!--  NavigationViewPaneSearchButtonStyle: same layout math as PaneToggleButtonStyle  -->
     <Style x:Key="NavigationViewPaneSearchButtonStyle" TargetType="Button">
-        <Setter Property="FontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewToggleBorderThickness}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="{DynamicResource FluentSystemIcons}" />
+        <Setter Property="MinHeight" Value="{DynamicResource PaneToggleButtonHeight}" />
+        <Setter Property="MinWidth" Value="{DynamicResource PaneToggleButtonWidth}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource NavigationViewItemBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForeground}" />
-        <Setter Property="Content" Value="&#xE11A;" />
-        <Setter Property="MinHeight" Value="36" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="helpers:FocusVisualHelper.FocusVisualMargin" Value="-4,0" />
+        <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewToggleBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource NavigationViewItemButtonMargin}" />
+        <Setter Property="Content" Value="&#xF690;" />
         <Setter Property="helpers:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="helpers:FocusVisualHelper.FocusVisualMargin" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="LayoutRoot"
+                        Height="{TemplateBinding MinHeight}"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalAlignment="Stretch"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding helpers:ControlHelper.CornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <!--  Icon column width = MinWidth (PaneToggleButtonWidth), same as hamburger  -->
+                        <Border Width="{TemplateBinding MinWidth}">
+                            <ui:FontIcon
+                                x:Name="Icon"
+                                Width="16"
+                                Height="16"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Glyph="{TemplateBinding Content}"
+                                RenderTransformOrigin="0.5,0.5">
+                                <ui:FontIcon.RenderTransform>
+                                    <ScaleTransform x:Name="IconScaleTransform" ScaleX="1.0" ScaleY="1.0" />
+                                </ui:FontIcon.RenderTransform>
+                            </ui:FontIcon>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundPointerOver}" />
+                            <Setter TargetName="Icon" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundPressed}" />
+                            <Setter TargetName="Icon" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource NavigationViewButtonBackgroundDisabled}" />
+                            <Setter TargetName="Icon" Property="Foreground" Value="{DynamicResource NavigationViewButtonForegroundDisabled}" />
+                        </Trigger>
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="IconScaleTransform"
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                        From="1.0"
+                                        To="0.66"
+                                        Duration="0:0:0.08" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonUp">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="IconScaleTransform"
+                                        Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                                        From="0.66"
+                                        To="1.0"
+                                        Duration="0:0:0.08" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!--  NavigationBackButtonNormalStyle  -->
@@ -1515,7 +1592,9 @@
 
                                                 <Button
                                                     x:Name="PaneAutoSuggestButton"
-                                                    Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerPaneToggleButtonWidth}"
+                                                    MinWidth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerPaneToggleButtonWidth}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
                                                     Style="{DynamicResource NavigationViewPaneSearchButtonStyle}"
                                                     Visibility="Collapsed" />
                                             </Grid>

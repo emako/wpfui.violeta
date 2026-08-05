@@ -14,6 +14,12 @@
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <vio:ShellWindow.InputBindings>
+        <KeyBinding
+            Key="F"
+            Command="{Binding ElementName=AutoSuggestBox, Path=FocusCommand}"
+            Modifiers="Control" />
+    </vio:ShellWindow.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -71,6 +77,18 @@
             OpenPaneLength="260"
             PaneTitle="Violeta Gallery"
             SelectionChanged="GalleryNav_OnSelectionChanged">
+            <vio:NavigationView.AutoSuggestBox>
+                <ui:AutoSuggestBox
+                    x:Name="AutoSuggestBox"
+                    AutomationProperties.AutomationId="NavigationAutoSuggestBox"
+                    PlaceholderText="Search">
+                    <ui:AutoSuggestBox.Icon>
+                        <ui:IconSourceElement>
+                            <ui:SymbolIconSource Symbol="Search24" />
+                        </ui:IconSourceElement>
+                    </ui:AutoSuggestBox.Icon>
+                </ui:AutoSuggestBox>
+            </vio:NavigationView.AutoSuggestBox>
 
             <vio:NavigationView.MenuItems>
                 <vio:NavigationViewItem

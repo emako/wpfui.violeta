@@ -18,6 +18,10 @@ using System.Windows.Threading;
 using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
 using static Wpf.Ui.Violeta.Controls.Compat.ResourceAccessor;
+// Avoid `using Wpf.Ui.Controls` — it collides with System.Windows.Controls.Button/Grid/Border etc.
+using AutoSuggestBox = Wpf.Ui.Controls.AutoSuggestBox;
+using AutoSuggestBoxQuerySubmittedEventArgs = Wpf.Ui.Controls.AutoSuggestBoxQuerySubmittedEventArgs;
+using AutoSuggestBoxSuggestionChosenEventArgs = Wpf.Ui.Controls.AutoSuggestBoxSuggestionChosenEventArgs;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -287,6 +291,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
         // Pane footer items changed. This means we might need to reevaluate the pane layout.
         UpdatePaneLayout();
+        UpdateAutoSuggestBoxSuggestions();
     }
 
     void OnOverflowItemsSourceCollectionChanged(object? sender, object e)
@@ -3563,6 +3568,8 @@ public partial class NavigationView : ContentControl, IControlProtected
             }
             UpdatePaneLayout();
         }
+
+        UpdateAutoSuggestBoxSuggestions();
     }
 
     void OnSelectedItemPropertyChanged(DependencyPropertyChangedEventArgs args)
@@ -4298,18 +4305,22 @@ public partial class NavigationView : ContentControl, IControlProtected
         else if (property == MenuItemsSourceProperty)
         {
             UpdateRepeaterItemsSource(true /*forceSelectionModelUpdate*/);
+            UpdateAutoSuggestBoxSuggestions();
         }
         else if (property == MenuItemsProperty)
         {
             UpdateRepeaterItemsSource(true /*forceSelectionModelUpdate*/);
+            UpdateAutoSuggestBoxSuggestions();
         }
         else if (property == FooterMenuItemsSourceProperty)
         {
             UpdateFooterRepeaterItemsSource(true /*sourceCollectionReset*/, true /*sourceCollectionChanged*/);
+            UpdateAutoSuggestBoxSuggestions();
         }
         else if (property == FooterMenuItemsProperty)
         {
             UpdateFooterRepeaterItemsSource(true /*sourceCollectionReset*/, true /*sourceCollectionChanged*/);
+            UpdateAutoSuggestBoxSuggestions();
         }
         else if (property == PaneDisplayModeProperty)
         {
@@ -4353,6 +4364,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         else if (property == AutoSuggestBoxProperty)
         {
             InvalidateTopNavPrimaryLayout();
+            UpdateVisualState();
         }
         else if (property == SelectionFollowsFocusProperty)
         {
@@ -4454,6 +4466,186 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
         // Update pane buttons now since we the CompactPaneLength is actually known now.
         UpdatePaneButtonsWidths();
+        UpdateAutoSuggestBoxSuggestions();
+    }
+
+    void OnAutoSuggestBoxChanged(DependencyPropertyChangedEventArgs args)
+    {
+        if (args.OldValue is AutoSuggestBox oldBox)
+        {
+            oldBox.SuggestionChosen -= AutoSuggestBoxOnSuggestionChosen;
+            oldBox.QuerySubmitted -= AutoSuggestBoxOnQuerySubmitted;
+        }
+
+        if (args.NewValue is not AutoSuggestBox autoSuggestBox)
+        {
+            return;
+        }
+
+        autoSuggestBox.OriginalItemsSource = m_autoSuggestBoxItems;
+        autoSuggestBox.SuggestionChosen += AutoSuggestBoxOnSuggestionChosen;
+        autoSuggestBox.QuerySubmitted += AutoSuggestBoxOnQuerySubmitted;
+        UpdateAutoSuggestBoxSuggestions();
+    }
+
+    void UpdateAutoSuggestBoxSuggestions()
+    {
+        if (AutoSuggestBox is null)
+        {
+            return;
+        }
+
+        m_autoSuggestBoxItems.Clear();
+        AddItemsToAutoSuggestBoxItems(MenuItems);
+        AddItemsToAutoSuggestBoxItems(FooterMenuItems);
+    }
+
+    void AddItemsToAutoSuggestBoxItems(IEnumerable? list)
+    {
+        if (list is null)
+        {
+            return;
+        }
+
+        foreach (var obj in list)
+        {
+            if (obj is not NavigationViewItem item)
+            {
+                continue;
+            }
+
+            // Prefer navigable entries (Tag set), matching Wpf.Ui's TargetPageType filter.
+            if (item is { Content: string content, Tag: not null } && !string.IsNullOrWhiteSpace(content))
+            {
+                m_autoSuggestBoxItems.Add(content);
+            }
+
+            if (item.MenuItems is { Count: > 0 })
+            {
+                AddItemsToAutoSuggestBoxItems(item.MenuItems);
+            }
+        }
+    }
+
+    void AutoSuggestBoxOnSuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+    {
+        if (sender.IsSuggestionListOpen)
+        {
+            return;
+        }
+
+        if (args.SelectedItem is not string selectedSuggestBoxItem)
+        {
+            return;
+        }
+
+        if (NavigateToMenuItemFromAutoSuggestBox(MenuItems, selectedSuggestBoxItem))
+        {
+            return;
+        }
+
+        _ = NavigateToMenuItemFromAutoSuggestBox(FooterMenuItems, selectedSuggestBoxItem);
+    }
+
+    void AutoSuggestBoxOnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        var suggestions = new List<string>();
+        var querySplit = args.QueryText.Split(' ');
+
+        foreach (var item in m_autoSuggestBoxItems)
+        {
+            var isMatch = true;
+
+            foreach (var queryToken in querySplit)
+            {
+                if (item.IndexOf(queryToken, StringComparison.CurrentCultureIgnoreCase) < 0)
+                {
+                    isMatch = false;
+                    break;
+                }
+            }
+
+            if (isMatch)
+            {
+                suggestions.Add(item);
+            }
+        }
+
+        if (suggestions.Count <= 0)
+        {
+            return;
+        }
+
+        var element = suggestions[0];
+
+        if (NavigateToMenuItemFromAutoSuggestBox(MenuItems, element))
+        {
+            return;
+        }
+
+        _ = NavigateToMenuItemFromAutoSuggestBox(FooterMenuItems, element);
+    }
+
+    bool NavigateToMenuItemFromAutoSuggestBox(IEnumerable? list, string selectedSuggestBoxItem)
+    {
+        if (list is null)
+        {
+            return false;
+        }
+
+        foreach (var obj in list)
+        {
+            if (obj is not NavigationViewItem item)
+            {
+                continue;
+            }
+
+            if (item.Content is string content && content == selectedSuggestBoxItem)
+            {
+                ExpandParentItems(MenuItems, item);
+                ExpandParentItems(FooterMenuItems, item);
+                SelectedItem = item;
+                item.BringIntoView();
+                _ = item.Focus();
+                return true;
+            }
+
+            if (NavigateToMenuItemFromAutoSuggestBox(item.MenuItems, selectedSuggestBoxItem))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    bool ExpandParentItems(IEnumerable? list, NavigationViewItem target)
+    {
+        if (list is null)
+        {
+            return false;
+        }
+
+        foreach (var obj in list)
+        {
+            if (obj is not NavigationViewItem item)
+            {
+                continue;
+            }
+
+            if (ReferenceEquals(item, target))
+            {
+                return true;
+            }
+
+            if (ExpandParentItems(item.MenuItems, target))
+            {
+                item.IsExpanded = true;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void OnIsPaneOpenChanged()
@@ -4764,6 +4956,12 @@ public partial class NavigationView : ContentControl, IControlProtected
                 if (m_paneToggleButton is { } toggleButton)
                 {
                     toggleButton.Width = togglePaneButtonWidth;
+                }
+
+                // Keep compact search icon button on the same width as the hamburger button.
+                if (m_paneSearchButton is { } searchButton)
+                {
+                    searchButton.Width = togglePaneButtonWidth;
                 }
             }
         }
@@ -5991,6 +6189,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private ContentControl m_leftNavPaneAutoSuggestBoxPresenter;
     private ContentControl m_topNavPaneAutoSuggestBoxPresenter;
+    private readonly List<string> m_autoSuggestBoxItems = new();
 
     private ContentControl m_leftNavPaneHeaderContentBorder;
     private ContentControl m_leftNavPaneCustomContentBorder;

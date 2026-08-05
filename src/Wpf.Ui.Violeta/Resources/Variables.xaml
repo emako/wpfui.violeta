@@ -30,7 +30,7 @@
     <sys:Double x:Key="ContentDialogTitleMaxHeight">56</sys:Double>
 
     <!--  NavigationView  -->
-    <Thickness x:Key="NavigationViewAutoSuggestBoxMargin">16,0</Thickness>
+    <Thickness x:Key="NavigationViewAutoSuggestBoxMargin">4,0</Thickness>
     <Thickness x:Key="TopNavigationViewAutoSuggestBoxMargin">4,0</Thickness>
     <sys:Double x:Key="PaneToggleButtonHeight">36</sys:Double>
     <sys:Double x:Key="PaneToggleButtonWidth">40</sys:Double>

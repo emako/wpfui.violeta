@@ -3,10 +3,13 @@
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
+// Avoid `using Wpf.Ui.Controls` — collides with Compat.TypedEventHandler and WPF Button/Grid.
+using AutoSuggestBox = Wpf.Ui.Controls.AutoSuggestBox;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -499,17 +502,21 @@ partial class NavigationView
             nameof(AutoSuggestBox),
             typeof(AutoSuggestBox),
             typeof(NavigationView),
-            new PropertyMetadata(OnAutoSuggestBoxPropertyChanged));
+            new PropertyMetadata(null, OnAutoSuggestBoxPropertyChanged));
 
-    public AutoSuggestBox AutoSuggestBox
+    /// <summary>
+    /// Gets or sets a Wpf.Ui AutoSuggestBox to be displayed in the NavigationView.
+    /// </summary>
+    public AutoSuggestBox? AutoSuggestBox
     {
-        get => (AutoSuggestBox)GetValue(AutoSuggestBoxProperty);
+        get => (AutoSuggestBox?)GetValue(AutoSuggestBoxProperty);
         set => SetValue(AutoSuggestBoxProperty, value);
     }
 
     private static void OnAutoSuggestBoxPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
     {
         var owner = (NavigationView)sender;
+        owner.OnAutoSuggestBoxChanged(args);
         owner.PropertyChanged(args);
     }
 
@@ -604,8 +611,10 @@ partial class NavigationView
         ((NavigationView)sender).OnMenuItemContainerStyleSelectorPropertyChanged(args);
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private void OnMenuItemContainerStyleSelectorPropertyChanged(DependencyPropertyChangedEventArgs args)
     {
+        _ = args;
     }
 
     #endregion MenuItemContainerStyleSelector
