@@ -29,23 +29,37 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="标准 ToolBar" />
+                        Text="vio:ToolBar 溢出（Flyout）" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WPF ToolBar 使用 Wpf.Ui Fluent 样式（Button / ToggleButton / Separator）。"
+                        Text="拖动下方滑块缩小可用宽度。空间不足时项会移入 Compat Flyout（控件原样搬迁，不是 MenuItem）。"
                         TextWrapping="Wrap" />
-                    <ToolBarTray>
-                        <ToolBar>
-                            <Button Content="New" ToolTip="新建" />
-                            <Button Content="Open" ToolTip="打开" />
-                            <Button Content="Save" ToolTip="保存" />
+                    <Slider
+                        x:Name="OverflowWidthSlider"
+                        Margin="0,0,0,12"
+                        Maximum="560"
+                        Minimum="120"
+                        Value="280" />
+                    <Border
+                        Width="{Binding ElementName=OverflowWidthSlider, Path=Value}"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar>
+                            <Button Content="New" Style="{StaticResource ToolBarButtonStyle}" ToolTip="新建" />
+                            <Button Content="Open" Style="{StaticResource ToolBarButtonStyle}" ToolTip="打开" />
+                            <Button Content="Save" Style="{StaticResource ToolBarButtonStyle}" ToolTip="保存" />
                             <Separator />
-                            <Button Content="Cut" ToolTip="剪切" />
-                            <Button Content="Copy" ToolTip="复制" />
-                            <Button Content="Paste" ToolTip="粘贴" />
-                        </ToolBar>
-                    </ToolBarTray>
+                            <Button Content="Cut" Style="{StaticResource ToolBarButtonStyle}" ToolTip="剪切" />
+                            <Button Content="Copy" Style="{StaticResource ToolBarButtonStyle}" ToolTip="复制" />
+                            <Button Content="Paste" Style="{StaticResource ToolBarButtonStyle}" ToolTip="粘贴" />
+                            <Button Content="Undo" Style="{StaticResource ToolBarButtonStyle}" ToolTip="撤销" />
+                            <Button Content="Redo" Style="{StaticResource ToolBarButtonStyle}" ToolTip="重做" />
+                        </vio:ToolBar>
+                    </Border>
                 </StackPanel>
             </Border>
 
@@ -61,42 +75,126 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="图标按钮" />
+                        Text="OverflowMode：Always / Never / AsNeeded" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="配合 ui:SymbolIcon 展示图标工具栏，适合编辑器与文档应用。"
+                        Text="Help 始终进溢出；Save 永不溢出；其余按需挤出。"
                         TextWrapping="Wrap" />
-                    <ToolBarTray>
-                        <ToolBar>
-                            <Button ToolTip="新建">
+                    <Border
+                        Width="260"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar>
+                            <Button
+                                Content="Save"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                vio:ToolBar.OverflowMode="Never" />
+                            <Button Content="Open" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Cut" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Copy" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Paste" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button
+                                Content="Help"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                vio:ToolBar.OverflowMode="Always" />
+                        </vio:ToolBar>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ShowOverflowMenu = False" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="放不下的项仍会从主栏移除，但不显示溢出按钮 / Flyout。"
+                        TextWrapping="Wrap" />
+                    <Border
+                        Width="200"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar ShowOverflowMenu="False">
+                            <Button Content="One" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Two" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Three" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Four" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="Five" Style="{StaticResource ToolBarButtonStyle}" />
+                        </vio:ToolBar>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="图标按钮 + Flyout 溢出" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="溢出区仍是原来的 Button，图标与命令保持不变。"
+                        TextWrapping="Wrap" />
+                    <Border
+                        Width="220"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar>
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="新建">
                                 <ui:SymbolIcon Symbol="DocumentAdd24" />
                             </Button>
-                            <Button ToolTip="打开">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="打开">
                                 <ui:SymbolIcon Symbol="FolderOpen24" />
                             </Button>
-                            <Button ToolTip="保存">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="保存">
                                 <ui:SymbolIcon Symbol="Save24" />
                             </Button>
                             <Separator />
-                            <Button ToolTip="剪切">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="剪切">
                                 <ui:SymbolIcon Symbol="Cut24" />
                             </Button>
-                            <Button ToolTip="复制">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="复制">
                                 <ui:SymbolIcon Symbol="Copy24" />
                             </Button>
-                            <Button ToolTip="粘贴">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="粘贴">
                                 <ui:SymbolIcon Symbol="ClipboardPaste24" />
                             </Button>
-                            <Separator />
-                            <Button ToolTip="撤销">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="撤销">
                                 <ui:SymbolIcon Symbol="ArrowUndo24" />
                             </Button>
-                            <Button ToolTip="重做">
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="重做">
                                 <ui:SymbolIcon Symbol="ArrowRedo24" />
                             </Button>
-                        </ToolBar>
-                    </ToolBarTray>
+                        </vio:ToolBar>
+                    </Border>
                 </StackPanel>
             </Border>
 
@@ -112,116 +210,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ToggleButton 与混合控件" />
+                        Text="对比：系统 ToolBar" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="ToolBar 会自动应用 ToggleButton / CheckBox 样式，也可放入 ComboBox 等控件。"
-                        TextWrapping="Wrap" />
-                    <ToolBarTray>
-                        <ToolBar>
-                            <ToggleButton ToolTip="加粗">
-                                <ui:SymbolIcon Symbol="TextBold24" />
-                            </ToggleButton>
-                            <ToggleButton IsChecked="True" ToolTip="斜体">
-                                <ui:SymbolIcon Symbol="TextItalic24" />
-                            </ToggleButton>
-                            <ToggleButton ToolTip="下划线">
-                                <ui:SymbolIcon Symbol="TextUnderline24" />
-                            </ToggleButton>
-                            <Separator />
-                            <ComboBox
-                                Width="120"
-                                SelectedIndex="0"
-                                ToolTip="字号">
-                                <ComboBoxItem Content="12 pt" />
-                                <ComboBoxItem Content="14 pt" />
-                                <ComboBoxItem Content="16 pt" />
-                                <ComboBoxItem Content="18 pt" />
-                            </ComboBox>
-                            <Separator />
-                            <CheckBox Content="自动换行" IsChecked="True" />
-                        </ToolBar>
-                    </ToolBarTray>
-                </StackPanel>
-            </Border>
-
-            <Border
-                Margin="0,0,0,16"
-                Padding="20"
-                Background="{DynamicResource ControlFillColorSecondaryBrush}"
-                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="10">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,4"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="多行 ToolBarTray" />
-                    <TextBlock
-                        Margin="0,0,0,12"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="同一 Tray 可放置多条 ToolBar；Band / BandIndex 控制行与顺序。拖动手柄可重排（未锁定时）。"
-                        TextWrapping="Wrap" />
-                    <ToolBarTray>
-                        <ToolBar Band="0" Header="文件">
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <ui:SymbolIcon Margin="0,0,6,0" Symbol="DocumentAdd24" />
-                                    <TextBlock VerticalAlignment="Center" Text="新建" />
-                                </StackPanel>
-                            </Button>
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <ui:SymbolIcon Margin="0,0,6,0" Symbol="FolderOpen24" />
-                                    <TextBlock VerticalAlignment="Center" Text="打开" />
-                                </StackPanel>
-                            </Button>
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <ui:SymbolIcon Margin="0,0,6,0" Symbol="Save24" />
-                                    <TextBlock VerticalAlignment="Center" Text="保存" />
-                                </StackPanel>
-                            </Button>
-                        </ToolBar>
-                        <ToolBar Band="0" BandIndex="1" Header="编辑">
-                            <Button ToolTip="剪切">
-                                <ui:SymbolIcon Symbol="Cut24" />
-                            </Button>
-                            <Button ToolTip="复制">
-                                <ui:SymbolIcon Symbol="Copy24" />
-                            </Button>
-                            <Button ToolTip="粘贴">
-                                <ui:SymbolIcon Symbol="ClipboardPaste24" />
-                            </Button>
-                        </ToolBar>
-                        <ToolBar Band="1" Header="视图">
-                            <ToggleButton Content="标尺" />
-                            <ToggleButton Content="网格" IsChecked="True" />
-                            <ToggleButton Content="状态栏" IsChecked="True" />
-                        </ToolBar>
-                    </ToolBarTray>
-                </StackPanel>
-            </Border>
-
-            <Border
-                Margin="0,0,0,16"
-                Padding="20"
-                Background="{DynamicResource ControlFillColorSecondaryBrush}"
-                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="10">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,4"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="锁定与溢出" />
-                    <TextBlock
-                        Margin="0,0,0,12"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IsLocked 隐藏拖动手柄；宽度不足时右侧溢出按钮收纳多余项（缩小窗口宽度可观察）。"
+                        Text="WPF 内置 ToolBar + ToolBarTray（溢出仍为系统 Popup 面板，非 Violeta Flyout）。"
                         TextWrapping="Wrap" />
                     <ToolBarTray IsLocked="True">
                         <ToolBar Width="280">
@@ -233,8 +226,6 @@
                             <Button Content="Six" />
                             <Button Content="Seven" />
                             <Button Content="Eight" />
-                            <Button Content="Nine" />
-                            <Button Content="Ten" />
                         </ToolBar>
                     </ToolBarTray>
                 </StackPanel>
