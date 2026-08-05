@@ -7,6 +7,7 @@ using System.Windows.Media.Animation;
 
 namespace Wpf.Ui.Violeta.Controls;
 
+[Obsolete("Use FluentScrollViewer instead.")]
 public class SmoothScrollViewer : ScrollViewer
 {
     private double _totalVerticalOffset;
