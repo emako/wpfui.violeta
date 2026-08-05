@@ -33,6 +33,7 @@
             <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="按钮" />
             <WrapPanel Margin="0,0,0,16">
                 <ctrl:SampleCard Width="240" Title="Button" Description="按钮" Glyph="&#xE768;" NavigateTag="basic-input/button" />
+                <ctrl:SampleCard Width="240" Title="RepeatButton" Description="重复按钮" Glyph="&#xE768;" NavigateTag="basic-input/repeat-button" />
                 <ctrl:SampleCard Width="240" Title="DropDownButton" Description="下拉按钮" Glyph="&#xE70D;" NavigateTag="basic-input/drop-down-button" />
                 <ctrl:SampleCard Width="240" Title="HyperlinkButton" Description="超链接按钮" Glyph="&#xE71B;" NavigateTag="basic-input/hyperlink-button" />
                 <ctrl:SampleCard Width="240" Title="ToggleButton" Description="切换按钮" Glyph="&#xE8FD;" NavigateTag="basic-input/toggle-button" />

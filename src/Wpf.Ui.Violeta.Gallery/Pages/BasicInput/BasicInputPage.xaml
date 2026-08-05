@@ -31,6 +31,12 @@
                     NavigateTag="basic-input/button" />
                 <ctrl:SampleCard
                     Width="260"
+                    Title="RepeatButton"
+                    Description="重复按钮（按住连点）"
+                    Glyph="&#xE768;"
+                    NavigateTag="basic-input/repeat-button" />
+                <ctrl:SampleCard
+                    Width="260"
                     Title="DropDownButton"
                     Description="下拉按钮"
                     Glyph="&#xE70D;"

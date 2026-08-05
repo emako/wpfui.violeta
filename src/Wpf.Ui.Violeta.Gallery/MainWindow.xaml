@@ -125,6 +125,7 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="Button" Tag="basic-input/button" />
+                        <vio:NavigationViewItem Content="RepeatButton" Tag="basic-input/repeat-button" />
                         <vio:NavigationViewItem Content="DropDownButton" Tag="basic-input/drop-down-button" />
                         <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
                         <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />

@@ -70,6 +70,7 @@ public partial class MainWindow : ShellWindow
         ["date-time"] = static () => new PickersPage(),
 
         ["basic-input/button"] = static () => new ButtonPage(),
+        ["basic-input/repeat-button"] = static () => new RepeatButtonPage(),
         ["basic-input/drop-down-button"] = static () => new DropDownButtonPage(),
         ["basic-input/hyperlink-button"] = static () => new HyperlinkButtonPage(),
         ["basic-input/toggle-button"] = static () => new ToggleButtonPage(),

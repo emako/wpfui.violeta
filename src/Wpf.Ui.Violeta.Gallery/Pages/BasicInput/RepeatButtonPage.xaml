@@ -1,0 +1,204 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.RepeatButtonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="RepeatButton"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="RepeatButton" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="标准 RepeatButton" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="按住按钮会持续触发 Click。Wpf.Ui 通过 DefaultRepeatButtonStyle 提供 Fluent 外观。"
+                        TextWrapping="Wrap" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <RepeatButton
+                                x:Name="StandardRepeatButton"
+                                Click="StandardRepeatButton_OnClick"
+                                Content="按住累加" />
+                            <TextBlock
+                                x:Name="ClickCountText"
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="点击次数：0" />
+                        </StackPanel>
+                        <CheckBox
+                            Grid.Column="1"
+                            Checked="DisableRepeatButton_Checked"
+                            Content="Disable button"
+                            Unchecked="DisableRepeatButton_Unchecked" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Delay / Interval" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Delay 控制首次重复前的等待（毫秒），Interval 控制后续重复间隔。"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <RepeatButton
+                            Click="FastRepeatButton_OnClick"
+                            Content="快速（Delay=200, Interval=50）"
+                            Delay="200"
+                            Interval="50" />
+                        <RepeatButton
+                            Margin="12,0,0,0"
+                            Click="SlowRepeatButton_OnClick"
+                            Content="缓慢（Delay=1000, Interval=400）"
+                            Delay="1000"
+                            Interval="400" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="TimingClickCountText"
+                        Margin="0,12,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="快速：0　缓慢：0" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="增减计数器" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="典型用法：步进调节数值，类似 NumericUpDown / ScrollBar 内部按钮。"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <RepeatButton
+                            Width="40"
+                            Click="DecrementButton_OnClick"
+                            Content="−"
+                            Delay="400"
+                            Interval="80" />
+                        <TextBlock
+                            x:Name="CounterText"
+                            Width="64"
+                            Margin="8,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="0"
+                            TextAlignment="Center" />
+                        <RepeatButton
+                            Width="40"
+                            Click="IncrementButton_OnClick"
+                            Content="+"
+                            Delay="400"
+                            Interval="80" />
+                        <ui:Button
+                            Margin="16,0,0,0"
+                            Appearance="Secondary"
+                            Click="ResetCounter_OnClick"
+                            Content="重置" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="图标内容" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Content 可放入 SymbolIcon 等自定义内容。"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <RepeatButton
+                            Width="40"
+                            Height="32"
+                            Click="IconDecrement_OnClick"
+                            Delay="400"
+                            Interval="80"
+                            ToolTip="减小">
+                            <ui:SymbolIcon Symbol="Subtract24" />
+                        </RepeatButton>
+                        <TextBlock
+                            x:Name="IconCounterText"
+                            Width="64"
+                            Margin="8,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Text="0"
+                            TextAlignment="Center" />
+                        <RepeatButton
+                            Width="40"
+                            Height="32"
+                            Click="IconIncrement_OnClick"
+                            Delay="400"
+                            Interval="80"
+                            ToolTip="增大">
+                            <ui:SymbolIcon Symbol="Add24" />
+                        </RepeatButton>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>
