@@ -1,5 +1,7 @@
 using System.Windows;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 
@@ -15,26 +17,26 @@ public partial class CascadingComboBoxPage : Wpf.Ui.Violeta.Controls.Page
     {
         CascadingComboBoxDemo.ItemsSource = new ICascadingItem[]
         {
-            new CascadingItem("广东",
+            new CascadingItem(LangKeys.Sample_d4912425b4.Tr(),
             [
-                new CascadingItem("广州"),
-                new CascadingItem("深圳"),
-                new CascadingItem("东莞"),
-                new CascadingItem("佛山"),
+                new CascadingItem(LangKeys.Sample_7e040aa9cb.Tr()),
+                new CascadingItem(LangKeys.Sample_7a399889b9.Tr()),
+                new CascadingItem(LangKeys.Sample_027110256c.Tr()),
+                new CascadingItem(LangKeys.Sample_852861b891.Tr()),
             ]),
-            new CascadingItem("浙江",
+            new CascadingItem(LangKeys.Sample_a44dc3df64.Tr(),
             [
-                new CascadingItem("杭州"),
-                new CascadingItem("宁波"),
-                new CascadingItem("温州"),
-                new CascadingItem("嘉兴"),
+                new CascadingItem(LangKeys.Sample_69d6beffab.Tr()),
+                new CascadingItem(LangKeys.Sample_ed5a4dc733.Tr()),
+                new CascadingItem(LangKeys.Sample_71f38f399f.Tr()),
+                new CascadingItem(LangKeys.Sample_572fd7fd9c.Tr()),
             ]),
-            new CascadingItem("江苏",
+            new CascadingItem(LangKeys.Sample_2428ebeae7.Tr(),
             [
-                new CascadingItem("南京"),
-                new CascadingItem("苏州"),
-                new CascadingItem("无锡"),
-                new CascadingItem("常州"),
+                new CascadingItem(LangKeys.Sample_ad827c5906.Tr()),
+                new CascadingItem(LangKeys.Sample_995882b996.Tr()),
+                new CascadingItem(LangKeys.Sample_cc6b473b7e.Tr()),
+                new CascadingItem(LangKeys.Sample_880490aef6.Tr()),
             ]),
         };
     }

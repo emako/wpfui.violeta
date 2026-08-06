@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CachedImage"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="CachedImage — 缓存图片" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_7b88f14eae}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="基于 System.Windows.Controls.Image 的封装，通过 ImageUrl 加载并缓存网络图片。首次加载需要联网。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_51817fdf50}}"
                         TextWrapping="Wrap" />
                     <vio:CachedImage
                         Width="200"

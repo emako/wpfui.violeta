@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Border"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,7 +35,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="内容按圆角外边缘裁剪。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_08a6bfd44e}}" />
                     <WrapPanel>
                         <ui:Border
                             Width="90"
@@ -76,7 +77,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="无 Adapter 时内容可能盖住描边；Adapter 按内圆角裁剪。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_65c73cbf64}}" />
                     <WrapPanel>
                         <ui:Border
                             Width="120"

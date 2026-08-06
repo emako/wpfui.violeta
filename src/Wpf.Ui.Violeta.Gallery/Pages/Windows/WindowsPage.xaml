@@ -7,16 +7,17 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:gallery="clr-namespace:Wpf.Ui.Violeta.Gallery"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="窗口"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Sample_5e68f5916f}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="窗口" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_5e68f5916f}}" />
             <TextBlock
                 Margin="0,0,0,12"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="点击卡片进入对应控件演示页面。"
+                Text="{I18N {x:Static lang:LangKeys.Sample_ca4cd621e4}}"
                 TextWrapping="Wrap" />
             <WrapPanel>
                 <ui:CardAction
@@ -30,7 +31,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="ShellWindow" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Fluent 风格主窗口基类" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c86b1fc481}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -44,7 +45,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="ContentWindow" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="内容对话框式窗口" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_12f0e6842d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -58,7 +59,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="TitleBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="自定义标题栏" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_38d11a85f2}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -72,7 +73,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="CaptionButtonBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="最小化 / 最大化 / 关闭栏" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2e010513c1}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
             </WrapPanel>

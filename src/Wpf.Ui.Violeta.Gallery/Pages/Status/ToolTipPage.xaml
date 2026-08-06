@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ToolTip"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,20 +30,20 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="默认 ToolTip" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_822fb2cf0e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="悬停按钮查看提示。Violeta 还提供 Callout 风格 ToolTip 样式。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_02d9509b9b}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
-                            Content="悬停我"
-                            ToolTip="这是一条默认提示信息" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_6ef838110b}}"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_977acbe88d}}" />
                         <ui:Button
                             Margin="0,0,8,8"
-                            Content="较长提示"
-                            ToolTip="这是一条较长的提示文本，用于说明控件的用途与操作建议。" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d7362ceba9}}"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_68c7b5f75f}}" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

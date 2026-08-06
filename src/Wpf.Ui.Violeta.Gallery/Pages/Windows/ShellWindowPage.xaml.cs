@@ -1,6 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Windows;
 
@@ -22,7 +24,7 @@ public partial class ShellWindowPage : Wpf.Ui.Violeta.Controls.Page
             Owner = Window.GetWindow(this),
             Content = new TextBlock
             {
-                Text = "这是一个简单的 ShellWindow 演示窗口。",
+                Text = LangKeys.Sample_b51bf913f5.Tr(),
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 FontSize = 16,

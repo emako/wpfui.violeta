@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ToggleSwitch"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="带滑动动画的开关控件，支持拖拽、标题、On/Off 自定义内容。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3d4319582e}}" />
                     <ui:StackPanel Orientation="Vertical" Spacing="8">
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <TextBlock
@@ -73,7 +74,7 @@
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="OnOffContent" />
-                            <vio:ToggleSwitch OffContent="隐藏" OnContent="显示" />
+                            <vio:ToggleSwitch OffContent="{I18N {x:Static lang:LangKeys.Sample_dce5379cb9}}" OnContent="{I18N {x:Static lang:LangKeys.Sample_4d775d4cd7}}" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <TextBlock
@@ -90,7 +91,7 @@
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="Compact Right" />
                             <vio:ToggleSwitch
-                                Header="蓝牙"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_0a4e486218}}"
                                 IsOn="True"
                                 IsRightAlignedCompact="True" />
                         </ui:StackPanel>

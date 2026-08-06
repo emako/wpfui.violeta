@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="BusyMask"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -21,11 +22,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="Indicator — 指示器" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_fbefb6bac3}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可单独使用的忙碌指示动画。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1895d84b8a}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:Indicator Width="40" Height="40" Margin="0,0,16,0" />
                         <vio:Indicator Width="24" Height="24" Margin="0,0,16,0" IndicatorType="Ring" />
@@ -42,11 +43,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="BusyMask — 忙碌遮罩" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_a6d6c786e7}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="在内容上方覆盖忙碌状态，支持多种 IndicatorType。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_84acc30e7a}}"
                         TextWrapping="Wrap" />
                     <WrapPanel>
                         <vio:BusyMask

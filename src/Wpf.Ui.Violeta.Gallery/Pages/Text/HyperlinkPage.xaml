@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Hyperlink"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="使用 FluentHyperlinkStyle，点击时通过 RequestNavigate 打开链接。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_53ec492c1d}}" />
                     <TextBlock>
                         <Hyperlink
                             NavigateUri="https://github.com/lepoco/wpfui"
@@ -43,7 +44,7 @@
                         </Hyperlink>
                     </TextBlock>
                     <TextBlock Margin="0,12,0,0">
-                        <Run Text="也可内嵌在段落中：" />
+                        <Run Text="{I18N {x:Static lang:LangKeys.Sample_d04e2a27f3}}" />
                         <Hyperlink
                             NavigateUri="https://example.com"
                             RequestNavigate="Hyperlink_RequestNavigate"

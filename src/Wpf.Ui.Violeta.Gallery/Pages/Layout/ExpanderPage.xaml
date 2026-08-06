@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Expander"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,22 +30,22 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="默认 Expander" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2749822f6c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Violeta 提供 Fluent 风格的 Expander 样式增强。" />
-                    <Expander Header="展开查看更多内容" IsExpanded="True">
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9c3760d853}}" />
+                    <Expander Header="{I18N {x:Static lang:LangKeys.Sample_9ad3b66421}}" IsExpanded="True">
                         <TextBlock
                             Margin="0,8,0,0"
-                            Text="这里是 Expander 展开后的详细内容，可用于分组展示次要信息。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_3dc186229d}}"
                             TextWrapping="Wrap" />
                     </Expander>
-                    <Expander Margin="0,12,0,0" Header="另一个折叠面板">
+                    <Expander Margin="0,12,0,0" Header="{I18N {x:Static lang:LangKeys.Sample_28c448376e}}">
                         <StackPanel Margin="0,8,0,0">
-                            <TextBlock Text="选项 A" />
-                            <TextBlock Margin="0,4,0,0" Text="选项 B" />
-                            <TextBlock Margin="0,4,0,0" Text="选项 C" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_e04cead454}}" />
+                            <TextBlock Margin="0,4,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_d581ed5da9}}" />
+                            <TextBlock Margin="0,4,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_cbae0a2a40}}" />
                         </StackPanel>
                     </Expander>
                 </StackPanel>

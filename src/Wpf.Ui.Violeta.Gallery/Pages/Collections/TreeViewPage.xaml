@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TreeView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="TreeView 树形结构" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6ea44939b9}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="在 XAML 中静态定义层级节点，支持展开/折叠与拖放。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_12dac3eb3d}}" />
                     <TreeView AllowDrop="True" ScrollViewer.CanContentScroll="False">
                         <TreeViewItem
                             Header="Work Documents"

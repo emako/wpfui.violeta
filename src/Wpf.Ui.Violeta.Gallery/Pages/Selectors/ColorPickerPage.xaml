@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ColorPicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -27,7 +28,7 @@
                 <TextBlock
                     Margin="0,0,0,12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                    Text="Semi.Avalonia.ColorPicker 风格的光谱 / 调色板 / 分量编辑器，以及下拉 ColorPicker。"
+                    Text="{I18N {x:Static lang:LangKeys.Sample_91ae62d859}}"
                     TextWrapping="Wrap" />
 
                 <Border
@@ -144,7 +145,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         FontWeight="SemiBold"
-                        Text="可见性选项" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_37ee4cf592}}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleAccentColors"
                         Margin="0,0,0,8"

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="BreadcrumbBar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -46,11 +47,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="字符串路径" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fd10e00a5b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="ItemsSource 绑定字符串集合，展示层级导航路径。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b4080aa16b}}"
                         TextWrapping="Wrap" />
                     <ui:BreadcrumbBar x:Name="StringBreadcrumbBar" />
                 </StackPanel>
@@ -68,11 +69,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="自定义 ItemTemplate" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c0a63f52dd}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可通过 DataTemplate 自定义每一项的展示内容。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_075b8867a7}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="12">
                         <ui:BreadcrumbBar x:Name="FolderBreadcrumbBar">

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="AutoGrid"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,7 +35,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="按子元素顺序自动填充行列。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_375192376c}}" />
                     <ui:AutoGrid
                         ColumnCount="2"
                         RowCount="2"
@@ -59,7 +60,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ChildMargin 示例" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e3e9da1f11}}" />
                     <ui:AutoGrid
                         Margin="0,8,0,0"
                         ChildMargin="9"

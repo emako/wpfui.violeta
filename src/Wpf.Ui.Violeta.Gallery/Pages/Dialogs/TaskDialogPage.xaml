@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TaskDialog"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,74 +30,74 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Win32 TaskDialog，支持暗色主题、命令链接、单选、进度条与可展开信息。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5fb02eeebe}}" />
                     <TextBlock
                         Margin="0,0,0,8"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="主题" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Theme}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="跟随系统"
+                            Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_System}}"
                             Tag="System" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="深色"
+                            Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}"
                             Tag="Dark" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="浅色"
+                            Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Light}}"
                             Tag="Light" />
                     </WrapPanel>
                     <TextBlock
                         Margin="0,4,0,8"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="对话框" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_841028314f}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="信息"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}"
                             Tag="Information" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="警告"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}"
                             Tag="Warning" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="错误"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             Tag="Error" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="命令链接"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e620898657}}"
                             Tag="CommandLinks" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="可展开"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_49b4aa407b}}"
                             Tag="Expanded" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="单选"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_9fd1b7cb41}}"
                             Tag="Radio" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowTaskDialog_Click"
-                            Content="进度条"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e2e33e2c41}}"
                             Tag="Progress" />
                     </WrapPanel>
                     <TextBlock
                         x:Name="TaskDialogResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="结果：(等待操作)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e35e9417ad}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

@@ -1,5 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.BasicInput;
 
@@ -19,7 +21,7 @@ public partial class RepeatButtonPage : Wpf.Ui.Violeta.Controls.Page
     private void StandardRepeatButton_OnClick(object sender, RoutedEventArgs e)
     {
         _clickCount++;
-        ClickCountText.Text = $"点击次数：{_clickCount}";
+        ClickCountText.Text = LangKeys.Format_ClickCount.Tr(_clickCount);
     }
 
     private void DisableRepeatButton_Checked(object sender, RoutedEventArgs e) =>
@@ -41,7 +43,7 @@ public partial class RepeatButtonPage : Wpf.Ui.Violeta.Controls.Page
     }
 
     private void UpdateTimingText() =>
-        TimingClickCountText.Text = $"快速：{_fastClickCount}　缓慢：{_slowClickCount}";
+        TimingClickCountText.Text = LangKeys.Format_FastSlowClicks.Tr(_fastClickCount, _slowClickCount);
 
     private void IncrementButton_OnClick(object sender, RoutedEventArgs e)
     {

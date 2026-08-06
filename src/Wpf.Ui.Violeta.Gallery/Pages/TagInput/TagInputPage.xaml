@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TagInput"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,17 +30,17 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="输入文字后按 Enter 添加标签。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_04adfe2cf1}}" />
                     <vio:TagInput
                         x:Name="TagInputBasic"
                         MaxWidth="400"
                         HorizontalAlignment="Left"
-                        PlaceholderText="输入后按 Enter…" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_552b11b447}}" />
                     <TextBlock
                         x:Name="TagInputBasicResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="标签：(无)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ce8e73e55c}}" />
                 </StackPanel>
             </Border>
 
@@ -59,12 +60,12 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="支持逗号分隔，粘贴 a,b,c 可一次添加多个标签。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_059a49ce9e}}" />
                     <vio:TagInput
                         x:Name="TagInputSeparator"
                         MaxWidth="400"
                         HorizontalAlignment="Left"
-                        PlaceholderText="输入或粘贴逗号分隔内容…"
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_e9aca1a2c3}}"
                         Separator="," />
                 </StackPanel>
             </Border>
@@ -85,13 +86,13 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="最多允许 3 个标签。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8152222184}}" />
                     <vio:TagInput
                         x:Name="TagInputMaxCount"
                         MaxWidth="400"
                         HorizontalAlignment="Left"
                         MaxCount="3"
-                        PlaceholderText="最多 3 个标签…" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_b3cdee7277}}" />
                 </StackPanel>
             </Border>
 
@@ -111,19 +112,19 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="预填充标签，也演示禁用状态。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_afeec3c773}}" />
                     <vio:TagInput
                         x:Name="TagInputPrefilled"
                         MaxWidth="400"
                         Margin="0,0,0,8"
                         HorizontalAlignment="Left"
-                        PlaceholderText="输入后按 Enter…" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_552b11b447}}" />
                     <vio:TagInput
                         x:Name="TagInputDisabled"
                         MaxWidth="400"
                         HorizontalAlignment="Left"
                         IsEnabled="False"
-                        PlaceholderText="已禁用…" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_c36ec66db0}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

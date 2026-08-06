@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="BitmapIcon"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="BitmapIcon — 位图图标" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e3cda4ae4b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="使用位图作为图标内容，可开关单色渲染。命名空间为 ui:BitmapIcon。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6822dc757e}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <ui:BitmapIcon

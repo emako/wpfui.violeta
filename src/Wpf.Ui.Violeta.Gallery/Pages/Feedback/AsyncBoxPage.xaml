@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="AsyncBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="AsyncBox — 异步内容" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_236dc48e3d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="在独立 UI 线程异步渲染子内容，加载过程中可显示 Loading 视图。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8b64ac85c3}}"
                         TextWrapping="Wrap" />
                     <Border
                         MinHeight="80"
@@ -34,7 +35,7 @@
                         <vio:AsyncBox LoadingDelay="1" LoadingViewType="{x:Type vio:Loading}">
                             <TextBlock
                                 TextWrapping="Wrap"
-                                Text="这是 AsyncBox 演示内容。子内容在异步 UI 线程中创建，加载时可显示指示器。" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_caf2c2a52f}}" />
                         </vio:AsyncBox>
                     </Border>
                 </StackPanel>

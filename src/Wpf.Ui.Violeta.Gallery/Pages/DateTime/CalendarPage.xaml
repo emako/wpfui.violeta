@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Calendar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="日历与日期选择" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b51dfb4a52}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="标准 Calendar 与 DatePicker（CalendarDatePicker）。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fa9b11c609}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <Calendar />
                         <StackPanel VerticalAlignment="Top">

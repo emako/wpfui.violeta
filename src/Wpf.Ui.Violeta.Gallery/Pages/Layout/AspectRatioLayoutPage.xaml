@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="AspectRatioLayout"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,11 +31,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="按宽高比切换布局项" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_776feee78e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="调整宽高，观察不同 AspectRatioMode 的切换（tolerance=0.3）。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_47b666a05d}}" />
 
                     <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                         <TextBlock Width="56" VerticalAlignment="Center" Text="Width" />

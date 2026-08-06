@@ -58,6 +58,197 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Result: cached credential — user: {0}.
+        /// </summary>
+        internal static string Format_CachedCredential {
+            get {
+                return ResourceManager.GetString("Format_CachedCredential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click count: {0}.
+        /// </summary>
+        internal static string Format_ClickCount {
+            get {
+                return ResourceManager.GetString("Format_ClickCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  — {0}.
+        /// </summary>
+        internal static string Format_DashDetail {
+            get {
+                return ResourceManager.GetString("Format_DashDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: exception — {0}.
+        /// </summary>
+        internal static string Format_Exception {
+            get {
+                return ResourceManager.GetString("Format_Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast: {0}  Slow: {1}.
+        /// </summary>
+        internal static string Format_FastSlowClicks {
+            get {
+                return ResourceManager.GetString("Format_FastSlowClicks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: {0}.
+        /// </summary>
+        internal static string Format_Result {
+            get {
+                return ResourceManager.GetString("Format_Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: {0}{1}.
+        /// </summary>
+        internal static string Format_ResultDetail {
+            get {
+                return ResourceManager.GetString("Format_ResultDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved: {0}.
+        /// </summary>
+        internal static string Format_Saved {
+            get {
+                return ResourceManager.GetString("Format_Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: saved credential — user: {0}.
+        /// </summary>
+        internal static string Format_SavedCredential {
+            get {
+                return ResourceManager.GetString("Format_SavedCredential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected: {0}.
+        /// </summary>
+        internal static string Format_Selected {
+            get {
+                return ResourceManager.GetString("Format_Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected {0} files:
+        ///{1}.
+        /// </summary>
+        internal static string Format_SelectedFiles {
+            get {
+                return ResourceManager.GetString("Format_SelectedFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: selected {0} folders — {1}.
+        /// </summary>
+        internal static string Format_SelectedFolders {
+            get {
+                return ResourceManager.GetString("Format_SelectedFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected:
+        ///{0}.
+        /// </summary>
+        internal static string Format_SelectedMultiline {
+            get {
+                return ResourceManager.GetString("Format_SelectedMultiline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme switched: {0}.
+        /// </summary>
+        internal static string Format_ThemeSwitched {
+            get {
+                return ResourceManager.GetString("Format_ThemeSwitched", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default toast ({0}).
+        /// </summary>
+        internal static string Format_ToastDefault {
+            get {
+                return ResourceManager.GetString("Format_ToastDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred ({0}).
+        /// </summary>
+        internal static string Format_ToastError {
+            get {
+                return ResourceManager.GetString("Format_ToastError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information toast ({0}).
+        /// </summary>
+        internal static string Format_ToastInfo {
+            get {
+                return ResourceManager.GetString("Format_ToastInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue the operation? ({0}).
+        /// </summary>
+        internal static string Format_ToastQuestion {
+            get {
+                return ResourceManager.GetString("Format_ToastQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success ({0}).
+        /// </summary>
+        internal static string Format_ToastSuccess {
+            get {
+                return ResourceManager.GetString("Format_ToastSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please note ({0}).
+        /// </summary>
+        internal static string Format_ToastWarning {
+            get {
+                return ResourceManager.GetString("Format_ToastWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: user: {0}, save checked: {1}.
+        /// </summary>
+        internal static string Format_UserSave {
+            get {
+                return ResourceManager.GetString("Format_UserSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.Violeta Gallery.
         /// </summary>
         internal static string Gallery_AppTitle {
@@ -693,6 +884,8472 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Gallery_Welcome {
             get {
                 return ResourceManager.GetString("Gallery_Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combo box.
+        /// </summary>
+        internal static string Sample_006ded9fa2 {
+            get {
+                return ResourceManager.GetString("Sample_006ded9fa2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toolbar.
+        /// </summary>
+        internal static string Sample_012f602372 {
+            get {
+                return ResourceManager.GetString("Sample_012f602372", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AutoSuggestBox — optional navigation search box.
+        /// </summary>
+        internal static string Sample_0144f29a17 {
+            get {
+                return ResourceManager.GetString("Sample_0144f29a17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: no saved credential found..
+        /// </summary>
+        internal static string Sample_015d3e62d9 {
+            get {
+                return ResourceManager.GetString("Sample_015d3e62d9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text input with clear button.
+        /// </summary>
+        internal static string Sample_018fe5a138 {
+            get {
+                return ResourceManager.GetString("Sample_018fe5a138", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tech stack.
+        /// </summary>
+        internal static string Sample_01a0213336 {
+            get {
+                return ResourceManager.GetString("Sample_01a0213336", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart.
+        /// </summary>
+        internal static string Sample_01b4e06f39 {
+            get {
+                return ResourceManager.GetString("Sample_01b4e06f39", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data grid.
+        /// </summary>
+        internal static string Sample_01c85e4961 {
+            get {
+                return ResourceManager.GetString("Sample_01c85e4961", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dongguan.
+        /// </summary>
+        internal static string Sample_027110256c {
+            get {
+                return ResourceManager.GetString("Sample_027110256c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-stacked notification 1.
+        /// </summary>
+        internal static string Sample_0288ddbb33 {
+            get {
+                return ResourceManager.GetString("Sample_0288ddbb33", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides minimize, maximize/restore, close, and optional help buttons. Styles follow the host window’s active state and control window chrome. Typically used inside TitleBar, or placed alone in a custom title area..
+        /// </summary>
+        internal static string Sample_029dbfb305 {
+            get {
+                return ResourceManager.GetString("Sample_029dbfb305", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time.
+        /// </summary>
+        internal static string Sample_02a1c9a056 {
+            get {
+                return ResourceManager.GetString("Sample_02a1c9a056", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hover the button to see the tip. Violeta also provides a Callout-style ToolTip..
+        /// </summary>
+        internal static string Sample_02d9509b9b {
+            get {
+                return ResourceManager.GetString("Sample_02d9509b9b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip.
+        /// </summary>
+        internal static string Sample_02d9819dda {
+            get {
+                return ResourceManager.GetString("Sample_02d9819dda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsEditable=True editable combo box..
+        /// </summary>
+        internal static string Sample_02ec1fa593 {
+            get {
+                return ResourceManager.GetString("Sample_02ec1fa593", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show clear button.
+        /// </summary>
+        internal static string Sample_03a0199535 {
+            get {
+                return ResourceManager.GetString("Sample_03a0199535", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show options as tags with search support..
+        /// </summary>
+        internal static string Sample_0442cbeedb {
+            get {
+                return ResourceManager.GetString("Sample_0442cbeedb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item B.
+        /// </summary>
+        internal static string Sample_048547bbb0 {
+            get {
+                return ResourceManager.GetString("Sample_048547bbb0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select province / city.
+        /// </summary>
+        internal static string Sample_04a8c85aef {
+            get {
+                return ResourceManager.GetString("Sample_04a8c85aef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type text and press Enter to add a tag..
+        /// </summary>
+        internal static string Sample_04adfe2cf1 {
+            get {
+                return ResourceManager.GetString("Sample_04adfe2cf1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase indent.
+        /// </summary>
+        internal static string Sample_051c56b123 {
+            get {
+                return ResourceManager.GetString("Sample_051c56b123", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password box.
+        /// </summary>
+        internal static string Sample_055293fb3c {
+            get {
+                return ResourceManager.GetString("Sample_055293fb3c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports comma separation; paste a,b,c to add multiple tags at once..
+        /// </summary>
+        internal static string Sample_059a49ce9e {
+            get {
+                return ResourceManager.GetString("Sample_059a49ce9e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutually exclusive RadioButton groups across containers..
+        /// </summary>
+        internal static string Sample_05b03511cb {
+            get {
+                return ResourceManager.GetString("Sample_05b03511cb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide 1 — Welcome to Violeta.
+        /// </summary>
+        internal static string Sample_05f27e568a {
+            get {
+                return ResourceManager.GetString("Sample_05f27e568a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clipboard.
+        /// </summary>
+        internal static string Sample_061b40d699 {
+            get {
+                return ResourceManager.GetString("Sample_061b40d699", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Gallery already uses NavigationView.
+        /// </summary>
+        internal static string Sample_064a169925 {
+            get {
+                return ResourceManager.GetString("Sample_064a169925", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info bar.
+        /// </summary>
+        internal static string Sample_0665c67a72 {
+            get {
+                return ResourceManager.GetString("Sample_0665c67a72", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to • PaneDisplayMode: Left / LeftMinimal / Top, etc., control how the pane expands..
+        /// </summary>
+        internal static string Sample_0674868522 {
+            get {
+                return ResourceManager.GetString("Sample_0674868522", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize each item’s presentation with DataTemplate..
+        /// </summary>
+        internal static string Sample_075b8867a7 {
+            get {
+                return ResourceManager.GetString("Sample_075b8867a7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stacking test.
+        /// </summary>
+        internal static string Sample_07a8b6d891 {
+            get {
+                return ResourceManager.GetString("Sample_07a8b6d891", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clips content to the rounded outer edge..
+        /// </summary>
+        internal static string Sample_08a6bfd44e {
+            get {
+                return ResourceManager.GetString("Sample_08a6bfd44e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter username.
+        /// </summary>
+        internal static string Sample_08b1fa1304 {
+            get {
+                return ResourceManager.GetString("Sample_08b1fa1304", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cherry.
+        /// </summary>
+        internal static string Sample_0905182530 {
+            get {
+                return ResourceManager.GetString("Sample_0905182530", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: {clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $.
+        /// </summary>
+        internal static string Sample_0909d6d4dd {
+            get {
+                return ResourceManager.GetString("Sample_0909d6d4dd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent indicator animation.
+        /// </summary>
+        internal static string Sample_09321a3297 {
+            get {
+                return ResourceManager.GetString("Sample_09321a3297", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Splash screen.
+        /// </summary>
+        internal static string Sample_0954ff825c {
+            get {
+                return ResourceManager.GetString("Sample_0954ff825c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag chip input.
+        /// </summary>
+        internal static string Sample_09e91c7b41 {
+            get {
+                return ResourceManager.GetString("Sample_09e91c7b41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rich text editing.
+        /// </summary>
+        internal static string Sample_09f3d0a727 {
+            get {
+                return ResourceManager.GetString("Sample_09f3d0a727", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bluetooth.
+        /// </summary>
+        internal static string Sample_0a4e486218 {
+            get {
+                return ResourceManager.GetString("Sample_0a4e486218", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increment/decrement counter.
+        /// </summary>
+        internal static string Sample_0aa6412b72 {
+            get {
+                return ResourceManager.GetString("Sample_0aa6412b72", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading data....
+        /// </summary>
+        internal static string Sample_0ac491da7b {
+            get {
+                return ResourceManager.GetString("Sample_0ac491da7b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Star rating control with half-star support..
+        /// </summary>
+        internal static string Sample_0acfecc954 {
+            get {
+                return ResourceManager.GetString("Sample_0acfecc954", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System tray icon.
+        /// </summary>
+        internal static string Sample_0b125f41f7 {
+            get {
+                return ResourceManager.GetString("Sample_0b125f41f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab indicator.
+        /// </summary>
+        internal static string Sample_0b66910aa9 {
+            get {
+                return ResourceManager.GetString("Sample_0b66910aa9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product specification picker.
+        /// </summary>
+        internal static string Sample_0b8aba3183 {
+            get {
+                return ResourceManager.GetString("Sample_0b8aba3183", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RichTextBox can edit content that includes.
+        /// </summary>
+        internal static string Sample_0b8cd339bb {
+            get {
+                return ResourceManager.GetString("Sample_0b8cd339bb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast: {_fastClickCount}　Slow: {_slowClickCount}.
+        /// </summary>
+        internal static string Sample_0ba1b99158 {
+            get {
+                return ResourceManager.GetString("Sample_0ba1b99158", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Center.
+        /// </summary>
+        internal static string Sample_0bbc2ea4e1 {
+            get {
+                return ResourceManager.GetString("Sample_0bbc2ea4e1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drag the slider below to shrink available width. Overflow items move into a Compat Flyout (controls relocated as-is, not as MenuItems)..
+        /// </summary>
+        internal static string Sample_0cfb5648d9 {
+            get {
+                return ResourceManager.GetString("Sample_0cfb5648d9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image control.
+        /// </summary>
+        internal static string Sample_0d19ffacd9 {
+            get {
+                return ResourceManager.GetString("Sample_0d19ffacd9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combines tree structure with a list view; expand/collapse and multi-column..
+        /// </summary>
+        internal static string Sample_0d838a9c7d {
+            get {
+                return ResourceManager.GetString("Sample_0d838a9c7d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete install.
+        /// </summary>
+        internal static string Sample_0dd1930c12 {
+            get {
+                return ResourceManager.GetString("Sample_0dd1930c12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification 2.
+        /// </summary>
+        internal static string Sample_0ea7e63346 {
+            get {
+                return ResourceManager.GetString("Sample_0ea7e63346", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes before closing?.
+        /// </summary>
+        internal static string Sample_0f5bb4f6e5 {
+            get {
+                return ResourceManager.GetString("Sample_0f5bb4f6e5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Menu + ui:MenuItem.
+        /// </summary>
+        internal static string Sample_0f69e5cbfd {
+            get {
+                return ResourceManager.GetString("Sample_0f69e5cbfd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 2.
+        /// </summary>
+        internal static string Sample_0fa99936c9 {
+            get {
+                return ResourceManager.GetString("Sample_0fa99936c9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This dialog demonstrates a marquee progress bar..
+        /// </summary>
+        internal static string Sample_10129a2fd7 {
+            get {
+                return ResourceManager.GetString("Sample_10129a2fd7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wang Fang.
+        /// </summary>
+        internal static string Sample_1039106987 {
+            get {
+                return ResourceManager.GetString("Sample_1039106987", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numeric spin input.
+        /// </summary>
+        internal static string Sample_10adc6be32 {
+            get {
+                return ResourceManager.GetString("Sample_10adc6be32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IPv4 address and port input.
+        /// </summary>
+        internal static string Sample_1125663605 {
+            get {
+                return ResourceManager.GetString("Sample_1125663605", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile development.
+        /// </summary>
+        internal static string Sample_11446c8fca {
+            get {
+                return ResourceManager.GetString("Sample_11446c8fca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: {dialog.SelectedPath}.
+        /// </summary>
+        internal static string Sample_11528c4f6c {
+            get {
+                return ResourceManager.GetString("Sample_11528c4f6c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an info notification ({location}).
+        /// </summary>
+        internal static string Sample_122bd04d19 {
+            get {
+                return ResourceManager.GetString("Sample_122bd04d19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK and close.
+        /// </summary>
+        internal static string Sample_12cd9a94dc {
+            get {
+                return ResourceManager.GetString("Sample_12cd9a94dc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statically define hierarchy nodes in XAML; supports expand/collapse and drag-and-drop..
+        /// </summary>
+        internal static string Sample_12dac3eb3d {
+            get {
+                return ResourceManager.GetString("Sample_12dac3eb3d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content dialog–style window.
+        /// </summary>
+        internal static string Sample_12f0e6842d {
+            get {
+                return ResourceManager.GetString("Sample_12f0e6842d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Senior engineer.
+        /// </summary>
+        internal static string Sample_132ab8784b {
+            get {
+                return ResourceManager.GetString("Sample_132ab8784b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retry.
+        /// </summary>
+        internal static string Sample_132c5cdcce {
+            get {
+                return ResourceManager.GetString("Sample_132c5cdcce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content window.
+        /// </summary>
+        internal static string Sample_139a5b0200 {
+            get {
+                return ResourceManager.GetString("Sample_139a5b0200", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dropdown input with search suggestions; supports icon, placeholder, and clear button..
+        /// </summary>
+        internal static string Sample_1441f7daa2 {
+            get {
+                return ResourceManager.GetString("Sample_1441f7daa2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag.
+        /// </summary>
+        internal static string Sample_14d342362f {
+            get {
+                return ResourceManager.GetString("Sample_14d342362f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IPv4 address + port.
+        /// </summary>
+        internal static string Sample_14ddc63d75 {
+            get {
+                return ResourceManager.GetString("Sample_14ddc63d75", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pagination — pagination control.
+        /// </summary>
+        internal static string Sample_1567bdcc25 {
+            get {
+                return ResourceManager.GetString("Sample_1567bdcc25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page 2 — Fluent Design.
+        /// </summary>
+        internal static string Sample_159c645f66 {
+            get {
+                return ResourceManager.GetString("Sample_159c645f66", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutually exclusive toggle group.
+        /// </summary>
+        internal static string Sample_15d3c2873a {
+            get {
+                return ResourceManager.GetString("Sample_15d3c2873a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags:.
+        /// </summary>
+        internal static string Sample_1655dd5f2c {
+            get {
+                return ResourceManager.GetString("Sample_1655dd5f2c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department manager.
+        /// </summary>
+        internal static string Sample_1697f28005 {
+            get {
+                return ResourceManager.GetString("Sample_1697f28005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WebBrowser (legacy).
+        /// </summary>
+        internal static string Sample_169a3677a7 {
+            get {
+                return ResourceManager.GetString("Sample_169a3677a7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breadcrumb.
+        /// </summary>
+        internal static string Sample_169b227aff {
+            get {
+                return ResourceManager.GetString("Sample_169b227aff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the button above to read.
+        /// </summary>
+        internal static string Sample_17073bf769 {
+            get {
+                return ResourceManager.GetString("Sample_17073bf769", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please note: this is a warning..
+        /// </summary>
+        internal static string Sample_17395556d2 {
+            get {
+                return ResourceManager.GetString("Sample_17395556d2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async wait dialog.
+        /// </summary>
+        internal static string Sample_17565d7913 {
+            get {
+                return ResourceManager.GetString("Sample_17565d7913", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows credential dialog based on CredUIPromptForWindowsCredentials; supports save password, cache, and Credential Manager I/O..
+        /// </summary>
+        internal static string Sample_1766a8666a {
+            get {
+                return ResourceManager.GetString("Sample_1766a8666a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please note the following.
+        /// </summary>
+        internal static string Sample_180108e19c {
+            get {
+                return ResourceManager.GetString("Sample_180108e19c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column separator.
+        /// </summary>
+        internal static string Sample_187f57d72d {
+            get {
+                return ResourceManager.GetString("Sample_187f57d72d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standalone busy-indicator animation..
+        /// </summary>
+        internal static string Sample_1895d84b8a {
+            get {
+                return ResourceManager.GetString("Sample_1895d84b8a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message box with icon; supports sync and async calls..
+        /// </summary>
+        internal static string Sample_18961e7e86 {
+            get {
+                return ResourceManager.GetString("Sample_18961e7e86", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string Sample_18c63459a2 {
+            get {
+                return ResourceManager.GetString("Sample_18c63459a2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark mode.
+        /// </summary>
+        internal static string Sample_18d1485cc2 {
+            get {
+                return ResourceManager.GetString("Sample_18d1485cc2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected {dialog.FileNames.Length} files:
+        ///{string.Join(.
+        /// </summary>
+        internal static string Sample_1941fbc74a {
+            get {
+                return ResourceManager.GetString("Sample_1941fbc74a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receive email notifications.
+        /// </summary>
+        internal static string Sample_19b083f7cf {
+            get {
+                return ResourceManager.GetString("Sample_19b083f7cf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cached network image.
+        /// </summary>
+        internal static string Sample_19cec4bfa6 {
+            get {
+                return ResourceManager.GetString("Sample_19cec4bfa6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show tray balloon notification.
+        /// </summary>
+        internal static string Sample_1b0e13a022 {
+            get {
+                return ResourceManager.GetString("Sample_1b0e13a022", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon / Value / Dot styles with different Severity colors..
+        /// </summary>
+        internal static string Sample_1b3d9c6919 {
+            get {
+                return ResourceManager.GetString("Sample_1b3d9c6919", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast: 0　Slow: 0.
+        /// </summary>
+        internal static string Sample_1b92ef7c71 {
+            get {
+                return ResourceManager.GetString("Sample_1b92ef7c71", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 24-hour clock.
+        /// </summary>
+        internal static string Sample_1ba133f7ff {
+            get {
+                return ResourceManager.GetString("Sample_1ba133f7ff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add .
+        /// </summary>
+        internal static string Sample_1bb125b89c {
+            get {
+                return ResourceManager.GetString("Sample_1bb125b89c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiselect = true allows selecting multiple files..
+        /// </summary>
+        internal static string Sample_1c91fe2647 {
+            get {
+                return ResourceManager.GetString("Sample_1c91fe2647", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hold to increment.
+        /// </summary>
+        internal static string Sample_1cae9c41d8 {
+            get {
+                return ResourceManager.GetString("Sample_1cae9c41d8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard WPF password box..
+        /// </summary>
+        internal static string Sample_1cf6f5930e {
+            get {
+                return ResourceManager.GetString("Sample_1cf6f5930e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ○ Inactive.
+        /// </summary>
+        internal static string Sample_1cf87f2966 {
+            get {
+                return ResourceManager.GetString("Sample_1cf87f2966", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Embedded Microsoft Edge (Chromium) browser opening the Fluent UI Storybook..
+        /// </summary>
+        internal static string Sample_1cf96448cf {
+            get {
+                return ResourceManager.GetString("Sample_1cf96448cf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotkey recording.
+        /// </summary>
+        internal static string Sample_1dc0650f80 {
+            get {
+                return ResourceManager.GetString("Sample_1dc0650f80", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section 4. Keep scrolling to watch highlight changes..
+        /// </summary>
+        internal static string Sample_1de8eaa668 {
+            get {
+                return ResourceManager.GetString("Sample_1de8eaa668", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department.
+        /// </summary>
+        internal static string Sample_1e1459eeed {
+            get {
+                return ResourceManager.GetString("Sample_1e1459eeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContentWindow inherits from ShellWindow, hosts custom content via ContentWindowControl, and returns ContentWindowResult (OK / Cancel, etc.). Use it when you need a separate window instead of a ContentDialog..
+        /// </summary>
+        internal static string Sample_1e4f285714 {
+            get {
+                return ResourceManager.GetString("Sample_1e4f285714", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast (Delay=200, Interval=50).
+        /// </summary>
+        internal static string Sample_1e4fcf41ba {
+            get {
+                return ResourceManager.GetString("Sample_1e4fcf41ba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic control for read-only text..
+        /// </summary>
+        internal static string Sample_1e5753e63a {
+            get {
+                return ResourceManager.GetString("Sample_1e5753e63a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Core features merged.
+        /// </summary>
+        internal static string Sample_1ec0c7b465 {
+            get {
+                return ResourceManager.GetString("Sample_1ec0c7b465", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attach InfoBadge to NavigationViewItem for unread counts or status..
+        /// </summary>
+        internal static string Sample_1eda6db667 {
+            get {
+                return ResourceManager.GetString("Sample_1eda6db667", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase.
+        /// </summary>
+        internal static string Sample_1ef6e720b3 {
+            get {
+                return ResourceManager.GetString("Sample_1ef6e720b3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slow (Delay=1000, Interval=400).
+        /// </summary>
+        internal static string Sample_1efa490383 {
+            get {
+                return ResourceManager.GetString("Sample_1efa490383", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 8.
+        /// </summary>
+        internal static string Sample_1f7768a40c {
+            get {
+                return ResourceManager.GetString("Sample_1f7768a40c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wpf.Ui TextBox with placeholder and clear button support..
+        /// </summary>
+        internal static string Sample_1f9d2d95b3 {
+            get {
+                return ResourceManager.GetString("Sample_1f9d2d95b3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grouped display using GroupStyle..
+        /// </summary>
+        internal static string Sample_200bb8cedf {
+            get {
+                return ResourceManager.GetString("Sample_200bb8cedf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skeleton.
+        /// </summary>
+        internal static string Sample_20697811d9 {
+            get {
+                return ResourceManager.GetString("Sample_20697811d9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shell window.
+        /// </summary>
+        internal static string Sample_20cc997916 {
+            get {
+                return ResourceManager.GetString("Sample_20cc997916", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string Sample_20def79426 {
+            get {
+                return ResourceManager.GetString("Sample_20def79426", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List box.
+        /// </summary>
+        internal static string Sample_212779d466 {
+            get {
+                return ResourceManager.GetString("Sample_212779d466", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to • IsPaneOpen / IsBackEnabled: control pane open state and the back button..
+        /// </summary>
+        internal static string Sample_222c7173fa {
+            get {
+                return ResourceManager.GetString("Sample_222c7173fa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design.fig.
+        /// </summary>
+        internal static string Sample_22554bfe34 {
+            get {
+                return ResourceManager.GetString("Sample_22554bfe34", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        internal static string Sample_226b091218 {
+            get {
+                return ResourceManager.GetString("Sample_226b091218", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XAML declaration options.
+        /// </summary>
+        internal static string Sample_227045d271 {
+            get {
+                return ResourceManager.GetString("Sample_227045d271", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-select dropdown.
+        /// </summary>
+        internal static string Sample_22a638ef57 {
+            get {
+                return ResourceManager.GetString("Sample_22a638ef57", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR code.
+        /// </summary>
+        internal static string Sample_22b03c024d {
+            get {
+                return ResourceManager.GetString("Sample_22b03c024d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A critical error occurred.
+        /// </summary>
+        internal static string Sample_234601f1a4 {
+            get {
+                return ResourceManager.GetString("Sample_234601f1a4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enters a loading state for about 2 seconds, then recovers..
+        /// </summary>
+        internal static string Sample_23509bcfde {
+            get {
+                return ResourceManager.GetString("Sample_23509bcfde", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QrCode — QR code.
+        /// </summary>
+        internal static string Sample_23561a8205 {
+            get {
+                return ResourceManager.GetString("Sample_23561a8205", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AsyncBox — async content.
+        /// </summary>
+        internal static string Sample_236dc48e3d {
+            get {
+                return ResourceManager.GetString("Sample_236dc48e3d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard pagination; bind current page and total pages..
+        /// </summary>
+        internal static string Sample_23731d5885 {
+            get {
+                return ResourceManager.GetString("Sample_23731d5885", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification code input.
+        /// </summary>
+        internal static string Sample_241bd43b47 {
+            get {
+                return ResourceManager.GetString("Sample_241bd43b47", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jiangsu.
+        /// </summary>
+        internal static string Sample_2428ebeae7 {
+            get {
+                return ResourceManager.GetString("Sample_2428ebeae7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Side navigation frame.
+        /// </summary>
+        internal static string Sample_243750408b {
+            get {
+                return ResourceManager.GetString("Sample_243750408b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QueryChanged: (cleared).
+        /// </summary>
+        internal static string Sample_24a24070fd {
+            get {
+                return ResourceManager.GetString("Sample_24a24070fd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows security credential dialog.
+        /// </summary>
+        internal static string Sample_24be2656f9 {
+            get {
+                return ResourceManager.GetString("Sample_24be2656f9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start over.
+        /// </summary>
+        internal static string Sample_24dfe773c7 {
+            get {
+                return ResourceManager.GetString("Sample_24dfe773c7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Province / city cascade.
+        /// </summary>
+        internal static string Sample_251591221d {
+            get {
+                return ResourceManager.GetString("Sample_251591221d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drawer panel.
+        /// </summary>
+        internal static string Sample_2575be67fc {
+            get {
+                return ResourceManager.GetString("Sample_2575be67fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IPv4 address input.
+        /// </summary>
+        internal static string Sample_2599b75b66 {
+            get {
+                return ResourceManager.GetString("Sample_2599b75b66", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        internal static string Sample_262b0b07df {
+            get {
+                return ResourceManager.GetString("Sample_262b0b07df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample text for subsection 2.2..
+        /// </summary>
+        internal static string Sample_26ae404d23 {
+            get {
+                return ResourceManager.GetString("Sample_26ae404d23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        internal static string Sample_26bb841878 {
+            get {
+                return ResourceManager.GetString("Sample_26bb841878", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generates a QR code from text; adjust ECC level and corner radius..
+        /// </summary>
+        internal static string Sample_26cfbf3fb6 {
+            get {
+                return ResourceManager.GetString("Sample_26cfbf3fb6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Expander.
+        /// </summary>
+        internal static string Sample_2749822f6c {
+            get {
+                return ResourceManager.GetString("Sample_2749822f6c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info badge.
+        /// </summary>
+        internal static string Sample_27a4abbc1f {
+            get {
+                return ResourceManager.GetString("Sample_27a4abbc1f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        internal static string Sample_27ca568be2 {
+            get {
+                return ResourceManager.GetString("Sample_27ca568be2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery demo exception for previewing the ExceptionReport dialog..
+        /// </summary>
+        internal static string Sample_280b260594 {
+            get {
+                return ResourceManager.GetString("Sample_280b260594", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree model list view.
+        /// </summary>
+        internal static string Sample_28485a07e0 {
+            get {
+                return ResourceManager.GetString("Sample_28485a07e0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration highlights.
+        /// </summary>
+        internal static string Sample_285f2d65c2 {
+            get {
+                return ResourceManager.GetString("Sample_285f2d65c2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string Sample_288f0c404c {
+            get {
+                return ResourceManager.GetString("Sample_288f0c404c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress ring.
+        /// </summary>
+        internal static string Sample_28aa6906e9 {
+            get {
+                return ResourceManager.GetString("Sample_28aa6906e9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Another expander.
+        /// </summary>
+        internal static string Sample_28c448376e {
+            get {
+                return ResourceManager.GetString("Sample_28c448376e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NumericUpDown is an abstract base class; use a concrete type such as NumericIntUpDown..
+        /// </summary>
+        internal static string Sample_2904a01f72 {
+            get {
+                return ResourceManager.GetString("Sample_2904a01f72", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK / Cancel.
+        /// </summary>
+        internal static string Sample_299344c484 {
+            get {
+                return ResourceManager.GetString("Sample_299344c484", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v1.0 release.
+        /// </summary>
+        internal static string Sample_29df7ab4fb {
+            get {
+                return ResourceManager.GetString("Sample_29df7ab4fb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue the operation? ({location}).
+        /// </summary>
+        internal static string Sample_2a13a32110 {
+            get {
+                return ResourceManager.GetString("Sample_2a13a32110", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password input.
+        /// </summary>
+        internal static string Sample_2a3a9f88ca {
+            get {
+                return ResourceManager.GetString("Sample_2a3a9f88ca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TitleBar — custom title bar.
+        /// </summary>
+        internal static string Sample_2aa42f4250 {
+            get {
+                return ResourceManager.GetString("Sample_2aa42f4250", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UI review approved.
+        /// </summary>
+        internal static string Sample_2ac5ec7017 {
+            get {
+                return ResourceManager.GetString("Sample_2ac5ec7017", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skeleton — skeleton screen.
+        /// </summary>
+        internal static string Sample_2ad0b1dc17 {
+            get {
+                return ResourceManager.GetString("Sample_2ad0b1dc17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — warning.
+        /// </summary>
+        internal static string Sample_2b68259daf {
+            get {
+                return ResourceManager.GetString("Sample_2b68259daf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press a hotkey....
+        /// </summary>
+        internal static string Sample_2c06ec4e6e {
+            get {
+                return ResourceManager.GetString("Sample_2c06ec4e6e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: credential deleted..
+        /// </summary>
+        internal static string Sample_2c6ba0e39a {
+            get {
+                return ResourceManager.GetString("Sample_2c6ba0e39a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: exception — {ex.Message}.
+        /// </summary>
+        internal static string Sample_2c9b33f24f {
+            get {
+                return ResourceManager.GetString("Sample_2c9b33f24f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column 3.
+        /// </summary>
+        internal static string Sample_2cb11e9ebf {
+            get {
+                return ResourceManager.GetString("Sample_2cb11e9ebf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree combo.
+        /// </summary>
+        internal static string Sample_2ce70ecb55 {
+            get {
+                return ResourceManager.GetString("Sample_2ce70ecb55", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — error.
+        /// </summary>
+        internal static string Sample_2cf6355daa {
+            get {
+                return ResourceManager.GetString("Sample_2cf6355daa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content.
+        /// </summary>
+        internal static string Sample_2d711b09bd {
+            get {
+                return ResourceManager.GetString("Sample_2d711b09bd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selectable copyable text block.
+        /// </summary>
+        internal static string Sample_2d7c6130ac {
+            get {
+                return ResourceManager.GetString("Sample_2d7c6130ac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom-format time picker.
+        /// </summary>
+        internal static string Sample_2daf8c0856 {
+            get {
+                return ResourceManager.GetString("Sample_2daf8c0856", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System tray icon and menu.
+        /// </summary>
+        internal static string Sample_2de0bc06f2 {
+            get {
+                return ResourceManager.GetString("Sample_2de0bc06f2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wheel picker.
+        /// </summary>
+        internal static string Sample_2de3f7a95f {
+            get {
+                return ResourceManager.GetString("Sample_2de3f7a95f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label associated with TextBox.
+        /// </summary>
+        internal static string Sample_2df973d88f {
+            get {
+                return ResourceManager.GetString("Sample_2df973d88f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize / Maximize / Close bar.
+        /// </summary>
+        internal static string Sample_2e010513c1 {
+            get {
+                return ResourceManager.GetString("Sample_2e010513c1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred. Please try again later..
+        /// </summary>
+        internal static string Sample_2e087c1ba6 {
+            get {
+                return ResourceManager.GetString("Sample_2e087c1ba6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help always goes to overflow; Save never overflows; others spill as needed..
+        /// </summary>
+        internal static string Sample_2fb1383e61 {
+            get {
+                return ResourceManager.GetString("Sample_2fb1383e61", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White.
+        /// </summary>
+        internal static string Sample_2fc96b2704 {
+            get {
+                return ResourceManager.GetString("Sample_2fc96b2704", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhang Wei.
+        /// </summary>
+        internal static string Sample_305be79653 {
+            get {
+                return ResourceManager.GetString("Sample_305be79653", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banner — banner notification.
+        /// </summary>
+        internal static string Sample_30859ecb19 {
+            get {
+                return ResourceManager.GetString("Sample_30859ecb19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ● Active.
+        /// </summary>
+        internal static string Sample_308e3a15a2 {
+            get {
+                return ResourceManager.GetString("Sample_308e3a15a2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree view.
+        /// </summary>
+        internal static string Sample_30d8aa704d {
+            get {
+                return ResourceManager.GetString("Sample_30d8aa704d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard WPF Button control..
+        /// </summary>
+        internal static string Sample_30eed26e03 {
+            get {
+                return ResourceManager.GetString("Sample_30eed26e03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wpf.Ui PasswordBox with icon and placeholder support..
+        /// </summary>
+        internal static string Sample_318cab9dfe {
+            get {
+                return ResourceManager.GetString("Sample_318cab9dfe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF Menu with ui:MenuItem for Fluent icons and styling..
+        /// </summary>
+        internal static string Sample_31cf6f2636 {
+            get {
+                return ResourceManager.GetString("Sample_31cf6f2636", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Styled TextBlock.
+        /// </summary>
+        internal static string Sample_31d836ff42 {
+            get {
+                return ResourceManager.GetString("Sample_31d836ff42", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wang Wu.
+        /// </summary>
+        internal static string Sample_3228f322c9 {
+            get {
+                return ResourceManager.GetString("Sample_3228f322c9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find next.
+        /// </summary>
+        internal static string Sample_322b95851a {
+            get {
+                return ResourceManager.GetString("Sample_322b95851a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean state text.
+        /// </summary>
+        internal static string Sample_3241f0c160 {
+            get {
+                return ResourceManager.GetString("Sample_3241f0c160", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task A-1.
+        /// </summary>
+        internal static string Sample_32ca86d11b {
+            get {
+                return ResourceManager.GetString("Sample_32ca86d11b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string Sample_330363dfc5 {
+            get {
+                return ResourceManager.GetString("Sample_330363dfc5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person picture and badge.
+        /// </summary>
+        internal static string Sample_3377cb7c99 {
+            get {
+                return ResourceManager.GetString("Sample_3377cb7c99", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Typical install.
+        /// </summary>
+        internal static string Sample_3407d84a3a {
+            get {
+                return ResourceManager.GetString("Sample_3407d84a3a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time picker (12/24-hour).
+        /// </summary>
+        internal static string Sample_3439dc393f {
+            get {
+                return ResourceManager.GetString("Sample_3439dc393f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder before content loads. Toggle IsLoading / IsActive..
+        /// </summary>
+        internal static string Sample_3444fcb679 {
+            get {
+                return ResourceManager.GetString("Sample_3444fcb679", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info bar tip.
+        /// </summary>
+        internal static string Sample_346a620dc9 {
+            get {
+                return ResourceManager.GetString("Sample_346a620dc9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transition content.
+        /// </summary>
+        internal static string Sample_34be9270ec {
+            get {
+                return ResourceManager.GetString("Sample_34be9270ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breadcrumb navigation.
+        /// </summary>
+        internal static string Sample_3576258acd {
+            get {
+                return ResourceManager.GetString("Sample_3576258acd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draggable splitter.
+        /// </summary>
+        internal static string Sample_35d6458151 {
+            get {
+                return ResourceManager.GetString("Sample_35d6458151", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text box + dropdown flyout with custom .NET time formats..
+        /// </summary>
+        internal static string Sample_36044dc666 {
+            get {
+                return ResourceManager.GetString("Sample_36044dc666", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF UI Image with rounded corners and borders..
+        /// </summary>
+        internal static string Sample_36398e25f0 {
+            get {
+                return ResourceManager.GetString("Sample_36398e25f0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main window is hidden. Double-click the tray icon to reopen it..
+        /// </summary>
+        internal static string Sample_3676039437 {
+            get {
+                return ResourceManager.GetString("Sample_3676039437", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Range 500–1000 with TickFrequency=20 snap steps..
+        /// </summary>
+        internal static string Sample_36780b94c2 {
+            get {
+                return ResourceManager.GetString("Sample_36780b94c2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string Sample_36a4908a55 {
+            get {
+                return ResourceManager.GetString("Sample_36a4908a55", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Li Si.
+        /// </summary>
+        internal static string Sample_36c942351e {
+            get {
+                return ResourceManager.GetString("Sample_36c942351e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QA.
+        /// </summary>
+        internal static string Sample_36e41c1627 {
+            get {
+                return ResourceManager.GetString("Sample_36e41c1627", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: {result}.
+        /// </summary>
+        internal static string Sample_373ee67676 {
+            get {
+                return ResourceManager.GetString("Sample_373ee67676", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto-fills rows and columns in child order..
+        /// </summary>
+        internal static string Sample_375192376c {
+            get {
+                return ResourceManager.GetString("Sample_375192376c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification 3.
+        /// </summary>
+        internal static string Sample_37922953b5 {
+            get {
+                return ResourceManager.GetString("Sample_37922953b5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visibility options.
+        /// </summary>
+        internal static string Sample_37ee4cf592 {
+            get {
+                return ResourceManager.GetString("Sample_37ee4cf592", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pagination.
+        /// </summary>
+        internal static string Sample_3862626c13 {
+            get {
+                return ResourceManager.GetString("Sample_3862626c13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ShowsPreview=True (default) — commits the size after releasing the mouse..
+        /// </summary>
+        internal static string Sample_38b33a8af5 {
+            get {
+                return ResourceManager.GetString("Sample_38b33a8af5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string Sample_38cf16f220 {
+            get {
+                return ResourceManager.GetString("Sample_38cf16f220", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom title bar.
+        /// </summary>
+        internal static string Sample_38d11a85f2 {
+            get {
+                return ResourceManager.GetString("Sample_38d11a85f2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title bar.
+        /// </summary>
+        internal static string Sample_391555a377 {
+            get {
+                return ResourceManager.GetString("Sample_391555a377", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: canceled or closed.
+        /// </summary>
+        internal static string Sample_395d500fbf {
+            get {
+                return ResourceManager.GetString("Sample_395d500fbf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combined IPv4 and port input (e.g. 192.168.0.10:8080); press . or : to jump to the port segment..
+        /// </summary>
+        internal static string Sample_3963b4df1d {
+            get {
+                return ResourceManager.GetString("Sample_3963b4df1d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF UI TabView control with a look close to WinUI TabView..
+        /// </summary>
+        internal static string Sample_39886cefd9 {
+            get {
+                return ResourceManager.GetString("Sample_39886cefd9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NativeMessageBox — Yes/No.
+        /// </summary>
+        internal static string Sample_3a4efdbeba {
+            get {
+                return ResourceManager.GetString("Sample_3a4efdbeba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard WPF TextBox..
+        /// </summary>
+        internal static string Sample_3a5fe68601 {
+            get {
+                return ResourceManager.GetString("Sample_3a5fe68601", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred. Please contact your administrator..
+        /// </summary>
+        internal static string Sample_3acbae2b62 {
+            get {
+                return ResourceManager.GetString("Sample_3acbae2b62", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to and.
+        /// </summary>
+        internal static string Sample_3b04598bd0 {
+            get {
+                return ResourceManager.GetString("Sample_3b04598bd0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The top-right of the main window TitleBar shows the live CaptionButtonBar..
+        /// </summary>
+        internal static string Sample_3b2223252e {
+            get {
+                return ResourceManager.GetString("Sample_3b2223252e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clickable card actions; useful as settings page shortcuts..
+        /// </summary>
+        internal static string Sample_3b7b097beb {
+            get {
+                return ResourceManager.GetString("Sample_3b7b097beb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bold.
+        /// </summary>
+        internal static string Sample_3b8a43acee {
+            get {
+                return ResourceManager.GetString("Sample_3b8a43acee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error — long message.
+        /// </summary>
+        internal static string Sample_3bfa83b27c {
+            get {
+                return ResourceManager.GetString("Sample_3bfa83b27c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Native Win32 TaskDialog.
+        /// </summary>
+        internal static string Sample_3c2460c13c {
+            get {
+                return ResourceManager.GetString("Sample_3c2460c13c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actionable card.
+        /// </summary>
+        internal static string Sample_3c3e3e5487 {
+            get {
+                return ResourceManager.GetString("Sample_3c3e3e5487", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard RepeatButton.
+        /// </summary>
+        internal static string Sample_3c3e7f2bd3 {
+            get {
+                return ResourceManager.GetString("Sample_3c3e7f2bd3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combined calendar + time picker.
+        /// </summary>
+        internal static string Sample_3c9ff9bc0b {
+            get {
+                return ResourceManager.GetString("Sample_3c9ff9bc0b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle with slide animation; supports drag, title, and custom On/Off content..
+        /// </summary>
+        internal static string Sample_3d4319582e {
+            get {
+                return ResourceManager.GetString("Sample_3d4319582e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth physics scrolling for mouse wheel, trackpad, and touch..
+        /// </summary>
+        internal static string Sample_3d502b523f {
+            get {
+                return ResourceManager.GetString("Sample_3d502b523f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme switched: {tag}.
+        /// </summary>
+        internal static string Sample_3d860d035a {
+            get {
+                return ResourceManager.GetString("Sample_3d860d035a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled hyperlink.
+        /// </summary>
+        internal static string Sample_3dafb55bfe {
+            get {
+                return ResourceManager.GetString("Sample_3dafb55bfe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detailed content shown when the Expander is expanded; useful for grouping secondary info..
+        /// </summary>
+        internal static string Sample_3dc186229d {
+            get {
+                return ResourceManager.GetString("Sample_3dc186229d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotkey capture.
+        /// </summary>
+        internal static string Sample_3ec22d22be {
+            get {
+                return ResourceManager.GetString("Sample_3ec22d22be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pro.
+        /// </summary>
+        internal static string Sample_3f086416bf {
+            get {
+                return ResourceManager.GetString("Sample_3f086416bf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontally scrolling text; control direction, speed, and AutoRun..
+        /// </summary>
+        internal static string Sample_3f47bd2d77 {
+            get {
+                return ResourceManager.GetString("Sample_3f47bd2d77", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column 1.
+        /// </summary>
+        internal static string Sample_3fc35bb610 {
+            get {
+                return ResourceManager.GetString("Sample_3fc35bb610", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string Sample_3fea7ca76c {
+            get {
+                return ResourceManager.GetString("Sample_3fea7ca76c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Development.
+        /// </summary>
+        internal static string Sample_3ff3c3e26a {
+            get {
+                return ResourceManager.GetString("Sample_3ff3c3e26a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data 3.
+        /// </summary>
+        internal static string Sample_4053a05691 {
+            get {
+                return ResourceManager.GetString("Sample_4053a05691", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar date.
+        /// </summary>
+        internal static string Sample_40fccfe532 {
+            get {
+                return ResourceManager.GetString("Sample_40fccfe532", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Align left.
+        /// </summary>
+        internal static string Sample_413f48cc71 {
+            get {
+                return ResourceManager.GetString("Sample_413f48cc71", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item A.
+        /// </summary>
+        internal static string Sample_416b31af1e {
+            get {
+                return ResourceManager.GetString("Sample_416b31af1e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab view.
+        /// </summary>
+        internal static string Sample_41e5da80c7 {
+            get {
+                return ResourceManager.GetString("Sample_41e5da80c7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flyout.
+        /// </summary>
+        internal static string Sample_42862a19bd {
+            get {
+                return ResourceManager.GetString("Sample_42862a19bd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simulate loading task.
+        /// </summary>
+        internal static string Sample_4295b75647 {
+            get {
+                return ResourceManager.GetString("Sample_4295b75647", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutually exclusive toggle button group.
+        /// </summary>
+        internal static string Sample_4298342678 {
+            get {
+                return ResourceManager.GetString("Sample_4298342678", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: user: {dialog.UserName}, save checked: {dialog.IsSaveChecked}.
+        /// </summary>
+        internal static string Sample_42d379fc40 {
+            get {
+                return ResourceManager.GetString("Sample_42d379fc40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto row/column grid.
+        /// </summary>
+        internal static string Sample_43a6fef122 {
+            get {
+                return ResourceManager.GetString("Sample_43a6fef122", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cut.
+        /// </summary>
+        internal static string Sample_43fc77886b {
+            get {
+                return ResourceManager.GetString("Sample_43fc77886b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled item.
+        /// </summary>
+        internal static string Sample_4402da40de {
+            get {
+                return ResourceManager.GetString("Sample_4402da40de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeline.
+        /// </summary>
+        internal static string Sample_4404a8dacc {
+            get {
+                return ResourceManager.GetString("Sample_4404a8dacc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label control for descriptive text..
+        /// </summary>
+        internal static string Sample_44096c0147 {
+            get {
+                return ResourceManager.GetString("Sample_44096c0147", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample text for subsection 2.1..
+        /// </summary>
+        internal static string Sample_4473a9e79b {
+            get {
+                return ResourceManager.GetString("Sample_4473a9e79b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 6.
+        /// </summary>
+        internal static string Sample_44768e6912 {
+            get {
+                return ResourceManager.GetString("Sample_44768e6912", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action card.
+        /// </summary>
+        internal static string Sample_44ae9d4db8 {
+            get {
+                return ResourceManager.GetString("Sample_44ae9d4db8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback controls.
+        /// </summary>
+        internal static string Sample_450e7ae75d {
+            get {
+                return ResourceManager.GetString("Sample_450e7ae75d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RadioButtons sharing GroupName work with an icon toolbar; shrink width to see overflow..
+        /// </summary>
+        internal static string Sample_452a4d35f3 {
+            get {
+                return ResourceManager.GetString("Sample_452a4d35f3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap text.
+        /// </summary>
+        internal static string Sample_452dba7c65 {
+            get {
+                return ResourceManager.GetString("Sample_452dba7c65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical timeline layout showing event order..
+        /// </summary>
+        internal static string Sample_452e6c9afa {
+            get {
+                return ResourceManager.GetString("Sample_452e6c9afa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gold.
+        /// </summary>
+        internal static string Sample_454b22f95d {
+            get {
+                return ResourceManager.GetString("Sample_454b22f95d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean content.
+        /// </summary>
+        internal static string Sample_4554fa92b7 {
+            get {
+                return ResourceManager.GetString("Sample_4554fa92b7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree combo box.
+        /// </summary>
+        internal static string Sample_4598e31c82 {
+            get {
+                return ResourceManager.GetString("Sample_4598e31c82", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a single file.
+        /// </summary>
+        internal static string Sample_4634be5ac1 {
+            get {
+                return ResourceManager.GetString("Sample_4634be5ac1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Architect.
+        /// </summary>
+        internal static string Sample_4647705c65 {
+            get {
+                return ResourceManager.GetString("Sample_4647705c65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited stack (max 2).
+        /// </summary>
+        internal static string Sample_464fd99a16 {
+            get {
+                return ResourceManager.GetString("Sample_464fd99a16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wpf.Ui-styled RichTextBox..
+        /// </summary>
+        internal static string Sample_46e283835a {
+            get {
+                return ResourceManager.GetString("Sample_46e283835a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperlink button with NavigateUri..
+        /// </summary>
+        internal static string Sample_470bcc646a {
+            get {
+                return ResourceManager.GetString("Sample_470bcc646a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable notifications.
+        /// </summary>
+        internal static string Sample_4717f4f110 {
+            get {
+                return ResourceManager.GetString("Sample_4717f4f110", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resize width/height to see AspectRatioMode changes (tolerance=0.3)..
+        /// </summary>
+        internal static string Sample_47b666a05d {
+            get {
+                return ResourceManager.GetString("Sample_47b666a05d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credential management.
+        /// </summary>
+        internal static string Sample_483b1a6a0b {
+            get {
+                return ResourceManager.GetString("Sample_483b1a6a0b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expandable task dialog.
+        /// </summary>
+        internal static string Sample_484693ecc7 {
+            get {
+                return ResourceManager.GetString("Sample_484693ecc7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project kickoff.
+        /// </summary>
+        internal static string Sample_484aefb490 {
+            get {
+                return ResourceManager.GetString("Sample_484aefb490", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async content dialog.
+        /// </summary>
+        internal static string Sample_48587661be {
+            get {
+                return ResourceManager.GetString("Sample_48587661be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expandable.
+        /// </summary>
+        internal static string Sample_49b4aa407b {
+            get {
+                return ResourceManager.GetString("Sample_49b4aa407b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liu Yang.
+        /// </summary>
+        internal static string Sample_49c531db9a {
+            get {
+                return ResourceManager.GetString("Sample_49c531db9a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean text.
+        /// </summary>
+        internal static string Sample_4a0c1908e4 {
+            get {
+                return ResourceManager.GetString("Sample_4a0c1908e4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Navigation view.
+        /// </summary>
+        internal static string Sample_4a39e6b7ae {
+            get {
+                return ResourceManager.GetString("Sample_4a39e6b7ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancellable task.
+        /// </summary>
+        internal static string Sample_4a6adf2e3c {
+            get {
+                return ResourceManager.GetString("Sample_4a6adf2e3c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RadioButton group + icon buttons.
+        /// </summary>
+        internal static string Sample_4b0d57595a {
+            get {
+                return ResourceManager.GetString("Sample_4b0d57595a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter credentials.
+        /// </summary>
+        internal static string Sample_4b151dd64a {
+            get {
+                return ResourceManager.GetString("Sample_4b151dd64a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon, Header, description, and a control on the right..
+        /// </summary>
+        internal static string Sample_4b3ae6ebbf {
+            get {
+                return ResourceManager.GetString("Sample_4b3ae6ebbf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string Sample_4b9c3271dc {
+            get {
+                return ResourceManager.GetString("Sample_4b9c3271dc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content dialog.
+        /// </summary>
+        internal static string Sample_4bd533aa51 {
+            get {
+                return ResourceManager.GetString("Sample_4bd533aa51", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an action.
+        /// </summary>
+        internal static string Sample_4bf5433ad8 {
+            get {
+                return ResourceManager.GetString("Sample_4bf5433ad8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar date picker.
+        /// </summary>
+        internal static string Sample_4c593f33d3 {
+            get {
+                return ResourceManager.GetString("Sample_4c593f33d3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu.
+        /// </summary>
+        internal static string Sample_4ccbdc5301 {
+            get {
+                return ResourceManager.GetString("Sample_4ccbdc5301", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal.
+        /// </summary>
+        internal static string Sample_4cde06e616 {
+            get {
+                return ResourceManager.GetString("Sample_4cde06e616", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MaxDecimalPlaces=0 allows integers only..
+        /// </summary>
+        internal static string Sample_4d02e8c8cc {
+            get {
+                return ResourceManager.GetString("Sample_4d02e8c8cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New employee .
+        /// </summary>
+        internal static string Sample_4d0e6c6f67 {
+            get {
+                return ResourceManager.GetString("Sample_4d0e6c6f67", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long text wraps automatically..
+        /// </summary>
+        internal static string Sample_4d13a2326e {
+            get {
+                return ResourceManager.GetString("Sample_4d13a2326e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anchor to a target control; shows an icon and two buttons..
+        /// </summary>
+        internal static string Sample_4d3cc18eb2 {
+            get {
+                return ResourceManager.GetString("Sample_4d3cc18eb2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide details.
+        /// </summary>
+        internal static string Sample_4d4d95676e {
+            get {
+                return ResourceManager.GetString("Sample_4d4d95676e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 9.
+        /// </summary>
+        internal static string Sample_4d561128b7 {
+            get {
+                return ResourceManager.GetString("Sample_4d561128b7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show.
+        /// </summary>
+        internal static string Sample_4d775d4cd7 {
+            get {
+                return ResourceManager.GetString("Sample_4d775d4cd7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canvas.
+        /// </summary>
+        internal static string Sample_4d7f930b07 {
+            get {
+                return ResourceManager.GetString("Sample_4d7f930b07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planned.
+        /// </summary>
+        internal static string Sample_4daea5b39d {
+            get {
+                return ResourceManager.GetString("Sample_4daea5b39d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste from clipboard.
+        /// </summary>
+        internal static string Sample_4ddb17d702 {
+            get {
+                return ResourceManager.GetString("Sample_4ddb17d702", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon content.
+        /// </summary>
+        internal static string Sample_4e22bba902 {
+            get {
+                return ResourceManager.GetString("Sample_4e22bba902", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeModelListView — tree model list view.
+        /// </summary>
+        internal static string Sample_4e3b273ffa {
+            get {
+                return ResourceManager.GetString("Sample_4e3b273ffa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strawberry.
+        /// </summary>
+        internal static string Sample_4e9244f80e {
+            get {
+                return ResourceManager.GetString("Sample_4e9244f80e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A warning dialog with a footer icon and hyperlink.
+        ///
+        ///Visit &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Violeta&lt;/A&gt; to learn more..
+        /// </summary>
+        internal static string Sample_4ed22fb344 {
+            get {
+                return ResourceManager.GetString("Sample_4ed22fb344", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Integer NumberBox.
+        /// </summary>
+        internal static string Sample_4f090cabd3 {
+            get {
+                return ResourceManager.GetString("Sample_4f090cabd3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column 2.
+        /// </summary>
+        internal static string Sample_5098792454 {
+            get {
+                return ResourceManager.GetString("Sample_5098792454", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select one or more folders..
+        /// </summary>
+        internal static string Sample_509c20e53c {
+            get {
+                return ResourceManager.GetString("Sample_509c20e53c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usually call Splash.ShowAsync at Application startup. This demo button briefly covers the main window—wait for it to close, or call Splash.CloseAsync..
+        /// </summary>
+        internal static string Sample_50ebf86def {
+            get {
+                return ResourceManager.GetString("Sample_50ebf86def", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draw a drop shadow under children; supports rounded corners and custom colors..
+        /// </summary>
+        internal static string Sample_5148eb7ab0 {
+            get {
+                return ResourceManager.GetString("Sample_5148eb7ab0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrapper over System.Windows.Controls.Image; loads and caches images via ImageUrl. First load needs network..
+        /// </summary>
+        internal static string Sample_51817fdf50 {
+            get {
+                return ResourceManager.GetString("Sample_51817fdf50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Native Win32 MessageBox.
+        /// </summary>
+        internal static string Sample_519c3a4184 {
+            get {
+                return ResourceManager.GetString("Sample_519c3a4184", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic input.
+        /// </summary>
+        internal static string Sample_51c4183933 {
+            get {
+                return ResourceManager.GetString("Sample_51c4183933", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ListView — list view.
+        /// </summary>
+        internal static string Sample_520073ab0b {
+            get {
+                return ResourceManager.GetString("Sample_520073ab0b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification 1.
+        /// </summary>
+        internal static string Sample_5239b15bba {
+            get {
+                return ResourceManager.GetString("Sample_5239b15bba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sun Qi.
+        /// </summary>
+        internal static string Sample_52a48bb45a {
+            get {
+                return ResourceManager.GetString("Sample_52a48bb45a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rounded border &amp; clip.
+        /// </summary>
+        internal static string Sample_52af618fd0 {
+            get {
+                return ResourceManager.GetString("Sample_52af618fd0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number input box.
+        /// </summary>
+        internal static string Sample_5306905257 {
+            get {
+                return ResourceManager.GetString("Sample_5306905257", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoomable &amp; pannable image viewer.
+        /// </summary>
+        internal static string Sample_53954ba50f {
+            get {
+                return ResourceManager.GetString("Sample_53954ba50f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uses FluentHyperlinkStyle; opens links via RequestNavigate on click..
+        /// </summary>
+        internal static string Sample_53ec492c1d {
+            get {
+                return ResourceManager.GetString("Sample_53ec492c1d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ui:Button with SymbolIcon..
+        /// </summary>
+        internal static string Sample_541c4daa70 {
+            get {
+                return ResourceManager.GetString("Sample_541c4daa70", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited stack 2.
+        /// </summary>
+        internal static string Sample_5453af82cf {
+            get {
+                return ResourceManager.GetString("Sample_5453af82cf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change values with up/down arrows; supports Default / Left / Split layouts..
+        /// </summary>
+        internal static string Sample_5454e81038 {
+            get {
+                return ResourceManager.GetString("Sample_5454e81038", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status controls.
+        /// </summary>
+        internal static string Sample_54cf06512f {
+            get {
+                return ResourceManager.GetString("Sample_54cf06512f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press Enter after typing….
+        /// </summary>
+        internal static string Sample_552b11b447 {
+            get {
+                return ResourceManager.GetString("Sample_552b11b447", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        internal static string Sample_55405ea6ff {
+            get {
+                return ResourceManager.GetString("Sample_55405ea6ff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows security credentials.
+        /// </summary>
+        internal static string Sample_556f104600 {
+            get {
+                return ResourceManager.GetString("Sample_556f104600", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teaching tip flyout.
+        /// </summary>
+        internal static string Sample_562abb5714 {
+            get {
+                return ResourceManager.GetString("Sample_562abb5714", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File contents:.
+        /// </summary>
+        internal static string Sample_5636766102 {
+            get {
+                return ResourceManager.GetString("Sample_5636766102", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy to clipboard.
+        /// </summary>
+        internal static string Sample_564be0b127 {
+            get {
+                return ResourceManager.GetString("Sample_564be0b127", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Four-way drawer.
+        /// </summary>
+        internal static string Sample_565fbc57f3 {
+            get {
+                return ResourceManager.GetString("Sample_565fbc57f3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        internal static string Sample_5660bcd256 {
+            get {
+                return ResourceManager.GetString("Sample_5660bcd256", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numeric input box with placeholder support..
+        /// </summary>
+        internal static string Sample_56642b9154 {
+            get {
+                return ResourceManager.GetString("Sample_56642b9154", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jiaxing.
+        /// </summary>
+        internal static string Sample_572fd7fd9c {
+            get {
+                return ResourceManager.GetString("Sample_572fd7fd9c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit node.
+        /// </summary>
+        internal static string Sample_574256110b {
+            get {
+                return ResourceManager.GetString("Sample_574256110b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception report dialog.
+        /// </summary>
+        internal static string Sample_576ff61712 {
+            get {
+                return ResourceManager.GetString("Sample_576ff61712", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chen Jing.
+        /// </summary>
+        internal static string Sample_57a0dec9ef {
+            get {
+                return ResourceManager.GetString("Sample_57a0dec9ef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.Windows.Controls.Image loading an image from local resources..
+        /// </summary>
+        internal static string Sample_5806225c0c {
+            get {
+                return ResourceManager.GetString("Sample_5806225c0c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left.
+        /// </summary>
+        internal static string Sample_583e7924e9 {
+            get {
+                return ResourceManager.GetString("Sample_583e7924e9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add row.
+        /// </summary>
+        internal static string Sample_58477471b3 {
+            get {
+                return ResourceManager.GetString("Sample_58477471b3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left content.
+        /// </summary>
+        internal static string Sample_58480236ab {
+            get {
+                return ResourceManager.GetString("Sample_58480236ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease indent.
+        /// </summary>
+        internal static string Sample_5a12c3b294 {
+            get {
+                return ResourceManager.GetString("Sample_5a12c3b294", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree list based on ITreeModel; supports dynamic loading and custom data models..
+        /// </summary>
+        internal static string Sample_5a6728a2a6 {
+            get {
+                return ResourceManager.GetString("Sample_5a6728a2a6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record a hotkey from a key combination; supports modifiers and a clear button..
+        /// </summary>
+        internal static string Sample_5a6fd6d939 {
+            get {
+                return ResourceManager.GetString("Sample_5a6fd6d939", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled state.
+        /// </summary>
+        internal static string Sample_5a7392a0d7 {
+            get {
+                return ResourceManager.GetString("Sample_5a7392a0d7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text box.
+        /// </summary>
+        internal static string Sample_5ac57ce6df {
+            get {
+                return ResourceManager.GetString("Sample_5ac57ce6df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited stack 1.
+        /// </summary>
+        internal static string Sample_5bc98065dc {
+            get {
+                return ResourceManager.GetString("Sample_5bc98065dc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NativeMessageBox — OK.
+        /// </summary>
+        internal static string Sample_5bd8feb5d7 {
+            get {
+                return ResourceManager.GetString("Sample_5bd8feb5d7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At Gallery startup, TrayIconHost creates a real tray icon. Closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window..
+        /// </summary>
+        internal static string Sample_5d2567470b {
+            get {
+                return ResourceManager.GetString("Sample_5d2567470b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing.
+        /// </summary>
+        internal static string Sample_5d459d550a {
+            get {
+                return ResourceManager.GetString("Sample_5d459d550a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF UI ring progress indicator..
+        /// </summary>
+        internal static string Sample_5d47c178f6 {
+            get {
+                return ResourceManager.GetString("Sample_5d47c178f6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic types.
+        /// </summary>
+        internal static string Sample_5d961e79ff {
+            get {
+                return ResourceManager.GetString("Sample_5d961e79ff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        internal static string Sample_5dc99f6efe {
+            get {
+                return ResourceManager.GetString("Sample_5dc99f6efe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File picker.
+        /// </summary>
+        internal static string Sample_5e10b994c5 {
+            get {
+                return ResourceManager.GetString("Sample_5e10b994c5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window.
+        /// </summary>
+        internal static string Sample_5e68f5916f {
+            get {
+                return ResourceManager.GetString("Sample_5e68f5916f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bullets.
+        /// </summary>
+        internal static string Sample_5e92ae1660 {
+            get {
+                return ResourceManager.GetString("Sample_5e92ae1660", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto suggest.
+        /// </summary>
+        internal static string Sample_5ea2fa9344 {
+            get {
+                return ResourceManager.GetString("Sample_5ea2fa9344", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cached image.
+        /// </summary>
+        internal static string Sample_5f5597503b {
+            get {
+                return ResourceManager.GetString("Sample_5f5597503b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content rotate button.
+        /// </summary>
+        internal static string Sample_5f91910837 {
+            get {
+                return ResourceManager.GetString("Sample_5f91910837", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win32 TaskDialog with dark theme, command links, radio buttons, progress bar, and expandable information..
+        /// </summary>
+        internal static string Sample_5fb02eeebe {
+            get {
+                return ResourceManager.GetString("Sample_5fb02eeebe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotkey recording input.
+        /// </summary>
+        internal static string Sample_5fe427d39a {
+            get {
+                return ResourceManager.GetString("Sample_5fe427d39a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete requirements confirmation.
+        /// </summary>
+        internal static string Sample_600166f742 {
+            get {
+                return ResourceManager.GetString("Sample_600166f742", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task A-2.
+        /// </summary>
+        internal static string Sample_602f80825c {
+            get {
+                return ResourceManager.GetString("Sample_602f80825c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ◀ Previous.
+        /// </summary>
+        internal static string Sample_608443e0b4 {
+            get {
+                return ResourceManager.GetString("Sample_608443e0b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full name.
+        /// </summary>
+        internal static string Sample_60d0458ac6 {
+            get {
+                return ResourceManager.GetString("Sample_60d0458ac6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fonts &amp; typography.
+        /// </summary>
+        internal static string Sample_6106634d5b {
+            get {
+                return ResourceManager.GetString("Sample_6106634d5b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhang San.
+        /// </summary>
+        internal static string Sample_615db57aa3 {
+            get {
+                return ResourceManager.GetString("Sample_615db57aa3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An info banner for important tips..
+        /// </summary>
+        internal static string Sample_618dd07189 {
+            get {
+                return ResourceManager.GetString("Sample_618dd07189", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No clear button.
+        /// </summary>
+        internal static string Sample_61b0c7c3e4 {
+            get {
+                return ResourceManager.GetString("Sample_61b0c7c3e4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prefix / suffix.
+        /// </summary>
+        internal static string Sample_61b1603587 {
+            get {
+                return ResourceManager.GetString("Sample_61b1603587", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Sample_625fb26b4b {
+            get {
+                return ResourceManager.GetString("Sample_625fb26b4b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — expandable information.
+        /// </summary>
+        internal static string Sample_629dd8a6ea {
+            get {
+                return ResourceManager.GetString("Sample_629dd8a6ea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On leave.
+        /// </summary>
+        internal static string Sample_62a8cf0af7 {
+            get {
+                return ResourceManager.GetString("Sample_62a8cf0af7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextBlock content can include inline elements such as Run, Span, and Bold..
+        /// </summary>
+        internal static string Sample_6314139f1c {
+            get {
+                return ResourceManager.GetString("Sample_6314139f1c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compare: system ToolBar.
+        /// </summary>
+        internal static string Sample_63141d2f4e {
+            get {
+                return ResourceManager.GetString("Sample_63141d2f4e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In-page anchor navigation.
+        /// </summary>
+        internal static string Sample_6452538f67 {
+            get {
+                return ResourceManager.GetString("Sample_6452538f67", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: user canceled the dialog..
+        /// </summary>
+        internal static string Sample_6457052c6e {
+            get {
+                return ResourceManager.GetString("Sample_6457052c6e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show / Hide.
+        /// </summary>
+        internal static string Sample_655a0e3730 {
+            get {
+                return ResourceManager.GetString("Sample_655a0e3730", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without Adapter, content may cover the stroke; Adapter clips to the inner corner radius..
+        /// </summary>
+        internal static string Sample_65c73cbf64 {
+            get {
+                return ResourceManager.GetString("Sample_65c73cbf64", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ImageIcon combined with DropDownButton sample..
+        /// </summary>
+        internal static string Sample_6625c308e8 {
+            get {
+                return ResourceManager.GetString("Sample_6625c308e8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline banner notification.
+        /// </summary>
+        internal static string Sample_66acb563c5 {
+            get {
+                return ResourceManager.GetString("Sample_66acb563c5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Divider — divider.
+        /// </summary>
+        internal static string Sample_66d8aafdd1 {
+            get {
+                return ResourceManager.GetString("Sample_66d8aafdd1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline-item ListBox.
+        /// </summary>
+        internal static string Sample_66e8d62a1a {
+            get {
+                return ResourceManager.GetString("Sample_66e8d62a1a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline banner for status tips at the top of a page..
+        /// </summary>
+        internal static string Sample_671acfcae8 {
+            get {
+                return ResourceManager.GetString("Sample_671acfcae8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adaptive aspect-ratio layout.
+        /// </summary>
+        internal static string Sample_677dfd1ed1 {
+            get {
+                return ResourceManager.GetString("Sample_677dfd1ed1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click count: 0.
+        /// </summary>
+        internal static string Sample_67b61f5a7e {
+            get {
+                return ResourceManager.GetString("Sample_67b61f5a7e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar and CalendarDatePicker.
+        /// </summary>
+        internal static string Sample_67ef04a976 {
+            get {
+                return ResourceManager.GetString("Sample_67ef04a976", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Media controls.
+        /// </summary>
+        internal static string Sample_67f3b5a40c {
+            get {
+                return ResourceManager.GetString("Sample_67f3b5a40c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        internal static string Sample_68051bf4aa {
+            get {
+                return ResourceManager.GetString("Sample_68051bf4aa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a bitmap as icon content with optional monochrome rendering. Namespace: ui:BitmapIcon..
+        /// </summary>
+        internal static string Sample_6822dc757e {
+            get {
+                return ResourceManager.GetString("Sample_6822dc757e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A longer tooltip describing the control and suggested actions..
+        /// </summary>
+        internal static string Sample_68c7b5f75f {
+            get {
+                return ResourceManager.GetString("Sample_68c7b5f75f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected:
+        ///{string.Join(.
+        /// </summary>
+        internal static string Sample_69abf2d0e2 {
+            get {
+                return ResourceManager.GetString("Sample_69abf2d0e2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hangzhou.
+        /// </summary>
+        internal static string Sample_69d6beffab {
+            get {
+                return ResourceManager.GetString("Sample_69d6beffab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat button.
+        /// </summary>
+        internal static string Sample_6aa16c2381 {
+            get {
+                return ResourceManager.GetString("Sample_6aa16c2381", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        internal static string Sample_6b36c6f7ec {
+            get {
+                return ResourceManager.GetString("Sample_6b36c6f7ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document.docx.
+        /// </summary>
+        internal static string Sample_6bbc20b3ec {
+            get {
+                return ResourceManager.GetString("Sample_6bbc20b3ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split button.
+        /// </summary>
+        internal static string Sample_6bf9fcc2fc {
+            get {
+                return ResourceManager.GetString("Sample_6bf9fcc2fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open file.
+        /// </summary>
+        internal static string Sample_6cfd8797ec {
+            get {
+                return ResourceManager.GetString("Sample_6cfd8797ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A simple demo of ContentWindow + ContentWindowControl..
+        /// </summary>
+        internal static string Sample_6d80adabe3 {
+            get {
+                return ResourceManager.GetString("Sample_6d80adabe3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Button with loading state.
+        /// </summary>
+        internal static string Sample_6e8636717c {
+            get {
+                return ResourceManager.GetString("Sample_6e8636717c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenPaneLength — pane width when expanded.
+        /// </summary>
+        internal static string Sample_6e9b5e7aa8 {
+            get {
+                return ResourceManager.GetString("Sample_6e9b5e7aa8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeView tree structure.
+        /// </summary>
+        internal static string Sample_6ea44939b9 {
+            get {
+                return ResourceManager.GetString("Sample_6ea44939b9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cascading selection: choosing a parent shows children; clear a leaf via the right-side button..
+        /// </summary>
+        internal static string Sample_6ed998e7cc {
+            get {
+                return ResourceManager.GetString("Sample_6ed998e7cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat button (hold to click repeatedly).
+        /// </summary>
+        internal static string Sample_6eeed2029d {
+            get {
+                return ResourceManager.GetString("Sample_6eeed2029d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Typical use: step values, like NumericUpDown / ScrollBar inner buttons..
+        /// </summary>
+        internal static string Sample_6ef42093fc {
+            get {
+                return ResourceManager.GetString("Sample_6ef42093fc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hover me.
+        /// </summary>
+        internal static string Sample_6ef838110b {
+            get {
+                return ResourceManager.GetString("Sample_6ef838110b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NativeMessageBox — OK/Cancel.
+        /// </summary>
+        internal static string Sample_6f0a3ce47c {
+            get {
+                return ResourceManager.GetString("Sample_6f0a3ce47c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design phase.
+        /// </summary>
+        internal static string Sample_6fe4c8e483 {
+            get {
+                return ResourceManager.GetString("Sample_6fe4c8e483", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Sample_7030ff6470 {
+            get {
+                return ResourceManager.GetString("Sample_7030ff6470", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show details.
+        /// </summary>
+        internal static string Sample_7053881e1b {
+            get {
+                return ResourceManager.GetString("Sample_7053881e1b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        internal static string Sample_710ad08b11 {
+            get {
+                return ResourceManager.GetString("Sample_710ad08b11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Like/dislike control; click the selected state again to clear..
+        /// </summary>
+        internal static string Sample_71716d9ceb {
+            get {
+                return ResourceManager.GetString("Sample_71716d9ceb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toast notification.
+        /// </summary>
+        internal static string Sample_71b081a671 {
+            get {
+                return ResourceManager.GetString("Sample_71b081a671", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeline — timeline (declarative).
+        /// </summary>
+        internal static string Sample_71df92bd0f {
+            get {
+                return ResourceManager.GetString("Sample_71df92bd0f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wenzhou.
+        /// </summary>
+        internal static string Sample_71f38f399f {
+            get {
+                return ResourceManager.GetString("Sample_71f38f399f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows an exception details dialog for global unhandled exception reporting. Click to raise a demo exception..
+        /// </summary>
+        internal static string Sample_71fd6b18de {
+            get {
+                return ResourceManager.GetString("Sample_71fd6b18de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dismissible info bar; visibility controlled by IsOpen..
+        /// </summary>
+        internal static string Sample_725ba369df {
+            get {
+                return ResourceManager.GetString("Sample_725ba369df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing….
+        /// </summary>
+        internal static string Sample_72628b3afc {
+            get {
+                return ResourceManager.GetString("Sample_72628b3afc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextBlock appearance styles.
+        /// </summary>
+        internal static string Sample_7269b2e6d4 {
+            get {
+                return ResourceManager.GetString("Sample_7269b2e6d4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fixed-height ListBox.
+        /// </summary>
+        internal static string Sample_7334842e9b {
+            get {
+                return ResourceManager.GetString("Sample_7334842e9b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 7.
+        /// </summary>
+        internal static string Sample_73709b070d {
+            get {
+                return ResourceManager.GetString("Sample_73709b070d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom icon.
+        /// </summary>
+        internal static string Sample_7372dc9f39 {
+            get {
+                return ResourceManager.GetString("Sample_7372dc9f39", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marketing.
+        /// </summary>
+        internal static string Sample_73b1110542 {
+            get {
+                return ResourceManager.GetString("Sample_73b1110542", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlay on other controls.
+        /// </summary>
+        internal static string Sample_74a0d88f9a {
+            get {
+                return ResourceManager.GetString("Sample_74a0d88f9a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter file content....
+        /// </summary>
+        internal static string Sample_7518aac27a {
+            get {
+                return ResourceManager.GetString("Sample_7518aac27a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message box.
+        /// </summary>
+        internal static string Sample_758409e3ca {
+            get {
+                return ResourceManager.GetString("Sample_758409e3ca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical.
+        /// </summary>
+        internal static string Sample_75ac842f8e {
+            get {
+                return ResourceManager.GetString("Sample_75ac842f8e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release notes.md.
+        /// </summary>
+        internal static string Sample_75aee2c1f7 {
+            get {
+                return ResourceManager.GetString("Sample_75aee2c1f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshot.png.
+        /// </summary>
+        internal static string Sample_7617ac7261 {
+            get {
+                return ResourceManager.GetString("Sample_7617ac7261", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TickPlacement=Both shows ticks above and below..
+        /// </summary>
+        internal static string Sample_768a5d8f40 {
+            get {
+                return ResourceManager.GetString("Sample_768a5d8f40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: no deletable credential found..
+        /// </summary>
+        internal static string Sample_76a6900819 {
+            get {
+                return ResourceManager.GetString("Sample_76a6900819", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place technical details, stack traces, log snippets, or links here..
+        /// </summary>
+        internal static string Sample_76b983b8e6 {
+            get {
+                return ResourceManager.GetString("Sample_76b983b8e6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aligned with WinUI SearchBox: QueryChanged (input/clear), QuerySubmitted (Enter)..
+        /// </summary>
+        internal static string Sample_7711ba96c2 {
+            get {
+                return ResourceManager.GetString("Sample_7711ba96c2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch layout items by aspect ratio.
+        /// </summary>
+        internal static string Sample_776feee78e {
+            get {
+                return ResourceManager.GetString("Sample_776feee78e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bind via ItemsSource and MemberPath..
+        /// </summary>
+        internal static string Sample_77bc5793f7 {
+            get {
+                return ResourceManager.GetString("Sample_77bc5793f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teaching tip.
+        /// </summary>
+        internal static string Sample_7846de57e9 {
+            get {
+                return ResourceManager.GetString("Sample_7846de57e9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Targeted teaching tip with Title / Subtitle / Hero / Action / Close and Light Dismiss..
+        /// </summary>
+        internal static string Sample_78636353a3 {
+            get {
+                return ResourceManager.GetString("Sample_78636353a3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        internal static string Sample_787b5677e3 {
+            get {
+                return ResourceManager.GetString("Sample_787b5677e3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spectrum / palette color picker.
+        /// </summary>
+        internal static string Sample_7978070c09 {
+            get {
+                return ResourceManager.GetString("Sample_7978070c09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch content by boolean.
+        /// </summary>
+        internal static string Sample_79a9d71799 {
+            get {
+                return ResourceManager.GetString("Sample_79a9d71799", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        internal static string Sample_79d3abe929 {
+            get {
+                return ResourceManager.GetString("Sample_79d3abe929", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password can be saved.
+        /// </summary>
+        internal static string Sample_7a1c9b5e2b {
+            get {
+                return ResourceManager.GetString("Sample_7a1c9b5e2b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A flyout attached to a button or card via FlyoutService..
+        /// </summary>
+        internal static string Sample_7a37cf1b92 {
+            get {
+                return ResourceManager.GetString("Sample_7a37cf1b92", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shenzhen.
+        /// </summary>
+        internal static string Sample_7a399889b9 {
+            get {
+                return ResourceManager.GetString("Sample_7a399889b9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page 1 — Welcome to Violeta.
+        /// </summary>
+        internal static string Sample_7a591f5191 {
+            get {
+                return ResourceManager.GetString("Sample_7a591f5191", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overflow still uses the original Button; icon and command stay the same..
+        /// </summary>
+        internal static string Sample_7b06d65d82 {
+            get {
+                return ResourceManager.GetString("Sample_7b06d65d82", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark preview.
+        /// </summary>
+        internal static string Sample_7b849587f0 {
+            get {
+                return ResourceManager.GetString("Sample_7b849587f0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CachedImage — cached image.
+        /// </summary>
+        internal static string Sample_7b88f14eae {
+            get {
+                return ResourceManager.GetString("Sample_7b88f14eae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skeleton loading placeholder.
+        /// </summary>
+        internal static string Sample_7be1a44b8f {
+            get {
+                return ResourceManager.GetString("Sample_7be1a44b8f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — radio buttons.
+        /// </summary>
+        internal static string Sample_7be4dfd564 {
+            get {
+                return ResourceManager.GetString("Sample_7be4dfd564", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait.
+        /// </summary>
+        internal static string Sample_7c1efe79cc {
+            get {
+                return ResourceManager.GetString("Sample_7c1efe79cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async content loading container.
+        /// </summary>
+        internal static string Sample_7c7205efaa {
+            get {
+                return ResourceManager.GetString("Sample_7c7205efaa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperlink.
+        /// </summary>
+        internal static string Sample_7d7894175e {
+            get {
+                return ResourceManager.GetString("Sample_7d7894175e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next ▶.
+        /// </summary>
+        internal static string Sample_7d817bc13f {
+            get {
+                return ResourceManager.GetString("Sample_7d817bc13f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guangzhou.
+        /// </summary>
+        internal static string Sample_7e040aa9cb {
+            get {
+                return ResourceManager.GetString("Sample_7e040aa9cb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide to tray.
+        /// </summary>
+        internal static string Sample_7e0978814d {
+            get {
+                return ResourceManager.GetString("Sample_7e0978814d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Violeta ContentDialog with async display and primary/secondary/close buttons..
+        /// </summary>
+        internal static string Sample_7e4681144d {
+            get {
+                return ResourceManager.GetString("Sample_7e4681144d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutually exclusive radio buttons in the same group..
+        /// </summary>
+        internal static string Sample_7e8aef110d {
+            get {
+                return ResourceManager.GetString("Sample_7e8aef110d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag combo.
+        /// </summary>
+        internal static string Sample_7e979b664d {
+            get {
+                return ResourceManager.GetString("Sample_7e979b664d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save file.
+        /// </summary>
+        internal static string Sample_7f2c95cd69 {
+            get {
+                return ResourceManager.GetString("Sample_7f2c95cd69", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports numbers, overflow, dots, placement, and custom colors..
+        /// </summary>
+        internal static string Sample_7f7f2ab305 {
+            get {
+                return ResourceManager.GetString("Sample_7f7f2ab305", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This dialog uses command-link buttons..
+        /// </summary>
+        internal static string Sample_7fb644b8b6 {
+            get {
+                return ResourceManager.GetString("Sample_7fb644b8b6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export as HTML.
+        /// </summary>
+        internal static string Sample_7fdf828e06 {
+            get {
+                return ResourceManager.GetString("Sample_7fdf828e06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton and more can be placed directly; overflowed items remain the same control instances..
+        /// </summary>
+        internal static string Sample_8069009e76 {
+            get {
+                return ResourceManager.GetString("Sample_8069009e76", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Gallery main window inherits from ShellWindow. Click to open a simple demo window..
+        /// </summary>
+        internal static string Sample_80755e085c {
+            get {
+                return ResourceManager.GetString("Sample_80755e085c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter name.
+        /// </summary>
+        internal static string Sample_8093e3921d {
+            get {
+                return ResourceManager.GetString("Sample_8093e3921d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See the main window title bar for the live effect (theme switch is in CustomFooter)..
+        /// </summary>
+        internal static string Sample_80f041f752 {
+            get {
+                return ResourceManager.GetString("Sample_80f041f752", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up to 3 tags allowed..
+        /// </summary>
+        internal static string Sample_8152222184 {
+            get {
+                return ResourceManager.GetString("Sample_8152222184", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled flyout with Slide / Fade / None animations..
+        /// </summary>
+        internal static string Sample_8187a6e35a {
+            get {
+                return ResourceManager.GetString("Sample_8187a6e35a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italic.
+        /// </summary>
+        internal static string Sample_81d6da77d6 {
+            get {
+                return ResourceManager.GetString("Sample_81d6da77d6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default ToolTip.
+        /// </summary>
+        internal static string Sample_822fb2cf0e {
+            get {
+                return ResourceManager.GetString("Sample_822fb2cf0e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List view.
+        /// </summary>
+        internal static string Sample_829cb1dd97 {
+            get {
+                return ResourceManager.GetString("Sample_829cb1dd97", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design team.
+        /// </summary>
+        internal static string Sample_829ec9c321 {
+            get {
+                return ResourceManager.GetString("Sample_829ec9c321", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publish.
+        /// </summary>
+        internal static string Sample_83611abd5f {
+            get {
+                return ResourceManager.GetString("Sample_83611abd5f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter credentials.
+        /// </summary>
+        internal static string Sample_83fb2119f7 {
+            get {
+                return ResourceManager.GetString("Sample_83fb2119f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demonstrates the Windows Security credential dialog..
+        /// </summary>
+        internal static string Sample_84063d73bf {
+            get {
+                return ResourceManager.GetString("Sample_84063d73bf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dialog.
+        /// </summary>
+        internal static string Sample_841028314f {
+            get {
+                return ResourceManager.GetString("Sample_841028314f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font.
+        /// </summary>
+        internal static string Sample_8456bc40d4 {
+            get {
+                return ResourceManager.GetString("Sample_8456bc40d4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab titles can use a custom Header template, for example with a SymbolIcon..
+        /// </summary>
+        internal static string Sample_845f2f73d6 {
+            get {
+                return ResourceManager.GetString("Sample_845f2f73d6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Segmented time box.
+        /// </summary>
+        internal static string Sample_84675ebc31 {
+            get {
+                return ResourceManager.GetString("Sample_84675ebc31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page 3 — Multi-framework support.
+        /// </summary>
+        internal static string Sample_847e5a73a0 {
+            get {
+                return ResourceManager.GetString("Sample_847e5a73a0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlay a busy state on content; supports multiple IndicatorType values..
+        /// </summary>
+        internal static string Sample_84acc30e7a {
+            get {
+                return ResourceManager.GetString("Sample_84acc30e7a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foshan.
+        /// </summary>
+        internal static string Sample_852861b891 {
+            get {
+                return ResourceManager.GetString("Sample_852861b891", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR code generation.
+        /// </summary>
+        internal static string Sample_856e16c875 {
+            get {
+                return ResourceManager.GetString("Sample_856e16c875", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste text from clipboard.
+        /// </summary>
+        internal static string Sample_85c976908d {
+            get {
+                return ResourceManager.GetString("Sample_85c976908d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch theme: &lt;A HREF=&quot;dark&quot;&gt;Dark&lt;/A&gt;  |  &lt;A HREF=&quot;light&quot;&gt;Light&lt;/A&gt;.
+        /// </summary>
+        internal static string Sample_85ed85c69f {
+            get {
+                return ResourceManager.GetString("Sample_85ed85c69f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section 1. Click an anchor on the left to scroll to a section..
+        /// </summary>
+        internal static string Sample_86a1afd027 {
+            get {
+                return ResourceManager.GetString("Sample_86a1afd027", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select image files.
+        /// </summary>
+        internal static string Sample_86ebf9a041 {
+            get {
+                return ResourceManager.GetString("Sample_86ebf9a041", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find….
+        /// </summary>
+        internal static string Sample_871d31a958 {
+            get {
+                return ResourceManager.GetString("Sample_871d31a958", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drop shadow decoration.
+        /// </summary>
+        internal static string Sample_877990def9 {
+            get {
+                return ResourceManager.GetString("Sample_877990def9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string Sample_87c835a6b1 {
+            get {
+                return ResourceManager.GetString("Sample_87c835a6b1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain TextBox.
+        /// </summary>
+        internal static string Sample_87d0142c20 {
+            get {
+                return ResourceManager.GetString("Sample_87d0142c20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changzhou.
+        /// </summary>
+        internal static string Sample_880490aef6 {
+            get {
+                return ResourceManager.GetString("Sample_880490aef6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Split button with a primary action and a drop-down menu..
+        /// </summary>
+        internal static string Sample_8813989799 {
+            get {
+                return ResourceManager.GetString("Sample_8813989799", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edge browser.
+        /// </summary>
+        internal static string Sample_8998bc5220 {
+            get {
+                return ResourceManager.GetString("Sample_8998bc5220", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 3.
+        /// </summary>
+        internal static string Sample_899eaed4fd {
+            get {
+                return ResourceManager.GetString("Sample_899eaed4fd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label text.
+        /// </summary>
+        internal static string Sample_89ad888945 {
+            get {
+                return ResourceManager.GetString("Sample_89ad888945", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banner notification.
+        /// </summary>
+        internal static string Sample_89aeb41a27 {
+            get {
+                return ResourceManager.GetString("Sample_89aeb41a27", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited stack 4 (will replace).
+        /// </summary>
+        internal static string Sample_89bfb00829 {
+            get {
+                return ResourceManager.GetString("Sample_89bfb00829", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Junior engineer.
+        /// </summary>
+        internal static string Sample_8a0f7479e5 {
+            get {
+                return ResourceManager.GetString("Sample_8a0f7479e5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a question. Do you confirm?.
+        /// </summary>
+        internal static string Sample_8a3cbdcbba {
+            get {
+                return ResourceManager.GetString("Sample_8a3cbdcbba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports zoom and pan. Source accepts a pack URI or relative resource path..
+        /// </summary>
+        internal static string Sample_8a725dfc19 {
+            get {
+                return ResourceManager.GetString("Sample_8a725dfc19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export as Markdown.
+        /// </summary>
+        internal static string Sample_8ab81bbbd9 {
+            get {
+                return ResourceManager.GetString("Sample_8ab81bbbd9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click count: {_clickCount}.
+        /// </summary>
+        internal static string Sample_8b560de494 {
+            get {
+                return ResourceManager.GetString("Sample_8b560de494", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asynchronously render children on a separate UI thread; can show a Loading view while loading..
+        /// </summary>
+        internal static string Sample_8b64ac85c3 {
+            get {
+                return ResourceManager.GetString("Sample_8b64ac85c3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overflow items still leave the main bar, but no overflow button / Flyout is shown..
+        /// </summary>
+        internal static string Sample_8b93b1d357 {
+            get {
+                return ResourceManager.GetString("Sample_8b93b1d357", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a folder..
+        /// </summary>
+        internal static string Sample_8c19852c92 {
+            get {
+                return ResourceManager.GetString("Sample_8c19852c92", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pagination control.
+        /// </summary>
+        internal static string Sample_8c238a9824 {
+            get {
+                return ResourceManager.GetString("Sample_8c238a9824", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Separator.
+        /// </summary>
+        internal static string Sample_8c47ecd40d {
+            get {
+                return ResourceManager.GetString("Sample_8c47ecd40d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain RichTextBox.
+        /// </summary>
+        internal static string Sample_8c56954140 {
+            get {
+                return ResourceManager.GetString("Sample_8c56954140", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: credential saved — user: {credential.UserName}.
+        /// </summary>
+        internal static string Sample_8c8c59b676 {
+            get {
+                return ResourceManager.GetString("Sample_8c8c59b676", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caption button bar.
+        /// </summary>
+        internal static string Sample_8cb861a1ec {
+            get {
+                return ResourceManager.GetString("Sample_8cb861a1ec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag combo box.
+        /// </summary>
+        internal static string Sample_8dbb85e851 {
+            get {
+                return ResourceManager.GetString("Sample_8dbb85e851", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-stacking mode.
+        /// </summary>
+        internal static string Sample_8dd1eb06c0 {
+            get {
+                return ResourceManager.GetString("Sample_8dd1eb06c0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid splitter.
+        /// </summary>
+        internal static string Sample_8dd38aaf75 {
+            get {
+                return ResourceManager.GetString("Sample_8dd38aaf75", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section 3, for verifying scroll sync..
+        /// </summary>
+        internal static string Sample_8e1dd99c8c {
+            get {
+                return ResourceManager.GetString("Sample_8e1dd99c8c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag input.
+        /// </summary>
+        internal static string Sample_8e3ac38ebb {
+            get {
+                return ResourceManager.GetString("Sample_8e3ac38ebb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message box with icon.
+        /// </summary>
+        internal static string Sample_8e7ccd6ff9 {
+            get {
+                return ResourceManager.GetString("Sample_8e7ccd6ff9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dedicated IPv4 address box that validates each octet (0–255)..
+        /// </summary>
+        internal static string Sample_8f5c60e948 {
+            get {
+                return ResourceManager.GetString("Sample_8f5c60e948", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes/No.
+        /// </summary>
+        internal static string Sample_8fccf382e7 {
+            get {
+                return ResourceManager.GetString("Sample_8fccf382e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string Sample_900c70fa5f {
+            get {
+                return ResourceManager.GetString("Sample_900c70fa5f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flip-view control like a carousel; swipe left/right..
+        /// </summary>
+        internal static string Sample_90ea8506b4 {
+            get {
+                return ResourceManager.GetString("Sample_90ea8506b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browser.
+        /// </summary>
+        internal static string Sample_912302cb02 {
+            get {
+                return ResourceManager.GetString("Sample_912302cb02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to R&amp;D.
+        /// </summary>
+        internal static string Sample_9176a628cc {
+            get {
+                return ResourceManager.GetString("Sample_9176a628cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badges and dots.
+        /// </summary>
+        internal static string Sample_917b016754 {
+            get {
+                return ResourceManager.GetString("Sample_917b016754", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Semi.Avalonia.ColorPicker-style spectrum / palette / channel editors, plus a drop-down ColorPicker..
+        /// </summary>
+        internal static string Sample_91ae62d859 {
+            get {
+                return ResourceManager.GetString("Sample_91ae62d859", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show ContentDialog.
+        /// </summary>
+        internal static string Sample_91c256c87a {
+            get {
+                return ResourceManager.GetString("Sample_91c256c87a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom lightweight notification.
+        /// </summary>
+        internal static string Sample_91e1576aa8 {
+            get {
+                return ResourceManager.GetString("Sample_91e1576aa8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — command links.
+        /// </summary>
+        internal static string Sample_91f1130627 {
+            get {
+                return ResourceManager.GetString("Sample_91f1130627", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select....
+        /// </summary>
+        internal static string Sample_92a3be5307 {
+            get {
+                return ResourceManager.GetString("Sample_92a3be5307", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to document content..
+        /// </summary>
+        internal static string Sample_932b484438 {
+            get {
+                return ResourceManager.GetString("Sample_932b484438", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab.
+        /// </summary>
+        internal static string Sample_9377e388f7 {
+            get {
+                return ResourceManager.GetString("Sample_9377e388f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        internal static string Sample_939d5345ad {
+            get {
+                return ResourceManager.GetString("Sample_939d5345ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF-UI-styled data grid with sorting, selection, and virtualization..
+        /// </summary>
+        internal static string Sample_947e334a08 {
+            get {
+                return ResourceManager.GetString("Sample_947e334a08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete row.
+        /// </summary>
+        internal static string Sample_947fa341a6 {
+            get {
+                return ResourceManager.GetString("Sample_947fa341a6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperlink button.
+        /// </summary>
+        internal static string Sample_953ac8afe8 {
+            get {
+                return ResourceManager.GetString("Sample_953ac8afe8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number input.
+        /// </summary>
+        internal static string Sample_9597dcaf43 {
+            get {
+                return ResourceManager.GetString("Sample_9597dcaf43", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release.
+        /// </summary>
+        internal static string Sample_95a352a546 {
+            get {
+                return ResourceManager.GetString("Sample_95a352a546", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree list.
+        /// </summary>
+        internal static string Sample_9604d1609b {
+            get {
+                return ResourceManager.GetString("Sample_9604d1609b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Border.
+        /// </summary>
+        internal static string Sample_961534b4ea {
+            get {
+                return ResourceManager.GetString("Sample_961534b4ea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Series.
+        /// </summary>
+        internal static string Sample_966e7cdd84 {
+            get {
+                return ResourceManager.GetString("Sample_966e7cdd84", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataGrid — data grid.
+        /// </summary>
+        internal static string Sample_976db78a60 {
+            get {
+                return ResourceManager.GetString("Sample_976db78a60", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default tooltip.
+        /// </summary>
+        internal static string Sample_977acbe88d {
+            get {
+                return ResourceManager.GetString("Sample_977acbe88d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        internal static string Sample_97d0761438 {
+            get {
+                return ResourceManager.GetString("Sample_97d0761438", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes/No/Cancel.
+        /// </summary>
+        internal static string Sample_97d3036ee7 {
+            get {
+                return ResourceManager.GetString("Sample_97d3036ee7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error at ({location}).
+        /// </summary>
+        internal static string Sample_9840e62f59 {
+            get {
+                return ResourceManager.GetString("Sample_9840e62f59", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected:.
+        /// </summary>
+        internal static string Sample_986ffb30e2 {
+            get {
+                return ResourceManager.GetString("Sample_986ffb30e2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Engineer.
+        /// </summary>
+        internal static string Sample_98bc1a09b5 {
+            get {
+                return ResourceManager.GetString("Sample_98bc1a09b5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-column wheel picker.
+        /// </summary>
+        internal static string Sample_9937ff5001 {
+            get {
+                return ResourceManager.GetString("Sample_9937ff5001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suzhou.
+        /// </summary>
+        internal static string Sample_995882b996 {
+            get {
+                return ResourceManager.GetString("Sample_995882b996", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-stacked notification 3.
+        /// </summary>
+        internal static string Sample_9983a4a85f {
+            get {
+                return ResourceManager.GetString("Sample_9983a4a85f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holding the button repeatedly fires Click. Wpf.Ui provides a Fluent look via DefaultRepeatButtonStyle..
+        /// </summary>
+        internal static string Sample_99a952b8e7 {
+            get {
+                return ResourceManager.GetString("Sample_99a952b8e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bind a font list via ItemsSource..
+        /// </summary>
+        internal static string Sample_9a1508f4ef {
+            get {
+                return ResourceManager.GetString("Sample_9a1508f4ef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wu Xin.
+        /// </summary>
+        internal static string Sample_9a201c3894 {
+            get {
+                return ResourceManager.GetString("Sample_9a201c3894", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frontend.
+        /// </summary>
+        internal static string Sample_9abfe4a039 {
+            get {
+                return ResourceManager.GetString("Sample_9abfe4a039", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand to see more.
+        /// </summary>
+        internal static string Sample_9ad3b66421 {
+            get {
+                return ResourceManager.GetString("Sample_9ad3b66421", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use app cache.
+        /// </summary>
+        internal static string Sample_9af21fa553 {
+            get {
+                return ResourceManager.GetString("Sample_9af21fa553", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto-suggest input.
+        /// </summary>
+        internal static string Sample_9afe366118 {
+            get {
+                return ResourceManager.GetString("Sample_9afe366118", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard TabControl.
+        /// </summary>
+        internal static string Sample_9bc1cf07bb {
+            get {
+                return ResourceManager.GetString("Sample_9bc1cf07bb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom install.
+        /// </summary>
+        internal static string Sample_9bcbd65034 {
+            get {
+                return ResourceManager.GetString("Sample_9bcbd65034", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insert.
+        /// </summary>
+        internal static string Sample_9bdb07e72d {
+            get {
+                return ResourceManager.GetString("Sample_9bdb07e72d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PaneTitle — pane title text.
+        /// </summary>
+        internal static string Sample_9bdc3ea41f {
+            get {
+                return ResourceManager.GetString("Sample_9bdc3ea41f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CardControl combines a title and content area into a card layout..
+        /// </summary>
+        internal static string Sample_9bf9a8e24d {
+            get {
+                return ResourceManager.GetString("Sample_9bf9a8e24d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place the loading indicator left, right, top, or bottom of content..
+        /// </summary>
+        internal static string Sample_9c22a91217 {
+            get {
+                return ResourceManager.GetString("Sample_9c22a91217", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Violeta provides Fluent-styled Expander enhancements..
+        /// </summary>
+        internal static string Sample_9c3760d853 {
+            get {
+                return ResourceManager.GetString("Sample_9c3760d853", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section 2 parent chapter with child sections below..
+        /// </summary>
+        internal static string Sample_9c64922ef8 {
+            get {
+                return ResourceManager.GetString("Sample_9c64922ef8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        internal static string Sample_9c9aabab3f {
+            get {
+                return ResourceManager.GetString("Sample_9c9aabab3f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image viewer.
+        /// </summary>
+        internal static string Sample_9cb7d6cf2a {
+            get {
+                return ResourceManager.GetString("Sample_9cb7d6cf2a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Splash — splash screen.
+        /// </summary>
+        internal static string Sample_9cee7d6c46 {
+            get {
+                return ResourceManager.GetString("Sample_9cee7d6c46", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeListView — tree list view.
+        /// </summary>
+        internal static string Sample_9d268b366c {
+            get {
+                return ResourceManager.GetString("Sample_9d268b366c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Black.
+        /// </summary>
+        internal static string Sample_9d2d1f62ae {
+            get {
+                return ResourceManager.GetString("Sample_9d2d1f62ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A real tray balloon notification from TrayIconHost..
+        /// </summary>
+        internal static string Sample_9dba3a086c {
+            get {
+                return ResourceManager.GetString("Sample_9dba3a086c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical slider with ticks..
+        /// </summary>
+        internal static string Sample_9dc8eb7157 {
+            get {
+                return ResourceManager.GetString("Sample_9dc8eb7157", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caption — helper caption text.
+        /// </summary>
+        internal static string Sample_9dd3ceb5b3 {
+            get {
+                return ResourceManager.GetString("Sample_9dd3ceb5b3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeline — Mode / Type (Test demo).
+        /// </summary>
+        internal static string Sample_9de44749b0 {
+            get {
+                return ResourceManager.GetString("Sample_9de44749b0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic info.
+        /// </summary>
+        internal static string Sample_9e5ffa068e {
+            get {
+                return ResourceManager.GetString("Sample_9e5ffa068e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception report.
+        /// </summary>
+        internal static string Sample_9e8f93c666 {
+            get {
+                return ResourceManager.GetString("Sample_9e8f93c666", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports display name, initials, badge, and image source..
+        /// </summary>
+        internal static string Sample_9ec0bbf098 {
+            get {
+                return ResourceManager.GetString("Sample_9ec0bbf098", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExceptionReport — exception report.
+        /// </summary>
+        internal static string Sample_9f00d03364 {
+            get {
+                return ResourceManager.GetString("Sample_9f00d03364", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page flip view.
+        /// </summary>
+        internal static string Sample_9f1891c848 {
+            get {
+                return ResourceManager.GetString("Sample_9f1891c848", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Popup calendar to pick a date; IsTodayHighlighted highlights today..
+        /// </summary>
+        internal static string Sample_9fb6b4af29 {
+            get {
+                return ResourceManager.GetString("Sample_9fb6b4af29", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single select.
+        /// </summary>
+        internal static string Sample_9fd1b7cb41 {
+            get {
+                return ResourceManager.GetString("Sample_9fd1b7cb41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low disk space. Please free up space soon..
+        /// </summary>
+        internal static string Sample_9fd77757e8 {
+            get {
+                return ResourceManager.GetString("Sample_9fd77757e8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Segmented time input.
+        /// </summary>
+        internal static string Sample_9ff42f75c8 {
+            get {
+                return ResourceManager.GetString("Sample_9ff42f75c8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        internal static string Sample_a01a996323 {
+            get {
+                return ResourceManager.GetString("Sample_a01a996323", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select multiple files.
+        /// </summary>
+        internal static string Sample_a074a4a7c5 {
+            get {
+                return ResourceManager.GetString("Sample_a074a4a7c5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target (credential target name).
+        /// </summary>
+        internal static string Sample_a0e354a6b7 {
+            get {
+                return ResourceManager.GetString("Sample_a0e354a6b7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color picker.
+        /// </summary>
+        internal static string Sample_a0e6ecd1eb {
+            get {
+                return ResourceManager.GetString("Sample_a0e6ecd1eb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft.Win32.SaveFileDialog writes text to the path the user selects..
+        /// </summary>
+        internal static string Sample_a10fab8639 {
+            get {
+                return ResourceManager.GetString("Sample_a10fab8639", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme color.
+        /// </summary>
+        internal static string Sample_a1c76c6e1b {
+            get {
+                return ResourceManager.GetString("Sample_a1c76c6e1b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic horizontal slider, 0–100..
+        /// </summary>
+        internal static string Sample_a279b97a03 {
+            get {
+                return ResourceManager.GetString("Sample_a279b97a03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Star rating.
+        /// </summary>
+        internal static string Sample_a297dda489 {
+            get {
+                return ResourceManager.GetString("Sample_a297dda489", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account settings.
+        /// </summary>
+        internal static string Sample_a3448ab5ed {
+            get {
+                return ResourceManager.GetString("Sample_a3448ab5ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CardAction with icon, title, and subtitle..
+        /// </summary>
+        internal static string Sample_a34817221c {
+            get {
+                return ResourceManager.GetString("Sample_a34817221c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Busy overlay and indicator.
+        /// </summary>
+        internal static string Sample_a38e764eb8 {
+            get {
+                return ResourceManager.GetString("Sample_a38e764eb8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme color resources.
+        /// </summary>
+        internal static string Sample_a421a1bf6e {
+            get {
+                return ResourceManager.GetString("Sample_a421a1bf6e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Label.
+        /// </summary>
+        internal static string Sample_a42bf96fec {
+            get {
+                return ResourceManager.GetString("Sample_a42bf96fec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunningBlock — marquee.
+        /// </summary>
+        internal static string Sample_a4397cdc53 {
+            get {
+                return ResourceManager.GetString("Sample_a4397cdc53", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhejiang.
+        /// </summary>
+        internal static string Sample_a44dc3df64 {
+            get {
+                return ResourceManager.GetString("Sample_a44dc3df64", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text box + dropdown flyout rendering both a calendar and time wheels..
+        /// </summary>
+        internal static string Sample_a47d284a58 {
+            get {
+                return ResourceManager.GetString("Sample_a47d284a58", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date picker.
+        /// </summary>
+        internal static string Sample_a55d501e08 {
+            get {
+                return ResourceManager.GetString("Sample_a55d501e08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card / Button styles.
+        /// </summary>
+        internal static string Sample_a5e9b0abe6 {
+            get {
+                return ResourceManager.GetString("Sample_a5e9b0abe6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This may need your attention.
+        ///Click OK to continue..
+        /// </summary>
+        internal static string Sample_a63f92aa6a {
+            get {
+                return ResourceManager.GetString("Sample_a63f92aa6a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to and other inline styles..
+        /// </summary>
+        internal static string Sample_a69a0f6783 {
+            get {
+                return ResourceManager.GetString("Sample_a69a0f6783", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle.
+        /// </summary>
+        internal static string Sample_a6beb974cc {
+            get {
+                return ResourceManager.GetString("Sample_a6beb974cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BusyMask — busy overlay.
+        /// </summary>
+        internal static string Sample_a6d6c786e7 {
+            get {
+                return ResourceManager.GetString("Sample_a6d6c786e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 1.
+        /// </summary>
+        internal static string Sample_a6e8671eab {
+            get {
+                return ResourceManager.GetString("Sample_a6e8671eab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden / Compact / Inline spin-button layouts..
+        /// </summary>
+        internal static string Sample_a72cc659bc {
+            get {
+                return ResourceManager.GetString("Sample_a72cc659bc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aspect-ratio layout.
+        /// </summary>
+        internal static string Sample_a74d2b62c9 {
+            get {
+                return ResourceManager.GetString("Sample_a74d2b62c9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: selected {dialog.SelectedPaths.Length} folders — {string.Join(.
+        /// </summary>
+        internal static string Sample_a816603488 {
+            get {
+                return ResourceManager.GetString("Sample_a816603488", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip and Callout styles.
+        /// </summary>
+        internal static string Sample_a884f3bc36 {
+            get {
+                return ResourceManager.GetString("Sample_a884f3bc36", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Segmented PIN input.
+        /// </summary>
+        internal static string Sample_a8e217c6ad {
+            get {
+                return ResourceManager.GetString("Sample_a8e217c6ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default physical scrolling.
+        /// </summary>
+        internal static string Sample_a96498c010 {
+            get {
+                return ResourceManager.GetString("Sample_a96498c010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blueberry.
+        /// </summary>
+        internal static string Sample_a96ab3d9cc {
+            get {
+                return ResourceManager.GetString("Sample_a96ab3d9cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plays transition animations on content change; supports multiple directions..
+        /// </summary>
+        internal static string Sample_a970d9d633 {
+            get {
+                return ResourceManager.GetString("Sample_a970d9d633", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delay sets the wait before the first repeat (ms); Interval sets the later repeat interval..
+        /// </summary>
+        internal static string Sample_aa2fa8a46b {
+            get {
+                return ResourceManager.GetString("Sample_aa2fa8a46b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 10.
+        /// </summary>
+        internal static string Sample_aa3eb7c441 {
+            get {
+                return ResourceManager.GetString("Sample_aa3eb7c441", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select folder.
+        /// </summary>
+        internal static string Sample_aaa4b65e5c {
+            get {
+                return ResourceManager.GetString("Sample_aaa4b65e5c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CompactPaneLength — icon bar width when collapsed.
+        /// </summary>
+        internal static string Sample_aabb3f6de1 {
+            get {
+                return ResourceManager.GetString("Sample_aabb3f6de1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ItemsSource binding.
+        /// </summary>
+        internal static string Sample_ac68bbca75 {
+            get {
+                return ResourceManager.GetString("Sample_ac68bbca75", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom content.
+        /// </summary>
+        internal static string Sample_acf041436a {
+            get {
+                return ResourceManager.GetString("Sample_acf041436a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress property (0–100) shows determinate progress..
+        /// </summary>
+        internal static string Sample_ad4a69520c {
+            get {
+                return ResourceManager.GetString("Sample_ad4a69520c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab strip.
+        /// </summary>
+        internal static string Sample_ad506ef284 {
+            get {
+                return ResourceManager.GetString("Sample_ad506ef284", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nanjing.
+        /// </summary>
+        internal static string Sample_ad827c5906 {
+            get {
+                return ResourceManager.GetString("Sample_ad827c5906", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Core features done; entering testing..
+        /// </summary>
+        internal static string Sample_adf525b652 {
+            get {
+                return ResourceManager.GetString("Sample_adf525b652", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sample ContentDialog.
+        /// </summary>
+        internal static string Sample_ae05e054a4 {
+            get {
+                return ResourceManager.GetString("Sample_ae05e054a4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Height to limit the list viewport..
+        /// </summary>
+        internal static string Sample_ae26e58675 {
+            get {
+                return ResourceManager.GetString("Sample_ae26e58675", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse all samples grouped by control type; click a card to navigate..
+        /// </summary>
+        internal static string Sample_ae32fe0625 {
+            get {
+                return ResourceManager.GetString("Sample_ae32fe0625", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: cached credential hit — user: {dialog.UserName}.
+        /// </summary>
+        internal static string Sample_ae35089b44 {
+            get {
+                return ResourceManager.GetString("Sample_ae35089b44", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Image.
+        /// </summary>
+        internal static string Sample_aea0ca94d7 {
+            get {
+                return ResourceManager.GetString("Sample_aea0ca94d7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Bottom spacer).
+        /// </summary>
+        internal static string Sample_af1f5437ae {
+            get {
+                return ResourceManager.GetString("Sample_af1f5437ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue?.
+        /// </summary>
+        internal static string Sample_af204660c7 {
+            get {
+                return ResourceManager.GetString("Sample_af204660c7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected: {0}.
+        /// </summary>
+        internal static string Sample_af69d6c47f {
+            get {
+                return ResourceManager.GetString("Sample_af69d6c47f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Embedded Edge browser.
+        /// </summary>
+        internal static string Sample_af7651f268 {
+            get {
+                return ResourceManager.GetString("Sample_af7651f268", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean state text display.
+        /// </summary>
+        internal static string Sample_af927f847c {
+            get {
+                return ResourceManager.GetString("Sample_af927f847c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canvas drawing.
+        /// </summary>
+        internal static string Sample_afe53fe801 {
+            get {
+                return ResourceManager.GetString("Sample_afe53fe801", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prefilled tags; also demonstrates the disabled state..
+        /// </summary>
+        internal static string Sample_afeec3c773 {
+            get {
+                return ResourceManager.GetString("Sample_afeec3c773", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open folder.
+        /// </summary>
+        internal static string Sample_b00f8cb915 {
+            get {
+                return ResourceManager.GetString("Sample_b00f8cb915", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Design.
+        /// </summary>
+        internal static string Sample_b08890a6ef {
+            get {
+                return ResourceManager.GetString("Sample_b08890a6ef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string Sample_b15d91274e {
+            get {
+                return ResourceManager.GetString("Sample_b15d91274e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your name:.
+        /// </summary>
+        internal static string Sample_b15e5d18e7 {
+            get {
+                return ResourceManager.GetString("Sample_b15e5d18e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value / Maximum control the completion ratio..
+        /// </summary>
+        internal static string Sample_b1a86a3a9f {
+            get {
+                return ResourceManager.GetString("Sample_b1a86a3a9f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP + port input.
+        /// </summary>
+        internal static string Sample_b1d8156ae0 {
+            get {
+                return ResourceManager.GetString("Sample_b1d8156ae0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Li Na.
+        /// </summary>
+        internal static string Sample_b1db96a48b {
+            get {
+                return ResourceManager.GetString("Sample_b1db96a48b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme brush resource samples..
+        /// </summary>
+        internal static string Sample_b248c77928 {
+            get {
+                return ResourceManager.GetString("Sample_b248c77928", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UI design completed and approved..
+        /// </summary>
+        internal static string Sample_b250f38e10 {
+            get {
+                return ResourceManager.GetString("Sample_b250f38e10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person picture.
+        /// </summary>
+        internal static string Sample_b26a335cdb {
+            get {
+                return ResourceManager.GetString("Sample_b26a335cdb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Built-in WPF ToolBar + ToolBarTray (overflow still uses the system Popup panel, not a Violeta Flyout)..
+        /// </summary>
+        internal static string Sample_b2ce6a667b {
+            get {
+                return ResourceManager.GetString("Sample_b2ce6a667b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HalfStarEnabled=False allows whole-star ratings only..
+        /// </summary>
+        internal static string Sample_b313aff943 {
+            get {
+                return ResourceManager.GetString("Sample_b313aff943", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hierarchical tree dropdown supporting multi-level nesting..
+        /// </summary>
+        internal static string Sample_b33212419d {
+            get {
+                return ResourceManager.GetString("Sample_b33212419d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data grid.
+        /// </summary>
+        internal static string Sample_b339aa8710 {
+            get {
+                return ResourceManager.GetString("Sample_b339aa8710", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        internal static string Sample_b34422e637 {
+            get {
+                return ResourceManager.GetString("Sample_b34422e637", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Styles and Severity.
+        /// </summary>
+        internal static string Sample_b368eb270f {
+            get {
+                return ResourceManager.GetString("Sample_b368eb270f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up to 3 tags….
+        /// </summary>
+        internal static string Sample_b3cdee7277 {
+            get {
+                return ResourceManager.GetString("Sample_b3cdee7277", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ItemsSource bound to a string collection to show a hierarchical navigation path..
+        /// </summary>
+        internal static string Sample_b4080aa16b {
+            get {
+                return ResourceManager.GetString("Sample_b4080aa16b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The left navigation of the main window is NavigationView. This page summarizes common settings so you don&apos;t nest another full navigation frame..
+        /// </summary>
+        internal static string Sample_b40b2d467a {
+            get {
+                return ResourceManager.GetString("Sample_b40b2d467a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kickoff.
+        /// </summary>
+        internal static string Sample_b420d8f320 {
+            get {
+                return ResourceManager.GetString("Sample_b420d8f320", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhao Liu.
+        /// </summary>
+        internal static string Sample_b43536d046 {
+            get {
+                return ResourceManager.GetString("Sample_b43536d046", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto (show buttons on hover).
+        /// </summary>
+        internal static string Sample_b462ab0695 {
+            get {
+                return ResourceManager.GetString("Sample_b462ab0695", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain PasswordBox.
+        /// </summary>
+        internal static string Sample_b5172cef51 {
+            get {
+                return ResourceManager.GetString("Sample_b5172cef51", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A simple ShellWindow demo window..
+        /// </summary>
+        internal static string Sample_b51bf913f5 {
+            get {
+                return ResourceManager.GetString("Sample_b51bf913f5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar and date picker.
+        /// </summary>
+        internal static string Sample_b51dfb4a52 {
+            get {
+                return ResourceManager.GetString("Sample_b51dfb4a52", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employed.
+        /// </summary>
+        internal static string Sample_b5509be4c5 {
+            get {
+                return ResourceManager.GetString("Sample_b5509be4c5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selectable text.
+        /// </summary>
+        internal static string Sample_b5a455b30d {
+            get {
+                return ResourceManager.GetString("Sample_b5a455b30d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected: (none).
+        /// </summary>
+        internal static string Sample_b5c92782c9 {
+            get {
+                return ResourceManager.GetString("Sample_b5c92782c9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected: {dialog.FileName}.
+        /// </summary>
+        internal static string Sample_b5d2f7bf95 {
+            get {
+                return ResourceManager.GetString("Sample_b5d2f7bf95", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common Segoe Fluent Icons symbol samples..
+        /// </summary>
+        internal static string Sample_b64c4416d4 {
+            get {
+                return ResourceManager.GetString("Sample_b64c4416d4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        internal static string Sample_b652de80d6 {
+            get {
+                return ResourceManager.GetString("Sample_b652de80d6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied to clipboard!.
+        /// </summary>
+        internal static string Sample_b6be24e1e2 {
+            get {
+                return ResourceManager.GetString("Sample_b6be24e1e2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ui:Flyout flyout.
+        /// </summary>
+        internal static string Sample_b7640f1477 {
+            get {
+                return ResourceManager.GetString("Sample_b7640f1477", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banana.
+        /// </summary>
+        internal static string Sample_b7c03bbf2b {
+            get {
+                return ResourceManager.GetString("Sample_b7c03bbf2b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group header.
+        /// </summary>
+        internal static string Sample_b8011fc79e {
+            get {
+                return ResourceManager.GetString("Sample_b8011fc79e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vio:ToolBar overflow (Flyout).
+        /// </summary>
+        internal static string Sample_b847ef8c6a {
+            get {
+                return ResourceManager.GetString("Sample_b847ef8c6a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize appearance with FontFamily, FontStyle, and related properties..
+        /// </summary>
+        internal static string Sample_b854c38c15 {
+            get {
+                return ResourceManager.GetString("Sample_b854c38c15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operations.
+        /// </summary>
+        internal static string Sample_b890b34994 {
+            get {
+                return ResourceManager.GetString("Sample_b890b34994", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge.
+        /// </summary>
+        internal static string Sample_b8c467fce0 {
+            get {
+                return ResourceManager.GetString("Sample_b8c467fce0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: canceled.
+        /// </summary>
+        internal static string Sample_b97d90527e {
+            get {
+                return ResourceManager.GetString("Sample_b97d90527e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error code: 0x80004005.
+        /// </summary>
+        internal static string Sample_b98522c6a1 {
+            get {
+                return ResourceManager.GetString("Sample_b98522c6a1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar date and time.
+        /// </summary>
+        internal static string Sample_b98a0966e3 {
+            get {
+                return ResourceManager.GetString("Sample_b98a0966e3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent icon symbols.
+        /// </summary>
+        internal static string Sample_b99bca881d {
+            get {
+                return ResourceManager.GetString("Sample_b99bca881d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Watermelon.
+        /// </summary>
+        internal static string Sample_b9af3fd5d3 {
+            get {
+                return ResourceManager.GetString("Sample_b9af3fd5d3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-column wheel picker for dates, regions, specs, and more..
+        /// </summary>
+        internal static string Sample_b9b45830e6 {
+            get {
+                return ResourceManager.GetString("Sample_b9b45830e6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File name:.
+        /// </summary>
+        internal static string Sample_b9c52d9a85 {
+            get {
+                return ResourceManager.GetString("Sample_b9c52d9a85", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numbering.
+        /// </summary>
+        internal static string Sample_b9e88627ad {
+            get {
+                return ResourceManager.GetString("Sample_b9e88627ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numeric spinner.
+        /// </summary>
+        internal static string Sample_ba2daa8218 {
+            get {
+                return ResourceManager.GetString("Sample_ba2daa8218", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Native Windows folder picker; supports single/multi select and owner window..
+        /// </summary>
+        internal static string Sample_ba854efc10 {
+            get {
+                return ResourceManager.GetString("Sample_ba854efc10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Gallery main window uses vio:TitleBar with CustomHeader / CustomFooter, back and pane-toggle buttons, and an embedded CaptionButtonBar. Typical usage: place TitleBar at the top when ExtendsContentIntoTitleBar=&quot;True&quot;..
+        /// </summary>
+        internal static string Sample_bb061144dc {
+            get {
+                return ResourceManager.GetString("Sample_bb061144dc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Later.
+        /// </summary>
+        internal static string Sample_bb86dd5c6e {
+            get {
+                return ResourceManager.GetString("Sample_bb86dd5c6e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft.Win32.OpenFileDialog with Filter set to all files..
+        /// </summary>
+        internal static string Sample_bbb630278a {
+            get {
+                return ResourceManager.GetString("Sample_bbb630278a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ImageView — image viewer.
+        /// </summary>
+        internal static string Sample_bbd97789b2 {
+            get {
+                return ResourceManager.GetString("Sample_bbd97789b2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an informational message..
+        /// </summary>
+        internal static string Sample_bc0a0553b3 {
+            get {
+                return ResourceManager.GetString("Sample_bc0a0553b3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Popup lightweight notification.
+        /// </summary>
+        internal static string Sample_bc53972278 {
+            get {
+                return ResourceManager.GetString("Sample_bc53972278", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undo.
+        /// </summary>
+        internal static string Sample_bd9fcf46b4 {
+            get {
+                return ResourceManager.GetString("Sample_bd9fcf46b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.Windows.Controls.WebBrowser, based on the IE ActiveX control and still available on Windows. Navigates to https://example.com after the page loads..
+        /// </summary>
+        internal static string Sample_bdc314fd5e {
+            get {
+                return ResourceManager.GetString("Sample_bdc314fd5e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled flyout.
+        /// </summary>
+        internal static string Sample_be2c2766a0 {
+            get {
+                return ResourceManager.GetString("Sample_be2c2766a0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Sample_be5fbbe34c {
+            get {
+                return ResourceManager.GetString("Sample_be5fbbe34c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please note ({location}).
+        /// </summary>
+        internal static string Sample_bec0dd5f65 {
+            get {
+                return ResourceManager.GetString("Sample_bec0dd5f65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anchor navigation.
+        /// </summary>
+        internal static string Sample_bede211909 {
+            get {
+                return ResourceManager.GetString("Sample_bede211909", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model tree list.
+        /// </summary>
+        internal static string Sample_bf8a0189e0 {
+            get {
+                return ResourceManager.GetString("Sample_bf8a0189e0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bitmap icon element.
+        /// </summary>
+        internal static string Sample_bf954d20ed {
+            get {
+                return ResourceManager.GetString("Sample_bf954d20ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PersonPicture — person picture.
+        /// </summary>
+        internal static string Sample_bfe0b47379 {
+            get {
+                return ResourceManager.GetString("Sample_bfe0b47379", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease.
+        /// </summary>
+        internal static string Sample_bfe5fe4cc4 {
+            get {
+                return ResourceManager.GetString("Sample_bfe5fe4cc4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link.
+        /// </summary>
+        internal static string Sample_bfe68d5844 {
+            get {
+                return ResourceManager.GetString("Sample_bfe68d5844", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place SnackbarPresenter on the page and create/show Snackbar in code. No DI / SnackbarService needed..
+        /// </summary>
+        internal static string Sample_c0280b33ba {
+            get {
+                return ResourceManager.GetString("Sample_c0280b33ba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show notification.
+        /// </summary>
+        internal static string Sample_c054855df3 {
+            get {
+                return ResourceManager.GetString("Sample_c054855df3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default 24-hour format; seconds optional..
+        /// </summary>
+        internal static string Sample_c074b6e2ae {
+            get {
+                return ResourceManager.GetString("Sample_c074b6e2ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lengthening indicator animation.
+        /// </summary>
+        internal static string Sample_c09d2052d1 {
+            get {
+                return ResourceManager.GetString("Sample_c09d2052d1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom ItemTemplate.
+        /// </summary>
+        internal static string Sample_c0a63f52dd {
+            get {
+                return ResourceManager.GetString("Sample_c0a63f52dd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled ListView with GridView multi-column display..
+        /// </summary>
+        internal static string Sample_c0ba2f001d {
+            get {
+                return ResourceManager.GetString("Sample_c0ba2f001d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project formally approved; requirements document completed..
+        /// </summary>
+        internal static string Sample_c0ebbe10c1 {
+            get {
+                return ResourceManager.GetString("Sample_c0ebbe10c1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary / Secondary / Success / Caution / Danger appearances, including enabled and disabled states..
+        /// </summary>
+        internal static string Sample_c1dde7ca84 {
+            get {
+                return ResourceManager.GetString("Sample_c1dde7ca84", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dual-thumb range slider with tick snapping..
+        /// </summary>
+        internal static string Sample_c23c5bc472 {
+            get {
+                return ResourceManager.GetString("Sample_c23c5bc472", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bitmap icon.
+        /// </summary>
+        internal static string Sample_c2b1a13637 {
+            get {
+                return ResourceManager.GetString("Sample_c2b1a13637", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time picker.
+        /// </summary>
+        internal static string Sample_c2c8fb2356 {
+            get {
+                return ResourceManager.GetString("Sample_c2c8fb2356", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drag to select and copy via context menu; multiple semantic styles..
+        /// </summary>
+        internal static string Sample_c33c5fc596 {
+            get {
+                return ResourceManager.GetString("Sample_c33c5fc596", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled….
+        /// </summary>
+        internal static string Sample_c36ec66db0 {
+            get {
+                return ResourceManager.GetString("Sample_c36ec66db0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string Sample_c3992269b4 {
+            get {
+                return ResourceManager.GetString("Sample_c3992269b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Redo.
+        /// </summary>
+        internal static string Sample_c3c873d33f {
+            get {
+                return ResourceManager.GetString("Sample_c3c873d33f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search box.
+        /// </summary>
+        internal static string Sample_c3e817974d {
+            get {
+                return ResourceManager.GetString("Sample_c3e817974d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth physical scrolling.
+        /// </summary>
+        internal static string Sample_c41619d2a1 {
+            get {
+                return ResourceManager.GetString("Sample_c41619d2a1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default / Always: dismiss by clicking outside (like ComboBox). Default closes again only for ButtonBase items; Always also closes on any item; Never closes only when … is clicked again..
+        /// </summary>
+        internal static string Sample_c425587ac1 {
+            get {
+                return ResourceManager.GetString("Sample_c425587ac1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending dialog.
+        /// </summary>
+        internal static string Sample_c4aa96fd4c {
+            get {
+                return ResourceManager.GetString("Sample_c4aa96fd4c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group ToggleButtons for mutually exclusive selection (can deselect)..
+        /// </summary>
+        internal static string Sample_c4aadfd0cd {
+            get {
+                return ResourceManager.GetString("Sample_c4aadfd0cd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read and write system clipboard text.
+        /// </summary>
+        internal static string Sample_c4e39190f1 {
+            get {
+                return ResourceManager.GetString("Sample_c4e39190f1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal or vertical divider, optionally with a caption..
+        /// </summary>
+        internal static string Sample_c56a96438e {
+            get {
+                return ResourceManager.GetString("Sample_c56a96438e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show 5 stacked notifications.
+        /// </summary>
+        internal static string Sample_c5704fa616 {
+            get {
+                return ResourceManager.GetString("Sample_c5704fa616", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        internal static string Sample_c5d34b60ac {
+            get {
+                return ResourceManager.GetString("Sample_c5d34b60ac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lightweight notification.
+        /// </summary>
+        internal static string Sample_c5e3546024 {
+            get {
+                return ResourceManager.GetString("Sample_c5e3546024", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto grid.
+        /// </summary>
+        internal static string Sample_c60adf04b2 {
+            get {
+                return ResourceManager.GetString("Sample_c60adf04b2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports dark theme via DWM + SetWindowTheme + window subclassing..
+        /// </summary>
+        internal static string Sample_c693b80589 {
+            get {
+                return ResourceManager.GetString("Sample_c693b80589", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance=&quot;Primary&quot; emphasis style..
+        /// </summary>
+        internal static string Sample_c71e9d5bfa {
+            get {
+                return ResourceManager.GetString("Sample_c71e9d5bfa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marquee scrolling text.
+        /// </summary>
+        internal static string Sample_c732c7aa7d {
+            get {
+                return ResourceManager.GetString("Sample_c732c7aa7d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tri-state checkbox: checked / unchecked / indeterminate..
+        /// </summary>
+        internal static string Sample_c757dd6e88 {
+            get {
+                return ResourceManager.GetString("Sample_c757dd6e88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue current operation.
+        /// </summary>
+        internal static string Sample_c81e7712be {
+            get {
+                return ResourceManager.GetString("Sample_c81e7712be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled main window base class.
+        /// </summary>
+        internal static string Sample_c86b1fc481 {
+            get {
+                return ResourceManager.GetString("Sample_c86b1fc481", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switches between TrueText / FalseText by Value; styles can differ..
+        /// </summary>
+        internal static string Sample_c891afad73 {
+            get {
+                return ResourceManager.GetString("Sample_c891afad73", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demonstrates an error icon with Retry / Cancel buttons..
+        /// </summary>
+        internal static string Sample_c8a01628d6 {
+            get {
+                return ResourceManager.GetString("Sample_c8a01628d6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile.
+        /// </summary>
+        internal static string Sample_c95e748d58 {
+            get {
+                return ResourceManager.GetString("Sample_c95e748d58", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click a card to open the corresponding control sample..
+        /// </summary>
+        internal static string Sample_ca4cd621e4 {
+            get {
+                return ResourceManager.GetString("Sample_ca4cd621e4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TeachingTip with a Hero area and custom content..
+        /// </summary>
+        internal static string Sample_ca50c39bef {
+            get {
+                return ResourceManager.GetString("Sample_ca50c39bef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show window from tray.
+        /// </summary>
+        internal static string Sample_ca624f0706 {
+            get {
+                return ResourceManager.GetString("Sample_ca624f0706", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlipView — flip view.
+        /// </summary>
+        internal static string Sample_ca774947d0 {
+            get {
+                return ResourceManager.GetString("Sample_ca774947d0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content shown after loading.
+        /// </summary>
+        internal static string Sample_ca7917af58 {
+            get {
+                return ResourceManager.GetString("Sample_ca7917af58", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a native Win32 MessageBox..
+        /// </summary>
+        internal static string Sample_cab56120f1 {
+            get {
+                return ResourceManager.GetString("Sample_cab56120f1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports custom length, numeric mode, and password masking..
+        /// </summary>
+        internal static string Sample_cae0504af9 {
+            get {
+                return ResourceManager.GetString("Sample_cae0504af9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indeterminate progress with continuous animation..
+        /// </summary>
+        internal static string Sample_cae8c05701 {
+            get {
+                return ResourceManager.GetString("Sample_cae8c05701", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combined calendar and time picker.
+        /// </summary>
+        internal static string Sample_caeae4c1bc {
+            get {
+                return ResourceManager.GetString("Sample_caeae4c1bc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AsyncBox demo content. Child content is created on an async UI thread; an indicator can show while loading..
+        /// </summary>
+        internal static string Sample_caf2c2a52f {
+            get {
+                return ResourceManager.GetString("Sample_caf2c2a52f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SpinButton placement mode.
+        /// </summary>
+        internal static string Sample_caff940e2e {
+            get {
+                return ResourceManager.GetString("Sample_caff940e2e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples for interacting with Windows system APIs. File-picker controls are grouped under Selectors..
+        /// </summary>
+        internal static string Sample_cb36623ef8 {
+            get {
+                return ResourceManager.GetString("Sample_cb36623ef8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BoolStateContentControl — boolean state content.
+        /// </summary>
+        internal static string Sample_cb5ec0615f {
+            get {
+                return ResourceManager.GetString("Sample_cb5ec0615f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Option C.
+        /// </summary>
+        internal static string Sample_cbae0a2a40 {
+            get {
+                return ResourceManager.GetString("Sample_cbae0a2a40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tab control.
+        /// </summary>
+        internal static string Sample_cc193a7a67 {
+            get {
+                return ResourceManager.GetString("Sample_cc193a7a67", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wuxi.
+        /// </summary>
+        internal static string Sample_cc6b473b7e {
+            get {
+                return ResourceManager.GetString("Sample_cc6b473b7e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drop-down button.
+        /// </summary>
+        internal static string Sample_cc70a816b7 {
+            get {
+                return ResourceManager.GetString("Sample_cc70a816b7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide 3 — multi-framework support.
+        /// </summary>
+        internal static string Sample_ccdd6cd1e7 {
+            get {
+                return ResourceManager.GetString("Sample_ccdd6cd1e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Unable to read clipboard).
+        /// </summary>
+        internal static string Sample_ccdded2782 {
+            get {
+                return ResourceManager.GetString("Sample_ccdded2782", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 5.
+        /// </summary>
+        internal static string Sample_cd7eb7bcf9 {
+            get {
+                return ResourceManager.GetString("Sample_cd7eb7bcf9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification type.
+        /// </summary>
+        internal static string Sample_cd82d2bb25 {
+            get {
+                return ResourceManager.GetString("Sample_cd82d2bb25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter content....
+        /// </summary>
+        internal static string Sample_cdd6fe7d2f {
+            get {
+                return ResourceManager.GetString("Sample_cdd6fe7d2f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cascading combo.
+        /// </summary>
+        internal static string Sample_cddce965d7 {
+            get {
+                return ResourceManager.GetString("Sample_cddce965d7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle button.
+        /// </summary>
+        internal static string Sample_ce00c5f605 {
+            get {
+                return ResourceManager.GetString("Sample_ce00c5f605", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flagship.
+        /// </summary>
+        internal static string Sample_ce3d5f558f {
+            get {
+                return ResourceManager.GetString("Sample_ce3d5f558f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags: (none).
+        /// </summary>
+        internal static string Sample_ce8e73e55c {
+            get {
+                return ResourceManager.GetString("Sample_ce8e73e55c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Context menu: show/hide, show notification, restart, exit. To fully quit, use Exit in the tray menu..
+        /// </summary>
+        internal static string Sample_cfd0ca6826 {
+            get {
+                return ResourceManager.GetString("Sample_cfd0ca6826", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marquee.
+        /// </summary>
+        internal static string Sample_cfeae99cc9 {
+            get {
+                return ResourceManager.GetString("Sample_cfeae99cc9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Associate an input control via Target for accessibility..
+        /// </summary>
+        internal static string Sample_d02bcb24d5 {
+            get {
+                return ResourceManager.GetString("Sample_d02bcb24d5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — progress bar.
+        /// </summary>
+        internal static string Sample_d02ebc627c {
+            get {
+                return ResourceManager.GetString("Sample_d02ebc627c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can also be inlined in a paragraph:.
+        /// </summary>
+        internal static string Sample_d04e2a27f3 {
+            get {
+                return ResourceManager.GetString("Sample_d04e2a27f3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expander panel.
+        /// </summary>
+        internal static string Sample_d09980a885 {
+            get {
+                return ResourceManager.GetString("Sample_d09980a885", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide 4 — localization for 11 languages.
+        /// </summary>
+        internal static string Sample_d09f873566 {
+            get {
+                return ResourceManager.GetString("Sample_d09f873566", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Padding=0 and CornerRadius=4 customize padding and corner radius..
+        /// </summary>
+        internal static string Sample_d0dcd65d52 {
+            get {
+                return ResourceManager.GetString("Sample_d0dcd65d52", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font &amp; typography hierarchy.
+        /// </summary>
+        internal static string Sample_d128bf935c {
+            get {
+                return ResourceManager.GetString("Sample_d128bf935c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic NumberBox.
+        /// </summary>
+        internal static string Sample_d153de3bbb {
+            get {
+                return ResourceManager.GetString("Sample_d153de3bbb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports multi-select, tag display, and search filtering..
+        /// </summary>
+        internal static string Sample_d1f2679e83 {
+            get {
+                return ResourceManager.GetString("Sample_d1f2679e83", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports Secondary / Primary / Danger / Success appearances..
+        /// </summary>
+        internal static string Sample_d20fff90d9 {
+            get {
+                return ResourceManager.GetString("Sample_d20fff90d9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsSettingsVisible — show settings entry.
+        /// </summary>
+        internal static string Sample_d229e6f892 {
+            get {
+                return ResourceManager.GetString("Sample_d229e6f892", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wheel time.
+        /// </summary>
+        internal static string Sample_d23726dc34 {
+            get {
+                return ResourceManager.GetString("Sample_d23726dc34", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter file name....
+        /// </summary>
+        internal static string Sample_d31088e654 {
+            get {
+                return ResourceManager.GetString("Sample_d31088e654", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to • Frame / Content: hosts page navigation; Gallery switches pages via Tag with GalleryNavigator..
+        /// </summary>
+        internal static string Sample_d359e84325 {
+            get {
+                return ResourceManager.GetString("Sample_d359e84325", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-select dropdown with tags and search.
+        /// </summary>
+        internal static string Sample_d3d3ea7de9 {
+            get {
+                return ResourceManager.GetString("Sample_d3d3ea7de9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Four-way drawer panel.
+        /// </summary>
+        internal static string Sample_d3e2cd292d {
+            get {
+                return ResourceManager.GetString("Sample_d3e2cd292d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy text to clipboard.
+        /// </summary>
+        internal static string Sample_d408b45dc4 {
+            get {
+                return ResourceManager.GetString("Sample_d408b45dc4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline TextBlock.
+        /// </summary>
+        internal static string Sample_d413c4bae0 {
+            get {
+                return ResourceManager.GetString("Sample_d413c4bae0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open multiple files.
+        /// </summary>
+        internal static string Sample_d44c79bb8c {
+            get {
+                return ResourceManager.GetString("Sample_d44c79bb8c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export as PDF.
+        /// </summary>
+        internal static string Sample_d47722faec {
+            get {
+                return ResourceManager.GetString("Sample_d47722faec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification 5.
+        /// </summary>
+        internal static string Sample_d47ea33b91 {
+            get {
+                return ResourceManager.GetString("Sample_d47ea33b91", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guangdong.
+        /// </summary>
+        internal static string Sample_d4912425b4 {
+            get {
+                return ResourceManager.GetString("Sample_d4912425b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right-side content.
+        /// </summary>
+        internal static string Sample_d53bad00d1 {
+            get {
+                return ResourceManager.GetString("Sample_d53bad00d1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folder picker.
+        /// </summary>
+        internal static string Sample_d5431c4c66 {
+            get {
+                return ResourceManager.GetString("Sample_d5431c4c66", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Option B.
+        /// </summary>
+        internal static string Sample_d581ed5da9 {
+            get {
+                return ResourceManager.GetString("Sample_d581ed5da9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renders as a text block with TextBlockTextBoxStyle / TextBlockUiTextBoxStyle..
+        /// </summary>
+        internal static string Sample_d5e7922721 {
+            get {
+                return ResourceManager.GetString("Sample_d5e7922721", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Native message box.
+        /// </summary>
+        internal static string Sample_d688c1ee0b {
+            get {
+                return ResourceManager.GetString("Sample_d688c1ee0b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string Sample_d7098f5050 {
+            get {
+                return ResourceManager.GetString("Sample_d7098f5050", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select multiple folders.
+        /// </summary>
+        internal static string Sample_d71db75c5a {
+            get {
+                return ResourceManager.GetString("Sample_d71db75c5a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longer tip.
+        /// </summary>
+        internal static string Sample_d7362ceba9 {
+            get {
+                return ResourceManager.GetString("Sample_d7362ceba9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent popup.
+        /// </summary>
+        internal static string Sample_d75951dac0 {
+            get {
+                return ResourceManager.GetString("Sample_d75951dac0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write the text below to the system clipboard..
+        /// </summary>
+        internal static string Sample_d78e5f1e99 {
+            get {
+                return ResourceManager.GetString("Sample_d78e5f1e99", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card container.
+        /// </summary>
+        internal static string Sample_d7d0cbd874 {
+            get {
+                return ResourceManager.GetString("Sample_d7d0cbd874", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Sample_d7ec2d3fea {
+            get {
+                return ResourceManager.GetString("Sample_d7ec2d3fea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Embedded browser.
+        /// </summary>
+        internal static string Sample_d85118659e {
+            get {
+                return ResourceManager.GetString("Sample_d85118659e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open ShellWindow demo.
+        /// </summary>
+        internal static string Sample_d8a7964484 {
+            get {
+                return ResourceManager.GetString("Sample_d8a7964484", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open ContentWindow demo.
+        /// </summary>
+        internal static string Sample_d8b5dbc3ee {
+            get {
+                return ResourceManager.GetString("Sample_d8b5dbc3ee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Body — sample body text.
+        /// </summary>
+        internal static string Sample_d8c6ee30ab {
+            get {
+                return ResourceManager.GetString("Sample_d8c6ee30ab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        internal static string Sample_d8c7e04c8e {
+            get {
+                return ResourceManager.GetString("Sample_d8c7e04c8e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panels slide out from the four sides of the container. Click a button to switch direction..
+        /// </summary>
+        internal static string Sample_d994685ba5 {
+            get {
+                return ResourceManager.GetString("Sample_d994685ba5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async wait dialog with progress and cancel; suited for background tasks..
+        /// </summary>
+        internal static string Sample_d9a25d2136 {
+            get {
+                return ResourceManager.GetString("Sample_d9a25d2136", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace the default search icon via the Icon property..
+        /// </summary>
+        internal static string Sample_d9ade15a16 {
+            get {
+                return ResourceManager.GetString("Sample_d9ade15a16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlowDocument sample.
+        /// </summary>
+        internal static string Sample_da3e0a9d70 {
+            get {
+                return ResourceManager.GetString("Sample_da3e0a9d70", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose install method.
+        /// </summary>
+        internal static string Sample_da479fcbb1 {
+            get {
+                return ResourceManager.GetString("Sample_da479fcbb1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smooth scrolling.
+        /// </summary>
+        internal static string Sample_da47feab65 {
+            get {
+                return ResourceManager.GetString("Sample_da47feab65", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide 2 — Fluent Design style.
+        /// </summary>
+        internal static string Sample_db17cc2401 {
+            get {
+                return ResourceManager.GetString("Sample_db17cc2401", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete credential.
+        /// </summary>
+        internal static string Sample_db5f3f8829 {
+            get {
+                return ResourceManager.GetString("Sample_db5f3f8829", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved: {dialog.FileName}.
+        /// </summary>
+        internal static string Sample_db86bca01b {
+            get {
+                return ResourceManager.GetString("Sample_db86bca01b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check box.
+        /// </summary>
+        internal static string Sample_db98f889ce {
+            get {
+                return ResourceManager.GetString("Sample_db98f889ce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NativeMessageBox — Yes/No/Cancel.
+        /// </summary>
+        internal static string Sample_dc94b4096c {
+            get {
+                return ResourceManager.GetString("Sample_dc94b4096c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draw vector graphics on a Canvas with Path and scale via Viewbox..
+        /// </summary>
+        internal static string Sample_dc9af340ca {
+            get {
+                return ResourceManager.GetString("Sample_dc9af340ca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom notification.
+        /// </summary>
+        internal static string Sample_dcc6b91062 {
+            get {
+                return ResourceManager.GetString("Sample_dcc6b91062", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        internal static string Sample_dce5379cb9 {
+            get {
+                return ResourceManager.GetString("Sample_dce5379cb9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Working, please wait....
+        /// </summary>
+        internal static string Sample_dd3316267a {
+            get {
+                return ResourceManager.GetString("Sample_dd3316267a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clipboard contents:.
+        /// </summary>
+        internal static string Sample_dd70c03ba8 {
+            get {
+                return ResourceManager.GetString("Sample_dd70c03ba8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Corner radius ratio.
+        /// </summary>
+        internal static string Sample_dd8f6a81a6 {
+            get {
+                return ResourceManager.GetString("Sample_dd8f6a81a6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Busy overlay.
+        /// </summary>
+        internal static string Sample_dd938e9088 {
+            get {
+                return ResourceManager.GetString("Sample_dd938e9088", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date picker.
+        /// </summary>
+        internal static string Sample_de1a35a24c {
+            get {
+                return ResourceManager.GetString("Sample_de1a35a24c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard.
+        /// </summary>
+        internal static string Sample_de28d2720d {
+            get {
+                return ResourceManager.GetString("Sample_de28d2720d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canvas inside a Viewbox.
+        /// </summary>
+        internal static string Sample_de3e76e86b {
+            get {
+                return ResourceManager.GetString("Sample_de3e76e86b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common properties.
+        /// </summary>
+        internal static string Sample_de882bfd0a {
+            get {
+                return ResourceManager.GetString("Sample_de882bfd0a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhao Lei.
+        /// </summary>
+        internal static string Sample_ded8c0a3ed {
+            get {
+                return ResourceManager.GetString("Sample_ded8c0a3ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content can host custom content such as SymbolIcon..
+        /// </summary>
+        internal static string Sample_df62566578 {
+            get {
+                return ResourceManager.GetString("Sample_df62566578", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Option A.
+        /// </summary>
+        internal static string Sample_e04cead454 {
+            get {
+                return ResourceManager.GetString("Sample_e04cead454", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to • MenuItems / FooterMenuItems: define primary and footer navigation items; each can bind TargetPageType or Tag..
+        /// </summary>
+        internal static string Sample_e080e01adc {
+            get {
+                return ResourceManager.GetString("Sample_e080e01adc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close all.
+        /// </summary>
+        internal static string Sample_e125221047 {
+            get {
+                return ResourceManager.GetString("Sample_e125221047", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-stacked notification 2.
+        /// </summary>
+        internal static string Sample_e16428ce2a {
+            get {
+                return ResourceManager.GetString("Sample_e16428ce2a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification 4.
+        /// </summary>
+        internal static string Sample_e1fc97da7b {
+            get {
+                return ResourceManager.GetString("Sample_e1fc97da7b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read the text currently on the clipboard..
+        /// </summary>
+        internal static string Sample_e2187047c4 {
+            get {
+                return ResourceManager.GetString("Sample_e2187047c4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The app is running in the system tray. Double-click the icon to show or hide the main window..
+        /// </summary>
+        internal static string Sample_e2524ddfb6 {
+            get {
+                return ResourceManager.GetString("Sample_e2524ddfb6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rich text.
+        /// </summary>
+        internal static string Sample_e2591e971f {
+            get {
+                return ResourceManager.GetString("Sample_e2591e971f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tree list view.
+        /// </summary>
+        internal static string Sample_e29255e458 {
+            get {
+                return ResourceManager.GetString("Sample_e29255e458", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read saved credentials.
+        /// </summary>
+        internal static string Sample_e2b1998a54 {
+            get {
+                return ResourceManager.GetString("Sample_e2b1998a54", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress bar.
+        /// </summary>
+        internal static string Sample_e2e33e2c41 {
+            get {
+                return ResourceManager.GetString("Sample_e2e33e2c41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand the control to see more details..
+        /// </summary>
+        internal static string Sample_e2e51ea8f9 {
+            get {
+                return ResourceManager.GetString("Sample_e2e51ea8f9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open image.
+        /// </summary>
+        internal static string Sample_e2fb29cf31 {
+            get {
+                return ResourceManager.GetString("Sample_e2fb29cf31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result: (waiting).
+        /// </summary>
+        internal static string Sample_e35e9417ad {
+            get {
+                return ResourceManager.GetString("Sample_e35e9417ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content transition animation.
+        /// </summary>
+        internal static string Sample_e3bb7cc30f {
+            get {
+                return ResourceManager.GetString("Sample_e3bb7cc30f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitmapIcon — bitmap icon.
+        /// </summary>
+        internal static string Sample_e3cda4ae4b {
+            get {
+                return ResourceManager.GetString("Sample_e3cda4ae4b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChildMargin sample.
+        /// </summary>
+        internal static string Sample_e3e9da1f11 {
+            get {
+                return ResourceManager.GetString("Sample_e3e9da1f11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drop-down button that opens a ContextMenu..
+        /// </summary>
+        internal static string Sample_e44ca4d5c0 {
+            get {
+                return ResourceManager.GetString("Sample_e44ca4d5c0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abort and go back.
+        /// </summary>
+        internal static string Sample_e4568d8868 {
+            get {
+                return ResourceManager.GetString("Sample_e4568d8868", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading button.
+        /// </summary>
+        internal static string Sample_e49cbd1a5f {
+            get {
+                return ResourceManager.GetString("Sample_e49cbd1a5f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeline — data binding.
+        /// </summary>
+        internal static string Sample_e4f76ad96c {
+            get {
+                return ResourceManager.GetString("Sample_e4f76ad96c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Sample_e5f71fc31e {
+            get {
+                return ResourceManager.GetString("Sample_e5f71fc31e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command link.
+        /// </summary>
+        internal static string Sample_e620898657 {
+            get {
+                return ResourceManager.GetString("Sample_e620898657", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apple.
+        /// </summary>
+        internal static string Sample_e6803e21b9 {
+            get {
+                return ResourceManager.GetString("Sample_e6803e21b9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CaptionButtonBar — caption button bar.
+        /// </summary>
+        internal static string Sample_e6f4a019ed {
+            get {
+                return ResourceManager.GetString("Sample_e6f4a019ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CTO.
+        /// </summary>
+        internal static string Sample_e74804e480 {
+            get {
+                return ResourceManager.GetString("Sample_e74804e480", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backend.
+        /// </summary>
+        internal static string Sample_e778d61ae4 {
+            get {
+                return ResourceManager.GetString("Sample_e778d61ae4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flip view.
+        /// </summary>
+        internal static string Sample_e793aeb29c {
+            get {
+                return ResourceManager.GetString("Sample_e793aeb29c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ContentWindow — content window.
+        /// </summary>
+        internal static string Sample_e7a103d40a {
+            get {
+                return ResourceManager.GetString("Sample_e7a103d40a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bold.
+        /// </summary>
+        internal static string Sample_e803663cf5 {
+            get {
+                return ResourceManager.GetString("Sample_e803663cf5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string Sample_e83a256e4f {
+            get {
+                return ResourceManager.GetString("Sample_e83a256e4f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge — badge.
+        /// </summary>
+        internal static string Sample_e8f31fbc7e {
+            get {
+                return ResourceManager.GetString("Sample_e8f31fbc7e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zhou Mei.
+        /// </summary>
+        internal static string Sample_e90b708ea5 {
+            get {
+                return ResourceManager.GetString("Sample_e90b708ea5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line 4.
+        /// </summary>
+        internal static string Sample_e970cf7899 {
+            get {
+                return ResourceManager.GetString("Sample_e970cf7899", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type or paste comma-separated values….
+        /// </summary>
+        internal static string Sample_e9aca1a2c3 {
+            get {
+                return ResourceManager.GetString("Sample_e9aca1a2c3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limited stack 3 (will replace).
+        /// </summary>
+        internal static string Sample_ea0a332c59 {
+            get {
+                return ResourceManager.GetString("Sample_ea0a332c59", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12-hour clock.
+        /// </summary>
+        internal static string Sample_eafbd6a246 {
+            get {
+                return ResourceManager.GetString("Sample_eafbd6a246", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste.
+        /// </summary>
+        internal static string Sample_eafbece101 {
+            get {
+                return ResourceManager.GetString("Sample_eafbece101", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TaskDialog — information.
+        /// </summary>
+        internal static string Sample_eb38190f53 {
+            get {
+                return ResourceManager.GetString("Sample_eb38190f53", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success ({location}).
+        /// </summary>
+        internal static string Sample_ebe103ec6a {
+            get {
+                return ResourceManager.GetString("Sample_ebe103ec6a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ClockIdentifier=12HourClock, with AM/PM..
+        /// </summary>
+        internal static string Sample_ebf3722f8d {
+            get {
+                return ResourceManager.GetString("Sample_ebf3722f8d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async content.
+        /// </summary>
+        internal static string Sample_ecb6201948 {
+            get {
+                return ResourceManager.GetString("Sample_ecb6201948", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spin button.
+        /// </summary>
+        internal static string Sample_ecbc7f2bbd {
+            get {
+                return ResourceManager.GetString("Sample_ecbc7f2bbd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TransitioningContentControl — transitioning content.
+        /// </summary>
+        internal static string Sample_ed093b889a {
+            get {
+                return ResourceManager.GetString("Sample_ed093b889a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search input.
+        /// </summary>
+        internal static string Sample_ed114f1d75 {
+            get {
+                return ResourceManager.GetString("Sample_ed114f1d75", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is an informational TaskDialog.
+        /// </summary>
+        internal static string Sample_ed377f66a0 {
+            get {
+                return ResourceManager.GetString("Sample_ed377f66a0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP address input.
+        /// </summary>
+        internal static string Sample_ed50de239d {
+            get {
+                return ResourceManager.GetString("Sample_ed50de239d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ningbo.
+        /// </summary>
+        internal static string Sample_ed5a4dc733 {
+            get {
+                return ResourceManager.GetString("Sample_ed5a4dc733", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mixed controls (moved into Flyout as-is).
+        /// </summary>
+        internal static string Sample_edae724270 {
+            get {
+                return ResourceManager.GetString("Sample_edae724270", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent-child cascading combo box.
+        /// </summary>
+        internal static string Sample_ee2358e53a {
+            get {
+                return ResourceManager.GetString("Sample_ee2358e53a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Row separator.
+        /// </summary>
+        internal static string Sample_ee3d70da45 {
+            get {
+                return ResourceManager.GetString("Sample_ee3d70da45", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard WPF ToggleButton that toggles pressed/released state..
+        /// </summary>
+        internal static string Sample_ee5b0776e9 {
+            get {
+                return ResourceManager.GetString("Sample_ee5b0776e9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the install options you want to use..
+        /// </summary>
+        internal static string Sample_eed4f2841b {
+            get {
+                return ResourceManager.GetString("Sample_eed4f2841b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data 2.
+        /// </summary>
+        internal static string Sample_eeda260c6a {
+            get {
+                return ResourceManager.GetString("Sample_eeda260c6a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon buttons + Flyout overflow.
+        /// </summary>
+        internal static string Sample_eedaef971a {
+            get {
+                return ResourceManager.GetString("Sample_eedaef971a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form.
+        /// </summary>
+        internal static string Sample_eee1e2258d {
+            get {
+                return ResourceManager.GetString("Sample_eee1e2258d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Declare MultiComboBoxItem directly in XAML..
+        /// </summary>
+        internal static string Sample_ef0fd2940b {
+            get {
+                return ResourceManager.GetString("Sample_ef0fd2940b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent icons.
+        /// </summary>
+        internal static string Sample_ef7fd6c161 {
+            get {
+                return ResourceManager.GetString("Sample_ef7fd6c161", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QuerySubmitted: (empty query).
+        /// </summary>
+        internal static string Sample_efc15e78f4 {
+            get {
+                return ResourceManager.GetString("Sample_efc15e78f4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is a default notification ({location}).
+        /// </summary>
+        internal static string Sample_f062dba511 {
+            get {
+                return ResourceManager.GetString("Sample_f062dba511", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v1.0 publicly released..
+        /// </summary>
+        internal static string Sample_f072efab93 {
+            get {
+                return ResourceManager.GetString("Sample_f072efab93", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to • Header / TitleBar: can be combined with the window title bar and breadcrumbs..
+        /// </summary>
+        internal static string Sample_f07479f3ac {
+            get {
+                return ResourceManager.GetString("Sample_f07479f3ac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Like / dislike rating.
+        /// </summary>
+        internal static string Sample_f1861aaa47 {
+            get {
+                return ResourceManager.GetString("Sample_f1861aaa47", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two-state checkbox: checked / unchecked..
+        /// </summary>
+        internal static string Sample_f1add48d43 {
+            get {
+                return ResourceManager.GetString("Sample_f1add48d43", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Development complete.
+        /// </summary>
+        internal static string Sample_f1d86ff89e {
+            get {
+                return ResourceManager.GetString("Sample_f1d86ff89e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully!.
+        /// </summary>
+        internal static string Sample_f1f6027baa {
+            get {
+                return ResourceManager.GetString("Sample_f1f6027baa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Segmented time box with keyboard and mouse-wheel adjustment..
+        /// </summary>
+        internal static string Sample_f249dc8eab {
+            get {
+                return ResourceManager.GetString("Sample_f249dc8eab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Violeta ContentDialog with primary, secondary, and close buttons..
+        /// </summary>
+        internal static string Sample_f330915173 {
+            get {
+                return ResourceManager.GetString("Sample_f330915173", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrapper around Win32 MessageBoxW; does not depend on WPF MessageBox..
+        /// </summary>
+        internal static string Sample_f4aad45b10 {
+            get {
+                return ResourceManager.GetString("Sample_f4aad45b10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows different content by boolean; click to toggle..
+        /// </summary>
+        internal static string Sample_f4cd310f32 {
+            get {
+                return ResourceManager.GetString("Sample_f4cd310f32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Range slider.
+        /// </summary>
+        internal static string Sample_f4fbd6c803 {
+            get {
+                return ResourceManager.GetString("Sample_f4fbd6c803", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without a Target binding, clicking outside dismisses it..
+        /// </summary>
+        internal static string Sample_f5403ebf57 {
+            get {
+                return ResourceManager.GetString("Sample_f5403ebf57", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show options as tags.
+        /// </summary>
+        internal static string Sample_f5668379e7 {
+            get {
+                return ResourceManager.GetString("Sample_f5668379e7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name....
+        /// </summary>
+        internal static string Sample_f5a481d0ae {
+            get {
+                return ResourceManager.GetString("Sample_f5a481d0ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add node.
+        /// </summary>
+        internal static string Sample_f68216034d {
+            get {
+                return ResourceManager.GetString("Sample_f68216034d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alternate mode with different node types..
+        /// </summary>
+        internal static string Sample_f699b2bc6e {
+            get {
+                return ResourceManager.GetString("Sample_f699b2bc6e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple formats.
+        /// </summary>
+        internal static string Sample_f6d51bcb81 {
+            get {
+                return ResourceManager.GetString("Sample_f6d51bcb81", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Underline.
+        /// </summary>
+        internal static string Sample_f6f8ea0815 {
+            get {
+                return ResourceManager.GetString("Sample_f6f8ea0815", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected: {string.Join(.
+        /// </summary>
+        internal static string Sample_f738ece436 {
+            get {
+                return ResourceManager.GetString("Sample_f738ece436", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InfoBadge in NavigationView.
+        /// </summary>
+        internal static string Sample_f7bcc4e1df {
+            get {
+                return ResourceManager.GetString("Sample_f7bcc4e1df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle switch control.
+        /// </summary>
+        internal static string Sample_f7fad24da1 {
+            get {
+                return ResourceManager.GetString("Sample_f7fad24da1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hierarchical tree dropdown.
+        /// </summary>
+        internal static string Sample_f89ef54b9a {
+            get {
+                return ResourceManager.GetString("Sample_f89ef54b9a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar.
+        /// </summary>
+        internal static string Sample_f8c3feb48c {
+            get {
+                return ResourceManager.GetString("Sample_f8c3feb48c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit Filter to common image formats..
+        /// </summary>
+        internal static string Sample_f8df5a8bca {
+            get {
+                return ResourceManager.GetString("Sample_f8df5a8bca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard WPF rich text editor with FlowDocument support..
+        /// </summary>
+        internal static string Sample_f91458ff7d {
+            get {
+                return ResourceManager.GetString("Sample_f91458ff7d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radio button.
+        /// </summary>
+        internal static string Sample_f96dabbc50 {
+            get {
+                return ResourceManager.GetString("Sample_f96dabbc50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With clear button.
+        /// </summary>
+        internal static string Sample_f9783871d2 {
+            get {
+                return ResourceManager.GetString("Sample_f9783871d2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tri-state Select All checkbox linked to child options..
+        /// </summary>
+        internal static string Sample_f9fed5cea3 {
+            get {
+                return ResourceManager.GetString("Sample_f9fed5cea3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dot style can show a badge at the top-right of a button..
+        /// </summary>
+        internal static string Sample_fa126e58bb {
+            get {
+                return ResourceManager.GetString("Sample_fa126e58bb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Calendar and DatePicker (CalendarDatePicker)..
+        /// </summary>
+        internal static string Sample_fa9b11c609 {
+            get {
+                return ResourceManager.GetString("Sample_fa9b11c609", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        internal static string Sample_fad5222ca0 {
+            get {
+                return ResourceManager.GetString("Sample_fad5222ca0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected.
+        /// </summary>
+        internal static string Sample_fad7c8a21f {
+            get {
+                return ResourceManager.GetString("Sample_fad7c8a21f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form layout.
+        /// </summary>
+        internal static string Sample_faf4e7e50d {
+            get {
+                return ResourceManager.GetString("Sample_faf4e7e50d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t show again.
+        /// </summary>
+        internal static string Sample_fb54df5d84 {
+            get {
+                return ResourceManager.GetString("Sample_fb54df5d84", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Popup calendar panel to select a date..
+        /// </summary>
+        internal static string Sample_fb6e46429f {
+            get {
+                return ResourceManager.GetString("Sample_fb6e46429f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In progress.
+        /// </summary>
+        internal static string Sample_fb852fc6cc {
+            get {
+                return ResourceManager.GetString("Sample_fb852fc6cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indicator — indicator.
+        /// </summary>
+        internal static string Sample_fbefb6bac3 {
+            get {
+                return ResourceManager.GetString("Sample_fbefb6bac3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font size.
+        /// </summary>
+        internal static string Sample_fc55aff8c7 {
+            get {
+                return ResourceManager.GetString("Sample_fc55aff8c7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text block.
+        /// </summary>
+        internal static string Sample_fca196e010 {
+            get {
+                return ResourceManager.GetString("Sample_fca196e010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String path.
+        /// </summary>
+        internal static string Sample_fd10e00a5b {
+            get {
+                return ResourceManager.GetString("Sample_fd10e00a5b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Align right.
+        /// </summary>
+        internal static string Sample_fd8e9572cc {
+            get {
+                return ResourceManager.GetString("Sample_fd8e9572cc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capacity.
+        /// </summary>
+        internal static string Sample_fe7d74278a {
+            get {
+                return ResourceManager.GetString("Sample_fe7d74278a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dual-thumb range slider.
+        /// </summary>
+        internal static string Sample_feab68ba18 {
+            get {
+                return ResourceManager.GetString("Sample_feab68ba18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tray notification.
+        /// </summary>
+        internal static string Sample_fecb037951 {
+            get {
+                return ResourceManager.GetString("Sample_fecb037951", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic TextBlock.
+        /// </summary>
+        internal static string Sample_fee30be123 {
+            get {
+                return ResourceManager.GetString("Sample_fee30be123", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlowDirection=RightToLeft right-to-left layout..
+        /// </summary>
+        internal static string Sample_feefa735f7 {
+            get {
+                return ResourceManager.GetString("Sample_feefa735f7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ComboBox with inline-defined ComboBoxItems..
+        /// </summary>
+        internal static string Sample_ff1cc32d53 {
+            get {
+                return ResourceManager.GetString("Sample_ff1cc32d53", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Define ListBoxItems directly in XAML..
+        /// </summary>
+        internal static string Sample_ff7c4a7fda {
+            get {
+                return ResourceManager.GetString("Sample_ff7c4a7fda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ShellWindow — shell window.
+        /// </summary>
+        internal static string Sample_ff7cc5837d {
+            get {
+                return ResourceManager.GetString("Sample_ff7cc5837d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FontIcon and ImageIcon samples..
+        /// </summary>
+        internal static string Sample_ff8807ee6c {
+            get {
+                return ResourceManager.GetString("Sample_ff8807ee6c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active state.
+        /// </summary>
+        internal static string Sample_ffecc9f0be {
+            get {
+                return ResourceManager.GetString("Sample_ffecc9f0be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your attention may be required.
+        ///Click OK to continue..
+        /// </summary>
+        internal static string Sample_NativeAttentionBody {
+            get {
+                return ResourceManager.GetString("Sample_NativeAttentionBody", resourceCulture);
             }
         }
     }

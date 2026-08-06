@@ -3,6 +3,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;
 
@@ -26,46 +28,46 @@ public partial class TreeListViewPage : Wpf.Ui.Violeta.Controls.Page
 
         var manager = new Staff
         {
-            Name = "张三",
+            Name = LangKeys.Sample_615db57aa3.Tr(),
             Age = 35,
-            Sex = "男",
-            Duty = "部门经理",
+            Sex = LangKeys.Sample_36a4908a55.Tr(),
+            Duty = LangKeys.Sample_1697f28005.Tr(),
             IsChecked = true,
         };
 
         manager.StaffList.Add(new Staff
         {
-            Name = "李四",
+            Name = LangKeys.Sample_36c942351e.Tr(),
             Age = 28,
-            Sex = "男",
-            Duty = "高级工程师",
+            Sex = LangKeys.Sample_36a4908a55.Tr(),
+            Duty = LangKeys.Sample_132ab8784b.Tr(),
             IsChecked = true,
         });
 
         manager.StaffList.Add(new Staff
         {
-            Name = "王五",
+            Name = LangKeys.Sample_3228f322c9.Tr(),
             Age = 26,
-            Sex = "女",
-            Duty = "工程师",
+            Sex = LangKeys.Sample_87c835a6b1.Tr(),
+            Duty = LangKeys.Sample_98bc1a09b5.Tr(),
             IsChecked = true,
         });
 
         var manager2 = new Staff
         {
-            Name = "赵六",
+            Name = LangKeys.Sample_b43536d046.Tr(),
             Age = 38,
-            Sex = "女",
-            Duty = "技术总监",
+            Sex = LangKeys.Sample_87c835a6b1.Tr(),
+            Duty = LangKeys.Sample_e74804e480.Tr(),
             IsChecked = true,
         };
 
         manager2.StaffList.Add(new Staff
         {
-            Name = "孙七",
+            Name = LangKeys.Sample_52a48bb45a.Tr(),
             Age = 30,
-            Sex = "男",
-            Duty = "架构师",
+            Sex = LangKeys.Sample_36a4908a55.Tr(),
+            Duty = LangKeys.Sample_4647705c65.Tr(),
             IsChecked = true,
         });
 
@@ -79,10 +81,10 @@ public partial class TreeListViewPage : Wpf.Ui.Violeta.Controls.Page
         {
             StaffList[0].StaffList.Add(new Staff
             {
-                Name = "新员工 " + global::System.DateTime.Now.ToString("HH:mm:ss"),
+                Name = LangKeys.Sample_4d0e6c6f67.Tr() + global::System.DateTime.Now.ToString("HH:mm:ss"),
                 Age = 25,
-                Sex = "男",
-                Duty = "初级工程师",
+                Sex = LangKeys.Sample_36a4908a55.Tr(),
+                Duty = LangKeys.Sample_8a0f7479e5.Tr(),
                 IsChecked = true,
             });
         }

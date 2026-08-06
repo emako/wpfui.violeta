@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="NumberBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="基础 NumberBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d153de3bbb}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="数值输入框，支持占位符。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_56642b9154}}" />
                     <ui:NumberBox
                         Width="320"
                         HorizontalAlignment="Left"
@@ -53,11 +54,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="SpinButton 放置模式" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_caff940e2e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Hidden / Compact / Inline 三种微调按钮布局。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a72cc659bc}}" />
                     <ui:StackPanel Orientation="Vertical" Spacing="8">
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <TextBlock
@@ -126,11 +127,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="整数 NumberBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4f090cabd3}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="MaxDecimalPlaces=0，仅允许整数输入。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4d02e8c8cc}}" />
                     <ui:NumberBox
                         Width="320"
                         HorizontalAlignment="Left"

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Clipboard"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,21 +30,21 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="复制到剪贴板" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_564be0b127}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="将下方文本写入系统剪贴板。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d78e5f1e99}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ui:Button
                             Click="CopyTextToClipboard_Click"
-                            Content="复制文本到剪贴板" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d408b45dc4}}" />
                         <TextBlock
                             x:Name="TextCopiedNotice"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="已复制到剪贴板！"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_b6be24e1e2}}"
                             Visibility="Collapsed" />
                     </ui:StackPanel>
                     <ui:TextBox
@@ -66,23 +67,23 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="从剪贴板粘贴" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4ddb17d702}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="读取当前剪贴板中的文本内容。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e2187047c4}}"
                         TextWrapping="Wrap" />
                     <ui:Button
                         Click="PasteTextFromClipboard_Click"
-                        Content="从剪贴板粘贴文本" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_85c976908d}}" />
                     <TextBlock
                         Margin="0,12,0,4"
-                        Text="剪贴板内容："
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dd70c03ba8}}"
                         TextDecorations="Underline" />
                     <TextBlock
                         x:Name="ClipboardContentText"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="点击上方按钮读取"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_17073bf769}}"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Border>

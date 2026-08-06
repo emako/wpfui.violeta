@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CheckBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="双态复选框：选中 / 未选中。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f1add48d43}}" />
                     <CheckBox Content="Two-state CheckBox" />
                 </StackPanel>
             </Border>
@@ -54,7 +55,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="三态复选框：选中 / 未选中 / 不确定。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c757dd6e88}}" />
                     <CheckBox
                         Content="Three-state CheckBox"
                         IsChecked="{x:Null}"
@@ -78,7 +79,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="三态「全选」复选框联动子选项。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f9fed5cea3}}" />
                     <CheckBox
                         x:Name="SelectAllCheckBox"
                         Checked="SelectAll_Checked"

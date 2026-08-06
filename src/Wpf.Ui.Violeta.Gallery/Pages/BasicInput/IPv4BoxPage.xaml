@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="IPv4Box"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="IPv4 地址输入" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2599b75b66}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="专用 IPv4 地址输入框，自动校验各段范围（0–255）。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8f5c60e948}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:IPv4Box
                             Margin="0,0,16,0"

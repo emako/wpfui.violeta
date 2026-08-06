@@ -32,6 +32,14 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="Resources\Localization\SH.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>SH.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
         <EmbeddedResource Update="Resources\Localization\SH.resx">
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>SH.Designer.cs</LastGenOutput>

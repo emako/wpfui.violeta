@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Banner"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,25 +31,25 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Banner — 横幅通知" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_30859ecb19}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="内嵌横幅通知，适合页面顶部的状态提示。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_671acfcae8}}" />
                     <StackPanel>
                         <vio:Banner
                             Margin="0,0,0,8"
-                            Content="这是一条信息横幅，用于展示重要提示。"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_618dd07189}}"
                             Type="Information" />
                         <vio:Banner
                             Margin="0,0,0,8"
-                            Content="操作已成功完成！"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_f1f6027baa}}"
                             Type="Success" />
                         <vio:Banner
                             Margin="0,0,0,8"
-                            Content="磁盘空间不足，请及时清理。"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_9fd77757e8}}"
                             Type="Warning" />
-                        <vio:Banner Content="发生了一个错误，请联系管理员。" Type="Error" />
+                        <vio:Banner Content="{I18N {x:Static lang:LangKeys.Sample_3acbae2b62}}" Type="Error" />
                     </StackPanel>
                 </StackPanel>
             </Border>

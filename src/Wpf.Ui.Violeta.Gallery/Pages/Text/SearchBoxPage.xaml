@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="SearchBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="对齐 WinUI SearchBox：QueryChanged（输入/清除）、QuerySubmitted（回车提交）。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7711ba96c2}}" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -51,7 +52,7 @@
                             Grid.Column="1"
                             Margin="16,0,0,0"
                             VerticalAlignment="Center"
-                            Content="显示清除按钮"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_03a0199535}}"
                             IsChecked="{Binding ElementName=SearchBox, Path=ClearButtonEnabled}" />
                     </Grid>
                     <TextBlock
@@ -79,11 +80,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="自定义图标" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7372dc9f39}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可通过 Icon 属性替换默认搜索图标。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d9ade15a16}}" />
                     <vio:SearchBox
                         Width="320"
                         HorizontalAlignment="Left"
@@ -107,7 +108,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="禁用状态" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5a7392a0d7}}" />
                     <vio:SearchBox
                         Width="320"
                         HorizontalAlignment="Left"

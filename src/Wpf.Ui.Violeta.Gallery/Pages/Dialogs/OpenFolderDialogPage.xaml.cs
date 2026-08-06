@@ -2,6 +2,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
 
@@ -31,7 +33,7 @@ public partial class OpenFolderDialogPage : Wpf.Ui.Violeta.Controls.Page
         bool multiselect = button.Tag?.ToString() == "Multiple";
         OpenFolderDialog dialog = new()
         {
-            Description = multiselect ? "请选择一个或多个文件夹。" : "请选择一个文件夹。",
+            Description = multiselect ? LangKeys.Sample_509c20e53c.Tr() : LangKeys.Sample_8c19852c92.Tr(),
             UseDescriptionForTitle = true,
             Multiselect = multiselect,
         };
@@ -39,8 +41,8 @@ public partial class OpenFolderDialogPage : Wpf.Ui.Violeta.Controls.Page
         bool? result = dialog.ShowDialog(OwnerHandle);
         OpenFolderDialogResultText.Text = result == true
             ? multiselect
-                ? $"结果：已选择 {dialog.SelectedPaths.Length} 个文件夹 — {string.Join("；", dialog.SelectedPaths)}"
-                : $"结果：{dialog.SelectedPath}"
-            : "结果：已取消";
+                ? LangKeys.Format_SelectedFolders.Tr(dialog.SelectedPaths.Length, string.Join("；", dialog.SelectedPaths))
+                : LangKeys.Format_Result.Tr(dialog.SelectedPath)
+            : LangKeys.Sample_b97d90527e.Tr();
     }
 }

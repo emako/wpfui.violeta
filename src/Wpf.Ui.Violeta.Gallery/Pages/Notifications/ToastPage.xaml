@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Toast 通知"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Sample_71b081a671}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Toast 通知" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_71b081a671}}" />
 
             <!--  Toast Types  -->
             <Border
@@ -31,7 +32,7 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="通知类型" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_cd82d2bb25}}" />
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -57,7 +58,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="默认" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                         <WrapPanel Grid.Row="0" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -86,7 +87,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="信息" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
                         <WrapPanel Grid.Row="2" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -115,7 +116,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="成功" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
                         <WrapPanel Grid.Row="4" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -144,7 +145,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="错误" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
                         <WrapPanel Grid.Row="6" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -173,7 +174,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="警告" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                         <WrapPanel Grid.Row="8" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -202,7 +203,7 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="问题" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_5dc99f6efe}}" />
                         <WrapPanel Grid.Row="10" Grid.Column="1">
                             <ui:Button
                                 Margin="0,0,8,4"
@@ -243,20 +244,20 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="堆叠测试" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_07a8b6d891}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowStacked_Click"
-                            Content="显示 5 条堆叠通知" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_c5704fa616}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowNonStacked_Click"
-                            Content="非堆叠模式" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_8dd1eb06c0}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowLimitedStack_Click"
-                            Content="限制堆叠（最多 2 条）" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_464fd99a16}}" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

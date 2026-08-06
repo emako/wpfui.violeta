@@ -1,5 +1,7 @@
 using System.Windows;
 using Wpf.Ui.Violeta.Win32;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Notifications;
 
@@ -14,7 +16,7 @@ public partial class TrayIconPage : Wpf.Ui.Violeta.Controls.Page
     {
         TrayIconManager.ShowNotification(
             "Wpf.Ui.Violeta Gallery",
-            "这是来自 TrayIconHost 的真实托盘气球通知。",
+            LangKeys.Sample_9dba3a086c.Tr(),
             ToolTipIcon.Info);
     }
 
@@ -25,7 +27,7 @@ public partial class TrayIconPage : Wpf.Ui.Violeta.Controls.Page
             window.Hide();
             TrayIconManager.ShowNotification(
                 "Wpf.Ui.Violeta Gallery",
-                "主窗口已隐藏。双击托盘图标可重新打开。",
+                LangKeys.Sample_3676039437.Tr(),
                 ToolTipIcon.Info);
         }
     }

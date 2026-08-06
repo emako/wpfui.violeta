@@ -6,8 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:gallery="clr-namespace:Wpf.Ui.Violeta.Gallery"
-    Title="文本显示"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Nav_TextDisplay}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,11 +17,11 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="文本显示" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_TextDisplay}}" />
             <TextBlock
                 Margin="0,0,0,12"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="点击卡片进入对应控件演示页面。"
+                Text="{I18N {x:Static lang:LangKeys.Sample_ca4cd621e4}}"
                 TextWrapping="Wrap" />
             <WrapPanel>
                 <ui:CardAction
@@ -34,7 +35,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="Label" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="标签文本" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_89ad888945}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -48,7 +49,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="TextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="文本块" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_fca196e010}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -62,7 +63,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="SelectableTextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="可选中复制的文本块" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2d7c6130ac}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -76,7 +77,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="Hyperlink" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Fluent 风格超链接" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_3dafb55bfe}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -90,7 +91,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="BoolStateTextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="布尔状态文本显示" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_af927f847c}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
             </WrapPanel>

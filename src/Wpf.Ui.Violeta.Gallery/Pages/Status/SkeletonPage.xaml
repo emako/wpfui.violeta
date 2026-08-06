@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Skeleton"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="Skeleton — 骨架屏" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_2ad0b1dc17}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="用于内容加载前的占位显示。可切换 IsLoading / IsActive。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3444fcb679}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
                         <CheckBox
@@ -64,7 +65,7 @@
                         HorizontalAlignment="Left"
                         IsActive="True"
                         IsLoading="True">
-                        <TextBlock VerticalAlignment="Center" Text="加载完成后显示的内容" />
+                        <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_ca7917af58}}" />
                     </vio:Skeleton>
                 </StackPanel>
             </Border>

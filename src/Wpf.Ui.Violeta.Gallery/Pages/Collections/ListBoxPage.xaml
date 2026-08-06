@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ListBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="内联项 ListBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_66e8d62a1a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="在 XAML 中直接定义 ListBoxItem。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ff7c4a7fda}}" />
                     <ListBox SelectedIndex="0">
                         <ListBoxItem>Blue</ListBoxItem>
                         <ListBoxItem>Green</ListBoxItem>
@@ -55,11 +56,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="固定高度 ListBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7334842e9b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="设置 Height 限制列表显示区域。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ae26e58675}}" />
                     <ListBox Height="164" SelectedIndex="2">
                         <ListBoxItem>Item 1</ListBoxItem>
                         <ListBoxItem>Item 2</ListBoxItem>

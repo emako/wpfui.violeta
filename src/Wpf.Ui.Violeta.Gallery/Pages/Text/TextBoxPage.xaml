@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TextBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="普通 TextBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_87d0142c20}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="标准 WPF TextBox。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3a5fe68601}}" />
                     <TextBox
                         Width="320"
                         HorizontalAlignment="Left"
@@ -57,26 +58,26 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Wpf.Ui TextBox，支持占位符与清除按钮。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1f9d2d95b3}}" />
                     <StackPanel>
                         <ui:TextBox
                             Width="320"
                             Margin="0,0,0,8"
                             HorizontalAlignment="Left"
-                            PlaceholderText="请输入内容..."
-                            Text="带清除按钮" />
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_cdd6fe7d2f}}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_f9783871d2}}" />
                         <ui:TextBox
                             Width="320"
                             Margin="0,0,0,8"
                             HorizontalAlignment="Left"
                             ClearButtonEnabled="False"
-                            PlaceholderText="无清除按钮"
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_61b0c7c3e4}}"
                             Text="ClearButtonEnabled=False" />
                         <ui:TextBox
                             Width="320"
                             HorizontalAlignment="Left"
                             IsEnabled="False"
-                            PlaceholderText="禁用"
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_710ad08b11}}"
                             Text="Disabled" />
                     </StackPanel>
                 </StackPanel>
@@ -94,11 +95,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="TextBlock 外观样式" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7269b2e6d4}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="使用 TextBlockTextBoxStyle / TextBlockUiTextBoxStyle 呈现为文本块外观。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d5e7922721}}" />
                     <StackPanel>
                         <TextBox
                             Width="320"

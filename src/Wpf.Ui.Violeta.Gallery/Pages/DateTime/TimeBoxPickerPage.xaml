@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TimeBoxPicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="自定义格式时间选择" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2daf8c0856}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="文本框 + 下拉弹出层，支持自定义 .NET 时间格式。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_36044dc666}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:TimeBoxPicker Width="200" />
                         <vio:TimeBoxPicker

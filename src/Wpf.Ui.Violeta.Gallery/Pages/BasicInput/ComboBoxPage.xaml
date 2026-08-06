@@ -7,6 +7,7 @@
     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ComboBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,7 +35,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="内联定义 ComboBoxItem 的下拉框。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ff1cc32d53}}" />
                     <ComboBox
                         MinWidth="200"
                         HorizontalAlignment="Left"
@@ -63,7 +64,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过 ItemsSource 绑定字体列表。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9a1508f4ef}}" />
                     <ComboBox
                         MinWidth="200"
                         HorizontalAlignment="Left"
@@ -101,7 +102,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IsEditable=True 可编辑下拉框。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_02ec1fa593}}" />
                     <ComboBox
                         MinWidth="200"
                         HorizontalAlignment="Left"
@@ -138,7 +139,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="使用 GroupStyle 分组显示。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_200bb8cedf}}" />
                     <ComboBox
                         x:Name="GroupedComboBox"
                         MinWidth="200"

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="OpenFolderDialog"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,24 +30,24 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="原生 Windows 文件夹选择对话框，支持单选、多选和所有者窗口。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ba854efc10}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowOpenFolderDialog_Click"
-                            Content="选择文件夹"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_aaa4b65e5c}}"
                             Tag="Single" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowOpenFolderDialog_Click"
-                            Content="选择多个文件夹"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d71db75c5a}}"
                             Tag="Multiple" />
                     </WrapPanel>
                     <TextBlock
                         x:Name="OpenFolderDialogResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="结果：(等待操作)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e35e9417ad}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

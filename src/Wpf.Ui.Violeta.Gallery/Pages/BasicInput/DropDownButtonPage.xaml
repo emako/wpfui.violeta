@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="DropDownButton"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="点击展开 ContextMenu 菜单的下拉按钮。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e44ca4d5c0}}" />
                     <ui:DropDownButton Content="Hello" Icon="{ui:SymbolIcon Fluent24}">
                         <ui:DropDownButton.Flyout>
                             <ContextMenu>

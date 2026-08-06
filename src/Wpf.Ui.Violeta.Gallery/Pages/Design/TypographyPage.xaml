@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Typography"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -21,8 +22,8 @@
                     <TextBlock Margin="0,8,0,0" FontSize="28" FontWeight="SemiBold" Text="Title Large" />
                     <TextBlock Margin="0,8,0,0" FontSize="24" FontWeight="SemiBold" Text="Title" />
                     <TextBlock Margin="0,8,0,0" FontSize="20" FontWeight="SemiBold" Text="Subtitle" />
-                    <TextBlock Margin="0,8,0,0" FontSize="14" Text="Body — 正文内容示例文字" />
-                    <TextBlock Margin="0,8,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Caption — 辅助说明文字" />
+                    <TextBlock Margin="0,8,0,0" FontSize="14" Text="{I18N {x:Static lang:LangKeys.Sample_d8c6ee30ab}}" />
+                    <TextBlock Margin="0,8,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9dd3ceb5b3}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

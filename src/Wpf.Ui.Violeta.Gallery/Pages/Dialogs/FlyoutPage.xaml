@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Flyout"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,7 +30,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过 FlyoutService 附着到按钮或卡片上的弹出层。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7a37cf1b92}}" />
                     <StackPanel Orientation="Horizontal">
                         <ui:Button Margin="0,0,16,0" Content="Button">
                             <ui:FlyoutService.Flyout>

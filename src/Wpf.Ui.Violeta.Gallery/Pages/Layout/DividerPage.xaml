@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Divider"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,20 +31,20 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Divider — 分割线" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_66d8aafdd1}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="水平或垂直分割线，可选带文字标注。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c56a96438e}}" />
                     <vio:Divider Margin="0,0,0,8" />
-                    <vio:Divider Margin="0,0,0,8" Content="分组标题" />
+                    <vio:Divider Margin="0,0,0,8" Content="{I18N {x:Static lang:LangKeys.Sample_b8011fc79e}}" />
                     <StackPanel Height="60" Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center" Text="左侧内容" />
+                        <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_58480236ab}}" />
                         <vio:Divider
                             Width="1"
                             Margin="12,0"
                             Orientation="Vertical" />
-                        <TextBlock VerticalAlignment="Center" Text="右侧内容" />
+                        <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_d53bad00d1}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

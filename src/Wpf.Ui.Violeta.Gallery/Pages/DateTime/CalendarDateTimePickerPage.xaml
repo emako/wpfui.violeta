@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CalendarDateTimePicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="日历 + 时间一体选择" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3c9ff9bc0b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="文本框 + 下拉弹出层，弹出层同时渲染日历和时间转轮。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a47d284a58}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:CalendarDateTimePicker Width="240" />
                         <vio:CalendarDateTimePicker

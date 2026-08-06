@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Icons"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -17,7 +18,7 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1" CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Segoe Fluent Icons 常用符号示例。" />
+                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b64c4416d4}}" />
                     <WrapPanel>
                         <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE80F;" />
                         <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE713;" />

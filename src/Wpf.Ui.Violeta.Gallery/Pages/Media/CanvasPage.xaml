@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Canvas"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Viewbox 中的 Canvas" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_de3e76e86b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="使用 Path 在 Canvas 上绘制矢量图形，并通过 Viewbox 缩放显示。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dc9af340ca}}"
                         TextWrapping="Wrap" />
                     <Viewbox
                         Width="200"

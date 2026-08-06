@@ -1,6 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using MessageBox = Wpf.Ui.Violeta.Controls.MessageBox;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
 
@@ -23,13 +25,13 @@ public partial class MessageBoxPage : Wpf.Ui.Violeta.Controls.Page
 
         result = tag switch
         {
-            "Information" => MessageBox.Information("这是一条信息消息。"),
-            "Warning" => MessageBox.Warning("请注意，这是一条警告。"),
-            "Question" => MessageBox.Question("这是一个问题，您确认吗？"),
-            "Error" => MessageBox.Error("发生了一个错误，请稍后重试。"),
+            "Information" => MessageBox.Information(LangKeys.Sample_bc0a0553b3.Tr()),
+            "Warning" => MessageBox.Warning(LangKeys.Sample_17395556d2.Tr()),
+            "Question" => MessageBox.Question(LangKeys.Sample_8a3cbdcbba.Tr()),
+            "Error" => MessageBox.Error(LangKeys.Sample_2e087c1ba6.Tr()),
             _ => System.Windows.MessageBoxResult.None,
         };
 
-        MessageBoxResultText.Text = $"结果：{result}";
+        MessageBoxResultText.Text = LangKeys.Format_Result.Tr(result);
     }
 }

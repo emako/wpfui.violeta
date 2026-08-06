@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.OpSystem;
 
@@ -29,7 +31,7 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        OpenedFilePathText.Text = $"已选择：{dialog.FileName}";
+        OpenedFilePathText.Text = LangKeys.Format_Selected.Tr(dialog.FileName);
         OpenedFilePathText.Visibility = Visibility.Visible;
     }
 
@@ -48,7 +50,7 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        OpenedPicturePathText.Text = $"已选择：{dialog.FileName}";
+        OpenedPicturePathText.Text = LangKeys.Format_Selected.Tr(dialog.FileName);
         OpenedPicturePathText.Visibility = Visibility.Visible;
     }
 
@@ -68,7 +70,7 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        OpenedMultiplePathText.Text = $"已选择 {dialog.FileNames.Length} 个文件：\n{string.Join("\n", dialog.FileNames)}";
+        OpenedMultiplePathText.Text = LangKeys.Format_SelectedFiles.Tr(dialog.FileNames.Length, string.Join("\n", dialog.FileNames));
         OpenedMultiplePathText.Visibility = Visibility.Visible;
     }
 
@@ -87,7 +89,7 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        OpenedFolderPathText.Text = $"已选择：\n{string.Join("\n", dialog.FolderNames)}";
+        OpenedFolderPathText.Text = LangKeys.Format_SelectedMultiline.Tr(string.Join("\n", dialog.FolderNames));
         OpenedFolderPathText.Visibility = Visibility.Visible;
     }
 
@@ -131,7 +133,7 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        SavedFileNoticeText.Text = $"已保存：{dialog.FileName}";
+        SavedFileNoticeText.Text = LangKeys.Format_Saved.Tr(dialog.FileName);
         SavedFileNoticeText.Visibility = Visibility.Visible;
     }
 }

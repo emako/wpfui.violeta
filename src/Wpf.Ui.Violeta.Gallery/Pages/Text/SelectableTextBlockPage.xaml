@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="SelectableTextBlock"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="可选中文本" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b5a455b30d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可拖拽选中并右键复制，支持多种语义样式。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c33c5fc596}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock

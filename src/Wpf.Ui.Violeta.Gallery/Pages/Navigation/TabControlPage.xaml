@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TabControl"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="标准 TabControl" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9bc1cf07bb}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Tab 标题可自定义 Header 模板，例如带 SymbolIcon。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_845f2f73d6}}"
                         TextWrapping="Wrap" />
                     <TabControl Margin="0,8,0,0">
                         <TabItem>

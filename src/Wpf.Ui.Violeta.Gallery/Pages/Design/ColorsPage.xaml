@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Colors"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -17,7 +18,7 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1" CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="主题画刷资源示例。" />
+                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b248c77928}}" />
                     <StackPanel>
                         <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource AccentFillColorDefaultBrush}" />
                         <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource ControlFillColorDefaultBrush}" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}" BorderThickness="1" />

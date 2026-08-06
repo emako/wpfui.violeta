@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Timeline"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,46 +31,46 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Timeline — 时间线（声明式）" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_71df92bd0f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="垂直时间线布局，展示事件顺序。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_452e6c9afa}}" />
                     <vio:Timeline>
-                        <vio:TimelineItem Header="项目启动">
+                        <vio:TimelineItem Header="{I18N {x:Static lang:LangKeys.Sample_484aefb490}}">
                             <StackPanel>
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                     Text="2024-01-01" />
-                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="项目正式立项，完成需求文档。" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c0ebbe10c1}}" />
                             </StackPanel>
                         </vio:TimelineItem>
-                        <vio:TimelineItem Header="设计阶段">
+                        <vio:TimelineItem Header="{I18N {x:Static lang:LangKeys.Sample_6fe4c8e483}}">
                             <StackPanel>
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                     Text="2024-02-15" />
-                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="UI 设计稿完成，通过评审。" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b250f38e10}}" />
                             </StackPanel>
                         </vio:TimelineItem>
-                        <vio:TimelineItem Header="开发完成">
+                        <vio:TimelineItem Header="{I18N {x:Static lang:LangKeys.Sample_f1d86ff89e}}">
                             <StackPanel>
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                     Text="2024-05-01" />
-                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="核心功能开发完毕，进入测试阶段。" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_adf525b652}}" />
                             </StackPanel>
                         </vio:TimelineItem>
-                        <vio:TimelineItem Header="正式发布">
+                        <vio:TimelineItem Header="{I18N {x:Static lang:LangKeys.Sample_95a352a546}}">
                             <StackPanel>
                                 <TextBlock
                                     FontSize="12"
                                     Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                     Text="2024-06-01" />
-                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="v1.0 正式对外发布。" />
+                                <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f072efab93}}" />
                             </StackPanel>
                         </vio:TimelineItem>
                     </vio:Timeline>
@@ -88,11 +89,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Timeline — Mode / Type（Test 演示）" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9de44749b0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Alternate 模式与不同节点类型。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f699b2bc6e}}" />
                     <vio:Timeline Mode="Alternate">
                         <vio:TimelineItem
                             Content="First item"
@@ -135,11 +136,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Timeline — 数据绑定" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e4f76ad96c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过 ItemsSource 与 MemberPath 绑定。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_77bc5793f7}}" />
                     <WrapPanel>
                         <vio:Timeline
                             Margin="0,0,24,0"

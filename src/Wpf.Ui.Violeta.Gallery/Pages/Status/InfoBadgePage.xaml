@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="InfoBadge"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="NavigationView 中的 InfoBadge" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f7bcc4e1df}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可在 NavigationViewItem 上附加 InfoBadge 显示未读数或状态。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1eda6db667}}"
                         TextWrapping="Wrap" />
                     <ui:NavigationView
                         MinHeight="260"
@@ -68,11 +69,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="样式与 Severity" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b368eb270f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Icon / Value / Dot 三种样式，配合不同 Severity 颜色。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1b3d9c6919}}"
                         TextWrapping="Wrap" />
                     <WrapPanel HorizontalAlignment="Center">
                         <ui:InfoBadge
@@ -116,11 +117,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="叠加在其他控件上" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_74a0d88f9a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Dot 样式可角标显示在按钮右上角。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fa126e58bb}}"
                         TextWrapping="Wrap" />
                     <ui:Button
                         Width="200"

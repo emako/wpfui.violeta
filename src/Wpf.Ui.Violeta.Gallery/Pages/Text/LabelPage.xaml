@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Label"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="基础 Label" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a42bf96fec}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="用于显示描述性文本的标签控件。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_44096c0147}}" />
                     <Label Content="I am a Label." />
                 </StackPanel>
             </Border>
@@ -50,11 +51,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Label 关联 TextBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2df973d88f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过 Target 属性关联输入控件，支持无障碍访问。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d02bcb24d5}}" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />

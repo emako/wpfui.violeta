@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Menu"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="标准 Menu + ui:MenuItem" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0f69e5cbfd}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WPF Menu 配合 ui:MenuItem 获得 Fluent 图标与样式。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_31cf6f2636}}"
                         TextWrapping="Wrap" />
                     <Menu FontSize="14">
                         <ui:MenuItem Header="File" Icon="{ui:SymbolIcon Document24}">

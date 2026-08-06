@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TreeListView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,18 +31,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="TreeListView — 树形列表视图" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9d268b366c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="结合树形结构和列表视图，支持展开/折叠和多列显示。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0d838a9c7d}}" />
                     <ui:TreeListView
                         x:Name="StaffTreeListView"
                         Height="280"
                         ItemsSource="{Binding StaffList}">
                         <ui:TreeListView.Columns>
                             <GridViewColumnCollection>
-                                <ui:GridViewColumn Width="280" Header="姓名">
+                                <ui:GridViewColumn Width="280" Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}">
                                     <ui:GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <ui:TreeRowExpander Content="{Binding Name}" />
@@ -51,16 +52,16 @@
                                 <ui:GridViewColumn
                                     Width="80"
                                     DisplayMemberBinding="{Binding Age}"
-                                    Header="年龄" />
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_a01a996323}}" />
                                 <ui:GridViewColumn
                                     Width="80"
                                     DisplayMemberBinding="{Binding Sex}"
-                                    Header="性别" />
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_787b5677e3}}" />
                                 <ui:GridViewColumn
                                     Width="120"
                                     DisplayMemberBinding="{Binding Duty}"
-                                    Header="职位" />
-                                <ui:GridViewColumn Width="100" Header="状态">
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_b652de80d6}}" />
+                                <ui:GridViewColumn Width="100" Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}">
                                     <ui:GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
@@ -74,11 +75,11 @@
                         </ui:TreeListView.ItemTemplate>
                     </ui:TreeListView>
                     <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <ui:Button Click="AddStaffNode_Click" Content="添加节点" />
+                        <ui:Button Click="AddStaffNode_Click" Content="{I18N {x:Static lang:LangKeys.Sample_f68216034d}}" />
                         <ui:Button
                             Margin="8,0,0,0"
                             Click="ChangeStaffNode_Click"
-                            Content="修改节点" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_574256110b}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

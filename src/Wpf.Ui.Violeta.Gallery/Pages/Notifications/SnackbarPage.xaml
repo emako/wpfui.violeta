@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Snackbar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,7 +35,7 @@
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="页面内放置 SnackbarPresenter，通过代码创建 Snackbar 并显示。无需 DI / SnackbarService。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_c0280b33ba}}"
                             TextWrapping="Wrap" />
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <ui:Button Click="ShowSnackbar_Click" Content="Show snackbar" />

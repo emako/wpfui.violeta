@@ -3,6 +3,8 @@ using System;
 using System.Windows;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;
 
@@ -20,9 +22,9 @@ public partial class TreeModelListViewPage : Wpf.Ui.Violeta.Controls.Page
     {
         TreeTestModel.Add(new TreeTestModel
         {
-            Column1 = "新增 " + global::System.DateTime.Now.ToString("HH:mm:ss"),
-            Column2 = "数据2",
-            Column3 = "数据3",
+            Column1 = LangKeys.Sample_1bb125b89c.Tr() + global::System.DateTime.Now.ToString("HH:mm:ss"),
+            Column2 = LangKeys.Sample_eeda260c6a.Tr(),
+            Column3 = LangKeys.Sample_4053a05691.Tr(),
         });
     }
 
@@ -47,29 +49,29 @@ public partial class TreeModelListViewPage : Wpf.Ui.Violeta.Controls.Page
             [
                 new()
                 {
-                    Column1 = "项目 A",
-                    Column2 = "进行中",
+                    Column1 = LangKeys.Sample_416b31af1e.Tr(),
+                    Column2 = LangKeys.Sample_fb852fc6cc.Tr(),
                     Column3 = "2024-01-01",
                     Children =
                     [
                         new()
                         {
-                            Column1 = "任务 A-1",
-                            Column2 = "已完成",
+                            Column1 = LangKeys.Sample_32ca86d11b.Tr(),
+                            Column2 = LangKeys.Sample_fad5222ca0.Tr(),
                             Column3 = "2024-02-01",
                         },
                         new()
                         {
-                            Column1 = "任务 A-2",
-                            Column2 = "进行中",
+                            Column1 = LangKeys.Sample_602f80825c.Tr(),
+                            Column2 = LangKeys.Sample_fb852fc6cc.Tr(),
                             Column3 = "2024-02-15",
                         },
                     ],
                 },
                 new()
                 {
-                    Column1 = "项目 B",
-                    Column2 = "计划中",
+                    Column1 = LangKeys.Sample_048547bbb0.Tr(),
+                    Column2 = LangKeys.Sample_4daea5b39d.Tr(),
                     Column3 = "2024-03-01",
                 },
             ],

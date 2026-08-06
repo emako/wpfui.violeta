@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="KeyGestureInput"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,17 +30,17 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="快捷键录制" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1dc0650f80}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="按下键盘组合可录制快捷键，支持修饰键与清除按钮。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5a6fd6d939}}" />
                     <StackPanel>
                         <vio:KeyGestureInput
                             Width="280"
                             Margin="0,0,0,8"
                             HorizontalAlignment="Left"
-                            PlaceholderText="按下快捷键..." />
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_2c06ec4e6e}}" />
                         <vio:KeyGestureInput
                             Width="280"
                             Margin="0,0,0,8"

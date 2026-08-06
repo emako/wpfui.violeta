@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Form"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                         Text="LabelPosition = Top" />
                     <vio:Form Margin="0,8,0,0" LabelPosition="Top">
                         <vio:FormItem IsRequired="True" Label="Username">
-                            <ui:TextBox Width="220" PlaceholderText="请输入用户名" />
+                            <ui:TextBox Width="220" PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_08b1fa1304}}" />
                         </vio:FormItem>
                         <vio:FormItem Label="Email">
                             <ui:TextBox Width="220" PlaceholderText="example@email.com" />
@@ -66,29 +67,29 @@
                         Margin="0,8,0,0"
                         LabelPosition="Left"
                         LabelWidth="*">
-                        <vio:FormGroup Header="基本信息">
-                            <vio:FormItem IsRequired="True" Label="姓名">
-                                <ui:TextBox PlaceholderText="请输入姓名" />
+                        <vio:FormGroup Header="{I18N {x:Static lang:LangKeys.Sample_9e5ffa068e}}">
+                            <vio:FormItem IsRequired="True" Label="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}">
+                                <ui:TextBox PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_8093e3921d}}" />
                             </vio:FormItem>
-                            <vio:FormItem Label="部门">
+                            <vio:FormItem Label="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}">
                                 <ComboBox>
-                                    <ComboBoxItem Content="研发部" IsSelected="True" />
-                                    <ComboBoxItem Content="设计部" />
-                                    <ComboBoxItem Content="产品部" />
-                                    <ComboBoxItem Content="运营部" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9176a628cc}}" IsSelected="True" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_829ec9c321}}" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_c5d34b60ac}}" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_b890b34994}}" />
                                 </ComboBox>
                             </vio:FormItem>
                         </vio:FormGroup>
-                        <vio:FormGroup Header="账号设置">
-                            <vio:FormItem Label="启用通知">
-                                <CheckBox Content="接收邮件通知" IsChecked="True" />
+                        <vio:FormGroup Header="{I18N {x:Static lang:LangKeys.Sample_a3448ab5ed}}">
+                            <vio:FormItem Label="{I18N {x:Static lang:LangKeys.Sample_4717f4f110}}">
+                                <CheckBox Content="{I18N {x:Static lang:LangKeys.Sample_19b083f7cf}}" IsChecked="True" />
                             </vio:FormItem>
-                            <vio:FormItem Label="深色模式">
+                            <vio:FormItem Label="{I18N {x:Static lang:LangKeys.Sample_18d1485cc2}}">
                                 <ui:ToggleSwitch IsChecked="True" />
                             </vio:FormItem>
                         </vio:FormGroup>
                         <vio:FormItem NoLabel="True">
-                            <ui:Button Appearance="Primary" Content="提交" />
+                            <ui:Button Appearance="Primary" Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}" />
                         </vio:FormItem>
                     </vio:Form>
                 </StackPanel>

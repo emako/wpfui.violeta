@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="RepeatButton"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="标准 RepeatButton" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3c3e7f2bd3}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="按住按钮会持续触发 Click。Wpf.Ui 通过 DefaultRepeatButtonStyle 提供 Fluent 外观。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_99a952b8e7}}"
                         TextWrapping="Wrap" />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -44,13 +45,13 @@
                             <RepeatButton
                                 x:Name="StandardRepeatButton"
                                 Click="StandardRepeatButton_OnClick"
-                                Content="按住累加" />
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1cae9c41d8}}" />
                             <TextBlock
                                 x:Name="ClickCountText"
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="点击次数：0" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_67b61f5a7e}}" />
                         </StackPanel>
                         <CheckBox
                             Grid.Column="1"
@@ -77,18 +78,18 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Delay 控制首次重复前的等待（毫秒），Interval 控制后续重复间隔。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_aa2fa8a46b}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <RepeatButton
                             Click="FastRepeatButton_OnClick"
-                            Content="快速（Delay=200, Interval=50）"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1e4fcf41ba}}"
                             Delay="200"
                             Interval="50" />
                         <RepeatButton
                             Margin="12,0,0,0"
                             Click="SlowRepeatButton_OnClick"
-                            Content="缓慢（Delay=1000, Interval=400）"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1efa490383}}"
                             Delay="1000"
                             Interval="400" />
                     </StackPanel>
@@ -96,7 +97,7 @@
                         x:Name="TimingClickCountText"
                         Margin="0,12,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="快速：0　缓慢：0" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1b92ef7c71}}" />
                 </StackPanel>
             </Border>
 
@@ -112,11 +113,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="增减计数器" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0aa6412b72}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="典型用法：步进调节数值，类似 NumericUpDown / ScrollBar 内部按钮。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6ef42093fc}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <RepeatButton
@@ -145,7 +146,7 @@
                             Margin="16,0,0,0"
                             Appearance="Secondary"
                             Click="ResetCounter_OnClick"
-                            Content="重置" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_4b9c3271dc}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -162,11 +163,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="图标内容" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4e22bba902}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Content 可放入 SymbolIcon 等自定义内容。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_df62566578}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <RepeatButton
@@ -175,7 +176,7 @@
                             Click="IconDecrement_OnClick"
                             Delay="400"
                             Interval="80"
-                            ToolTip="减小">
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_bfe5fe4cc4}}">
                             <ui:SymbolIcon Symbol="Subtract24" />
                         </RepeatButton>
                         <TextBlock
@@ -193,7 +194,7 @@
                             Click="IconIncrement_OnClick"
                             Delay="400"
                             Interval="80"
-                            ToolTip="增大">
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_1ef6e720b3}}">
                             <ui:SymbolIcon Symbol="Add24" />
                         </RepeatButton>
                     </StackPanel>

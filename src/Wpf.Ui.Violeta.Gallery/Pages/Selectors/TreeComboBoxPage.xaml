@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TreeComboBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,29 +26,29 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="树形下拉框" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4598e31c82}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="层级树形结构的下拉选择框，支持多层嵌套。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b33212419d}}" />
                     <vio:TreeComboBox
                         x:Name="TreeComboBoxDemo"
                         MaxWidth="400"
                         HorizontalAlignment="Left"
-                        PlaceholderText="请选择...">
-                        <vio:TreeComboBoxItem Header="技术栈">
-                            <vio:TreeComboBoxItem Header="前端">
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
+                        <vio:TreeComboBoxItem Header="{I18N {x:Static lang:LangKeys.Sample_01a0213336}}">
+                            <vio:TreeComboBoxItem Header="{I18N {x:Static lang:LangKeys.Sample_9abfe4a039}}">
                                 <vio:TreeComboBoxItem Header="React" />
                                 <vio:TreeComboBoxItem Header="Vue" />
                                 <vio:TreeComboBoxItem Header="Angular" />
                             </vio:TreeComboBoxItem>
-                            <vio:TreeComboBoxItem Header="后端">
+                            <vio:TreeComboBoxItem Header="{I18N {x:Static lang:LangKeys.Sample_e778d61ae4}}">
                                 <vio:TreeComboBoxItem Header="Node.js" />
                                 <vio:TreeComboBoxItem Header=".NET" />
                                 <vio:TreeComboBoxItem Header="Java" />
                             </vio:TreeComboBoxItem>
                         </vio:TreeComboBoxItem>
-                        <vio:TreeComboBoxItem Header="数据库">
+                        <vio:TreeComboBoxItem Header="{I18N {x:Static lang:LangKeys.Sample_68051bf4aa}}">
                             <vio:TreeComboBoxItem Header="SQL">
                                 <vio:TreeComboBoxItem Header="MySQL" />
                                 <vio:TreeComboBoxItem Header="PostgreSQL" />
@@ -57,7 +58,7 @@
                                 <vio:TreeComboBoxItem Header="Redis" />
                             </vio:TreeComboBoxItem>
                         </vio:TreeComboBoxItem>
-                        <vio:TreeComboBoxItem Header="移动开发" />
+                        <vio:TreeComboBoxItem Header="{I18N {x:Static lang:LangKeys.Sample_11446c8fca}}" />
                     </vio:TreeComboBox>
                 </StackPanel>
             </Border>

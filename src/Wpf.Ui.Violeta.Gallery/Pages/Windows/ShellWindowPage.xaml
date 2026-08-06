@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ShellWindow"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,16 +21,16 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="ShellWindow — 外壳窗口" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_ff7cc5837d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="本 Gallery 主窗口即继承自 ShellWindow。点击按钮打开一个简单的演示窗口。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_80755e085c}}"
                         TextWrapping="Wrap" />
                     <ui:Button
                         HorizontalAlignment="Left"
                         Click="OpenShellWindow_Click"
-                        Content="打开 ShellWindow 演示" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_d8a7964484}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

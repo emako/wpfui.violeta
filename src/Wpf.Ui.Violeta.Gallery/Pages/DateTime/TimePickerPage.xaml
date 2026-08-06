@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TimePicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="24 小时制" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1ba133f7ff}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="默认 24 小时制，可选秒。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c074b6e2ae}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:TimePicker MaxWidth="200" />
                         <vio:TimePicker MaxWidth="200" UseSeconds="True" />
@@ -49,11 +50,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="12 小时制" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_eafbd6a246}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="ClockIdentifier=12HourClock，含 AM/PM。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ebf3722f8d}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:TimePicker MaxWidth="200" ClockIdentifier="12HourClock" />
                         <vio:TimePicker

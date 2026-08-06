@@ -1,4 +1,6 @@
 using System.Windows;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 
@@ -12,6 +14,6 @@ public partial class TagComboBoxPage : Wpf.Ui.Violeta.Controls.Page
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        TagComboBoxDemo.ItemsSource = new[] { "前端", "后端", "DevOps", "UI/UX", "移动端", "数据库" };
+        TagComboBoxDemo.ItemsSource = new[] { LangKeys.Sample_9abfe4a039.Tr(), LangKeys.Sample_e778d61ae4.Tr(), "DevOps", "UI/UX", LangKeys.Sample_c95e748d58.Tr(), LangKeys.Sample_68051bf4aa.Tr() };
     }
 }

@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
 using System.Windows;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.OpSystem;
 
@@ -42,7 +44,7 @@ public partial class ClipboardPage : Wpf.Ui.Violeta.Controls.Page
         }
         catch
         {
-            ClipboardContentText.Text = "(无法读取剪贴板)";
+            ClipboardContentText.Text = LangKeys.Sample_ccdded2782.Tr();
         }
     }
 }

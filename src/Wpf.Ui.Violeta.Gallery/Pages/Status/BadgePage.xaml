@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Badge"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="Badge — 角标" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e8f31fbc7e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="支持数字、溢出、圆点、位置与自定义颜色。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7f7f2ab305}}"
                         TextWrapping="Wrap" />
                     <WrapPanel>
                         <vio:Badge Margin="16" BadgeContent="5" OverflowCount="99">

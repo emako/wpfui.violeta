@@ -2,6 +2,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
 
@@ -35,34 +37,34 @@ public partial class NativeMessageBoxPage : Wpf.Ui.Violeta.Controls.Page
         {
             "OK" => NativeMessageBox.Show(
                 owner,
-                "这是一个原生 Win32 MessageBox。",
-                "NativeMessageBox — 确定",
+                LangKeys.Sample_cab56120f1.Tr(),
+                LangKeys.Sample_5bd8feb5d7.Tr(),
                 NativeMessageBoxButton.OK,
                 NativeMessageBoxImage.Information),
             "YesNo" => NativeMessageBox.Show(
                 owner,
-                "是否继续？",
-                "NativeMessageBox — 是/否",
+                LangKeys.Sample_af204660c7.Tr(),
+                LangKeys.Sample_3a4efdbeba.Tr(),
                 NativeMessageBoxButton.YesNo,
                 NativeMessageBoxImage.Question,
                 NativeMessageBoxResult.Yes),
             "OKCancel" => NativeMessageBox.Show(
                 owner,
-                "可能需要您的注意。\n点击确定继续。",
-                "NativeMessageBox — 确定/取消",
+                LangKeys.Sample_NativeAttentionBody.Tr(),
+                LangKeys.Sample_6f0a3ce47c.Tr(),
                 NativeMessageBoxButton.OKCancel,
                 NativeMessageBoxImage.Warning,
                 NativeMessageBoxResult.OK),
             "YesNoCancel" => NativeMessageBox.Show(
                 owner,
-                "关闭前是否保存更改？",
-                "NativeMessageBox — 是/否/取消",
+                LangKeys.Sample_0f5bb4f6e5.Tr(),
+                LangKeys.Sample_dc94b4096c.Tr(),
                 NativeMessageBoxButton.YesNoCancel,
                 NativeMessageBoxImage.Question,
                 NativeMessageBoxResult.Cancel),
             _ => NativeMessageBoxResult.None,
         };
 
-        NativeMessageBoxResultText.Text = $"结果：{result}";
+        NativeMessageBoxResultText.Text = LangKeys.Format_Result.Tr(result);
     }
 }

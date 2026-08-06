@@ -2,6 +2,8 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Feedback;
 
@@ -9,10 +11,10 @@ public partial class TransitioningContentControlPage : Wpf.Ui.Violeta.Controls.P
 {
     private readonly string[] _slides =
     [
-        "Slide 1 — 欢迎使用 Violeta",
-        "Slide 2 — Fluent Design 风格",
-        "Slide 3 — 多框架支持",
-        "Slide 4 — 11 种语言本地化",
+        LangKeys.Sample_05f27e568a.Tr(),
+        LangKeys.Sample_db17cc2401.Tr(),
+        LangKeys.Sample_ccdd6cd1e7.Tr(),
+        LangKeys.Sample_d09f873566.Tr(),
     ];
 
     private int _slideIndex;

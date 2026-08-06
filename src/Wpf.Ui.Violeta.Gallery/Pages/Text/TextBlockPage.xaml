@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TextBlock"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="基础 TextBlock" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fee30be123}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="用于显示只读文本的基本控件。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1e5753e63a}}" />
                     <TextBlock Text="I am a text block." />
                 </StackPanel>
             </Border>
@@ -50,11 +51,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="样式 TextBlock" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_31d836ff42}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过 FontFamily、FontStyle 等属性自定义外观。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b854c38c15}}" />
                     <TextBlock
                         FontFamily="Comic Sans MS"
                         FontStyle="Italic"
@@ -74,11 +75,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="内联元素 TextBlock" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d413c4bae0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="TextBlock 内容可以包含 Run、Span、Bold 等内联元素。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6314139f1c}}" />
                     <TextBlock FontSize="14">
                         <Run FontFamily="Times New Roman" Foreground="DarkGray">
                             Text in a TextBlock doesn't have to be a simple string.

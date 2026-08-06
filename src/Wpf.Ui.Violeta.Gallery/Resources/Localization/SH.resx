@@ -246,4 +246,2895 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>Switch the gallery UI language. Changes apply immediately.</value>
   </data>
+  <data name="Sample_ccdded2782" xml:space="preserve">
+    <value>(Unable to read clipboard)</value>
+  </data>
+  <data name="Sample_eafbd6a246" xml:space="preserve">
+    <value>12-hour clock</value>
+  </data>
+  <data name="Sample_1ba133f7ff" xml:space="preserve">
+    <value>24-hour clock</value>
+  </data>
+  <data name="Sample_f699b2bc6e" xml:space="preserve">
+    <value>Alternate mode with different node types.</value>
+  </data>
+  <data name="Sample_c71e9d5bfa" xml:space="preserve">
+    <value>Appearance=&quot;Primary&quot; emphasis style.</value>
+  </data>
+  <data name="Sample_236dc48e3d" xml:space="preserve">
+    <value>AsyncBox — async content</value>
+  </data>
+  <data name="Sample_0144f29a17" xml:space="preserve">
+    <value>AutoSuggestBox — optional navigation search box</value>
+  </data>
+  <data name="Sample_b462ab0695" xml:space="preserve">
+    <value>Auto (show buttons on hover)</value>
+  </data>
+  <data name="Sample_e8f31fbc7e" xml:space="preserve">
+    <value>Badge — badge</value>
+  </data>
+  <data name="Sample_30859ecb19" xml:space="preserve">
+    <value>Banner — banner notification</value>
+  </data>
+  <data name="Sample_e3cda4ae4b" xml:space="preserve">
+    <value>BitmapIcon — bitmap icon</value>
+  </data>
+  <data name="Sample_d8c6ee30ab" xml:space="preserve">
+    <value>Body — sample body text</value>
+  </data>
+  <data name="Sample_cb5ec0615f" xml:space="preserve">
+    <value>BoolStateContentControl — boolean state content</value>
+  </data>
+  <data name="Sample_a6d6c786e7" xml:space="preserve">
+    <value>BusyMask — busy overlay</value>
+  </data>
+  <data name="Sample_7b88f14eae" xml:space="preserve">
+    <value>CachedImage — cached image</value>
+  </data>
+  <data name="Sample_9dd3ceb5b3" xml:space="preserve">
+    <value>Caption — helper caption text</value>
+  </data>
+  <data name="Sample_e6f4a019ed" xml:space="preserve">
+    <value>CaptionButtonBar — caption button bar</value>
+  </data>
+  <data name="Sample_a5e9b0abe6" xml:space="preserve">
+    <value>Card / Button styles</value>
+  </data>
+  <data name="Sample_9bf9a8e24d" xml:space="preserve">
+    <value>CardControl combines a title and content area into a card layout.</value>
+  </data>
+  <data name="Sample_e3e9da1f11" xml:space="preserve">
+    <value>ChildMargin sample</value>
+  </data>
+  <data name="Sample_ebf3722f8d" xml:space="preserve">
+    <value>ClockIdentifier=12HourClock, with AM/PM.</value>
+  </data>
+  <data name="Sample_aabb3f6de1" xml:space="preserve">
+    <value>CompactPaneLength — icon bar width when collapsed</value>
+  </data>
+  <data name="Sample_df62566578" xml:space="preserve">
+    <value>Content can host custom content such as SymbolIcon.</value>
+  </data>
+  <data name="Sample_e7a103d40a" xml:space="preserve">
+    <value>ContentWindow — content window</value>
+  </data>
+  <data name="Sample_1e4f285714" xml:space="preserve">
+    <value>ContentWindow inherits from ShellWindow, hosts custom content via ContentWindowControl, and returns ContentWindowResult (OK / Cancel, etc.). Use it when you need a separate window instead of a ContentDialog.</value>
+  </data>
+  <data name="Sample_976db78a60" xml:space="preserve">
+    <value>DataGrid — data grid</value>
+  </data>
+  <data name="Sample_c425587ac1" xml:space="preserve">
+    <value>Default / Always: dismiss by clicking outside (like ComboBox). Default closes again only for ButtonBase items; Always also closes on any item; Never closes only when … is clicked again.</value>
+  </data>
+  <data name="Sample_aa2fa8a46b" xml:space="preserve">
+    <value>Delay sets the wait before the first repeat (ms); Interval sets the later repeat interval.</value>
+  </data>
+  <data name="Sample_66d8aafdd1" xml:space="preserve">
+    <value>Divider — divider</value>
+  </data>
+  <data name="Sample_fa126e58bb" xml:space="preserve">
+    <value>Dot style can show a badge at the top-right of a button.</value>
+  </data>
+  <data name="Sample_af7651f268" xml:space="preserve">
+    <value>Embedded Edge browser</value>
+  </data>
+  <data name="Sample_8998bc5220" xml:space="preserve">
+    <value>Edge browser</value>
+  </data>
+  <data name="Sample_3bfa83b27c" xml:space="preserve">
+    <value>Error — long message</value>
+  </data>
+  <data name="Sample_9f00d03364" xml:space="preserve">
+    <value>ExceptionReport — exception report</value>
+  </data>
+  <data name="Sample_ca774947d0" xml:space="preserve">
+    <value>FlipView — flip view</value>
+  </data>
+  <data name="Sample_feefa735f7" xml:space="preserve">
+    <value>FlowDirection=RightToLeft right-to-left layout.</value>
+  </data>
+  <data name="Sample_da3e0a9d70" xml:space="preserve">
+    <value>FlowDocument sample</value>
+  </data>
+  <data name="Sample_ef7fd6c161" xml:space="preserve">
+    <value>Fluent icons</value>
+  </data>
+  <data name="Sample_b99bca881d" xml:space="preserve">
+    <value>Fluent icon symbols</value>
+  </data>
+  <data name="Sample_d75951dac0" xml:space="preserve">
+    <value>Fluent popup</value>
+  </data>
+  <data name="Sample_09321a3297" xml:space="preserve">
+    <value>Fluent indicator animation</value>
+  </data>
+  <data name="Sample_c0ba2f001d" xml:space="preserve">
+    <value>Fluent-styled ListView with GridView multi-column display.</value>
+  </data>
+  <data name="Sample_c86b1fc481" xml:space="preserve">
+    <value>Fluent-styled main window base class</value>
+  </data>
+  <data name="Sample_be2c2766a0" xml:space="preserve">
+    <value>Fluent-styled flyout</value>
+  </data>
+  <data name="Sample_8187a6e35a" xml:space="preserve">
+    <value>Fluent-styled flyout with Slide / Fade / None animations.</value>
+  </data>
+  <data name="Sample_3dafb55bfe" xml:space="preserve">
+    <value>Fluent-styled hyperlink</value>
+  </data>
+  <data name="Sample_ff8807ee6c" xml:space="preserve">
+    <value>FontIcon and ImageIcon samples.</value>
+  </data>
+  <data name="Sample_5d2567470b" xml:space="preserve">
+    <value>At Gallery startup, TrayIconHost creates a real tray icon. Closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window.</value>
+  </data>
+  <data name="Sample_b313aff943" xml:space="preserve">
+    <value>HalfStarEnabled=False allows whole-star ratings only.</value>
+  </data>
+  <data name="Sample_2fb1383e61" xml:space="preserve">
+    <value>Help always goes to overflow; Save never overflows; others spill as needed.</value>
+  </data>
+  <data name="Sample_a72cc659bc" xml:space="preserve">
+    <value>Hidden / Compact / Inline spin-button layouts.</value>
+  </data>
+  <data name="Sample_ed50de239d" xml:space="preserve">
+    <value>IP address input</value>
+  </data>
+  <data name="Sample_b1d8156ae0" xml:space="preserve">
+    <value>IP + port input</value>
+  </data>
+  <data name="Sample_3963b4df1d" xml:space="preserve">
+    <value>Combined IPv4 and port input (e.g. 192.168.0.10:8080); press . or : to jump to the port segment.</value>
+  </data>
+  <data name="Sample_14ddc63d75" xml:space="preserve">
+    <value>IPv4 address + port</value>
+  </data>
+  <data name="Sample_1125663605" xml:space="preserve">
+    <value>IPv4 address and port input</value>
+  </data>
+  <data name="Sample_2599b75b66" xml:space="preserve">
+    <value>IPv4 address input</value>
+  </data>
+  <data name="Sample_1b3d9c6919" xml:space="preserve">
+    <value>Icon / Value / Dot styles with different Severity colors.</value>
+  </data>
+  <data name="Sample_4b3ae6ebbf" xml:space="preserve">
+    <value>Icon, Header, description, and a control on the right.</value>
+  </data>
+  <data name="Sample_6625c308e8" xml:space="preserve">
+    <value>ImageIcon combined with DropDownButton sample.</value>
+  </data>
+  <data name="Sample_bbd97789b2" xml:space="preserve">
+    <value>ImageView — image viewer</value>
+  </data>
+  <data name="Sample_fbefb6bac3" xml:space="preserve">
+    <value>Indicator — indicator</value>
+  </data>
+  <data name="Sample_02ec1fa593" xml:space="preserve">
+    <value>IsEditable=True editable combo box.</value>
+  </data>
+  <data name="Sample_d229e6f892" xml:space="preserve">
+    <value>IsSettingsVisible — show settings entry</value>
+  </data>
+  <data name="Sample_ac68bbca75" xml:space="preserve">
+    <value>ItemsSource binding</value>
+  </data>
+  <data name="Sample_b4080aa16b" xml:space="preserve">
+    <value>ItemsSource bound to a string collection to show a hierarchical navigation path.</value>
+  </data>
+  <data name="Sample_2df973d88f" xml:space="preserve">
+    <value>Label associated with TextBox</value>
+  </data>
+  <data name="Sample_c09d2052d1" xml:space="preserve">
+    <value>Lengthening indicator animation</value>
+  </data>
+  <data name="Sample_520073ab0b" xml:space="preserve">
+    <value>ListView — list view</value>
+  </data>
+  <data name="Sample_4d02e8c8cc" xml:space="preserve">
+    <value>MaxDecimalPlaces=0 allows integers only.</value>
+  </data>
+  <data name="Sample_1cf96448cf" xml:space="preserve">
+    <value>Embedded Microsoft Edge (Chromium) browser opening the Fluent UI Storybook.</value>
+  </data>
+  <data name="Sample_bbb630278a" xml:space="preserve">
+    <value>Microsoft.Win32.OpenFileDialog with Filter set to all files.</value>
+  </data>
+  <data name="Sample_a10fab8639" xml:space="preserve">
+    <value>Microsoft.Win32.SaveFileDialog writes text to the path the user selects.</value>
+  </data>
+  <data name="Sample_1c91fe2647" xml:space="preserve">
+    <value>Multiselect = true allows selecting multiple files.</value>
+  </data>
+  <data name="Sample_3a4efdbeba" xml:space="preserve">
+    <value>NativeMessageBox — Yes/No</value>
+  </data>
+  <data name="Sample_dc94b4096c" xml:space="preserve">
+    <value>NativeMessageBox — Yes/No/Cancel</value>
+  </data>
+  <data name="Sample_5bd8feb5d7" xml:space="preserve">
+    <value>NativeMessageBox — OK</value>
+  </data>
+  <data name="Sample_6f0a3ce47c" xml:space="preserve">
+    <value>NativeMessageBox — OK/Cancel</value>
+  </data>
+  <data name="Sample_f7bcc4e1df" xml:space="preserve">
+    <value>InfoBadge in NavigationView</value>
+  </data>
+  <data name="Sample_2904a01f72" xml:space="preserve">
+    <value>NumericUpDown is an abstract base class; use a concrete type such as NumericIntUpDown.</value>
+  </data>
+  <data name="Sample_6e9b5e7aa8" xml:space="preserve">
+    <value>OpenPaneLength — pane width when expanded</value>
+  </data>
+  <data name="Sample_d0dcd65d52" xml:space="preserve">
+    <value>Padding=0 and CornerRadius=4 customize padding and corner radius.</value>
+  </data>
+  <data name="Sample_1567bdcc25" xml:space="preserve">
+    <value>Pagination — pagination control</value>
+  </data>
+  <data name="Sample_9bdc3ea41f" xml:space="preserve">
+    <value>PaneTitle — pane title text</value>
+  </data>
+  <data name="Sample_bfe0b47379" xml:space="preserve">
+    <value>PersonPicture — person picture</value>
+  </data>
+  <data name="Sample_c1dde7ca84" xml:space="preserve">
+    <value>Primary / Secondary / Success / Caution / Danger appearances, including enabled and disabled states.</value>
+  </data>
+  <data name="Sample_ad4a69520c" xml:space="preserve">
+    <value>Progress property (0–100) shows determinate progress.</value>
+  </data>
+  <data name="Sample_23561a8205" xml:space="preserve">
+    <value>QrCode — QR code</value>
+  </data>
+  <data name="Sample_24a24070fd" xml:space="preserve">
+    <value>QueryChanged: (cleared)</value>
+  </data>
+  <data name="Sample_efc15e78f4" xml:space="preserve">
+    <value>QuerySubmitted: (empty query)</value>
+  </data>
+  <data name="Sample_4b0d57595a" xml:space="preserve">
+    <value>RadioButton group + icon buttons</value>
+  </data>
+  <data name="Sample_0b8cd339bb" xml:space="preserve">
+    <value>RichTextBox can edit content that includes</value>
+  </data>
+  <data name="Sample_a4397cdc53" xml:space="preserve">
+    <value>RunningBlock — marquee</value>
+  </data>
+  <data name="Sample_b64c4416d4" xml:space="preserve">
+    <value>Common Segoe Fluent Icons symbol samples.</value>
+  </data>
+  <data name="Sample_91ae62d859" xml:space="preserve">
+    <value>Semi.Avalonia.ColorPicker-style spectrum / palette / channel editors, plus a drop-down ColorPicker.</value>
+  </data>
+  <data name="Sample_ff7cc5837d" xml:space="preserve">
+    <value>ShellWindow — shell window</value>
+  </data>
+  <data name="Sample_38b33a8af5" xml:space="preserve">
+    <value>ShowsPreview=True (default) — commits the size after releasing the mouse.</value>
+  </data>
+  <data name="Sample_2ad0b1dc17" xml:space="preserve">
+    <value>Skeleton — skeleton screen</value>
+  </data>
+  <data name="Sample_05f27e568a" xml:space="preserve">
+    <value>Slide 1 — Welcome to Violeta</value>
+  </data>
+  <data name="Sample_db17cc2401" xml:space="preserve">
+    <value>Slide 2 — Fluent Design style</value>
+  </data>
+  <data name="Sample_ccdd6cd1e7" xml:space="preserve">
+    <value>Slide 3 — multi-framework support</value>
+  </data>
+  <data name="Sample_d09f873566" xml:space="preserve">
+    <value>Slide 4 — localization for 11 languages</value>
+  </data>
+  <data name="Sample_caff940e2e" xml:space="preserve">
+    <value>SpinButton placement mode</value>
+  </data>
+  <data name="Sample_9cee7d6c46" xml:space="preserve">
+    <value>Splash — splash screen</value>
+  </data>
+  <data name="Sample_5806225c0c" xml:space="preserve">
+    <value>System.Windows.Controls.Image loading an image from local resources.</value>
+  </data>
+  <data name="Sample_bdc314fd5e" xml:space="preserve">
+    <value>System.Windows.Controls.WebBrowser, based on the IE ActiveX control and still available on Windows. Navigates to https://example.com after the page loads.</value>
+  </data>
+  <data name="Sample_845f2f73d6" xml:space="preserve">
+    <value>Tab titles can use a custom Header template, for example with a SymbolIcon.</value>
+  </data>
+  <data name="Sample_a0e354a6b7" xml:space="preserve">
+    <value>Target (credential target name)</value>
+  </data>
+  <data name="Sample_eb38190f53" xml:space="preserve">
+    <value>TaskDialog — information</value>
+  </data>
+  <data name="Sample_7be4dfd564" xml:space="preserve">
+    <value>TaskDialog — radio buttons</value>
+  </data>
+  <data name="Sample_629dd8a6ea" xml:space="preserve">
+    <value>TaskDialog — expandable information</value>
+  </data>
+  <data name="Sample_91f1130627" xml:space="preserve">
+    <value>TaskDialog — command links</value>
+  </data>
+  <data name="Sample_2b68259daf" xml:space="preserve">
+    <value>TaskDialog — warning</value>
+  </data>
+  <data name="Sample_d02ebc627c" xml:space="preserve">
+    <value>TaskDialog — progress bar</value>
+  </data>
+  <data name="Sample_2cf6355daa" xml:space="preserve">
+    <value>TaskDialog — error</value>
+  </data>
+  <data name="Sample_6314139f1c" xml:space="preserve">
+    <value>TextBlock content can include inline elements such as Run, Span, and Bold.</value>
+  </data>
+  <data name="Sample_7269b2e6d4" xml:space="preserve">
+    <value>TextBlock appearance styles</value>
+  </data>
+  <data name="Sample_768a5d8f40" xml:space="preserve">
+    <value>TickPlacement=Both shows ticks above and below.</value>
+  </data>
+  <data name="Sample_9de44749b0" xml:space="preserve">
+    <value>Timeline — Mode / Type (Test demo)</value>
+  </data>
+  <data name="Sample_e4f76ad96c" xml:space="preserve">
+    <value>Timeline — data binding</value>
+  </data>
+  <data name="Sample_71df92bd0f" xml:space="preserve">
+    <value>Timeline — timeline (declarative)</value>
+  </data>
+  <data name="Sample_2aa42f4250" xml:space="preserve">
+    <value>TitleBar — custom title bar</value>
+  </data>
+  <data name="Sample_71b081a671" xml:space="preserve">
+    <value>Toast notification</value>
+  </data>
+  <data name="Sample_8069009e76" xml:space="preserve">
+    <value>ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton and more can be placed directly; overflowed items remain the same control instances.</value>
+  </data>
+  <data name="Sample_ed093b889a" xml:space="preserve">
+    <value>TransitioningContentControl — transitioning content</value>
+  </data>
+  <data name="Sample_9d268b366c" xml:space="preserve">
+    <value>TreeListView — tree list view</value>
+  </data>
+  <data name="Sample_4e3b273ffa" xml:space="preserve">
+    <value>TreeModelListView — tree model list view</value>
+  </data>
+  <data name="Sample_6ea44939b9" xml:space="preserve">
+    <value>TreeView tree structure</value>
+  </data>
+  <data name="Sample_b250f38e10" xml:space="preserve">
+    <value>UI design completed and approved.</value>
+  </data>
+  <data name="Sample_2ac5ec7017" xml:space="preserve">
+    <value>UI review approved</value>
+  </data>
+  <data name="Sample_b1a86a3a9f" xml:space="preserve">
+    <value>Value / Maximum control the completion ratio.</value>
+  </data>
+  <data name="Sample_de3e76e86b" xml:space="preserve">
+    <value>Canvas inside a Viewbox</value>
+  </data>
+  <data name="Sample_9c3760d853" xml:space="preserve">
+    <value>Violeta provides Fluent-styled Expander enhancements.</value>
+  </data>
+  <data name="Sample_7e4681144d" xml:space="preserve">
+    <value>Violeta ContentDialog with async display and primary/secondary/close buttons.</value>
+  </data>
+  <data name="Sample_31cf6f2636" xml:space="preserve">
+    <value>WPF Menu with ui:MenuItem for Fluent icons and styling.</value>
+  </data>
+  <data name="Sample_36398e25f0" xml:space="preserve">
+    <value>WPF UI Image with rounded corners and borders.</value>
+  </data>
+  <data name="Sample_39886cefd9" xml:space="preserve">
+    <value>WPF UI TabView control with a look close to WinUI TabView.</value>
+  </data>
+  <data name="Sample_5d47c178f6" xml:space="preserve">
+    <value>WPF UI ring progress indicator.</value>
+  </data>
+  <data name="Sample_b2ce6a667b" xml:space="preserve">
+    <value>Built-in WPF ToolBar + ToolBarTray (overflow still uses the system Popup panel, not a Violeta Flyout).</value>
+  </data>
+  <data name="Sample_947e334a08" xml:space="preserve">
+    <value>WPF-UI-styled data grid with sorting, selection, and virtualization.</value>
+  </data>
+  <data name="Sample_169a3677a7" xml:space="preserve">
+    <value>WebBrowser (legacy)</value>
+  </data>
+  <data name="Sample_5fb02eeebe" xml:space="preserve">
+    <value>Win32 TaskDialog with dark theme, command links, radio buttons, progress bar, and expandable information.</value>
+  </data>
+  <data name="Sample_556f104600" xml:space="preserve">
+    <value>Windows security credentials</value>
+  </data>
+  <data name="Sample_24be2656f9" xml:space="preserve">
+    <value>Windows security credential dialog</value>
+  </data>
+  <data name="Sample_318cab9dfe" xml:space="preserve">
+    <value>Wpf.Ui PasswordBox with icon and placeholder support.</value>
+  </data>
+  <data name="Sample_1f9d2d95b3" xml:space="preserve">
+    <value>Wpf.Ui TextBox with placeholder and clear button support.</value>
+  </data>
+  <data name="Sample_46e283835a" xml:space="preserve">
+    <value>Wpf.Ui-styled RichTextBox.</value>
+  </data>
+  <data name="Sample_227045d271" xml:space="preserve">
+    <value>XAML declaration options</value>
+  </data>
+  <data name="Sample_b7640f1477" xml:space="preserve">
+    <value>ui:Flyout flyout</value>
+  </data>
+  <data name="Sample_29df7ab4fb" xml:space="preserve">
+    <value>v1.0 release</value>
+  </data>
+  <data name="Sample_f072efab93" xml:space="preserve">
+    <value>v1.0 publicly released.</value>
+  </data>
+  <data name="Sample_b847ef8c6a" xml:space="preserve">
+    <value>vio:ToolBar overflow (Flyout)</value>
+  </data>
+  <data name="Sample_d359e84325" xml:space="preserve">
+    <value>• Frame / Content: hosts page navigation; Gallery switches pages via Tag with GalleryNavigator.</value>
+  </data>
+  <data name="Sample_f07479f3ac" xml:space="preserve">
+    <value>• Header / TitleBar: can be combined with the window title bar and breadcrumbs.</value>
+  </data>
+  <data name="Sample_222c7173fa" xml:space="preserve">
+    <value>• IsPaneOpen / IsBackEnabled: control pane open state and the back button.</value>
+  </data>
+  <data name="Sample_e080e01adc" xml:space="preserve">
+    <value>• MenuItems / FooterMenuItems: define primary and footer navigation items; each can bind TargetPageType or Tag.</value>
+  </data>
+  <data name="Sample_0674868522" xml:space="preserve">
+    <value>• PaneDisplayMode: Left / LeftMinimal / Top, etc., control how the pane expands.</value>
+  </data>
+  <data name="Sample_608443e0b4" xml:space="preserve">
+    <value>◀ Previous</value>
+  </data>
+  <data name="Sample_1cf87f2966" xml:space="preserve">
+    <value>○ Inactive</value>
+  </data>
+  <data name="Sample_308e3a15a2" xml:space="preserve">
+    <value>● Active</value>
+  </data>
+  <data name="Sample_f9fed5cea3" xml:space="preserve">
+    <value>Tri-state Select All checkbox linked to child options.</value>
+  </data>
+  <data name="Sample_c757dd6e88" xml:space="preserve">
+    <value>Tri-state checkbox: checked / unchecked / indeterminate.</value>
+  </data>
+  <data name="Sample_7d817bc13f" xml:space="preserve">
+    <value>Next ▶</value>
+  </data>
+  <data name="Sample_f6f8ea0815" xml:space="preserve">
+    <value>Underline</value>
+  </data>
+  <data name="Sample_cc70a816b7" xml:space="preserve">
+    <value>Drop-down button</value>
+  </data>
+  <data name="Sample_006ded9fa2" xml:space="preserve">
+    <value>Combo box</value>
+  </data>
+  <data name="Sample_fb54df5d84" xml:space="preserve">
+    <value>Don't show again</value>
+  </data>
+  <data name="Sample_cae8c05701" xml:space="preserve">
+    <value>Indeterminate progress with continuous animation.</value>
+  </data>
+  <data name="Sample_f5403ebf57" xml:space="preserve">
+    <value>Without a Target binding, clicking outside dismisses it.</value>
+  </data>
+  <data name="Sample_3b04598bd0" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="Sample_cb36623ef8" xml:space="preserve">
+    <value>Samples for interacting with Windows system APIs. File-picker controls are grouped under Selectors.</value>
+  </data>
+  <data name="Sample_3f086416bf" xml:space="preserve">
+    <value>Pro</value>
+  </data>
+  <data name="Sample_8f5c60e948" xml:space="preserve">
+    <value>Dedicated IPv4 address box that validates each octet (0–255).</value>
+  </data>
+  <data name="Sample_027110256c" xml:space="preserve">
+    <value>Dongguan</value>
+  </data>
+  <data name="Sample_e4568d8868" xml:space="preserve">
+    <value>Abort and go back</value>
+  </data>
+  <data name="Sample_8813989799" xml:space="preserve">
+    <value>Split button with a primary action and a drop-down menu.</value>
+  </data>
+  <data name="Sample_3b2223252e" xml:space="preserve">
+    <value>The top-right of the main window TitleBar shows the live CaptionButtonBar.</value>
+  </data>
+  <data name="Sample_b40b2d467a" xml:space="preserve">
+    <value>The left navigation of the main window is NavigationView. This page summarizes common settings so you don't nest another full navigation frame.</value>
+  </data>
+  <data name="Sample_3676039437" xml:space="preserve">
+    <value>Main window is hidden. Double-click the tray icon to reopen it.</value>
+  </data>
+  <data name="Sample_3d860d035a" xml:space="preserve">
+    <value>Theme switched: {tag}</value>
+  </data>
+  <data name="Sample_b248c77928" xml:space="preserve">
+    <value>Theme brush resource samples.</value>
+  </data>
+  <data name="Sample_a1c76c6e1b" xml:space="preserve">
+    <value>Theme color</value>
+  </data>
+  <data name="Sample_a421a1bf6e" xml:space="preserve">
+    <value>Theme color resources</value>
+  </data>
+  <data name="Sample_d04e2a27f3" xml:space="preserve">
+    <value>Can also be inlined in a paragraph:</value>
+  </data>
+  <data name="Sample_22b03c024d" xml:space="preserve">
+    <value>QR code</value>
+  </data>
+  <data name="Sample_856e16c875" xml:space="preserve">
+    <value>QR code generation</value>
+  </data>
+  <data name="Sample_4298342678" xml:space="preserve">
+    <value>Mutually exclusive toggle button group</value>
+  </data>
+  <data name="Sample_15d3c2873a" xml:space="preserve">
+    <value>Mutually exclusive toggle group</value>
+  </data>
+  <data name="Sample_0b8aba3183" xml:space="preserve">
+    <value>Product specification picker</value>
+  </data>
+  <data name="Sample_c5d34b60ac" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="Sample_b26a335cdb" xml:space="preserve">
+    <value>Person picture</value>
+  </data>
+  <data name="Sample_3377cb7c99" xml:space="preserve">
+    <value>Person picture and badge</value>
+  </data>
+  <data name="Sample_4ddb17d702" xml:space="preserve">
+    <value>Paste from clipboard</value>
+  </data>
+  <data name="Sample_85c976908d" xml:space="preserve">
+    <value>Paste text from clipboard</value>
+  </data>
+  <data name="Sample_24dfe773c7" xml:space="preserve">
+    <value>Start over</value>
+  </data>
+  <data name="Sample_d994685ba5" xml:space="preserve">
+    <value>Panels slide out from the four sides of the container. Click a button to switch direction.</value>
+  </data>
+  <data name="Sample_ca624f0706" xml:space="preserve">
+    <value>Show window from tray</value>
+  </data>
+  <data name="Sample_f5668379e7" xml:space="preserve">
+    <value>Show options as tags</value>
+  </data>
+  <data name="Sample_0442cbeedb" xml:space="preserve">
+    <value>Show options as tags with search support.</value>
+  </data>
+  <data name="Sample_32ca86d11b" xml:space="preserve">
+    <value>Task A-1</value>
+  </data>
+  <data name="Sample_602f80825c" xml:space="preserve">
+    <value>Task A-2</value>
+  </data>
+  <data name="Sample_62a8cf0af7" xml:space="preserve">
+    <value>On leave</value>
+  </data>
+  <data name="Sample_c2b1a13637" xml:space="preserve">
+    <value>Bitmap icon</value>
+  </data>
+  <data name="Sample_bf954d20ed" xml:space="preserve">
+    <value>Bitmap icon element</value>
+  </data>
+  <data name="Sample_852861b891" xml:space="preserve">
+    <value>Foshan</value>
+  </data>
+  <data name="Sample_53ec492c1d" xml:space="preserve">
+    <value>Uses FluentHyperlinkStyle; opens links via RequestNavigate on click.</value>
+  </data>
+  <data name="Sample_200bb8cedf" xml:space="preserve">
+    <value>Grouped display using GroupStyle.</value>
+  </data>
+  <data name="Sample_dc9af340ca" xml:space="preserve">
+    <value>Draw vector graphics on a Canvas with Path and scale via Viewbox.</value>
+  </data>
+  <data name="Sample_d5e7922721" xml:space="preserve">
+    <value>Renders as a text block with TextBlockTextBoxStyle / TextBlockUiTextBoxStyle.</value>
+  </data>
+  <data name="Sample_6822dc757e" xml:space="preserve">
+    <value>Use a bitmap as icon content with optional monochrome rendering. Namespace: ui:BitmapIcon.</value>
+  </data>
+  <data name="Sample_9af21fa553" xml:space="preserve">
+    <value>Use app cache</value>
+  </data>
+  <data name="Sample_243750408b" xml:space="preserve">
+    <value>Side navigation frame</value>
+  </data>
+  <data name="Sample_7f2c95cd69" xml:space="preserve">
+    <value>Save file</value>
+  </data>
+  <data name="Sample_d8c7e04c8e" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Sample_0665c67a72" xml:space="preserve">
+    <value>Info bar</value>
+  </data>
+  <data name="Sample_346a620dc9" xml:space="preserve">
+    <value>Info bar tip</value>
+  </data>
+  <data name="Sample_27a4abbc1f" xml:space="preserve">
+    <value>Info badge</value>
+  </data>
+  <data name="Sample_574256110b" xml:space="preserve">
+    <value>Edit node</value>
+  </data>
+  <data name="Sample_7978070c09" xml:space="preserve">
+    <value>Spectrum / palette color picker</value>
+  </data>
+  <data name="Sample_e125221047" xml:space="preserve">
+    <value>Close all</value>
+  </data>
+  <data name="Sample_b15d91274e" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Sample_0f5bb4f6e5" xml:space="preserve">
+    <value>Save changes before closing?</value>
+  </data>
+  <data name="Sample_3407d84a3a" xml:space="preserve">
+    <value>Typical install</value>
+  </data>
+  <data name="Sample_6ef42093fc" xml:space="preserve">
+    <value>Typical use: step values, like NumericUpDown / ScrollBar inner buttons.</value>
+  </data>
+  <data name="Sample_2d711b09bd" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Sample_a970d9d633" xml:space="preserve">
+    <value>Plays transition animations on content change; supports multiple directions.</value>
+  </data>
+  <data name="Sample_e3bb7cc30f" xml:space="preserve">
+    <value>Content transition animation</value>
+  </data>
+  <data name="Sample_4bd533aa51" xml:space="preserve">
+    <value>Content dialog</value>
+  </data>
+  <data name="Sample_12f0e6842d" xml:space="preserve">
+    <value>Content dialog–style window</value>
+  </data>
+  <data name="Sample_08a6bfd44e" xml:space="preserve">
+    <value>Clips content to the rounded outer edge.</value>
+  </data>
+  <data name="Sample_5f91910837" xml:space="preserve">
+    <value>Content rotate button</value>
+  </data>
+  <data name="Sample_139a5b0200" xml:space="preserve">
+    <value>Content window</value>
+  </data>
+  <data name="Sample_66acb563c5" xml:space="preserve">
+    <value>Inline banner notification</value>
+  </data>
+  <data name="Sample_671acfcae8" xml:space="preserve">
+    <value>Inline banner for status tips at the top of a page.</value>
+  </data>
+  <data name="Sample_d85118659e" xml:space="preserve">
+    <value>Embedded browser</value>
+  </data>
+  <data name="Sample_d413c4bae0" xml:space="preserve">
+    <value>Inline TextBlock</value>
+  </data>
+  <data name="Sample_ff1cc32d53" xml:space="preserve">
+    <value>ComboBox with inline-defined ComboBoxItems.</value>
+  </data>
+  <data name="Sample_66e8d62a1a" xml:space="preserve">
+    <value>Inline-item ListBox</value>
+  </data>
+  <data name="Sample_483b1a6a0b" xml:space="preserve">
+    <value>Credential management</value>
+  </data>
+  <data name="Sample_8c47ecd40d" xml:space="preserve">
+    <value>Separator</value>
+  </data>
+  <data name="Sample_b34422e637" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="Sample_a8e217c6ad" xml:space="preserve">
+    <value>Segmented PIN input</value>
+  </data>
+  <data name="Sample_9ff42f75c8" xml:space="preserve">
+    <value>Segmented time input</value>
+  </data>
+  <data name="Sample_84675ebc31" xml:space="preserve">
+    <value>Segmented time box</value>
+  </data>
+  <data name="Sample_f249dc8eab" xml:space="preserve">
+    <value>Segmented time box with keyboard and mouse-wheel adjustment.</value>
+  </data>
+  <data name="Sample_b8011fc79e" xml:space="preserve">
+    <value>Group header</value>
+  </data>
+  <data name="Sample_3862626c13" xml:space="preserve">
+    <value>Pagination</value>
+  </data>
+  <data name="Sample_8c238a9824" xml:space="preserve">
+    <value>Pagination control</value>
+  </data>
+  <data name="Sample_85ed85c69f" xml:space="preserve">
+    <value>Switch theme: &lt;A HREF=&quot;dark&quot;&gt;Dark&lt;/A&gt;  |  &lt;A HREF=&quot;light&quot;&gt;Light&lt;/A&gt;</value>
+  </data>
+  <data name="Sample_ce00c5f605" xml:space="preserve">
+    <value>Toggle button</value>
+  </data>
+  <data name="Sample_3fc35bb610" xml:space="preserve">
+    <value>Column 1</value>
+  </data>
+  <data name="Sample_5098792454" xml:space="preserve">
+    <value>Column 2</value>
+  </data>
+  <data name="Sample_2cb11e9ebf" xml:space="preserve">
+    <value>Column 3</value>
+  </data>
+  <data name="Sample_187f57d72d" xml:space="preserve">
+    <value>Column separator</value>
+  </data>
+  <data name="Sample_212779d466" xml:space="preserve">
+    <value>List box</value>
+  </data>
+  <data name="Sample_829cb1dd97" xml:space="preserve">
+    <value>List view</value>
+  </data>
+  <data name="Sample_49c531db9a" xml:space="preserve">
+    <value>Liu Yang</value>
+  </data>
+  <data name="Sample_8a0f7479e5" xml:space="preserve">
+    <value>Junior engineer</value>
+  </data>
+  <data name="Sample_db5f3f8829" xml:space="preserve">
+    <value>Delete credential</value>
+  </data>
+  <data name="Sample_947fa341a6" xml:space="preserve">
+    <value>Delete row</value>
+  </data>
+  <data name="Sample_9abfe4a039" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="Sample_61b1603587" xml:space="preserve">
+    <value>Prefix / suffix</value>
+  </data>
+  <data name="Sample_061b40d699" xml:space="preserve">
+    <value>Clipboard</value>
+  </data>
+  <data name="Sample_dd70c03ba8" xml:space="preserve">
+    <value>Clipboard contents:</value>
+  </data>
+  <data name="Sample_ca7917af58" xml:space="preserve">
+    <value>Content shown after loading</value>
+  </data>
+  <data name="Sample_9c22a91217" xml:space="preserve">
+    <value>Place the loading indicator left, right, top, or bottom of content.</value>
+  </data>
+  <data name="Sample_e49cbd1a5f" xml:space="preserve">
+    <value>Loading button</value>
+  </data>
+  <data name="Sample_9fd1b7cb41" xml:space="preserve">
+    <value>Single select</value>
+  </data>
+  <data name="Sample_f96dabbc50" xml:space="preserve">
+    <value>Radio button</value>
+  </data>
+  <data name="Sample_ad827c5906" xml:space="preserve">
+    <value>Nanjing</value>
+  </data>
+  <data name="Sample_d7d0cbd874" xml:space="preserve">
+    <value>Card container</value>
+  </data>
+  <data name="Sample_519c3a4184" xml:space="preserve">
+    <value>Native Win32 MessageBox</value>
+  </data>
+  <data name="Sample_f4aad45b10" xml:space="preserve">
+    <value>Wrapper around Win32 MessageBoxW; does not depend on WPF MessageBox.</value>
+  </data>
+  <data name="Sample_3c2460c13c" xml:space="preserve">
+    <value>Native Win32 TaskDialog</value>
+  </data>
+  <data name="Sample_ba854efc10" xml:space="preserve">
+    <value>Native Windows folder picker; supports single/multi select and owner window.</value>
+  </data>
+  <data name="Sample_d688c1ee0b" xml:space="preserve">
+    <value>Native message box</value>
+  </data>
+  <data name="Sample_f1add48d43" xml:space="preserve">
+    <value>Two-state checkbox: checked / unchecked.</value>
+  </data>
+  <data name="Sample_feab68ba18" xml:space="preserve">
+    <value>Dual-thumb range slider</value>
+  </data>
+  <data name="Sample_c23c5bc472" xml:space="preserve">
+    <value>Dual-thumb range slider with tick snapping.</value>
+  </data>
+  <data name="Sample_450e7ae75d" xml:space="preserve">
+    <value>Feedback controls</value>
+  </data>
+  <data name="Sample_83611abd5f" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Sample_75aee2c1f7" xml:space="preserve">
+    <value>Release notes.md</value>
+  </data>
+  <data name="Sample_2e087c1ba6" xml:space="preserve">
+    <value>An error occurred. Please try again later.</value>
+  </data>
+  <data name="Sample_3acbae2b62" xml:space="preserve">
+    <value>An error occurred. Please contact your administrator.</value>
+  </data>
+  <data name="Sample_234601f1a4" xml:space="preserve">
+    <value>A critical error occurred</value>
+  </data>
+  <data name="Sample_9840e62f59" xml:space="preserve">
+    <value>Error at ({location})</value>
+  </data>
+  <data name="Sample_625fb26b4b" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Sample_74a0d88f9a" xml:space="preserve">
+    <value>Overlay on other controls</value>
+  </data>
+  <data name="Sample_28c448376e" xml:space="preserve">
+    <value>Another expander</value>
+  </data>
+  <data name="Sample_7a1c9b5e2b" xml:space="preserve">
+    <value>Password can be saved</value>
+  </data>
+  <data name="Sample_725ba369df" xml:space="preserve">
+    <value>Dismissible info bar; visibility controlled by IsOpen.</value>
+  </data>
+  <data name="Sample_1895d84b8a" xml:space="preserve">
+    <value>Standalone busy-indicator animation.</value>
+  </data>
+  <data name="Sample_4a6adf2e3c" xml:space="preserve">
+    <value>Cancellable task</value>
+  </data>
+  <data name="Sample_1eda6db667" xml:space="preserve">
+    <value>Attach InfoBadge to NavigationViewItem for unread counts or status.</value>
+  </data>
+  <data name="Sample_49b4aa407b" xml:space="preserve">
+    <value>Expandable</value>
+  </data>
+  <data name="Sample_484693ecc7" xml:space="preserve">
+    <value>Expandable task dialog</value>
+  </data>
+  <data name="Sample_35d6458151" xml:space="preserve">
+    <value>Draggable splitter</value>
+  </data>
+  <data name="Sample_c33c5fc596" xml:space="preserve">
+    <value>Drag to select and copy via context menu; multiple semantic styles.</value>
+  </data>
+  <data name="Sample_3c3e3e5487" xml:space="preserve">
+    <value>Actionable card</value>
+  </data>
+  <data name="Sample_3b7b097beb" xml:space="preserve">
+    <value>Clickable card actions; useful as settings page shortcuts.</value>
+  </data>
+  <data name="Sample_53954ba50f" xml:space="preserve">
+    <value>Zoomable &amp; pannable image viewer</value>
+  </data>
+  <data name="Sample_a63f92aa6a" xml:space="preserve">
+    <value>This may need your attention.
+Click OK to continue.</value>
+  </data>
+  <data name="Sample_37ee4cf592" xml:space="preserve">
+    <value>Visibility options</value>
+  </data>
+  <data name="Sample_2d7c6130ac" xml:space="preserve">
+    <value>Selectable copyable text block</value>
+  </data>
+  <data name="Sample_b5a455b30d" xml:space="preserve">
+    <value>Selectable text</value>
+  </data>
+  <data name="Sample_075b8867a7" xml:space="preserve">
+    <value>Customize each item’s presentation with DataTemplate.</value>
+  </data>
+  <data name="Sample_d9ade15a16" xml:space="preserve">
+    <value>Replace the default search icon via the Icon property.</value>
+  </data>
+  <data name="Sample_d53bad00d1" xml:space="preserve">
+    <value>Right-side content</value>
+  </data>
+  <data name="Sample_fd8e9572cc" xml:space="preserve">
+    <value>Align right</value>
+  </data>
+  <data name="Sample_cfd0ca6826" xml:space="preserve">
+    <value>Context menu: show/hide, show notification, restart, exit. To fully quit, use Exit in the tray menu.</value>
+  </data>
+  <data name="Sample_452a4d35f3" xml:space="preserve">
+    <value>RadioButtons sharing GroupName work with an icon toolbar; shrink width to see overflow.</value>
+  </data>
+  <data name="Sample_7e8aef110d" xml:space="preserve">
+    <value>Mutually exclusive radio buttons in the same group.</value>
+  </data>
+  <data name="Sample_d7ec2d3fea" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Sample_f5a481d0ae" xml:space="preserve">
+    <value>Name...</value>
+  </data>
+  <data name="Sample_e778d61ae4" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="Sample_0954ff825c" xml:space="preserve">
+    <value>Splash screen</value>
+  </data>
+  <data name="Sample_9a201c3894" xml:space="preserve">
+    <value>Wu Xin</value>
+  </data>
+  <data name="Sample_e90b708ea5" xml:space="preserve">
+    <value>Zhou Mei</value>
+  </data>
+  <data name="Sample_e620898657" xml:space="preserve">
+    <value>Command link</value>
+  </data>
+  <data name="Sample_572fd7fd9c" xml:space="preserve">
+    <value>Jiaxing</value>
+  </data>
+  <data name="Sample_565fbc57f3" xml:space="preserve">
+    <value>Four-way drawer</value>
+  </data>
+  <data name="Sample_d3e2cd292d" xml:space="preserve">
+    <value>Four-way drawer panel</value>
+  </data>
+  <data name="Sample_7334842e9b" xml:space="preserve">
+    <value>Fixed-height ListBox</value>
+  </data>
+  <data name="Sample_4e22bba902" xml:space="preserve">
+    <value>Icon content</value>
+  </data>
+  <data name="Sample_eedaef971a" xml:space="preserve">
+    <value>Icon buttons + Flyout overflow</value>
+  </data>
+  <data name="Sample_20def79426" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Sample_0d19ffacd9" xml:space="preserve">
+    <value>Image control</value>
+  </data>
+  <data name="Sample_9cb7d6cf2a" xml:space="preserve">
+    <value>Image viewer</value>
+  </data>
+  <data name="Sample_dd8f6a81a6" xml:space="preserve">
+    <value>Corner radius ratio</value>
+  </data>
+  <data name="Sample_52af618fd0" xml:space="preserve">
+    <value>Rounded border &amp; clip</value>
+  </data>
+  <data name="Sample_ff7c4a7fda" xml:space="preserve">
+    <value>Define ListBoxItems directly in XAML.</value>
+  </data>
+  <data name="Sample_12dac3eb3d" xml:space="preserve">
+    <value>Statically define hierarchy nodes in XAML; supports expand/collapse and drag-and-drop.</value>
+  </data>
+  <data name="Sample_84acc30e7a" xml:space="preserve">
+    <value>Overlay a busy state on content; supports multiple IndicatorType values.</value>
+  </data>
+  <data name="Sample_5148eb7ab0" xml:space="preserve">
+    <value>Draw a drop shadow under children; supports rounded corners and custom colors.</value>
+  </data>
+  <data name="Sample_8b64ac85c3" xml:space="preserve">
+    <value>Asynchronously render children on a separate UI thread; can show a Loading view while loading.</value>
+  </data>
+  <data name="Sample_b5509be4c5" xml:space="preserve">
+    <value>Employed</value>
+  </data>
+  <data name="Sample_75ac842f8e" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Sample_9dc8eb7157" xml:space="preserve">
+    <value>Vertical slider with ticks.</value>
+  </data>
+  <data name="Sample_452e6c9afa" xml:space="preserve">
+    <value>Vertical timeline layout showing event order.</value>
+  </data>
+  <data name="Sample_1766a8666a" xml:space="preserve">
+    <value>Windows credential dialog based on CredUIPromptForWindowsCredentials; supports save password, cache, and Credential Manager I/O.</value>
+  </data>
+  <data name="Sample_5a6728a2a6" xml:space="preserve">
+    <value>Tree list based on ITreeModel; supports dynamic loading and custom data models.</value>
+  </data>
+  <data name="Sample_51817fdf50" xml:space="preserve">
+    <value>Wrapper over System.Windows.Controls.Image; loads and caches images via ImageUrl. First load needs network.</value>
+  </data>
+  <data name="Sample_9e5ffa068e" xml:space="preserve">
+    <value>Basic info</value>
+  </data>
+  <data name="Sample_5d961e79ff" xml:space="preserve">
+    <value>Basic types</value>
+  </data>
+  <data name="Sample_a42bf96fec" xml:space="preserve">
+    <value>Basic Label</value>
+  </data>
+  <data name="Sample_d153de3bbb" xml:space="preserve">
+    <value>Basic NumberBox</value>
+  </data>
+  <data name="Sample_fee30be123" xml:space="preserve">
+    <value>Basic TextBlock</value>
+  </data>
+  <data name="Sample_a279b97a03" xml:space="preserve">
+    <value>Basic horizontal slider, 0–100.</value>
+  </data>
+  <data name="Sample_51c4183933" xml:space="preserve">
+    <value>Basic input</value>
+  </data>
+  <data name="Sample_07a8b6d891" xml:space="preserve">
+    <value>Stacking test</value>
+  </data>
+  <data name="Sample_0aa6412b72" xml:space="preserve">
+    <value>Increment/decrement counter</value>
+  </data>
+  <data name="Sample_5d459d550a" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="Sample_564be0b127" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="Sample_d408b45dc4" xml:space="preserve">
+    <value>Copy text to clipboard</value>
+  </data>
+  <data name="Sample_db98f889ce" xml:space="preserve">
+    <value>Check box</value>
+  </data>
+  <data name="Sample_20cc997916" xml:space="preserve">
+    <value>Shell window</value>
+  </data>
+  <data name="Sample_9937ff5001" xml:space="preserve">
+    <value>Multi-column wheel picker</value>
+  </data>
+  <data name="Sample_b9b45830e6" xml:space="preserve">
+    <value>Multi-column wheel picker for dates, regions, specs, and more.</value>
+  </data>
+  <data name="Sample_f6d51bcb81" xml:space="preserve">
+    <value>Multiple formats</value>
+  </data>
+  <data name="Sample_22a638ef57" xml:space="preserve">
+    <value>Multi-select dropdown</value>
+  </data>
+  <data name="Sample_d3d3ea7de9" xml:space="preserve">
+    <value>Multi-select dropdown with tags and search</value>
+  </data>
+  <data name="Sample_87c835a6b1" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Sample_60d0458ac6" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Sample_67f3b5a40c" xml:space="preserve">
+    <value>Media controls</value>
+  </data>
+  <data name="Sample_4473a9e79b" xml:space="preserve">
+    <value>Sample text for subsection 2.1.</value>
+  </data>
+  <data name="Sample_26ae404d23" xml:space="preserve">
+    <value>Sample text for subsection 2.2.</value>
+  </data>
+  <data name="Sample_6106634d5b" xml:space="preserve">
+    <value>Fonts &amp; typography</value>
+  </data>
+  <data name="Sample_d128bf935c" xml:space="preserve">
+    <value>Font &amp; typography hierarchy</value>
+  </data>
+  <data name="Sample_fd10e00a5b" xml:space="preserve">
+    <value>String path</value>
+  </data>
+  <data name="Sample_52a48bb45a" xml:space="preserve">
+    <value>Sun Qi</value>
+  </data>
+  <data name="Sample_ed5a4dc733" xml:space="preserve">
+    <value>Ningbo</value>
+  </data>
+  <data name="Sample_600166f742" xml:space="preserve">
+    <value>Complete requirements confirmation</value>
+  </data>
+  <data name="Sample_0dd1930c12" xml:space="preserve">
+    <value>Complete install</value>
+  </data>
+  <data name="Sample_fe7d74278a" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="Sample_a74d2b62c9" xml:space="preserve">
+    <value>Aspect-ratio layout</value>
+  </data>
+  <data name="Sample_677dfd1ed1" xml:space="preserve">
+    <value>Adaptive aspect-ratio layout</value>
+  </data>
+  <data name="Sample_2a3a9f88ca" xml:space="preserve">
+    <value>Password input</value>
+  </data>
+  <data name="Sample_055293fb3c" xml:space="preserve">
+    <value>Password box</value>
+  </data>
+  <data name="Sample_e2591e971f" xml:space="preserve">
+    <value>Rich text</value>
+  </data>
+  <data name="Sample_09f3d0a727" xml:space="preserve">
+    <value>Rich text editing</value>
+  </data>
+  <data name="Sample_63141d2f4e" xml:space="preserve">
+    <value>Compare: system ToolBar</value>
+  </data>
+  <data name="Sample_841028314f" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
+  <data name="Sample_7711ba96c2" xml:space="preserve">
+    <value>Aligned with WinUI SearchBox: QueryChanged (input/clear), QuerySubmitted (Enter).</value>
+  </data>
+  <data name="Sample_55405ea6ff" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Sample_7fdf828e06" xml:space="preserve">
+    <value>Export as HTML</value>
+  </data>
+  <data name="Sample_8ab81bbbd9" xml:space="preserve">
+    <value>Export as Markdown</value>
+  </data>
+  <data name="Sample_d47722faec" xml:space="preserve">
+    <value>Export as PDF</value>
+  </data>
+  <data name="Sample_4a39e6b7ae" xml:space="preserve">
+    <value>Navigation view</value>
+  </data>
+  <data name="Sample_d78e5f1e99" xml:space="preserve">
+    <value>Write the text below to the system clipboard.</value>
+  </data>
+  <data name="Sample_c4aadfd0cd" xml:space="preserve">
+    <value>Group ToggleButtons for mutually exclusive selection (can deselect).</value>
+  </data>
+  <data name="Sample_f89ef54b9a" xml:space="preserve">
+    <value>Hierarchical tree dropdown</value>
+  </data>
+  <data name="Sample_b33212419d" xml:space="preserve">
+    <value>Hierarchical tree dropdown supporting multi-level nesting.</value>
+  </data>
+  <data name="Sample_0bbc2ea4e1" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Sample_9ad3b66421" xml:space="preserve">
+    <value>Expand to see more</value>
+  </data>
+  <data name="Sample_012f602372" xml:space="preserve">
+    <value>Toolbar</value>
+  </data>
+  <data name="Sample_98bc1a09b5" xml:space="preserve">
+    <value>Engineer</value>
+  </data>
+  <data name="Sample_58480236ab" xml:space="preserve">
+    <value>Left content</value>
+  </data>
+  <data name="Sample_413f48cc71" xml:space="preserve">
+    <value>Align left</value>
+  </data>
+  <data name="Sample_db86bca01b" xml:space="preserve">
+    <value>Saved: {dialog.FileName}</value>
+  </data>
+  <data name="Sample_b6be24e1e2" xml:space="preserve">
+    <value>Copied to clipboard!</value>
+  </data>
+  <data name="Sample_fad5222ca0" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Sample_c36ec66db0" xml:space="preserve">
+    <value>Disabled…</value>
+  </data>
+  <data name="Sample_1941fbc74a" xml:space="preserve">
+    <value>Selected {dialog.FileNames.Length} files:
+{string.Join(</value>
+  </data>
+  <data name="Sample_986ffb30e2" xml:space="preserve">
+    <value>Selected:</value>
+  </data>
+  <data name="Sample_69abf2d0e2" xml:space="preserve">
+    <value>Selected:
+{string.Join(</value>
+  </data>
+  <data name="Sample_b5c92782c9" xml:space="preserve">
+    <value>Selected: (none)</value>
+  </data>
+  <data name="Sample_b5d2f7bf95" xml:space="preserve">
+    <value>Selected: {dialog.FileName}</value>
+  </data>
+  <data name="Sample_f738ece436" xml:space="preserve">
+    <value>Selected: {string.Join(</value>
+  </data>
+  <data name="Sample_73b1110542" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="Sample_4554fa92b7" xml:space="preserve">
+    <value>Boolean content</value>
+  </data>
+  <data name="Sample_4a0c1908e4" xml:space="preserve">
+    <value>Boolean text</value>
+  </data>
+  <data name="Sample_3241f0c160" xml:space="preserve">
+    <value>Boolean state text</value>
+  </data>
+  <data name="Sample_af927f847c" xml:space="preserve">
+    <value>Boolean state text display</value>
+  </data>
+  <data name="Sample_ca50c39bef" xml:space="preserve">
+    <value>TeachingTip with a Hero area and custom content.</value>
+  </data>
+  <data name="Sample_470bcc646a" xml:space="preserve">
+    <value>Hyperlink button with NavigateUri.</value>
+  </data>
+  <data name="Sample_541c4daa70" xml:space="preserve">
+    <value>ui:Button with SymbolIcon.</value>
+  </data>
+  <data name="Sample_6e8636717c" xml:space="preserve">
+    <value>Button with loading state</value>
+  </data>
+  <data name="Sample_a34817221c" xml:space="preserve">
+    <value>CardAction with icon, title, and subtitle.</value>
+  </data>
+  <data name="Sample_8e7ccd6ff9" xml:space="preserve">
+    <value>Message box with icon</value>
+  </data>
+  <data name="Sample_18961e7e86" xml:space="preserve">
+    <value>Message box with icon; supports sync and async calls.</value>
+  </data>
+  <data name="Sample_1441f7daa2" xml:space="preserve">
+    <value>Dropdown input with search suggestions; supports icon, placeholder, and clear button.</value>
+  </data>
+  <data name="Sample_f9783871d2" xml:space="preserve">
+    <value>With clear button</value>
+  </data>
+  <data name="Sample_3d4319582e" xml:space="preserve">
+    <value>Toggle with slide animation; supports drag, title, and custom On/Off content.</value>
+  </data>
+  <data name="Sample_19cec4bfa6" xml:space="preserve">
+    <value>Cached network image</value>
+  </data>
+  <data name="Sample_880490aef6" xml:space="preserve">
+    <value>Changzhou</value>
+  </data>
+  <data name="Sample_de882bfd0a" xml:space="preserve">
+    <value>Common properties</value>
+  </data>
+  <data name="Sample_a01a996323" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Sample_d4912425b4" xml:space="preserve">
+    <value>Guangdong</value>
+  </data>
+  <data name="Sample_7e040aa9cb" xml:space="preserve">
+    <value>Guangzhou</value>
+  </data>
+  <data name="Sample_e2524ddfb6" xml:space="preserve">
+    <value>The app is running in the system tray. Double-click the icon to show or hide the main window.</value>
+  </data>
+  <data name="Sample_91e1576aa8" xml:space="preserve">
+    <value>Bottom lightweight notification</value>
+  </data>
+  <data name="Sample_dcc6b91062" xml:space="preserve">
+    <value>Bottom notification</value>
+  </data>
+  <data name="Sample_a6beb974cc" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
+  <data name="Sample_f7fad24da1" xml:space="preserve">
+    <value>Toggle switch control</value>
+  </data>
+  <data name="Sample_3ff3c3e26a" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Sample_f1d86ff89e" xml:space="preserve">
+    <value>Development complete</value>
+  </data>
+  <data name="Sample_9e8f93c666" xml:space="preserve">
+    <value>Exception report</value>
+  </data>
+  <data name="Sample_576ff61712" xml:space="preserve">
+    <value>Exception report dialog</value>
+  </data>
+  <data name="Sample_ecb6201948" xml:space="preserve">
+    <value>Async content</value>
+  </data>
+  <data name="Sample_7c7205efaa" xml:space="preserve">
+    <value>Async content loading container</value>
+  </data>
+  <data name="Sample_48587661be" xml:space="preserve">
+    <value>Async content dialog</value>
+  </data>
+  <data name="Sample_17565d7913" xml:space="preserve">
+    <value>Async wait dialog</value>
+  </data>
+  <data name="Sample_d9a25d2136" xml:space="preserve">
+    <value>Async wait dialog with progress and cancel; suited for background tasks.</value>
+  </data>
+  <data name="Sample_615db57aa3" xml:space="preserve">
+    <value>Zhang San</value>
+  </data>
+  <data name="Sample_305be79653" xml:space="preserve">
+    <value>Zhang Wei</value>
+  </data>
+  <data name="Sample_71fd6b18de" xml:space="preserve">
+    <value>Shows an exception details dialog for global unhandled exception reporting. Click to raise a demo exception.</value>
+  </data>
+  <data name="Sample_bc53972278" xml:space="preserve">
+    <value>Popup lightweight notification</value>
+  </data>
+  <data name="Sample_9fb6b4af29" xml:space="preserve">
+    <value>Popup calendar to pick a date; IsTodayHighlighted highlights today.</value>
+  </data>
+  <data name="Sample_fb6e46429f" xml:space="preserve">
+    <value>Popup calendar panel to select a date.</value>
+  </data>
+  <data name="Sample_dd938e9088" xml:space="preserve">
+    <value>Busy overlay</value>
+  </data>
+  <data name="Sample_a38e764eb8" xml:space="preserve">
+    <value>Busy overlay and indicator</value>
+  </data>
+  <data name="Sample_1dc0650f80" xml:space="preserve">
+    <value>Hotkey recording</value>
+  </data>
+  <data name="Sample_5fe427d39a" xml:space="preserve">
+    <value>Hotkey recording input</value>
+  </data>
+  <data name="Sample_3ec22d22be" xml:space="preserve">
+    <value>Hotkey capture</value>
+  </data>
+  <data name="Sample_1e4fcf41ba" xml:space="preserve">
+    <value>Fast (Delay=200, Interval=50)</value>
+  </data>
+  <data name="Sample_1b92ef7c71" xml:space="preserve">
+    <value>Fast: 0　Slow: 0</value>
+  </data>
+  <data name="Sample_0ba1b99158" xml:space="preserve">
+    <value>Fast: {_fastClickCount}　Slow: {_slowClickCount}</value>
+  </data>
+  <data name="Sample_787b5677e3" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Sample_6ef838110b" xml:space="preserve">
+    <value>Hover me</value>
+  </data>
+  <data name="Sample_02d9509b9b" xml:space="preserve">
+    <value>Hover the button to see the tip. Violeta also provides a Callout-style ToolTip.</value>
+  </data>
+  <data name="Sample_330363dfc5" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Sample_7617ac7261" xml:space="preserve">
+    <value>Screenshot.png</value>
+  </data>
+  <data name="Sample_d8b5dbc3ee" xml:space="preserve">
+    <value>Open ContentWindow demo</value>
+  </data>
+  <data name="Sample_d8a7964484" xml:space="preserve">
+    <value>Open ShellWindow demo</value>
+  </data>
+  <data name="Sample_e2fb29cf31" xml:space="preserve">
+    <value>Open image</value>
+  </data>
+  <data name="Sample_d44c79bb8c" xml:space="preserve">
+    <value>Open multiple files</value>
+  </data>
+  <data name="Sample_6cfd8797ec" xml:space="preserve">
+    <value>Open file</value>
+  </data>
+  <data name="Sample_b00f8cb915" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="Sample_fecb037951" xml:space="preserve">
+    <value>Tray notification</value>
+  </data>
+  <data name="Sample_e74804e480" xml:space="preserve">
+    <value>CTO</value>
+  </data>
+  <data name="Sample_01a0213336" xml:space="preserve">
+    <value>Tech stack</value>
+  </data>
+  <data name="Sample_877990def9" xml:space="preserve">
+    <value>Drop shadow decoration</value>
+  </data>
+  <data name="Sample_d09980a885" xml:space="preserve">
+    <value>Expander panel</value>
+  </data>
+  <data name="Sample_2575be67fc" xml:space="preserve">
+    <value>Drawer panel</value>
+  </data>
+  <data name="Sample_6bf9fcc2fc" xml:space="preserve">
+    <value>Split button</value>
+  </data>
+  <data name="Sample_0cfb5648d9" xml:space="preserve">
+    <value>Drag the slider below to shrink available width. Overflow items move into a Compat Flyout (controls relocated as-is, not as MenuItems).</value>
+  </data>
+  <data name="Sample_36780b94c2" xml:space="preserve">
+    <value>Range 500–1000 with TickFrequency=20 snap steps.</value>
+  </data>
+  <data name="Sample_2c06ec4e6e" xml:space="preserve">
+    <value>Press a hotkey...</value>
+  </data>
+  <data name="Sample_5a6fd6d939" xml:space="preserve">
+    <value>Record a hotkey from a key combination; supports modifiers and a clear button.</value>
+  </data>
+  <data name="Sample_99a952b8e7" xml:space="preserve">
+    <value>Holding the button repeatedly fires Click. Wpf.Ui provides a Fluent look via DefaultRepeatButtonStyle.</value>
+  </data>
+  <data name="Sample_1cae9c41d8" xml:space="preserve">
+    <value>Hold to increment</value>
+  </data>
+  <data name="Sample_375192376c" xml:space="preserve">
+    <value>Auto-fills rows and columns in child order.</value>
+  </data>
+  <data name="Sample_776feee78e" xml:space="preserve">
+    <value>Switch layout items by aspect ratio</value>
+  </data>
+  <data name="Sample_79a9d71799" xml:space="preserve">
+    <value>Switch content by boolean</value>
+  </data>
+  <data name="Sample_ae32fe0625" xml:space="preserve">
+    <value>Browse all samples grouped by control type; click a card to navigate.</value>
+  </data>
+  <data name="Sample_19b083f7cf" xml:space="preserve">
+    <value>Receive email notifications</value>
+  </data>
+  <data name="Sample_939d5345ad" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Sample_029dbfb305" xml:space="preserve">
+    <value>Provides minimize, maximize/restore, close, and optional help buttons. Styles follow the host window’s active state and control window chrome. Typically used inside TitleBar, or placed alone in a custom title area.</value>
+  </data>
+  <data name="Sample_02d9819dda" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Sample_a884f3bc36" xml:space="preserve">
+    <value>Tip and Callout styles</value>
+  </data>
+  <data name="Sample_9bdb07e72d" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="Sample_c3e817974d" xml:space="preserve">
+    <value>Search box</value>
+  </data>
+  <data name="Sample_ed114f1d75" xml:space="preserve">
+    <value>Search input</value>
+  </data>
+  <data name="Sample_44ae9d4db8" xml:space="preserve">
+    <value>Action card</value>
+  </data>
+  <data name="Sample_f1f6027baa" xml:space="preserve">
+    <value>Operation completed successfully!</value>
+  </data>
+  <data name="Sample_ebe103ec6a" xml:space="preserve">
+    <value>Success ({location})</value>
+  </data>
+  <data name="Sample_262b0b07df" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Sample_d20fff90d9" xml:space="preserve">
+    <value>Supports Secondary / Primary / Danger / Success appearances.</value>
+  </data>
+  <data name="Sample_d1f2679e83" xml:space="preserve">
+    <value>Supports multi-select, tag display, and search filtering.</value>
+  </data>
+  <data name="Sample_7f7f2ab305" xml:space="preserve">
+    <value>Supports numbers, overflow, dots, placement, and custom colors.</value>
+  </data>
+  <data name="Sample_9ec0bbf098" xml:space="preserve">
+    <value>Supports display name, initials, badge, and image source.</value>
+  </data>
+  <data name="Sample_c693b80589" xml:space="preserve">
+    <value>Supports dark theme via DWM + SetWindowTheme + window subclassing.</value>
+  </data>
+  <data name="Sample_8a725dfc19" xml:space="preserve">
+    <value>Supports zoom and pan. Source accepts a pack URI or relative resource path.</value>
+  </data>
+  <data name="Sample_cae0504af9" xml:space="preserve">
+    <value>Supports custom length, numeric mode, and password masking.</value>
+  </data>
+  <data name="Sample_059a49ce9e" xml:space="preserve">
+    <value>Supports comma separation; paste a,b,c to add multiple tags at once.</value>
+  </data>
+  <data name="Sample_3d502b523f" xml:space="preserve">
+    <value>Smooth physics scrolling for mouse wheel, trackpad, and touch.</value>
+  </data>
+  <data name="Sample_8b93b1d357" xml:space="preserve">
+    <value>Overflow items still leave the main bar, but no overflow button / Flyout is shown.</value>
+  </data>
+  <data name="Sample_7846de57e9" xml:space="preserve">
+    <value>Teaching tip</value>
+  </data>
+  <data name="Sample_562abb5714" xml:space="preserve">
+    <value>Teaching tip flyout</value>
+  </data>
+  <data name="Sample_10adc6be32" xml:space="preserve">
+    <value>Numeric spin input</value>
+  </data>
+  <data name="Sample_ba2daa8218" xml:space="preserve">
+    <value>Numeric spinner</value>
+  </data>
+  <data name="Sample_56642b9154" xml:space="preserve">
+    <value>Numeric input box with placeholder support.</value>
+  </data>
+  <data name="Sample_9597dcaf43" xml:space="preserve">
+    <value>Number input</value>
+  </data>
+  <data name="Sample_5306905257" xml:space="preserve">
+    <value>Number input box</value>
+  </data>
+  <data name="Sample_eeda260c6a" xml:space="preserve">
+    <value>Data 2</value>
+  </data>
+  <data name="Sample_4053a05691" xml:space="preserve">
+    <value>Data 3</value>
+  </data>
+  <data name="Sample_68051bf4aa" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="Sample_01c85e4961" xml:space="preserve">
+    <value>Data grid</value>
+  </data>
+  <data name="Sample_4f090cabd3" xml:space="preserve">
+    <value>Integer NumberBox</value>
+  </data>
+  <data name="Sample_5636766102" xml:space="preserve">
+    <value>File contents:</value>
+  </data>
+  <data name="Sample_b9c52d9a85" xml:space="preserve">
+    <value>File name:</value>
+  </data>
+  <data name="Sample_d5431c4c66" xml:space="preserve">
+    <value>Folder picker</value>
+  </data>
+  <data name="Sample_5e10b994c5" xml:space="preserve">
+    <value>File picker</value>
+  </data>
+  <data name="Sample_97d0761438" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Sample_fca196e010" xml:space="preserve">
+    <value>Text block</value>
+  </data>
+  <data name="Sample_5ac57ce6df" xml:space="preserve">
+    <value>Text box</value>
+  </data>
+  <data name="Sample_a47d284a58" xml:space="preserve">
+    <value>Text box + dropdown flyout rendering both a calendar and time wheels.</value>
+  </data>
+  <data name="Sample_36044dc666" xml:space="preserve">
+    <value>Text box + dropdown flyout with custom .NET time formats.</value>
+  </data>
+  <data name="Sample_018fe5a138" xml:space="preserve">
+    <value>Text input with clear button</value>
+  </data>
+  <data name="Sample_6bbc20b3ec" xml:space="preserve">
+    <value>Document.docx</value>
+  </data>
+  <data name="Sample_81d6da77d6" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="Sample_4d0e6c6f67" xml:space="preserve">
+    <value>New employee </value>
+  </data>
+  <data name="Sample_1bb125b89c" xml:space="preserve">
+    <value>Add </value>
+  </data>
+  <data name="Sample_ecbc7f2bbd" xml:space="preserve">
+    <value>Spin button</value>
+  </data>
+  <data name="Sample_ce3d5f558f" xml:space="preserve">
+    <value>Flagship</value>
+  </data>
+  <data name="Sample_65c73cbf64" xml:space="preserve">
+    <value>Without Adapter, content may cover the stroke; Adapter clips to the inner corner radius.</value>
+  </data>
+  <data name="Sample_61b0c7c3e4" xml:space="preserve">
+    <value>No clear button</value>
+  </data>
+  <data name="Sample_cc6b473b7e" xml:space="preserve">
+    <value>Wuxi</value>
+  </data>
+  <data name="Sample_f8c3feb48c" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="Sample_3c9ff9bc0b" xml:space="preserve">
+    <value>Combined calendar + time picker</value>
+  </data>
+  <data name="Sample_67ef04a976" xml:space="preserve">
+    <value>Calendar and CalendarDatePicker</value>
+  </data>
+  <data name="Sample_b51dfb4a52" xml:space="preserve">
+    <value>Calendar and date picker</value>
+  </data>
+  <data name="Sample_caeae4c1bc" xml:space="preserve">
+    <value>Combined calendar and time picker</value>
+  </data>
+  <data name="Sample_40fccfe532" xml:space="preserve">
+    <value>Calendar date</value>
+  </data>
+  <data name="Sample_b98a0966e3" xml:space="preserve">
+    <value>Calendar date and time</value>
+  </data>
+  <data name="Sample_4c593f33d3" xml:space="preserve">
+    <value>Calendar date picker</value>
+  </data>
+  <data name="Sample_02a1c9a056" xml:space="preserve">
+    <value>Date and time</value>
+  </data>
+  <data name="Sample_de1a35a24c" xml:space="preserve">
+    <value>Date picker</value>
+  </data>
+  <data name="Sample_a55d501e08" xml:space="preserve">
+    <value>Date picker</value>
+  </data>
+  <data name="Sample_4404a8dacc" xml:space="preserve">
+    <value>Timeline</value>
+  </data>
+  <data name="Sample_c2c8fb2356" xml:space="preserve">
+    <value>Time picker</value>
+  </data>
+  <data name="Sample_3439dc393f" xml:space="preserve">
+    <value>Time picker (12/24-hour)</value>
+  </data>
+  <data name="Sample_a297dda489" xml:space="preserve">
+    <value>Star rating</value>
+  </data>
+  <data name="Sample_0acfecc954" xml:space="preserve">
+    <value>Star rating control with half-star support.</value>
+  </data>
+  <data name="Sample_8fccf382e7" xml:space="preserve">
+    <value>Yes/No</value>
+  </data>
+  <data name="Sample_97d3036ee7" xml:space="preserve">
+    <value>Yes/No/Cancel</value>
+  </data>
+  <data name="Sample_2a13a32110" xml:space="preserve">
+    <value>Continue the operation? ({location})</value>
+  </data>
+  <data name="Sample_af204660c7" xml:space="preserve">
+    <value>Continue?</value>
+  </data>
+  <data name="Sample_4d775d4cd7" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Sample_655a0e3730" xml:space="preserve">
+    <value>Show / Hide</value>
+  </data>
+  <data name="Sample_c5704fa616" xml:space="preserve">
+    <value>Show 5 stacked notifications</value>
+  </data>
+  <data name="Sample_91c256c87a" xml:space="preserve">
+    <value>Show ContentDialog</value>
+  </data>
+  <data name="Sample_1b0e13a022" xml:space="preserve">
+    <value>Show tray balloon notification</value>
+  </data>
+  <data name="Sample_03a0199535" xml:space="preserve">
+    <value>Show clear button</value>
+  </data>
+  <data name="Sample_7053881e1b" xml:space="preserve">
+    <value>Show details</value>
+  </data>
+  <data name="Sample_c054855df3" xml:space="preserve">
+    <value>Show notification</value>
+  </data>
+  <data name="Sample_b5172cef51" xml:space="preserve">
+    <value>Plain PasswordBox</value>
+  </data>
+  <data name="Sample_8c56954140" xml:space="preserve">
+    <value>Plain RichTextBox</value>
+  </data>
+  <data name="Sample_87d0142c20" xml:space="preserve">
+    <value>Plain TextBox</value>
+  </data>
+  <data name="Sample_7b849587f0" xml:space="preserve">
+    <value>Dark preview</value>
+  </data>
+  <data name="Sample_b3cdee7277" xml:space="preserve">
+    <value>Up to 3 tags…</value>
+  </data>
+  <data name="Sample_8152222184" xml:space="preserve">
+    <value>Up to 3 tags allowed.</value>
+  </data>
+  <data name="Sample_2e010513c1" xml:space="preserve">
+    <value>Minimize / Maximize / Close bar</value>
+  </data>
+  <data name="Sample_80755e085c" xml:space="preserve">
+    <value>This Gallery main window inherits from ShellWindow. Click to open a simple demo window.</value>
+  </data>
+  <data name="Sample_bb061144dc" xml:space="preserve">
+    <value>This Gallery main window uses vio:TitleBar with CustomHeader / CustomFooter, back and pane-toggle buttons, and an embedded CaptionButtonBar. Typical usage: place TitleBar at the top when ExtendsContentIntoTitleBar=&quot;True&quot;.</value>
+  </data>
+  <data name="Sample_064a169925" xml:space="preserve">
+    <value>This Gallery already uses NavigationView</value>
+  </data>
+  <data name="Sample_36c942351e" xml:space="preserve">
+    <value>Li Si</value>
+  </data>
+  <data name="Sample_b1db96a48b" xml:space="preserve">
+    <value>Li Na</value>
+  </data>
+  <data name="Sample_69d6beffab" xml:space="preserve">
+    <value>Hangzhou</value>
+  </data>
+  <data name="Sample_4647705c65" xml:space="preserve">
+    <value>Architect</value>
+  </data>
+  <data name="Sample_871d31a958" xml:space="preserve">
+    <value>Find…</value>
+  </data>
+  <data name="Sample_fa9b11c609" xml:space="preserve">
+    <value>Standard Calendar and DatePicker (CalendarDatePicker).</value>
+  </data>
+  <data name="Sample_aea0ca94d7" xml:space="preserve">
+    <value>Standard Image</value>
+  </data>
+  <data name="Sample_0f69e5cbfd" xml:space="preserve">
+    <value>Standard Menu + ui:MenuItem</value>
+  </data>
+  <data name="Sample_3c3e7f2bd3" xml:space="preserve">
+    <value>Standard RepeatButton</value>
+  </data>
+  <data name="Sample_9bc1cf07bb" xml:space="preserve">
+    <value>Standard TabControl</value>
+  </data>
+  <data name="Sample_30eed26e03" xml:space="preserve">
+    <value>Standard WPF Button control.</value>
+  </data>
+  <data name="Sample_3a5fe68601" xml:space="preserve">
+    <value>Standard WPF TextBox.</value>
+  </data>
+  <data name="Sample_ee5b0776e9" xml:space="preserve">
+    <value>Standard WPF ToggleButton that toggles pressed/released state.</value>
+  </data>
+  <data name="Sample_1cf6f5930e" xml:space="preserve">
+    <value>Standard WPF password box.</value>
+  </data>
+  <data name="Sample_f91458ff7d" xml:space="preserve">
+    <value>Standard WPF rich text editor with FlowDocument support.</value>
+  </data>
+  <data name="Sample_23731d5885" xml:space="preserve">
+    <value>Standard pagination; bind current page and total pages.</value>
+  </data>
+  <data name="Sample_de28d2720d" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Sample_14d342362f" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="Sample_7e979b664d" xml:space="preserve">
+    <value>Tag combo</value>
+  </data>
+  <data name="Sample_8dbb85e851" xml:space="preserve">
+    <value>Tag combo box</value>
+  </data>
+  <data name="Sample_89ad888945" xml:space="preserve">
+    <value>Label text</value>
+  </data>
+  <data name="Sample_ad506ef284" xml:space="preserve">
+    <value>Tab strip</value>
+  </data>
+  <data name="Sample_09e91c7b41" xml:space="preserve">
+    <value>Tag chip input</value>
+  </data>
+  <data name="Sample_8e3ac38ebb" xml:space="preserve">
+    <value>Tag input</value>
+  </data>
+  <data name="Sample_1655dd5f2c" xml:space="preserve">
+    <value>Tags:</value>
+  </data>
+  <data name="Sample_ce8e73e55c" xml:space="preserve">
+    <value>Tags: (none)</value>
+  </data>
+  <data name="Sample_8cb861a1ec" xml:space="preserve">
+    <value>Caption button bar</value>
+  </data>
+  <data name="Sample_391555a377" xml:space="preserve">
+    <value>Title bar</value>
+  </data>
+  <data name="Sample_2ce70ecb55" xml:space="preserve">
+    <value>Tree combo</value>
+  </data>
+  <data name="Sample_4598e31c82" xml:space="preserve">
+    <value>Tree combo box</value>
+  </data>
+  <data name="Sample_9604d1609b" xml:space="preserve">
+    <value>Tree list</value>
+  </data>
+  <data name="Sample_e29255e458" xml:space="preserve">
+    <value>Tree list view</value>
+  </data>
+  <data name="Sample_30d8aa704d" xml:space="preserve">
+    <value>Tree view</value>
+  </data>
+  <data name="Sample_28485a07e0" xml:space="preserve">
+    <value>Tree model list view</value>
+  </data>
+  <data name="Sample_31d836ff42" xml:space="preserve">
+    <value>Styled TextBlock</value>
+  </data>
+  <data name="Sample_b368eb270f" xml:space="preserve">
+    <value>Styles and Severity</value>
+  </data>
+  <data name="Sample_1ec0c7b465" xml:space="preserve">
+    <value>Core features merged</value>
+  </data>
+  <data name="Sample_adf525b652" xml:space="preserve">
+    <value>Core features done; entering testing.</value>
+  </data>
+  <data name="Sample_c891afad73" xml:space="preserve">
+    <value>Switches between TrueText / FalseText by Value; styles can differ.</value>
+  </data>
+  <data name="Sample_f4cd310f32" xml:space="preserve">
+    <value>Shows different content by boolean; click to toggle.</value>
+  </data>
+  <data name="Sample_26cfbf3fb6" xml:space="preserve">
+    <value>Generates a QR code from text; adjust ECC level and corner radius.</value>
+  </data>
+  <data name="Sample_bf8a0189e0" xml:space="preserve">
+    <value>Model tree list</value>
+  </data>
+  <data name="Sample_4295b75647" xml:space="preserve">
+    <value>Simulate loading task</value>
+  </data>
+  <data name="Sample_89aeb41a27" xml:space="preserve">
+    <value>Banner notification</value>
+  </data>
+  <data name="Sample_0905182530" xml:space="preserve">
+    <value>Cherry</value>
+  </data>
+  <data name="Sample_0ac491da7b" xml:space="preserve">
+    <value>Loading data...</value>
+  </data>
+  <data name="Sample_72628b3afc" xml:space="preserve">
+    <value>Processing…</value>
+  </data>
+  <data name="Sample_dd3316267a" xml:space="preserve">
+    <value>Working, please wait...</value>
+  </data>
+  <data name="Sample_95a352a546" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="Sample_76b983b8e6" xml:space="preserve">
+    <value>Place technical details, stack traces, log snippets, or links here.</value>
+  </data>
+  <data name="Sample_7fb644b8b6" xml:space="preserve">
+    <value>This dialog uses command-link buttons.</value>
+  </data>
+  <data name="Sample_10129a2fd7" xml:space="preserve">
+    <value>This dialog demonstrates a marquee progress bar.</value>
+  </data>
+  <data name="Sample_4cde06e616" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="Sample_c56a96438e" xml:space="preserve">
+    <value>Horizontal or vertical divider, optionally with a caption.</value>
+  </data>
+  <data name="Sample_3f47bd2d77" xml:space="preserve">
+    <value>Horizontally scrolling text; control direction, speed, and AutoRun.</value>
+  </data>
+  <data name="Sample_2428ebeae7" xml:space="preserve">
+    <value>Jiangsu</value>
+  </data>
+  <data name="Sample_da47feab65" xml:space="preserve">
+    <value>Smooth scrolling</value>
+  </data>
+  <data name="Sample_c41619d2a1" xml:space="preserve">
+    <value>Smooth physical scrolling</value>
+  </data>
+  <data name="Sample_36e41c1627" xml:space="preserve">
+    <value>QA</value>
+  </data>
+  <data name="Sample_912302cb02" xml:space="preserve">
+    <value>Browser</value>
+  </data>
+  <data name="Sample_a44dc3df64" xml:space="preserve">
+    <value>Zhejiang</value>
+  </data>
+  <data name="Sample_42862a19bd" xml:space="preserve">
+    <value>Flyout</value>
+  </data>
+  <data name="Sample_758409e3ca" xml:space="preserve">
+    <value>Message box</value>
+  </data>
+  <data name="Sample_7a399889b9" xml:space="preserve">
+    <value>Shenzhen</value>
+  </data>
+  <data name="Sample_edae724270" xml:space="preserve">
+    <value>Mixed controls (moved into Flyout as-is)</value>
+  </data>
+  <data name="Sample_f68216034d" xml:space="preserve">
+    <value>Add node</value>
+  </data>
+  <data name="Sample_58477471b3" xml:space="preserve">
+    <value>Add row</value>
+  </data>
+  <data name="Sample_288f0c404c" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Sample_71f38f399f" xml:space="preserve">
+    <value>Wenzhou</value>
+  </data>
+  <data name="Sample_7b06d65d82" xml:space="preserve">
+    <value>Overflow still uses the original Button; icon and command stay the same.</value>
+  </data>
+  <data name="Sample_a6e8671eab" xml:space="preserve">
+    <value>Scroll content line 1</value>
+  </data>
+  <data name="Sample_aa3eb7c441" xml:space="preserve">
+    <value>Scroll content line 10</value>
+  </data>
+  <data name="Sample_0fa99936c9" xml:space="preserve">
+    <value>Scroll content line 2</value>
+  </data>
+  <data name="Sample_899eaed4fd" xml:space="preserve">
+    <value>Scroll content line 3</value>
+  </data>
+  <data name="Sample_e970cf7899" xml:space="preserve">
+    <value>Scroll content line 4</value>
+  </data>
+  <data name="Sample_cd7eb7bcf9" xml:space="preserve">
+    <value>Scroll content line 5</value>
+  </data>
+  <data name="Sample_44768e6912" xml:space="preserve">
+    <value>Scroll content line 6</value>
+  </data>
+  <data name="Sample_73709b070d" xml:space="preserve">
+    <value>Scroll content line 7</value>
+  </data>
+  <data name="Sample_1f7768a40c" xml:space="preserve">
+    <value>Scroll content line 8</value>
+  </data>
+  <data name="Sample_4d561128b7" xml:space="preserve">
+    <value>Scroll content line 9</value>
+  </data>
+  <data name="Sample_c8a01628d6" xml:space="preserve">
+    <value>Demonstrates an error icon with Retry / Cancel buttons.</value>
+  </data>
+  <data name="Sample_ffecc9f0be" xml:space="preserve">
+    <value>Active state</value>
+  </data>
+  <data name="Sample_17073bf769" xml:space="preserve">
+    <value>Click the button above to read</value>
+  </data>
+  <data name="Sample_ca4cd621e4" xml:space="preserve">
+    <value>Click a card to open the corresponding control sample.</value>
+  </data>
+  <data name="Sample_23509bcfde" xml:space="preserve">
+    <value>Enters a loading state for about 2 seconds, then recovers.</value>
+  </data>
+  <data name="Sample_e44ca4d5c0" xml:space="preserve">
+    <value>Drop-down button that opens a ContextMenu.</value>
+  </data>
+  <data name="Sample_e2e51ea8f9" xml:space="preserve">
+    <value>Expand the control to see more details.</value>
+  </data>
+  <data name="Sample_67b61f5a7e" xml:space="preserve">
+    <value>Click count: 0</value>
+  </data>
+  <data name="Sample_8b560de494" xml:space="preserve">
+    <value>Click count: {_clickCount}</value>
+  </data>
+  <data name="Sample_71716d9ceb" xml:space="preserve">
+    <value>Like/dislike control; click the selected state again to clear.</value>
+  </data>
+  <data name="Sample_ee2358e53a" xml:space="preserve">
+    <value>Parent-child cascading combo box</value>
+  </data>
+  <data name="Sample_6ed998e7cc" xml:space="preserve">
+    <value>Cascading selection: choosing a parent shows children; clear a leaf via the right-side button.</value>
+  </data>
+  <data name="Sample_3fea7ca76c" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Sample_54cf06512f" xml:space="preserve">
+    <value>Status controls</value>
+  </data>
+  <data name="Sample_3228f322c9" xml:space="preserve">
+    <value>Wang Wu</value>
+  </data>
+  <data name="Sample_1039106987" xml:space="preserve">
+    <value>Wang Fang</value>
+  </data>
+  <data name="Sample_28aa6906e9" xml:space="preserve">
+    <value>Progress ring</value>
+  </data>
+  <data name="Sample_3444fcb679" xml:space="preserve">
+    <value>Placeholder before content loads. Toggle IsLoading / IsActive.</value>
+  </data>
+  <data name="Sample_1e5753e63a" xml:space="preserve">
+    <value>Basic control for read-only text.</value>
+  </data>
+  <data name="Sample_44096c0147" xml:space="preserve">
+    <value>Label control for descriptive text.</value>
+  </data>
+  <data name="Sample_84063d73bf" xml:space="preserve">
+    <value>Demonstrates the Windows Security credential dialog.</value>
+  </data>
+  <data name="Sample_36a4908a55" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Sample_4d7f930b07" xml:space="preserve">
+    <value>Canvas</value>
+  </data>
+  <data name="Sample_afe53fe801" xml:space="preserve">
+    <value>Canvas drawing</value>
+  </data>
+  <data name="Sample_2fc96b2704" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Sample_932b484438" xml:space="preserve">
+    <value>document content.</value>
+  </data>
+  <data name="Sample_ef0fd2940b" xml:space="preserve">
+    <value>Declare MultiComboBoxItem directly in XAML.</value>
+  </data>
+  <data name="Sample_251591221d" xml:space="preserve">
+    <value>Province / city cascade</value>
+  </data>
+  <data name="Sample_9176a628cc" xml:space="preserve">
+    <value>R&amp;D</value>
+  </data>
+  <data name="Sample_38cf16f220" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Sample_299344c484" xml:space="preserve">
+    <value>OK / Cancel</value>
+  </data>
+  <data name="Sample_12cd9a94dc" xml:space="preserve">
+    <value>OK and close</value>
+  </data>
+  <data name="Sample_e83a256e4f" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Sample_9fd77757e8" xml:space="preserve">
+    <value>Low disk space. Please free up space soon.</value>
+  </data>
+  <data name="Sample_ae05e054a4" xml:space="preserve">
+    <value>Sample ContentDialog</value>
+  </data>
+  <data name="Sample_710ad08b11" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Sample_5a7392a0d7" xml:space="preserve">
+    <value>Disabled state</value>
+  </data>
+  <data name="Sample_4402da40de" xml:space="preserve">
+    <value>Disabled item</value>
+  </data>
+  <data name="Sample_583e7924e9" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Sample_11446c8fca" xml:space="preserve">
+    <value>Mobile development</value>
+  </data>
+  <data name="Sample_c95e748d58" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Sample_bb86dd5c6e" xml:space="preserve">
+    <value>Later</value>
+  </data>
+  <data name="Sample_5e68f5916f" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="Sample_b420d8f320" xml:space="preserve">
+    <value>Kickoff</value>
+  </data>
+  <data name="Sample_5239b15bba" xml:space="preserve">
+    <value>Notification 1</value>
+  </data>
+  <data name="Sample_0ea7e63346" xml:space="preserve">
+    <value>Notification 2</value>
+  </data>
+  <data name="Sample_37922953b5" xml:space="preserve">
+    <value>Notification 3</value>
+  </data>
+  <data name="Sample_e1fc97da7b" xml:space="preserve">
+    <value>Notification 4</value>
+  </data>
+  <data name="Sample_d47ea33b91" xml:space="preserve">
+    <value>Notification 5</value>
+  </data>
+  <data name="Sample_86a1afd027" xml:space="preserve">
+    <value>Section 1. Click an anchor on the left to scroll to a section.</value>
+  </data>
+  <data name="Sample_7a591f5191" xml:space="preserve">
+    <value>Page 1 — Welcome to Violeta</value>
+  </data>
+  <data name="Sample_8e1dd99c8c" xml:space="preserve">
+    <value>Section 3, for verifying scroll sync.</value>
+  </data>
+  <data name="Sample_847e5a73a0" xml:space="preserve">
+    <value>Page 3 — Multi-framework support</value>
+  </data>
+  <data name="Sample_9c64922ef8" xml:space="preserve">
+    <value>Section 2 parent chapter with child sections below.</value>
+  </data>
+  <data name="Sample_159c645f66" xml:space="preserve">
+    <value>Page 2 — Fluent Design</value>
+  </data>
+  <data name="Sample_1de8eaa668" xml:space="preserve">
+    <value>Section 4. Keep scrolling to watch highlight changes.</value>
+  </data>
+  <data name="Sample_a69a0f6783" xml:space="preserve">
+    <value>and other inline styles.</value>
+  </data>
+  <data name="Sample_c4aa96fd4c" xml:space="preserve">
+    <value>Pending dialog</value>
+  </data>
+  <data name="Sample_90ea8506b4" xml:space="preserve">
+    <value>Flip-view control like a carousel; swipe left/right.</value>
+  </data>
+  <data name="Sample_226b091218" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Sample_e803663cf5" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="Sample_966e7cdd84" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="Sample_0b125f41f7" xml:space="preserve">
+    <value>System tray icon</value>
+  </data>
+  <data name="Sample_2de0bc06f2" xml:space="preserve">
+    <value>System tray icon and menu</value>
+  </data>
+  <data name="Sample_cddce965d7" xml:space="preserve">
+    <value>Cascading combo</value>
+  </data>
+  <data name="Sample_0d838a9c7d" xml:space="preserve">
+    <value>Combines tree structure with a list view; expand/collapse and multi-column.</value>
+  </data>
+  <data name="Sample_e35e9417ad" xml:space="preserve">
+    <value>Result: (waiting)</value>
+  </data>
+  <data name="Sample_0909d6d4dd" xml:space="preserve">
+    <value>Result: {clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $</value>
+  </data>
+  <data name="Sample_11528c4f6c" xml:space="preserve">
+    <value>Result: {dialog.SelectedPath}</value>
+  </data>
+  <data name="Sample_373ee67676" xml:space="preserve">
+    <value>Result: {result}</value>
+  </data>
+  <data name="Sample_ae35089b44" xml:space="preserve">
+    <value>Result: cached credential hit — user: {dialog.UserName}</value>
+  </data>
+  <data name="Sample_8c8c59b676" xml:space="preserve">
+    <value>Result: credential saved — user: {credential.UserName}</value>
+  </data>
+  <data name="Sample_2c6ba0e39a" xml:space="preserve">
+    <value>Result: credential deleted.</value>
+  </data>
+  <data name="Sample_b97d90527e" xml:space="preserve">
+    <value>Result: canceled</value>
+  </data>
+  <data name="Sample_395d500fbf" xml:space="preserve">
+    <value>Result: canceled or closed</value>
+  </data>
+  <data name="Sample_a816603488" xml:space="preserve">
+    <value>Result: selected {dialog.SelectedPaths.Length} folders — {string.Join(</value>
+  </data>
+  <data name="Sample_2c9b33f24f" xml:space="preserve">
+    <value>Result: exception — {ex.Message}</value>
+  </data>
+  <data name="Sample_76a6900819" xml:space="preserve">
+    <value>Result: no deletable credential found.</value>
+  </data>
+  <data name="Sample_015d3e62d9" xml:space="preserve">
+    <value>Result: no saved credential found.</value>
+  </data>
+  <data name="Sample_6457052c6e" xml:space="preserve">
+    <value>Result: user canceled the dialog.</value>
+  </data>
+  <data name="Sample_42d379fc40" xml:space="preserve">
+    <value>Result: user: {dialog.UserName}, save checked: {dialog.IsSaveChecked}</value>
+  </data>
+  <data name="Sample_27ca568be2" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Sample_c81e7712be" xml:space="preserve">
+    <value>Continue current operation</value>
+  </data>
+  <data name="Sample_5f5597503b" xml:space="preserve">
+    <value>Cached image</value>
+  </data>
+  <data name="Sample_1efa490383" xml:space="preserve">
+    <value>Slow (Delay=1000, Interval=400)</value>
+  </data>
+  <data name="Sample_8dd38aaf75" xml:space="preserve">
+    <value>Grid splitter</value>
+  </data>
+  <data name="Sample_e793aeb29c" xml:space="preserve">
+    <value>Flip view</value>
+  </data>
+  <data name="Sample_9f1891c848" xml:space="preserve">
+    <value>Page flip view</value>
+  </data>
+  <data name="Sample_b652de80d6" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Sample_5ea2fa9344" xml:space="preserve">
+    <value>Auto suggest</value>
+  </data>
+  <data name="Sample_9afe366118" xml:space="preserve">
+    <value>Auto-suggest input</value>
+  </data>
+  <data name="Sample_452dba7c65" xml:space="preserve">
+    <value>Wrap text</value>
+  </data>
+  <data name="Sample_c60adf04b2" xml:space="preserve">
+    <value>Auto grid</value>
+  </data>
+  <data name="Sample_43a6fef122" xml:space="preserve">
+    <value>Auto row/column grid</value>
+  </data>
+  <data name="Sample_c0a63f52dd" xml:space="preserve">
+    <value>Custom ItemTemplate</value>
+  </data>
+  <data name="Sample_acf041436a" xml:space="preserve">
+    <value>Custom content</value>
+  </data>
+  <data name="Sample_7372dc9f39" xml:space="preserve">
+    <value>Custom icon</value>
+  </data>
+  <data name="Sample_9bcbd65034" xml:space="preserve">
+    <value>Custom install</value>
+  </data>
+  <data name="Sample_38d11a85f2" xml:space="preserve">
+    <value>Custom title bar</value>
+  </data>
+  <data name="Sample_2daf8c0856" xml:space="preserve">
+    <value>Custom-format time picker</value>
+  </data>
+  <data name="Sample_995882b996" xml:space="preserve">
+    <value>Suzhou</value>
+  </data>
+  <data name="Sample_e6803e21b9" xml:space="preserve">
+    <value>Apple</value>
+  </data>
+  <data name="Sample_f4fbd6c803" xml:space="preserve">
+    <value>Range slider</value>
+  </data>
+  <data name="Sample_4e9244f80e" xml:space="preserve">
+    <value>Strawberry</value>
+  </data>
+  <data name="Sample_4ccbdc5301" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Sample_0a4e486218" xml:space="preserve">
+    <value>Bluetooth</value>
+  </data>
+  <data name="Sample_9c9aabab3f" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="Sample_a96ab3d9cc" xml:space="preserve">
+    <value>Blueberry</value>
+  </data>
+  <data name="Sample_ee3d70da45" xml:space="preserve">
+    <value>Row separator</value>
+  </data>
+  <data name="Sample_eee1e2258d" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="Sample_faf4e7e50d" xml:space="preserve">
+    <value>Form layout</value>
+  </data>
+  <data name="Sample_b339aa8710" xml:space="preserve">
+    <value>Data grid</value>
+  </data>
+  <data name="Sample_b9af3fd5d3" xml:space="preserve">
+    <value>Watermelon</value>
+  </data>
+  <data name="Sample_b8c467fce0" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Sample_917b016754" xml:space="preserve">
+    <value>Badges and dots</value>
+  </data>
+  <data name="Sample_900c70fa5f" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Sample_4daea5b39d" xml:space="preserve">
+    <value>Planned</value>
+  </data>
+  <data name="Sample_ae26e58675" xml:space="preserve">
+    <value>Set Height to limit the list viewport.</value>
+  </data>
+  <data name="Sample_b08890a6ef" xml:space="preserve">
+    <value>Design</value>
+  </data>
+  <data name="Sample_22554bfe34" xml:space="preserve">
+    <value>Design.fig</value>
+  </data>
+  <data name="Sample_829ec9c321" xml:space="preserve">
+    <value>Design team</value>
+  </data>
+  <data name="Sample_6fe4c8e483" xml:space="preserve">
+    <value>Design phase</value>
+  </data>
+  <data name="Sample_80f041f752" xml:space="preserve">
+    <value>See the main window title bar for the live effect (theme switch is in CustomFooter).</value>
+  </data>
+  <data name="Sample_180108e19c" xml:space="preserve">
+    <value>Please note the following</value>
+  </data>
+  <data name="Sample_bec0dd5f65" xml:space="preserve">
+    <value>Please note ({location})</value>
+  </data>
+  <data name="Sample_17395556d2" xml:space="preserve">
+    <value>Please note: this is a warning.</value>
+  </data>
+  <data name="Sample_7c1efe79cc" xml:space="preserve">
+    <value>Please wait</value>
+  </data>
+  <data name="Sample_cdd6fe7d2f" xml:space="preserve">
+    <value>Enter content...</value>
+  </data>
+  <data name="Sample_4b151dd64a" xml:space="preserve">
+    <value>Enter credentials</value>
+  </data>
+  <data name="Sample_8093e3921d" xml:space="preserve">
+    <value>Enter name</value>
+  </data>
+  <data name="Sample_b15e5d18e7" xml:space="preserve">
+    <value>Enter your name:</value>
+  </data>
+  <data name="Sample_08b1fa1304" xml:space="preserve">
+    <value>Enter username</value>
+  </data>
+  <data name="Sample_92a3be5307" xml:space="preserve">
+    <value>Please select...</value>
+  </data>
+  <data name="Sample_509c20e53c" xml:space="preserve">
+    <value>Select one or more folders.</value>
+  </data>
+  <data name="Sample_4bf5433ad8" xml:space="preserve">
+    <value>Select an action</value>
+  </data>
+  <data name="Sample_8c19852c92" xml:space="preserve">
+    <value>Select a folder.</value>
+  </data>
+  <data name="Sample_eed4f2841b" xml:space="preserve">
+    <value>Choose the install options you want to use.</value>
+  </data>
+  <data name="Sample_04a8c85aef" xml:space="preserve">
+    <value>Select province / city</value>
+  </data>
+  <data name="Sample_c4e39190f1" xml:space="preserve">
+    <value>Read and write system clipboard text</value>
+  </data>
+  <data name="Sample_e2b1998a54" xml:space="preserve">
+    <value>Read saved credentials</value>
+  </data>
+  <data name="Sample_e2187047c4" xml:space="preserve">
+    <value>Read the text currently on the clipboard.</value>
+  </data>
+  <data name="Sample_47b666a05d" xml:space="preserve">
+    <value>Resize width/height to see AspectRatioMode changes (tolerance=0.3).</value>
+  </data>
+  <data name="Sample_a3448ab5ed" xml:space="preserve">
+    <value>Account settings</value>
+  </data>
+  <data name="Sample_f1861aaa47" xml:space="preserve">
+    <value>Like / dislike rating</value>
+  </data>
+  <data name="Sample_b43536d046" xml:space="preserve">
+    <value>Zhao Liu</value>
+  </data>
+  <data name="Sample_ded8c0a3ed" xml:space="preserve">
+    <value>Zhao Lei</value>
+  </data>
+  <data name="Sample_7d7894175e" xml:space="preserve">
+    <value>Hyperlink</value>
+  </data>
+  <data name="Sample_953ac8afe8" xml:space="preserve">
+    <value>Hyperlink button</value>
+  </data>
+  <data name="Sample_cfeae99cc9" xml:space="preserve">
+    <value>Marquee</value>
+  </data>
+  <data name="Sample_c732c7aa7d" xml:space="preserve">
+    <value>Marquee scrolling text</value>
+  </data>
+  <data name="Sample_05b03511cb" xml:space="preserve">
+    <value>Mutually exclusive RadioButton groups across containers.</value>
+  </data>
+  <data name="Sample_c5e3546024" xml:space="preserve">
+    <value>Lightweight notification</value>
+  </data>
+  <data name="Sample_d7362ceba9" xml:space="preserve">
+    <value>Longer tip</value>
+  </data>
+  <data name="Sample_83fb2119f7" xml:space="preserve">
+    <value>Enter credentials</value>
+  </data>
+  <data name="Sample_552b11b447" xml:space="preserve">
+    <value>Press Enter after typing…</value>
+  </data>
+  <data name="Sample_e9aca1a2c3" xml:space="preserve">
+    <value>Type or paste comma-separated values…</value>
+  </data>
+  <data name="Sample_7518aac27a" xml:space="preserve">
+    <value>Enter file content...</value>
+  </data>
+  <data name="Sample_d31088e654" xml:space="preserve">
+    <value>Enter file name...</value>
+  </data>
+  <data name="Sample_04adfe2cf1" xml:space="preserve">
+    <value>Type text and press Enter to add a tag.</value>
+  </data>
+  <data name="Sample_961534b4ea" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Sample_34be9270ec" xml:space="preserve">
+    <value>Transition content</value>
+  </data>
+  <data name="Sample_b890b34994" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="Sample_caf2c2a52f" xml:space="preserve">
+    <value>AsyncBox demo content. Child content is created on an async UI thread; an indicator can show while loading.</value>
+  </data>
+  <data name="Sample_6d80adabe3" xml:space="preserve">
+    <value>A simple demo of ContentWindow + ContentWindowControl.</value>
+  </data>
+  <data name="Sample_280b260594" xml:space="preserve">
+    <value>Gallery demo exception for previewing the ExceptionReport dialog.</value>
+  </data>
+  <data name="Sample_f330915173" xml:space="preserve">
+    <value>Violeta ContentDialog with primary, secondary, and close buttons.</value>
+  </data>
+  <data name="Sample_ed377f66a0" xml:space="preserve">
+    <value>This is an informational TaskDialog</value>
+  </data>
+  <data name="Sample_cab56120f1" xml:space="preserve">
+    <value>This is a native Win32 MessageBox.</value>
+  </data>
+  <data name="Sample_4ed22fb344" xml:space="preserve">
+    <value>A warning dialog with a footer icon and hyperlink.
+
+Visit &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Violeta&lt;/A&gt; to learn more.</value>
+  </data>
+  <data name="Sample_b51bf913f5" xml:space="preserve">
+    <value>A simple ShellWindow demo window.</value>
+  </data>
+  <data name="Sample_8a3cbdcbba" xml:space="preserve">
+    <value>This is a question. Do you confirm?</value>
+  </data>
+  <data name="Sample_618dd07189" xml:space="preserve">
+    <value>An info banner for important tips.</value>
+  </data>
+  <data name="Sample_bc0a0553b3" xml:space="preserve">
+    <value>This is an informational message.</value>
+  </data>
+  <data name="Sample_122bd04d19" xml:space="preserve">
+    <value>This is an info notification ({location})</value>
+  </data>
+  <data name="Sample_f062dba511" xml:space="preserve">
+    <value>This is a default notification ({location})</value>
+  </data>
+  <data name="Sample_9dba3a086c" xml:space="preserve">
+    <value>A real tray balloon notification from TrayIconHost.</value>
+  </data>
+  <data name="Sample_3dc186229d" xml:space="preserve">
+    <value>Detailed content shown when the Expander is expanded; useful for grouping secondary info.</value>
+  </data>
+  <data name="Sample_e2e33e2c41" xml:space="preserve">
+    <value>Progress bar</value>
+  </data>
+  <data name="Sample_fb852fc6cc" xml:space="preserve">
+    <value>In progress</value>
+  </data>
+  <data name="Sample_c3992269b4" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Sample_fad7c8a21f" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="Sample_4634be5ac1" xml:space="preserve">
+    <value>Select a single file</value>
+  </data>
+  <data name="Sample_86ebf9a041" xml:space="preserve">
+    <value>Select image files</value>
+  </data>
+  <data name="Sample_a074a4a7c5" xml:space="preserve">
+    <value>Select multiple files</value>
+  </data>
+  <data name="Sample_d71db75c5a" xml:space="preserve">
+    <value>Select multiple folders</value>
+  </data>
+  <data name="Sample_da479fcbb1" xml:space="preserve">
+    <value>Choose install method</value>
+  </data>
+  <data name="Sample_aaa4b65e5c" xml:space="preserve">
+    <value>Select folder</value>
+  </data>
+  <data name="Sample_e04cead454" xml:space="preserve">
+    <value>Option A</value>
+  </data>
+  <data name="Sample_d581ed5da9" xml:space="preserve">
+    <value>Option B</value>
+  </data>
+  <data name="Sample_cbae0a2a40" xml:space="preserve">
+    <value>Option C</value>
+  </data>
+  <data name="Sample_9377e388f7" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+  <data name="Sample_cc193a7a67" xml:space="preserve">
+    <value>Tab control</value>
+  </data>
+  <data name="Sample_41e5da80c7" xml:space="preserve">
+    <value>Tab view</value>
+  </data>
+  <data name="Sample_50ebf86def" xml:space="preserve">
+    <value>Usually call Splash.ShowAsync at Application startup. This demo button briefly covers the main window—wait for it to close, or call Splash.CloseAsync.</value>
+  </data>
+  <data name="Sample_5660bcd256" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Sample_cd82d2bb25" xml:space="preserve">
+    <value>Notification type</value>
+  </data>
+  <data name="Sample_7a37cf1b92" xml:space="preserve">
+    <value>A flyout attached to a button or card via FlyoutService.</value>
+  </data>
+  <data name="Sample_b854c38c15" xml:space="preserve">
+    <value>Customize appearance with FontFamily, FontStyle, and related properties.</value>
+  </data>
+  <data name="Sample_77bc5793f7" xml:space="preserve">
+    <value>Bind via ItemsSource and MemberPath.</value>
+  </data>
+  <data name="Sample_9a1508f4ef" xml:space="preserve">
+    <value>Bind a font list via ItemsSource.</value>
+  </data>
+  <data name="Sample_d02bcb24d5" xml:space="preserve">
+    <value>Associate an input control via Target for accessibility.</value>
+  </data>
+  <data name="Sample_5454e81038" xml:space="preserve">
+    <value>Change values with up/down arrows; supports Default / Left / Split layouts.</value>
+  </data>
+  <data name="Sample_1e1459eeed" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Sample_1697f28005" xml:space="preserve">
+    <value>Department manager</value>
+  </data>
+  <data name="Sample_285f2d65c2" xml:space="preserve">
+    <value>Configuration highlights</value>
+  </data>
+  <data name="Sample_01b4e06f39" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Sample_6aa16c2381" xml:space="preserve">
+    <value>Repeat button</value>
+  </data>
+  <data name="Sample_6eeed2029d" xml:space="preserve">
+    <value>Repeat button (hold to click repeatedly)</value>
+  </data>
+  <data name="Sample_4b9c3271dc" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Sample_132c5cdcce" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="Sample_454b22f95d" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="Sample_bfe68d5844" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="Sample_7030ff6470" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Sample_b98522c6a1" xml:space="preserve">
+    <value>Error code: 0x80004005</value>
+  </data>
+  <data name="Sample_4d3cc18eb2" xml:space="preserve">
+    <value>Anchor to a target control; shows an icon and two buttons.</value>
+  </data>
+  <data name="Sample_bede211909" xml:space="preserve">
+    <value>Anchor navigation</value>
+  </data>
+  <data name="Sample_4d13a2326e" xml:space="preserve">
+    <value>Long text wraps automatically.</value>
+  </data>
+  <data name="Sample_5dc99f6efe" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Sample_57a0dec9ef" xml:space="preserve">
+    <value>Chen Jing</value>
+  </data>
+  <data name="Sample_5bc98065dc" xml:space="preserve">
+    <value>Limited stack 1</value>
+  </data>
+  <data name="Sample_5453af82cf" xml:space="preserve">
+    <value>Limited stack 2</value>
+  </data>
+  <data name="Sample_ea0a332c59" xml:space="preserve">
+    <value>Limited stack 3 (will replace)</value>
+  </data>
+  <data name="Sample_89bfb00829" xml:space="preserve">
+    <value>Limited stack 4 (will replace)</value>
+  </data>
+  <data name="Sample_464fd99a16" xml:space="preserve">
+    <value>Limited stack (max 2)</value>
+  </data>
+  <data name="Sample_f8df5a8bca" xml:space="preserve">
+    <value>Limit Filter to common image formats.</value>
+  </data>
+  <data name="Sample_dce5379cb9" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="Sample_7e0978814d" xml:space="preserve">
+    <value>Hide to tray</value>
+  </data>
+  <data name="Sample_4d4d95676e" xml:space="preserve">
+    <value>Hide details</value>
+  </data>
+  <data name="Sample_8dd1eb06c0" xml:space="preserve">
+    <value>Non-stacking mode</value>
+  </data>
+  <data name="Sample_0288ddbb33" xml:space="preserve">
+    <value>Non-stacked notification 1</value>
+  </data>
+  <data name="Sample_e16428ce2a" xml:space="preserve">
+    <value>Non-stacked notification 2</value>
+  </data>
+  <data name="Sample_9983a4a85f" xml:space="preserve">
+    <value>Non-stacked notification 3</value>
+  </data>
+  <data name="Sample_169b227aff" xml:space="preserve">
+    <value>Breadcrumb</value>
+  </data>
+  <data name="Sample_3576258acd" xml:space="preserve">
+    <value>Breadcrumb navigation</value>
+  </data>
+  <data name="Sample_78636353a3" xml:space="preserve">
+    <value>Targeted teaching tip with Title / Subtitle / Hero / Action / Close and Light Dismiss.</value>
+  </data>
+  <data name="Sample_0b66910aa9" xml:space="preserve">
+    <value>Tab indicator</value>
+  </data>
+  <data name="Sample_c0280b33ba" xml:space="preserve">
+    <value>Place SnackbarPresenter on the page and create/show Snackbar in code. No DI / SnackbarService needed.</value>
+  </data>
+  <data name="Sample_6452538f67" xml:space="preserve">
+    <value>In-page anchor navigation</value>
+  </data>
+  <data name="Sample_416b31af1e" xml:space="preserve">
+    <value>Item A</value>
+  </data>
+  <data name="Sample_048547bbb0" xml:space="preserve">
+    <value>Item B</value>
+  </data>
+  <data name="Sample_484aefb490" xml:space="preserve">
+    <value>Project kickoff</value>
+  </data>
+  <data name="Sample_c0ebbe10c1" xml:space="preserve">
+    <value>Project formally approved; requirements document completed.</value>
+  </data>
+  <data name="Sample_afeec3c773" xml:space="preserve">
+    <value>Prefilled tags; also demonstrates the disabled state.</value>
+  </data>
+  <data name="Sample_6b36c6f7ec" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Sample_a0e6ecd1eb" xml:space="preserve">
+    <value>Color picker</value>
+  </data>
+  <data name="Sample_b7c03bbf2b" xml:space="preserve">
+    <value>Banana</value>
+  </data>
+  <data name="Sample_241bd43b47" xml:space="preserve">
+    <value>Verification code input</value>
+  </data>
+  <data name="Sample_20697811d9" xml:space="preserve">
+    <value>Skeleton</value>
+  </data>
+  <data name="Sample_7be1a44b8f" xml:space="preserve">
+    <value>Skeleton loading placeholder</value>
+  </data>
+  <data name="Sample_132ab8784b" xml:space="preserve">
+    <value>Senior engineer</value>
+  </data>
+  <data name="Sample_9d2d1f62ae" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="Sample_18c63459a2" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Sample_c074b6e2ae" xml:space="preserve">
+    <value>Default 24-hour format; seconds optional.</value>
+  </data>
+  <data name="Sample_2749822f6c" xml:space="preserve">
+    <value>Default Expander</value>
+  </data>
+  <data name="Sample_822fb2cf0e" xml:space="preserve">
+    <value>Default ToolTip</value>
+  </data>
+  <data name="Sample_a96498c010" xml:space="preserve">
+    <value>Default physical scrolling</value>
+  </data>
+  <data name="Sample_d23726dc34" xml:space="preserve">
+    <value>Wheel time</value>
+  </data>
+  <data name="Sample_2de3f7a95f" xml:space="preserve">
+    <value>Wheel picker</value>
+  </data>
+  <data name="Sample_af1f5437ae" xml:space="preserve">
+    <value>(Bottom spacer)</value>
+  </data>
+  <data name="Format_Result" xml:space="preserve">
+    <value>Result: {0}</value>
+  </data>
+  <data name="Format_ClickCount" xml:space="preserve">
+    <value>Click count: {0}</value>
+  </data>
+  <data name="Format_FastSlowClicks" xml:space="preserve">
+    <value>Fast: {0}  Slow: {1}</value>
+  </data>
+  <data name="Format_ToastInfo" xml:space="preserve">
+    <value>Information toast ({0})</value>
+  </data>
+  <data name="Format_ToastSuccess" xml:space="preserve">
+    <value>Success ({0})</value>
+  </data>
+  <data name="Format_ToastError" xml:space="preserve">
+    <value>An error occurred ({0})</value>
+  </data>
+  <data name="Format_ToastWarning" xml:space="preserve">
+    <value>Please note ({0})</value>
+  </data>
+  <data name="Format_ToastQuestion" xml:space="preserve">
+    <value>Continue the operation? ({0})</value>
+  </data>
+  <data name="Format_ToastDefault" xml:space="preserve">
+    <value>Default toast ({0})</value>
+  </data>
+  <data name="Format_ThemeSwitched" xml:space="preserve">
+    <value>Theme switched: {0}</value>
+  </data>
+  <data name="Format_Exception" xml:space="preserve">
+    <value>Result: exception — {0}</value>
+  </data>
+  <data name="Format_CachedCredential" xml:space="preserve">
+    <value>Result: cached credential — user: {0}</value>
+  </data>
+  <data name="Format_UserSave" xml:space="preserve">
+    <value>Result: user: {0}, save checked: {1}</value>
+  </data>
+  <data name="Format_SavedCredential" xml:space="preserve">
+    <value>Result: saved credential — user: {0}</value>
+  </data>
+  <data name="Format_SelectedFolders" xml:space="preserve">
+    <value>Result: selected {0} folders — {1}</value>
+  </data>
+  <data name="Format_Selected" xml:space="preserve">
+    <value>Selected: {0}</value>
+  </data>
+  <data name="Format_SelectedFiles" xml:space="preserve">
+    <value>Selected {0} files:
+{1}</value>
+  </data>
+  <data name="Format_SelectedMultiline" xml:space="preserve">
+    <value>Selected:
+{0}</value>
+  </data>
+  <data name="Format_Saved" xml:space="preserve">
+    <value>Saved: {0}</value>
+  </data>
+  <data name="Format_ResultDetail" xml:space="preserve">
+    <value>Result: {0}{1}</value>
+  </data>
+  <data name="Format_DashDetail" xml:space="preserve">
+    <value> — {0}</value>
+  </data>
+  <data name="Sample_NativeAttentionBody" xml:space="preserve">
+    <value>Your attention may be required.
+Click OK to continue.</value>
+  </data>
+  <data name="Sample_bfe5fe4cc4" xml:space="preserve">
+    <value>Decrease</value>
+  </data>
+  <data name="Sample_1ef6e720b3" xml:space="preserve">
+    <value>Increase</value>
+  </data>
+  <data name="Sample_4717f4f110" xml:space="preserve">
+    <value>Enable notifications</value>
+  </data>
+  <data name="Sample_18d1485cc2" xml:space="preserve">
+    <value>Dark mode</value>
+  </data>
+  <data name="Sample_26bb841878" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Sample_d7098f5050" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Sample_be5fbbe34c" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Sample_43fc77886b" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="Sample_79d3abe929" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Sample_eafbece101" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="Sample_bd9fcf46b4" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="Sample_c3c873d33f" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="Sample_3b8a43acee" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="Sample_fc55aff8c7" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="Sample_8456bc40d4" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Sample_e5f71fc31e" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Sample_322b95851a" xml:space="preserve">
+    <value>Find next</value>
+  </data>
+  <data name="Sample_051c56b123" xml:space="preserve">
+    <value>Increase indent</value>
+  </data>
+  <data name="Sample_5a12c3b294" xml:space="preserve">
+    <value>Decrease indent</value>
+  </data>
+  <data name="Sample_5e92ae1660" xml:space="preserve">
+    <value>Bullets</value>
+  </data>
+  <data name="Sample_b9e88627ad" xml:space="preserve">
+    <value>Numbering</value>
+  </data>
+  <data name="Sample_af69d6c47f" xml:space="preserve">
+    <value>Selected: {0}</value>
+  </data>
+  <data name="Sample_977acbe88d" xml:space="preserve">
+    <value>Default tooltip</value>
+  </data>
+  <data name="Sample_68c7b5f75f" xml:space="preserve">
+    <value>A longer tooltip describing the control and suggested actions.</value>
+  </data>
 </root>

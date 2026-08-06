@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ListView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,37 +31,37 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ListView — 列表视图" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_520073ab0b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Fluent 风格 ListView，配合 GridView 显示多列。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c0ba2f001d}}" />
                     <ui:ListView MaxHeight="320">
                         <ui:ListView.View>
                             <ui:GridView>
-                                <ui:GridViewColumn Width="160" DisplayMemberBinding="{Binding}" Header="名称" />
-                                <ui:GridViewColumn Width="120" Header="类型" />
-                                <ui:GridViewColumn Width="100" Header="状态" />
+                                <ui:GridViewColumn Width="160" DisplayMemberBinding="{Binding}" Header="{I18N {x:Static lang:LangKeys.Sample_d7ec2d3fea}}" />
+                                <ui:GridViewColumn Width="120" Header="{I18N {x:Static lang:LangKeys.Sample_226b091218}}" />
+                                <ui:GridViewColumn Width="100" Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
                             </ui:GridView>
                         </ui:ListView.View>
                         <ui:ListViewItem>
                             <ui:ListViewItem.Content>
-                                <TextBlock Text="文档.docx" />
+                                <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_6bbc20b3ec}}" />
                             </ui:ListViewItem.Content>
                         </ui:ListViewItem>
                         <ui:ListViewItem>
                             <ui:ListViewItem.Content>
-                                <TextBlock Text="设计稿.fig" />
+                                <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_22554bfe34}}" />
                             </ui:ListViewItem.Content>
                         </ui:ListViewItem>
                         <ui:ListViewItem>
                             <ui:ListViewItem.Content>
-                                <TextBlock Text="发布说明.md" />
+                                <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_75aee2c1f7}}" />
                             </ui:ListViewItem.Content>
                         </ui:ListViewItem>
                         <ui:ListViewItem>
                             <ui:ListViewItem.Content>
-                                <TextBlock Text="截图.png" />
+                                <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_7617ac7261}}" />
                             </ui:ListViewItem.Content>
                         </ui:ListViewItem>
                     </ui:ListView>

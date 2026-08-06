@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TrayIcon"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,31 +31,31 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="系统托盘图标" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0b125f41f7}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         TextWrapping="Wrap"
-                        Text="Gallery 启动时已通过 TrayIconHost 创建真实托盘图标。关闭主窗口会最小化到托盘；双击托盘图标或使用右键菜单可显示/隐藏窗口。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5d2567470b}}" />
                     <TextBlock
                         Margin="0,0,0,8"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                         TextWrapping="Wrap"
-                        Text="右键菜单提供：显示/隐藏、显示通知、重启、退出。真正退出请使用托盘菜单中的「退出」。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_cfd0ca6826}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Appearance="Primary"
                             Click="ShowTrayBalloon_Click"
-                            Content="显示托盘气球通知" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1b0e13a022}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="HideToTray_Click"
-                            Content="隐藏到托盘" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7e0978814d}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowFromTray_Click"
-                            Content="从托盘显示窗口" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ca624f0706}}" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

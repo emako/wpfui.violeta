@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TimeBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="分段时间输入" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9ff42f75c8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="分段时间输入框，支持键盘和鼠标滚轮调节。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f249dc8eab}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:TimeBox Time="01:23:45" />
                         <vio:TimeBox ShowMillisecond="True" Time="01:23:45.678" />

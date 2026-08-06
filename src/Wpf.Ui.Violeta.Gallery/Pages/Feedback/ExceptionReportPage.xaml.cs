@@ -1,6 +1,8 @@
 using System;
 using System.Windows;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Feedback;
 
@@ -13,6 +15,6 @@ public partial class ExceptionReportPage : Wpf.Ui.Violeta.Controls.Page
 
     private void ShowException_Click(object sender, RoutedEventArgs e)
     {
-        ExceptionReport.Show(new InvalidOperationException("这是 Gallery 演示异常：用于预览 ExceptionReport 对话框。"));
+        ExceptionReport.Show(new InvalidOperationException(LangKeys.Sample_280b260594.Tr()));
     }
 }

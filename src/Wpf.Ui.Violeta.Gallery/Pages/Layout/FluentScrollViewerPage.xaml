@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="FluentScrollViewer"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,23 +30,23 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="默认物理滚动" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a96498c010}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="支持鼠标滚轮、触摸板与触摸的流畅物理滚动。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3d502b523f}}" />
                     <vio:FluentScrollViewer Height="160" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}" BorderThickness="1">
                         <StackPanel Margin="12">
-                            <TextBlock Text="滚动内容行 1" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 2" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 3" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 4" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 5" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 6" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 7" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 8" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 9" Margin="0,0,0,8" />
-                            <TextBlock Text="滚动内容行 10" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_a6e8671eab}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_0fa99936c9}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_899eaed4fd}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_e970cf7899}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_cd7eb7bcf9}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_44768e6912}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_73709b070d}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_1f7768a40c}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_4d561128b7}}" Margin="0,0,0,8" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_aa3eb7c441}}" />
                         </StackPanel>
                     </vio:FluentScrollViewer>
                 </StackPanel>

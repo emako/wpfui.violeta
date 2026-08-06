@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="BoolStateContentControl"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,17 +21,17 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="BoolStateContentControl — 布尔状态内容" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_cb5ec0615f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="根据布尔值显示不同内容，点击切换状态。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f4cd310f32}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <CheckBox
                             x:Name="BoolStateCheckBox"
                             VerticalAlignment="Center"
-                            Content="激活状态" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ffecc9f0be}}" />
                         <vio:BoolStateContentControl Margin="16,0,0,0" Value="{Binding IsChecked, ElementName=BoolStateCheckBox}">
                             <vio:BoolStateContentControl.TrueContent>
                                 <Border
@@ -39,7 +40,7 @@
                                     BorderBrush="#90D040"
                                     BorderThickness="1"
                                     CornerRadius="4">
-                                    <TextBlock Foreground="#90D040" Text="● 已激活" />
+                                    <TextBlock Foreground="#90D040" Text="{I18N {x:Static lang:LangKeys.Sample_308e3a15a2}}" />
                                 </Border>
                             </vio:BoolStateContentControl.TrueContent>
                             <vio:BoolStateContentControl.FalseContent>
@@ -49,7 +50,7 @@
                                     BorderBrush="#FF4444"
                                     BorderThickness="1"
                                     CornerRadius="4">
-                                    <TextBlock Foreground="#FF4444" Text="○ 未激活" />
+                                    <TextBlock Foreground="#FF4444" Text="{I18N {x:Static lang:LangKeys.Sample_1cf87f2966}}" />
                                 </Border>
                             </vio:BoolStateContentControl.FalseContent>
                         </vio:BoolStateContentControl>

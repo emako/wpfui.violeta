@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Pagination"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,11 +31,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Pagination — 分页控件" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1567bdcc25}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="标准分页导航，可绑定当前页码和总页数。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_23731d5885}}" />
 
                     <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                         <TextBlock

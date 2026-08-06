@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TagComboBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="标签下拉框" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8dbb85e851}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="以标签形式展示选项，支持搜索。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0442cbeedb}}" />
                     <vio:TagComboBox
                         x:Name="TagComboBoxDemo"
                         MaxWidth="400"

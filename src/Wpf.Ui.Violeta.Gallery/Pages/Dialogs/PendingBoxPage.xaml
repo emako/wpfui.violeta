@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="PendingBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,16 +30,16 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="异步等待对话框，可显示进度和取消按钮，适合后台任务。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d9a25d2136}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowPendingBox_Click"
-                            Content="模拟加载任务" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_4295b75647}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowPendingBoxWithCancel_Click"
-                            Content="可取消的任务" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_4a6adf2e3c}}" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

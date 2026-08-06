@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="BoolStateTextBlock"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,15 +30,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="布尔状态文本" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3241f0c160}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="根据 Value 在 TrueText / FalseText 间切换，并可分别设置字体样式。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c891afad73}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:ToggleSwitch
                             x:Name="StateToggle"
-                            Header="状态"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}"
                             IsOn="True" />
                         <vio:BoolStateTextBlock
                             VerticalAlignment="Center"

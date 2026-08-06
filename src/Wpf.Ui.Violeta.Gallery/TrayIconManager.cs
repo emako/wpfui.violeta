@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using Wpf.Ui.Violeta.Resources;
 using Wpf.Ui.Violeta.Win32;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
@@ -38,24 +40,24 @@ internal partial class TrayIconManager
                 new TraySeparator(),
                 new TrayMenuItem
                 {
-                    Header = "显示 / 隐藏",
+                    Header = LangKeys.Sample_655a0e3730.Tr(),
                     Command = ActivateOrRestoreMainWindowCommand,
                     IsBold = true,
                 },
                 new TrayMenuItem
                 {
-                    Header = "显示通知",
+                    Header = LangKeys.Sample_c054855df3.Tr(),
                     Command = ShowSampleNotificationCommand,
                 },
                 new TraySeparator(),
                 new TrayMenuItem
                 {
-                    Header = "重启",
+                    Header = LangKeys.Sample_01b4e06f39.Tr(),
                     Command = RestartCommand,
                 },
                 new TrayMenuItem
                 {
-                    Header = "退出",
+                    Header = LangKeys.Sample_c3992269b4.Tr(),
                     Command = ExitCommand,
                 },
             ],
@@ -137,7 +139,7 @@ internal partial class TrayIconManager : ObservableObject
     {
         ShowNotification(
             "Wpf.Ui.Violeta Gallery",
-            "应用正在系统托盘中运行。双击图标可显示或隐藏主窗口。",
+            LangKeys.Sample_e2524ddfb6.Tr(),
             ToolTipIcon.Info,
             clickEvent: ActivateOrRestoreMainWindow);
     }

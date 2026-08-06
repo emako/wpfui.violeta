@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ProgressBar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="不确定进度，持续动画。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_cae8c05701}}"
                         TextWrapping="Wrap" />
                     <ProgressBar IsIndeterminate="True" />
                 </StackPanel>
@@ -55,7 +56,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Value / Maximum 控制完成比例。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b1a86a3a9f}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Vertical" Spacing="12">
                         <ProgressBar Maximum="100" Value="25" />

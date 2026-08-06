@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TitleBar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,15 +21,15 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="TitleBar — 自定义标题栏" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_2aa42f4250}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="本 Gallery 主窗口已使用 vio:TitleBar，支持 CustomHeader / CustomFooter、返回按钮、窗格切换按钮，以及内嵌 CaptionButtonBar。常见用法：ExtendsContentIntoTitleBar=&quot;True&quot; 时将 TitleBar 放在窗口顶部。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_bb061144dc}}"
                         TextWrapping="Wrap" />
                     <TextBlock
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="请查看主窗口顶部标题栏以体验实际效果（主题切换位于 CustomFooter）。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_80f041f752}}"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Border>

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TransitioningContentControl"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="TransitioningContentControl — 过渡内容" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_ed093b889a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="内容切换时播放过渡动画，支持多种动画方向。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a970d9d633}}"
                         TextWrapping="Wrap" />
                     <Border
                         Height="60"
@@ -35,7 +36,7 @@
                             x:Name="TransitionContent"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
-                            Content="Slide 1 — 欢迎使用 Violeta"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_05f27e568a}}"
                             RestartTransitionOnContentChange="True"
                             Transition="Right">
                             <vio:TransitioningContentControl.ContentTemplate>
@@ -49,11 +50,11 @@
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="PrevSlide_Click"
-                            Content="◀ 上一个" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_608443e0b4}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="NextSlide_Click"
-                            Content="下一个 ▶" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7d817bc13f}}" />
                         <ComboBox
                             x:Name="TransitionTypeComboBox"
                             Margin="0,0,0,8"

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="FlipView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,15 +31,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="FlipView — 翻转视图" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ca774947d0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="类似轮播图的翻转视图控件，左右切换内容。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_90ea8506b4}}" />
                     <TextBlock
                         Margin="0,0,0,8"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="Auto（悬停显示按钮）" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b462ab0695}}" />
                     <vio:FlipView
                         Height="160"
                         MaxWidth="500"
@@ -51,7 +52,7 @@
                                     FontSize="20"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="第一页 — 欢迎使用 Violeta" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_7a591f5191}}" />
                             </Border>
                         </vio:FlipViewItem>
                         <vio:FlipViewItem>
@@ -62,7 +63,7 @@
                                     FontSize="20"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="第二页 — Fluent Design" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_159c645f66}}" />
                             </Border>
                         </vio:FlipViewItem>
                         <vio:FlipViewItem>
@@ -73,7 +74,7 @@
                                     FontSize="20"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="第三页 — 多框架支持" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_847e5a73a0}}" />
                             </Border>
                         </vio:FlipViewItem>
                     </vio:FlipView>

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="IPv4PortBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="IPv4 地址 + 端口" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_14ddc63d75}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IPv4 与端口组合输入（如 192.168.0.10:8080），按 . 或 : 可跳转到端口段。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3963b4df1d}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:IPv4PortBox
                             Margin="0,0,16,0"

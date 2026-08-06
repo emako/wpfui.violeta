@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="WebBrowser"
     d:Background="#1C1C1C"
     Loaded="WebBrowserPage_Loaded"
@@ -30,11 +31,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="WebBrowser（旧版）" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_169a3677a7}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="System.Windows.Controls.WebBrowser，基于 IE ActiveX 控件，在 Windows 上仍可用。页面加载后导航至 https://example.com。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_bdc314fd5e}}"
                         TextWrapping="Wrap" />
                     <WebBrowser
                         x:Name="DemoWebBrowser"

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CaptionButtonBar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,15 +21,15 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="CaptionButtonBar — 标题按钮栏" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e6f4a019ed}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="提供最小化、最大化/还原、关闭与可选帮助按钮。会根据所在窗口前台状态自动切换样式，并操作宿主窗口状态。通常由 TitleBar 内部使用，也可单独放入自定义标题区域。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_029dbfb305}}"
                         TextWrapping="Wrap" />
                     <TextBlock
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                        Text="主窗口 TitleBar 右上角即为 CaptionButtonBar 的实际效果。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3b2223252e}}"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Border>

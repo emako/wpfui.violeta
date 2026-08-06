@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
     Title="WebView2"
     d:Background="#1C1C1C"
@@ -24,7 +25,7 @@
                 Text="WebView2" />
             <TextBlock
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Microsoft Edge (Chromium) 内嵌浏览器，打开 Fluent UI Storybook。"
+                Text="{I18N {x:Static lang:LangKeys.Sample_1cf96448cf}}"
                 TextWrapping="Wrap" />
         </StackPanel>
 

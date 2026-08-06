@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ValuePicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="产品规格选择器" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0b8aba3183}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="多列滚轮选择器，适合日期、地区、规格等场景。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9b45830e6}}" />
                     <vio:ValuePicker
                         x:Name="ValuePickerDemo"
                         MinWidth="360"
@@ -38,7 +39,7 @@
                         x:Name="ValuePickerResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="已选择：(无)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b5c92782c9}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

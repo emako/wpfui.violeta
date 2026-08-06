@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ButtonSpinner"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="布局" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_Layout}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="通过上下箭头切换值，支持默认 / 左侧 / Split 布局。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5454e81038}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock

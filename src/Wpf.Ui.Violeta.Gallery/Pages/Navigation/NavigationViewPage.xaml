@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="NavigationView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,26 +31,26 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="本 Gallery 已使用 NavigationView" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_064a169925}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         TextWrapping="Wrap"
-                        Text="主窗口左侧导航即 NavigationView。此处汇总常用配置要点，避免在页面内再嵌套一整套导航框架。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b40b2d467a}}" />
 
-                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="配置要点" />
-                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• MenuItems / FooterMenuItems：定义主导航与页脚项，每项可绑定 TargetPageType 或 Tag。" />
-                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• PaneDisplayMode：Left / LeftMinimal / Top 等，控制面板展开形态。" />
-                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• IsPaneOpen / IsBackEnabled：控制面板开合与返回按钮。" />
-                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="• Frame / Content：承载页面导航；Gallery 通过 Tag 与 GalleryNavigator 联动切换。" />
-                    <TextBlock Margin="0,0,0,12" TextWrapping="Wrap" Text="• Header / TitleBar：可与窗口标题栏、面包屑组合使用。" />
+                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_285f2d65c2}}" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_e080e01adc}}" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_0674868522}}" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_222c7173fa}}" />
+                    <TextBlock Margin="0,0,0,4" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_d359e84325}}" />
+                    <TextBlock Margin="0,0,0,12" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_f07479f3ac}}" />
 
-                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="常见属性" />
-                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="PaneTitle — 面板标题文字" />
-                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="OpenPaneLength — 展开时面板宽度" />
-                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="CompactPaneLength — 收起时图标栏宽度" />
-                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="IsSettingsVisible — 是否显示设置入口" />
-                    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="AutoSuggestBox — 可选的导航搜索框" />
+                    <TextBlock Margin="0,0,0,6" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_de882bfd0a}}" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9bdc3ea41f}}" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6e9b5e7aa8}}" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_aabb3f6de1}}" />
+                    <TextBlock Margin="0,0,0,4" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d229e6f892}}" />
+                    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_0144f29a17}}" />
                 </StackPanel>
             </Border>
 

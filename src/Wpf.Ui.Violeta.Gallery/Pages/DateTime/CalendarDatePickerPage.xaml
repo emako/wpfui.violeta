@@ -7,6 +7,7 @@
     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CalendarDatePicker"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,7 +35,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="弹出日历选择日期，IsTodayHighlighted 高亮今天。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9fb6b4af29}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <ui:CalendarDatePicker

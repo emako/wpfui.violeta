@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Anchor"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -62,7 +63,7 @@
                             Text="Section 1" />
                         <TextBlock
                             Margin="0,4,0,32"
-                            Text="第一段内容。点击左侧锚点可滚动到对应章节。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_86a1afd027}}"
                             TextWrapping="Wrap" />
 
                         <TextBlock
@@ -72,7 +73,7 @@
                             Text="Section 2" />
                         <TextBlock
                             Margin="0,4,0,16"
-                            Text="第二段父级章节，下方包含子章节。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_9c64922ef8}}"
                             TextWrapping="Wrap" />
 
                         <TextBlock
@@ -83,7 +84,7 @@
                             Text="Sub-section 2.1" />
                         <TextBlock
                             Margin="12,4,0,16"
-                            Text="子章节 2.1 的演示文字。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_4473a9e79b}}"
                             TextWrapping="Wrap" />
 
                         <TextBlock
@@ -94,7 +95,7 @@
                             Text="Sub-section 2.2" />
                         <TextBlock
                             Margin="12,4,0,32"
-                            Text="子章节 2.2 的演示文字。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_26ae404d23}}"
                             TextWrapping="Wrap" />
 
                         <TextBlock
@@ -104,7 +105,7 @@
                             Text="Section 3" />
                         <TextBlock
                             Margin="0,4,0,32"
-                            Text="第三段内容，用于验证滚动联动。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_8e1dd99c8c}}"
                             TextWrapping="Wrap" />
 
                         <TextBlock
@@ -114,12 +115,12 @@
                             Text="Section 4" />
                         <TextBlock
                             Margin="0,4,0,48"
-                            Text="第四段内容。继续向下滚动以观察高亮切换。"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_1de8eaa668}}"
                             TextWrapping="Wrap" />
                         <TextBlock
                             Margin="0,0,0,120"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="（底部留白）"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_af1f5437ae}}"
                             TextWrapping="Wrap" />
                     </StackPanel>
                 </ScrollViewer>

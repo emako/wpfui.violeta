@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ToggleButtonGroup"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="将多个 ToggleButton 归入同一组，实现互斥选中（可取消）。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c4aadfd0cd}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ui:StackPanel.Resources>
                             <vio:ToggleButtonGroup x:Key="ToggleButtonGroup" IsCanCancel="True" />
@@ -64,7 +65,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="跨容器的 RadioButton 互斥分组。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_05b03511cb}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ui:StackPanel.Resources>
                             <vio:RadioButtonGroup x:Key="RadioButtonGroup" />

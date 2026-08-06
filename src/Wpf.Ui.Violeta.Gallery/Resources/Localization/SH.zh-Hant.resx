@@ -246,4 +246,2895 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>切換 Gallery 介面語言，變更立即生效。</value>
   </data>
+  <data name="Sample_ccdded2782" xml:space="preserve">
+    <value>（無法讀取剪貼簿）</value>
+  </data>
+  <data name="Sample_eafbd6a246" xml:space="preserve">
+    <value>12 小時制</value>
+  </data>
+  <data name="Sample_1ba133f7ff" xml:space="preserve">
+    <value>24 小時制</value>
+  </data>
+  <data name="Sample_f699b2bc6e" xml:space="preserve">
+    <value>Alternate 模式與不同節點類型。</value>
+  </data>
+  <data name="Sample_c71e9d5bfa" xml:space="preserve">
+    <value>Appearance=&quot;Primary&quot; 強調樣式。</value>
+  </data>
+  <data name="Sample_236dc48e3d" xml:space="preserve">
+    <value>AsyncBox — 非同步內容</value>
+  </data>
+  <data name="Sample_0144f29a17" xml:space="preserve">
+    <value>AutoSuggestBox — 可選的導覽搜尋框</value>
+  </data>
+  <data name="Sample_b462ab0695" xml:space="preserve">
+    <value>Auto（暫留顯示按鈕）</value>
+  </data>
+  <data name="Sample_e8f31fbc7e" xml:space="preserve">
+    <value>Badge — 角標</value>
+  </data>
+  <data name="Sample_30859ecb19" xml:space="preserve">
+    <value>Banner — 橫幅通知</value>
+  </data>
+  <data name="Sample_e3cda4ae4b" xml:space="preserve">
+    <value>BitmapIcon — 點陣圖圖示</value>
+  </data>
+  <data name="Sample_d8c6ee30ab" xml:space="preserve">
+    <value>Body — 本文內容範例文字</value>
+  </data>
+  <data name="Sample_cb5ec0615f" xml:space="preserve">
+    <value>BoolStateContentControl — 布林狀態內容</value>
+  </data>
+  <data name="Sample_a6d6c786e7" xml:space="preserve">
+    <value>BusyMask — 忙碌遮罩</value>
+  </data>
+  <data name="Sample_7b88f14eae" xml:space="preserve">
+    <value>CachedImage — 快取圖片</value>
+  </data>
+  <data name="Sample_9dd3ceb5b3" xml:space="preserve">
+    <value>Caption — 輔助說明文字</value>
+  </data>
+  <data name="Sample_e6f4a019ed" xml:space="preserve">
+    <value>CaptionButtonBar — 標題按鈕列</value>
+  </data>
+  <data name="Sample_a5e9b0abe6" xml:space="preserve">
+    <value>Card / Button 樣式</value>
+  </data>
+  <data name="Sample_9bf9a8e24d" xml:space="preserve">
+    <value>CardControl 將標題與內容區域組合為卡片版面配置。</value>
+  </data>
+  <data name="Sample_e3e9da1f11" xml:space="preserve">
+    <value>ChildMargin 範例</value>
+  </data>
+  <data name="Sample_ebf3722f8d" xml:space="preserve">
+    <value>ClockIdentifier=12HourClock，含 AM/PM。</value>
+  </data>
+  <data name="Sample_aabb3f6de1" xml:space="preserve">
+    <value>CompactPaneLength — 收合時圖示列寬度</value>
+  </data>
+  <data name="Sample_df62566578" xml:space="preserve">
+    <value>Content 可放入 SymbolIcon 等自訂內容。</value>
+  </data>
+  <data name="Sample_e7a103d40a" xml:space="preserve">
+    <value>ContentWindow — 內容視窗</value>
+  </data>
+  <data name="Sample_1e4f285714" xml:space="preserve">
+    <value>ContentWindow 繼承自 ShellWindow，配合 ContentWindowControl 承載自訂內容，並傳回 ContentWindowResult（OK / Cancel 等）。適合需要獨立視窗而非 ContentDialog 的情境。</value>
+  </data>
+  <data name="Sample_976db78a60" xml:space="preserve">
+    <value>DataGrid — 資料表格</value>
+  </data>
+  <data name="Sample_c425587ac1" xml:space="preserve">
+    <value>Default / Always：點外部可關閉（同 ComboBox）。Default 僅 ButtonBase 項再關；Always 點任意項也關；Never 僅再點 … 關。</value>
+  </data>
+  <data name="Sample_aa2fa8a46b" xml:space="preserve">
+    <value>Delay 控制首次重複前的等待（毫秒），Interval 控制後續重複間隔。</value>
+  </data>
+  <data name="Sample_66d8aafdd1" xml:space="preserve">
+    <value>Divider — 分隔線</value>
+  </data>
+  <data name="Sample_fa126e58bb" xml:space="preserve">
+    <value>Dot 樣式可角標顯示在按鈕右上角。</value>
+  </data>
+  <data name="Sample_af7651f268" xml:space="preserve">
+    <value>Edge 內嵌瀏覽器</value>
+  </data>
+  <data name="Sample_8998bc5220" xml:space="preserve">
+    <value>Edge 瀏覽器</value>
+  </data>
+  <data name="Sample_3bfa83b27c" xml:space="preserve">
+    <value>Error — 長訊息</value>
+  </data>
+  <data name="Sample_9f00d03364" xml:space="preserve">
+    <value>ExceptionReport — 例外報告</value>
+  </data>
+  <data name="Sample_ca774947d0" xml:space="preserve">
+    <value>FlipView — 翻頁檢視</value>
+  </data>
+  <data name="Sample_feefa735f7" xml:space="preserve">
+    <value>FlowDirection=RightToLeft 從右到左版面配置。</value>
+  </data>
+  <data name="Sample_da3e0a9d70" xml:space="preserve">
+    <value>FlowDocument 範例</value>
+  </data>
+  <data name="Sample_ef7fd6c161" xml:space="preserve">
+    <value>Fluent 圖示</value>
+  </data>
+  <data name="Sample_b99bca881d" xml:space="preserve">
+    <value>Fluent 圖示符號</value>
+  </data>
+  <data name="Sample_d75951dac0" xml:space="preserve">
+    <value>Fluent 快顯</value>
+  </data>
+  <data name="Sample_09321a3297" xml:space="preserve">
+    <value>Fluent 指示動畫</value>
+  </data>
+  <data name="Sample_c0ba2f001d" xml:space="preserve">
+    <value>Fluent 風格 ListView，配合 GridView 顯示多欄。</value>
+  </data>
+  <data name="Sample_c86b1fc481" xml:space="preserve">
+    <value>Fluent 風格主視窗基底類別</value>
+  </data>
+  <data name="Sample_be2c2766a0" xml:space="preserve">
+    <value>Fluent 風格快顯層</value>
+  </data>
+  <data name="Sample_8187a6e35a" xml:space="preserve">
+    <value>Fluent 風格快顯層，支援 Slide / Fade / None 動畫。</value>
+  </data>
+  <data name="Sample_3dafb55bfe" xml:space="preserve">
+    <value>Fluent 風格超連結</value>
+  </data>
+  <data name="Sample_ff8807ee6c" xml:space="preserve">
+    <value>FontIcon 與 ImageIcon 範例。</value>
+  </data>
+  <data name="Sample_5d2567470b" xml:space="preserve">
+    <value>Gallery 啟動時已透過 TrayIconHost 建立真實系統匣圖示。關閉主視窗會最小化到系統匣；連按兩下系統匣圖示或使用右鍵功能表可顯示/隱藏視窗。</value>
+  </data>
+  <data name="Sample_b313aff943" xml:space="preserve">
+    <value>HalfStarEnabled=False 僅整星評分。</value>
+  </data>
+  <data name="Sample_2fb1383e61" xml:space="preserve">
+    <value>Help 一律進溢位；Save 永不溢位；其餘按需擠出。</value>
+  </data>
+  <data name="Sample_a72cc659bc" xml:space="preserve">
+    <value>Hidden / Compact / Inline 三種微調按鈕配置。</value>
+  </data>
+  <data name="Sample_ed50de239d" xml:space="preserve">
+    <value>IP 位址輸入</value>
+  </data>
+  <data name="Sample_b1d8156ae0" xml:space="preserve">
+    <value>IP+連接埠輸入</value>
+  </data>
+  <data name="Sample_3963b4df1d" xml:space="preserve">
+    <value>IPv4 與連接埠組合輸入（如 192.168.0.10:8080），按 . 或 : 可跳到連接埠區段。</value>
+  </data>
+  <data name="Sample_14ddc63d75" xml:space="preserve">
+    <value>IPv4 位址 + 連接埠</value>
+  </data>
+  <data name="Sample_1125663605" xml:space="preserve">
+    <value>IPv4 位址與連接埠輸入</value>
+  </data>
+  <data name="Sample_2599b75b66" xml:space="preserve">
+    <value>IPv4 位址輸入</value>
+  </data>
+  <data name="Sample_1b3d9c6919" xml:space="preserve">
+    <value>Icon / Value / Dot 三種樣式，搭配不同 Severity 色彩。</value>
+  </data>
+  <data name="Sample_4b3ae6ebbf" xml:space="preserve">
+    <value>Icon、Header、描述與右側控制項。</value>
+  </data>
+  <data name="Sample_6625c308e8" xml:space="preserve">
+    <value>ImageIcon 與 DropDownButton 組合範例。</value>
+  </data>
+  <data name="Sample_bbd97789b2" xml:space="preserve">
+    <value>ImageView — 圖片檢視器</value>
+  </data>
+  <data name="Sample_fbefb6bac3" xml:space="preserve">
+    <value>Indicator — 指示器</value>
+  </data>
+  <data name="Sample_02ec1fa593" xml:space="preserve">
+    <value>IsEditable=True 可編輯下拉方塊。</value>
+  </data>
+  <data name="Sample_d229e6f892" xml:space="preserve">
+    <value>IsSettingsVisible — 是否顯示設定入口</value>
+  </data>
+  <data name="Sample_ac68bbca75" xml:space="preserve">
+    <value>ItemsSource 繫結</value>
+  </data>
+  <data name="Sample_b4080aa16b" xml:space="preserve">
+    <value>ItemsSource 繫結字串集合，展示階層導覽路徑。</value>
+  </data>
+  <data name="Sample_2df973d88f" xml:space="preserve">
+    <value>Label 關聯 TextBox</value>
+  </data>
+  <data name="Sample_c09d2052d1" xml:space="preserve">
+    <value>Lengthening 指示動畫</value>
+  </data>
+  <data name="Sample_520073ab0b" xml:space="preserve">
+    <value>ListView — 清單檢視</value>
+  </data>
+  <data name="Sample_4d02e8c8cc" xml:space="preserve">
+    <value>MaxDecimalPlaces=0，僅允許整數輸入。</value>
+  </data>
+  <data name="Sample_1cf96448cf" xml:space="preserve">
+    <value>Microsoft Edge (Chromium) 內嵌瀏覽器，開啟 Fluent UI Storybook。</value>
+  </data>
+  <data name="Sample_bbb630278a" xml:space="preserve">
+    <value>Microsoft.Win32.OpenFileDialog，Filter 為所有檔案。</value>
+  </data>
+  <data name="Sample_a10fab8639" xml:space="preserve">
+    <value>Microsoft.Win32.SaveFileDialog，將文字寫入使用者選擇的路徑。</value>
+  </data>
+  <data name="Sample_1c91fe2647" xml:space="preserve">
+    <value>Multiselect = true，可同時選取多個檔案。</value>
+  </data>
+  <data name="Sample_3a4efdbeba" xml:space="preserve">
+    <value>NativeMessageBox — 是/否</value>
+  </data>
+  <data name="Sample_dc94b4096c" xml:space="preserve">
+    <value>NativeMessageBox — 是/否/取消</value>
+  </data>
+  <data name="Sample_5bd8feb5d7" xml:space="preserve">
+    <value>NativeMessageBox — 確定</value>
+  </data>
+  <data name="Sample_6f0a3ce47c" xml:space="preserve">
+    <value>NativeMessageBox — 確定/取消</value>
+  </data>
+  <data name="Sample_f7bcc4e1df" xml:space="preserve">
+    <value>NavigationView 中的 InfoBadge</value>
+  </data>
+  <data name="Sample_2904a01f72" xml:space="preserve">
+    <value>NumericUpDown 為抽象基底類別，請使用具體類型如 NumericIntUpDown。</value>
+  </data>
+  <data name="Sample_6e9b5e7aa8" xml:space="preserve">
+    <value>OpenPaneLength — 展開時面板寬度</value>
+  </data>
+  <data name="Sample_d0dcd65d52" xml:space="preserve">
+    <value>Padding=0、CornerRadius=4 自訂內距與圓角。</value>
+  </data>
+  <data name="Sample_1567bdcc25" xml:space="preserve">
+    <value>Pagination — 分頁控制項</value>
+  </data>
+  <data name="Sample_9bdc3ea41f" xml:space="preserve">
+    <value>PaneTitle — 面板標題文字</value>
+  </data>
+  <data name="Sample_bfe0b47379" xml:space="preserve">
+    <value>PersonPicture — 人物頭像</value>
+  </data>
+  <data name="Sample_c1dde7ca84" xml:space="preserve">
+    <value>Primary / Secondary / Success / Caution / Danger 外觀，含啟用與停用狀態。</value>
+  </data>
+  <data name="Sample_ad4a69520c" xml:space="preserve">
+    <value>Progress 屬性（0–100）顯示確定進度。</value>
+  </data>
+  <data name="Sample_23561a8205" xml:space="preserve">
+    <value>QrCode — 二維條碼</value>
+  </data>
+  <data name="Sample_24a24070fd" xml:space="preserve">
+    <value>QueryChanged：（已清除）</value>
+  </data>
+  <data name="Sample_efc15e78f4" xml:space="preserve">
+    <value>QuerySubmitted：（空查詢）</value>
+  </data>
+  <data name="Sample_4b0d57595a" xml:space="preserve">
+    <value>RadioButton 分組 + 圖示按鈕</value>
+  </data>
+  <data name="Sample_0b8cd339bb" xml:space="preserve">
+    <value>RichTextBox 可以編輯包含</value>
+  </data>
+  <data name="Sample_a4397cdc53" xml:space="preserve">
+    <value>RunningBlock — 跑馬燈</value>
+  </data>
+  <data name="Sample_b64c4416d4" xml:space="preserve">
+    <value>Segoe Fluent Icons 常用符號範例。</value>
+  </data>
+  <data name="Sample_91ae62d859" xml:space="preserve">
+    <value>Semi.Avalonia.ColorPicker 風格的光譜 / 調色盤 / 分量編輯器，以及下拉 ColorPicker。</value>
+  </data>
+  <data name="Sample_ff7cc5837d" xml:space="preserve">
+    <value>ShellWindow — 殼層視窗</value>
+  </data>
+  <data name="Sample_38b33a8af5" xml:space="preserve">
+    <value>ShowsPreview=True（預設）— 放開滑鼠後提交尺寸。</value>
+  </data>
+  <data name="Sample_2ad0b1dc17" xml:space="preserve">
+    <value>Skeleton — 骨架畫面</value>
+  </data>
+  <data name="Sample_05f27e568a" xml:space="preserve">
+    <value>Slide 1 — 歡迎使用 Violeta</value>
+  </data>
+  <data name="Sample_db17cc2401" xml:space="preserve">
+    <value>Slide 2 — Fluent Design 風格</value>
+  </data>
+  <data name="Sample_ccdd6cd1e7" xml:space="preserve">
+    <value>Slide 3 — 多框架支援</value>
+  </data>
+  <data name="Sample_d09f873566" xml:space="preserve">
+    <value>Slide 4 — 11 種語言在地化</value>
+  </data>
+  <data name="Sample_caff940e2e" xml:space="preserve">
+    <value>SpinButton 放置模式</value>
+  </data>
+  <data name="Sample_9cee7d6c46" xml:space="preserve">
+    <value>Splash — 啟動閃屏</value>
+  </data>
+  <data name="Sample_5806225c0c" xml:space="preserve">
+    <value>System.Windows.Controls.Image，從本機資源載入圖片。</value>
+  </data>
+  <data name="Sample_bdc314fd5e" xml:space="preserve">
+    <value>System.Windows.Controls.WebBrowser，基於 IE ActiveX 控制項，在 Windows 上仍可用。頁面載入後導覽至 https://example.com。</value>
+  </data>
+  <data name="Sample_845f2f73d6" xml:space="preserve">
+    <value>Tab 標題可自訂 Header 範本，例如帶 SymbolIcon。</value>
+  </data>
+  <data name="Sample_a0e354a6b7" xml:space="preserve">
+    <value>Target（認證目標名稱）</value>
+  </data>
+  <data name="Sample_eb38190f53" xml:space="preserve">
+    <value>TaskDialog — 資訊</value>
+  </data>
+  <data name="Sample_7be4dfd564" xml:space="preserve">
+    <value>TaskDialog — 單選按鈕</value>
+  </data>
+  <data name="Sample_629dd8a6ea" xml:space="preserve">
+    <value>TaskDialog — 可展開資訊</value>
+  </data>
+  <data name="Sample_91f1130627" xml:space="preserve">
+    <value>TaskDialog — 命令連結</value>
+  </data>
+  <data name="Sample_2b68259daf" xml:space="preserve">
+    <value>TaskDialog — 警告</value>
+  </data>
+  <data name="Sample_d02ebc627c" xml:space="preserve">
+    <value>TaskDialog — 進度列</value>
+  </data>
+  <data name="Sample_2cf6355daa" xml:space="preserve">
+    <value>TaskDialog — 錯誤</value>
+  </data>
+  <data name="Sample_6314139f1c" xml:space="preserve">
+    <value>TextBlock 內容可以包含 Run、Span、Bold 等內嵌元素。</value>
+  </data>
+  <data name="Sample_7269b2e6d4" xml:space="preserve">
+    <value>TextBlock 外觀樣式</value>
+  </data>
+  <data name="Sample_768a5d8f40" xml:space="preserve">
+    <value>TickPlacement=Both 顯示上下刻度。</value>
+  </data>
+  <data name="Sample_9de44749b0" xml:space="preserve">
+    <value>Timeline — Mode / Type（Test 示範）</value>
+  </data>
+  <data name="Sample_e4f76ad96c" xml:space="preserve">
+    <value>Timeline — 資料繫結</value>
+  </data>
+  <data name="Sample_71df92bd0f" xml:space="preserve">
+    <value>Timeline — 時間軸（宣告式）</value>
+  </data>
+  <data name="Sample_2aa42f4250" xml:space="preserve">
+    <value>TitleBar — 自訂標題列</value>
+  </data>
+  <data name="Sample_71b081a671" xml:space="preserve">
+    <value>Toast 通知</value>
+  </data>
+  <data name="Sample_8069009e76" xml:space="preserve">
+    <value>ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton 等都可以直接放入；擠出後仍是原控制項執行個體。</value>
+  </data>
+  <data name="Sample_ed093b889a" xml:space="preserve">
+    <value>TransitioningContentControl — 過渡內容</value>
+  </data>
+  <data name="Sample_9d268b366c" xml:space="preserve">
+    <value>TreeListView — 樹狀清單檢視</value>
+  </data>
+  <data name="Sample_4e3b273ffa" xml:space="preserve">
+    <value>TreeModelListView — 樹模型清單檢視</value>
+  </data>
+  <data name="Sample_6ea44939b9" xml:space="preserve">
+    <value>TreeView 樹狀結構</value>
+  </data>
+  <data name="Sample_b250f38e10" xml:space="preserve">
+    <value>UI 設計稿完成，通過審核。</value>
+  </data>
+  <data name="Sample_2ac5ec7017" xml:space="preserve">
+    <value>UI 審核通過</value>
+  </data>
+  <data name="Sample_b1a86a3a9f" xml:space="preserve">
+    <value>Value / Maximum 控制完成比例。</value>
+  </data>
+  <data name="Sample_de3e76e86b" xml:space="preserve">
+    <value>Viewbox 中的 Canvas</value>
+  </data>
+  <data name="Sample_9c3760d853" xml:space="preserve">
+    <value>Violeta 提供 Fluent 風格的 Expander 樣式增強。</value>
+  </data>
+  <data name="Sample_7e4681144d" xml:space="preserve">
+    <value>Violeta 版 ContentDialog，支援非同步顯示、主/次/關閉按鈕。</value>
+  </data>
+  <data name="Sample_31cf6f2636" xml:space="preserve">
+    <value>WPF Menu 搭配 ui:MenuItem 取得 Fluent 圖示與樣式。</value>
+  </data>
+  <data name="Sample_36398e25f0" xml:space="preserve">
+    <value>WPF UI Image，支援圓角與框線。</value>
+  </data>
+  <data name="Sample_39886cefd9" xml:space="preserve">
+    <value>WPF UI 提供的 TabView 控制項，風格接近 WinUI TabView。</value>
+  </data>
+  <data name="Sample_5d47c178f6" xml:space="preserve">
+    <value>WPF UI 環形進度指示器。</value>
+  </data>
+  <data name="Sample_b2ce6a667b" xml:space="preserve">
+    <value>WPF 內建 ToolBar + ToolBarTray（溢位仍為系統 Popup 面板，非 Violeta Flyout）。</value>
+  </data>
+  <data name="Sample_947e334a08" xml:space="preserve">
+    <value>WPF-UI 風格的資料表格，支援排序、選取與虛擬化。</value>
+  </data>
+  <data name="Sample_169a3677a7" xml:space="preserve">
+    <value>WebBrowser（舊版）</value>
+  </data>
+  <data name="Sample_5fb02eeebe" xml:space="preserve">
+    <value>Win32 TaskDialog，支援暗色主題、命令連結、單選、進度列與可展開資訊。</value>
+  </data>
+  <data name="Sample_556f104600" xml:space="preserve">
+    <value>Windows 安全性認證</value>
+  </data>
+  <data name="Sample_24be2656f9" xml:space="preserve">
+    <value>Windows 安全性認證對話方塊</value>
+  </data>
+  <data name="Sample_318cab9dfe" xml:space="preserve">
+    <value>Wpf.Ui PasswordBox，支援圖示與預留位置。</value>
+  </data>
+  <data name="Sample_1f9d2d95b3" xml:space="preserve">
+    <value>Wpf.Ui TextBox，支援預留位置與清除按鈕。</value>
+  </data>
+  <data name="Sample_46e283835a" xml:space="preserve">
+    <value>Wpf.Ui 風格的 RichTextBox。</value>
+  </data>
+  <data name="Sample_227045d271" xml:space="preserve">
+    <value>XAML 宣告選項</value>
+  </data>
+  <data name="Sample_b7640f1477" xml:space="preserve">
+    <value>ui:Flyout 快顯層</value>
+  </data>
+  <data name="Sample_29df7ab4fb" xml:space="preserve">
+    <value>v1.0 上線</value>
+  </data>
+  <data name="Sample_f072efab93" xml:space="preserve">
+    <value>v1.0 正式對外發布。</value>
+  </data>
+  <data name="Sample_b847ef8c6a" xml:space="preserve">
+    <value>vio:ToolBar 溢位（Flyout）</value>
+  </data>
+  <data name="Sample_d359e84325" xml:space="preserve">
+    <value>• Frame / Content：承載頁面導覽；Gallery 透過 Tag 與 GalleryNavigator 連動切換。</value>
+  </data>
+  <data name="Sample_f07479f3ac" xml:space="preserve">
+    <value>• Header / TitleBar：可與視窗標題列、階層連結組合使用。</value>
+  </data>
+  <data name="Sample_222c7173fa" xml:space="preserve">
+    <value>• IsPaneOpen / IsBackEnabled：控制面板開合與返回按鈕。</value>
+  </data>
+  <data name="Sample_e080e01adc" xml:space="preserve">
+    <value>• MenuItems / FooterMenuItems：定義主導覽與頁尾項目，每項可繫結 TargetPageType 或 Tag。</value>
+  </data>
+  <data name="Sample_0674868522" xml:space="preserve">
+    <value>• PaneDisplayMode：Left / LeftMinimal / Top 等，控制面板展開形態。</value>
+  </data>
+  <data name="Sample_608443e0b4" xml:space="preserve">
+    <value>◀ 上一個</value>
+  </data>
+  <data name="Sample_1cf87f2966" xml:space="preserve">
+    <value>○ 未啟用</value>
+  </data>
+  <data name="Sample_308e3a15a2" xml:space="preserve">
+    <value>● 已啟用</value>
+  </data>
+  <data name="Sample_f9fed5cea3" xml:space="preserve">
+    <value>三態「全選」核取方塊連動子選項。</value>
+  </data>
+  <data name="Sample_c757dd6e88" xml:space="preserve">
+    <value>三態核取方塊：選取 / 未選取 / 不確定。</value>
+  </data>
+  <data name="Sample_7d817bc13f" xml:space="preserve">
+    <value>下一個 ▶</value>
+  </data>
+  <data name="Sample_f6f8ea0815" xml:space="preserve">
+    <value>底線</value>
+  </data>
+  <data name="Sample_cc70a816b7" xml:space="preserve">
+    <value>下拉按鈕</value>
+  </data>
+  <data name="Sample_006ded9fa2" xml:space="preserve">
+    <value>下拉方塊</value>
+  </data>
+  <data name="Sample_fb54df5d84" xml:space="preserve">
+    <value>不再顯示</value>
+  </data>
+  <data name="Sample_cae8c05701" xml:space="preserve">
+    <value>不確定進度，持續動畫。</value>
+  </data>
+  <data name="Sample_f5403ebf57" xml:space="preserve">
+    <value>不繫結 Target，點擊外部可關閉。</value>
+  </data>
+  <data name="Sample_3b04598bd0" xml:space="preserve">
+    <value>與</value>
+  </data>
+  <data name="Sample_cb36623ef8" xml:space="preserve">
+    <value>與 Windows 系統 API 互動的範例。檔案選取相關控制項已歸入「選取器」分組。</value>
+  </data>
+  <data name="Sample_3f086416bf" xml:space="preserve">
+    <value>專業版</value>
+  </data>
+  <data name="Sample_8f5c60e948" xml:space="preserve">
+    <value>專用 IPv4 位址輸入框，自動驗證各段範圍（0–255）。</value>
+  </data>
+  <data name="Sample_027110256c" xml:space="preserve">
+    <value>東莞</value>
+  </data>
+  <data name="Sample_e4568d8868" xml:space="preserve">
+    <value>中止並返回</value>
+  </data>
+  <data name="Sample_8813989799" xml:space="preserve">
+    <value>主按鈕 + 下拉功能表的分割按鈕。</value>
+  </data>
+  <data name="Sample_3b2223252e" xml:space="preserve">
+    <value>主視窗 TitleBar 右上角即為 CaptionButtonBar 的實際效果。</value>
+  </data>
+  <data name="Sample_b40b2d467a" xml:space="preserve">
+    <value>主視窗左側導覽即 NavigationView。此處彙整常用設定重點，避免在頁面內再巢狀一整套導覽框架。</value>
+  </data>
+  <data name="Sample_3676039437" xml:space="preserve">
+    <value>主視窗已隱藏。連按兩下系統匣圖示可重新開啟。</value>
+  </data>
+  <data name="Sample_3d860d035a" xml:space="preserve">
+    <value>主題已切換：{tag}</value>
+  </data>
+  <data name="Sample_b248c77928" xml:space="preserve">
+    <value>主題筆刷資源範例。</value>
+  </data>
+  <data name="Sample_a1c76c6e1b" xml:space="preserve">
+    <value>主題色彩</value>
+  </data>
+  <data name="Sample_a421a1bf6e" xml:space="preserve">
+    <value>主題色彩資源</value>
+  </data>
+  <data name="Sample_d04e2a27f3" xml:space="preserve">
+    <value>也可內嵌在段落中：</value>
+  </data>
+  <data name="Sample_22b03c024d" xml:space="preserve">
+    <value>二維條碼</value>
+  </data>
+  <data name="Sample_856e16c875" xml:space="preserve">
+    <value>二維條碼產生</value>
+  </data>
+  <data name="Sample_4298342678" xml:space="preserve">
+    <value>互斥切換按鈕組</value>
+  </data>
+  <data name="Sample_15d3c2873a" xml:space="preserve">
+    <value>互斥切換組</value>
+  </data>
+  <data name="Sample_0b8aba3183" xml:space="preserve">
+    <value>產品規格選取器</value>
+  </data>
+  <data name="Sample_c5d34b60ac" xml:space="preserve">
+    <value>產品部</value>
+  </data>
+  <data name="Sample_b26a335cdb" xml:space="preserve">
+    <value>人物頭像</value>
+  </data>
+  <data name="Sample_3377cb7c99" xml:space="preserve">
+    <value>人物頭像與徽標</value>
+  </data>
+  <data name="Sample_4ddb17d702" xml:space="preserve">
+    <value>從剪貼簿貼上</value>
+  </data>
+  <data name="Sample_85c976908d" xml:space="preserve">
+    <value>從剪貼簿貼上文字</value>
+  </data>
+  <data name="Sample_24dfe773c7" xml:space="preserve">
+    <value>從頭開始操作</value>
+  </data>
+  <data name="Sample_d994685ba5" xml:space="preserve">
+    <value>從容器四邊滑出面板。點擊按鈕切換對應方向。</value>
+  </data>
+  <data name="Sample_ca624f0706" xml:space="preserve">
+    <value>從系統匣顯示視窗</value>
+  </data>
+  <data name="Sample_f5668379e7" xml:space="preserve">
+    <value>以標籤形式展示選項</value>
+  </data>
+  <data name="Sample_0442cbeedb" xml:space="preserve">
+    <value>以標籤形式展示選項，支援搜尋。</value>
+  </data>
+  <data name="Sample_32ca86d11b" xml:space="preserve">
+    <value>任務 A-1</value>
+  </data>
+  <data name="Sample_602f80825c" xml:space="preserve">
+    <value>任務 A-2</value>
+  </data>
+  <data name="Sample_62a8cf0af7" xml:space="preserve">
+    <value>休假</value>
+  </data>
+  <data name="Sample_c2b1a13637" xml:space="preserve">
+    <value>點陣圖圖示</value>
+  </data>
+  <data name="Sample_bf954d20ed" xml:space="preserve">
+    <value>點陣圖圖示元素</value>
+  </data>
+  <data name="Sample_852861b891" xml:space="preserve">
+    <value>佛山</value>
+  </data>
+  <data name="Sample_53ec492c1d" xml:space="preserve">
+    <value>使用 FluentHyperlinkStyle，點擊時透過 RequestNavigate 開啟連結。</value>
+  </data>
+  <data name="Sample_200bb8cedf" xml:space="preserve">
+    <value>使用 GroupStyle 分組顯示。</value>
+  </data>
+  <data name="Sample_dc9af340ca" xml:space="preserve">
+    <value>使用 Path 在 Canvas 上繪製向量圖形，並透過 Viewbox 縮放顯示。</value>
+  </data>
+  <data name="Sample_d5e7922721" xml:space="preserve">
+    <value>使用 TextBlockTextBoxStyle / TextBlockUiTextBoxStyle 呈現為文字區塊外觀。</value>
+  </data>
+  <data name="Sample_6822dc757e" xml:space="preserve">
+    <value>使用點陣圖作為圖示內容，可開關單色彩現。命名空間為 ui:BitmapIcon。</value>
+  </data>
+  <data name="Sample_9af21fa553" xml:space="preserve">
+    <value>使用應用程式快取</value>
+  </data>
+  <data name="Sample_243750408b" xml:space="preserve">
+    <value>側邊導覽框架</value>
+  </data>
+  <data name="Sample_7f2c95cd69" xml:space="preserve">
+    <value>儲存檔案</value>
+  </data>
+  <data name="Sample_d8c7e04c8e" xml:space="preserve">
+    <value>資訊</value>
+  </data>
+  <data name="Sample_0665c67a72" xml:space="preserve">
+    <value>資訊列</value>
+  </data>
+  <data name="Sample_346a620dc9" xml:space="preserve">
+    <value>資訊列提示</value>
+  </data>
+  <data name="Sample_27a4abbc1f" xml:space="preserve">
+    <value>資訊角標</value>
+  </data>
+  <data name="Sample_574256110b" xml:space="preserve">
+    <value>修改節點</value>
+  </data>
+  <data name="Sample_7978070c09" xml:space="preserve">
+    <value>光譜 / 調色盤色彩選取</value>
+  </data>
+  <data name="Sample_e125221047" xml:space="preserve">
+    <value>全部關閉</value>
+  </data>
+  <data name="Sample_b15d91274e" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Sample_0f5bb4f6e5" xml:space="preserve">
+    <value>關閉前是否儲存變更？</value>
+  </data>
+  <data name="Sample_3407d84a3a" xml:space="preserve">
+    <value>典型安裝</value>
+  </data>
+  <data name="Sample_6ef42093fc" xml:space="preserve">
+    <value>典型用法：步進調節數值，類似 NumericUpDown / ScrollBar 內部按鈕。</value>
+  </data>
+  <data name="Sample_2d711b09bd" xml:space="preserve">
+    <value>內容</value>
+  </data>
+  <data name="Sample_a970d9d633" xml:space="preserve">
+    <value>內容切換時播放過渡動畫，支援多種動畫方向。</value>
+  </data>
+  <data name="Sample_e3bb7cc30f" xml:space="preserve">
+    <value>內容切換過渡動畫</value>
+  </data>
+  <data name="Sample_4bd533aa51" xml:space="preserve">
+    <value>內容對話方塊</value>
+  </data>
+  <data name="Sample_12f0e6842d" xml:space="preserve">
+    <value>內容對話方塊式視窗</value>
+  </data>
+  <data name="Sample_08a6bfd44e" xml:space="preserve">
+    <value>內容依圓角外緣裁剪。</value>
+  </data>
+  <data name="Sample_5f91910837" xml:space="preserve">
+    <value>內容旋轉按鈕</value>
+  </data>
+  <data name="Sample_139a5b0200" xml:space="preserve">
+    <value>內容視窗</value>
+  </data>
+  <data name="Sample_66acb563c5" xml:space="preserve">
+    <value>內嵌橫幅通知</value>
+  </data>
+  <data name="Sample_671acfcae8" xml:space="preserve">
+    <value>內嵌橫幅通知，適合頁面頂部的狀態提示。</value>
+  </data>
+  <data name="Sample_d85118659e" xml:space="preserve">
+    <value>內嵌瀏覽器</value>
+  </data>
+  <data name="Sample_d413c4bae0" xml:space="preserve">
+    <value>內嵌元素 TextBlock</value>
+  </data>
+  <data name="Sample_ff1cc32d53" xml:space="preserve">
+    <value>內嵌定義 ComboBoxItem 的下拉方塊。</value>
+  </data>
+  <data name="Sample_66e8d62a1a" xml:space="preserve">
+    <value>內嵌項目 ListBox</value>
+  </data>
+  <data name="Sample_483b1a6a0b" xml:space="preserve">
+    <value>認證資訊管理</value>
+  </data>
+  <data name="Sample_8c47ecd40d" xml:space="preserve">
+    <value>分隔線</value>
+  </data>
+  <data name="Sample_b34422e637" xml:space="preserve">
+    <value>分數</value>
+  </data>
+  <data name="Sample_a8e217c6ad" xml:space="preserve">
+    <value>分格 PIN 碼輸入</value>
+  </data>
+  <data name="Sample_9ff42f75c8" xml:space="preserve">
+    <value>分段時間輸入</value>
+  </data>
+  <data name="Sample_84675ebc31" xml:space="preserve">
+    <value>分段時間輸入方塊</value>
+  </data>
+  <data name="Sample_f249dc8eab" xml:space="preserve">
+    <value>分段時間輸入方塊，支援鍵盤與滑鼠滾輪調節。</value>
+  </data>
+  <data name="Sample_b8011fc79e" xml:space="preserve">
+    <value>分組標題</value>
+  </data>
+  <data name="Sample_3862626c13" xml:space="preserve">
+    <value>分頁</value>
+  </data>
+  <data name="Sample_8c238a9824" xml:space="preserve">
+    <value>分頁控制項</value>
+  </data>
+  <data name="Sample_85ed85c69f" xml:space="preserve">
+    <value>切換主題：&lt;A HREF=&quot;dark&quot;&gt;深色&lt;/A&gt;  |  &lt;A HREF=&quot;light&quot;&gt;淺色&lt;/A&gt;</value>
+  </data>
+  <data name="Sample_ce00c5f605" xml:space="preserve">
+    <value>切換按鈕</value>
+  </data>
+  <data name="Sample_3fc35bb610" xml:space="preserve">
+    <value>欄1</value>
+  </data>
+  <data name="Sample_5098792454" xml:space="preserve">
+    <value>欄2</value>
+  </data>
+  <data name="Sample_2cb11e9ebf" xml:space="preserve">
+    <value>欄3</value>
+  </data>
+  <data name="Sample_187f57d72d" xml:space="preserve">
+    <value>欄分隔</value>
+  </data>
+  <data name="Sample_212779d466" xml:space="preserve">
+    <value>清單方塊</value>
+  </data>
+  <data name="Sample_829cb1dd97" xml:space="preserve">
+    <value>清單檢視</value>
+  </data>
+  <data name="Sample_49c531db9a" xml:space="preserve">
+    <value>劉洋</value>
+  </data>
+  <data name="Sample_8a0f7479e5" xml:space="preserve">
+    <value>初級工程師</value>
+  </data>
+  <data name="Sample_db5f3f8829" xml:space="preserve">
+    <value>刪除認證資訊</value>
+  </data>
+  <data name="Sample_947fa341a6" xml:space="preserve">
+    <value>刪除列</value>
+  </data>
+  <data name="Sample_9abfe4a039" xml:space="preserve">
+    <value>前端</value>
+  </data>
+  <data name="Sample_61b1603587" xml:space="preserve">
+    <value>前置 / 後置</value>
+  </data>
+  <data name="Sample_061b40d699" xml:space="preserve">
+    <value>剪貼簿</value>
+  </data>
+  <data name="Sample_dd70c03ba8" xml:space="preserve">
+    <value>剪貼簿內容：</value>
+  </data>
+  <data name="Sample_ca7917af58" xml:space="preserve">
+    <value>載入完成後顯示的內容</value>
+  </data>
+  <data name="Sample_9c22a91217" xml:space="preserve">
+    <value>載入指示器可放在內容的左、右、上、下。</value>
+  </data>
+  <data name="Sample_e49cbd1a5f" xml:space="preserve">
+    <value>載入按鈕</value>
+  </data>
+  <data name="Sample_9fd1b7cb41" xml:space="preserve">
+    <value>單選</value>
+  </data>
+  <data name="Sample_f96dabbc50" xml:space="preserve">
+    <value>單選按鈕</value>
+  </data>
+  <data name="Sample_ad827c5906" xml:space="preserve">
+    <value>南京</value>
+  </data>
+  <data name="Sample_d7d0cbd874" xml:space="preserve">
+    <value>卡片容器</value>
+  </data>
+  <data name="Sample_519c3a4184" xml:space="preserve">
+    <value>原生 Win32 MessageBox</value>
+  </data>
+  <data name="Sample_f4aad45b10" xml:space="preserve">
+    <value>原生 Win32 MessageBoxW 封裝，不依賴 WPF MessageBox。</value>
+  </data>
+  <data name="Sample_3c2460c13c" xml:space="preserve">
+    <value>原生 Win32 TaskDialog</value>
+  </data>
+  <data name="Sample_ba854efc10" xml:space="preserve">
+    <value>原生 Windows 資料夾選取對話方塊，支援單選、多選與擁有者視窗。</value>
+  </data>
+  <data name="Sample_d688c1ee0b" xml:space="preserve">
+    <value>原生訊息方塊</value>
+  </data>
+  <data name="Sample_f1add48d43" xml:space="preserve">
+    <value>雙態核取方塊：已選取 / 未選取。</value>
+  </data>
+  <data name="Sample_feab68ba18" xml:space="preserve">
+    <value>雙滑桿範圍選取</value>
+  </data>
+  <data name="Sample_c23c5bc472" xml:space="preserve">
+    <value>雙滑桿範圍選取，支援刻度吸附。</value>
+  </data>
+  <data name="Sample_450e7ae75d" xml:space="preserve">
+    <value>回饋控制項</value>
+  </data>
+  <data name="Sample_83611abd5f" xml:space="preserve">
+    <value>發佈</value>
+  </data>
+  <data name="Sample_75aee2c1f7" xml:space="preserve">
+    <value>發佈說明.md</value>
+  </data>
+  <data name="Sample_2e087c1ba6" xml:space="preserve">
+    <value>發生了一個錯誤，請稍後重試。</value>
+  </data>
+  <data name="Sample_3acbae2b62" xml:space="preserve">
+    <value>發生了一個錯誤，請聯絡管理員。</value>
+  </data>
+  <data name="Sample_234601f1a4" xml:space="preserve">
+    <value>發生了嚴重錯誤</value>
+  </data>
+  <data name="Sample_9840e62f59" xml:space="preserve">
+    <value>發生錯誤（{location}）</value>
+  </data>
+  <data name="Sample_625fb26b4b" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Sample_74a0d88f9a" xml:space="preserve">
+    <value>疊加在其他控制項上</value>
+  </data>
+  <data name="Sample_28c448376e" xml:space="preserve">
+    <value>另一個摺疊面板</value>
+  </data>
+  <data name="Sample_7a1c9b5e2b" xml:space="preserve">
+    <value>可儲存密碼</value>
+  </data>
+  <data name="Sample_725ba369df" xml:space="preserve">
+    <value>可關閉的資訊列，IsOpen 控制顯示。</value>
+  </data>
+  <data name="Sample_1895d84b8a" xml:space="preserve">
+    <value>可單獨使用的忙碌指示動畫。</value>
+  </data>
+  <data name="Sample_4a6adf2e3c" xml:space="preserve">
+    <value>可取消的任務</value>
+  </data>
+  <data name="Sample_1eda6db667" xml:space="preserve">
+    <value>可在 NavigationViewItem 上附加 InfoBadge 顯示未讀數或狀態。</value>
+  </data>
+  <data name="Sample_49b4aa407b" xml:space="preserve">
+    <value>可展開</value>
+  </data>
+  <data name="Sample_484693ecc7" xml:space="preserve">
+    <value>可展開的工作對話方塊</value>
+  </data>
+  <data name="Sample_35d6458151" xml:space="preserve">
+    <value>可拖曳分隔條</value>
+  </data>
+  <data name="Sample_c33c5fc596" xml:space="preserve">
+    <value>可拖曳選取並以滑鼠右鍵複製，支援多種語意樣式。</value>
+  </data>
+  <data name="Sample_3c3e3e5487" xml:space="preserve">
+    <value>可操作卡片</value>
+  </data>
+  <data name="Sample_3b7b097beb" xml:space="preserve">
+    <value>可點擊的卡片操作項目，適合設定頁捷徑入口。</value>
+  </data>
+  <data name="Sample_53954ba50f" xml:space="preserve">
+    <value>可縮放平移的圖片檢視器</value>
+  </data>
+  <data name="Sample_a63f92aa6a" xml:space="preserve">
+    <value>可能需要您的注意。
+按一下確定繼續。</value>
+  </data>
+  <data name="Sample_37ee4cf592" xml:space="preserve">
+    <value>可見性選項</value>
+  </data>
+  <data name="Sample_2d7c6130ac" xml:space="preserve">
+    <value>可選取複製的文字區塊</value>
+  </data>
+  <data name="Sample_b5a455b30d" xml:space="preserve">
+    <value>可選取文字</value>
+  </data>
+  <data name="Sample_075b8867a7" xml:space="preserve">
+    <value>可透過 DataTemplate 自訂每一項目的展示內容。</value>
+  </data>
+  <data name="Sample_d9ade15a16" xml:space="preserve">
+    <value>可透過 Icon 屬性取代預設搜尋圖示。</value>
+  </data>
+  <data name="Sample_d53bad00d1" xml:space="preserve">
+    <value>右側內容</value>
+  </data>
+  <data name="Sample_fd8e9572cc" xml:space="preserve">
+    <value>靠右對齊</value>
+  </data>
+  <data name="Sample_cfd0ca6826" xml:space="preserve">
+    <value>滑鼠右鍵功能表提供：顯示/隱藏、顯示通知、重新啟動、結束。真正結束請使用系統匣功能表中的「結束」。</value>
+  </data>
+  <data name="Sample_452a4d35f3" xml:space="preserve">
+    <value>同一 GroupName 的 RadioButton 可與圖示工具列混用；縮小寬度觀察溢位。</value>
+  </data>
+  <data name="Sample_7e8aef110d" xml:space="preserve">
+    <value>同組互斥的單選按鈕。</value>
+  </data>
+  <data name="Sample_d7ec2d3fea" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="Sample_f5a481d0ae" xml:space="preserve">
+    <value>名稱...</value>
+  </data>
+  <data name="Sample_e778d61ae4" xml:space="preserve">
+    <value>後端</value>
+  </data>
+  <data name="Sample_0954ff825c" xml:space="preserve">
+    <value>啟動啟動畫面</value>
+  </data>
+  <data name="Sample_9a201c3894" xml:space="preserve">
+    <value>吳鑫</value>
+  </data>
+  <data name="Sample_e90b708ea5" xml:space="preserve">
+    <value>周梅</value>
+  </data>
+  <data name="Sample_e620898657" xml:space="preserve">
+    <value>命令連結</value>
+  </data>
+  <data name="Sample_572fd7fd9c" xml:space="preserve">
+    <value>嘉興</value>
+  </data>
+  <data name="Sample_565fbc57f3" xml:space="preserve">
+    <value>四向抽屜</value>
+  </data>
+  <data name="Sample_d3e2cd292d" xml:space="preserve">
+    <value>四向抽屜面板</value>
+  </data>
+  <data name="Sample_7334842e9b" xml:space="preserve">
+    <value>固定高度 ListBox</value>
+  </data>
+  <data name="Sample_4e22bba902" xml:space="preserve">
+    <value>圖示內容</value>
+  </data>
+  <data name="Sample_eedaef971a" xml:space="preserve">
+    <value>圖示按鈕 + Flyout 溢位</value>
+  </data>
+  <data name="Sample_20def79426" xml:space="preserve">
+    <value>圖片</value>
+  </data>
+  <data name="Sample_0d19ffacd9" xml:space="preserve">
+    <value>圖片控制項</value>
+  </data>
+  <data name="Sample_9cb7d6cf2a" xml:space="preserve">
+    <value>圖片檢視器</value>
+  </data>
+  <data name="Sample_dd8f6a81a6" xml:space="preserve">
+    <value>圓角比例</value>
+  </data>
+  <data name="Sample_52af618fd0" xml:space="preserve">
+    <value>圓角框線與裁剪</value>
+  </data>
+  <data name="Sample_ff7c4a7fda" xml:space="preserve">
+    <value>在 XAML 中直接定義 ListBoxItem。</value>
+  </data>
+  <data name="Sample_12dac3eb3d" xml:space="preserve">
+    <value>在 XAML 中靜態定義階層節點，支援展開/摺疊與拖放。</value>
+  </data>
+  <data name="Sample_84acc30e7a" xml:space="preserve">
+    <value>在內容上方覆蓋忙碌狀態，支援多種 IndicatorType。</value>
+  </data>
+  <data name="Sample_5148eb7ab0" xml:space="preserve">
+    <value>在子元素下方繪製投影，支援圓角與自訂色彩。</value>
+  </data>
+  <data name="Sample_8b64ac85c3" xml:space="preserve">
+    <value>在獨立 UI 執行緒非同步彩現子內容，載入過程中可顯示 Loading 檢視。</value>
+  </data>
+  <data name="Sample_b5509be4c5" xml:space="preserve">
+    <value>在職</value>
+  </data>
+  <data name="Sample_75ac842f8e" xml:space="preserve">
+    <value>垂直</value>
+  </data>
+  <data name="Sample_9dc8eb7157" xml:space="preserve">
+    <value>垂直方向滑桿，附刻度。</value>
+  </data>
+  <data name="Sample_452e6c9afa" xml:space="preserve">
+    <value>垂直時間軸配置，展示事件順序。</value>
+  </data>
+  <data name="Sample_1766a8666a" xml:space="preserve">
+    <value>基於 CredUIPromptForWindowsCredentials 的 Windows 安全性認證對話方塊，支援儲存密碼、認證快取與 Windows 認證管理員讀寫。</value>
+  </data>
+  <data name="Sample_5a6728a2a6" xml:space="preserve">
+    <value>基於 ITreeModel 介面的樹狀清單，支援動態載入與自訂資料模型。</value>
+  </data>
+  <data name="Sample_51817fdf50" xml:space="preserve">
+    <value>基於 System.Windows.Controls.Image 的封裝，透過 ImageUrl 載入並快取網路圖片。首次載入需要連線。</value>
+  </data>
+  <data name="Sample_9e5ffa068e" xml:space="preserve">
+    <value>基本資訊</value>
+  </data>
+  <data name="Sample_5d961e79ff" xml:space="preserve">
+    <value>基本類型</value>
+  </data>
+  <data name="Sample_a42bf96fec" xml:space="preserve">
+    <value>基礎 Label</value>
+  </data>
+  <data name="Sample_d153de3bbb" xml:space="preserve">
+    <value>基礎 NumberBox</value>
+  </data>
+  <data name="Sample_fee30be123" xml:space="preserve">
+    <value>基礎 TextBlock</value>
+  </data>
+  <data name="Sample_a279b97a03" xml:space="preserve">
+    <value>基礎水平滑桿，0–100。</value>
+  </data>
+  <data name="Sample_51c4183933" xml:space="preserve">
+    <value>基礎輸入</value>
+  </data>
+  <data name="Sample_07a8b6d891" xml:space="preserve">
+    <value>堆疊測試</value>
+  </data>
+  <data name="Sample_0aa6412b72" xml:space="preserve">
+    <value>增減計數器</value>
+  </data>
+  <data name="Sample_5d459d550a" xml:space="preserve">
+    <value>處理中</value>
+  </data>
+  <data name="Sample_564be0b127" xml:space="preserve">
+    <value>複製到剪貼簿</value>
+  </data>
+  <data name="Sample_d408b45dc4" xml:space="preserve">
+    <value>複製文字到剪貼簿</value>
+  </data>
+  <data name="Sample_db98f889ce" xml:space="preserve">
+    <value>核取方塊</value>
+  </data>
+  <data name="Sample_20cc997916" xml:space="preserve">
+    <value>殼層視窗</value>
+  </data>
+  <data name="Sample_9937ff5001" xml:space="preserve">
+    <value>多欄滾輪選取器</value>
+  </data>
+  <data name="Sample_b9b45830e6" xml:space="preserve">
+    <value>多欄滾輪選取器，適合日期、地區、規格等情境。</value>
+  </data>
+  <data name="Sample_f6d51bcb81" xml:space="preserve">
+    <value>多種格式</value>
+  </data>
+  <data name="Sample_22a638ef57" xml:space="preserve">
+    <value>多選下拉</value>
+  </data>
+  <data name="Sample_d3d3ea7de9" xml:space="preserve">
+    <value>多選下拉方塊，支援標籤展示與搜尋</value>
+  </data>
+  <data name="Sample_87c835a6b1" xml:space="preserve">
+    <value>女</value>
+  </data>
+  <data name="Sample_60d0458ac6" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="Sample_67f3b5a40c" xml:space="preserve">
+    <value>媒體控制項</value>
+  </data>
+  <data name="Sample_4473a9e79b" xml:space="preserve">
+    <value>子章節 2.1 的示範文字。</value>
+  </data>
+  <data name="Sample_26ae404d23" xml:space="preserve">
+    <value>子章節 2.2 的示範文字。</value>
+  </data>
+  <data name="Sample_6106634d5b" xml:space="preserve">
+    <value>字型與排版</value>
+  </data>
+  <data name="Sample_d128bf935c" xml:space="preserve">
+    <value>字型與排版層級</value>
+  </data>
+  <data name="Sample_fd10e00a5b" xml:space="preserve">
+    <value>字串路徑</value>
+  </data>
+  <data name="Sample_52a48bb45a" xml:space="preserve">
+    <value>孫七</value>
+  </data>
+  <data name="Sample_ed5a4dc733" xml:space="preserve">
+    <value>寧波</value>
+  </data>
+  <data name="Sample_600166f742" xml:space="preserve">
+    <value>完成需求確認</value>
+  </data>
+  <data name="Sample_0dd1930c12" xml:space="preserve">
+    <value>完整安裝</value>
+  </data>
+  <data name="Sample_fe7d74278a" xml:space="preserve">
+    <value>容量</value>
+  </data>
+  <data name="Sample_a74d2b62c9" xml:space="preserve">
+    <value>寬高比配置</value>
+  </data>
+  <data name="Sample_677dfd1ed1" xml:space="preserve">
+    <value>寬高比自適應配置</value>
+  </data>
+  <data name="Sample_2a3a9f88ca" xml:space="preserve">
+    <value>密碼輸入</value>
+  </data>
+  <data name="Sample_055293fb3c" xml:space="preserve">
+    <value>密碼輸入方塊</value>
+  </data>
+  <data name="Sample_e2591e971f" xml:space="preserve">
+    <value>富文字</value>
+  </data>
+  <data name="Sample_09f3d0a727" xml:space="preserve">
+    <value>富文字編輯</value>
+  </data>
+  <data name="Sample_63141d2f4e" xml:space="preserve">
+    <value>對比：系統 ToolBar</value>
+  </data>
+  <data name="Sample_841028314f" xml:space="preserve">
+    <value>對話方塊</value>
+  </data>
+  <data name="Sample_7711ba96c2" xml:space="preserve">
+    <value>對齊 WinUI SearchBox：QueryChanged（輸入/清除）、QuerySubmitted（Enter 提交）。</value>
+  </data>
+  <data name="Sample_55405ea6ff" xml:space="preserve">
+    <value>匯出</value>
+  </data>
+  <data name="Sample_7fdf828e06" xml:space="preserve">
+    <value>匯出為 HTML</value>
+  </data>
+  <data name="Sample_8ab81bbbd9" xml:space="preserve">
+    <value>匯出為 Markdown</value>
+  </data>
+  <data name="Sample_d47722faec" xml:space="preserve">
+    <value>匯出為 PDF</value>
+  </data>
+  <data name="Sample_4a39e6b7ae" xml:space="preserve">
+    <value>導覽檢視</value>
+  </data>
+  <data name="Sample_d78e5f1e99" xml:space="preserve">
+    <value>將下方文字寫入系統剪貼簿。</value>
+  </data>
+  <data name="Sample_c4aadfd0cd" xml:space="preserve">
+    <value>將多個 ToggleButton 歸入同一組，實現互斥選取（可取消）。</value>
+  </data>
+  <data name="Sample_f89ef54b9a" xml:space="preserve">
+    <value>階層樹狀結構下拉選取</value>
+  </data>
+  <data name="Sample_b33212419d" xml:space="preserve">
+    <value>階層樹狀結構的下拉選取方塊，支援多層巢狀。</value>
+  </data>
+  <data name="Sample_0bbc2ea4e1" xml:space="preserve">
+    <value>置中</value>
+  </data>
+  <data name="Sample_9ad3b66421" xml:space="preserve">
+    <value>展開檢視更多內容</value>
+  </data>
+  <data name="Sample_012f602372" xml:space="preserve">
+    <value>工具列</value>
+  </data>
+  <data name="Sample_98bc1a09b5" xml:space="preserve">
+    <value>工程師</value>
+  </data>
+  <data name="Sample_58480236ab" xml:space="preserve">
+    <value>左側內容</value>
+  </data>
+  <data name="Sample_413f48cc71" xml:space="preserve">
+    <value>靠左對齊</value>
+  </data>
+  <data name="Sample_db86bca01b" xml:space="preserve">
+    <value>已儲存：{dialog.FileName}</value>
+  </data>
+  <data name="Sample_b6be24e1e2" xml:space="preserve">
+    <value>已複製到剪貼簿！</value>
+  </data>
+  <data name="Sample_fad5222ca0" xml:space="preserve">
+    <value>已完成</value>
+  </data>
+  <data name="Sample_c36ec66db0" xml:space="preserve">
+    <value>已停用…</value>
+  </data>
+  <data name="Sample_1941fbc74a" xml:space="preserve">
+    <value>已選取 {dialog.FileNames.Length} 個檔案：
+{string.Join(</value>
+  </data>
+  <data name="Sample_986ffb30e2" xml:space="preserve">
+    <value>已選取：</value>
+  </data>
+  <data name="Sample_69abf2d0e2" xml:space="preserve">
+    <value>已選取：
+{string.Join(</value>
+  </data>
+  <data name="Sample_b5c92782c9" xml:space="preserve">
+    <value>已選取：(無)</value>
+  </data>
+  <data name="Sample_b5d2f7bf95" xml:space="preserve">
+    <value>已選取：{dialog.FileName}</value>
+  </data>
+  <data name="Sample_f738ece436" xml:space="preserve">
+    <value>已選取：{string.Join(</value>
+  </data>
+  <data name="Sample_73b1110542" xml:space="preserve">
+    <value>行銷部</value>
+  </data>
+  <data name="Sample_4554fa92b7" xml:space="preserve">
+    <value>布林內容</value>
+  </data>
+  <data name="Sample_4a0c1908e4" xml:space="preserve">
+    <value>布林文字</value>
+  </data>
+  <data name="Sample_3241f0c160" xml:space="preserve">
+    <value>布林狀態文字</value>
+  </data>
+  <data name="Sample_af927f847c" xml:space="preserve">
+    <value>布林狀態文字顯示</value>
+  </data>
+  <data name="Sample_ca50c39bef" xml:space="preserve">
+    <value>含 Hero 區域與自訂內容的 TeachingTip。</value>
+  </data>
+  <data name="Sample_470bcc646a" xml:space="preserve">
+    <value>含 NavigateUri 的超連結按鈕。</value>
+  </data>
+  <data name="Sample_541c4daa70" xml:space="preserve">
+    <value>含 SymbolIcon 的 ui:Button。</value>
+  </data>
+  <data name="Sample_6e8636717c" xml:space="preserve">
+    <value>含載入狀態的按鈕</value>
+  </data>
+  <data name="Sample_a34817221c" xml:space="preserve">
+    <value>含圖示、標題與副標題的 CardAction。</value>
+  </data>
+  <data name="Sample_8e7ccd6ff9" xml:space="preserve">
+    <value>含圖示的訊息方塊</value>
+  </data>
+  <data name="Sample_18961e7e86" xml:space="preserve">
+    <value>含圖示的訊息方塊，支援同步與非同步兩種呼叫方式。</value>
+  </data>
+  <data name="Sample_1441f7daa2" xml:space="preserve">
+    <value>含搜尋建議的下拉輸入框，支援圖示、預留位置與清除按鈕。</value>
+  </data>
+  <data name="Sample_f9783871d2" xml:space="preserve">
+    <value>含清除按鈕</value>
+  </data>
+  <data name="Sample_3d4319582e" xml:space="preserve">
+    <value>含滑動動畫的開關控制項，支援拖曳、標題、On/Off 自訂內容。</value>
+  </data>
+  <data name="Sample_19cec4bfa6" xml:space="preserve">
+    <value>含快取的網路圖片</value>
+  </data>
+  <data name="Sample_880490aef6" xml:space="preserve">
+    <value>常州</value>
+  </data>
+  <data name="Sample_de882bfd0a" xml:space="preserve">
+    <value>常見屬性</value>
+  </data>
+  <data name="Sample_a01a996323" xml:space="preserve">
+    <value>年齡</value>
+  </data>
+  <data name="Sample_d4912425b4" xml:space="preserve">
+    <value>廣東</value>
+  </data>
+  <data name="Sample_7e040aa9cb" xml:space="preserve">
+    <value>廣州</value>
+  </data>
+  <data name="Sample_e2524ddfb6" xml:space="preserve">
+    <value>應用程式正在系統匣中執行。連按兩下圖示可顯示或隱藏主視窗。</value>
+  </data>
+  <data name="Sample_91e1576aa8" xml:space="preserve">
+    <value>底部輕量通知</value>
+  </data>
+  <data name="Sample_dcc6b91062" xml:space="preserve">
+    <value>底部通知</value>
+  </data>
+  <data name="Sample_a6beb974cc" xml:space="preserve">
+    <value>開關</value>
+  </data>
+  <data name="Sample_f7fad24da1" xml:space="preserve">
+    <value>開關切換控制項</value>
+  </data>
+  <data name="Sample_3ff3c3e26a" xml:space="preserve">
+    <value>開發</value>
+  </data>
+  <data name="Sample_f1d86ff89e" xml:space="preserve">
+    <value>開發完成</value>
+  </data>
+  <data name="Sample_9e8f93c666" xml:space="preserve">
+    <value>例外報告</value>
+  </data>
+  <data name="Sample_576ff61712" xml:space="preserve">
+    <value>例外報告對話方塊</value>
+  </data>
+  <data name="Sample_ecb6201948" xml:space="preserve">
+    <value>非同步內容</value>
+  </data>
+  <data name="Sample_7c7205efaa" xml:space="preserve">
+    <value>非同步內容載入容器</value>
+  </data>
+  <data name="Sample_48587661be" xml:space="preserve">
+    <value>非同步內容對話方塊</value>
+  </data>
+  <data name="Sample_17565d7913" xml:space="preserve">
+    <value>非同步等候對話方塊</value>
+  </data>
+  <data name="Sample_d9a25d2136" xml:space="preserve">
+    <value>非同步等候對話方塊，可顯示進度與取消按鈕，適合背景工作。</value>
+  </data>
+  <data name="Sample_615db57aa3" xml:space="preserve">
+    <value>張三</value>
+  </data>
+  <data name="Sample_305be79653" xml:space="preserve">
+    <value>張偉</value>
+  </data>
+  <data name="Sample_71fd6b18de" xml:space="preserve">
+    <value>彈出例外詳細資料對話方塊，適合全域未處理例外回報。按一下按鈕觸發示範例外。</value>
+  </data>
+  <data name="Sample_bc53972278" xml:space="preserve">
+    <value>快顯式輕量通知</value>
+  </data>
+  <data name="Sample_9fb6b4af29" xml:space="preserve">
+    <value>彈出日曆選取日期，IsTodayHighlighted 會醒目顯示今天。</value>
+  </data>
+  <data name="Sample_fb6e46429f" xml:space="preserve">
+    <value>彈出日曆面板選取日期。</value>
+  </data>
+  <data name="Sample_dd938e9088" xml:space="preserve">
+    <value>忙碌遮罩</value>
+  </data>
+  <data name="Sample_a38e764eb8" xml:space="preserve">
+    <value>忙碌遮罩與指示器</value>
+  </data>
+  <data name="Sample_1dc0650f80" xml:space="preserve">
+    <value>快速鍵錄製</value>
+  </data>
+  <data name="Sample_5fe427d39a" xml:space="preserve">
+    <value>快速鍵錄製輸入</value>
+  </data>
+  <data name="Sample_3ec22d22be" xml:space="preserve">
+    <value>快速鍵擷取</value>
+  </data>
+  <data name="Sample_1e4fcf41ba" xml:space="preserve">
+    <value>快速（Delay=200, Interval=50）</value>
+  </data>
+  <data name="Sample_1b92ef7c71" xml:space="preserve">
+    <value>快速：0　緩慢：0</value>
+  </data>
+  <data name="Sample_0ba1b99158" xml:space="preserve">
+    <value>快速：{_fastClickCount}　緩慢：{_slowClickCount}</value>
+  </data>
+  <data name="Sample_787b5677e3" xml:space="preserve">
+    <value>性別</value>
+  </data>
+  <data name="Sample_6ef838110b" xml:space="preserve">
+    <value>暫留我</value>
+  </data>
+  <data name="Sample_02d9509b9b" xml:space="preserve">
+    <value>暫留按鈕以查看提示。Violeta 亦提供 Callout 風格 ToolTip 樣式。</value>
+  </data>
+  <data name="Sample_330363dfc5" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="Sample_7617ac7261" xml:space="preserve">
+    <value>螢幕擷取畫面.png</value>
+  </data>
+  <data name="Sample_d8b5dbc3ee" xml:space="preserve">
+    <value>開啟 ContentWindow 示範</value>
+  </data>
+  <data name="Sample_d8a7964484" xml:space="preserve">
+    <value>開啟 ShellWindow 示範</value>
+  </data>
+  <data name="Sample_e2fb29cf31" xml:space="preserve">
+    <value>開啟圖片</value>
+  </data>
+  <data name="Sample_d44c79bb8c" xml:space="preserve">
+    <value>開啟多個檔案</value>
+  </data>
+  <data name="Sample_6cfd8797ec" xml:space="preserve">
+    <value>開啟檔案</value>
+  </data>
+  <data name="Sample_b00f8cb915" xml:space="preserve">
+    <value>開啟資料夾</value>
+  </data>
+  <data name="Sample_fecb037951" xml:space="preserve">
+    <value>系統匣通知</value>
+  </data>
+  <data name="Sample_e74804e480" xml:space="preserve">
+    <value>技術總監</value>
+  </data>
+  <data name="Sample_01a0213336" xml:space="preserve">
+    <value>技術堆疊</value>
+  </data>
+  <data name="Sample_877990def9" xml:space="preserve">
+    <value>投影裝飾</value>
+  </data>
+  <data name="Sample_d09980a885" xml:space="preserve">
+    <value>摺疊面板</value>
+  </data>
+  <data name="Sample_2575be67fc" xml:space="preserve">
+    <value>抽屜面板</value>
+  </data>
+  <data name="Sample_6bf9fcc2fc" xml:space="preserve">
+    <value>分割按鈕</value>
+  </data>
+  <data name="Sample_0cfb5648d9" xml:space="preserve">
+    <value>拖曳下方滑桿縮小可用寬度。空間不足時項目會移入 Compat Flyout（控制項原樣搬移，而非 MenuItem）。</value>
+  </data>
+  <data name="Sample_36780b94c2" xml:space="preserve">
+    <value>指定範圍 500–1000，TickFrequency=20 步進吸附。</value>
+  </data>
+  <data name="Sample_2c06ec4e6e" xml:space="preserve">
+    <value>按下快速鍵...</value>
+  </data>
+  <data name="Sample_5a6fd6d939" xml:space="preserve">
+    <value>按下鍵盤組合可錄製快速鍵，支援修飾鍵與清除按鈕。</value>
+  </data>
+  <data name="Sample_99a952b8e7" xml:space="preserve">
+    <value>按住按鈕會持續觸發 Click。Wpf.Ui 透過 DefaultRepeatButtonStyle 提供 Fluent 外觀。</value>
+  </data>
+  <data name="Sample_1cae9c41d8" xml:space="preserve">
+    <value>按住累加</value>
+  </data>
+  <data name="Sample_375192376c" xml:space="preserve">
+    <value>依子元素順序自動填滿列與欄。</value>
+  </data>
+  <data name="Sample_776feee78e" xml:space="preserve">
+    <value>依寬高比切換版面項目</value>
+  </data>
+  <data name="Sample_79a9d71799" xml:space="preserve">
+    <value>依布林值切換內容</value>
+  </data>
+  <data name="Sample_ae32fe0625" xml:space="preserve">
+    <value>依控制項類型分組瀏覽所有 Sample，按一下卡片即可跳轉。</value>
+  </data>
+  <data name="Sample_19b083f7cf" xml:space="preserve">
+    <value>接收郵件通知</value>
+  </data>
+  <data name="Sample_939d5345ad" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Sample_029dbfb305" xml:space="preserve">
+    <value>提供最小化、最大化／還原、關閉與選用說明按鈕。會依所在視窗前景狀態自動切換樣式，並操作主機視窗狀態。通常由 TitleBar 內部使用，也可單獨放入自訂標題區域。</value>
+  </data>
+  <data name="Sample_02d9819dda" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Sample_a884f3bc36" xml:space="preserve">
+    <value>提示與 Callout 樣式</value>
+  </data>
+  <data name="Sample_9bdb07e72d" xml:space="preserve">
+    <value>插入</value>
+  </data>
+  <data name="Sample_c3e817974d" xml:space="preserve">
+    <value>搜尋框</value>
+  </data>
+  <data name="Sample_ed114f1d75" xml:space="preserve">
+    <value>搜尋輸入框</value>
+  </data>
+  <data name="Sample_44ae9d4db8" xml:space="preserve">
+    <value>操作卡片</value>
+  </data>
+  <data name="Sample_f1f6027baa" xml:space="preserve">
+    <value>操作已成功完成！</value>
+  </data>
+  <data name="Sample_ebe103ec6a" xml:space="preserve">
+    <value>操作成功（{location}）</value>
+  </data>
+  <data name="Sample_262b0b07df" xml:space="preserve">
+    <value>支援</value>
+  </data>
+  <data name="Sample_d20fff90d9" xml:space="preserve">
+    <value>支援 Secondary / Primary / Danger / Success 外觀。</value>
+  </data>
+  <data name="Sample_d1f2679e83" xml:space="preserve">
+    <value>支援多選、標籤展示、搜尋篩選。</value>
+  </data>
+  <data name="Sample_7f7f2ab305" xml:space="preserve">
+    <value>支援數字、溢位、圓點、位置與自訂色彩。</value>
+  </data>
+  <data name="Sample_9ec0bbf098" xml:space="preserve">
+    <value>支援顯示名稱、縮寫、角標與圖片來源。</value>
+  </data>
+  <data name="Sample_c693b80589" xml:space="preserve">
+    <value>支援深色主題，透過 DWM + SetWindowTheme + 視窗子類別化實作。</value>
+  </data>
+  <data name="Sample_8a725dfc19" xml:space="preserve">
+    <value>支援縮放與平移。Source 可使用 pack URI 或相對資源路徑。</value>
+  </data>
+  <data name="Sample_cae0504af9" xml:space="preserve">
+    <value>支援自訂長度、數字模式與密碼遮罩。</value>
+  </data>
+  <data name="Sample_059a49ce9e" xml:space="preserve">
+    <value>支援逗號分隔，貼上 a,b,c 可一次新增多個標籤。</value>
+  </data>
+  <data name="Sample_3d502b523f" xml:space="preserve">
+    <value>支援滑鼠滾輪、觸控板與觸控的流暢物理捲動。</value>
+  </data>
+  <data name="Sample_8b93b1d357" xml:space="preserve">
+    <value>放不下的項目仍會從主列移除，但不顯示溢位按鈕 / Flyout。</value>
+  </data>
+  <data name="Sample_7846de57e9" xml:space="preserve">
+    <value>教學提示</value>
+  </data>
+  <data name="Sample_562abb5714" xml:space="preserve">
+    <value>教學提示浮層</value>
+  </data>
+  <data name="Sample_10adc6be32" xml:space="preserve">
+    <value>數值增減輸入</value>
+  </data>
+  <data name="Sample_ba2daa8218" xml:space="preserve">
+    <value>數值微調</value>
+  </data>
+  <data name="Sample_56642b9154" xml:space="preserve">
+    <value>數值輸入框，支援預留位置。</value>
+  </data>
+  <data name="Sample_9597dcaf43" xml:space="preserve">
+    <value>數字輸入</value>
+  </data>
+  <data name="Sample_5306905257" xml:space="preserve">
+    <value>數字輸入框</value>
+  </data>
+  <data name="Sample_eeda260c6a" xml:space="preserve">
+    <value>資料2</value>
+  </data>
+  <data name="Sample_4053a05691" xml:space="preserve">
+    <value>資料3</value>
+  </data>
+  <data name="Sample_68051bf4aa" xml:space="preserve">
+    <value>資料庫</value>
+  </data>
+  <data name="Sample_01c85e4961" xml:space="preserve">
+    <value>資料表格</value>
+  </data>
+  <data name="Sample_4f090cabd3" xml:space="preserve">
+    <value>整數 NumberBox</value>
+  </data>
+  <data name="Sample_5636766102" xml:space="preserve">
+    <value>檔案內容：</value>
+  </data>
+  <data name="Sample_b9c52d9a85" xml:space="preserve">
+    <value>檔案名稱：</value>
+  </data>
+  <data name="Sample_d5431c4c66" xml:space="preserve">
+    <value>資料夾選取</value>
+  </data>
+  <data name="Sample_5e10b994c5" xml:space="preserve">
+    <value>檔案選取</value>
+  </data>
+  <data name="Sample_97d0761438" xml:space="preserve">
+    <value>文字</value>
+  </data>
+  <data name="Sample_fca196e010" xml:space="preserve">
+    <value>文字區塊</value>
+  </data>
+  <data name="Sample_5ac57ce6df" xml:space="preserve">
+    <value>文字方塊</value>
+  </data>
+  <data name="Sample_a47d284a58" xml:space="preserve">
+    <value>文字方塊 + 下拉快顯層，快顯層同時轉譯日曆與時間轉輪。</value>
+  </data>
+  <data name="Sample_36044dc666" xml:space="preserve">
+    <value>文字方塊 + 下拉快顯層，支援自訂 .NET 時間格式。</value>
+  </data>
+  <data name="Sample_018fe5a138" xml:space="preserve">
+    <value>文字輸入與清除按鈕</value>
+  </data>
+  <data name="Sample_6bbc20b3ec" xml:space="preserve">
+    <value>文件.docx</value>
+  </data>
+  <data name="Sample_81d6da77d6" xml:space="preserve">
+    <value>斜體</value>
+  </data>
+  <data name="Sample_4d0e6c6f67" xml:space="preserve">
+    <value>新員工 </value>
+  </data>
+  <data name="Sample_1bb125b89c" xml:space="preserve">
+    <value>新增 </value>
+  </data>
+  <data name="Sample_ecbc7f2bbd" xml:space="preserve">
+    <value>旋轉按鈕</value>
+  </data>
+  <data name="Sample_ce3d5f558f" xml:space="preserve">
+    <value>旗艦版</value>
+  </data>
+  <data name="Sample_65c73cbf64" xml:space="preserve">
+    <value>無 Adapter 時內容可能蓋住描邊；Adapter 依內圓角裁剪。</value>
+  </data>
+  <data name="Sample_61b0c7c3e4" xml:space="preserve">
+    <value>無清除按鈕</value>
+  </data>
+  <data name="Sample_cc6b473b7e" xml:space="preserve">
+    <value>無錫</value>
+  </data>
+  <data name="Sample_f8c3feb48c" xml:space="preserve">
+    <value>日曆</value>
+  </data>
+  <data name="Sample_3c9ff9bc0b" xml:space="preserve">
+    <value>日曆 + 時間一體選取</value>
+  </data>
+  <data name="Sample_67ef04a976" xml:space="preserve">
+    <value>日曆與 CalendarDatePicker</value>
+  </data>
+  <data name="Sample_b51dfb4a52" xml:space="preserve">
+    <value>日曆與日期選取</value>
+  </data>
+  <data name="Sample_caeae4c1bc" xml:space="preserve">
+    <value>日曆與時間一體選取</value>
+  </data>
+  <data name="Sample_40fccfe532" xml:space="preserve">
+    <value>日曆日期</value>
+  </data>
+  <data name="Sample_b98a0966e3" xml:space="preserve">
+    <value>日曆日期時間</value>
+  </data>
+  <data name="Sample_4c593f33d3" xml:space="preserve">
+    <value>日曆日期選取</value>
+  </data>
+  <data name="Sample_02a1c9a056" xml:space="preserve">
+    <value>日期與時間</value>
+  </data>
+  <data name="Sample_de1a35a24c" xml:space="preserve">
+    <value>日期選取</value>
+  </data>
+  <data name="Sample_a55d501e08" xml:space="preserve">
+    <value>日期選擇器</value>
+  </data>
+  <data name="Sample_4404a8dacc" xml:space="preserve">
+    <value>時間軸</value>
+  </data>
+  <data name="Sample_c2c8fb2356" xml:space="preserve">
+    <value>時間選取</value>
+  </data>
+  <data name="Sample_3439dc393f" xml:space="preserve">
+    <value>時間選擇器（12/24 小時）</value>
+  </data>
+  <data name="Sample_a297dda489" xml:space="preserve">
+    <value>星級評分</value>
+  </data>
+  <data name="Sample_0acfecc954" xml:space="preserve">
+    <value>星級評分控制項，支援半星。</value>
+  </data>
+  <data name="Sample_8fccf382e7" xml:space="preserve">
+    <value>是／否</value>
+  </data>
+  <data name="Sample_97d3036ee7" xml:space="preserve">
+    <value>是／否／取消</value>
+  </data>
+  <data name="Sample_2a13a32110" xml:space="preserve">
+    <value>是否繼續操作？（{location}）</value>
+  </data>
+  <data name="Sample_af204660c7" xml:space="preserve">
+    <value>是否繼續？</value>
+  </data>
+  <data name="Sample_4d775d4cd7" xml:space="preserve">
+    <value>顯示</value>
+  </data>
+  <data name="Sample_655a0e3730" xml:space="preserve">
+    <value>顯示／隱藏</value>
+  </data>
+  <data name="Sample_c5704fa616" xml:space="preserve">
+    <value>顯示 5 則堆疊通知</value>
+  </data>
+  <data name="Sample_91c256c87a" xml:space="preserve">
+    <value>顯示 ContentDialog</value>
+  </data>
+  <data name="Sample_1b0e13a022" xml:space="preserve">
+    <value>顯示系統匣氣球通知</value>
+  </data>
+  <data name="Sample_03a0199535" xml:space="preserve">
+    <value>顯示清除按鈕</value>
+  </data>
+  <data name="Sample_7053881e1b" xml:space="preserve">
+    <value>顯示詳細資訊</value>
+  </data>
+  <data name="Sample_c054855df3" xml:space="preserve">
+    <value>顯示通知</value>
+  </data>
+  <data name="Sample_b5172cef51" xml:space="preserve">
+    <value>一般 PasswordBox</value>
+  </data>
+  <data name="Sample_8c56954140" xml:space="preserve">
+    <value>一般 RichTextBox</value>
+  </data>
+  <data name="Sample_87d0142c20" xml:space="preserve">
+    <value>一般 TextBox</value>
+  </data>
+  <data name="Sample_7b849587f0" xml:space="preserve">
+    <value>深色預覽</value>
+  </data>
+  <data name="Sample_b3cdee7277" xml:space="preserve">
+    <value>最多 3 個標籤…</value>
+  </data>
+  <data name="Sample_8152222184" xml:space="preserve">
+    <value>最多允許 3 個標籤。</value>
+  </data>
+  <data name="Sample_2e010513c1" xml:space="preserve">
+    <value>最小化／最大化／關閉列</value>
+  </data>
+  <data name="Sample_80755e085c" xml:space="preserve">
+    <value>本 Gallery 主視窗即繼承自 ShellWindow。按一下按鈕開啟一個簡單的示範視窗。</value>
+  </data>
+  <data name="Sample_bb061144dc" xml:space="preserve">
+    <value>本 Gallery 主視窗已使用 vio:TitleBar，支援 CustomHeader / CustomFooter、返回按鈕、窗格切換按鈕，以及內嵌 CaptionButtonBar。常見用法：ExtendsContentIntoTitleBar=&quot;True&quot; 時將 TitleBar 放在視窗頂部。</value>
+  </data>
+  <data name="Sample_064a169925" xml:space="preserve">
+    <value>本 Gallery 已使用 NavigationView</value>
+  </data>
+  <data name="Sample_36c942351e" xml:space="preserve">
+    <value>李四</value>
+  </data>
+  <data name="Sample_b1db96a48b" xml:space="preserve">
+    <value>李娜</value>
+  </data>
+  <data name="Sample_69d6beffab" xml:space="preserve">
+    <value>杭州</value>
+  </data>
+  <data name="Sample_4647705c65" xml:space="preserve">
+    <value>架構師</value>
+  </data>
+  <data name="Sample_871d31a958" xml:space="preserve">
+    <value>尋找…</value>
+  </data>
+  <data name="Sample_fa9b11c609" xml:space="preserve">
+    <value>標準 Calendar 與 DatePicker（CalendarDatePicker）。</value>
+  </data>
+  <data name="Sample_aea0ca94d7" xml:space="preserve">
+    <value>標準 Image</value>
+  </data>
+  <data name="Sample_0f69e5cbfd" xml:space="preserve">
+    <value>標準 Menu + ui:MenuItem</value>
+  </data>
+  <data name="Sample_3c3e7f2bd3" xml:space="preserve">
+    <value>標準 RepeatButton</value>
+  </data>
+  <data name="Sample_9bc1cf07bb" xml:space="preserve">
+    <value>標準 TabControl</value>
+  </data>
+  <data name="Sample_30eed26e03" xml:space="preserve">
+    <value>標準 WPF Button 控制項。</value>
+  </data>
+  <data name="Sample_3a5fe68601" xml:space="preserve">
+    <value>標準 WPF TextBox。</value>
+  </data>
+  <data name="Sample_ee5b0776e9" xml:space="preserve">
+    <value>標準 WPF ToggleButton，可切換按下/彈起狀態。</value>
+  </data>
+  <data name="Sample_1cf6f5930e" xml:space="preserve">
+    <value>標準 WPF 密碼輸入框。</value>
+  </data>
+  <data name="Sample_f91458ff7d" xml:space="preserve">
+    <value>標準 WPF 富文本編輯器，支持 FlowDocument。</value>
+  </data>
+  <data name="Sample_23731d5885" xml:space="preserve">
+    <value>標準分頁導航，可綁定當前頁碼和總頁數。</value>
+  </data>
+  <data name="Sample_de28d2720d" xml:space="preserve">
+    <value>標準版</value>
+  </data>
+  <data name="Sample_14d342362f" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="Sample_7e979b664d" xml:space="preserve">
+    <value>標籤下拉</value>
+  </data>
+  <data name="Sample_8dbb85e851" xml:space="preserve">
+    <value>標籤下拉框</value>
+  </data>
+  <data name="Sample_89ad888945" xml:space="preserve">
+    <value>標籤文本</value>
+  </data>
+  <data name="Sample_ad506ef284" xml:space="preserve">
+    <value>標籤欄</value>
+  </data>
+  <data name="Sample_09e91c7b41" xml:space="preserve">
+    <value>標籤芯片輸入</value>
+  </data>
+  <data name="Sample_8e3ac38ebb" xml:space="preserve">
+    <value>標籤輸入</value>
+  </data>
+  <data name="Sample_1655dd5f2c" xml:space="preserve">
+    <value>標籤：</value>
+  </data>
+  <data name="Sample_ce8e73e55c" xml:space="preserve">
+    <value>標籤：(無)</value>
+  </data>
+  <data name="Sample_8cb861a1ec" xml:space="preserve">
+    <value>標題按鈕欄</value>
+  </data>
+  <data name="Sample_391555a377" xml:space="preserve">
+    <value>標題欄</value>
+  </data>
+  <data name="Sample_2ce70ecb55" xml:space="preserve">
+    <value>樹形下拉</value>
+  </data>
+  <data name="Sample_4598e31c82" xml:space="preserve">
+    <value>樹形下拉框</value>
+  </data>
+  <data name="Sample_9604d1609b" xml:space="preserve">
+    <value>樹形列表</value>
+  </data>
+  <data name="Sample_e29255e458" xml:space="preserve">
+    <value>樹形列表視圖</value>
+  </data>
+  <data name="Sample_30d8aa704d" xml:space="preserve">
+    <value>樹形視圖</value>
+  </data>
+  <data name="Sample_28485a07e0" xml:space="preserve">
+    <value>樹模型列表視圖</value>
+  </data>
+  <data name="Sample_31d836ff42" xml:space="preserve">
+    <value>樣式 TextBlock</value>
+  </data>
+  <data name="Sample_b368eb270f" xml:space="preserve">
+    <value>樣式與 Severity</value>
+  </data>
+  <data name="Sample_1ec0c7b465" xml:space="preserve">
+    <value>核心功能合入</value>
+  </data>
+  <data name="Sample_adf525b652" xml:space="preserve">
+    <value>核心功能開發完畢，進入測試階段。</value>
+  </data>
+  <data name="Sample_c891afad73" xml:space="preserve">
+    <value>根據 Value 在 TrueText / FalseText 間切換，並可分別設置字體樣式。</value>
+  </data>
+  <data name="Sample_f4cd310f32" xml:space="preserve">
+    <value>根據布爾值顯示不同內容，點擊切換狀態。</value>
+  </data>
+  <data name="Sample_26cfbf3fb6" xml:space="preserve">
+    <value>根據文本數據生成二維碼，可調整糾錯級別與圓角。</value>
+  </data>
+  <data name="Sample_bf8a0189e0" xml:space="preserve">
+    <value>模型樹列表</value>
+  </data>
+  <data name="Sample_4295b75647" xml:space="preserve">
+    <value>模擬加載任務</value>
+  </data>
+  <data name="Sample_89aeb41a27" xml:space="preserve">
+    <value>橫幅通知</value>
+  </data>
+  <data name="Sample_0905182530" xml:space="preserve">
+    <value>櫻桃</value>
+  </data>
+  <data name="Sample_0ac491da7b" xml:space="preserve">
+    <value>正在加載數據...</value>
+  </data>
+  <data name="Sample_72628b3afc" xml:space="preserve">
+    <value>正在處理…</value>
+  </data>
+  <data name="Sample_dd3316267a" xml:space="preserve">
+    <value>正在執行操作，請稍候...</value>
+  </data>
+  <data name="Sample_95a352a546" xml:space="preserve">
+    <value>正式發布</value>
+  </data>
+  <data name="Sample_76b983b8e6" xml:space="preserve">
+    <value>此處可放置技術細節、堆棧跟蹤、日誌片段或鏈接。</value>
+  </data>
+  <data name="Sample_7fb644b8b6" xml:space="preserve">
+    <value>此對話框使用命令鏈接按鈕。</value>
+  </data>
+  <data name="Sample_10129a2fd7" xml:space="preserve">
+    <value>此對話框演示跑馬燈進度條。</value>
+  </data>
+  <data name="Sample_4cde06e616" xml:space="preserve">
+    <value>水平</value>
+  </data>
+  <data name="Sample_c56a96438e" xml:space="preserve">
+    <value>水平或垂直分割線，可選帶文字標註。</value>
+  </data>
+  <data name="Sample_3f47bd2d77" xml:space="preserve">
+    <value>水平滾動文本，可控制方向、速度與 AutoRun。</value>
+  </data>
+  <data name="Sample_2428ebeae7" xml:space="preserve">
+    <value>江蘇</value>
+  </data>
+  <data name="Sample_da47feab65" xml:space="preserve">
+    <value>流暢滾動</value>
+  </data>
+  <data name="Sample_c41619d2a1" xml:space="preserve">
+    <value>流暢物理滾動</value>
+  </data>
+  <data name="Sample_36e41c1627" xml:space="preserve">
+    <value>測試部</value>
+  </data>
+  <data name="Sample_912302cb02" xml:space="preserve">
+    <value>瀏覽器</value>
+  </data>
+  <data name="Sample_a44dc3df64" xml:space="preserve">
+    <value>浙江</value>
+  </data>
+  <data name="Sample_42862a19bd" xml:space="preserve">
+    <value>浮出層</value>
+  </data>
+  <data name="Sample_758409e3ca" xml:space="preserve">
+    <value>消息框</value>
+  </data>
+  <data name="Sample_7a399889b9" xml:space="preserve">
+    <value>深圳</value>
+  </data>
+  <data name="Sample_edae724270" xml:space="preserve">
+    <value>混合控件（原樣進 Flyout）</value>
+  </data>
+  <data name="Sample_f68216034d" xml:space="preserve">
+    <value>添加節點</value>
+  </data>
+  <data name="Sample_58477471b3" xml:space="preserve">
+    <value>添加行</value>
+  </data>
+  <data name="Sample_288f0c404c" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Sample_71f38f399f" xml:space="preserve">
+    <value>溫州</value>
+  </data>
+  <data name="Sample_7b06d65d82" xml:space="preserve">
+    <value>溢出區仍是原來的 Button，圖標與命令保持不變。</value>
+  </data>
+  <data name="Sample_a6e8671eab" xml:space="preserve">
+    <value>滾動內容行 1</value>
+  </data>
+  <data name="Sample_aa3eb7c441" xml:space="preserve">
+    <value>滾動內容行 10</value>
+  </data>
+  <data name="Sample_0fa99936c9" xml:space="preserve">
+    <value>滾動內容行 2</value>
+  </data>
+  <data name="Sample_899eaed4fd" xml:space="preserve">
+    <value>滾動內容行 3</value>
+  </data>
+  <data name="Sample_e970cf7899" xml:space="preserve">
+    <value>滾動內容行 4</value>
+  </data>
+  <data name="Sample_cd7eb7bcf9" xml:space="preserve">
+    <value>滾動內容行 5</value>
+  </data>
+  <data name="Sample_44768e6912" xml:space="preserve">
+    <value>滾動內容行 6</value>
+  </data>
+  <data name="Sample_73709b070d" xml:space="preserve">
+    <value>滾動內容行 7</value>
+  </data>
+  <data name="Sample_1f7768a40c" xml:space="preserve">
+    <value>滾動內容行 8</value>
+  </data>
+  <data name="Sample_4d561128b7" xml:space="preserve">
+    <value>滾動內容行 9</value>
+  </data>
+  <data name="Sample_c8a01628d6" xml:space="preserve">
+    <value>演示錯誤圖標與重試 / 取消按鈕。</value>
+  </data>
+  <data name="Sample_ffecc9f0be" xml:space="preserve">
+    <value>激活狀態</value>
+  </data>
+  <data name="Sample_17073bf769" xml:space="preserve">
+    <value>點擊上方按鈕讀取</value>
+  </data>
+  <data name="Sample_ca4cd621e4" xml:space="preserve">
+    <value>點擊卡片進入對應控件演示頁面。</value>
+  </data>
+  <data name="Sample_23509bcfde" xml:space="preserve">
+    <value>點擊後進入加載狀態，約 2 秒後恢復。</value>
+  </data>
+  <data name="Sample_e44ca4d5c0" xml:space="preserve">
+    <value>點擊展開 ContextMenu 菜單的下拉按鈕。</value>
+  </data>
+  <data name="Sample_e2e51ea8f9" xml:space="preserve">
+    <value>點擊展開控件查看更多詳細信息。</value>
+  </data>
+  <data name="Sample_67b61f5a7e" xml:space="preserve">
+    <value>點擊次數：0</value>
+  </data>
+  <data name="Sample_8b560de494" xml:space="preserve">
+    <value>點擊次數：{_clickCount}</value>
+  </data>
+  <data name="Sample_71716d9ceb" xml:space="preserve">
+    <value>點讚/點踩控件，點擊已選狀態可取消。</value>
+  </data>
+  <data name="Sample_ee2358e53a" xml:space="preserve">
+    <value>父子級聯選擇下拉框</value>
+  </data>
+  <data name="Sample_6ed998e7cc" xml:space="preserve">
+    <value>父子級聯選擇，選中父項後展示對應子選項；選中葉節點後可通過右側按鈕清空。</value>
+  </data>
+  <data name="Sample_3fea7ca76c" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Sample_54cf06512f" xml:space="preserve">
+    <value>狀態控件</value>
+  </data>
+  <data name="Sample_3228f322c9" xml:space="preserve">
+    <value>王五</value>
+  </data>
+  <data name="Sample_1039106987" xml:space="preserve">
+    <value>王芳</value>
+  </data>
+  <data name="Sample_28aa6906e9" xml:space="preserve">
+    <value>環形進度</value>
+  </data>
+  <data name="Sample_3444fcb679" xml:space="preserve">
+    <value>用於內容加載前的佔位顯示。可切換 IsLoading / IsActive。</value>
+  </data>
+  <data name="Sample_1e5753e63a" xml:space="preserve">
+    <value>用於顯示只讀文本的基本控件。</value>
+  </data>
+  <data name="Sample_44096c0147" xml:space="preserve">
+    <value>用於顯示描述性文本的標籤控件。</value>
+  </data>
+  <data name="Sample_84063d73bf" xml:space="preserve">
+    <value>用於演示 Windows Security 憑據對話框。</value>
+  </data>
+  <data name="Sample_36a4908a55" xml:space="preserve">
+    <value>男</value>
+  </data>
+  <data name="Sample_4d7f930b07" xml:space="preserve">
+    <value>畫布</value>
+  </data>
+  <data name="Sample_afe53fe801" xml:space="preserve">
+    <value>畫布繪圖</value>
+  </data>
+  <data name="Sample_2fc96b2704" xml:space="preserve">
+    <value>白色</value>
+  </data>
+  <data name="Sample_932b484438" xml:space="preserve">
+    <value>的文檔內容。</value>
+  </data>
+  <data name="Sample_ef0fd2940b" xml:space="preserve">
+    <value>直接在 XAML 中聲明 MultiComboBoxItem。</value>
+  </data>
+  <data name="Sample_251591221d" xml:space="preserve">
+    <value>省份 / 城市級聯</value>
+  </data>
+  <data name="Sample_9176a628cc" xml:space="preserve">
+    <value>研發部</value>
+  </data>
+  <data name="Sample_38cf16f220" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Sample_299344c484" xml:space="preserve">
+    <value>確定/取消</value>
+  </data>
+  <data name="Sample_12cd9a94dc" xml:space="preserve">
+    <value>確定並關閉</value>
+  </data>
+  <data name="Sample_e83a256e4f" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="Sample_9fd77757e8" xml:space="preserve">
+    <value>磁盤空間不足，請及時清理。</value>
+  </data>
+  <data name="Sample_ae05e054a4" xml:space="preserve">
+    <value>示例 ContentDialog</value>
+  </data>
+  <data name="Sample_710ad08b11" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="Sample_5a7392a0d7" xml:space="preserve">
+    <value>禁用狀態</value>
+  </data>
+  <data name="Sample_4402da40de" xml:space="preserve">
+    <value>禁用項</value>
+  </data>
+  <data name="Sample_583e7924e9" xml:space="preserve">
+    <value>離職</value>
+  </data>
+  <data name="Sample_11446c8fca" xml:space="preserve">
+    <value>移動開發</value>
+  </data>
+  <data name="Sample_c95e748d58" xml:space="preserve">
+    <value>移動端</value>
+  </data>
+  <data name="Sample_bb86dd5c6e" xml:space="preserve">
+    <value>稍後</value>
+  </data>
+  <data name="Sample_5e68f5916f" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+  <data name="Sample_b420d8f320" xml:space="preserve">
+    <value>立項</value>
+  </data>
+  <data name="Sample_5239b15bba" xml:space="preserve">
+    <value>第 1 條通知</value>
+  </data>
+  <data name="Sample_0ea7e63346" xml:space="preserve">
+    <value>第 2 條通知</value>
+  </data>
+  <data name="Sample_37922953b5" xml:space="preserve">
+    <value>第 3 條通知</value>
+  </data>
+  <data name="Sample_e1fc97da7b" xml:space="preserve">
+    <value>第 4 條通知</value>
+  </data>
+  <data name="Sample_d47ea33b91" xml:space="preserve">
+    <value>第 5 條通知</value>
+  </data>
+  <data name="Sample_86a1afd027" xml:space="preserve">
+    <value>第一段內容。點擊左側錨點可滾動到對應章節。</value>
+  </data>
+  <data name="Sample_7a591f5191" xml:space="preserve">
+    <value>第一頁 — 歡迎使用 Violeta</value>
+  </data>
+  <data name="Sample_8e1dd99c8c" xml:space="preserve">
+    <value>第三段內容，用於驗證滾動聯動。</value>
+  </data>
+  <data name="Sample_847e5a73a0" xml:space="preserve">
+    <value>第三頁 — 多框架支持</value>
+  </data>
+  <data name="Sample_9c64922ef8" xml:space="preserve">
+    <value>第二段父級章節，下方包含子章節。</value>
+  </data>
+  <data name="Sample_159c645f66" xml:space="preserve">
+    <value>第二頁 — Fluent Design</value>
+  </data>
+  <data name="Sample_1de8eaa668" xml:space="preserve">
+    <value>第四段內容。繼續向下滾動以觀察高亮切換。</value>
+  </data>
+  <data name="Sample_a69a0f6783" xml:space="preserve">
+    <value>等內聯樣式。</value>
+  </data>
+  <data name="Sample_c4aa96fd4c" xml:space="preserve">
+    <value>等待對話框</value>
+  </data>
+  <data name="Sample_90ea8506b4" xml:space="preserve">
+    <value>類似輪播圖的翻轉視圖控件，左右切換內容。</value>
+  </data>
+  <data name="Sample_226b091218" xml:space="preserve">
+    <value>類型</value>
+  </data>
+  <data name="Sample_e803663cf5" xml:space="preserve">
+    <value>粗體</value>
+  </data>
+  <data name="Sample_966e7cdd84" xml:space="preserve">
+    <value>系列</value>
+  </data>
+  <data name="Sample_0b125f41f7" xml:space="preserve">
+    <value>系統託盤圖標</value>
+  </data>
+  <data name="Sample_2de0bc06f2" xml:space="preserve">
+    <value>系統託盤圖標與菜單</value>
+  </data>
+  <data name="Sample_cddce965d7" xml:space="preserve">
+    <value>級聯下拉</value>
+  </data>
+  <data name="Sample_0d838a9c7d" xml:space="preserve">
+    <value>結合樹形結構和列表視圖，支持展開/摺疊和多列顯示。</value>
+  </data>
+  <data name="Sample_e35e9417ad" xml:space="preserve">
+    <value>結果：(等待操作)</value>
+  </data>
+  <data name="Sample_0909d6d4dd" xml:space="preserve">
+    <value>結果：{clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $</value>
+  </data>
+  <data name="Sample_11528c4f6c" xml:space="preserve">
+    <value>結果：{dialog.SelectedPath}</value>
+  </data>
+  <data name="Sample_373ee67676" xml:space="preserve">
+    <value>結果：{result}</value>
+  </data>
+  <data name="Sample_ae35089b44" xml:space="preserve">
+    <value>結果：命中緩存憑據 — 用戶名：{dialog.UserName}</value>
+  </data>
+  <data name="Sample_8c8c59b676" xml:space="preserve">
+    <value>結果：已保存憑據 — 用戶名：{credential.UserName}</value>
+  </data>
+  <data name="Sample_2c6ba0e39a" xml:space="preserve">
+    <value>結果：已刪除憑據。</value>
+  </data>
+  <data name="Sample_b97d90527e" xml:space="preserve">
+    <value>結果：已取消</value>
+  </data>
+  <data name="Sample_395d500fbf" xml:space="preserve">
+    <value>結果：已取消或關閉</value>
+  </data>
+  <data name="Sample_a816603488" xml:space="preserve">
+    <value>結果：已選擇 {dialog.SelectedPaths.Length} 個文件夾 — {string.Join(</value>
+  </data>
+  <data name="Sample_2c9b33f24f" xml:space="preserve">
+    <value>結果：異常 — {ex.Message}</value>
+  </data>
+  <data name="Sample_76a6900819" xml:space="preserve">
+    <value>結果：未找到可刪除的憑據。</value>
+  </data>
+  <data name="Sample_015d3e62d9" xml:space="preserve">
+    <value>結果：未找到已保存的憑據。</value>
+  </data>
+  <data name="Sample_6457052c6e" xml:space="preserve">
+    <value>結果：用戶取消了對話框。</value>
+  </data>
+  <data name="Sample_42d379fc40" xml:space="preserve">
+    <value>結果：用戶名：{dialog.UserName}，是否勾選保存：{dialog.IsSaveChecked}</value>
+  </data>
+  <data name="Sample_27ca568be2" xml:space="preserve">
+    <value>繼續</value>
+  </data>
+  <data name="Sample_c81e7712be" xml:space="preserve">
+    <value>繼續當前操作</value>
+  </data>
+  <data name="Sample_5f5597503b" xml:space="preserve">
+    <value>緩存圖片</value>
+  </data>
+  <data name="Sample_1efa490383" xml:space="preserve">
+    <value>緩慢（Delay=1000, Interval=400）</value>
+  </data>
+  <data name="Sample_8dd38aaf75" xml:space="preserve">
+    <value>網格分割</value>
+  </data>
+  <data name="Sample_e793aeb29c" xml:space="preserve">
+    <value>翻轉視圖</value>
+  </data>
+  <data name="Sample_9f1891c848" xml:space="preserve">
+    <value>翻頁視圖</value>
+  </data>
+  <data name="Sample_b652de80d6" xml:space="preserve">
+    <value>職位</value>
+  </data>
+  <data name="Sample_5ea2fa9344" xml:space="preserve">
+    <value>自動建議</value>
+  </data>
+  <data name="Sample_9afe366118" xml:space="preserve">
+    <value>自動建議輸入</value>
+  </data>
+  <data name="Sample_452dba7c65" xml:space="preserve">
+    <value>自動換行</value>
+  </data>
+  <data name="Sample_c60adf04b2" xml:space="preserve">
+    <value>自動網格</value>
+  </data>
+  <data name="Sample_43a6fef122" xml:space="preserve">
+    <value>自動行列網格</value>
+  </data>
+  <data name="Sample_c0a63f52dd" xml:space="preserve">
+    <value>自定義 ItemTemplate</value>
+  </data>
+  <data name="Sample_acf041436a" xml:space="preserve">
+    <value>自定義內容</value>
+  </data>
+  <data name="Sample_7372dc9f39" xml:space="preserve">
+    <value>自定義圖標</value>
+  </data>
+  <data name="Sample_9bcbd65034" xml:space="preserve">
+    <value>自定義安裝</value>
+  </data>
+  <data name="Sample_38d11a85f2" xml:space="preserve">
+    <value>自定義標題欄</value>
+  </data>
+  <data name="Sample_2daf8c0856" xml:space="preserve">
+    <value>自定義格式時間選擇</value>
+  </data>
+  <data name="Sample_995882b996" xml:space="preserve">
+    <value>蘇州</value>
+  </data>
+  <data name="Sample_e6803e21b9" xml:space="preserve">
+    <value>蘋果</value>
+  </data>
+  <data name="Sample_f4fbd6c803" xml:space="preserve">
+    <value>範圍滑塊</value>
+  </data>
+  <data name="Sample_4e9244f80e" xml:space="preserve">
+    <value>草莓</value>
+  </data>
+  <data name="Sample_4ccbdc5301" xml:space="preserve">
+    <value>菜單</value>
+  </data>
+  <data name="Sample_0a4e486218" xml:space="preserve">
+    <value>藍牙</value>
+  </data>
+  <data name="Sample_9c9aabab3f" xml:space="preserve">
+    <value>藍色</value>
+  </data>
+  <data name="Sample_a96ab3d9cc" xml:space="preserve">
+    <value>藍莓</value>
+  </data>
+  <data name="Sample_ee3d70da45" xml:space="preserve">
+    <value>行分隔</value>
+  </data>
+  <data name="Sample_eee1e2258d" xml:space="preserve">
+    <value>表單</value>
+  </data>
+  <data name="Sample_faf4e7e50d" xml:space="preserve">
+    <value>表單布局</value>
+  </data>
+  <data name="Sample_b339aa8710" xml:space="preserve">
+    <value>表格</value>
+  </data>
+  <data name="Sample_b9af3fd5d3" xml:space="preserve">
+    <value>西瓜</value>
+  </data>
+  <data name="Sample_b8c467fce0" xml:space="preserve">
+    <value>角標</value>
+  </data>
+  <data name="Sample_917b016754" xml:space="preserve">
+    <value>角標與圓點提示</value>
+  </data>
+  <data name="Sample_900c70fa5f" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Sample_4daea5b39d" xml:space="preserve">
+    <value>計劃中</value>
+  </data>
+  <data name="Sample_ae26e58675" xml:space="preserve">
+    <value>設置 Height 限制列表顯示區域。</value>
+  </data>
+  <data name="Sample_b08890a6ef" xml:space="preserve">
+    <value>設計</value>
+  </data>
+  <data name="Sample_22554bfe34" xml:space="preserve">
+    <value>設計稿.fig</value>
+  </data>
+  <data name="Sample_829ec9c321" xml:space="preserve">
+    <value>設計部</value>
+  </data>
+  <data name="Sample_6fe4c8e483" xml:space="preserve">
+    <value>設計階段</value>
+  </data>
+  <data name="Sample_80f041f752" xml:space="preserve">
+    <value>請查看主窗口頂部標題欄以體驗實際效果（主題切換位於 CustomFooter）。</value>
+  </data>
+  <data name="Sample_180108e19c" xml:space="preserve">
+    <value>請注意以下事項</value>
+  </data>
+  <data name="Sample_bec0dd5f65" xml:space="preserve">
+    <value>請注意（{location}）</value>
+  </data>
+  <data name="Sample_17395556d2" xml:space="preserve">
+    <value>請注意，這是一條警告。</value>
+  </data>
+  <data name="Sample_7c1efe79cc" xml:space="preserve">
+    <value>請稍候</value>
+  </data>
+  <data name="Sample_cdd6fe7d2f" xml:space="preserve">
+    <value>請輸入內容...</value>
+  </data>
+  <data name="Sample_4b151dd64a" xml:space="preserve">
+    <value>請輸入認證資料</value>
+  </data>
+  <data name="Sample_8093e3921d" xml:space="preserve">
+    <value>請輸入姓名</value>
+  </data>
+  <data name="Sample_b15e5d18e7" xml:space="preserve">
+    <value>請輸入您的名稱：</value>
+  </data>
+  <data name="Sample_08b1fa1304" xml:space="preserve">
+    <value>請輸入使用者名稱</value>
+  </data>
+  <data name="Sample_92a3be5307" xml:space="preserve">
+    <value>請選擇...</value>
+  </data>
+  <data name="Sample_509c20e53c" xml:space="preserve">
+    <value>請選擇一個或多個資料夾。</value>
+  </data>
+  <data name="Sample_4bf5433ad8" xml:space="preserve">
+    <value>請選擇一個操作</value>
+  </data>
+  <data name="Sample_8c19852c92" xml:space="preserve">
+    <value>請選擇一個資料夾。</value>
+  </data>
+  <data name="Sample_eed4f2841b" xml:space="preserve">
+    <value>請選擇希望使用的安裝選項。</value>
+  </data>
+  <data name="Sample_04a8c85aef" xml:space="preserve">
+    <value>請選擇省份 / 城市</value>
+  </data>
+  <data name="Sample_c4e39190f1" xml:space="preserve">
+    <value>讀寫系統剪貼簿文字</value>
+  </data>
+  <data name="Sample_e2b1998a54" xml:space="preserve">
+    <value>讀取已儲存的認證資料</value>
+  </data>
+  <data name="Sample_e2187047c4" xml:space="preserve">
+    <value>讀取目前剪貼簿中的文字內容。</value>
+  </data>
+  <data name="Sample_47b666a05d" xml:space="preserve">
+    <value>調整寬高，觀察不同 AspectRatioMode 的切換（tolerance=0.3）。</value>
+  </data>
+  <data name="Sample_a3448ab5ed" xml:space="preserve">
+    <value>帳號設定</value>
+  </data>
+  <data name="Sample_f1861aaa47" xml:space="preserve">
+    <value>讚踩評分</value>
+  </data>
+  <data name="Sample_b43536d046" xml:space="preserve">
+    <value>趙六</value>
+  </data>
+  <data name="Sample_ded8c0a3ed" xml:space="preserve">
+    <value>趙磊</value>
+  </data>
+  <data name="Sample_7d7894175e" xml:space="preserve">
+    <value>超連結</value>
+  </data>
+  <data name="Sample_953ac8afe8" xml:space="preserve">
+    <value>超連結按鈕</value>
+  </data>
+  <data name="Sample_cfeae99cc9" xml:space="preserve">
+    <value>跑馬燈</value>
+  </data>
+  <data name="Sample_c732c7aa7d" xml:space="preserve">
+    <value>跑馬燈捲動文字</value>
+  </data>
+  <data name="Sample_05b03511cb" xml:space="preserve">
+    <value>跨容器的 RadioButton 互斥分組。</value>
+  </data>
+  <data name="Sample_c5e3546024" xml:space="preserve">
+    <value>輕量通知</value>
+  </data>
+  <data name="Sample_d7362ceba9" xml:space="preserve">
+    <value>較長提示</value>
+  </data>
+  <data name="Sample_83fb2119f7" xml:space="preserve">
+    <value>輸入認證資料</value>
+  </data>
+  <data name="Sample_552b11b447" xml:space="preserve">
+    <value>輸入後按 Enter…</value>
+  </data>
+  <data name="Sample_e9aca1a2c3" xml:space="preserve">
+    <value>輸入或貼上逗號分隔內容…</value>
+  </data>
+  <data name="Sample_7518aac27a" xml:space="preserve">
+    <value>輸入檔案內容...</value>
+  </data>
+  <data name="Sample_d31088e654" xml:space="preserve">
+    <value>輸入檔案名稱...</value>
+  </data>
+  <data name="Sample_04adfe2cf1" xml:space="preserve">
+    <value>輸入文字後按 Enter 新增標籤。</value>
+  </data>
+  <data name="Sample_961534b4ea" xml:space="preserve">
+    <value>邊框</value>
+  </data>
+  <data name="Sample_34be9270ec" xml:space="preserve">
+    <value>過渡內容</value>
+  </data>
+  <data name="Sample_b890b34994" xml:space="preserve">
+    <value>營運部</value>
+  </data>
+  <data name="Sample_caf2c2a52f" xml:space="preserve">
+    <value>這是 AsyncBox 示範內容。子內容在非同步 UI 執行緒中建立，載入時可顯示指示器。</value>
+  </data>
+  <data name="Sample_6d80adabe3" xml:space="preserve">
+    <value>這是 ContentWindow + ContentWindowControl 的簡單示範。</value>
+  </data>
+  <data name="Sample_280b260594" xml:space="preserve">
+    <value>這是 Gallery 示範例外：用於預覽 ExceptionReport 對話框。</value>
+  </data>
+  <data name="Sample_f330915173" xml:space="preserve">
+    <value>這是 Violeta 提供的 ContentDialog，支援主要按鈕、次要按鈕和關閉按鈕。</value>
+  </data>
+  <data name="Sample_ed377f66a0" xml:space="preserve">
+    <value>這是一個資訊 TaskDialog</value>
+  </data>
+  <data name="Sample_cab56120f1" xml:space="preserve">
+    <value>這是一個原生 Win32 MessageBox。</value>
+  </data>
+  <data name="Sample_4ed22fb344" xml:space="preserve">
+    <value>這是一個帶頁尾圖示和超連結的警告對話框。
+
+造訪 &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Violeta&lt;/A&gt; 以了解更多。</value>
+  </data>
+  <data name="Sample_b51bf913f5" xml:space="preserve">
+    <value>這是一個簡單的 ShellWindow 示範視窗。</value>
+  </data>
+  <data name="Sample_8a3cbdcbba" xml:space="preserve">
+    <value>這是一個問題，您確認嗎？</value>
+  </data>
+  <data name="Sample_618dd07189" xml:space="preserve">
+    <value>這是一則資訊橫幅，用於展示重要提示。</value>
+  </data>
+  <data name="Sample_bc0a0553b3" xml:space="preserve">
+    <value>這是一則資訊訊息。</value>
+  </data>
+  <data name="Sample_122bd04d19" xml:space="preserve">
+    <value>這是一則資訊通知（{location}）</value>
+  </data>
+  <data name="Sample_f062dba511" xml:space="preserve">
+    <value>這是一則預設通知（{location}）</value>
+  </data>
+  <data name="Sample_9dba3a086c" xml:space="preserve">
+    <value>這是來自 TrayIconHost 的真實工作列氣球通知。</value>
+  </data>
+  <data name="Sample_3dc186229d" xml:space="preserve">
+    <value>這裡是 Expander 展開後的詳細內容，可用於分組展示次要資訊。</value>
+  </data>
+  <data name="Sample_e2e33e2c41" xml:space="preserve">
+    <value>進度條</value>
+  </data>
+  <data name="Sample_fb852fc6cc" xml:space="preserve">
+    <value>進行中</value>
+  </data>
+  <data name="Sample_c3992269b4" xml:space="preserve">
+    <value>結束</value>
+  </data>
+  <data name="Sample_fad7c8a21f" xml:space="preserve">
+    <value>已選取</value>
+  </data>
+  <data name="Sample_4634be5ac1" xml:space="preserve">
+    <value>選擇單一檔案</value>
+  </data>
+  <data name="Sample_86ebf9a041" xml:space="preserve">
+    <value>選擇圖片檔案</value>
+  </data>
+  <data name="Sample_a074a4a7c5" xml:space="preserve">
+    <value>選擇多個檔案</value>
+  </data>
+  <data name="Sample_d71db75c5a" xml:space="preserve">
+    <value>選擇多個資料夾</value>
+  </data>
+  <data name="Sample_da479fcbb1" xml:space="preserve">
+    <value>選擇安裝方式</value>
+  </data>
+  <data name="Sample_aaa4b65e5c" xml:space="preserve">
+    <value>選擇資料夾</value>
+  </data>
+  <data name="Sample_e04cead454" xml:space="preserve">
+    <value>選項 A</value>
+  </data>
+  <data name="Sample_d581ed5da9" xml:space="preserve">
+    <value>選項 B</value>
+  </data>
+  <data name="Sample_cbae0a2a40" xml:space="preserve">
+    <value>選項 C</value>
+  </data>
+  <data name="Sample_9377e388f7" xml:space="preserve">
+    <value>索引標籤</value>
+  </data>
+  <data name="Sample_cc193a7a67" xml:space="preserve">
+    <value>索引標籤控制項</value>
+  </data>
+  <data name="Sample_41e5da80c7" xml:space="preserve">
+    <value>索引標籤檢視</value>
+  </data>
+  <data name="Sample_50ebf86def" xml:space="preserve">
+    <value>通常在 Application 啟動時呼叫 Splash.ShowAsync。此處示範按鈕會短暫覆蓋主視窗，請點擊後等待自動關閉，或手動呼叫 Splash.CloseAsync。</value>
+  </data>
+  <data name="Sample_5660bcd256" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Sample_cd82d2bb25" xml:space="preserve">
+    <value>通知類型</value>
+  </data>
+  <data name="Sample_7a37cf1b92" xml:space="preserve">
+    <value>透過 FlyoutService 附加到按鈕或卡片上的彈出層。</value>
+  </data>
+  <data name="Sample_b854c38c15" xml:space="preserve">
+    <value>透過 FontFamily、FontStyle 等屬性自訂外觀。</value>
+  </data>
+  <data name="Sample_77bc5793f7" xml:space="preserve">
+    <value>透過 ItemsSource 與 MemberPath 繫結。</value>
+  </data>
+  <data name="Sample_9a1508f4ef" xml:space="preserve">
+    <value>透過 ItemsSource 繫結字型清單。</value>
+  </data>
+  <data name="Sample_d02bcb24d5" xml:space="preserve">
+    <value>透過 Target 屬性關聯輸入控制項，支援無障礙存取。</value>
+  </data>
+  <data name="Sample_5454e81038" xml:space="preserve">
+    <value>透過上下箭頭切換值，支援預設 / 左側 / Split 版面配置。</value>
+  </data>
+  <data name="Sample_1e1459eeed" xml:space="preserve">
+    <value>部門</value>
+  </data>
+  <data name="Sample_1697f28005" xml:space="preserve">
+    <value>部門經理</value>
+  </data>
+  <data name="Sample_285f2d65c2" xml:space="preserve">
+    <value>設定要點</value>
+  </data>
+  <data name="Sample_01b4e06f39" xml:space="preserve">
+    <value>重新啟動</value>
+  </data>
+  <data name="Sample_6aa16c2381" xml:space="preserve">
+    <value>重複按鈕</value>
+  </data>
+  <data name="Sample_6eeed2029d" xml:space="preserve">
+    <value>重複按鈕（按住連點）</value>
+  </data>
+  <data name="Sample_4b9c3271dc" xml:space="preserve">
+    <value>重設</value>
+  </data>
+  <data name="Sample_132c5cdcce" xml:space="preserve">
+    <value>重試</value>
+  </data>
+  <data name="Sample_454b22f95d" xml:space="preserve">
+    <value>金色</value>
+  </data>
+  <data name="Sample_bfe68d5844" xml:space="preserve">
+    <value>連結</value>
+  </data>
+  <data name="Sample_7030ff6470" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="Sample_b98522c6a1" xml:space="preserve">
+    <value>錯誤代碼：0x80004005</value>
+  </data>
+  <data name="Sample_4d3cc18eb2" xml:space="preserve">
+    <value>錨定到指定控制項，展示圖示與雙按鈕。</value>
+  </data>
+  <data name="Sample_bede211909" xml:space="preserve">
+    <value>錨點導覽</value>
+  </data>
+  <data name="Sample_4d13a2326e" xml:space="preserve">
+    <value>長文字會自動換行。</value>
+  </data>
+  <data name="Sample_5dc99f6efe" xml:space="preserve">
+    <value>問題</value>
+  </data>
+  <data name="Sample_57a0dec9ef" xml:space="preserve">
+    <value>陳靜</value>
+  </data>
+  <data name="Sample_5bc98065dc" xml:space="preserve">
+    <value>限制堆疊 1</value>
+  </data>
+  <data name="Sample_5453af82cf" xml:space="preserve">
+    <value>限制堆疊 2</value>
+  </data>
+  <data name="Sample_ea0a332c59" xml:space="preserve">
+    <value>限制堆疊 3（將覆蓋）</value>
+  </data>
+  <data name="Sample_89bfb00829" xml:space="preserve">
+    <value>限制堆疊 4（將覆蓋）</value>
+  </data>
+  <data name="Sample_464fd99a16" xml:space="preserve">
+    <value>限制堆疊（最多 2 則）</value>
+  </data>
+  <data name="Sample_f8df5a8bca" xml:space="preserve">
+    <value>限定 Filter 為常見圖片格式。</value>
+  </data>
+  <data name="Sample_dce5379cb9" xml:space="preserve">
+    <value>隱藏</value>
+  </data>
+  <data name="Sample_7e0978814d" xml:space="preserve">
+    <value>隱藏到工作列</value>
+  </data>
+  <data name="Sample_4d4d95676e" xml:space="preserve">
+    <value>隱藏詳細資訊</value>
+  </data>
+  <data name="Sample_8dd1eb06c0" xml:space="preserve">
+    <value>非堆疊模式</value>
+  </data>
+  <data name="Sample_0288ddbb33" xml:space="preserve">
+    <value>非堆疊通知 1</value>
+  </data>
+  <data name="Sample_e16428ce2a" xml:space="preserve">
+    <value>非堆疊通知 2</value>
+  </data>
+  <data name="Sample_9983a4a85f" xml:space="preserve">
+    <value>非堆疊通知 3</value>
+  </data>
+  <data name="Sample_169b227aff" xml:space="preserve">
+    <value>麵包屑</value>
+  </data>
+  <data name="Sample_3576258acd" xml:space="preserve">
+    <value>麵包屑導覽</value>
+  </data>
+  <data name="Sample_78636353a3" xml:space="preserve">
+    <value>面向目標的教學提示，支援 Title / Subtitle / Hero / Action / Close 與 Light Dismiss。</value>
+  </data>
+  <data name="Sample_0b66910aa9" xml:space="preserve">
+    <value>頁籤指示條</value>
+  </data>
+  <data name="Sample_c0280b33ba" xml:space="preserve">
+    <value>頁面內放置 SnackbarPresenter，透過程式碼建立 Snackbar 並顯示。無需 DI / SnackbarService。</value>
+  </data>
+  <data name="Sample_6452538f67" xml:space="preserve">
+    <value>頁面內錨點導覽</value>
+  </data>
+  <data name="Sample_416b31af1e" xml:space="preserve">
+    <value>項目 A</value>
+  </data>
+  <data name="Sample_048547bbb0" xml:space="preserve">
+    <value>項目 B</value>
+  </data>
+  <data name="Sample_484aefb490" xml:space="preserve">
+    <value>專案啟動</value>
+  </data>
+  <data name="Sample_c0ebbe10c1" xml:space="preserve">
+    <value>專案正式立案，完成需求文件。</value>
+  </data>
+  <data name="Sample_afeec3c773" xml:space="preserve">
+    <value>預先填入標籤，也示範停用狀態。</value>
+  </data>
+  <data name="Sample_6b36c6f7ec" xml:space="preserve">
+    <value>色彩</value>
+  </data>
+  <data name="Sample_a0e6ecd1eb" xml:space="preserve">
+    <value>色彩選擇器</value>
+  </data>
+  <data name="Sample_b7c03bbf2b" xml:space="preserve">
+    <value>香蕉</value>
+  </data>
+  <data name="Sample_241bd43b47" xml:space="preserve">
+    <value>驗證碼輸入</value>
+  </data>
+  <data name="Sample_20697811d9" xml:space="preserve">
+    <value>骨架畫面</value>
+  </data>
+  <data name="Sample_7be1a44b8f" xml:space="preserve">
+    <value>骨架畫面載入佔位</value>
+  </data>
+  <data name="Sample_132ab8784b" xml:space="preserve">
+    <value>資深工程師</value>
+  </data>
+  <data name="Sample_9d2d1f62ae" xml:space="preserve">
+    <value>黑色</value>
+  </data>
+  <data name="Sample_18c63459a2" xml:space="preserve">
+    <value>預設</value>
+  </data>
+  <data name="Sample_c074b6e2ae" xml:space="preserve">
+    <value>預設 24 小時制，可選秒。</value>
+  </data>
+  <data name="Sample_2749822f6c" xml:space="preserve">
+    <value>預設 Expander</value>
+  </data>
+  <data name="Sample_822fb2cf0e" xml:space="preserve">
+    <value>預設 ToolTip</value>
+  </data>
+  <data name="Sample_a96498c010" xml:space="preserve">
+    <value>預設實體捲動</value>
+  </data>
+  <data name="Sample_d23726dc34" xml:space="preserve">
+    <value>滾輪時間</value>
+  </data>
+  <data name="Sample_2de3f7a95f" xml:space="preserve">
+    <value>滾輪選擇</value>
+  </data>
+  <data name="Sample_af1f5437ae" xml:space="preserve">
+    <value>（底部留白）</value>
+  </data>
+  <data name="Format_Result" xml:space="preserve">
+    <value>結果：{0}</value>
+  </data>
+  <data name="Format_ClickCount" xml:space="preserve">
+    <value>點擊次數：{0}</value>
+  </data>
+  <data name="Format_FastSlowClicks" xml:space="preserve">
+    <value>快速：{0}　緩慢：{1}</value>
+  </data>
+  <data name="Format_ToastInfo" xml:space="preserve">
+    <value>這是一則資訊通知（{0}）</value>
+  </data>
+  <data name="Format_ToastSuccess" xml:space="preserve">
+    <value>操作成功（{0}）</value>
+  </data>
+  <data name="Format_ToastError" xml:space="preserve">
+    <value>發生錯誤（{0}）</value>
+  </data>
+  <data name="Format_ToastWarning" xml:space="preserve">
+    <value>請注意（{0}）</value>
+  </data>
+  <data name="Format_ToastQuestion" xml:space="preserve">
+    <value>是否繼續操作？（{0}）</value>
+  </data>
+  <data name="Format_ToastDefault" xml:space="preserve">
+    <value>這是一則預設通知（{0}）</value>
+  </data>
+  <data name="Format_ThemeSwitched" xml:space="preserve">
+    <value>主題已切換：{0}</value>
+  </data>
+  <data name="Format_Exception" xml:space="preserve">
+    <value>結果：例外 — {0}</value>
+  </data>
+  <data name="Format_CachedCredential" xml:space="preserve">
+    <value>結果：命中快取憑證 — 使用者名稱：{0}</value>
+  </data>
+  <data name="Format_UserSave" xml:space="preserve">
+    <value>結果：使用者名稱：{0}，是否勾選儲存：{1}</value>
+  </data>
+  <data name="Format_SavedCredential" xml:space="preserve">
+    <value>結果：已儲存憑證 — 使用者名稱：{0}</value>
+  </data>
+  <data name="Format_SelectedFolders" xml:space="preserve">
+    <value>結果：已選擇 {0} 個資料夾 — {1}</value>
+  </data>
+  <data name="Format_Selected" xml:space="preserve">
+    <value>已選擇：{0}</value>
+  </data>
+  <data name="Format_SelectedFiles" xml:space="preserve">
+    <value>已選擇 {0} 個檔案：
+{1}</value>
+  </data>
+  <data name="Format_SelectedMultiline" xml:space="preserve">
+    <value>已選擇：
+{0}</value>
+  </data>
+  <data name="Format_Saved" xml:space="preserve">
+    <value>已儲存：{0}</value>
+  </data>
+  <data name="Format_ResultDetail" xml:space="preserve">
+    <value>結果：{0}{1}</value>
+  </data>
+  <data name="Format_DashDetail" xml:space="preserve">
+    <value> — {0}</value>
+  </data>
+  <data name="Sample_NativeAttentionBody" xml:space="preserve">
+    <value>可能需要您的注意。
+點擊確定繼續。</value>
+  </data>
+  <data name="Sample_bfe5fe4cc4" xml:space="preserve">
+    <value>減小</value>
+  </data>
+  <data name="Sample_1ef6e720b3" xml:space="preserve">
+    <value>增大</value>
+  </data>
+  <data name="Sample_4717f4f110" xml:space="preserve">
+    <value>啓用通知</value>
+  </data>
+  <data name="Sample_18d1485cc2" xml:space="preserve">
+    <value>深色模式</value>
+  </data>
+  <data name="Sample_26bb841878" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Sample_d7098f5050" xml:space="preserve">
+    <value>打開</value>
+  </data>
+  <data name="Sample_be5fbbe34c" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Sample_43fc77886b" xml:space="preserve">
+    <value>剪切</value>
+  </data>
+  <data name="Sample_79d3abe929" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Sample_eafbece101" xml:space="preserve">
+    <value>粘貼</value>
+  </data>
+  <data name="Sample_bd9fcf46b4" xml:space="preserve">
+    <value>撤銷</value>
+  </data>
+  <data name="Sample_c3c873d33f" xml:space="preserve">
+    <value>重做</value>
+  </data>
+  <data name="Sample_3b8a43acee" xml:space="preserve">
+    <value>加粗</value>
+  </data>
+  <data name="Sample_fc55aff8c7" xml:space="preserve">
+    <value>字號</value>
+  </data>
+  <data name="Sample_8456bc40d4" xml:space="preserve">
+    <value>字體</value>
+  </data>
+  <data name="Sample_e5f71fc31e" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Sample_322b95851a" xml:space="preserve">
+    <value>查找下一個</value>
+  </data>
+  <data name="Sample_051c56b123" xml:space="preserve">
+    <value>增加縮進</value>
+  </data>
+  <data name="Sample_5a12c3b294" xml:space="preserve">
+    <value>減少縮進</value>
+  </data>
+  <data name="Sample_5e92ae1660" xml:space="preserve">
+    <value>項目符號</value>
+  </data>
+  <data name="Sample_b9e88627ad" xml:space="preserve">
+    <value>編號列表</value>
+  </data>
+  <data name="Sample_af69d6c47f" xml:space="preserve">
+    <value>已選擇：{0}</value>
+  </data>
+  <data name="Sample_977acbe88d" xml:space="preserve">
+    <value>這是一條默認提示信息</value>
+  </data>
+  <data name="Sample_68c7b5f75f" xml:space="preserve">
+    <value>這是一條較長的提示文本，用於說明控件的用途與操作建議。</value>
+  </data>
 </root>

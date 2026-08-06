@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="MessageBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,34 +30,34 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="带图标的消息框，支持同步和异步两种调用方式。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_18961e7e86}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowMessageBox_Click"
-                            Content="信息"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}"
                             Tag="Information" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowMessageBox_Click"
-                            Content="警告"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}"
                             Tag="Warning" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowMessageBox_Click"
-                            Content="问题"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5dc99f6efe}}"
                             Tag="Question" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowMessageBox_Click"
-                            Content="错误"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             Tag="Error" />
                     </WrapPanel>
                     <TextBlock
                         x:Name="MessageBoxResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="结果：(等待操作)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e35e9417ad}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

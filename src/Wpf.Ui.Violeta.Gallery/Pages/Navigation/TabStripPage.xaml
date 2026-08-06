@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TabStrip"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,7 +31,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Fluent 指示动画" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_09321a3297}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -56,7 +57,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Lengthening 指示动画" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c09d2052d1}}" />
                     <vio:TabStrip Margin="0,8,0,0" IndicatorAnimation="Lengthening">
                         <vio:TabStripItem Content="Overview" IsSelected="True" />
                         <vio:TabStripItem Content="Details" />
@@ -78,7 +79,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Card / Button 样式" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a5e9b0abe6}}" />
                     <vio:TabStrip Margin="0,8,0,12" Style="{DynamicResource CardTabStripStyle}">
                         <vio:TabStripItem Content="Overview" IsSelected="True" />
                         <vio:TabStripItem Content="Details" />
@@ -106,7 +107,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="禁用项" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4402da40de}}" />
                     <vio:TabStrip Margin="0,8,0,0">
                         <vio:TabStripItem Content="Active" IsSelected="True" />
                         <vio:TabStripItem Content="Preview" />

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TreeModelListView"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,15 +31,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="TreeModelListView — 树模型列表视图" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4e3b273ffa}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="基于 ITreeModel 接口的树形列表，支持动态加载和自定义数据模型。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5a6728a2a6}}" />
                     <ui:TreeModelListView Height="240" Model="{Binding TreeTestModel}">
                         <ui:GridView>
                             <ui:GridView.Columns>
-                                <ui:GridViewColumn Width="280" Header="列1">
+                                <ui:GridViewColumn Width="280" Header="{I18N {x:Static lang:LangKeys.Sample_3fc35bb610}}">
                                     <ui:GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <ui:TreeModelRowExpander Content="{Binding Column1}" />
@@ -48,12 +49,12 @@
                                 <ui:GridViewColumn
                                     Width="200"
                                     DisplayMemberBinding="{Binding Column2}"
-                                    Header="列2" />
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_5098792454}}" />
                                 <ui:GridViewColumn
                                     Width="200"
                                     DisplayMemberBinding="{Binding Column3}"
-                                    Header="列3" />
-                                <ui:GridViewColumn Width="100" Header="选中">
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_2cb11e9ebf}}" />
+                                <ui:GridViewColumn Width="100" Header="{I18N {x:Static lang:LangKeys.Sample_fad7c8a21f}}">
                                     <ui:GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <ui:ToggleSwitch IsChecked="{Binding IsChecked}" />
@@ -64,15 +65,15 @@
                         </ui:GridView>
                     </ui:TreeModelListView>
                     <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <ui:Button Click="AddTreeModelRow_Click" Content="添加行" />
+                        <ui:Button Click="AddTreeModelRow_Click" Content="{I18N {x:Static lang:LangKeys.Sample_58477471b3}}" />
                         <ui:Button
                             Margin="8,0,0,0"
                             Click="RemoveTreeModelRow_Click"
-                            Content="删除行" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_947fa341a6}}" />
                         <ui:Button
                             Margin="8,0,0,0"
                             Click="ClearTreeModel_Click"
-                            Content="清空" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_288f0c404c}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

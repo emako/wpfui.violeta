@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CardAction"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="可点击的卡片操作项，适合设置页快捷入口。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3b7b097beb}}"
                         TextWrapping="Wrap" />
                     <ui:CardAction Icon="{ui:ImageIcon 'pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/wpfui.png'}">
                         <StackPanel>
@@ -63,7 +64,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="带图标、标题与副标题的 CardAction。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a34817221c}}"
                         TextWrapping="Wrap" />
                     <ui:CardAction Icon="{ui:SymbolIcon DocumentEdit20, FontSize=43, Filled=False}">
                         <StackPanel>

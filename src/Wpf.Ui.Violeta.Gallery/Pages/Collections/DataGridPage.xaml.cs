@@ -2,6 +2,8 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;
 
@@ -16,14 +18,14 @@ public partial class DataGridPage : Wpf.Ui.Violeta.Controls.Page
         {
             SampleDataGrid.ItemsSource = new[]
             {
-                new SampleEmployee("张伟", "研发部", 92, "在职"),
-                new SampleEmployee("李娜", "设计部", 88, "在职"),
-                new SampleEmployee("王芳", "产品部", 95, "在职"),
-                new SampleEmployee("刘洋", "运营部", 76, "在职"),
-                new SampleEmployee("陈静", "测试部", 83, "休假"),
-                new SampleEmployee("赵磊", "研发部", 91, "在职"),
-                new SampleEmployee("周梅", "市场部", 79, "离职"),
-                new SampleEmployee("吴鑫", "研发部", 97, "在职"),
+                new SampleEmployee(LangKeys.Sample_305be79653.Tr(), LangKeys.Sample_9176a628cc.Tr(), 92, LangKeys.Sample_b5509be4c5.Tr()),
+                new SampleEmployee(LangKeys.Sample_b1db96a48b.Tr(), LangKeys.Sample_829ec9c321.Tr(), 88, LangKeys.Sample_b5509be4c5.Tr()),
+                new SampleEmployee(LangKeys.Sample_1039106987.Tr(), LangKeys.Sample_c5d34b60ac.Tr(), 95, LangKeys.Sample_b5509be4c5.Tr()),
+                new SampleEmployee(LangKeys.Sample_49c531db9a.Tr(), LangKeys.Sample_b890b34994.Tr(), 76, LangKeys.Sample_b5509be4c5.Tr()),
+                new SampleEmployee(LangKeys.Sample_57a0dec9ef.Tr(), LangKeys.Sample_36e41c1627.Tr(), 83, LangKeys.Sample_62a8cf0af7.Tr()),
+                new SampleEmployee(LangKeys.Sample_ded8c0a3ed.Tr(), LangKeys.Sample_9176a628cc.Tr(), 91, LangKeys.Sample_b5509be4c5.Tr()),
+                new SampleEmployee(LangKeys.Sample_e90b708ea5.Tr(), LangKeys.Sample_73b1110542.Tr(), 79, LangKeys.Sample_583e7924e9.Tr()),
+                new SampleEmployee(LangKeys.Sample_9a201c3894.Tr(), LangKeys.Sample_9176a628cc.Tr(), 97, LangKeys.Sample_b5509be4c5.Tr()),
             };
         };
     }

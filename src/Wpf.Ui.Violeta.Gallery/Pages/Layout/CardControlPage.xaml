@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CardControl"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="CardControl 将标题与内容区域组合为卡片布局。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9bf9a8e24d}}"
                         TextWrapping="Wrap" />
                     <ui:CardControl>
                         <ui:CardControl.Header>
@@ -62,7 +63,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Icon、Header、描述与右侧控件。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4b3ae6ebbf}}"
                         TextWrapping="Wrap" />
                     <ui:CardControl
                         Margin="4"
@@ -106,7 +107,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="ImageIcon 与 DropDownButton 组合示例。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6625c308e8}}"
                         TextWrapping="Wrap" />
                     <ui:CardControl
                         Margin="4"

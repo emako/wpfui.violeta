@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="MultiComboBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -25,11 +26,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ItemsSource 绑定" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ac68bbca75}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="支持多选、标签展示、搜索过滤。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d1f2679e83}}" />
                     <vio:MultiComboBox
                         x:Name="MultiComboBoxDemo"
                         MaxWidth="400"
@@ -39,7 +40,7 @@
                         x:Name="MultiComboBoxResultText"
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="已选择：(无)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b5c92782c9}}" />
                 </StackPanel>
             </Border>
 
@@ -55,11 +56,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="XAML 声明选项" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_227045d271}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="直接在 XAML 中声明 MultiComboBoxItem。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ef0fd2940b}}" />
                     <vio:MultiComboBox
                         Width="240"
                         MaxWidth="400"

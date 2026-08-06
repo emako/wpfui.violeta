@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="RichTextBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,30 +30,30 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="普通 RichTextBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8c56954140}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="标准 WPF 富文本编辑器，支持 FlowDocument。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f91458ff7d}}" />
                     <RichTextBox
                         Height="160"
                         HorizontalAlignment="Stretch">
                         <FlowDocument>
                             <Paragraph>
-                                <Run FontWeight="SemiBold">FlowDocument 示例</Run>
+                                <Run FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_da3e0a9d70}}"></Run>
                                 <LineBreak />
-                                <Run>RichTextBox 可以编辑包含</Run>
-                                <Run FontStyle="Italic">多种格式</Run>
-                                <Run>的文档内容。</Run>
+                                <Run Text="{I18N {x:Static lang:LangKeys.Sample_0b8cd339bb}}"></Run>
+                                <Run FontStyle="Italic" Text="{I18N {x:Static lang:LangKeys.Sample_f6d51bcb81}}"></Run>
+                                <Run Text="{I18N {x:Static lang:LangKeys.Sample_932b484438}}"></Run>
                             </Paragraph>
                             <Paragraph>
-                                <Run>支持</Run>
-                                <Run FontWeight="Bold">粗体</Run>
+                                <Run Text="{I18N {x:Static lang:LangKeys.Sample_262b0b07df}}"></Run>
+                                <Run FontWeight="Bold" Text="{I18N {x:Static lang:LangKeys.Sample_e803663cf5}}"></Run>
                                 <Run>、</Run>
-                                <Run FontStyle="Italic">斜体</Run>
-                                <Run>与</Run>
-                                <Run TextDecorations="Underline">下划线</Run>
-                                <Run>等内联样式。</Run>
+                                <Run FontStyle="Italic" Text="{I18N {x:Static lang:LangKeys.Sample_81d6da77d6}}"></Run>
+                                <Run Text="{I18N {x:Static lang:LangKeys.Sample_3b04598bd0}}"></Run>
+                                <Run TextDecorations="Underline" Text="{I18N {x:Static lang:LangKeys.Sample_f6f8ea0815}}"></Run>
+                                <Run Text="{I18N {x:Static lang:LangKeys.Sample_a69a0f6783}}"></Run>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
@@ -75,7 +76,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Wpf.Ui 风格的 RichTextBox。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_46e283835a}}" />
                     <ui:RichTextBox Height="120" HorizontalAlignment="Stretch">
                         <FlowDocument>
                             <Paragraph>

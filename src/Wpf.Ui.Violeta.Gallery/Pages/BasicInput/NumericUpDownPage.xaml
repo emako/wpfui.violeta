@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="NumericUpDown"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="基本类型" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5d961e79ff}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="NumericUpDown 为抽象基类，请使用具体类型如 NumericIntUpDown。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2904a01f72}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock
@@ -98,7 +99,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="前缀 / 后缀" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_61b1603587}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock
@@ -144,7 +145,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="状态" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock

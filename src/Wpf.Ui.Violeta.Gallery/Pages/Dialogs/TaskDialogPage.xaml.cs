@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;
+using Wpf.Ui.Violeta.Gallery.Globalization;
+using LiteObservableLanguages;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Dialogs;
 
@@ -40,7 +42,7 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
                 "Light" => TaskDialogTheme.Light,
                 _ => TaskDialogTheme.System,
             });
-            TaskDialogResultText.Text = $"主题已切换：{tag}";
+            TaskDialogResultText.Text = LangKeys.Format_ThemeSwitched.Tr(tag);
             return;
         }
 
@@ -57,17 +59,17 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
         };
 
         TaskDialogResultText.Text = clicked is null
-            ? "结果：已取消或关闭"
-            : $"结果：{clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $" — {clicked.Text}")}";
+            ? LangKeys.Sample_395d500fbf.Tr()
+            : LangKeys.Format_ResultDetail.Tr(clicked.ButtonType, string.IsNullOrEmpty(clicked.Text) ? string.Empty : LangKeys.Format_DashDetail.Tr(clicked.Text));
     }
 
     private static TaskDialogButton? ShowInformationTaskDialog(nint owner)
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 信息",
-            MainInstruction = "这是一个信息 TaskDialog",
-            Content = "支持暗色主题，通过 DWM + SetWindowTheme + 窗口子类化实现。",
+            WindowTitle = LangKeys.Sample_eb38190f53.Tr(),
+            MainInstruction = LangKeys.Sample_ed377f66a0.Tr(),
+            Content = LangKeys.Sample_c693b80589.Tr(),
             MainIcon = TaskDialogIcon.Information,
         };
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
@@ -78,9 +80,9 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 警告",
-            MainInstruction = "请注意以下事项",
-            Content = "这是一个带页脚图标和超链接的警告对话框。\n\n访问 <A HREF=\"https://github.com/emako/wpfui.violeta\">WPF UI Violeta</A> 了解更多。",
+            WindowTitle = LangKeys.Sample_2b68259daf.Tr(),
+            MainInstruction = LangKeys.Sample_180108e19c.Tr(),
+            Content = LangKeys.Sample_4ed22fb344.Tr(),
             MainIcon = TaskDialogIcon.Warning,
             FooterIcon = TaskDialogIcon.Shield,
             EnableHyperlinks = true,
@@ -101,11 +103,11 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 错误",
-            MainInstruction = "发生了严重错误",
-            Content = "演示错误图标与重试 / 取消按钮。",
+            WindowTitle = LangKeys.Sample_2cf6355daa.Tr(),
+            MainInstruction = LangKeys.Sample_234601f1a4.Tr(),
+            Content = LangKeys.Sample_c8a01628d6.Tr(),
             MainIcon = TaskDialogIcon.Error,
-            Footer = "错误代码：0x80004005",
+            Footer = LangKeys.Sample_b98522c6a1.Tr(),
             FooterIcon = TaskDialogIcon.Shield,
         };
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Retry));
@@ -117,28 +119,28 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 命令链接",
-            MainInstruction = "请选择一个操作",
-            Content = "此对话框使用命令链接按钮。",
+            WindowTitle = LangKeys.Sample_91f1130627.Tr(),
+            MainInstruction = LangKeys.Sample_4bf5433ad8.Tr(),
+            Content = LangKeys.Sample_7fb644b8b6.Tr(),
             MainIcon = TaskDialogIcon.Information,
             ButtonStyle = TaskDialogButtonStyle.CommandLinks,
             AllowDialogCancellation = true,
         };
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
         {
-            Text = "继续",
-            CommandLinkNote = "继续当前操作",
+            Text = LangKeys.Sample_27ca568be2.Tr(),
+            CommandLinkNote = LangKeys.Sample_c81e7712be.Tr(),
             Default = true,
         });
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
         {
-            Text = "重试",
-            CommandLinkNote = "从头开始操作",
+            Text = LangKeys.Sample_132c5cdcce.Tr(),
+            CommandLinkNote = LangKeys.Sample_24dfe773c7.Tr(),
         });
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Custom)
         {
-            Text = "取消",
-            CommandLinkNote = "中止并返回",
+            Text = LangKeys.Sample_625fb26b4b.Tr(),
+            CommandLinkNote = LangKeys.Sample_e4568d8868.Tr(),
         });
         return dialog.ShowDialog(owner);
     }
@@ -147,15 +149,15 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 可展开信息",
-            MainInstruction = "可展开的任务对话框",
-            Content = "点击展开控件查看更多详细信息。",
+            WindowTitle = LangKeys.Sample_629dd8a6ea.Tr(),
+            MainInstruction = LangKeys.Sample_484693ecc7.Tr(),
+            Content = LangKeys.Sample_e2e51ea8f9.Tr(),
             MainIcon = TaskDialogIcon.Information,
-            VerificationText = "不再显示",
-            ExpandedInformation = "此处可放置技术细节、堆栈跟踪、日志片段或链接。",
-            ExpandedControlText = "隐藏详细信息",
-            CollapsedControlText = "显示详细信息",
-            Footer = "切换主题：<A HREF=\"dark\">深色</A>  |  <A HREF=\"light\">浅色</A>",
+            VerificationText = LangKeys.Sample_fb54df5d84.Tr(),
+            ExpandedInformation = LangKeys.Sample_76b983b8e6.Tr(),
+            ExpandedControlText = LangKeys.Sample_4d4d95676e.Tr(),
+            CollapsedControlText = LangKeys.Sample_7053881e1b.Tr(),
+            Footer = LangKeys.Sample_85ed85c69f.Tr(),
             FooterIcon = TaskDialogIcon.Shield,
             EnableHyperlinks = true,
             ExpandFooterArea = true,
@@ -173,14 +175,14 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 单选按钮",
-            MainInstruction = "选择安装方式",
-            Content = "请选择希望使用的安装选项。",
+            WindowTitle = LangKeys.Sample_7be4dfd564.Tr(),
+            MainInstruction = LangKeys.Sample_da479fcbb1.Tr(),
+            Content = LangKeys.Sample_eed4f2841b.Tr(),
             MainIcon = TaskDialogIcon.Information,
         };
-        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "典型安装", Checked = true });
-        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "自定义安装" });
-        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = "完整安装" });
+        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = LangKeys.Sample_3407d84a3a.Tr(), Checked = true });
+        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = LangKeys.Sample_9bcbd65034.Tr() });
+        dialog.RadioButtons.Add(new TaskDialogRadioButton { Text = LangKeys.Sample_0dd1930c12.Tr() });
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Ok));
         dialog.Buttons.Add(new TaskDialogButton(ButtonType.Cancel));
         return dialog.ShowDialog(owner);
@@ -190,9 +192,9 @@ public partial class TaskDialogPage : Wpf.Ui.Violeta.Controls.Page
     {
         using TaskDialog dialog = new()
         {
-            WindowTitle = "TaskDialog — 进度条",
-            MainInstruction = "正在处理…",
-            Content = "此对话框演示跑马灯进度条。",
+            WindowTitle = LangKeys.Sample_d02ebc627c.Tr(),
+            MainInstruction = LangKeys.Sample_72628b3afc.Tr(),
+            Content = LangKeys.Sample_10129a2fd7.Tr(),
             MainIcon = TaskDialogIcon.Information,
             ProgressBarStyle = ProgressBarStyle.MarqueeProgressBar,
             ProgressBarMarqueeAnimationSpeed = 60,

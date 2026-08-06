@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="DataGrid"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -30,11 +31,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="DataGrid — 数据表格" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_976db78a60}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WPF-UI 风格的数据表格，支持排序、选择和虚拟化。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_947e334a08}}" />
                     <ui:DataGrid
                         x:Name="SampleDataGrid"
                         MaxHeight="360"
@@ -45,19 +46,19 @@
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Name}"
-                                Header="姓名" />
+                                Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Department}"
-                                Header="部门" />
+                                Header="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Score}"
-                                Header="分数" />
+                                Header="{I18N {x:Static lang:LangKeys.Sample_b34422e637}}" />
                             <DataGridTextColumn
                                 Width="*"
                                 Binding="{Binding Status}"
-                                Header="状态" />
+                                Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
                         </ui:DataGrid.Columns>
                     </ui:DataGrid>
                 </StackPanel>

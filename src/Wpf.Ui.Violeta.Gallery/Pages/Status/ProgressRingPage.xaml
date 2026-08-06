@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ProgressRing"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -33,7 +34,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WPF UI 环形进度指示器。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5d47c178f6}}"
                         TextWrapping="Wrap" />
                     <ui:ProgressRing HorizontalAlignment="Center" IsIndeterminate="True" />
                 </StackPanel>
@@ -55,7 +56,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Progress 属性（0–100）显示确定进度。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ad4a69520c}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="24">
                         <ui:ProgressRing Progress="25" />

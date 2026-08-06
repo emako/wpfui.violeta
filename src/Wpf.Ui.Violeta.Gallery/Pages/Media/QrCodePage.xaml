@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="QrCode"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,11 +21,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="QrCode — 二维码" />
+                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_23561a8205}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="根据文本数据生成二维码，可调整纠错级别与圆角。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_26cfbf3fb6}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:QrCode
@@ -36,13 +37,13 @@
                             ErrorCorrection="Medium"
                             SymbolCornerRatio="0.2" />
                         <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Margin="0,0,0,4" Text="内容" />
+                            <TextBlock Margin="0,0,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_2d711b09bd}}" />
                             <TextBox
                                 x:Name="QrDataTextBox"
                                 Width="240"
                                 Text="https://github.com/emako/wpfui.violeta"
                                 TextChanged="QrDataTextBox_OnTextChanged" />
-                            <TextBlock Margin="0,12,0,4" Text="圆角比例" />
+                            <TextBlock Margin="0,12,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_dd8f6a81a6}}" />
                             <Slider
                                 x:Name="CornerRatioSlider"
                                 Width="240"

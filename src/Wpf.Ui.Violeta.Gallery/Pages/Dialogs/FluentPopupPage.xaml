@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="FluentPopup"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,7 +30,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Fluent 风格弹出层，支持 Slide / Fade / None 动画。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8187a6e35a}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <StackPanel>
                             <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Slide" />

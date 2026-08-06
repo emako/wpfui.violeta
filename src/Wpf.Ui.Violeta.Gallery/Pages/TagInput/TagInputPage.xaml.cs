@@ -1,6 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
+using LiteObservableLanguages;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.TagInput;
 
@@ -34,7 +36,7 @@ public partial class TagInputPage : Wpf.Ui.Violeta.Controls.Page
     private void UpdateBasicTagsText()
     {
         TagInputBasicResultText.Text = _basicTags.Count == 0
-            ? "标签：(无)"
-            : "标签：" + string.Join("、", _basicTags);
+            ? LangKeys.Sample_ce8e73e55c.Tr()
+            : LangKeys.Sample_1655dd5f2c.Tr() + string.Join("、", _basicTags);
     }
 }

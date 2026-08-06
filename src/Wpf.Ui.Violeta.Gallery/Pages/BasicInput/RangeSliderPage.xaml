@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="RangeSlider"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="水平" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4cde06e616}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="双滑块范围选择，支持刻度吸附。" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c23c5bc472}}" />
                     <StackPanel>
                         <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
                             <TextBlock
@@ -108,7 +109,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="垂直" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_75ac842f8e}}" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,24,0" Orientation="Horizontal">
                             <TextBlock

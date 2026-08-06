@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="TeachingTip"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -19,7 +20,7 @@
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="面向目标的教学提示，支持 Title / Subtitle / Hero / Action / Close 与 Light Dismiss。"
+                Text="{I18N {x:Static lang:LangKeys.Sample_78636353a3}}"
                 TextWrapping="Wrap" />
 
             <!--  Targeted tip  -->
@@ -39,7 +40,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="锚定到指定控件，展示图标与双按钮。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4d3cc18eb2}}"
                         TextWrapping="Wrap" />
                     <Button
                         x:Name="TargetedTipButton"
@@ -78,7 +79,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="不绑定 Target，点击外部可关闭。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f5403ebf57}}"
                         TextWrapping="Wrap" />
                     <Button
                         HorizontalAlignment="Left"
@@ -113,7 +114,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="带 Hero 区域与自定义内容的 TeachingTip。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ca50c39bef}}"
                         TextWrapping="Wrap" />
                     <Button
                         x:Name="HeroTipButton"
