@@ -1,0 +1,32 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--
+        SearchBox — Fluent search field: leading Search icon, trailing clear button,
+        and the standard TextBox accent focus underline.
+        Template is inherited from DefaultUiTextBoxStyle.
+    -->
+    <Style
+        x:Key="DefaultUiSearchBoxStyle"
+        BasedOn="{StaticResource DefaultUiTextBoxStyle}"
+        TargetType="{x:Type local:SearchBox}">
+        <Setter Property="ClearButtonEnabled" Value="True" />
+        <Setter Property="IconPlacement" Value="Left" />
+        <Setter Property="PlaceholderText" Value="Search" />
+        <Setter Property="Icon">
+            <Setter.Value>
+                <controls:IconSourceElement>
+                    <controls:IconSourceElement.IconSource>
+                        <controls:SymbolIconSource Symbol="Search24" />
+                    </controls:IconSourceElement.IconSource>
+                </controls:IconSourceElement>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultUiSearchBoxStyle}" TargetType="{x:Type local:SearchBox}" />
+
+</ResourceDictionary>

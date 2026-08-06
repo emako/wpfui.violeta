@@ -94,6 +94,7 @@ public partial class MainWindow : ShellWindow
 
         ["text/textbox"] = static () => new TextBoxPage(),
         ["text/auto-suggest-box"] = static () => new AutoSuggestBoxPage(),
+        ["text/search-box"] = static () => new SearchBoxPage(),
         ["text/number-box"] = static () => new NumberBoxPage(),
         ["text/password-box"] = static () => new PasswordBoxPage(),
         ["text/rich-text-box"] = static () => new RichTextBoxPage(),

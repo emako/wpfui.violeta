@@ -178,6 +178,7 @@
                         <vio:NavigationViewItem Content="PasswordBox" Tag="text/password-box" />
                         <vio:NavigationViewItem Content="RichTextBox" Tag="text/rich-text-box" />
                         <vio:NavigationViewItem Content="AutoSuggestBox" Tag="text/auto-suggest-box" />
+                        <vio:NavigationViewItem Content="SearchBox" Tag="text/search-box" />
                         <vio:NavigationViewItem Content="PinCode" Tag="basic-input/pin-code" />
                         <vio:NavigationViewItem Content="KeyGestureInput" Tag="basic-input/key-gesture-input" />
                         <vio:NavigationViewItem Content="IPv4Box" Tag="basic-input/ipv4-box" />
