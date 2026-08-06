@@ -7,7 +7,8 @@ public enum OverflowFlyoutAutoCloseMode
 {
     /// <summary>
     /// Like a ComboBox dropdown: clicking outside closes the flyout.
-    /// Clicking an overflow item that is itself a <see cref="System.Windows.Controls.Primitives.ButtonBase"/> also closes it.
+    /// Clicking an overflow item that matches <see cref="OverflowFlyoutAutoCloseTypes"/>
+    /// (whitelist, not blacklist; whitelist defaults to <see cref="System.Windows.Controls.Primitives.ButtonBase"/>) also closes it.
     /// Nested buttons inside ComboBox / other hosts do not dismiss the flyout.
     /// </summary>
     Default = 0,

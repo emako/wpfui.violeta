@@ -520,7 +520,7 @@ public class ToolBar : ItemsControl
 
             if (current is UIElement element && Items.Contains(element))
             {
-                if (!buttonBaseItemOnly || element is ButtonBase)
+                if (!buttonBaseItemOnly || OverflowFlyoutAutoCloseTypes.Matches(element))
                 {
                     IsOverflowOpen = false;
                 }
@@ -543,10 +543,7 @@ public class ToolBar : ItemsControl
 
     private void DetachOverflowButton()
     {
-        if (_overflowButton is not null)
-        {
-            _overflowButton.Click -= OnOverflowButtonClick;
-        }
+        _overflowButton?.Click -= OnOverflowButtonClick;
     }
 
     private void OnOverflowButtonClick(object sender, RoutedEventArgs e)
