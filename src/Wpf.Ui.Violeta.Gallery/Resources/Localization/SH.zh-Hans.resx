@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Gallery_AppTitle" xml:space="preserve">
+    <value>Wpf.Ui.Violeta Gallery</value>
+  </data>
+  <data name="Gallery_Welcome" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="Gallery_PaneTitle" xml:space="preserve">
+    <value>Violeta Gallery</value>
+  </data>
+  <data name="Gallery_SearchPlaceholder" xml:space="preserve">
+    <value>搜索...</value>
+  </data>
+  <data name="Gallery_Theme" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="Gallery_Theme_System" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="Gallery_Theme_Dark" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="Gallery_Theme_Light" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Gallery_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Gallery_Nav_Home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Gallery_Nav_Design" xml:space="preserve">
+    <value>设计指南</value>
+  </data>
+  <data name="Gallery_Nav_AllSamples" xml:space="preserve">
+    <value>全部示例</value>
+  </data>
+  <data name="Gallery_Nav_Buttons" xml:space="preserve">
+    <value>按钮</value>
+  </data>
+  <data name="Gallery_Nav_Selection" xml:space="preserve">
+    <value>选择开关</value>
+  </data>
+  <data name="Gallery_Nav_Sliders" xml:space="preserve">
+    <value>滑块</value>
+  </data>
+  <data name="Gallery_Nav_NumberInput" xml:space="preserve">
+    <value>数值输入</value>
+  </data>
+  <data name="Gallery_Nav_TextInput" xml:space="preserve">
+    <value>文本输入</value>
+  </data>
+  <data name="Gallery_Nav_TextDisplay" xml:space="preserve">
+    <value>文本显示</value>
+  </data>
+  <data name="Gallery_Nav_ComboBox" xml:space="preserve">
+    <value>多选框</value>
+  </data>
+  <data name="Gallery_Nav_Pickers" xml:space="preserve">
+    <value>选择器</value>
+  </data>
+  <data name="Gallery_Nav_Dialogs" xml:space="preserve">
+    <value>对话框与浮出</value>
+  </data>
+  <data name="Gallery_Nav_Notifications" xml:space="preserve">
+    <value>通知与横幅</value>
+  </data>
+  <data name="Gallery_Nav_Collections" xml:space="preserve">
+    <value>集合</value>
+  </data>
+  <data name="Gallery_Nav_Navigation" xml:space="preserve">
+    <value>导航</value>
+  </data>
+  <data name="Gallery_Nav_Layout" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="Gallery_Nav_Status" xml:space="preserve">
+    <value>状态与信息</value>
+  </data>
+  <data name="Gallery_Nav_Media" xml:space="preserve">
+    <value>媒体</value>
+  </data>
+  <data name="Gallery_Nav_Feedback" xml:space="preserve">
+    <value>反馈与动画</value>
+  </data>
+  <data name="Gallery_Nav_Windows" xml:space="preserve">
+    <value>窗口与外壳</value>
+  </data>
+  <data name="Gallery_Nav_OpSystem" xml:space="preserve">
+    <value>操作系统</value>
+  </data>
+  <data name="Gallery_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Gallery_Tray_MinimizedMessage" xml:space="preserve">
+    <value>应用已最小化到系统托盘。双击图标可重新打开窗口。</value>
+  </data>
+  <data name="Gallery_Home_Subtitle" xml:space="preserve">
+    <value>基于 WPF-UI 的扩展控件库，提供 Fluent Design 风格的高级 UI 组件。</value>
+  </data>
+  <data name="Gallery_Home_Hint" xml:space="preserve">
+    <value>支持 .NET Framework 4.6.2 至 .NET 10，深色 / 浅色主题。左侧按控件类型分组浏览全部示例。</value>
+  </data>
+  <data name="Gallery_Home_Categories" xml:space="preserve">
+    <value>控件分类</value>
+  </data>
+  <data name="Gallery_Home_Design_Desc" xml:space="preserve">
+    <value>Typography、Icons、Colors</value>
+  </data>
+  <data name="Gallery_Home_AllSamples_Desc" xml:space="preserve">
+    <value>按分组浏览所有控件</value>
+  </data>
+  <data name="Gallery_Home_Buttons_Desc" xml:space="preserve">
+    <value>Button、SplitButton、LoadingButton 等</value>
+  </data>
+  <data name="Gallery_Home_Selection_Desc" xml:space="preserve">
+    <value>CheckBox、RadioButton、ToggleSwitch、Rating</value>
+  </data>
+  <data name="Gallery_Home_Sliders_Desc" xml:space="preserve">
+    <value>Slider、RangeSlider</value>
+  </data>
+  <data name="Gallery_Home_NumberInput_Desc" xml:space="preserve">
+    <value>NumberBox、NumericUpDown、ButtonSpinner</value>
+  </data>
+  <data name="Gallery_Home_TextInput_Desc" xml:space="preserve">
+    <value>TextBox、PasswordBox、PinCode、TagInput</value>
+  </data>
+  <data name="Gallery_Home_TextDisplay_Desc" xml:space="preserve">
+    <value>Label、TextBlock、Hyperlink</value>
+  </data>
+  <data name="Gallery_Home_ComboBox_Desc" xml:space="preserve">
+    <value>ComboBox、MultiComboBox、TreeComboBox</value>
+  </data>
+  <data name="Gallery_Home_Pickers_Desc" xml:space="preserve">
+    <value>DatePicker、ColorPicker、FilePicker</value>
+  </data>
+  <data name="Gallery_Home_Dialogs_Desc" xml:space="preserve">
+    <value>ContentDialog、MessageBox、Flyout</value>
+  </data>
+  <data name="Gallery_Home_Notifications_Desc" xml:space="preserve">
+    <value>Toast、Banner、TrayIcon</value>
+  </data>
+  <data name="Gallery_Home_Collections_Desc" xml:space="preserve">
+    <value>DataGrid、TreeListView、FlipView、Timeline</value>
+  </data>
+  <data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
+    <value>NavigationView、TabStrip、Anchor</value>
+  </data>
+  <data name="Gallery_Home_Layout_Desc" xml:space="preserve">
+    <value>AutoGrid、Form、Drawer、Divider</value>
+  </data>
+  <data name="Gallery_Home_Status_Desc" xml:space="preserve">
+    <value>Badge、Skeleton、BusyMask</value>
+  </data>
+  <data name="Gallery_Home_Media_Desc" xml:space="preserve">
+    <value>ImageView、PersonPicture、QrCode</value>
+  </data>
+  <data name="Gallery_Home_Feedback_Desc" xml:space="preserve">
+    <value>RunningBlock、AsyncBox、Splash</value>
+  </data>
+  <data name="Gallery_Home_Windows_Desc" xml:space="preserve">
+    <value>ShellWindow、TitleBar、Caption</value>
+  </data>
+  <data name="Gallery_Home_OpSystem_Desc" xml:space="preserve">
+    <value>Clipboard</value>
+  </data>
+  <data name="Gallery_Home_Settings_Desc" xml:space="preserve">
+    <value>主题切换与关于信息</value>
+  </data>
+  <data name="Gallery_Settings_Title" xml:space="preserve">
+    <value>应用设置</value>
+  </data>
+  <data name="Gallery_Settings_Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
+    <value>切换应用主题与窗口背景材质。主题可在标题栏快捷切换；Backdrop 依赖系统版本，不支持的项会自动禁用。</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop" xml:space="preserve">
+    <value>窗口背景</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_None" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_Auto" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_Experimental" xml:space="preserve">
+    <value>实验性功能（暂未完全适配 WPF-UI 框架）</value>
+  </data>
+  <data name="Gallery_Settings_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Gallery_Settings_About_Desc" xml:space="preserve">
+    <value>Wpf.Ui.Violeta Gallery — 控件演示与交互验证应用。</value>
+  </data>
+  <data name="Gallery_Settings_LibraryVersion" xml:space="preserve">
+    <value>库版本</value>
+  </data>
+  <data name="Gallery_Settings_Runtime" xml:space="preserve">
+    <value>运行时</value>
+  </data>
+  <data name="Gallery_Settings_NavItem" xml:space="preserve">
+    <value>NavigationView 设置项</value>
+  </data>
+  <data name="Gallery_Settings_NavItem_Desc" xml:space="preserve">
+    <value>本页通过 NavigationView 底部设置按钮（IsSettingsVisible）导航进入，用于演示 SettingsItem 选中与页面切换联动。</value>
+  </data>
+  <data name="Gallery_Settings_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
+    <value>切换 Gallery 界面语言，更改立即生效。</value>
+  </data>
+</root>

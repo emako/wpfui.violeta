@@ -9,6 +9,7 @@
         <AssemblyTitle>Wpf.Ui.Violeta Gallery</AssemblyTitle>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <ApplicationIcon>Resources\Images\wpfui.ico</ApplicationIcon>
+        <NoWarn>$(NoWarn);CS2002</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +19,7 @@
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
         <PackageReference Include="FluentUI.HarmonyOS.Assets" Version="1.0.0" />
+        <PackageReference Include="LiteObservableLanguages" Version="1.0.2" />
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4129.50" />
     </ItemGroup>
 
@@ -27,6 +29,27 @@
 		<Resource Include="$(NuGetPackageRoot)\FluentUI.HarmonyOS.Assets\1.0.0\assets\HarmonyOS_Sans_SC\HarmonyOS_Sans_SC_Regular.ttf">
 			<Link>Resources\Fonts\HarmonyOS_Sans_SC_Regular.ttf</Link>
 		</Resource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\Localization\SH.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>SH.Designer.cs</LastGenOutput>
+            <StronglyTypedFileName>Resources\Localization\SH.Designer.cs</StronglyTypedFileName>
+            <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+            <StronglyTypedNamespace>Wpf.Ui.Violeta.Gallery.Resources.Localization</StronglyTypedNamespace>
+            <StronglyTypedClassName>SH</StronglyTypedClassName>
+            <Public>true</Public>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.ja.resx">
+            <DependentUpon>SH.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.zh-Hans.resx">
+            <DependentUpon>SH.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Localization\SH.zh-Hant.resx">
+            <DependentUpon>SH.resx</DependentUpon>
+        </EmbeddedResource>
     </ItemGroup>
 
 </Project>

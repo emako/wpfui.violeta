@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Settings;
@@ -13,6 +14,7 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Settings;
 public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 {
     private bool _syncingAppearance;
+    private bool _syncingLanguage;
 
     public SettingsPage()
     {
@@ -36,6 +38,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
     {
         base.OnNavigatedTo(e);
         SyncAppearanceFromShell();
+        SyncLanguageFromShell();
     }
 
     private void SyncAppearanceFromShell()
@@ -58,6 +61,36 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         finally
         {
             _syncingAppearance = false;
+        }
+    }
+
+    private void SyncLanguageFromShell()
+    {
+        var language = Window.GetWindow(this) is MainWindow mainWindow
+            ? mainWindow.LanguageComboBoxSelectedTag
+            : MuiLanguageManager.Language;
+
+        SelectLanguageItem(language);
+    }
+
+    private void SelectLanguageItem(string language)
+    {
+        _syncingLanguage = true;
+        try
+        {
+            for (var i = 0; i < LanguageComboBox.Items.Count; i++)
+            {
+                if (LanguageComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+                    && string.Equals(tag, language, StringComparison.OrdinalIgnoreCase))
+                {
+                    LanguageComboBox.SelectedIndex = i;
+                    return;
+                }
+            }
+        }
+        finally
+        {
+            _syncingLanguage = false;
         }
     }
 
@@ -90,6 +123,26 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
                 BackdropComboBox.SelectedIndex = i;
                 return;
             }
+        }
+    }
+
+    private void LanguageComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!IsLoaded || _syncingLanguage)
+        {
+            return;
+        }
+
+        if (LanguageComboBox.SelectedItem is not ComboBoxItem { Tag: string language })
+        {
+            return;
+        }
+
+        MuiLanguageManager.SetLanguage(language);
+
+        if (Window.GetWindow(this) is MainWindow mainWindow)
+        {
+            mainWindow.SyncLanguageComboBox(language);
         }
     }
 

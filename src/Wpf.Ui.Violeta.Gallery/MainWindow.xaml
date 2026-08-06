@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Wpf.Ui.Violeta Gallery"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}"
     Width="1280"
     Height="800"
     ExtendsContentIntoTitleBar="True"
@@ -36,7 +37,7 @@
                 <TextBlock
                     Margin="8,0"
                     VerticalAlignment="Center"
-                    Text="Wpf.Ui.Violeta Gallery" />
+                    Text="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}" />
             </vio:TitleBar.CustomHeader>
             <vio:TitleBar.CustomFooter>
                 <StackPanel
@@ -47,15 +48,29 @@
                     <TextBlock
                         VerticalAlignment="Center"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="主题" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Language}}" />
+                    <ComboBox
+                        x:Name="LanguageComboBox"
+                        MinWidth="110"
+                        Margin="8,0,12,0"
+                        SelectionChanged="LanguageComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="简体中文" Tag="zh-Hans" IsSelected="True" />
+                        <ComboBoxItem Content="繁體中文" Tag="zh-Hant" />
+                        <ComboBoxItem Content="English" Tag="en" />
+                        <ComboBoxItem Content="日本語" Tag="ja" />
+                    </ComboBox>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Theme}}" />
                     <ComboBox
                         x:Name="ThemeComboBox"
                         MinWidth="100"
                         Margin="8,0,0,0"
                         SelectionChanged="ThemeComboBox_OnSelectionChanged">
-                        <ComboBoxItem Content="跟随系统" />
-                        <ComboBoxItem Content="深色" IsSelected="True" />
-                        <ComboBoxItem Content="浅色" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_System}}" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}" IsSelected="True" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Light}}" />
                     </ComboBox>
                 </StackPanel>
             </vio:TitleBar.CustomFooter>
@@ -68,20 +83,20 @@
             AlwaysShowHeader="True"
             BackRequested="GalleryNav_OnBackRequested"
             CompactPaneLength="52"
-            Header="欢迎"
+            Header="{I18N {x:Static lang:LangKeys.Gallery_Welcome}}"
             IsBackButtonVisible="Visible"
             IsBackEnabled="True"
             IsPaneOpen="True"
             IsPaneToggleButtonVisible="True"
             IsSettingsVisible="True"
             OpenPaneLength="260"
-            PaneTitle="Violeta Gallery"
+            PaneTitle="{I18N {x:Static lang:LangKeys.Gallery_PaneTitle}}"
             SelectionChanged="GalleryNav_OnSelectionChanged">
             <vio:NavigationView.AutoSuggestBox>
                 <ui:AutoSuggestBox
                     x:Name="AutoSuggestBox"
                     AutomationProperties.AutomationId="NavigationAutoSuggestBox"
-                    PlaceholderText="搜索...">
+                    PlaceholderText="{I18N {x:Static lang:LangKeys.Gallery_SearchPlaceholder}}">
                     <ui:AutoSuggestBox.Icon>
                         <ui:IconSourceElement>
                             <ui:SymbolIconSource Symbol="Search24" />
@@ -93,14 +108,14 @@
             <vio:NavigationView.MenuItems>
                 <vio:NavigationViewItem
                     x:Name="HomeItem"
-                    Content="主页"
+                    Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}"
                     Tag="home">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE80F;" />
                     </vio:NavigationViewItem.Icon>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="设计指南" Tag="design">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Design}}" Tag="design">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
                     </vio:NavigationViewItem.Icon>
@@ -111,7 +126,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="全部示例" Tag="all">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_AllSamples}}" Tag="all">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA37;" />
                     </vio:NavigationViewItem.Icon>
@@ -119,7 +134,7 @@
 
                 <vio:NavigationViewItemSeparator />
 
-                <vio:NavigationViewItem Content="按钮" Tag="buttons">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Buttons}}" Tag="buttons">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE73E;" />
                     </vio:NavigationViewItem.Icon>
@@ -135,7 +150,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="选择开关" Tag="selection">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Selection}}" Tag="selection">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE739;" />
                     </vio:NavigationViewItem.Icon>
@@ -148,7 +163,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="滑块" Tag="sliders">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Sliders}}" Tag="sliders">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE76B;" />
                     </vio:NavigationViewItem.Icon>
@@ -158,7 +173,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="数值输入" Tag="number-input">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_NumberInput}}" Tag="number-input">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8EF;" />
                     </vio:NavigationViewItem.Icon>
@@ -169,7 +184,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="文本输入" Tag="text-input">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_TextInput}}" Tag="text-input">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8D2;" />
                     </vio:NavigationViewItem.Icon>
@@ -187,7 +202,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="文本显示" Tag="text-display">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_TextDisplay}}" Tag="text-display">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
                     </vio:NavigationViewItem.Icon>
@@ -200,7 +215,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="多选框" Tag="combo-box">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_ComboBox}}" Tag="combo-box">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE70D;" />
                     </vio:NavigationViewItem.Icon>
@@ -213,7 +228,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="选择器" Tag="pickers">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Pickers}}" Tag="pickers">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
                     </vio:NavigationViewItem.Icon>
@@ -232,7 +247,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="对话框与浮出" Tag="dialogs">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Dialogs}}" Tag="dialogs">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8BD;" />
                     </vio:NavigationViewItem.Icon>
@@ -249,7 +264,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="通知与横幅" Tag="notifications">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Notifications}}" Tag="notifications">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA0C;" />
                     </vio:NavigationViewItem.Icon>
@@ -261,7 +276,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="集合" Tag="collections">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Collections}}" Tag="collections">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE9D9;" />
                     </vio:NavigationViewItem.Icon>
@@ -278,7 +293,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="导航" Tag="navigation">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Navigation}}" Tag="navigation">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE700;" />
                     </vio:NavigationViewItem.Icon>
@@ -294,7 +309,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="布局" Tag="layout">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Layout}}" Tag="layout">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8A5;" />
                     </vio:NavigationViewItem.Icon>
@@ -314,7 +329,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="状态与信息" Tag="status">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Status}}" Tag="status">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
                     </vio:NavigationViewItem.Icon>
@@ -331,7 +346,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="媒体" Tag="media">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Media}}" Tag="media">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B9;" />
                     </vio:NavigationViewItem.Icon>
@@ -348,7 +363,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="反馈与动画" Tag="feedback">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Feedback}}" Tag="feedback">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE895;" />
                     </vio:NavigationViewItem.Icon>
@@ -361,7 +376,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="窗口与外壳" Tag="windows">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Windows}}" Tag="windows">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE737;" />
                     </vio:NavigationViewItem.Icon>
@@ -373,7 +388,7 @@
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
-                <vio:NavigationViewItem Content="操作系统" Tag="op-system">
+                <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_OpSystem}}" Tag="op-system">
                     <vio:NavigationViewItem.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE770;" />
                     </vio:NavigationViewItem.Icon>

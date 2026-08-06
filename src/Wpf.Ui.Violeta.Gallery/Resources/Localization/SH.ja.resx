@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Gallery_AppTitle" xml:space="preserve">
+    <value>Wpf.Ui.Violeta Gallery</value>
+  </data>
+  <data name="Gallery_Welcome" xml:space="preserve">
+    <value>ようこそ</value>
+  </data>
+  <data name="Gallery_PaneTitle" xml:space="preserve">
+    <value>Violeta Gallery</value>
+  </data>
+  <data name="Gallery_SearchPlaceholder" xml:space="preserve">
+    <value>検索...</value>
+  </data>
+  <data name="Gallery_Theme" xml:space="preserve">
+    <value>テーマ</value>
+  </data>
+  <data name="Gallery_Theme_System" xml:space="preserve">
+    <value>システムに従う</value>
+  </data>
+  <data name="Gallery_Theme_Dark" xml:space="preserve">
+    <value>ダーク</value>
+  </data>
+  <data name="Gallery_Theme_Light" xml:space="preserve">
+    <value>ライト</value>
+  </data>
+  <data name="Gallery_Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Gallery_Nav_Home" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
+  <data name="Gallery_Nav_Design" xml:space="preserve">
+    <value>デザインガイド</value>
+  </data>
+  <data name="Gallery_Nav_AllSamples" xml:space="preserve">
+    <value>すべてのサンプル</value>
+  </data>
+  <data name="Gallery_Nav_Buttons" xml:space="preserve">
+    <value>ボタン</value>
+  </data>
+  <data name="Gallery_Nav_Selection" xml:space="preserve">
+    <value>選択スイッチ</value>
+  </data>
+  <data name="Gallery_Nav_Sliders" xml:space="preserve">
+    <value>スライダー</value>
+  </data>
+  <data name="Gallery_Nav_NumberInput" xml:space="preserve">
+    <value>数値入力</value>
+  </data>
+  <data name="Gallery_Nav_TextInput" xml:space="preserve">
+    <value>テキスト入力</value>
+  </data>
+  <data name="Gallery_Nav_TextDisplay" xml:space="preserve">
+    <value>テキスト表示</value>
+  </data>
+  <data name="Gallery_Nav_ComboBox" xml:space="preserve">
+    <value>コンボボックス</value>
+  </data>
+  <data name="Gallery_Nav_Pickers" xml:space="preserve">
+    <value>ピッカー</value>
+  </data>
+  <data name="Gallery_Nav_Dialogs" xml:space="preserve">
+    <value>ダイアログとフライアウト</value>
+  </data>
+  <data name="Gallery_Nav_Notifications" xml:space="preserve">
+    <value>通知とバナー</value>
+  </data>
+  <data name="Gallery_Nav_Collections" xml:space="preserve">
+    <value>コレクション</value>
+  </data>
+  <data name="Gallery_Nav_Navigation" xml:space="preserve">
+    <value>ナビゲーション</value>
+  </data>
+  <data name="Gallery_Nav_Layout" xml:space="preserve">
+    <value>レイアウト</value>
+  </data>
+  <data name="Gallery_Nav_Status" xml:space="preserve">
+    <value>状態と情報</value>
+  </data>
+  <data name="Gallery_Nav_Media" xml:space="preserve">
+    <value>メディア</value>
+  </data>
+  <data name="Gallery_Nav_Feedback" xml:space="preserve">
+    <value>フィードバックとアニメーション</value>
+  </data>
+  <data name="Gallery_Nav_Windows" xml:space="preserve">
+    <value>ウィンドウとシェル</value>
+  </data>
+  <data name="Gallery_Nav_OpSystem" xml:space="preserve">
+    <value>オペレーティングシステム</value>
+  </data>
+  <data name="Gallery_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Gallery_Tray_MinimizedMessage" xml:space="preserve">
+    <value>アプリはシステムトレイに最小化されました。アイコンをダブルクリックして再表示できます。</value>
+  </data>
+  <data name="Gallery_Home_Subtitle" xml:space="preserve">
+    <value>WPF-UI を基盤とする拡張コントロールライブラリ。Fluent Design 風の高度な UI コンポーネントを提供します。</value>
+  </data>
+  <data name="Gallery_Home_Hint" xml:space="preserve">
+    <value>.NET Framework 4.6.2 から .NET 10 まで対応。ダーク / ライトテーマ。左側でコントロール種別ごとにサンプルを閲覧できます。</value>
+  </data>
+  <data name="Gallery_Home_Categories" xml:space="preserve">
+    <value>コントロール分類</value>
+  </data>
+  <data name="Gallery_Home_Design_Desc" xml:space="preserve">
+    <value>Typography、Icons、Colors</value>
+  </data>
+  <data name="Gallery_Home_AllSamples_Desc" xml:space="preserve">
+    <value>グループ別にすべてのコントロールを閲覧</value>
+  </data>
+  <data name="Gallery_Home_Buttons_Desc" xml:space="preserve">
+    <value>Button、SplitButton、LoadingButton など</value>
+  </data>
+  <data name="Gallery_Home_Selection_Desc" xml:space="preserve">
+    <value>CheckBox、RadioButton、ToggleSwitch、Rating</value>
+  </data>
+  <data name="Gallery_Home_Sliders_Desc" xml:space="preserve">
+    <value>Slider、RangeSlider</value>
+  </data>
+  <data name="Gallery_Home_NumberInput_Desc" xml:space="preserve">
+    <value>NumberBox、NumericUpDown、ButtonSpinner</value>
+  </data>
+  <data name="Gallery_Home_TextInput_Desc" xml:space="preserve">
+    <value>TextBox、PasswordBox、PinCode、TagInput</value>
+  </data>
+  <data name="Gallery_Home_TextDisplay_Desc" xml:space="preserve">
+    <value>Label、TextBlock、Hyperlink</value>
+  </data>
+  <data name="Gallery_Home_ComboBox_Desc" xml:space="preserve">
+    <value>ComboBox、MultiComboBox、TreeComboBox</value>
+  </data>
+  <data name="Gallery_Home_Pickers_Desc" xml:space="preserve">
+    <value>DatePicker、ColorPicker、FilePicker</value>
+  </data>
+  <data name="Gallery_Home_Dialogs_Desc" xml:space="preserve">
+    <value>ContentDialog、MessageBox、Flyout</value>
+  </data>
+  <data name="Gallery_Home_Notifications_Desc" xml:space="preserve">
+    <value>Toast、Banner、TrayIcon</value>
+  </data>
+  <data name="Gallery_Home_Collections_Desc" xml:space="preserve">
+    <value>DataGrid、TreeListView、FlipView、Timeline</value>
+  </data>
+  <data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
+    <value>NavigationView、TabStrip、Anchor</value>
+  </data>
+  <data name="Gallery_Home_Layout_Desc" xml:space="preserve">
+    <value>AutoGrid、Form、Drawer、Divider</value>
+  </data>
+  <data name="Gallery_Home_Status_Desc" xml:space="preserve">
+    <value>Badge、Skeleton、BusyMask</value>
+  </data>
+  <data name="Gallery_Home_Media_Desc" xml:space="preserve">
+    <value>ImageView、PersonPicture、QrCode</value>
+  </data>
+  <data name="Gallery_Home_Feedback_Desc" xml:space="preserve">
+    <value>RunningBlock、AsyncBox、Splash</value>
+  </data>
+  <data name="Gallery_Home_Windows_Desc" xml:space="preserve">
+    <value>ShellWindow、TitleBar、Caption</value>
+  </data>
+  <data name="Gallery_Home_OpSystem_Desc" xml:space="preserve">
+    <value>Clipboard</value>
+  </data>
+  <data name="Gallery_Home_Settings_Desc" xml:space="preserve">
+    <value>テーマ切替とバージョン情報</value>
+  </data>
+  <data name="Gallery_Settings_Title" xml:space="preserve">
+    <value>アプリ設定</value>
+  </data>
+  <data name="Gallery_Settings_Appearance" xml:space="preserve">
+    <value>外観</value>
+  </data>
+  <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
+    <value>アプリのテーマとウィンドウ背景を切り替えます。テーマはタイトルバーから素早く変更できます。Backdrop は OS バージョンに依存し、未対応の項目は自動的に無効になります。</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop" xml:space="preserve">
+    <value>ウィンドウ背景</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_Auto" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Gallery_Settings_Backdrop_Experimental" xml:space="preserve">
+    <value>実験的機能（WPF-UI への完全対応は未完了）</value>
+  </data>
+  <data name="Gallery_Settings_About" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="Gallery_Settings_About_Desc" xml:space="preserve">
+    <value>Wpf.Ui.Violeta Gallery — コントロールデモと操作検証用アプリ。</value>
+  </data>
+  <data name="Gallery_Settings_LibraryVersion" xml:space="preserve">
+    <value>ライブラリバージョン</value>
+  </data>
+  <data name="Gallery_Settings_Runtime" xml:space="preserve">
+    <value>ランタイム</value>
+  </data>
+  <data name="Gallery_Settings_NavItem" xml:space="preserve">
+    <value>NavigationView 設定項目</value>
+  </data>
+  <data name="Gallery_Settings_NavItem_Desc" xml:space="preserve">
+    <value>このページは NavigationView 下部の設定ボタン（IsSettingsVisible）から開き、SettingsItem の選択とページ遷移の連動を示します。</value>
+  </data>
+  <data name="Gallery_Settings_Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
+    <value>Gallery の UI 言語を切り替えます。変更はすぐに反映されます。</value>
+  </data>
+</root>

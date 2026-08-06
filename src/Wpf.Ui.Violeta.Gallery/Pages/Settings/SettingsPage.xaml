@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="设置"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Settings}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="应用设置" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Title}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,11 +31,53 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="外观" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Language}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="切换应用主题与窗口背景材质。主题可在标题栏快捷切换；Backdrop 依赖系统版本，不支持的项会自动禁用。"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Language_Desc}}"
+                        TextWrapping="Wrap" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_Language}}" />
+                        <ComboBox
+                            x:Name="LanguageComboBox"
+                            Grid.Column="1"
+                            MinWidth="180"
+                            HorizontalAlignment="Left"
+                            SelectionChanged="LanguageComboBox_OnSelectionChanged">
+                            <ComboBoxItem Content="简体中文" Tag="zh-Hans" />
+                            <ComboBoxItem Content="繁體中文" Tag="zh-Hant" />
+                            <ComboBoxItem Content="English" Tag="en" />
+                            <ComboBoxItem Content="日本語" Tag="ja" />
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance_Desc}}"
                         TextWrapping="Wrap" />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -48,23 +91,23 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="主题" />
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_Theme}}" />
                         <ComboBox
                             x:Name="ThemeComboBox"
                             Grid.Column="1"
                             MinWidth="180"
                             HorizontalAlignment="Left"
                             SelectionChanged="ThemeComboBox_OnSelectionChanged">
-                            <ComboBoxItem Content="跟随系统" />
-                            <ComboBoxItem Content="深色" IsSelected="True" />
-                            <ComboBoxItem Content="浅色" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_System}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}" IsSelected="True" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Light}}" />
                         </ComboBox>
                         <TextBlock
                             Grid.Row="1"
                             Margin="0,12,0,0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="窗口背景" />
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop}}" />
                         <StackPanel
                             Grid.Row="1"
                             Grid.Column="1"
@@ -75,8 +118,8 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 SelectionChanged="BackdropComboBox_OnSelectionChanged">
-                                <ComboBoxItem Content="无" Tag="None" />
-                                <ComboBoxItem Content="自动" Tag="Auto" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_None}}" Tag="None" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Auto}}" Tag="Auto" />
                                 <ComboBoxItem
                                     Content="Mica"
                                     IsSelected="True"
@@ -90,7 +133,7 @@
                                 Margin="12,0,0,0"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="实验性功能（暂未完全适配 WPF-UI 框架）"
+                                Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Experimental}}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>
@@ -109,18 +152,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="关于" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Wpf.Ui.Violeta Gallery — 控件演示与交互验证应用。"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_About_Desc}}"
                         TextWrapping="Wrap" />
                     <Grid Margin="0,0,0,8">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="库版本" />
+                        <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_LibraryVersion}}" />
                         <TextBlock
                             x:Name="LibraryVersionText"
                             Grid.Column="1"
@@ -131,7 +174,7 @@
                             <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="运行时" />
+                        <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Runtime}}" />
                         <TextBlock
                             x:Name="RuntimeVersionText"
                             Grid.Column="1"
@@ -155,11 +198,11 @@
                     <TextBlock
                         Margin="0,10,0,0"
                         FontWeight="SemiBold"
-                        Text="NavigationView 设置项" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_NavItem}}" />
                     <TextBlock
                         Margin="0,8,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="本页通过 NavigationView 底部设置按钮（IsSettingsVisible）导航进入，用于演示 SettingsItem 选中与页面切换联动。"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_NavItem_Desc}}"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Border>

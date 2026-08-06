@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using LiteObservableLanguages;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 using Wpf.Ui.Violeta.Gallery.Pages.AllSamples;
 using Wpf.Ui.Violeta.Gallery.Pages.BasicInput;
 using Wpf.Ui.Violeta.Gallery.Pages.Buttons;
@@ -41,6 +44,7 @@ public partial class MainWindow : ShellWindow
 {
     private readonly Dictionary<string, Wpf.Ui.Violeta.Controls.Page> _pageCache = [];
     private bool _syncingSelection;
+    private bool _syncingLanguage;
 
     private static readonly Dictionary<string, Func<Wpf.Ui.Violeta.Controls.Page>> PageFactories = new()
     {
@@ -222,6 +226,7 @@ public partial class MainWindow : ShellWindow
         GalleryNavigator.NavigateRequested = OnNavigateRequested;
         Loaded += MainWindow_OnLoaded;
         Closing += MainWindow_OnClosing;
+        Locale.Default.CultureChanged += OnCultureChanged;
     }
 
     private void MainWindow_OnClosing(object? sender, CancelEventArgs e)
@@ -234,14 +239,32 @@ public partial class MainWindow : ShellWindow
         e.Cancel = true;
         Hide();
         TrayIconManager.ShowNotification(
-            "Wpf.Ui.Violeta Gallery",
-            "应用已最小化到系统托盘。双击图标可重新打开窗口。",
+            LangKeys.Gallery_AppTitle.Tr(),
+            LangKeys.Gallery_Tray_MinimizedMessage.Tr(),
             ToolTipIcon.Info);
     }
 
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
+        SyncLanguageComboBox(MuiLanguageManager.Language);
         GalleryNav.SelectedItem = HomeItem;
+    }
+
+    private void OnCultureChanged(object? sender, CultureInfo culture)
+    {
+        Dispatcher.Invoke(RefreshNavigationHeader);
+    }
+
+    private void RefreshNavigationHeader()
+    {
+        if (GalleryNav.SelectedItem is NavigationViewItem item)
+        {
+            GalleryNav.Header = item.Content?.ToString() ?? string.Empty;
+        }
+        else if (ContentFrame.Content is SettingsPage)
+        {
+            GalleryNav.Header = LangKeys.Gallery_Settings.Tr();
+        }
     }
 
     private void OnNavigateRequested(string? tag)
@@ -282,7 +305,7 @@ public partial class MainWindow : ShellWindow
 
         if (args.IsSettingsSelected)
         {
-            GalleryNav.Header = "设置";
+            GalleryNav.Header = LangKeys.Gallery_Settings.Tr();
             NavigateTo("settings");
             return;
         }
@@ -404,7 +427,25 @@ public partial class MainWindow : ShellWindow
         }
     }
 
+    private void LanguageComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!IsLoaded || _syncingLanguage)
+        {
+            return;
+        }
+
+        if (LanguageComboBox.SelectedItem is not ComboBoxItem { Tag: string language })
+        {
+            return;
+        }
+
+        MuiLanguageManager.SetLanguage(language);
+    }
+
     internal int ThemeComboBoxSelectedIndex => ThemeComboBox.SelectedIndex;
+
+    internal string LanguageComboBoxSelectedTag =>
+        LanguageComboBox.SelectedItem is ComboBoxItem { Tag: string tag } ? tag : MuiLanguageManager.Language;
 
     /// <summary>
     /// Keeps the title-bar theme combo in sync when theme is changed from Settings.
@@ -417,5 +458,29 @@ public partial class MainWindow : ShellWindow
         }
 
         ThemeComboBox.SelectedIndex = selectedIndex;
+    }
+
+    /// <summary>
+    /// Keeps the title-bar language combo in sync when language is changed from Settings.
+    /// </summary>
+    internal void SyncLanguageComboBox(string language)
+    {
+        _syncingLanguage = true;
+        try
+        {
+            for (var i = 0; i < LanguageComboBox.Items.Count; i++)
+            {
+                if (LanguageComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+                    && string.Equals(tag, language, StringComparison.OrdinalIgnoreCase))
+                {
+                    LanguageComboBox.SelectedIndex = i;
+                    return;
+                }
+            }
+        }
+        finally
+        {
+            _syncingLanguage = false;
+        }
     }
 }
