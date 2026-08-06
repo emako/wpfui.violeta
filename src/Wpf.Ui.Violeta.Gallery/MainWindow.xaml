@@ -288,6 +288,7 @@
                         <vio:NavigationViewItem Content="TreeListView" Tag="collections/tree-list-view" />
                         <vio:NavigationViewItem Content="TreeModelListView" Tag="collections/tree-model-list-view" />
                         <vio:NavigationViewItem Content="FlipView" Tag="collections/flip-view" />
+                        <vio:NavigationViewItem Content="Carousel" Tag="collections/carousel" />
                         <vio:NavigationViewItem Content="Pagination" Tag="collections/pagination" />
                         <vio:NavigationViewItem Content="Timeline" Tag="collections/timeline" />
                     </vio:NavigationViewItem.MenuItems>
