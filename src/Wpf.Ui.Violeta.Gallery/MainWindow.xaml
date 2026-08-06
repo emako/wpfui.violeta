@@ -145,6 +145,7 @@
                         <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
                         <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />
                         <vio:NavigationViewItem Content="SplitButton" Tag="basic-input/split-button" />
+                        <vio:NavigationViewItem Content="SplitToggleButton" Tag="basic-input/split-toggle-button" />
                         <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
                         <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
                     </vio:NavigationViewItem.MenuItems>

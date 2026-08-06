@@ -3194,4 +3194,94 @@
   <data name="Sample_92b6558177" xml:space="preserve">
     <value>淡入 C</value>
   </data>
+  <data name="Sample_ca5e75861e" xml:space="preserve">
+    <value>左侧为 ToggleButton（Command / DoubleCommand），右侧下拉为 ComboBox 式选项；边框色跟随 Button。</value>
+  </data>
+  <data name="Sample_9cd21c0453" xml:space="preserve">
+    <value>基础开关</value>
+  </data>
+  <data name="Sample_30d371c179" xml:space="preserve">
+    <value>左侧点击切换 IsChecked；右侧打开选项。默认不同步左侧文字。</value>
+  </data>
+  <data name="Sample_31c6a2bd46" xml:space="preserve">
+    <value>SyncContentWithSelection = True</value>
+  </data>
+  <data name="Sample_92791c5349" xml:space="preserve">
+    <value>选中项自动写入左侧 Content（默认关闭，此例打开）。</value>
+  </data>
+  <data name="Sample_13850e5b0e" xml:space="preserve">
+    <value>IsSelectionCancelable</value>
+  </data>
+  <data name="Sample_6d495b7e26" xml:space="preserve">
+    <value>再点一次当前选中项可清空（左） vs 不可取消（右）。</value>
+  </data>
+  <data name="Sample_5778ff39b2" xml:space="preserve">
+    <value>Cancelable = True</value>
+  </data>
+  <data name="Sample_971c80bebe" xml:space="preserve">
+    <value>Cancelable = False</value>
+  </data>
+  <data name="Sample_66fff5b8e3" xml:space="preserve">
+    <value>Command + DoubleCommand</value>
+  </data>
+  <data name="Sample_9488273dae" xml:space="preserve">
+    <value>单击左侧触发 Command；双击左侧触发 DoubleCommand（不点右侧）。</value>
+  </data>
+  <data name="Sample_136e16706d" xml:space="preserve">
+    <value>等待单击 / 双击…</value>
+  </data>
+  <data name="Sample_3dc7af023d" xml:space="preserve">
+    <value>DisplayMemberPath + ItemsSource 绑定</value>
+  </data>
+  <data name="Sample_23b09dfdc7" xml:space="preserve">
+    <value>绑定复杂对象，用 DisplayMemberPath 显示 Name，并同步 Content。</value>
+  </data>
+  <data name="Sample_dbdced69d1" xml:space="preserve">
+    <value>选择工具</value>
+  </data>
+  <data name="Sample_df74b5081d" xml:space="preserve">
+    <value>自定义 ItemTemplate</value>
+  </data>
+  <data name="Sample_f11b4b9255" xml:space="preserve">
+    <value>下拉项自定义模板（色块 + 名称）。Sync 关闭时左侧文字保持固定。</value>
+  </data>
+  <data name="Sample_278f9a3d30" xml:space="preserve">
+    <value>调色板</value>
+  </data>
+  <data name="Sample_090903ad32" xml:space="preserve">
+    <value>勾选 / 禁用</value>
+  </data>
+  <data name="Sample_7e2b4a08c3" xml:space="preserve">
+    <value>预勾选与禁用态；边框仍走 Button 资源。</value>
+  </data>
+  <data name="Sample_a9f55b98ec" xml:space="preserve">
+    <value>开关 + ComboBox 式分割</value>
+  </data>
+  <data name="Sample_e02ff1e53f" xml:space="preserve">
+    <value>选择颜色</value>
+  </data>
+  <data name="Sample_6f6cb72d54" xml:space="preserve">
+    <value>尺寸</value>
+  </data>
+  <data name="Sample_9639e32cab" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Sample_2627637e26" xml:space="preserve">
+    <value>已勾选</value>
+  </data>
+  <data name="Sample_b9f5c797eb" xml:space="preserve">
+    <value>已禁用</value>
+  </data>
+  <data name="Sample_97139627c1" xml:space="preserve">
+    <value>（无）</value>
+  </data>
+  <data name="Format_SplitToggleBasicStatus" xml:space="preserve">
+    <value>IsChecked={0}，Selected={1}</value>
+  </data>
+  <data name="Format_SplitToggleCommandClick" xml:space="preserve">
+    <value>Command（单击）— IsChecked={0}</value>
+  </data>
+  <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
+    <value>DoubleCommand — IsChecked={0}</value>
+  </data>
 </root>

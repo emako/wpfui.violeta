@@ -3194,4 +3194,94 @@ OK をクリックして続行してください。</value>
   <data name="Sample_92b6558177" xml:space="preserve">
     <value>フェード C</value>
   </data>
+  <data name="Sample_ca5e75861e" xml:space="preserve">
+    <value>左側は ToggleButton（Command / DoubleCommand）、右側は ComboBox 風の一覧。枠線色は Button に準拠。</value>
+  </data>
+  <data name="Sample_9cd21c0453" xml:space="preserve">
+    <value>基本トグル</value>
+  </data>
+  <data name="Sample_30d371c179" xml:space="preserve">
+    <value>左側クリックで IsChecked を切替、シェブロンで項目を開きます。Content 同期は既定でオフです。</value>
+  </data>
+  <data name="Sample_31c6a2bd46" xml:space="preserve">
+    <value>SyncContentWithSelection = True</value>
+  </data>
+  <data name="Sample_92791c5349" xml:space="preserve">
+    <value>選択項目が左側 Content に反映されます（既定オフ、ここではオン）。</value>
+  </data>
+  <data name="Sample_13850e5b0e" xml:space="preserve">
+    <value>IsSelectionCancelable</value>
+  </data>
+  <data name="Sample_6d495b7e26" xml:space="preserve">
+    <value>選択中の項目をもう一度クリックで解除（左）／解除不可（右）。</value>
+  </data>
+  <data name="Sample_5778ff39b2" xml:space="preserve">
+    <value>Cancelable = True</value>
+  </data>
+  <data name="Sample_971c80bebe" xml:space="preserve">
+    <value>Cancelable = False</value>
+  </data>
+  <data name="Sample_66fff5b8e3" xml:space="preserve">
+    <value>Command + DoubleCommand</value>
+  </data>
+  <data name="Sample_9488273dae" xml:space="preserve">
+    <value>左側のシングルクリックで Command、ダブルクリックで DoubleCommand（シェブロン以外）。</value>
+  </data>
+  <data name="Sample_136e16706d" xml:space="preserve">
+    <value>クリック / ダブルクリック待ち…</value>
+  </data>
+  <data name="Sample_3dc7af023d" xml:space="preserve">
+    <value>DisplayMemberPath + ItemsSource バインド</value>
+  </data>
+  <data name="Sample_23b09dfdc7" xml:space="preserve">
+    <value>複雑なオブジェクトをバインドし、DisplayMemberPath で Name を表示して Content を同期します。</value>
+  </data>
+  <data name="Sample_dbdced69d1" xml:space="preserve">
+    <value>ツールを選択</value>
+  </data>
+  <data name="Sample_df74b5081d" xml:space="preserve">
+    <value>カスタム ItemTemplate</value>
+  </data>
+  <data name="Sample_f11b4b9255" xml:space="preserve">
+    <value>ドロップダウンのカスタムテンプレート（スウォッチ + 名前）。同期オフ時、左側テキストは固定。</value>
+  </data>
+  <data name="Sample_278f9a3d30" xml:space="preserve">
+    <value>パレット</value>
+  </data>
+  <data name="Sample_090903ad32" xml:space="preserve">
+    <value>チェック / 無効</value>
+  </data>
+  <data name="Sample_7e2b4a08c3" xml:space="preserve">
+    <value>事前チェックと無効状態。枠線は引き続き Button リソース。</value>
+  </data>
+  <data name="Sample_a9f55b98ec" xml:space="preserve">
+    <value>トグル + ComboBox 風分割</value>
+  </data>
+  <data name="Sample_e02ff1e53f" xml:space="preserve">
+    <value>色を選択</value>
+  </data>
+  <data name="Sample_6f6cb72d54" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="Sample_9639e32cab" xml:space="preserve">
+    <value>適用</value>
+  </data>
+  <data name="Sample_2627637e26" xml:space="preserve">
+    <value>チェック済み</value>
+  </data>
+  <data name="Sample_b9f5c797eb" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="Sample_97139627c1" xml:space="preserve">
+    <value>（なし）</value>
+  </data>
+  <data name="Format_SplitToggleBasicStatus" xml:space="preserve">
+    <value>IsChecked={0}、Selected={1}</value>
+  </data>
+  <data name="Format_SplitToggleCommandClick" xml:space="preserve">
+    <value>Command（クリック）— IsChecked={0}</value>
+  </data>
+  <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
+    <value>DoubleCommand — IsChecked={0}</value>
+  </data>
 </root>

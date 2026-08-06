@@ -3194,4 +3194,94 @@ Click OK to continue.</value>
   <data name="Sample_92b6558177" xml:space="preserve">
     <value>Fade C</value>
   </data>
+  <data name="Sample_ca5e75861e" xml:space="preserve">
+    <value>Left side is a ToggleButton (Command / DoubleCommand); right side opens a ComboBox-like list. Border colors follow Button.</value>
+  </data>
+  <data name="Sample_9cd21c0453" xml:space="preserve">
+    <value>Basic toggle</value>
+  </data>
+  <data name="Sample_30d371c179" xml:space="preserve">
+    <value>Click the left side to toggle IsChecked; open the chevron for options. Content sync is off by default.</value>
+  </data>
+  <data name="Sample_31c6a2bd46" xml:space="preserve">
+    <value>SyncContentWithSelection = True</value>
+  </data>
+  <data name="Sample_92791c5349" xml:space="preserve">
+    <value>Selected item writes into left Content (off by default; enabled here).</value>
+  </data>
+  <data name="Sample_13850e5b0e" xml:space="preserve">
+    <value>IsSelectionCancelable</value>
+  </data>
+  <data name="Sample_6d495b7e26" xml:space="preserve">
+    <value>Click the selected item again to clear (left) vs non-cancelable (right).</value>
+  </data>
+  <data name="Sample_5778ff39b2" xml:space="preserve">
+    <value>Cancelable = True</value>
+  </data>
+  <data name="Sample_971c80bebe" xml:space="preserve">
+    <value>Cancelable = False</value>
+  </data>
+  <data name="Sample_66fff5b8e3" xml:space="preserve">
+    <value>Command + DoubleCommand</value>
+  </data>
+  <data name="Sample_9488273dae" xml:space="preserve">
+    <value>Single-click left runs Command; double-click left runs DoubleCommand (not the chevron).</value>
+  </data>
+  <data name="Sample_136e16706d" xml:space="preserve">
+    <value>Waiting for click / double-click…</value>
+  </data>
+  <data name="Sample_3dc7af023d" xml:space="preserve">
+    <value>DisplayMemberPath + ItemsSource binding</value>
+  </data>
+  <data name="Sample_23b09dfdc7" xml:space="preserve">
+    <value>Bind complex objects; DisplayMemberPath shows Name and syncs Content.</value>
+  </data>
+  <data name="Sample_dbdced69d1" xml:space="preserve">
+    <value>Choose tool</value>
+  </data>
+  <data name="Sample_df74b5081d" xml:space="preserve">
+    <value>Custom ItemTemplate</value>
+  </data>
+  <data name="Sample_f11b4b9255" xml:space="preserve">
+    <value>Custom drop-down template (swatch + name). With sync off, left text stays fixed.</value>
+  </data>
+  <data name="Sample_278f9a3d30" xml:space="preserve">
+    <value>Palette</value>
+  </data>
+  <data name="Sample_090903ad32" xml:space="preserve">
+    <value>Checked / Disabled</value>
+  </data>
+  <data name="Sample_7e2b4a08c3" xml:space="preserve">
+    <value>Pre-checked and disabled states; borders still use Button resources.</value>
+  </data>
+  <data name="Sample_a9f55b98ec" xml:space="preserve">
+    <value>Toggle + ComboBox-like split</value>
+  </data>
+  <data name="Sample_e02ff1e53f" xml:space="preserve">
+    <value>Pick a color</value>
+  </data>
+  <data name="Sample_6f6cb72d54" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Sample_9639e32cab" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Sample_2627637e26" xml:space="preserve">
+    <value>Checked</value>
+  </data>
+  <data name="Sample_b9f5c797eb" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Sample_97139627c1" xml:space="preserve">
+    <value>(none)</value>
+  </data>
+  <data name="Format_SplitToggleBasicStatus" xml:space="preserve">
+    <value>IsChecked={0}, Selected={1}</value>
+  </data>
+  <data name="Format_SplitToggleCommandClick" xml:space="preserve">
+    <value>Command (click) — IsChecked={0}</value>
+  </data>
+  <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
+    <value>DoubleCommand — IsChecked={0}</value>
+  </data>
 </root>

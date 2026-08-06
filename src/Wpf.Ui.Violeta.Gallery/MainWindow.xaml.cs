@@ -84,6 +84,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/rating"] = static () => new RatingPage(),
         ["basic-input/thumb-rate"] = static () => new ThumbRatePage(),
         ["basic-input/split-button"] = static () => new SplitButtonPage(),
+        ["basic-input/split-toggle-button"] = static () => new SplitToggleButtonPage(),
         ["basic-input/slider"] = static () => new SliderPage(),
         ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
         ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
