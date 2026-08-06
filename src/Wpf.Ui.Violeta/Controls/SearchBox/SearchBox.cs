@@ -1,7 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Wpf.Ui.Controls;
 using Wpf.Ui.Input;
 using TextBox = Wpf.Ui.Controls.TextBox;
 

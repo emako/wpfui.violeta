@@ -340,6 +340,7 @@
                         <vio:NavigationViewItem Content="ImageView" Tag="media/image-view" />
                         <vio:NavigationViewItem Content="Canvas" Tag="media/canvas" />
                         <vio:NavigationViewItem Content="WebBrowser" Tag="media/web-browser" />
+                        <vio:NavigationViewItem Content="WebView2" Tag="media/web-view2" />
                         <vio:NavigationViewItem Content="PersonPicture" Tag="media/person-picture" />
                         <vio:NavigationViewItem Content="BitmapIcon" Tag="media/bitmap-icon" />
                         <vio:NavigationViewItem Content="QrCode" Tag="media/qr-code" />

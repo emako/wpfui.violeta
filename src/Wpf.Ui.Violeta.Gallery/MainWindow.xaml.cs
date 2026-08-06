@@ -190,6 +190,7 @@ public partial class MainWindow : ShellWindow
         ["media/image-view"] = static () => new ImageViewPage(),
         ["media/canvas"] = static () => new CanvasPage(),
         ["media/web-browser"] = static () => new WebBrowserPage(),
+        ["media/web-view2"] = static () => new WebView2Page(),
         ["media/person-picture"] = static () => new PersonPicturePage(),
         ["media/bitmap-icon"] = static () => new BitmapIconPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
