@@ -37,7 +37,7 @@
                         </Border>
                         <Border
                             x:Name="SelectionRing"
-                            Margin="1"
+                            Margin="0"
                             BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
                             BorderThickness="2"
                             CornerRadius="{TemplateBinding CornerRadius}"
@@ -71,7 +71,6 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="SelectionRing" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="SwatchSurface" Property="Margin" Value="4" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter TargetName="FocusRing" Property="Visibility" Value="Visible" />

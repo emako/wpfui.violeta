@@ -138,6 +138,12 @@ public class SwatchPicker : Control
         picker._syncingSelection = true;
         try
         {
+            if (e.OldValue is Swatch oldSwatch)
+                oldSwatch.SetCurrentValue(Swatch.IsSelectedProperty, false);
+
+            if (e.NewValue is Swatch newSwatch)
+                newSwatch.SetCurrentValue(Swatch.IsSelectedProperty, true);
+
             if (picker._presenter is not null) picker._presenter.SelectedItem = e.NewValue;
             picker.SetCurrentValue(SelectedValueProperty, picker.GetSelectedValue(e.NewValue));
             picker.SetCurrentValue(SelectedSwatchProperty, picker.FindSwatch(e.NewValue));
