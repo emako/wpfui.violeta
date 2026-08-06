@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
 
-    <Thickness x:Key="TagComboBoxPadding">6,4,6,4</Thickness>
+    <Thickness x:Key="TagComboBoxPadding">10,4,6,4</Thickness>
     <Thickness x:Key="TagComboBoxBorderThemeThickness">1,1,1,1</Thickness>
     <Thickness x:Key="TagComboBoxChevronMargin">8,0,10,0</Thickness>
     <Thickness x:Key="TagComboBoxItemMargin">6,4,6,0</Thickness>
@@ -215,7 +215,7 @@
                                         <TextBlock
                                             x:Name="PART_Placeholder"
                                             VerticalAlignment="Center"
-                                            Foreground="{DynamicResource ComboBoxForegroundSecondary}"
+                                            Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                             IsHitTestVisible="False"
                                             Text="{TemplateBinding PlaceholderText}"
                                             TextTrimming="CharacterEllipsis"
