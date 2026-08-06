@@ -6,11 +6,11 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
     <Style x:Key="DefaultToolBarOverflowFlyoutPresenterStyle" TargetType="{x:Type compat:FlyoutPresenter}">
-        <Setter Property="Background" Value="{DynamicResource ContentDialogBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ContentDialogBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ComboBoxDropDownBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxDropDownBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="4" />
-        <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource PopupCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">

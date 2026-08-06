@@ -25,7 +25,7 @@ public class ToolBarPanel : Panel
         var toolBar = ToolBar;
         if (toolBar is null)
         {
-            return MeasureAsStack(constraint);
+            return MeasureAsStack(constraint, spacing: 0);
         }
 
         toolBar.EnsureContainersRealized();
@@ -38,11 +38,10 @@ public class ToolBarPanel : Panel
             return new Size(0, 0);
         }
 
+        double spacing = Math.Max(0, toolBar.ItemSpacing);
         var infinite = new Size(double.PositiveInfinity, constraint.Height);
 
-        double neverWidth = 0;
         double maxHeight = 0;
-        bool hasAlways = false;
         var modes = new OverflowMode[count];
         var sizes = new Size[count];
 
@@ -59,23 +58,15 @@ public class ToolBarPanel : Panel
             child.Measure(infinite);
             sizes[i] = child.DesiredSize;
             maxHeight = Math.Max(maxHeight, sizes[i].Height);
-
-            if (modes[i] == OverflowMode.Always)
-            {
-                hasAlways = true;
-            }
-            else if (modes[i] == OverflowMode.Never)
-            {
-                neverWidth += sizes[i].Width;
-            }
         }
 
         double available = double.IsInfinity(constraint.Width) ? double.PositiveInfinity : constraint.Width;
-        double remaining = Math.Max(0, available - neverWidth);
-
+        double remaining = available;
         bool sendToOverflow = false;
+        bool hasAlways = false;
         bool hasAsNeededOverflow = false;
-        double primaryWidth = neverWidth;
+        double primaryWidth = 0;
+        int primaryCount = 0;
 
         for (int i = 0; i < count; i++)
         {
@@ -89,6 +80,7 @@ public class ToolBarPanel : Panel
             {
                 case OverflowMode.Always:
                     overflow = true;
+                    hasAlways = true;
                     break;
 
                 case OverflowMode.Never:
@@ -96,35 +88,45 @@ public class ToolBarPanel : Panel
                     break;
 
                 default:
-                    if (sendToOverflow)
                     {
-                        overflow = true;
-                    }
-                    else if (!double.IsInfinity(remaining) && sizes[i].Width > remaining)
-                    {
-                        overflow = true;
-                        sendToOverflow = true;
-                    }
-                    else
-                    {
-                        overflow = false;
-                        if (!double.IsInfinity(remaining))
+                        double gap = primaryCount > 0 ? spacing : 0;
+                        if (sendToOverflow
+                            || (!double.IsInfinity(remaining) && sizes[i].Width + gap > remaining))
                         {
-                            remaining -= sizes[i].Width;
+                            overflow = true;
+                            sendToOverflow = true;
+                            hasAsNeededOverflow = true;
+                        }
+                        else
+                        {
+                            overflow = false;
                         }
 
-                        primaryWidth += sizes[i].Width;
+                        break;
                     }
-
-                    if (overflow)
-                    {
-                        hasAsNeededOverflow = true;
-                    }
-
-                    break;
             }
 
             ApplyOverflowState(child, overflow);
+
+            if (!overflow)
+            {
+                if (primaryCount > 0)
+                {
+                    primaryWidth += spacing;
+                    if (!double.IsInfinity(remaining))
+                    {
+                        remaining -= spacing;
+                    }
+                }
+
+                primaryWidth += sizes[i].Width;
+                if (!double.IsInfinity(remaining))
+                {
+                    remaining -= sizes[i].Width;
+                }
+
+                primaryCount++;
+            }
         }
 
         toolBar.SetHasOverflowItems(hasAlways || hasAsNeededOverflow);
@@ -139,12 +141,14 @@ public class ToolBarPanel : Panel
         var toolBar = ToolBar;
         if (toolBar is null)
         {
-            return ArrangeAsStack(finalSize);
+            return ArrangeAsStack(finalSize, spacing: 0);
         }
 
+        double spacing = Math.Max(0, toolBar.ItemSpacing);
         var generator = toolBar.ItemContainerGenerator;
         double x = 0;
         double height = finalSize.Height;
+        bool first = true;
 
         for (int i = 0; i < toolBar.Items.Count; i++)
         {
@@ -163,6 +167,12 @@ public class ToolBarPanel : Panel
                 continue;
             }
 
+            if (!first)
+            {
+                x += spacing;
+            }
+
+            first = false;
             double w = child.DesiredSize.Width;
             child.Arrange(new Rect(x, 0, w, height));
             x += w;
@@ -242,26 +252,40 @@ public class ToolBarPanel : Panel
         return ToolBar.GetOverflowMode(container);
     }
 
-    private Size MeasureAsStack(Size constraint)
+    private Size MeasureAsStack(Size constraint, double spacing)
     {
         double width = 0;
         double height = 0;
+        int index = 0;
         var infinite = new Size(double.PositiveInfinity, constraint.Height);
         foreach (UIElement child in Children)
         {
             child.Measure(infinite);
+            if (index > 0)
+            {
+                width += spacing;
+            }
+
             width += child.DesiredSize.Width;
             height = Math.Max(height, child.DesiredSize.Height);
+            index++;
         }
 
         return new Size(width, height);
     }
 
-    private Size ArrangeAsStack(Size finalSize)
+    private Size ArrangeAsStack(Size finalSize, double spacing)
     {
         double x = 0;
+        bool first = true;
         foreach (UIElement child in Children)
         {
+            if (!first)
+            {
+                x += spacing;
+            }
+
+            first = false;
             double w = child.DesiredSize.Width;
             child.Arrange(new Rect(x, 0, w, finalSize.Height));
             x += w;

@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Violeta.Controls.Compat;
@@ -33,6 +34,7 @@ public class ToolBar : ItemsControl
     private bool _isUpdatingOverflowOpen;
     private bool _isRealizingContainers;
     private readonly RoutedEventHandler _overflowItemClickHandler;
+    private readonly MouseButtonEventHandler _overflowItemMouseUpHandler;
 
     static ToolBar()
     {
@@ -42,6 +44,7 @@ public class ToolBar : ItemsControl
     public ToolBar()
     {
         _overflowItemClickHandler = OnOverflowItemClick;
+        _overflowItemMouseUpHandler = OnOverflowItemMouseUp;
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
         ItemContainerGenerator.StatusChanged += OnGeneratorStatusChanged;
@@ -79,6 +82,33 @@ public class ToolBar : ItemsControl
     }
 
     #endregion ShowOverflowMenu
+
+    #region OverflowFlyoutAutoCloseMode
+
+    public static readonly DependencyProperty OverflowFlyoutAutoCloseModeProperty = DependencyProperty.Register(
+        nameof(OverflowFlyoutAutoCloseMode),
+        typeof(OverflowFlyoutAutoCloseMode),
+        typeof(ToolBar),
+        new PropertyMetadata(OverflowFlyoutAutoCloseMode.Default, OnOverflowFlyoutAutoCloseModeChanged));
+
+    /// <summary>
+    /// Controls when the overflow flyout auto-closes after interacting with overflow items.
+    /// </summary>
+    public OverflowFlyoutAutoCloseMode OverflowFlyoutAutoCloseMode
+    {
+        get => (OverflowFlyoutAutoCloseMode)GetValue(OverflowFlyoutAutoCloseModeProperty);
+        set => SetValue(OverflowFlyoutAutoCloseModeProperty, value);
+    }
+
+    private static void OnOverflowFlyoutAutoCloseModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ToolBar { IsOverflowOpen: true } toolBar)
+        {
+            toolBar.ApplyOverflowPopupStaysOpen();
+        }
+    }
+
+    #endregion OverflowFlyoutAutoCloseMode
 
     #region HasOverflowItems
 
@@ -154,6 +184,34 @@ public class ToolBar : ItemsControl
     }
 
     #endregion OverflowPanelWrapWidth
+
+    #region ItemSpacing
+
+    public static readonly DependencyProperty ItemSpacingProperty = DependencyProperty.Register(
+        nameof(ItemSpacing),
+        typeof(double),
+        typeof(ToolBar),
+        new FrameworkPropertyMetadata(6d, FrameworkPropertyMetadataOptions.AffectsMeasure, OnItemSpacingChanged));
+
+    /// <summary>
+    /// Gap between adjacent items in the primary bar and the overflow flyout.
+    /// </summary>
+    public double ItemSpacing
+    {
+        get => (double)GetValue(ItemSpacingProperty);
+        set => SetValue(ItemSpacingProperty, value);
+    }
+
+    private static void OnItemSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ToolBar toolBar)
+        {
+            toolBar._toolBarPanel?.InvalidateMeasure();
+            toolBar._overflowPanel?.InvalidateMeasure();
+        }
+    }
+
+    #endregion ItemSpacing
 
     #region OverflowButtonStyle
 
@@ -408,18 +466,67 @@ public class ToolBar : ItemsControl
         }
 
         _overflowPanel.AddHandler(ButtonBase.ClickEvent, _overflowItemClickHandler, true);
+        _overflowPanel.AddHandler(UIElement.PreviewMouseLeftButtonUpEvent, _overflowItemMouseUpHandler, true);
     }
 
     private void DetachOverflowPanelHandlers()
     {
-        _overflowPanel?.RemoveHandler(ButtonBase.ClickEvent, _overflowItemClickHandler);
+        if (_overflowPanel is null)
+        {
+            return;
+        }
+
+        _overflowPanel.RemoveHandler(ButtonBase.ClickEvent, _overflowItemClickHandler);
+        _overflowPanel.RemoveHandler(UIElement.PreviewMouseLeftButtonUpEvent, _overflowItemMouseUpHandler);
     }
 
     private void OnOverflowItemClick(object sender, RoutedEventArgs e)
     {
-        if (IsOverflowOpen)
+        if (OverflowFlyoutAutoCloseMode != OverflowFlyoutAutoCloseMode.Default)
         {
-            IsOverflowOpen = false;
+            return;
+        }
+
+        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, buttonBaseItemOnly: true);
+    }
+
+    private void OnOverflowItemMouseUp(object sender, MouseButtonEventArgs e)
+    {
+        if (OverflowFlyoutAutoCloseMode != OverflowFlyoutAutoCloseMode.Always)
+        {
+            return;
+        }
+
+        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, buttonBaseItemOnly: false);
+    }
+
+    private void TryAutoCloseOverflowFlyout(DependencyObject? originalSource, bool buttonBaseItemOnly)
+    {
+        if (!IsOverflowOpen || _overflowPanel is null || originalSource is null)
+        {
+            return;
+        }
+
+        for (DependencyObject? current = originalSource;
+             current is not null;
+             current = current is Visual
+                 ? VisualTreeHelper.GetParent(current)
+                 : LogicalTreeHelper.GetParent(current))
+        {
+            if (ReferenceEquals(current, _overflowPanel))
+            {
+                return;
+            }
+
+            if (current is UIElement element && Items.Contains(element))
+            {
+                if (!buttonBaseItemOnly || element is ButtonBase)
+                {
+                    IsOverflowOpen = false;
+                }
+
+                return;
+            }
         }
     }
 
@@ -436,7 +543,10 @@ public class ToolBar : ItemsControl
 
     private void DetachOverflowButton()
     {
-        _overflowButton?.Click -= OnOverflowButtonClick;
+        if (_overflowButton is not null)
+        {
+            _overflowButton.Click -= OnOverflowButtonClick;
+        }
     }
 
     private void OnOverflowButtonClick(object sender, RoutedEventArgs e)
@@ -480,6 +590,8 @@ public class ToolBar : ItemsControl
         {
             _isUpdatingOverflowOpen = false;
         }
+
+        ApplyOverflowPopupStaysOpen();
     }
 
     private void OnOverflowFlyoutClosed(object? sender, object e)
@@ -514,6 +626,18 @@ public class ToolBar : ItemsControl
         _overflowPanel.Arrange(new Rect(_overflowPanel.DesiredSize));
     }
 
+    private void ApplyOverflowPopupStaysOpen()
+    {
+        if (_overflowFlyout?.InternalPopup is not { } popup)
+        {
+            return;
+        }
+
+        // Match ComboBox dropdown: StaysOpen=false so clicking outside dismisses freely.
+        // Never keeps the flyout until the overflow button / IsOverflowOpen closes it.
+        popup.StaysOpen = OverflowFlyoutAutoCloseMode == OverflowFlyoutAutoCloseMode.Never;
+    }
+
     private void UpdateOverflowFlyoutState()
     {
         if (_isUpdatingOverflowOpen)
@@ -538,6 +662,8 @@ public class ToolBar : ItemsControl
                 {
                     _overflowFlyout.ShowAt(_overflowButton);
                 }
+
+                ApplyOverflowPopupStaysOpen();
             }
             else if (_overflowFlyout.IsOpen)
             {

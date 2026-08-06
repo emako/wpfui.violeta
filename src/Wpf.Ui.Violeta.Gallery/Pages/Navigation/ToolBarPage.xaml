@@ -49,17 +49,314 @@
                         BorderThickness="1"
                         CornerRadius="6">
                         <vio:ToolBar>
-                            <Button Content="New" Style="{StaticResource ToolBarButtonStyle}" ToolTip="新建" />
-                            <Button Content="Open" Style="{StaticResource ToolBarButtonStyle}" ToolTip="打开" />
-                            <Button Content="Save" Style="{StaticResource ToolBarButtonStyle}" ToolTip="保存" />
+                            <Button
+                                Content="New"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="新建" />
+                            <Button
+                                Content="Open"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="打开" />
+                            <Button
+                                Content="Save"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="保存" />
                             <Separator />
-                            <Button Content="Cut" Style="{StaticResource ToolBarButtonStyle}" ToolTip="剪切" />
-                            <Button Content="Copy" Style="{StaticResource ToolBarButtonStyle}" ToolTip="复制" />
-                            <Button Content="Paste" Style="{StaticResource ToolBarButtonStyle}" ToolTip="粘贴" />
-                            <Button Content="Undo" Style="{StaticResource ToolBarButtonStyle}" ToolTip="撤销" />
-                            <Button Content="Redo" Style="{StaticResource ToolBarButtonStyle}" ToolTip="重做" />
+                            <Button
+                                Content="Cut"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="剪切" />
+                            <Button
+                                Content="Copy"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="复制" />
+                            <Button
+                                Content="Paste"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="粘贴" />
+                            <Button
+                                Content="Undo"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="撤销" />
+                            <Button
+                                Content="Redo"
+                                Style="{StaticResource ToolBarButtonStyle}"
+                                ToolTip="重做" />
                         </vio:ToolBar>
                     </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="混合控件（原样进 Flyout）" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton 等都可直接放入；挤出后仍是原控件实例。"
+                        TextWrapping="Wrap" />
+                    <Slider
+                        x:Name="MixedWidthSlider"
+                        Margin="0,0,0,12"
+                        Maximum="720"
+                        Minimum="180"
+                        Value="420" />
+                    <Border
+                        Width="{Binding ElementName=MixedWidthSlider, Path=Value}"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar>
+                            <ToggleButton Padding="8,4" ToolTip="加粗">
+                                <ui:SymbolIcon Symbol="TextBold24" />
+                            </ToggleButton>
+                            <ToggleButton
+                                Padding="8,4"
+                                IsChecked="True"
+                                ToolTip="斜体">
+                                <ui:SymbolIcon Symbol="TextItalic24" />
+                            </ToggleButton>
+                            <ToggleButton Padding="8,4" ToolTip="下划线">
+                                <ui:SymbolIcon Symbol="TextUnderline24" />
+                            </ToggleButton>
+                            <Separator />
+                            <ComboBox
+                                Width="100"
+                                Margin="4,0"
+                                SelectedIndex="1"
+                                ToolTip="字号">
+                                <ComboBoxItem Content="12 pt" />
+                                <ComboBoxItem Content="14 pt" />
+                                <ComboBoxItem Content="16 pt" />
+                                <ComboBoxItem Content="18 pt" />
+                                <ComboBoxItem Content="24 pt" />
+                            </ComboBox>
+                            <ComboBox
+                                Width="120"
+                                Margin="4,0"
+                                SelectedIndex="0"
+                                ToolTip="字体">
+                                <ComboBoxItem Content="Segoe UI" />
+                                <ComboBoxItem Content="Consolas" />
+                                <ComboBoxItem Content="Cascadia Code" />
+                            </ComboBox>
+                            <Separator />
+                            <CheckBox
+                                Margin="8,0"
+                                VerticalAlignment="Center"
+                                Content="自动换行"
+                                IsChecked="True" />
+                            <ui:ToggleSwitch
+                                Margin="8,0"
+                                VerticalAlignment="Center"
+                                Content="暗色预览" />
+                            <Separator />
+                            <TextBox
+                                Width="140"
+                                Margin="4,0"
+                                VerticalAlignment="Center"
+                                Text="查找…"
+                                ToolTip="搜索" />
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="查找下一个">
+                                <ui:SymbolIcon Symbol="Search24" />
+                            </Button>
+                            <Separator />
+                            <ui:DropDownButton Padding="10,4" Content="插入">
+                                <ui:DropDownButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="图片" />
+                                        <MenuItem Header="表格" />
+                                        <MenuItem Header="链接" />
+                                    </ContextMenu>
+                                </ui:DropDownButton.Flyout>
+                            </ui:DropDownButton>
+                            <ui:SplitButton Padding="10,4" Content="导出">
+                                <ui:SplitButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="导出为 PDF" />
+                                        <MenuItem Header="导出为 HTML" />
+                                        <MenuItem Header="导出为 Markdown" />
+                                    </ContextMenu>
+                                </ui:SplitButton.Flyout>
+                            </ui:SplitButton>
+                        </vio:ToolBar>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="RadioButton 分组 + 图标按钮" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="同一 GroupName 的 RadioButton 可与图标工具栏混用；缩小宽度观察溢出。"
+                        TextWrapping="Wrap" />
+                    <Border
+                        Width="300"
+                        HorizontalAlignment="Left"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <vio:ToolBar>
+                            <RadioButton
+                                Margin="4,0"
+                                VerticalAlignment="Center"
+                                Content="左对齐"
+                                GroupName="Align"
+                                IsChecked="True" />
+                            <RadioButton
+                                Margin="4,0"
+                                VerticalAlignment="Center"
+                                Content="居中"
+                                GroupName="Align" />
+                            <RadioButton
+                                Margin="4,0"
+                                VerticalAlignment="Center"
+                                Content="右对齐"
+                                GroupName="Align" />
+                            <Separator />
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="增加缩进">
+                                <ui:SymbolIcon Symbol="ArrowRight24" />
+                            </Button>
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="减少缩进">
+                                <ui:SymbolIcon Symbol="ArrowLeft24" />
+                            </Button>
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="项目符号">
+                                <ui:SymbolIcon Symbol="List24" />
+                            </Button>
+                            <Button Style="{StaticResource ToolBarButtonStyle}" ToolTip="编号列表">
+                                <ui:SymbolIcon Symbol="NumberSymbol24" />
+                            </Button>
+                        </vio:ToolBar>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="OverflowFlyoutAutoCloseMode" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Default / Always：点外部可关闭（同 ComboBox）。Default 仅 ButtonBase 项再关；Always 点任意项也关；Never 仅再点 … 关。"
+                        TextWrapping="Wrap" />
+                    <UniformGrid Margin="0,0,0,0" Columns="3">
+                        <StackPanel Margin="0,0,8,0">
+                            <TextBlock Margin="0,0,0,6" Text="Default" />
+                            <Border
+                                Width="180"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6">
+                                <vio:ToolBar OverflowFlyoutAutoCloseMode="Default">
+                                    <Button Content="A" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <Button Content="B" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <ComboBox
+                                        Width="90"
+                                        Margin="4,0"
+                                        SelectedIndex="0">
+                                        <ComboBoxItem Content="Item 1" />
+                                        <ComboBoxItem Content="Item 2" />
+                                    </ComboBox>
+                                    <CheckBox
+                                        Margin="6,0"
+                                        VerticalAlignment="Center"
+                                        Content="Opt" />
+                                    <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
+                                </vio:ToolBar>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,8,0">
+                            <TextBlock Margin="0,0,0,6" Text="Always" />
+                            <Border
+                                Width="180"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6">
+                                <vio:ToolBar OverflowFlyoutAutoCloseMode="Always">
+                                    <Button Content="A" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <Button Content="B" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <ComboBox
+                                        Width="90"
+                                        Margin="4,0"
+                                        SelectedIndex="0">
+                                        <ComboBoxItem Content="Item 1" />
+                                        <ComboBoxItem Content="Item 2" />
+                                    </ComboBox>
+                                    <CheckBox
+                                        Margin="6,0"
+                                        VerticalAlignment="Center"
+                                        Content="Opt" />
+                                    <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
+                                </vio:ToolBar>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Margin="0,0,0,6" Text="Never" />
+                            <Border
+                                Width="180"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6">
+                                <vio:ToolBar OverflowFlyoutAutoCloseMode="Never">
+                                    <Button Content="A" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <Button Content="B" Style="{StaticResource ToolBarButtonStyle}" />
+                                    <ComboBox
+                                        Width="90"
+                                        Margin="4,0"
+                                        SelectedIndex="0">
+                                        <ComboBoxItem Content="Item 1" />
+                                        <ComboBoxItem Content="Item 2" />
+                                    </ComboBox>
+                                    <CheckBox
+                                        Margin="6,0"
+                                        VerticalAlignment="Center"
+                                        Content="Opt" />
+                                    <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
+                                </vio:ToolBar>
+                            </Border>
+                        </StackPanel>
+                    </UniformGrid>
                 </StackPanel>
             </Border>
 
@@ -90,17 +387,17 @@
                         CornerRadius="6">
                         <vio:ToolBar>
                             <Button
+                                vio:ToolBar.OverflowMode="Never"
                                 Content="Save"
-                                Style="{StaticResource ToolBarButtonStyle}"
-                                vio:ToolBar.OverflowMode="Never" />
+                                Style="{StaticResource ToolBarButtonStyle}" />
                             <Button Content="Open" Style="{StaticResource ToolBarButtonStyle}" />
                             <Button Content="Cut" Style="{StaticResource ToolBarButtonStyle}" />
                             <Button Content="Copy" Style="{StaticResource ToolBarButtonStyle}" />
                             <Button Content="Paste" Style="{StaticResource ToolBarButtonStyle}" />
                             <Button
+                                vio:ToolBar.OverflowMode="Always"
                                 Content="Help"
-                                Style="{StaticResource ToolBarButtonStyle}"
-                                vio:ToolBar.OverflowMode="Always" />
+                                Style="{StaticResource ToolBarButtonStyle}" />
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>

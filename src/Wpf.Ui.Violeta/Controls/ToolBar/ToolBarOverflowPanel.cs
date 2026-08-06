@@ -39,6 +39,7 @@ public class ToolBarOverflowPanel : Panel
     {
         SyncOverflowChildren();
 
+        double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
         double wrapWidth = WrapWidth;
         bool wrap = wrapWidth > 0;
 
@@ -46,6 +47,8 @@ public class ToolBarOverflowPanel : Panel
         double panelHeight = 0;
         double rowWidth = 0;
         double rowHeight = 0;
+        int rowItemCount = 0;
+        int columnItemCount = 0;
 
         var infinite = new Size(
             wrap ? wrapWidth : double.PositiveInfinity,
@@ -58,28 +61,42 @@ public class ToolBarOverflowPanel : Panel
 
             if (wrap)
             {
-                if (rowWidth > 0 && rowWidth + size.Width > wrapWidth)
+                double gap = rowItemCount > 0 ? spacing : 0;
+                if (rowItemCount > 0 && rowWidth + gap + size.Width > wrapWidth)
                 {
                     panelWidth = Math.Max(panelWidth, rowWidth);
-                    panelHeight += rowHeight;
+                    panelHeight += rowHeight + (columnItemCount > 0 ? spacing : 0);
+                    columnItemCount++;
                     rowWidth = 0;
                     rowHeight = 0;
+                    rowItemCount = 0;
+                    gap = 0;
                 }
 
-                rowWidth += size.Width;
+                rowWidth += gap + size.Width;
                 rowHeight = Math.Max(rowHeight, size.Height);
+                rowItemCount++;
             }
             else
             {
+                if (columnItemCount > 0)
+                {
+                    panelHeight += spacing;
+                }
+
                 panelWidth = Math.Max(panelWidth, size.Width);
                 panelHeight += size.Height;
+                columnItemCount++;
             }
         }
 
         if (wrap)
         {
             panelWidth = Math.Max(panelWidth, rowWidth);
-            panelHeight += rowHeight;
+            if (rowItemCount > 0)
+            {
+                panelHeight += rowHeight + (columnItemCount > 0 ? spacing : 0);
+            }
         }
 
         return new Size(panelWidth, panelHeight);
@@ -87,12 +104,14 @@ public class ToolBarOverflowPanel : Panel
 
     protected override Size ArrangeOverride(Size finalSize)
     {
+        double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
         double wrapWidth = WrapWidth;
         bool wrap = wrapWidth > 0;
 
         double x = 0;
         double y = 0;
         double rowHeight = 0;
+        int rowItemCount = 0;
         double limit = wrap ? Math.Min(wrapWidth, finalSize.Width) : finalSize.Width;
 
         foreach (UIElement child in Children)
@@ -101,21 +120,34 @@ public class ToolBarOverflowPanel : Panel
 
             if (wrap)
             {
-                if (x > 0 && x + size.Width > limit)
+                if (rowItemCount > 0 && x + spacing + size.Width > limit)
                 {
                     x = 0;
-                    y += rowHeight;
+                    y += rowHeight + spacing;
                     rowHeight = 0;
+                    rowItemCount = 0;
+                }
+
+                if (rowItemCount > 0)
+                {
+                    x += spacing;
                 }
 
                 child.Arrange(new Rect(x, y, size.Width, size.Height));
                 x += size.Width;
                 rowHeight = Math.Max(rowHeight, size.Height);
+                rowItemCount++;
             }
             else
             {
+                if (rowItemCount > 0)
+                {
+                    y += spacing;
+                }
+
                 child.Arrange(new Rect(0, y, Math.Max(finalSize.Width, size.Width), size.Height));
                 y += size.Height;
+                rowItemCount++;
             }
         }
 
