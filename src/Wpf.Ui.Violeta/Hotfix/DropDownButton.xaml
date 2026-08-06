@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
+    xmlns:vio="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <Thickness x:Key="ButtonChevronIconMargin">8,0,0,0</Thickness>
 
@@ -9,12 +10,15 @@
         Hotfix: Align DropDownButton outer border with Button.
         The upstream template draws BorderBrush on the inner border only,
         so it never picks up the elevation gradient used by the hotfixed Button.
+        Also enables DropDownFlyoutAssist so Flyout ContextMenu uses
+        DropDownFlyoutContextMenuStyle (no From=-90 slide over the button).
     -->
     <Style
         x:Key="DefaultUiDropDownButtonStyle"
         BasedOn="{StaticResource DefaultUiButtonStyle}"
         TargetType="{x:Type controls:DropDownButton}">
         <Setter Property="IsDropDownOpen" Value="False" />
+        <Setter Property="vio:DropDownFlyoutAssist.IsEnabled" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:DropDownButton}">
@@ -105,5 +109,8 @@
     </Style>
 
     <Style BasedOn="{StaticResource DefaultUiDropDownButtonStyle}" TargetType="{x:Type controls:DropDownButton}" />
+
+    <!-- Violeta wrapper (DefaultStyleKey → upstream DropDownButton); keep Assist for Loaded timing. -->
+    <Style BasedOn="{StaticResource DefaultUiDropDownButtonStyle}" TargetType="{x:Type vio:DropDownButton}" />
 
 </ResourceDictionary>
