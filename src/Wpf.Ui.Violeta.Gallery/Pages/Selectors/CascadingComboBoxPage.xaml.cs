@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel;
 using System.Windows;
 using Wpf.Ui.Violeta.Controls;
 using LiteObservableLanguages;
@@ -39,5 +41,16 @@ public partial class CascadingComboBoxPage : Wpf.Ui.Violeta.Controls.Page
                 new CascadingItem(LangKeys.Sample_880490aef6.Tr()),
             ]),
         };
+
+        DependencyPropertyDescriptor
+            .FromProperty(CascadingComboBox.SelectedCascadingItemProperty, typeof(CascadingComboBox))
+            ?.AddValueChanged(CascadingComboBoxDemo, OnSelectedCascadingItemChanged);
+    }
+
+    private void OnSelectedCascadingItemChanged(object? sender, EventArgs e)
+    {
+        CascadingComboBoxResultText.Text = CascadingComboBoxDemo.SelectedCascadingItem is { Label: { } label }
+            ? LangKeys.Sample_af69d6c47f.Tr(label)
+            : LangKeys.Sample_b5c92782c9.Tr();
     }
 }

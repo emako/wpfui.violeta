@@ -37,16 +37,10 @@
                         HorizontalAlignment="Left"
                         PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_04a8c85aef}}" />
                     <TextBlock
+                        x:Name="CascadingComboBoxResultText"
                         Margin="0,8,0,0"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}">
-                        <TextBlock.Text>
-                            <Binding
-                                ElementName="CascadingComboBoxDemo"
-                                Path="SelectedCascadingItem.Label"
-                                StringFormat="{I18N {x:Static lang:LangKeys.Sample_af69d6c47f}}"
-                                TargetNullValue="{I18N {x:Static lang:LangKeys.Sample_b5c92782c9}}" />
-                        </TextBlock.Text>
-                    </TextBlock>
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b5c92782c9}}" />
                 </StackPanel>
             </Border>
         </StackPanel>
