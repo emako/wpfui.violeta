@@ -33,7 +33,7 @@ public class ToolBarOverflowPanel : Panel
     /// Avoid claiming logical ownership — ToolBar items are already logical children of the ItemsControl.
     /// </summary>
     protected override UIElementCollection CreateUIElementCollection(FrameworkElement logicalParent)
-        => new UIElementCollection(this, logicalParent: null!);
+        => new(this, logicalParent: null!);
 
     protected override Size MeasureOverride(Size constraint)
     {

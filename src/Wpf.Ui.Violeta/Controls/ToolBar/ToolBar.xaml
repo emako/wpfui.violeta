@@ -23,9 +23,7 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         SnapsToDevicePixels="True">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -101,9 +99,7 @@
                                 DockPanel.Dock="Right"
                                 Style="{TemplateBinding OverflowButtonStyle}"
                                 Visibility="Collapsed" />
-                            <local:ToolBarPanel
-                                x:Name="PART_ToolBarPanel"
-                                VerticalAlignment="Center" />
+                            <local:ToolBarPanel x:Name="PART_ToolBarPanel" VerticalAlignment="Center" />
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>

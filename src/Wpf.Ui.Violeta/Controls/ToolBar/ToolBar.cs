@@ -181,20 +181,14 @@ public class ToolBar : ItemsControl
 
     public static OverflowMode GetOverflowMode(DependencyObject element)
     {
-        if (element is null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (OverflowMode)element.GetValue(OverflowModeProperty);
     }
 
     public static void SetOverflowMode(DependencyObject element, OverflowMode value)
     {
-        if (element is null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         element.SetValue(OverflowModeProperty, value);
     }
@@ -215,10 +209,7 @@ public class ToolBar : ItemsControl
 
     public static bool GetIsOverflowItem(DependencyObject element)
     {
-        if (element is null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (bool)element.GetValue(IsOverflowItemProperty);
     }
@@ -244,11 +235,7 @@ public class ToolBar : ItemsControl
             ?? _overflowPanel
             ?? new ToolBarOverflowPanel();
 
-        if (_toolBarPanel is not null)
-        {
-            _toolBarPanel.ToolBar = this;
-        }
-
+        _toolBarPanel?.ToolBar = this;
         _overflowPanel.ToolBar = this;
         _overflowPanel.WrapWidth = OverflowPanelWrapWidth;
 
@@ -291,8 +278,7 @@ public class ToolBar : ItemsControl
                 {
                     for (int i = 0; i < Items.Count; i++)
                     {
-                        var container = generator.GenerateNext(out bool newlyRealized) as UIElement;
-                        if (container is null)
+                        if (generator.GenerateNext(out bool newlyRealized) is not UIElement container)
                         {
                             continue;
                         }
@@ -367,12 +353,9 @@ public class ToolBar : ItemsControl
         }
 
         // Compat Flyout binds presenter Style to FlyoutPresenterStyle; a null binding clears DefaultStyleKey.
-        if (_overflowFlyout.FlyoutPresenterStyle is null)
-        {
-            _overflowFlyout.FlyoutPresenterStyle =
+        _overflowFlyout.FlyoutPresenterStyle ??=
                 TryFindResource(OverflowFlyoutPresenterStyleKey) as Style
                 ?? CreateFallbackFlyoutPresenterStyle();
-        }
     }
 
     private static Style CreateFallbackFlyoutPresenterStyle()
@@ -453,10 +436,7 @@ public class ToolBar : ItemsControl
 
     private void DetachOverflowButton()
     {
-        if (_overflowButton is not null)
-        {
-            _overflowButton.Click -= OnOverflowButtonClick;
-        }
+        _overflowButton?.Click -= OnOverflowButtonClick;
     }
 
     private void OnOverflowButtonClick(object sender, RoutedEventArgs e)
