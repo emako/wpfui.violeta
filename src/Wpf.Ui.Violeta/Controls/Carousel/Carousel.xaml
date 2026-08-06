@@ -12,6 +12,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="MinWidth" Value="0" />
         <Setter Property="MinHeight" Value="0" />
         <Setter Property="Padding" Value="8" />
@@ -27,9 +28,6 @@
                     <Border
                         x:Name="HitArea"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="Transparent"
-                        BorderThickness="2"
-                        CornerRadius="4"
                         Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="True">
                         <!--  Indicator sized explicitly (content-box equivalent)  -->
@@ -83,9 +81,6 @@
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Indicator" Property="Opacity" Value="0.3" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="HitArea" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

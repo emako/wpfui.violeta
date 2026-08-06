@@ -302,7 +302,6 @@ public class CarouselNav : Control
         SelectedIndex = index;
         _attachedCarousel?.SelectPageByIndex(index);
         _attachedCarousel?.ResetAutoplay();
-        FocusButton(index);
     }
 
     private void UpdateSelection()
@@ -323,12 +322,5 @@ public class CarouselNav : Control
             if (child is CarouselNavButton button)
                 button.Appearance = Appearance;
         }
-    }
-
-    private void FocusButton(int index)
-    {
-        if (_itemsHost == null || index < 0 || index >= _itemsHost.Children.Count) return;
-        if (_itemsHost.Children[index] is IInputElement element)
-            element.Focus();
     }
 }
