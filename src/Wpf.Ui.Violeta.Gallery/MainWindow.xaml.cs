@@ -115,6 +115,7 @@ public partial class MainWindow : ShellWindow
         ["selectors/tree-combo-box"] = static () => new TreeComboBoxPage(),
         ["selectors/value-picker"] = static () => new ValuePickerPage(),
         ["selectors/color-picker"] = static () => new ColorPickerPage(),
+        ["selectors/swatch-picker"] = static () => new SwatchPickerPage(),
 
         ["tag-input"] = static () => new TagInputPage(),
 

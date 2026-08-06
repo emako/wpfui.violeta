@@ -236,6 +236,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
                         <vio:NavigationViewItem Content="ColorPicker" Tag="selectors/color-picker" />
+                        <vio:NavigationViewItem Content="SwatchPicker" Tag="selectors/swatch-picker" />
                         <vio:NavigationViewItem Content="DatePicker" Tag="date-time/date-picker" />
                         <vio:NavigationViewItem Content="TimePicker" Tag="date-time/time-picker" />
                         <vio:NavigationViewItem Content="CalendarDatePicker" Tag="date-time/calendar-date-picker" />
