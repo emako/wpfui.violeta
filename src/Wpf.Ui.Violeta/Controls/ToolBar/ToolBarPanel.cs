@@ -42,14 +42,14 @@ public class ToolBarPanel : Panel
         var infinite = new Size(double.PositiveInfinity, constraint.Height);
 
         double maxHeight = 0;
-        var modes = new OverflowMode[count];
+        var modes = new ToolBarOverflowMode[count];
         var sizes = new Size[count];
 
         for (int i = 0; i < count; i++)
         {
             if (generator.ContainerFromIndex(i) is not UIElement child)
             {
-                modes[i] = OverflowMode.AsNeeded;
+                modes[i] = ToolBarOverflowMode.AsNeeded;
                 sizes[i] = new Size();
                 continue;
             }
@@ -78,12 +78,12 @@ public class ToolBarPanel : Panel
             bool overflow;
             switch (modes[i])
             {
-                case OverflowMode.Always:
+                case ToolBarOverflowMode.Always:
                     overflow = true;
                     hasAlways = true;
                     break;
 
-                case OverflowMode.Never:
+                case ToolBarOverflowMode.Never:
                     overflow = false;
                     break;
 
@@ -242,7 +242,7 @@ public class ToolBarPanel : Panel
         }
     }
 
-    private static OverflowMode ResolveOverflowMode(ToolBar toolBar, int index, UIElement container)
+    private static ToolBarOverflowMode ResolveOverflowMode(ToolBar toolBar, int index, UIElement container)
     {
         if (toolBar.Items[index] is DependencyObject item && !ReferenceEquals(item, container))
         {

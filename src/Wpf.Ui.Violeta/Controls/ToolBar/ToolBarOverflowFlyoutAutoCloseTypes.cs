@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls.Primitives;
-using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// Whitelist / blacklist of item types that dismiss the <see cref="ToolBar"/> overflow flyout when
-/// <see cref="OverflowFlyoutAutoCloseMode.Default"/> is used.
+/// <see cref="ToolBarOverflowFlyoutAutoCloseMode.Default"/> is used.
 /// An item closes the flyout only if it matches the whitelist and does not match the blacklist.
 /// The whitelist defaults to <see cref="ButtonBase"/>.
 /// </summary>
-public static class OverflowFlyoutAutoCloseTypes
+public static class ToolBarOverflowFlyoutAutoCloseTypes
 {
     internal static readonly object SyncRoot = new();
 
@@ -19,7 +18,7 @@ public static class OverflowFlyoutAutoCloseTypes
 
     internal static readonly HashSet<Type> Blacklist =
     [
-        // Primitives
+        // WPF Primitives
         typeof(ToggleButton), // ButtonBase
         typeof(RepeatButton), // ButtonBase
 

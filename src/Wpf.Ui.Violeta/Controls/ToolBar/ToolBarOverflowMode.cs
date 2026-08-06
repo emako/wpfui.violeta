@@ -3,7 +3,7 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// Specifies how a <see cref="ToolBar"/> child participates in overflow layout.
 /// </summary>
-public enum OverflowMode
+public enum ToolBarOverflowMode
 {
     /// <summary>Move to the overflow area only when there is not enough space.</summary>
     AsNeeded,

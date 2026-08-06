@@ -87,16 +87,16 @@ public class ToolBar : ItemsControl
 
     public static readonly DependencyProperty OverflowFlyoutAutoCloseModeProperty = DependencyProperty.Register(
         nameof(OverflowFlyoutAutoCloseMode),
-        typeof(OverflowFlyoutAutoCloseMode),
+        typeof(ToolBarOverflowFlyoutAutoCloseMode),
         typeof(ToolBar),
-        new PropertyMetadata(OverflowFlyoutAutoCloseMode.Default, OnOverflowFlyoutAutoCloseModeChanged));
+        new PropertyMetadata(ToolBarOverflowFlyoutAutoCloseMode.Default, OnOverflowFlyoutAutoCloseModeChanged));
 
     /// <summary>
     /// Controls when the overflow flyout auto-closes after interacting with overflow items.
     /// </summary>
-    public OverflowFlyoutAutoCloseMode OverflowFlyoutAutoCloseMode
+    public ToolBarOverflowFlyoutAutoCloseMode OverflowFlyoutAutoCloseMode
     {
-        get => (OverflowFlyoutAutoCloseMode)GetValue(OverflowFlyoutAutoCloseModeProperty);
+        get => (ToolBarOverflowFlyoutAutoCloseMode)GetValue(OverflowFlyoutAutoCloseModeProperty);
         set => SetValue(OverflowFlyoutAutoCloseModeProperty, value);
     }
 
@@ -233,18 +233,18 @@ public class ToolBar : ItemsControl
 
     public static readonly DependencyProperty OverflowModeProperty = DependencyProperty.RegisterAttached(
         "OverflowMode",
-        typeof(OverflowMode),
+        typeof(ToolBarOverflowMode),
         typeof(ToolBar),
-        new FrameworkPropertyMetadata(OverflowMode.AsNeeded, FrameworkPropertyMetadataOptions.AffectsParentMeasure));
+        new FrameworkPropertyMetadata(ToolBarOverflowMode.AsNeeded, FrameworkPropertyMetadataOptions.AffectsParentMeasure));
 
-    public static OverflowMode GetOverflowMode(DependencyObject element)
+    public static ToolBarOverflowMode GetOverflowMode(DependencyObject element)
     {
         _ = element ?? throw new ArgumentNullException(nameof(element));
 
-        return (OverflowMode)element.GetValue(OverflowModeProperty);
+        return (ToolBarOverflowMode)element.GetValue(OverflowModeProperty);
     }
 
-    public static void SetOverflowMode(DependencyObject element, OverflowMode value)
+    public static void SetOverflowMode(DependencyObject element, ToolBarOverflowMode value)
     {
         _ = element ?? throw new ArgumentNullException(nameof(element));
 
@@ -482,7 +482,7 @@ public class ToolBar : ItemsControl
 
     private void OnOverflowItemClick(object sender, RoutedEventArgs e)
     {
-        if (OverflowFlyoutAutoCloseMode != OverflowFlyoutAutoCloseMode.Default)
+        if (OverflowFlyoutAutoCloseMode != ToolBarOverflowFlyoutAutoCloseMode.Default)
         {
             return;
         }
@@ -492,7 +492,7 @@ public class ToolBar : ItemsControl
 
     private void OnOverflowItemMouseUp(object sender, MouseButtonEventArgs e)
     {
-        if (OverflowFlyoutAutoCloseMode != OverflowFlyoutAutoCloseMode.Always)
+        if (OverflowFlyoutAutoCloseMode != ToolBarOverflowFlyoutAutoCloseMode.Always)
         {
             return;
         }
@@ -520,7 +520,7 @@ public class ToolBar : ItemsControl
 
             if (current is UIElement element && Items.Contains(element))
             {
-                if (!buttonBaseItemOnly || OverflowFlyoutAutoCloseTypes.Matches(element))
+                if (!buttonBaseItemOnly || ToolBarOverflowFlyoutAutoCloseTypes.Matches(element))
                 {
                     IsOverflowOpen = false;
                 }
@@ -632,7 +632,7 @@ public class ToolBar : ItemsControl
 
         // Match ComboBox dropdown: StaysOpen=false so clicking outside dismisses freely.
         // Never keeps the flyout until the overflow button / IsOverflowOpen closes it.
-        popup.StaysOpen = OverflowFlyoutAutoCloseMode == OverflowFlyoutAutoCloseMode.Never;
+        popup.StaysOpen = OverflowFlyoutAutoCloseMode == ToolBarOverflowFlyoutAutoCloseMode.Never;
     }
 
     private void UpdateOverflowFlyoutState()
