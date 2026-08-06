@@ -152,6 +152,32 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_CloseToTray}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_CloseToTray_Desc}}"
+                        TextWrapping="Wrap" />
+                    <ui:ToggleSwitch
+                        x:Name="CloseToTrayToggle"
+                        HorizontalAlignment="Left"
+                        Checked="CloseToTrayToggle_OnChanged"
+                        Unchecked="CloseToTrayToggle_OnChanged" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}" />
                     <TextBlock
                         Margin="0,0,0,12"

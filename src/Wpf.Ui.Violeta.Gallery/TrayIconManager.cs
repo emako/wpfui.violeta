@@ -78,6 +78,12 @@ internal partial class TrayIconManager
 
     public static bool IsExitRequested => GetInstance()._isExitRequested;
 
+    /// <summary>
+    /// When true, closing the main window hides to the tray instead of exiting.
+    /// Default is false; enable from Settings.
+    /// </summary>
+    public static bool MinimizeToTrayOnClose { get; set; }
+
     public static void ShowNotification(
         string title,
         string content,

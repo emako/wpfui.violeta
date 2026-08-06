@@ -246,6 +246,12 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>切换 Gallery 界面语言，更改立即生效。</value>
   </data>
+  <data name="Gallery_Settings_CloseToTray" xml:space="preserve">
+    <value>关闭时最小化到托盘</value>
+  </data>
+  <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
+    <value>启用后，关闭主窗口会将应用最小化到系统托盘而不是退出。要完全退出，请使用托盘菜单中的退出。默认关闭。</value>
+  </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>(无法读取剪贴板)</value>
   </data>
@@ -388,7 +394,7 @@
     <value>FontIcon 与 ImageIcon 示例。</value>
   </data>
   <data name="Sample_5d2567470b" xml:space="preserve">
-    <value>Gallery 启动时已通过 TrayIconHost 创建真实托盘图标。关闭主窗口会最小化到托盘；双击托盘图标或使用右键菜单可显示/隐藏窗口。</value>
+    <value>Gallery 启动时已通过 TrayIconHost 创建真实托盘图标。在设置中启用“关闭时最小化到托盘”后，关闭主窗口会最小化到托盘；双击托盘图标或使用右键菜单可显示/隐藏窗口。</value>
   </data>
   <data name="Sample_b313aff943" xml:space="preserve">
     <value>HalfStarEnabled=False 仅整星评分。</value>

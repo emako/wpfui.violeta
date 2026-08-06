@@ -246,6 +246,12 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>Gallery の UI 言語を切り替えます。変更はすぐに反映されます。</value>
   </data>
+  <data name="Gallery_Settings_CloseToTray" xml:space="preserve">
+    <value>閉じるときにトレイへ最小化</value>
+  </data>
+  <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
+    <value>有効にすると、メインウィンドウを閉じたときにアプリを終了せずシステムトレイに最小化します。完全に終了するには、トレイメニューの終了を使用してください。既定ではオフです。</value>
+  </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>（クリップボードを読み取れません）</value>
   </data>
@@ -388,7 +394,7 @@
     <value>FontIcon と ImageIcon のサンプル。</value>
   </data>
   <data name="Sample_5d2567470b" xml:space="preserve">
-    <value>Gallery 起動時に TrayIconHost で実際のトレイアイコンを作成します。メインウィンドウを閉じるとトレイに最小化され、トレイアイコンのダブルクリックまたは右クリックメニューで表示/非表示を切り替えられます。</value>
+    <value>Gallery 起動時に TrayIconHost で実際のトレイアイコンを作成します。設定で「閉じるときにトレイへ最小化」を有効にすると、メインウィンドウを閉じたときにトレイに最小化され、トレイアイコンのダブルクリックまたは右クリックメニューで表示/非表示を切り替えられます。</value>
   </data>
   <data name="Sample_b313aff943" xml:space="preserve">
     <value>HalfStarEnabled=False では整数星のみ評価できます。</value>

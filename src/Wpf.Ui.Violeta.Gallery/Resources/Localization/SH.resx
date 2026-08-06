@@ -246,6 +246,12 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>Switch the gallery UI language. Changes apply immediately.</value>
   </data>
+  <data name="Gallery_Settings_CloseToTray" xml:space="preserve">
+    <value>Close to tray</value>
+  </data>
+  <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
+    <value>When enabled, closing the main window minimizes the app to the system tray instead of exiting. Use Exit in the tray menu to quit completely. Off by default.</value>
+  </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>(Unable to read clipboard)</value>
   </data>
@@ -388,7 +394,7 @@
     <value>FontIcon and ImageIcon samples.</value>
   </data>
   <data name="Sample_5d2567470b" xml:space="preserve">
-    <value>At Gallery startup, TrayIconHost creates a real tray icon. Closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window.</value>
+    <value>At Gallery startup, TrayIconHost creates a real tray icon. When “Close to tray” is enabled in Settings, closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window.</value>
   </data>
   <data name="Sample_b313aff943" xml:space="preserve">
     <value>HalfStarEnabled=False allows whole-star ratings only.</value>

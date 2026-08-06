@@ -15,6 +15,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 {
     private bool _syncingAppearance;
     private bool _syncingLanguage;
+    private bool _syncingCloseToTray;
 
     public SettingsPage()
     {
@@ -32,6 +33,8 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 
         var target = assembly.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkDisplayName;
         RuntimeVersionText.Text = target ?? System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+
+        SyncCloseToTray();
     }
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -39,6 +42,30 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         base.OnNavigatedTo(e);
         SyncAppearanceFromShell();
         SyncLanguageFromShell();
+        SyncCloseToTray();
+    }
+
+    private void SyncCloseToTray()
+    {
+        _syncingCloseToTray = true;
+        try
+        {
+            CloseToTrayToggle.IsChecked = TrayIconManager.MinimizeToTrayOnClose;
+        }
+        finally
+        {
+            _syncingCloseToTray = false;
+        }
+    }
+
+    private void CloseToTrayToggle_OnChanged(object sender, RoutedEventArgs e)
+    {
+        if (!IsLoaded || _syncingCloseToTray)
+        {
+            return;
+        }
+
+        TrayIconManager.MinimizeToTrayOnClose = CloseToTrayToggle.IsChecked == true;
     }
 
     private void SyncAppearanceFromShell()

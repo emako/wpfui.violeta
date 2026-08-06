@@ -231,7 +231,7 @@ public partial class MainWindow : ShellWindow
 
     private void MainWindow_OnClosing(object? sender, CancelEventArgs e)
     {
-        if (TrayIconManager.IsExitRequested)
+        if (TrayIconManager.IsExitRequested || !TrayIconManager.MinimizeToTrayOnClose)
         {
             return;
         }

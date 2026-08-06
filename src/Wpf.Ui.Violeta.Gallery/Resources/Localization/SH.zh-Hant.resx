@@ -246,6 +246,12 @@
   <data name="Gallery_Settings_Language_Desc" xml:space="preserve">
     <value>切換 Gallery 介面語言，變更立即生效。</value>
   </data>
+  <data name="Gallery_Settings_CloseToTray" xml:space="preserve">
+    <value>關閉時最小化到系統匣</value>
+  </data>
+  <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
+    <value>啟用後，關閉主視窗會將應用程式最小化到系統匣而不是結束。要完全結束，請使用系統匣功能表中的結束。預設關閉。</value>
+  </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>（無法讀取剪貼簿）</value>
   </data>
@@ -388,7 +394,7 @@
     <value>FontIcon 與 ImageIcon 範例。</value>
   </data>
   <data name="Sample_5d2567470b" xml:space="preserve">
-    <value>Gallery 啟動時已透過 TrayIconHost 建立真實系統匣圖示。關閉主視窗會最小化到系統匣；連按兩下系統匣圖示或使用右鍵功能表可顯示/隱藏視窗。</value>
+    <value>Gallery 啟動時已透過 TrayIconHost 建立真實系統匣圖示。在設定中啟用「關閉時最小化到系統匣」後，關閉主視窗會最小化到系統匣；連按兩下系統匣圖示或使用右鍵功能表可顯示/隱藏視窗。</value>
   </data>
   <data name="Sample_b313aff943" xml:space="preserve">
     <value>HalfStarEnabled=False 僅整星評分。</value>

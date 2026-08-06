@@ -771,6 +771,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close to tray.
+        /// </summary>
+        internal static string Gallery_Settings_CloseToTray {
+            get {
+                return ResourceManager.GetString("Gallery_Settings_CloseToTray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled, closing the main window minimizes the app to the system tray instead of exiting. Use Exit in the tray menu to quit completely. Off by default..
+        /// </summary>
+        internal static string Gallery_Settings_CloseToTray_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Settings_CloseToTray_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string Gallery_Settings_Language {
@@ -4014,7 +4032,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At Gallery startup, TrayIconHost creates a real tray icon. Closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window..
+        ///   Looks up a localized string similar to At Gallery startup, TrayIconHost creates a real tray icon. When “Close to tray” is enabled in Settings, closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window..
         /// </summary>
         internal static string Sample_5d2567470b {
             get {
