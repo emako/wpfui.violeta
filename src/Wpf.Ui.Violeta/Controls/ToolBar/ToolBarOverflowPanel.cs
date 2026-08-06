@@ -18,13 +18,28 @@ public class ToolBarOverflowPanel : Panel
         typeof(ToolBarOverflowPanel),
         new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
+    public static readonly DependencyProperty MaxItemsPerRowProperty = DependencyProperty.Register(
+        nameof(MaxItemsPerRow),
+        typeof(int),
+        typeof(ToolBarOverflowPanel),
+        new FrameworkPropertyMetadata(3, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
     /// <summary>
-    /// Maximum row width before wrapping. Values &lt;= 0 disable wrapping (single vertical column).
+    /// Maximum row width before wrapping. Values &lt;= 0 do not constrain the row width.
     /// </summary>
     public double WrapWidth
     {
         get => (double)GetValue(WrapWidthProperty);
         set => SetValue(WrapWidthProperty, value);
+    }
+
+    /// <summary>
+    /// Maximum number of overflow items in a horizontal row. Values &lt;= 0 disable the item-count limit.
+    /// </summary>
+    public int MaxItemsPerRow
+    {
+        get => (int)GetValue(MaxItemsPerRowProperty);
+        set => SetValue(MaxItemsPerRowProperty, value);
     }
 
     internal ToolBar? ToolBar { get; set; }
@@ -41,17 +56,19 @@ public class ToolBarOverflowPanel : Panel
 
         double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
         double wrapWidth = WrapWidth;
-        bool wrap = wrapWidth > 0;
+        int maxItemsPerRow = MaxItemsPerRow;
+        bool hasWidthLimit = wrapWidth > 0;
+        bool hasItemLimit = maxItemsPerRow > 0;
 
         double panelWidth = 0;
         double panelHeight = 0;
         double rowWidth = 0;
         double rowHeight = 0;
         int rowItemCount = 0;
-        int columnItemCount = 0;
+        int rowCount = 0;
 
         var infinite = new Size(
-            wrap ? wrapWidth : double.PositiveInfinity,
+            hasWidthLimit ? wrapWidth : double.PositiveInfinity,
             double.PositiveInfinity);
 
         foreach (UIElement child in Children)
@@ -59,44 +76,29 @@ public class ToolBarOverflowPanel : Panel
             child.Measure(infinite);
             Size size = child.DesiredSize;
 
-            if (wrap)
+            double gap = rowItemCount > 0 ? spacing : 0;
+            bool exceedsWidth = hasWidthLimit && rowItemCount > 0 && rowWidth + gap + size.Width > wrapWidth;
+            bool exceedsItemCount = hasItemLimit && rowItemCount >= maxItemsPerRow;
+            if (exceedsWidth || exceedsItemCount)
             {
-                double gap = rowItemCount > 0 ? spacing : 0;
-                if (rowItemCount > 0 && rowWidth + gap + size.Width > wrapWidth)
-                {
-                    panelWidth = Math.Max(panelWidth, rowWidth);
-                    panelHeight += rowHeight + (columnItemCount > 0 ? spacing : 0);
-                    columnItemCount++;
-                    rowWidth = 0;
-                    rowHeight = 0;
-                    rowItemCount = 0;
-                    gap = 0;
-                }
-
-                rowWidth += gap + size.Width;
-                rowHeight = Math.Max(rowHeight, size.Height);
-                rowItemCount++;
+                panelWidth = Math.Max(panelWidth, rowWidth);
+                panelHeight += rowHeight + (rowCount > 0 ? spacing : 0);
+                rowCount++;
+                rowWidth = 0;
+                rowHeight = 0;
+                rowItemCount = 0;
+                gap = 0;
             }
-            else
-            {
-                if (columnItemCount > 0)
-                {
-                    panelHeight += spacing;
-                }
 
-                panelWidth = Math.Max(panelWidth, size.Width);
-                panelHeight += size.Height;
-                columnItemCount++;
-            }
+            rowWidth += gap + size.Width;
+            rowHeight = Math.Max(rowHeight, size.Height);
+            rowItemCount++;
         }
 
-        if (wrap)
+        panelWidth = Math.Max(panelWidth, rowWidth);
+        if (rowItemCount > 0)
         {
-            panelWidth = Math.Max(panelWidth, rowWidth);
-            if (rowItemCount > 0)
-            {
-                panelHeight += rowHeight + (columnItemCount > 0 ? spacing : 0);
-            }
+            panelHeight += rowHeight + (rowCount > 0 ? spacing : 0);
         }
 
         return new Size(panelWidth, panelHeight);
@@ -106,49 +108,38 @@ public class ToolBarOverflowPanel : Panel
     {
         double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
         double wrapWidth = WrapWidth;
-        bool wrap = wrapWidth > 0;
+        int maxItemsPerRow = MaxItemsPerRow;
+        bool hasWidthLimit = wrapWidth > 0;
+        bool hasItemLimit = maxItemsPerRow > 0;
 
         double x = 0;
         double y = 0;
         double rowHeight = 0;
         int rowItemCount = 0;
-        double limit = wrap ? Math.Min(wrapWidth, finalSize.Width) : finalSize.Width;
+        double limit = hasWidthLimit ? Math.Min(wrapWidth, finalSize.Width) : finalSize.Width;
 
         foreach (UIElement child in Children)
         {
             Size size = child.DesiredSize;
-
-            if (wrap)
+            bool exceedsWidth = hasWidthLimit && rowItemCount > 0 && x + spacing + size.Width > limit;
+            bool exceedsItemCount = hasItemLimit && rowItemCount >= maxItemsPerRow;
+            if (exceedsWidth || exceedsItemCount)
             {
-                if (rowItemCount > 0 && x + spacing + size.Width > limit)
-                {
-                    x = 0;
-                    y += rowHeight + spacing;
-                    rowHeight = 0;
-                    rowItemCount = 0;
-                }
-
-                if (rowItemCount > 0)
-                {
-                    x += spacing;
-                }
-
-                child.Arrange(new Rect(x, y, size.Width, size.Height));
-                x += size.Width;
-                rowHeight = Math.Max(rowHeight, size.Height);
-                rowItemCount++;
+                x = 0;
+                y += rowHeight + spacing;
+                rowHeight = 0;
+                rowItemCount = 0;
             }
-            else
+
+            if (rowItemCount > 0)
             {
-                if (rowItemCount > 0)
-                {
-                    y += spacing;
-                }
-
-                child.Arrange(new Rect(0, y, Math.Max(finalSize.Width, size.Width), size.Height));
-                y += size.Height;
-                rowItemCount++;
+                x += spacing;
             }
+
+            child.Arrange(new Rect(x, y, size.Width, size.Height));
+            x += size.Width;
+            rowHeight = Math.Max(rowHeight, size.Height);
+            rowItemCount++;
         }
 
         return finalSize;
