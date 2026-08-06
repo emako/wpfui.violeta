@@ -3143,4 +3143,10 @@ OK をクリックして続行してください。</value>
   <data name="Sample_68c7b5f75f" xml:space="preserve">
     <value>コントロールの用途と操作のヒントを示す長いツールチップ。</value>
   </data>
+  <data name="Sample_aba7d83a65" xml:space="preserve">
+    <value>列区切り（ShowsPreview=False）</value>
+  </data>
+  <data name="Sample_8224c38e00" xml:space="preserve">
+    <value>ShowsPreview=False — ドラッグ中に即座にサイズを変更します。</value>
+  </data>
 </root>

@@ -3143,4 +3143,10 @@
   <data name="Sample_68c7b5f75f" xml:space="preserve">
     <value>這是一條較長的提示文本，用於說明控件的用途與操作建議。</value>
   </data>
+  <data name="Sample_aba7d83a65" xml:space="preserve">
+    <value>欄分隔（ShowsPreview=False）</value>
+  </data>
+  <data name="Sample_8224c38e00" xml:space="preserve">
+    <value>ShowsPreview=False — 拖動時立即調整尺寸。</value>
+  </data>
 </root>
