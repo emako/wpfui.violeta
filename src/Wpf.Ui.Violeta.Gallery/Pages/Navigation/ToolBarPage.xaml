@@ -119,16 +119,23 @@
                         BorderThickness="1"
                         CornerRadius="6">
                         <vio:ToolBar>
-                            <ToggleButton Padding="8,4" ToolTip="加粗">
+                            <ToggleButton
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="加粗">
                                 <ui:SymbolIcon Symbol="TextBold24" />
                             </ToggleButton>
                             <ToggleButton
                                 Padding="8,4"
                                 IsChecked="True"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
                                 ToolTip="斜体">
                                 <ui:SymbolIcon Symbol="TextItalic24" />
                             </ToggleButton>
-                            <ToggleButton Padding="8,4" ToolTip="下划线">
+                            <ToggleButton
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="下划线">
                                 <ui:SymbolIcon Symbol="TextUnderline24" />
                             </ToggleButton>
                             <Separator />
