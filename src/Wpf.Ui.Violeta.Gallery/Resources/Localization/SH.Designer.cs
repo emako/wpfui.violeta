@@ -285,7 +285,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DataGrid, TreeListView, FlipView, Timeline.
+        ///   Looks up a localized string similar to DataGrid, TreeListView, FlipView, Carousel, Timeline.
         /// </summary>
         internal static string Gallery_Home_Collections_Desc {
             get {
@@ -2284,6 +2284,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slide 2.
+        /// </summary>
+        internal static string Sample_28db7c9a8d {
+            get {
+                return ResourceManager.GetString("Sample_28db7c9a8d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NumericUpDown is an abstract base class; use a concrete type such as NumericIntUpDown..
         /// </summary>
         internal static string Sample_2904a01f72 {
@@ -3607,6 +3616,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slide 4.
+        /// </summary>
+        internal static string Sample_4de2a48a5d {
+            get {
+                return ResourceManager.GetString("Sample_4de2a48a5d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon content.
         /// </summary>
         internal static string Sample_4e22bba902 {
@@ -4010,6 +4028,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_5ac57ce6df {
             get {
                 return ResourceManager.GetString("Sample_5ac57ce6df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand nav + autoplay.
+        /// </summary>
+        internal static string Sample_5afe3a1529 {
+            get {
+                return ResourceManager.GetString("Sample_5afe3a1529", resourceCulture);
             }
         }
         
@@ -4650,6 +4677,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_725ba369df {
             get {
                 return ResourceManager.GetString("Sample_725ba369df", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Motion=Fade; drag works in Slide mode.
+        /// </summary>
+        internal static string Sample_7261a4dcf2 {
+            get {
+                return ResourceManager.GetString("Sample_7261a4dcf2", resourceCulture);
             }
         }
         
@@ -5680,6 +5716,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fade C.
+        /// </summary>
+        internal static string Sample_92b6558177 {
+            get {
+                return ResourceManager.GetString("Sample_92b6558177", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to document content..
         /// </summary>
         internal static string Sample_932b484438 {
@@ -5703,6 +5748,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_939d5345ad {
             get {
                 return ResourceManager.GetString("Sample_939d5345ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent UI React–style Carousel + CarouselNav (page indicators)..
+        /// </summary>
+        internal static string Sample_9411b11d27 {
+            get {
+                return ResourceManager.GetString("Sample_9411b11d27", resourceCulture);
             }
         }
         
@@ -7310,6 +7364,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fluent carousel with nav dots.
+        /// </summary>
+        internal static string Sample_c17befc4c1 {
+            get {
+                return ResourceManager.GetString("Sample_c17befc4c1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Primary / Secondary / Success / Caution / Danger appearances, including enabled and disabled states..
         /// </summary>
         internal static string Sample_c1dde7ca84 {
@@ -7387,6 +7450,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_c3e817974d {
             get {
                 return ResourceManager.GetString("Sample_c3e817974d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slide 1.
+        /// </summary>
+        internal static string Sample_c3e94a2a4d {
+            get {
+                return ResourceManager.GetString("Sample_c3e94a2a4d", resourceCulture);
             }
         }
         
@@ -8012,6 +8084,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Circular looping with built-in CarouselNav.
+        /// </summary>
+        internal static string Sample_d4ed947d9d {
+            get {
+                return ResourceManager.GetString("Sample_d4ed947d9d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right-side content.
         /// </summary>
         internal static string Sample_d53bad00d1 {
@@ -8188,6 +8269,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_d9ade15a16 {
             get {
                 return ResourceManager.GetString("Sample_d9ade15a16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fade A.
+        /// </summary>
+        internal static string Sample_d9b735f827 {
+            get {
+                return ResourceManager.GetString("Sample_d9b735f827", resourceCulture);
             }
         }
         
@@ -8462,6 +8552,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Carousel — carousel.
+        /// </summary>
+        internal static string Sample_e2b17aee1f {
+            get {
+                return ResourceManager.GetString("Sample_e2b17aee1f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read saved credentials.
         /// </summary>
         internal static string Sample_e2b1998a54 {
@@ -8485,6 +8584,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_e2e51ea8f9 {
             get {
                 return ResourceManager.GetString("Sample_e2e51ea8f9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance=Brand, IsAutoplayEnabled, 3s interval.
+        /// </summary>
+        internal static string Sample_e2eab3c10c {
+            get {
+                return ResourceManager.GetString("Sample_e2eab3c10c", resourceCulture);
             }
         }
         
@@ -8701,6 +8809,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_ea0a332c59 {
             get {
                 return ResourceManager.GetString("Sample_ea0a332c59", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fade + drag.
+        /// </summary>
+        internal static string Sample_ea9c482c64 {
+            get {
+                return ResourceManager.GetString("Sample_ea9c482c64", resourceCulture);
             }
         }
         
@@ -8984,6 +9101,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slide 3.
+        /// </summary>
+        internal static string Sample_f268cd05d3 {
+            get {
+                return ResourceManager.GetString("Sample_f268cd05d3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Violeta ContentDialog with primary, secondary, and close buttons..
         /// </summary>
         internal static string Sample_f330915173 {
@@ -9043,6 +9169,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_f5a481d0ae {
             get {
                 return ResourceManager.GetString("Sample_f5a481d0ae", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fade B.
+        /// </summary>
+        internal static string Sample_f67bcc6ac3 {
+            get {
+                return ResourceManager.GetString("Sample_f67bcc6ac3", resourceCulture);
             }
         }
         

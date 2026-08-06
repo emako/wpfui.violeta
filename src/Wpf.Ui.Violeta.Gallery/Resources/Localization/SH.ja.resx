@@ -175,9 +175,9 @@
     <value>Toast、Banner、TrayIcon</value>
   </data>
   <data name="Gallery_Home_Collections_Desc" xml:space="preserve">
-    <value>DataGrid、TreeListView、FlipView、Timeline</value>
+    <value>DataGrid、TreeListView、FlipView、Carousel、Timeline</value>
   </data>
-  <data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
+<data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
     <value>NavigationView、TabStrip、Anchor</value>
   </data>
   <data name="Gallery_Home_Layout_Desc" xml:space="preserve">
@@ -3148,5 +3148,50 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_8224c38e00" xml:space="preserve">
     <value>ShowsPreview=False — ドラッグ中に即座にサイズを変更します。</value>
+  </data>
+  <data name="Sample_c17befc4c1" xml:space="preserve">
+    <value>Fluent スタイルのカルーセルとナビ点</value>
+  </data>
+  <data name="Sample_9411b11d27" xml:space="preserve">
+    <value>Fluent UI React スタイルの Carousel + CarouselNav（ページインジケーター）。</value>
+  </data>
+  <data name="Sample_e2b17aee1f" xml:space="preserve">
+    <value>Carousel — カルーセル</value>
+  </data>
+  <data name="Sample_d4ed947d9d" xml:space="preserve">
+    <value>Circular ループ + 内蔵 CarouselNav</value>
+  </data>
+  <data name="Sample_5afe3a1529" xml:space="preserve">
+    <value>Brand ナビ + 自動再生</value>
+  </data>
+  <data name="Sample_e2eab3c10c" xml:space="preserve">
+    <value>Appearance=Brand、IsAutoplayEnabled、間隔 3 秒</value>
+  </data>
+  <data name="Sample_ea9c482c64" xml:space="preserve">
+    <value>フェード + ドラッグ</value>
+  </data>
+  <data name="Sample_7261a4dcf2" xml:space="preserve">
+    <value>Motion=Fade；ドラッグは Slide モードで利用可能</value>
+  </data>
+  <data name="Sample_c3e94a2a4d" xml:space="preserve">
+    <value>スライド 1</value>
+  </data>
+  <data name="Sample_28db7c9a8d" xml:space="preserve">
+    <value>スライド 2</value>
+  </data>
+  <data name="Sample_f268cd05d3" xml:space="preserve">
+    <value>スライド 3</value>
+  </data>
+  <data name="Sample_4de2a48a5d" xml:space="preserve">
+    <value>スライド 4</value>
+  </data>
+  <data name="Sample_d9b735f827" xml:space="preserve">
+    <value>フェード A</value>
+  </data>
+  <data name="Sample_f67bcc6ac3" xml:space="preserve">
+    <value>フェード B</value>
+  </data>
+  <data name="Sample_92b6558177" xml:space="preserve">
+    <value>フェード C</value>
   </data>
 </root>

@@ -141,6 +141,8 @@ public class CarouselNav : Control
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         AttachToCarousel(ResolveCarousel());
+        // Items may already exist before Nav loads; force a sync + rebuild.
+        SyncFromCarousel();
         RebuildButtons();
         UpdateSelection();
     }

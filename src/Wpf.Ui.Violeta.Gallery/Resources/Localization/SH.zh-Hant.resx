@@ -175,9 +175,9 @@
     <value>Toast、Banner、TrayIcon</value>
   </data>
   <data name="Gallery_Home_Collections_Desc" xml:space="preserve">
-    <value>DataGrid、TreeListView、FlipView、Timeline</value>
+    <value>DataGrid、TreeListView、FlipView、Carousel、Timeline</value>
   </data>
-  <data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
+<data name="Gallery_Home_Navigation_Desc" xml:space="preserve">
     <value>NavigationView、TabStrip、Anchor</value>
   </data>
   <data name="Gallery_Home_Layout_Desc" xml:space="preserve">
@@ -3148,5 +3148,50 @@
   </data>
   <data name="Sample_8224c38e00" xml:space="preserve">
     <value>ShowsPreview=False — 拖動時立即調整尺寸。</value>
+  </data>
+  <data name="Sample_c17befc4c1" xml:space="preserve">
+    <value>Fluent 風格輪播與分頁指示點</value>
+  </data>
+  <data name="Sample_9411b11d27" xml:space="preserve">
+    <value>Fluent UI React 風格的 Carousel + CarouselNav（分頁指示點）。</value>
+  </data>
+  <data name="Sample_e2b17aee1f" xml:space="preserve">
+    <value>Carousel — 輪播</value>
+  </data>
+  <data name="Sample_d4ed947d9d" xml:space="preserve">
+    <value>Circular 循環 + 內建 CarouselNav</value>
+  </data>
+  <data name="Sample_5afe3a1529" xml:space="preserve">
+    <value>Brand 導覽 + 自動播放</value>
+  </data>
+  <data name="Sample_e2eab3c10c" xml:space="preserve">
+    <value>Appearance=Brand，IsAutoplayEnabled，間隔 3s</value>
+  </data>
+  <data name="Sample_ea9c482c64" xml:space="preserve">
+    <value>淡入淡出 + 拖曳</value>
+  </data>
+  <data name="Sample_7261a4dcf2" xml:space="preserve">
+    <value>Motion=Fade；拖曳在 Slide 模式下可用</value>
+  </data>
+  <data name="Sample_c3e94a2a4d" xml:space="preserve">
+    <value>投影片 1</value>
+  </data>
+  <data name="Sample_28db7c9a8d" xml:space="preserve">
+    <value>投影片 2</value>
+  </data>
+  <data name="Sample_f268cd05d3" xml:space="preserve">
+    <value>投影片 3</value>
+  </data>
+  <data name="Sample_4de2a48a5d" xml:space="preserve">
+    <value>投影片 4</value>
+  </data>
+  <data name="Sample_d9b735f827" xml:space="preserve">
+    <value>淡入 A</value>
+  </data>
+  <data name="Sample_f67bcc6ac3" xml:space="preserve">
+    <value>淡入 B</value>
+  </data>
+  <data name="Sample_92b6558177" xml:space="preserve">
+    <value>淡入 C</value>
   </data>
 </root>

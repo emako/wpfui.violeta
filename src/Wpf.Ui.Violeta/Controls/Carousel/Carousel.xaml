@@ -3,47 +3,56 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
-    <!--  CarouselNavButton — Fluent fui-CarouselNavButton dots  -->
+    <!--
+      CarouselNavButton — Fluent fui-CarouselNavButton
+      React uses box-sizing:content-box (indicator 8×8 + padding 8).
+      WPF Width includes padding, so size the indicator in-template and leave the control auto-sized.
+    -->
     <Style x:Key="DefaultCarouselNavButtonStyle" TargetType="{x:Type local:CarouselNavButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Width" Value="8" />
-        <Setter Property="Height" Value="8" />
-        <Setter Property="MinWidth" Value="8" />
-        <Setter Property="MinHeight" Value="8" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CarouselNavButton}">
                     <Border
                         x:Name="HitArea"
-                        Background="Transparent"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="Transparent"
+                        BorderThickness="2"
+                        CornerRadius="4"
                         Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="True">
+                        <!--  Indicator sized explicitly (content-box equivalent)  -->
                         <Border
                             x:Name="Indicator"
-                            Width="{TemplateBinding Width}"
-                            Height="{TemplateBinding Height}"
+                            Width="8"
+                            Height="8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                             Background="{DynamicResource TextFillColorPrimaryBrush}"
                             CornerRadius="4"
-                            Opacity="0.6"
+                            Opacity="0.65"
                             SnapsToDevicePixels="True" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Indicator" Property="Opacity" Value="0.75" />
+                            <Setter TargetName="Indicator" Property="Opacity" Value="0.85" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Indicator" Property="Opacity" Value="1" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Width" Value="16" />
-                            <Setter Property="Padding" Value="8,8,4,8" />
+                            <Setter Property="Padding" Value="4,8" />
                             <Setter TargetName="Indicator" Property="Width" Value="16" />
                             <Setter TargetName="Indicator" Property="CornerRadius" Value="4" />
                             <Setter TargetName="Indicator" Property="Opacity" Value="1" />
@@ -70,16 +79,13 @@
                                 <Condition Property="Appearance" Value="Brand" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="Indicator" Property="Background" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter TargetName="Indicator" Property="Opacity" Value="0.6" />
+                            <Setter TargetName="Indicator" Property="Opacity" Value="0.65" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Indicator" Property="Opacity" Value="0.3" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
                             <Setter TargetName="HitArea" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
-                            <Setter TargetName="HitArea" Property="BorderThickness" Value="2" />
-                            <Setter TargetName="HitArea" Property="CornerRadius" Value="4" />
-                            <Setter TargetName="HitArea" Property="Margin" Value="-2" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -95,9 +101,10 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="24" />
         <Setter Property="Margin" Value="8,0" />
-        <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Once" />
         <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="Cycle" />
@@ -105,9 +112,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CarouselNav}">
                     <Border
+                        MinHeight="{TemplateBinding MinHeight}"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="8"
-                        Padding="4,0"
+                        CornerRadius="12"
+                        Padding="4,2"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                         <StackPanel
                             x:Name="PART_ItemsHost"

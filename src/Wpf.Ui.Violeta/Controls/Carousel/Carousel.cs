@@ -255,8 +255,15 @@ public class Carousel : Selector
 
     private void EnsureDefaultNav()
     {
-        if (Nav != null || !ShowNav) return;
-        Nav = new CarouselNav();
+        if (Nav == null && ShowNav)
+            Nav = new CarouselNav();
+
+        if (Nav is CarouselNav nav)
+        {
+            nav.SetCurrentValue(CarouselNav.CarouselProperty, this);
+            nav.SetCurrentValue(CarouselNav.TotalSlidesProperty, Items.Count);
+            nav.SetCurrentValue(CarouselNav.SelectedIndexProperty, ActiveIndex >= 0 ? ActiveIndex : SelectedIndex);
+        }
     }
 
     // --- ItemsControl overrides -----------------------------------------------
@@ -290,6 +297,16 @@ public class Carousel : Selector
         UpdateItemStates();
         GoToActiveIndex(animate: false);
         UpdateAutoplayTimer();
+        NotifyNavSlidesChanged();
+    }
+
+    private void NotifyNavSlidesChanged()
+    {
+        if (Nav is CarouselNav nav)
+        {
+            nav.SetCurrentValue(CarouselNav.TotalSlidesProperty, Items.Count);
+            nav.SetCurrentValue(CarouselNav.SelectedIndexProperty, ActiveIndex);
+        }
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)

@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Carousel"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -20,7 +21,7 @@
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Fluent UI React 风格的 Carousel + CarouselNav（分页指示点）。" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_9411b11d27}}" />
 
             <!--  Default + Nav  -->
             <Border
@@ -35,11 +36,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Default" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Circular 循环 + 内置 CarouselNav" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d4ed947d9d}}" />
                     <vio:Carousel
                         Height="180"
                         MaxWidth="520"
@@ -53,7 +54,7 @@
                                     FontSize="22"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Slide 1" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c3e94a2a4d}}" />
                             </Border>
                         </vio:CarouselItem>
                         <vio:CarouselItem>
@@ -64,7 +65,7 @@
                                     FontSize="22"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Slide 2" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_28db7c9a8d}}" />
                             </Border>
                         </vio:CarouselItem>
                         <vio:CarouselItem>
@@ -75,7 +76,7 @@
                                     FontSize="22"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Slide 3" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_f268cd05d3}}" />
                             </Border>
                         </vio:CarouselItem>
                         <vio:CarouselItem>
@@ -86,7 +87,7 @@
                                     FontSize="22"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Slide 4" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_4de2a48a5d}}" />
                             </Border>
                         </vio:CarouselItem>
                     </vio:Carousel>
@@ -106,11 +107,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Brand Nav + Autoplay" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5afe3a1529}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Appearance=Brand，IsAutoplayEnabled，间隔 3s" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e2eab3c10c}}" />
                     <vio:Carousel
                         Height="180"
                         MaxWidth="520"
@@ -168,11 +169,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Fade + Draggable" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ea9c482c64}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Motion=Fade；拖拽在 Slide 模式下可用" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7261a4dcf2}}" />
                     <vio:Carousel
                         Height="180"
                         MaxWidth="520"
@@ -190,7 +191,7 @@
                                     VerticalAlignment="Center"
                                     FontSize="20"
                                     Foreground="White"
-                                    Text="Fade A" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_d9b735f827}}" />
                             </Border>
                         </vio:CarouselItem>
                         <vio:CarouselItem>
@@ -200,7 +201,7 @@
                                     VerticalAlignment="Center"
                                     FontSize="20"
                                     Foreground="White"
-                                    Text="Fade B" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_f67bcc6ac3}}" />
                             </Border>
                         </vio:CarouselItem>
                         <vio:CarouselItem>
@@ -210,7 +211,7 @@
                                     VerticalAlignment="Center"
                                     FontSize="20"
                                     Foreground="White"
-                                    Text="Fade C" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_92b6558177}}" />
                             </Border>
                         </vio:CarouselItem>
                     </vio:Carousel>
