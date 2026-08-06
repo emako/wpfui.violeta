@@ -213,6 +213,7 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition x:Name="ClearButtonColumn" Width="28" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
@@ -239,7 +240,7 @@
                                 <!--  Drop-down arrow  -->
                                 <ui:SymbolIcon
                                     x:Name="PART_ChevronIcon"
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     Margin="8,0,0,0"
                                     VerticalAlignment="Center"
                                     FontSize="{StaticResource TreeComboBoxChevronSize}"
@@ -277,10 +278,7 @@
                         <!--  Clear button (after toggle so it is on top and clickable)  -->
                         <Button
                             x:Name="PART_ClearButton"
-                            Width="24"
-                            Height="24"
-                            Margin="0,0,30,0"
-                            Padding="0"
+                            Margin="0,0,25,0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             AutomationProperties.Name="{TemplateBinding ClearButtonToolTip}"
@@ -321,10 +319,12 @@
                             <Setter TargetName="PART_PlaceholderTextBlock" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_SelectionBoxItem" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
                         </Trigger>
                         <!--  Hide clear button when disabled  -->
                         <Trigger Property="ClearButtonEnabled" Value="False">
                             <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
                         </Trigger>
                         <!--  Rotate chevron when dropdown is open  -->
                         <Trigger Property="IsDropDownOpen" Value="True">
@@ -360,6 +360,7 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource ComboBoxBackgroundDisabled}" />
                             <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ClearButtonColumn" Property="Width" Value="0" />
                             <Setter Property="Foreground" Value="{DynamicResource ComboBoxForegroundDisabled}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
