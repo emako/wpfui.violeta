@@ -1,30 +1,60 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
-    xmlns:vio="clr-namespace:Wpf.Ui.Violeta.Controls">
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
-    <Thickness x:Key="ButtonChevronIconMargin">8,0,0,0</Thickness>
+    <Thickness x:Key="DropDownButtonChevronIconMargin">8,0,0,0</Thickness>
 
     <!--
-        Hotfix: Align DropDownButton outer border with Button.
-        The upstream template draws BorderBrush on the inner border only,
-        so it never picks up the elevation gradient used by the hotfixed Button.
-        Also enables DropDownFlyoutAssist so Flyout ContextMenu uses
-        DropDownFlyoutContextMenuStyle (no From=-90 slide over the button).
+        Flyout ContextMenu for DropDownButton / SplitButton (Placement=Bottom).
+        Same chrome as UiContextMenu, without From=-90 slide-in that covers the host.
     -->
     <Style
-        x:Key="DefaultUiDropDownButtonStyle"
-        BasedOn="{StaticResource DefaultUiButtonStyle}"
-        TargetType="{x:Type controls:DropDownButton}">
-        <Setter Property="IsDropDownOpen" Value="False" />
-        <Setter Property="vio:DropDownFlyoutAssist.IsEnabled" Value="True" />
+        x:Key="DefaultDropDownFlyoutContextMenuStyle"
+        BasedOn="{StaticResource UiContextMenu}"
+        TargetType="{x:Type ContextMenu}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:DropDownButton}">
+                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                    <ui:EffectThicknessDecorator Thickness="30">
+                        <Border
+                            x:Name="Border"
+                            Padding="0,3,0,3"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="20"
+                                    Direction="270"
+                                    Opacity="0.135"
+                                    ShadowDepth="10"
+                                    Color="#202020" />
+                            </Border.Effect>
+                            <StackPanel
+                                ClipToBounds="True"
+                                IsItemsHost="True"
+                                KeyboardNavigation.DirectionalNavigation="Cycle"
+                                Orientation="Vertical" />
+                        </Border>
+                    </ui:EffectThicknessDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="DefaultDropDownButtonStyle"
+        BasedOn="{StaticResource DefaultUiButtonStyle}"
+        TargetType="{x:Type local:DropDownButton}">
+        <Setter Property="IsDropDownOpen" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DropDownButton}">
                     <Border
                         x:Name="ContentBorder"
-                        Grid.Row="0"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
                         MinWidth="{TemplateBinding MinWidth}"
@@ -62,8 +92,8 @@
                                     RecognizesAccessKey="True"
                                     TextElement.Foreground="{TemplateBinding Foreground}" />
 
-                                <Grid Grid.Column="2" Margin="{StaticResource ButtonChevronIconMargin}">
-                                    <controls:SymbolIcon FontSize="10" Symbol="ChevronDown24" />
+                                <Grid Grid.Column="2" Margin="{StaticResource DropDownButtonChevronIconMargin}">
+                                    <ui:SymbolIcon FontSize="10" Symbol="ChevronDown24" />
                                 </Grid>
                             </Grid>
                         </Border>
@@ -108,9 +138,6 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource DefaultUiDropDownButtonStyle}" TargetType="{x:Type controls:DropDownButton}" />
-
-    <!-- Violeta wrapper (DefaultStyleKey → upstream DropDownButton); keep Assist for Loaded timing. -->
-    <Style BasedOn="{StaticResource DefaultUiDropDownButtonStyle}" TargetType="{x:Type vio:DropDownButton}" />
+    <Style BasedOn="{StaticResource DefaultDropDownButtonStyle}" TargetType="{x:Type local:DropDownButton}" />
 
 </ResourceDictionary>

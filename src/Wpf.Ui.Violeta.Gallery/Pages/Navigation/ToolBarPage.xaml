@@ -181,24 +181,24 @@
                                 <ui:SymbolIcon Symbol="Search24" />
                             </Button>
                             <Separator />
-                            <ui:DropDownButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}">
-                                <ui:DropDownButton.Flyout>
+                            <vio:DropDownButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}">
+                                <vio:DropDownButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_20def79426}}" />
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_b339aa8710}}" />
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_bfe68d5844}}" />
                                     </ContextMenu>
-                                </ui:DropDownButton.Flyout>
-                            </ui:DropDownButton>
-                            <ui:SplitButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}">
-                                <ui:SplitButton.Flyout>
+                                </vio:DropDownButton.Flyout>
+                            </vio:DropDownButton>
+                            <vio:SplitButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}">
+                                <vio:SplitButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_d47722faec}}" />
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_7fdf828e06}}" />
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_8ab81bbbd9}}" />
                                     </ContextMenu>
-                                </ui:SplitButton.Flyout>
-                            </ui:SplitButton>
+                                </vio:SplitButton.Flyout>
+                            </vio:SplitButton>
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>

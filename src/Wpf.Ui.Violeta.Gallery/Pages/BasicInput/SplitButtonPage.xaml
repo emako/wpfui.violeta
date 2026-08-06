@@ -35,13 +35,13 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_8813989799}}" />
-                    <ui:SplitButton Icon="{ui:SymbolIcon PaintBrush24}">
+                    <vio:SplitButton Icon="{ui:SymbolIcon PaintBrush24}">
                         <Border
                             Width="35"
                             Height="20"
                             Background="Green"
                             CornerRadius="4" />
-                        <ui:SplitButton.Flyout>
+                        <vio:SplitButton.Flyout>
                             <ContextMenu>
                                 <MenuItem>
                                     <MenuItem.Header>
@@ -71,8 +71,8 @@
                                     </MenuItem.Header>
                                 </MenuItem>
                             </ContextMenu>
-                        </ui:SplitButton.Flyout>
-                    </ui:SplitButton>
+                        </vio:SplitButton.Flyout>
+                    </vio:SplitButton>
                 </StackPanel>
             </Border>
 
@@ -93,13 +93,13 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_d0dcd65d52}}" />
-                    <ui:SplitButton Padding="0" CornerRadius="4">
+                    <vio:SplitButton Padding="0" CornerRadius="4">
                         <Border
                             Width="35"
                             Height="25"
                             Background="Green"
                             CornerRadius="4,0,0,4" />
-                        <ui:SplitButton.Flyout>
+                        <vio:SplitButton.Flyout>
                             <ContextMenu>
                                 <MenuItem>
                                     <MenuItem.Header>
@@ -129,8 +129,8 @@
                                     </MenuItem.Header>
                                 </MenuItem>
                             </ContextMenu>
-                        </ui:SplitButton.Flyout>
-                    </ui:SplitButton>
+                        </vio:SplitButton.Flyout>
+                    </vio:SplitButton>
                 </StackPanel>
             </Border>
         </StackPanel>

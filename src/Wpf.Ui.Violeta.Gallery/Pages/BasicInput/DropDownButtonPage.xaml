@@ -35,16 +35,16 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_e44ca4d5c0}}" />
-                    <ui:DropDownButton Content="Hello" Icon="{ui:SymbolIcon Fluent24}">
-                        <ui:DropDownButton.Flyout>
+                    <vio:DropDownButton Content="Hello" Icon="{ui:SymbolIcon Fluent24}">
+                        <vio:DropDownButton.Flyout>
                             <ContextMenu>
                                 <MenuItem Header="Add" />
                                 <MenuItem Header="Remove" />
                                 <MenuItem Header="Send" />
                                 <MenuItem Header="Hello" />
                             </ContextMenu>
-                        </ui:DropDownButton.Flyout>
-                    </ui:DropDownButton>
+                        </vio:DropDownButton.Flyout>
+                    </vio:DropDownButton>
                 </StackPanel>
             </Border>
         </StackPanel>
