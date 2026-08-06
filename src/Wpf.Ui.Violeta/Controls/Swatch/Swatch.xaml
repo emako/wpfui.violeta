@@ -33,22 +33,26 @@
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Content}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                <Grid x:Name="SelectionRing" Opacity="0" IsHitTestVisible="False">
+                                    <Border
+                                        BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="{TemplateBinding CornerRadius}" />
+                                    <Border
+                                        Margin="2"
+                                        BorderBrush="#FF0F0F0F"
+                                        BorderThickness="2"
+                                        CornerRadius="{TemplateBinding CornerRadius}" />
+                                </Grid>
+                                <Border
+                                    x:Name="FocusRing"
+                                    BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="{TemplateBinding CornerRadius}"
+                                    IsHitTestVisible="False"
+                                    Opacity="0" />
                             </Grid>
                         </Border>
-                        <Border
-                            x:Name="SelectionRing"
-                            Margin="0"
-                            BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
-                            BorderThickness="2"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            Visibility="Collapsed" />
-                        <Border
-                            x:Name="FocusRing"
-                            Margin="0"
-                            BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
-                            BorderThickness="1"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            Visibility="Collapsed" />
                         <Border
                             x:Name="DisabledOverlay"
                             Background="#99000000"
@@ -70,10 +74,52 @@
                             <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="SelectionRing" Property="Visibility" Value="Visible" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SelectionRing"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:0.12"
+                                            To="1" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SelectionRing"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:0.10"
+                                            To="0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="FocusRing" Property="Visibility" Value="Visible" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusRing"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:0.10"
+                                            To="1" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusRing"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:0.10"
+                                            To="0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="DisabledOverlay" Property="Visibility" Value="Visible" />
