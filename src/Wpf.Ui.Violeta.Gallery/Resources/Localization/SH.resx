@@ -208,7 +208,7 @@
     <value>Appearance</value>
   </data>
   <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
-    <value>Switch app theme and window backdrop. Theme can be changed quickly from the title bar; Backdrop depends on the OS version—unsupported options are disabled automatically.</value>
+    <value>Switch app theme, accent color, and window backdrop. Theme can be changed quickly from the title bar; accent follows the system by default. Backdrop depends on the OS version—unsupported options are disabled automatically.</value>
   </data>
   <data name="Gallery_Settings_Backdrop" xml:space="preserve">
     <value>Window backdrop</value>
@@ -251,6 +251,12 @@
   </data>
   <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
     <value>When enabled, closing the main window minimizes the app to the system tray instead of exiting. Use Exit in the tray menu to quit completely. Off by default.</value>
+  </data>
+  <data name="Gallery_Settings_AccentColor" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
+  <data name="Gallery_Settings_FollowSystemAccent" xml:space="preserve">
+    <value>Follow system accent</value>
   </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>(Unable to read clipboard)</value>

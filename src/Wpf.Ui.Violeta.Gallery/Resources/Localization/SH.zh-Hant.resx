@@ -208,7 +208,7 @@
     <value>外觀</value>
   </data>
   <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
-    <value>切換應用程式主題與視窗背景材質。主題可在標題列快速切換；Backdrop 取決於系統版本，不支援的項目會自動停用。</value>
+    <value>切換應用程式主題、主題色與視窗背景材質。主題可在標題列快速切換；主題色預設跟隨系統。Backdrop 取決於系統版本，不支援的項目會自動停用。</value>
   </data>
   <data name="Gallery_Settings_Backdrop" xml:space="preserve">
     <value>視窗背景</value>
@@ -251,6 +251,12 @@
   </data>
   <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
     <value>啟用後，關閉主視窗會將應用程式最小化到系統匣而不是結束。要完全結束，請使用系統匣功能表中的結束。預設關閉。</value>
+  </data>
+  <data name="Gallery_Settings_AccentColor" xml:space="preserve">
+    <value>主題色</value>
+  </data>
+  <data name="Gallery_Settings_FollowSystemAccent" xml:space="preserve">
+    <value>跟隨系統主題色</value>
   </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>（無法讀取剪貼簿）</value>

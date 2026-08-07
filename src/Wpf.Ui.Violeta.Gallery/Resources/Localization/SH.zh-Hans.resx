@@ -208,7 +208,7 @@
     <value>外观</value>
   </data>
   <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
-    <value>切换应用主题与窗口背景材质。主题可在标题栏快捷切换；Backdrop 依赖系统版本，不支持的项会自动禁用。</value>
+    <value>切换应用主题、主题色与窗口背景材质。主题可在标题栏快捷切换；主题色默认跟随系统。Backdrop 依赖系统版本，不支持的项会自动禁用。</value>
   </data>
   <data name="Gallery_Settings_Backdrop" xml:space="preserve">
     <value>窗口背景</value>
@@ -251,6 +251,12 @@
   </data>
   <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
     <value>启用后，关闭主窗口会将应用最小化到系统托盘而不是退出。要完全退出，请使用托盘菜单中的退出。默认关闭。</value>
+  </data>
+  <data name="Gallery_Settings_AccentColor" xml:space="preserve">
+    <value>主题色</value>
+  </data>
+  <data name="Gallery_Settings_FollowSystemAccent" xml:space="preserve">
+    <value>跟随系统主题色</value>
   </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>(无法读取剪贴板)</value>

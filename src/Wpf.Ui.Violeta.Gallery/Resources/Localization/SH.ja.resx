@@ -208,7 +208,7 @@
     <value>外観</value>
   </data>
   <data name="Gallery_Settings_Appearance_Desc" xml:space="preserve">
-    <value>アプリのテーマとウィンドウ背景を切り替えます。テーマはタイトルバーから素早く変更できます。Backdrop は OS バージョンに依存し、未対応の項目は自動的に無効になります。</value>
+    <value>アプリのテーマ、アクセント カラー、ウィンドウ背景を切り替えます。テーマはタイトルバーから素早く変更できます。アクセントは既定でシステムに追従します。Backdrop は OS バージョンに依存し、未対応の項目は自動的に無効になります。</value>
   </data>
   <data name="Gallery_Settings_Backdrop" xml:space="preserve">
     <value>ウィンドウ背景</value>
@@ -251,6 +251,12 @@
   </data>
   <data name="Gallery_Settings_CloseToTray_Desc" xml:space="preserve">
     <value>有効にすると、メインウィンドウを閉じたときにアプリを終了せずシステムトレイに最小化します。完全に終了するには、トレイメニューの終了を使用してください。既定ではオフです。</value>
+  </data>
+  <data name="Gallery_Settings_AccentColor" xml:space="preserve">
+    <value>アクセント カラー</value>
+  </data>
+  <data name="Gallery_Settings_FollowSystemAccent" xml:space="preserve">
+    <value>システム アクセントに合わせる</value>
   </data>
   <data name="Sample_ccdded2782" xml:space="preserve">
     <value>（クリップボードを読み取れません）</value>

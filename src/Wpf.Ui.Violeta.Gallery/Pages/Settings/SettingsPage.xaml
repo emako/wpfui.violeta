@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Settings}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -87,6 +87,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <TextBlock
                             VerticalAlignment="Center"
@@ -136,6 +138,104 @@
                                 Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Experimental}}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="0,16,0,0"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_FollowSystemAccent}}" />
+                        <ui:ToggleSwitch
+                            x:Name="FollowSystemAccentToggle"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,16,0,0"
+                            HorizontalAlignment="Left"
+                            Checked="FollowSystemAccentToggle_OnChanged"
+                            Unchecked="FollowSystemAccentToggle_OnChanged" />
+                        <TextBlock
+                            Grid.Row="3"
+                            Margin="0,16,0,0"
+                            VerticalAlignment="Top"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_AccentColor}}" />
+                        <WrapPanel
+                            x:Name="AccentSwatchPanel"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="0,12,0,0">
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Blue"
+                                Color="#0078D4"
+                                Value="#0078D4" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Purple"
+                                Color="#8764B8"
+                                Value="#8764B8" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Teal"
+                                Color="#00B7C3"
+                                Value="#00B7C3" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Green"
+                                Color="#107C10"
+                                Value="#107C10" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Yellow"
+                                Color="#FFB900"
+                                Value="#FFB900" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Red"
+                                Color="#D13438"
+                                Value="#D13438" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Orange"
+                                Color="#FF8C00"
+                                Value="#FF8C00" />
+                            <vio:Swatch
+                                Width="32"
+                                Height="32"
+                                Margin="0,4,8,4"
+                                Click="AccentSwatch_OnClick"
+                                CornerRadius="2"
+                                ToolTip="Magenta"
+                                Color="#E3008C"
+                                Value="#E3008C" />
+                        </WrapPanel>
                     </Grid>
                 </StackPanel>
             </Border>

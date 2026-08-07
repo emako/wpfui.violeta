@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Controls;
@@ -13,14 +15,45 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Settings;
 
 public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 {
+    private static bool _followSystemAccent = true;
+    private static Color? _customAccentColor;
+    private static bool _themeChangedHooked;
+
     private bool _syncingAppearance;
     private bool _syncingLanguage;
     private bool _syncingCloseToTray;
+    private bool _syncingAccent;
 
     public SettingsPage()
     {
         InitializeComponent();
+        EnsureThemeChangedHook();
         Loaded += SettingsPage_OnLoaded;
+    }
+
+    private static void EnsureThemeChangedHook()
+    {
+        if (_themeChangedHooked)
+        {
+            return;
+        }
+
+        ApplicationThemeManager.Changed += OnApplicationThemeChanged;
+        _themeChangedHooked = true;
+    }
+
+    private static void OnApplicationThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
+    {
+        if (_followSystemAccent || _customAccentColor is not { } color)
+        {
+            return;
+        }
+
+        var theme = currentApplicationTheme is ApplicationTheme.Unknown or ApplicationTheme.HighContrast
+            ? ApplicationThemeManager.GetAppTheme()
+            : currentApplicationTheme;
+
+        ApplicationAccentColorManager.Apply(color, theme, systemGlassColor: false, systemAccentColor: false);
     }
 
     private void SettingsPage_OnLoaded(object sender, RoutedEventArgs e)
@@ -35,6 +68,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         RuntimeVersionText.Text = target ?? System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
 
         SyncCloseToTray();
+        SyncAccentFromState();
     }
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -43,6 +77,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         SyncAppearanceFromShell();
         SyncLanguageFromShell();
         SyncCloseToTray();
+        SyncAccentFromState();
     }
 
     private void SyncCloseToTray()
@@ -66,6 +101,138 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         }
 
         TrayIconManager.MinimizeToTrayOnClose = CloseToTrayToggle.IsChecked == true;
+    }
+
+    private void SyncAccentFromState()
+    {
+        _syncingAccent = true;
+        try
+        {
+            FollowSystemAccentToggle.IsChecked = _followSystemAccent;
+            AccentSwatchPanel.IsEnabled = !_followSystemAccent;
+            SelectAccentSwatch(_customAccentColor);
+        }
+        finally
+        {
+            _syncingAccent = false;
+        }
+    }
+
+    private void SelectAccentSwatch(Color? color)
+    {
+        foreach (var swatch in AccentSwatchPanel.Children.OfType<Swatch>())
+        {
+            swatch.IsSelected = color is { } selected
+                && TryGetSwatchColor(swatch, out var swatchColor)
+                && ColorsEqual(swatchColor, selected);
+        }
+    }
+
+    private void FollowSystemAccentToggle_OnChanged(object sender, RoutedEventArgs e)
+    {
+        if (!IsLoaded || _syncingAccent)
+        {
+            return;
+        }
+
+        _followSystemAccent = FollowSystemAccentToggle.IsChecked == true;
+        AccentSwatchPanel.IsEnabled = !_followSystemAccent;
+
+        if (_followSystemAccent)
+        {
+            _customAccentColor = null;
+            SelectAccentSwatch(null);
+            ApplicationAccentColorManager.ApplySystemAccent();
+            return;
+        }
+
+        if (_customAccentColor is { } color)
+        {
+            ApplyCustomAccent(color);
+            SelectAccentSwatch(color);
+            return;
+        }
+
+        if (AccentSwatchPanel.Children.OfType<Swatch>().FirstOrDefault() is { } first
+            && TryGetSwatchColor(first, out var firstColor))
+        {
+            ApplyCustomAccent(firstColor);
+            SelectAccentSwatch(firstColor);
+        }
+    }
+
+    private void AccentSwatch_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (!IsLoaded || _syncingAccent || sender is not Swatch clicked)
+        {
+            return;
+        }
+
+        if (!TryGetSwatchColor(clicked, out var color))
+        {
+            return;
+        }
+
+        _syncingAccent = true;
+        try
+        {
+            _followSystemAccent = false;
+            FollowSystemAccentToggle.IsChecked = false;
+            AccentSwatchPanel.IsEnabled = true;
+        }
+        finally
+        {
+            _syncingAccent = false;
+        }
+
+        ApplyCustomAccent(color);
+        SelectAccentSwatch(color);
+    }
+
+    private static void ApplyCustomAccent(Color color)
+    {
+        _customAccentColor = color;
+        ApplicationAccentColorManager.Apply(
+            color,
+            ApplicationThemeManager.GetAppTheme(),
+            systemGlassColor: false,
+            systemAccentColor: false);
+    }
+
+    private static bool TryGetSwatchColor(Swatch swatch, out Color color)
+    {
+        if (swatch.Color is SolidColorBrush brush)
+        {
+            color = brush.Color;
+            return true;
+        }
+
+        if (swatch.Value is string hex && TryParseColor(hex, out color))
+        {
+            return true;
+        }
+
+        color = default;
+        return false;
+    }
+
+    private static bool TryParseColor(string value, out Color color)
+    {
+        try
+        {
+            color = (Color)ColorConverter.ConvertFromString(value)!;
+            return true;
+        }
+        catch
+        {
+            color = default;
+            return false;
+        }
+    }
+
+    private static bool ColorsEqual(Color left, Color right)
+    {
+        return left.R == right.R && left.G == right.G && left.B == right.B;
     }
 
     private void SyncAppearanceFromShell()
@@ -195,6 +362,11 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         else
         {
             ApplicationThemeManager.Apply(theme);
+        }
+
+        if (!_followSystemAccent && _customAccentColor is { } color)
+        {
+            ApplyCustomAccent(color);
         }
 
         if (Window.GetWindow(this) is MainWindow mainWindow)
