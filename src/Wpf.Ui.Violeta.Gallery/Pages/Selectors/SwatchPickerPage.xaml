@@ -59,6 +59,237 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="SemiBold"
+                        Text="Selection shapes" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="选中态在色块内部绘制强调色描边，中间留出背景色间隙，配合悬停放大、按下回弹与描边收束动效。点击色块试试。"
+                        TextWrapping="Wrap" />
+
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontWeight="SemiBold"
+                        Text="Square" />
+                    <WrapPanel x:Name="SquareRow" Margin="0,8,0,0">
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#FE1921" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#FE7900" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#FEC12E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#8FCF56" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#00AF53" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#00AEEC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#006DBC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#011F5E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="0"
+                            Color="#702F9D" />
+                    </WrapPanel>
+
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontWeight="SemiBold"
+                        Text="Circular" />
+                    <WrapPanel x:Name="CircularRow" Margin="0,8,0,0">
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#FE1921" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#FE7900" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            IsSelected="True"
+                            Color="#FEC12E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#8FCF56" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#00AF53" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#00AEEC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#006DBC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#011F5E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="18"
+                            Color="#702F9D" />
+                    </WrapPanel>
+
+                    <TextBlock
+                        Margin="0,16,0,0"
+                        FontWeight="SemiBold"
+                        Text="Rounded" />
+                    <WrapPanel x:Name="RoundedRow" Margin="0,8,0,0">
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#FE1921" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#FE7900" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            IsSelected="True"
+                            Color="#FEC12E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#8FCF56" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#00AF53" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#00AEEC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#006DBC" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#011F5E" />
+                        <vio:Swatch
+                            Width="35"
+                            Height="35"
+                            Margin="2,0"
+                            Click="OnShapeSwatchClick"
+                            CornerRadius="4"
+                            Color="#702F9D" />
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+            <Border
+                Margin="0,16,0,0"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="SemiBold"
                         Text="Standalone swatches" />
                     <WrapPanel Margin="0,12,0,0">
                         <vio:Swatch

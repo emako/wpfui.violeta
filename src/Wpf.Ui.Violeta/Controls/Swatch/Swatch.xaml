@@ -9,12 +9,23 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="SelectionStroke" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+        <Setter Property="SelectionGap" Value="{DynamicResource SolidBackgroundFillColorBaseBrush}" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Swatch}">
-                    <Grid SnapsToDevicePixels="True">
+                    <Grid
+                        x:Name="RootGrid"
+                        RenderTransformOrigin="0.5,0.5"
+                        SnapsToDevicePixels="True">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform x:Name="HoverScale" />
+                                <ScaleTransform x:Name="PressScale" />
+                            </TransformGroup>
+                        </Grid.RenderTransform>
                         <Border
                             x:Name="OuterBorder"
                             Background="{TemplateBinding Background}"
@@ -23,7 +34,6 @@
                             CornerRadius="{TemplateBinding CornerRadius}" />
                         <Border
                             x:Name="SwatchSurface"
-                            Margin="2"
                             Background="{TemplateBinding Color}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid ClipToBounds="True">
@@ -33,26 +43,32 @@
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Content}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}" />
-                                <Grid x:Name="SelectionRing" Opacity="0" IsHitTestVisible="False">
-                                    <Border
-                                        BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
-                                        BorderThickness="2"
-                                        CornerRadius="{TemplateBinding CornerRadius}" />
-                                    <Border
-                                        Margin="2"
-                                        BorderBrush="#FF0F0F0F"
-                                        BorderThickness="2"
-                                        CornerRadius="{TemplateBinding CornerRadius}" />
-                                </Grid>
-                                <Border
-                                    x:Name="FocusRing"
-                                    BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
-                                    BorderThickness="1"
-                                    CornerRadius="{TemplateBinding CornerRadius}"
-                                    IsHitTestVisible="False"
-                                    Opacity="0" />
                             </Grid>
                         </Border>
+                        <Border
+                            x:Name="SelectionRing"
+                            BorderBrush="{TemplateBinding SelectionStroke}"
+                            BorderThickness="{TemplateBinding SelectionStrokeThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"
+                            Opacity="0"
+                            RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="RingScale" ScaleX="1.18" ScaleY="1.18" />
+                            </Border.RenderTransform>
+                            <Border
+                                x:Name="SelectionGapRing"
+                                BorderBrush="{TemplateBinding SelectionGap}"
+                                BorderThickness="{TemplateBinding SelectionGapThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        </Border>
+                        <Border
+                            x:Name="FocusRing"
+                            BorderBrush="{TemplateBinding SelectionStroke}"
+                            BorderThickness="1"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
                         <Border
                             x:Name="DisabledOverlay"
                             Background="#99000000"
@@ -68,10 +84,96 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HoverScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.06"
+                                            Duration="0:0:0.14">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HoverScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.06"
+                                            Duration="0:0:0.14">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HoverScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HoverScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1"
+                                            Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PressScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0.9"
+                                            Duration="0:0:0.08" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PressScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="0.9"
+                                            Duration="0:0:0.08" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PressScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="0.4" EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PressScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1"
+                                            Duration="0:0:0.16">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="0.4" EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Trigger.EnterActions>
@@ -80,8 +182,26 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="SelectionRing"
                                             Storyboard.TargetProperty="Opacity"
-                                            Duration="0:0:0.12"
-                                            To="1" />
+                                            To="1"
+                                            Duration="0:0:0.12" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RingScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0.26">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="0.45" EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RingScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1"
+                                            Duration="0:0:0.26">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase Amplitude="0.45" EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -91,8 +211,18 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="SelectionRing"
                                             Storyboard.TargetProperty="Opacity"
-                                            Duration="0:0:0.10"
-                                            To="0" />
+                                            To="0"
+                                            Duration="0:0:0.16" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RingScale"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.18"
+                                            Duration="0:0:0.16" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RingScale"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.18"
+                                            Duration="0:0:0.16" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
@@ -104,8 +234,8 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="FocusRing"
                                             Storyboard.TargetProperty="Opacity"
-                                            Duration="0:0:0.10"
-                                            To="1" />
+                                            To="1"
+                                            Duration="0:0:0.10" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -115,15 +245,15 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="FocusRing"
                                             Storyboard.TargetProperty="Opacity"
-                                            Duration="0:0:0.10"
-                                            To="0" />
+                                            To="0"
+                                            Duration="0:0:0.10" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="DisabledOverlay" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="OuterBorder" Property="Opacity" Value="0.45" />
+                            <Setter TargetName="SwatchSurface" Property="Opacity" Value="0.45" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

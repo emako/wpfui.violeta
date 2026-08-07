@@ -119,7 +119,7 @@ internal partial class TrayIconManager
 internal partial class TrayIconManager : ObservableObject
 {
     [ObservableProperty]
-    private string version = $"v{Assembly.GetExecutingAssembly().GetName().Version!.ToString(4)}";
+    public partial string Version { get; set; } = $"v{Assembly.GetExecutingAssembly().GetName().Version!.ToString(4)}";
 
     [RelayCommand]
     private void ActivateOrRestoreMainWindow()
