@@ -5,7 +5,7 @@ using LiteObservableLanguages;
 namespace Wpf.Ui.Violeta.Gallery.Globalization;
 
 /// <summary>
-/// Language menu facade — mirrors YouiToolkit.Globalization.MuiLanguageManager.
+/// Language menu facade
 /// </summary>
 public static class MuiLanguageManager
 {

@@ -4,10 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat;assembly=Wpf.Ui.Violeta"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}"
     Width="1280"
     Height="800"
@@ -54,7 +54,10 @@
                         MinWidth="110"
                         Margin="8,0,12,0"
                         SelectionChanged="LanguageComboBox_OnSelectionChanged">
-                        <ComboBoxItem Content="简体中文" Tag="zh-Hans" IsSelected="True" />
+                        <ComboBoxItem
+                            Content="简体中文"
+                            IsSelected="True"
+                            Tag="zh-Hans" />
                         <ComboBoxItem Content="繁體中文" Tag="zh-Hant" />
                         <ComboBoxItem Content="English" Tag="en" />
                         <ComboBoxItem Content="日本語" Tag="ja" />

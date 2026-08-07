@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Values xmlns="urn:tom-englert.de/Configuration/1/0">
   <Value Key="Rules">{"EnabledRules":[]}</Value>
-</Values>
+<Value Key="NeutralResourcesLanguage">en-001</Value><Value Key="ShowErrorsInErrorList">False</Value></Values>

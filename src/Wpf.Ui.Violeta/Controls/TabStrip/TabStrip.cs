@@ -182,8 +182,7 @@ public class TabStrip : ListBox
 
     /// <summary>
     /// Fluent Design "follow" transition — width and position animate directly
-    /// and simultaneously, mirroring YouiToolkit's CheckTitleButton PART_Rect
-    /// animation: a steep PowerEase EaseOut so most of the travel happens
+    /// and simultaneously: a steep PowerEase EaseOut so most of the travel happens
     /// immediately and only the tail eases out, reading as quick rather than
     /// sluggish.
     /// </summary>
