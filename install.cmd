@@ -1,0 +1,1 @@
+mkdir "%TEMP%\.nuget" 2>nul & cd /d "%TEMP%\.nuget" & (if not exist nuget.exe (curl -L -o nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe")) & nuget install MakeKits.Tools -Source "https://api.nuget.org/v3/index.json" -Force -NoHttpCache
