@@ -7,6 +7,55 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.4] - 2026-08-07
+
+* Add TeachingTip control
+* Add ColorPicker control
+* Add SearchBox control
+* Add Carousel control
+* Add SplitToggleButton control
+* Add SwatchPicker control
+* Add Win32 CredentialDialog
+* Add Win32 OpenFolderDialog support
+* Build native Violeta DropDownButton and SplitButton
+* Add DWM non-client rendering toggle API
+* Add NavigationView search box support
+* Align NavigationView pane toggle layout
+* Adjust NavigationView back button states
+* Support button animation for NavigationView
+* Stretch NavigationView content
+* Fix usage of TransitioningContentControl
+* Add press animations to title bar buttons
+* ShellWindow no longer inherits window styles
+* Fix taskbar cant send WS_MINIMIZEBOX for ShellWindow
+* Unify Win32 interop and fix caption commands
+* Expose WINDOWPLACEMENT as public interop type
+* Add NumberBox hotfix resource dictionary
+* Hotfix ComboBox padding clipping
+* Add ToggleButton template hotfix resource
+* Fix RadioButtonGroup stack overflow loop
+* Apply HarmonyOS font and tooltip hotfix
+* Adjust NumericUpDown spinner panel margin
+* Fix ButtonSpinner hover inset
+* Sync spinner stroke with button state
+* Fix form item alignment
+* Adjust TagComboBox padding and placeholder color
+* Fix TreeComboBox clear button layout spacing
+* Handle cascading selection text in code-behind
+* Fix PendingBoxDialog title font size
+* Add toolbar overflow flyout
+* Add toolbar overflow auto-close modes
+* Allow configuring overflow auto-close types
+* Add toolbar toggle button style resources
+* Add toolbar split toggle button style
+* Add item-count wrapping to overflow panel
+* Add configurable close-to-tray behavior
+* Mark SmoothScrollViewer obsolete
+* Add multilingual localization to Gallery UI
+* Add accent color controls to settings
+* Add real tray icon flow to Gallery app
+* Add WebView2 sample page to Gallery
+
 ## [4.3.0.3] - 2026-07-22
 
 * Fixed NavigationView unable to render Page content
@@ -185,53 +234,7 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
   ```
 
   ```c#
-  [ObservableProperty]
-  public partial ObservableCollection<ICascadingItem> CascadingComboBoxDemoItems { get; set; } = [];
-
-  [ObservableProperty]
-  public partial ICascadingItem? CascadingComboBoxSelectedValue { get; set; }
-
-  partial void OnCascadingComboBoxSelectedValueChanged(ICascadingItem? value)
-  {
-      string selectedText = value is null
-          ? "Selected: (none)"
-          : $"Selected: {value.Label}";
-  }
-
-  private void InitCascadingComboBoxDemo()
-  {
-      CascadingComboBoxDemoItems =
-      [
-          new CascadingItem("Food",
-          [
-              new CascadingItem("Fruits",
-              [
-                  new CascadingItem("Apple"),
-                  new CascadingItem("Banana"),
-                  new CascadingItem("Cherry"),
-              ]),
-              new CascadingItem("Vegetables",
-              [
-                  new CascadingItem("Carrot"),
-                  new CascadingItem("Broccoli"),
-                  new CascadingItem("Spinach"),
-              ]),
-          ]),
-          new CascadingItem("Drinks",
-          [
-              new CascadingItem("Hot",
-              [
-                  new CascadingItem("Coffee"),
-                  new CascadingItem("Tea"),
-              ]),
-              new CascadingItem("Cold",
-              [
-                  new CascadingItem("Water"),
-                  new CascadingItem("Juice"),
-              ]),
-          ]),
-      ];
-  }
+  
   ```
 
   `CascadingComboBox` common properties:
@@ -243,65 +246,6 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 ## [4.2.0.9] - 2026-04-08
 
 * New CascadingComboBox
-
-**CascadingComboBox**
-
-  > `CascadingComboBox` is a two-level cascading dropdown. The left panel lists groups (`ISecondaryItem`) and the right panel shows the sub-items (`ISecondarySubItem`) that belong to the selected group. The chosen sub-item is exposed through `SelectedSubItem`.
-
-  ```xaml
-  <vio:CascadingComboBox
-      Width="240"
-      HorizontalAlignment="Left"
-      ItemsSource2="{Binding CascadingComboBoxDemoItems}"
-      SelectedSubItem="{Binding CascadingComboBoxSelectedSubItem, Mode=TwoWay}" />
-  ```
-
-  ```c#
-  [ObservableProperty]
-  public partial ObservableCollection<ISecondaryItem> CascadingComboBoxDemoItems { get; set; } = [];
-
-  [ObservableProperty]
-  public partial ISecondarySubItem? CascadingComboBoxSelectedSubItem { get; set; }
-
-  partial void OnCascadingComboBoxSelectedSubItemChanged(ISecondarySubItem? value)
-  {
-      string selectedText = value is null
-          ? "Selected: (none)"
-          : $"Selected: {value.Display}";
-  }
-
-  private void InitCascadingComboBoxDemo()
-  {
-      CascadingComboBoxDemoItems =
-      [
-          new SecondaryItem("Fruits",
-          [
-              new SecondarySubItem("Apple", "apple"),
-              new SecondarySubItem("Banana", "banana"),
-              new SecondarySubItem("Cherry", "cherry"),
-          ]),
-          new SecondaryItem("Vegetables",
-          [
-              new SecondarySubItem("Carrot", "carrot"),
-              new SecondarySubItem("Broccoli", "broccoli"),
-              new SecondarySubItem("Spinach", "spinach"),
-          ]),
-          new SecondaryItem("Drinks",
-          [
-              new SecondarySubItem("Water", "water"),
-              new SecondarySubItem("Coffee", "coffee"),
-              new SecondarySubItem("Tea", "tea"),
-          ]),
-      ];
-  }
-  ```
-
-  `CascadingComboBox` common properties:
-  `PlaceholderText` placeholder text when no sub-item is selected.
-  `ItemsSource2` two-level data source (`IEnumerable<ISecondaryItem>`).
-  `SelectedGroup` currently highlighted group (`ISecondaryItem?`).
-  `SelectedSubItem` currently selected sub-item (`ISecondarySubItem?`, two-way bindable).
-  `FilteredItems` sub-items of the currently selected group.
 
 ## [4.2.0.8] - 2026-04-07
 
