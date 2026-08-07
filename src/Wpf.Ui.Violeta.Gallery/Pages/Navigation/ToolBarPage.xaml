@@ -7,6 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     Title="ToolBar"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -199,6 +200,19 @@
                                     </ContextMenu>
                                 </vio:SplitButton.Flyout>
                             </vio:SplitButton>
+                            <vio:SplitToggleButton
+                                Padding="10,4"
+                                Content="Bold"
+                                Icon="{ui:SymbolIcon TextBold24}"
+                                Style="{StaticResource ToolBarSplitToggleButtonStyle}">
+                                <vio:SplitToggleButton.ItemsSource>
+                                    <x:Array Type="{x:Type sys:String}">
+                                        <sys:String>Bold</sys:String>
+                                        <sys:String>Italic</sys:String>
+                                        <sys:String>Underline</sys:String>
+                                    </x:Array>
+                                </vio:SplitToggleButton.ItemsSource>
+                            </vio:SplitToggleButton>
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>

@@ -144,25 +144,37 @@
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_FollowSystemAccent}}" />
-                        <ui:ToggleSwitch
-                            x:Name="FollowSystemAccentToggle"
+                        <StackPanel
                             Grid.Row="2"
                             Grid.Column="1"
                             Margin="0,16,0,0"
-                            HorizontalAlignment="Left"
-                            Checked="FollowSystemAccentToggle_OnChanged"
-                            Unchecked="FollowSystemAccentToggle_OnChanged" />
+                            Orientation="Horizontal">
+                            <ui:ToggleSwitch
+                                x:Name="FollowSystemAccentToggle"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Checked="FollowSystemAccentToggle_OnChanged"
+                                Unchecked="FollowSystemAccentToggle_OnChanged" />
+                            <TextBlock
+                                Margin="12,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Experimental}}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
                         <TextBlock
                             Grid.Row="3"
                             Margin="0,16,0,0"
                             VerticalAlignment="Top"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_AccentColor}}" />
-                        <WrapPanel
-                            x:Name="AccentSwatchPanel"
+                        <StackPanel
                             Grid.Row="3"
                             Grid.Column="1"
-                            Margin="0,12,0,0">
+                            Margin="0,12,0,0"
+                            Orientation="Horizontal">
+                        <WrapPanel
+                            x:Name="AccentSwatchPanel">
                             <vio:Swatch
                                 Width="32"
                                 Height="32"
@@ -236,6 +248,13 @@
                                 Color="#E3008C"
                                 Value="#E3008C" />
                         </WrapPanel>
+                            <TextBlock
+                                Margin="12,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Experimental}}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
                     </Grid>
                 </StackPanel>
             </Border>

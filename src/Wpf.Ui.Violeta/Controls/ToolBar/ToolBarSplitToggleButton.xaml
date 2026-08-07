@@ -1,0 +1,263 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+
+    <!--  BasedOn StaticResource only resolves within this dictionary (and its merges), not sibling MergedDictionaries.  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SplitToggleButton/SplitToggleButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Toolbar SplitToggleButton: transparent / no visible border by default; background and border only on Hover / Pressed / Checked  -->
+    <Style
+        x:Key="SimpleSplitToggleButtonStyle"
+        BasedOn="{StaticResource DefaultSplitToggleButtonStyle}"
+        TargetType="{x:Type local:SplitToggleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForeground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{StaticResource ButtonBorderThemeThickness}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SplitToggleButton}">
+                    <Grid x:Name="RootGrid" SnapsToDevicePixels="True">
+                        <Border
+                            x:Name="ContentBorder"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            MinWidth="{TemplateBinding MinWidth}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                    x:Name="PART_Content"
+                                    Grid.Column="0"
+                                    Margin="0"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SplitToggleLeftSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource SplitToggleLeftSplitCornerRadiusConverter}}">
+                                    <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <ContentPresenter
+                                            x:Name="ControlIcon"
+                                            Grid.Column="0"
+                                            Margin="{StaticResource ButtonIconMargin}"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Icon}"
+                                            Focusable="False"
+                                            TextElement.FontSize="{TemplateBinding FontSize}"
+                                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                                        <ContentPresenter
+                                            x:Name="ContentPresenter"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            RecognizesAccessKey="True"
+                                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                                    </Grid>
+                                </Border>
+                                <Border
+                                    x:Name="PART_Toggle"
+                                    Grid.Column="1"
+                                    Margin="0"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SplitToggleRightSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource SplitToggleRightSplitCornerRadiusConverter}}">
+                                    <ToggleButton
+                                        x:Name="PART_ToggleButton"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        ClickMode="Press"
+                                        Focusable="False"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        IsChecked="{Binding IsDropDownOpen, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Style="{DynamicResource DefaultSplitToggleButtonChevronStyle}">
+                                        <ui:SymbolIcon FontSize="10" Symbol="ChevronDown24" />
+                                    </ToggleButton>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <Popup
+                            x:Name="PART_Popup"
+                            AllowsTransparency="True"
+                            Focusable="False"
+                            IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            Placement="Bottom"
+                            PlacementTarget="{Binding ElementName=ContentBorder}"
+                            PopupAnimation="None"
+                            StaysOpen="True"
+                            VerticalOffset="1">
+                            <Border
+                                x:Name="DropDownBorder"
+                                MinWidth="{Binding ActualWidth, ElementName=ContentBorder}"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                Margin="0"
+                                Padding="0,4,0,6"
+                                Background="{DynamicResource ComboBoxDropDownBackground}"
+                                BorderBrush="{DynamicResource ComboBoxDropDownBorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="{DynamicResource PopupCornerRadius}">
+                                <ListBox
+                                    x:Name="PART_ItemsHost"
+                                    Padding="0"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
+                                    ItemContainerStyle="{StaticResource DefaultSplitToggleButtonItemStyle}"
+                                    ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    ItemsSource="{TemplateBinding ItemsSource}"
+                                    ScrollViewer.CanContentScroll="False"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Border>
+                        </Popup>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--  Unchecked hover  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="PART_Content" Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                        </MultiTrigger>
+
+                        <!--  Unchecked pressed  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
+                                <Condition SourceName="PART_ToggleButton" Property="IsPressed" Value="True" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="False" />
+                                <Condition Property="IsPressed" Value="True" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
+                        </MultiTrigger>
+
+                        <!--  Checked  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsMouseOver" Value="False" />
+                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsEnabled" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsPressed" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsPressed" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedPressed}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedPressed}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
+                        </MultiTrigger>
+
+                        <!--  Disabled  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsChecked" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedDisabled}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedDisabled}" />
+                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedDisabled}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedDisabled}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Content" Value="">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                            <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="ToolBarSplitToggleButtonStyle"
+        BasedOn="{StaticResource SimpleSplitToggleButtonStyle}"
+        TargetType="{x:Type local:SplitToggleButton}" />
+
+</ResourceDictionary>
