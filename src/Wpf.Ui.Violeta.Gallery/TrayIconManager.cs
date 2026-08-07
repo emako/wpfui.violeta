@@ -11,6 +11,7 @@ using Wpf.Ui.Violeta.Resources;
 using Wpf.Ui.Violeta.Win32;
 using LiteObservableLanguages;
 using Wpf.Ui.Violeta.Gallery.Globalization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
@@ -151,6 +152,7 @@ internal partial class TrayIconManager : ObservableObject
     }
 
     [RelayCommand]
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private void Restart()
     {
         try
