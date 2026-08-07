@@ -16,16 +16,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Swatch}">
-                    <Grid
-                        x:Name="RootGrid"
-                        RenderTransformOrigin="0.5,0.5"
-                        SnapsToDevicePixels="True">
-                        <Grid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform x:Name="HoverScale" />
-                                <ScaleTransform x:Name="PressScale" />
-                            </TransformGroup>
-                        </Grid.RenderTransform>
+                    <Grid x:Name="RootGrid" SnapsToDevicePixels="True">
                         <Border
                             x:Name="OuterBorder"
                             Background="{TemplateBinding Background}"
@@ -45,6 +36,18 @@
                                     ContentTemplate="{TemplateBinding ContentTemplate}" />
                             </Grid>
                         </Border>
+                        <Border
+                            x:Name="HoverOverlay"
+                            Background="#FFFFFF"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
+                        <Border
+                            x:Name="PressOverlay"
+                            Background="#000000"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsHitTestVisible="False"
+                            Opacity="0" />
                         <Border
                             x:Name="SelectionRing"
                             BorderBrush="{TemplateBinding SelectionStroke}"
@@ -88,18 +91,9 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="HoverScale"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1.06"
-                                            Duration="0:0:0.14">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut" />
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="HoverScale"
-                                            Storyboard.TargetProperty="ScaleY"
-                                            To="1.06"
+                                            Storyboard.TargetName="HoverOverlay"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.16"
                                             Duration="0:0:0.14">
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut" />
@@ -112,18 +106,9 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="HoverScale"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1"
-                                            Duration="0:0:0.16">
-                                            <DoubleAnimation.EasingFunction>
-                                                <CubicEase EasingMode="EaseOut" />
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="HoverScale"
-                                            Storyboard.TargetProperty="ScaleY"
-                                            To="1"
+                                            Storyboard.TargetName="HoverOverlay"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
                                             Duration="0:0:0.16">
                                             <DoubleAnimation.EasingFunction>
                                                 <CubicEase EasingMode="EaseOut" />
@@ -138,14 +123,9 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="PressScale"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="0.9"
-                                            Duration="0:0:0.08" />
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="PressScale"
-                                            Storyboard.TargetProperty="ScaleY"
-                                            To="0.9"
+                                            Storyboard.TargetName="PressOverlay"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.18"
                                             Duration="0:0:0.08" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -154,21 +134,12 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="PressScale"
-                                            Storyboard.TargetProperty="ScaleX"
-                                            To="1"
+                                            Storyboard.TargetName="PressOverlay"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
                                             Duration="0:0:0.16">
                                             <DoubleAnimation.EasingFunction>
-                                                <BackEase Amplitude="0.4" EasingMode="EaseOut" />
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                        <DoubleAnimation
-                                            Storyboard.TargetName="PressScale"
-                                            Storyboard.TargetProperty="ScaleY"
-                                            To="1"
-                                            Duration="0:0:0.16">
-                                            <DoubleAnimation.EasingFunction>
-                                                <BackEase Amplitude="0.4" EasingMode="EaseOut" />
+                                                <CubicEase EasingMode="EaseOut" />
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
                                     </Storyboard>
