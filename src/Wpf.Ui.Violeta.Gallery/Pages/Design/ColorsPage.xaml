@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Colors"
@@ -12,22 +11,1088 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="Colors" />
-            <Border Margin="0,0,0,16" Padding="20"
-                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+            <TextBlock
+                Margin="0,0,0,8"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Colors" />
+            <TextBlock
+                Margin="0,0,0,8"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Sample_b248c77928}}"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Margin="0,0,0,24"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="The colors below are provided as part of WPF UI. Reference them with DynamicResource bindings."
+                TextWrapping="Wrap" />
+
+            <!-- Text -->
+            <TextBlock
+                Margin="0,0,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Text" />
+            <Border
+                Margin="0,12,0,0"
+                Padding="12"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1" CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="8">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b248c77928}}" />
-                    <StackPanel>
-                        <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource AccentFillColorDefaultBrush}" />
-                        <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource ControlFillColorDefaultBrush}" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}" BorderThickness="1" />
-                        <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource ControlFillColorSecondaryBrush}" />
-                        <Border Height="36" Margin="0,0,0,8" CornerRadius="4" Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}" BorderThickness="1" />
-                        <Border Height="36" CornerRadius="4" Background="{DynamicResource SystemFillColorSuccessBrush}" />
-                    </StackPanel>
+                    <TextBlock Text="For UI labels and static text" />
+                    <TextBlock
+                        Margin="0,12,0,12"
+                        HorizontalAlignment="Center"
+                        FontSize="42"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                        Text="Aa" />
                 </StackPanel>
             </Border>
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource TextFillColorPrimaryBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Primary" />
+                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorPrimaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource TextFillColorSecondaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Secondary" />
+                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource TextFillColorTertiaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Tertiary" />
+                        <TextBlock Grid.Row="1" Text="Pressed only" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource TextFillColorDisabledBrush}"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Disabled" />
+                        <TextBlock Grid.Row="1" Text="Disabled only" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorDisabledBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Accent Text -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Accent Text" />
+            <Border
+                Margin="0,12,0,0"
+                Padding="12"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8">
+                <StackPanel>
+                    <TextBlock Text="Recommended for links" />
+                    <TextBlock
+                        Margin="0,12,0,12"
+                        HorizontalAlignment="Center"
+                        FontSize="42"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                        Text="Aa" />
+                </StackPanel>
+            </Border>
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Primary" />
+                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorPrimaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource AccentTextFillColorSecondaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Secondary" />
+                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource AccentTextFillColorTertiaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Tertiary" />
+                        <TextBlock Grid.Row="1" Text="Pressed only" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource AccentTextFillColorDisabledBrush}"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Disabled" />
+                        <TextBlock Grid.Row="1" Text="Disabled only" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorDisabledBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Text on Accent -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Text on Accent" />
+            <Border
+                Margin="0,12,0,0"
+                Padding="12"
+                Background="{DynamicResource AccentFillColorDefaultBrush}"
+                CornerRadius="8">
+                <StackPanel>
+                    <TextBlock Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}" Text="Used on accent-colored surfaces" />
+                    <TextBlock
+                        Margin="0,12,0,12"
+                        HorizontalAlignment="Center"
+                        FontSize="42"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}"
+                        Text="Aa" />
+                </StackPanel>
+            </Border>
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource AccentFillColorDefaultBrush}"
+                    CornerRadius="8,0,0,8">
+                    <Grid Margin="12" TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Primary" />
+                        <TextBlock Grid.Row="1" Text="Rest" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorPrimaryBrush" />
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1" Background="{DynamicResource AccentFillColorDefaultBrush}">
+                    <Grid Margin="12" TextElement.Foreground="{DynamicResource TextOnAccentFillColorSecondaryBrush}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Secondary" />
+                        <TextBlock Grid.Row="1" Text="Secondary" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2" Background="{DynamicResource AccentFillColorDefaultBrush}">
+                    <Grid Margin="12" TextElement.Foreground="{DynamicResource TextOnAccentFillColorDisabledBrush}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Disabled" />
+                        <TextBlock Grid.Row="1" Text="Disabled" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorDisabledBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource AccentFillColorSelectedTextBackgroundBrush}"
+                    CornerRadius="0,8,8,0">
+                    <Grid Margin="12" TextElement.Foreground="{DynamicResource TextOnAccentFillColorSelectedTextBrush}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Selected" />
+                        <TextBlock Grid.Row="1" Text="Selected text" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorSelectedTextBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Accent Fill -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Accent Fill" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource AccentFillColorDefaultBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Default" />
+                        <TextBlock Grid.Row="1" Text="Rest" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource AccentFillColorSecondaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Secondary" />
+                        <TextBlock Grid.Row="1" Text="Hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource AccentFillColorTertiaryBrush}"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Tertiary" />
+                        <TextBlock Grid.Row="1" Text="Pressed" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource AccentFillColorDisabledBrush}"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Disabled" />
+                        <TextBlock Grid.Row="1" Text="Disabled" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorDisabledBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- System Accent -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="System Accent" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource SystemAccentBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="System Accent" />
+                        <TextBlock Grid.Row="1" Text="Base" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorPrimary}" />
+                    </Border.Background>
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Primary" />
+                        <TextBlock Grid.Row="1" Text="Color key" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorPrimary" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </Border.Background>
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
+                        <TextBlock Grid.Row="1" Text="Color key" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorSecondary" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Border.Background>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorTertiary}" />
+                    </Border.Background>
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
+                        <TextBlock Grid.Row="1" Text="Color key" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorTertiary" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Control Fill -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Control Fill" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8,0,0,8">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Default" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Rest" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource ControlFillColorTertiaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource ControlFillColorDisabledBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Disabled" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Disabled" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorDisabledBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="4"
+                    Background="{DynamicResource ControlFillColorInputActiveBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="0,8,8,0">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Input Active" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Focused input" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorInputActiveBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Control Strong / Solid / Subtle -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Control Strong / Solid / Subtle" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource ControlStrongFillColorDefaultBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Strong / Default" />
+                        <TextBlock Grid.Row="1" Text="Strong fill" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlStrongFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource ControlSolidFillColorDefaultBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Solid / Default" />
+                        <TextBlock Grid.Row="1" Text="Solid fill" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlSolidFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource SubtleFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Secondary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SubtleFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource SubtleFillColorTertiaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="0,8,8,0">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Tertiary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SubtleFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Card / Layer / Smoke -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Card / Layer / Smoke" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8,0,0,8">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Default" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Card surface" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="CardBackgroundFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource CardBackgroundFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Secondary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Secondary card" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="CardBackgroundFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource LayerFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Layer / Default" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Layer fill" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="LayerFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource SmokeFillColorDefaultBrush}"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Smoke" />
+                        <TextBlock Grid.Row="1" Text="Overlay smoke" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SmokeFillColorDefaultBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Solid Background -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Solid Background" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8,0,0,8">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Base" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Window" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorBaseBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource SolidBackgroundFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Alt surface" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorSecondaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource SolidBackgroundFillColorTertiaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Tertiary" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorTertiaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource SolidBackgroundFillColorQuarternaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Quaternary" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Quaternary" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorQuarternaryBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="4"
+                    Background="{DynamicResource ApplicationBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="0,8,8,0">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Application" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="App bg" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ApplicationBackgroundBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- System Fill -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="System Fill" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource SystemFillColorSuccessBrush}"
+                    CornerRadius="8,0,0,8"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success" />
+                        <TextBlock Grid.Row="1" Text="Positive" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorSuccessBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource SystemFillColorCautionBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution" />
+                        <TextBlock Grid.Row="1" Text="Warning" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCautionBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource SystemFillColorCriticalBrush}"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical" />
+                        <TextBlock Grid.Row="1" Text="Error" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCriticalBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource SystemFillColorNeutralBrush}"
+                    TextElement.Foreground="{DynamicResource TextFillColorInverseBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral" />
+                        <TextBlock Grid.Row="1" Text="Neutral" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorNeutralBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="4"
+                    Background="{DynamicResource SystemFillColorAttentionBrush}"
+                    CornerRadius="0,8,8,0"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention" />
+                        <TextBlock Grid.Row="1" Text="Info" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorAttentionBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- System Fill Background -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="System Fill Background" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8,0,0,8">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success BG" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorSuccessBackgroundBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Background="{DynamicResource SystemFillColorCautionBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution BG" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCautionBackgroundBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Background="{DynamicResource SystemFillColorCriticalBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical BG" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCriticalBackgroundBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Background="{DynamicResource SystemFillColorAttentionBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1,1,0,1">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention BG" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorAttentionBackgroundBrush" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="4"
+                    Background="{DynamicResource SystemFillColorNeutralBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="0,8,8,0">
+                    <Grid Margin="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral BG" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorNeutralBackgroundBrush" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Stroke -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Stroke" />
+            <Grid MinHeight="100" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Control Stroke" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="ControlStrokeColorDefaultBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlStrongStrokeColorDefaultBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Strong Stroke" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="ControlStrongStrokeColorDefaultBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Card Stroke" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="CardStrokeColorDefaultBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource DividerStrokeColorDefaultBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Divider Stroke" />
+                        <TextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="DividerStrokeColorDefaultBrush" />
+                    </StackPanel>
+                </Border>
+            </Grid>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
