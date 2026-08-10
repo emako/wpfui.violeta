@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using LiteObservableLanguages;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Gallery.Globalization;
+using Wpf.Ui.Violeta.Win32;
 using Button = Wpf.Ui.Controls.Button;
 using ControlAppearance = Wpf.Ui.Controls.ControlAppearance;
 
@@ -112,6 +113,7 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         dialog.IsIconVisible = IsIconVisibleToggle.IsChecked == true;
         dialog.IsTitleVisible = IsTitleVisibleToggle.IsChecked == true;
         dialog.WindowStartupLocation = ParseStartupLocation();
+        dialog.WindowBackdropType = ParseBackdropType();
         dialog.ResizeMode = ParseResizeMode();
 
         dialog.TitleBarVisibility = ToVisibility(TitleBarVisibleToggle.IsChecked);
@@ -165,6 +167,14 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
             && Enum.TryParse(tag, out WindowStartupLocation location)
             ? location
             : WindowStartupLocation.CenterOwner;
+    }
+
+    private WindowBackdropPreference ParseBackdropType()
+    {
+        return BackdropTypeComboBox.SelectedItem is ComboBoxItem { Tag: string tag }
+            && Enum.TryParse(tag, out WindowBackdropPreference backdrop)
+            ? backdrop
+            : WindowBackdropPreference.Mica;
     }
 
     private ResizeMode ParseResizeMode()

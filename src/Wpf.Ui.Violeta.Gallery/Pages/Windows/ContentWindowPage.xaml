@@ -64,6 +64,14 @@
                                     <ComboBoxItem Content="CenterOwner" Tag="CenterOwner" />
                                 </ComboBox>
                             </vio:FormItem>
+                            <vio:FormItem Label="WindowBackdropType">
+                                <ComboBox x:Name="BackdropTypeComboBox" SelectedIndex="1">
+                                    <ComboBoxItem Content="None" Tag="None" />
+                                    <ComboBoxItem Content="Mica" Tag="Mica" />
+                                    <ComboBoxItem Content="Acrylic" Tag="Acrylic" />
+                                    <ComboBoxItem Content="Tabbed" Tag="Tabbed" />
+                                </ComboBox>
+                            </vio:FormItem>
                             <vio:FormItem Label="ResizeMode">
                                 <ComboBox x:Name="ResizeModeComboBox" SelectedIndex="2">
                                     <ComboBoxItem Content="NoResize" Tag="NoResize" />

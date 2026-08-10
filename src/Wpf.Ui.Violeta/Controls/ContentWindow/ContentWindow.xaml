@@ -12,6 +12,8 @@
         BasedOn="{StaticResource DefaultShellWindowStyle}"
         TargetType="{x:Type local:ContentWindow}">
         <Setter Property="ExtendsContentIntoTitleBar" Value="True" />
+        <Setter Property="WindowBackdropType" Value="Mica" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Width" Value="480" />
         <Setter Property="Height" Value="320" />
         <Setter Property="MinWidth" Value="320" />
