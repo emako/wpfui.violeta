@@ -18,7 +18,7 @@ public partial class ContentWindow : ShellWindow
 
     public ContentWindowResult Result
     {
-        get => field;
+        get;
         internal set
         {
             field = value;

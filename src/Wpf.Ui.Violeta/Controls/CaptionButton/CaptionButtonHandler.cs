@@ -48,14 +48,14 @@ public class CaptionButtonHandler
             case WM_NCHITTEST:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)  // 鼠标不在任何标题栏按钮上
+                    if (button is null)  // The mouse is not on any title bar button
                     {
                         HoveredButton = null;
                         break;
                     }
                     if (button.IsEnabled)
                     {
-                        if (PressedButton is not null && PressedButton != button)  // 已经按下了其他按钮
+                        if (PressedButton is not null && PressedButton != button)  // Other buttons have already been pressed
                         {
                             PressedButton.IsMouseOverInTitleBar = false;
                             PressedButton.IsPressedInTitleBar = false;
@@ -74,7 +74,7 @@ public class CaptionButtonHandler
             case WM_NCLBUTTONDOWN:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)  // 没点到标题栏按钮上
+                    if (button is null)  // The mouse is not on any title bar button
                     {
                         PressedButton = null;
                         break;
@@ -130,9 +130,9 @@ public class CaptionButtonHandler
     private readonly HashSet<CaptionButton> _buttons = [];
     private readonly Dictionary<DependencyObject, CaptionButton> _cacheChildToButton = [];
 
-    private CaptionButton? HoveredButton
+    protected CaptionButton? HoveredButton
     {
-        get => field;
+        get;
         set
         {
             field?.IsMouseOverInTitleBar = false;
@@ -141,9 +141,9 @@ public class CaptionButtonHandler
         }
     }
 
-    private CaptionButton? PressedButton
+    protected CaptionButton? PressedButton
     {
-        get => field;
+        get;
         set
         {
             field?.IsPressedInTitleBar = false;

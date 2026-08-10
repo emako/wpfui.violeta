@@ -15,7 +15,7 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
 
     public object? Hint
     {
-        get => field;
+        get;
         set => SetProperty(ref field, value);
     }
 
