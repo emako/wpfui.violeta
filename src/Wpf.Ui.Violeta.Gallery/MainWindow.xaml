@@ -277,7 +277,7 @@
 
                 <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Notifications}}" Tag="notifications">
                     <vio:NavigationViewItem.Icon>
-                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xEA0C;" />
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE789;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="Snackbar" Tag="notifications/snackbar" />
