@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,48 +14,67 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// Provides an eight-direction virtual joystick with mouse drag and arrow-key input.
 /// </summary>
-public partial class VirtualJoystick : UserControl
+[TemplatePart(Name = PartSurface, Type = typeof(Canvas))]
+[TemplatePart(Name = PartArcUp, Type = typeof(Path))]
+[TemplatePart(Name = PartArcRight, Type = typeof(Path))]
+[TemplatePart(Name = PartArcDown, Type = typeof(Path))]
+[TemplatePart(Name = PartArcLeft, Type = typeof(Path))]
+[TemplatePart(Name = PartArrowUp, Type = typeof(Viewbox))]
+[TemplatePart(Name = PartArrowDown, Type = typeof(Viewbox))]
+[TemplatePart(Name = PartArrowLeft, Type = typeof(Viewbox))]
+[TemplatePart(Name = PartArrowRight, Type = typeof(Viewbox))]
+[TemplatePart(Name = PartArrowUpLine, Type = typeof(Polyline))]
+[TemplatePart(Name = PartArrowDownLine, Type = typeof(Polyline))]
+[TemplatePart(Name = PartArrowLeftLine, Type = typeof(Polyline))]
+[TemplatePart(Name = PartArrowRightLine, Type = typeof(Polyline))]
+[TemplatePart(Name = PartInnerGuide, Type = typeof(Ellipse))]
+[TemplatePart(Name = PartKnob, Type = typeof(Grid))]
+[TemplatePart(Name = PartKnobEllipse, Type = typeof(Ellipse))]
+public class VirtualJoystick : Control
 {
+    private const string PartSurface = "PART_Surface";
+    private const string PartArcUp = "PART_ArcUp";
+    private const string PartArcRight = "PART_ArcRight";
+    private const string PartArcDown = "PART_ArcDown";
+    private const string PartArcLeft = "PART_ArcLeft";
+    private const string PartArrowUp = "PART_ArrowUp";
+    private const string PartArrowDown = "PART_ArrowDown";
+    private const string PartArrowLeft = "PART_ArrowLeft";
+    private const string PartArrowRight = "PART_ArrowRight";
+    private const string PartArrowUpLine = "PART_ArrowUpLine";
+    private const string PartArrowDownLine = "PART_ArrowDownLine";
+    private const string PartArrowLeftLine = "PART_ArrowLeftLine";
+    private const string PartArrowRightLine = "PART_ArrowRightLine";
+    private const string PartInnerGuide = "PART_InnerGuide";
+    private const string PartKnob = "PART_Knob";
+    private const string PartKnobEllipse = "PART_KnobEllipse";
+
     public static readonly DependencyProperty PadDiameterProperty = DependencyProperty.Register(
-        nameof(PadDiameter),
-        typeof(double),
-        typeof(VirtualJoystick),
+        nameof(PadDiameter), typeof(double), typeof(VirtualJoystick),
         new FrameworkPropertyMetadata(100d, OnPadDiameterChanged, CoercePadDiameter));
 
     public static readonly DependencyProperty ArcPathBrushProperty = DependencyProperty.Register(
-        nameof(ArcPathBrush),
-        typeof(Brush),
-        typeof(VirtualJoystick),
+        nameof(ArcPathBrush), typeof(Brush), typeof(VirtualJoystick),
         new PropertyMetadata(null, OnVisualPropertyChanged));
 
     public static readonly DependencyProperty ArrowIdleBrushProperty = DependencyProperty.Register(
-        nameof(ArrowIdleBrush),
-        typeof(Brush),
-        typeof(VirtualJoystick),
+        nameof(ArrowIdleBrush), typeof(Brush), typeof(VirtualJoystick),
         new PropertyMetadata(null, OnVisualPropertyChanged));
 
     public static readonly DependencyProperty ArrowActiveBrushProperty = DependencyProperty.Register(
-        nameof(ArrowActiveBrush),
-        typeof(Brush),
-        typeof(VirtualJoystick),
+        nameof(ArrowActiveBrush), typeof(Brush), typeof(VirtualJoystick),
         new PropertyMetadata(null, OnVisualPropertyChanged));
 
     public static readonly DependencyProperty ArrowStrokeThicknessProperty = DependencyProperty.Register(
-        nameof(ArrowStrokeThickness),
-        typeof(double),
-        typeof(VirtualJoystick),
+        nameof(ArrowStrokeThickness), typeof(double), typeof(VirtualJoystick),
         new FrameworkPropertyMetadata(2d, OnVisualPropertyChanged, CoerceArrowStrokeThickness));
 
     public static readonly DependencyProperty KnobBrushProperty = DependencyProperty.Register(
-        nameof(KnobBrush),
-        typeof(Brush),
-        typeof(VirtualJoystick),
+        nameof(KnobBrush), typeof(Brush), typeof(VirtualJoystick),
         new PropertyMetadata(null, OnVisualPropertyChanged));
 
     private static readonly DependencyPropertyKey CurrentDirectionPropertyKey = DependencyProperty.RegisterReadOnly(
-        nameof(CurrentDirection),
-        typeof(JoyStickDirection),
-        typeof(VirtualJoystick),
+        nameof(CurrentDirection), typeof(JoyStickDirection), typeof(VirtualJoystick),
         new PropertyMetadata(JoyStickDirection.None));
 
     public static readonly DependencyProperty CurrentDirectionProperty = CurrentDirectionPropertyKey.DependencyProperty;
@@ -66,108 +84,133 @@ public partial class VirtualJoystick : UserControl
     private Window? _hostWindow;
     private bool _isMouseDragging;
     private bool _isMouseActive;
+    private Canvas? _surface;
+    private Path? _arcUp;
+    private Path? _arcRight;
+    private Path? _arcDown;
+    private Path? _arcLeft;
+    private Viewbox? _arrowUp;
+    private Viewbox? _arrowDown;
+    private Viewbox? _arrowLeft;
+    private Viewbox? _arrowRight;
+    private Polyline? _arrowUpLine;
+    private Polyline? _arrowDownLine;
+    private Polyline? _arrowLeftLine;
+    private Polyline? _arrowRightLine;
+    private Ellipse? _innerGuide;
+    private Grid? _knob;
+    private Ellipse? _knobEllipse;
+
+    static VirtualJoystick()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(VirtualJoystick), new FrameworkPropertyMetadata(typeof(VirtualJoystick)));
+    }
 
     public VirtualJoystick()
     {
-        InitializeComponent();
-        SetResourceReference(ArcPathBrushProperty, "ControlFillColorSecondaryBrush");
-        SetResourceReference(ArrowIdleBrushProperty, "TextFillColorSecondaryBrush");
-        SetResourceReference(ArrowActiveBrushProperty, "AccentFillColorDefaultBrush");
-        SetResourceReference(KnobBrushProperty, "AccentFillColorDefaultBrush");
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
         IsVisibleChanged += OnIsVisibleChanged;
-        RefreshLayout();
     }
 
-    /// <summary>
-    /// Gets or sets the diameter of the joystick surface.
-    /// </summary>
+    /// <summary>Gets or sets the diameter of the joystick surface.</summary>
     public double PadDiameter
     {
         get => (double)GetValue(PadDiameterProperty);
         set => SetValue(PadDiameterProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets the brush used by the directional arc segments.
-    /// </summary>
+    /// <summary>Gets or sets the brush used by the directional arc segments.</summary>
     public Brush? ArcPathBrush
     {
         get => (Brush?)GetValue(ArcPathBrushProperty);
         set => SetValue(ArcPathBrushProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets the brush used by inactive direction arrows.
-    /// </summary>
+    /// <summary>Gets or sets the brush used by inactive direction arrows.</summary>
     public Brush? ArrowIdleBrush
     {
         get => (Brush?)GetValue(ArrowIdleBrushProperty);
         set => SetValue(ArrowIdleBrushProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets the brush used by active direction arrows.
-    /// </summary>
+    /// <summary>Gets or sets the brush used by active direction arrows.</summary>
     public Brush? ArrowActiveBrush
     {
         get => (Brush?)GetValue(ArrowActiveBrushProperty);
         set => SetValue(ArrowActiveBrushProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets the thickness of direction arrow strokes.
-    /// </summary>
+    /// <summary>Gets or sets the thickness of direction arrow strokes.</summary>
     public double ArrowStrokeThickness
     {
         get => (double)GetValue(ArrowStrokeThicknessProperty);
         set => SetValue(ArrowStrokeThicknessProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets the brush used by the draggable knob.
-    /// </summary>
+    /// <summary>Gets or sets the brush used by the draggable knob.</summary>
     public Brush? KnobBrush
     {
         get => (Brush?)GetValue(KnobBrushProperty);
         set => SetValue(KnobBrushProperty, value);
     }
 
-    /// <summary>
-    /// Gets the current discrete joystick direction.
-    /// </summary>
+    /// <summary>Gets the current discrete joystick direction.</summary>
     public JoyStickDirection CurrentDirection
     {
         get => (JoyStickDirection)GetValue(CurrentDirectionProperty);
         private set => SetValue(CurrentDirectionPropertyKey, value);
     }
 
-    /// <summary>
-    /// Occurs when the joystick position changes.
-    /// </summary>
+    /// <summary>Occurs when the joystick position changes.</summary>
     public event EventHandler<JoystickMoveEventArgs>? Moved;
 
     private double InnerCircleRadius => PadDiameter * 0.275d;
-
     private double KnobRadius => PadDiameter * 0.07d;
-
     private double MaxDistance => InnerCircleRadius - KnobRadius;
-
     private double DeadZone => MaxDistance * 0.15d;
 
-    private static void OnPadDiameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((VirtualJoystick)d).RefreshLayout();
+    public override void OnApplyTemplate()
+    {
+        DetachSurfaceEvents();
+        base.OnApplyTemplate();
 
+        _surface = GetTemplateChild(PartSurface) as Canvas;
+        _arcUp = GetTemplateChild(PartArcUp) as Path;
+        _arcRight = GetTemplateChild(PartArcRight) as Path;
+        _arcDown = GetTemplateChild(PartArcDown) as Path;
+        _arcLeft = GetTemplateChild(PartArcLeft) as Path;
+        _arrowUp = GetTemplateChild(PartArrowUp) as Viewbox;
+        _arrowDown = GetTemplateChild(PartArrowDown) as Viewbox;
+        _arrowLeft = GetTemplateChild(PartArrowLeft) as Viewbox;
+        _arrowRight = GetTemplateChild(PartArrowRight) as Viewbox;
+        _arrowUpLine = GetTemplateChild(PartArrowUpLine) as Polyline;
+        _arrowDownLine = GetTemplateChild(PartArrowDownLine) as Polyline;
+        _arrowLeftLine = GetTemplateChild(PartArrowLeftLine) as Polyline;
+        _arrowRightLine = GetTemplateChild(PartArrowRightLine) as Polyline;
+        _innerGuide = GetTemplateChild(PartInnerGuide) as Ellipse;
+        _knob = GetTemplateChild(PartKnob) as Grid;
+        _knobEllipse = GetTemplateChild(PartKnobEllipse) as Ellipse;
+
+        if (_surface != null)
+        {
+            _surface.MouseLeftButtonDown += OnSurfaceMouseLeftButtonDown;
+            _surface.MouseLeftButtonUp += OnSurfaceMouseLeftButtonUp;
+            _surface.MouseMove += OnSurfaceMouseMove;
+        }
+
+        RefreshLayout();
+    }
+
+    private static void OnPadDiameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((VirtualJoystick)d).RefreshLayout();
     private static void OnVisualPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((VirtualJoystick)d).UpdateVisualState(true);
 
-    [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
     private static object CoercePadDiameter(DependencyObject d, object value)
     {
         double diameter = (double)value;
         return double.IsNaN(diameter) || double.IsInfinity(diameter) ? 100d : Math.Max(32d, Math.Min(1024d, diameter));
     }
 
-    [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
     private static object CoerceArrowStrokeThickness(DependencyObject d, object value)
     {
         double thickness = (double)value;
@@ -177,26 +220,22 @@ public partial class VirtualJoystick : UserControl
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         _hostWindow = Window.GetWindow(this);
-        if (_hostWindow == null)
+        if (_hostWindow != null)
         {
-            return;
+            _hostWindow.PreviewKeyDown += OnHostPreviewKeyDown;
+            _hostWindow.PreviewKeyUp += OnHostPreviewKeyUp;
         }
-
-        _hostWindow.PreviewKeyDown += OnHostPreviewKeyDown;
-        _hostWindow.PreviewKeyUp += OnHostPreviewKeyUp;
     }
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
         Reset();
-        if (_hostWindow == null)
+        if (_hostWindow != null)
         {
-            return;
+            _hostWindow.PreviewKeyDown -= OnHostPreviewKeyDown;
+            _hostWindow.PreviewKeyUp -= OnHostPreviewKeyUp;
+            _hostWindow = null;
         }
-
-        _hostWindow.PreviewKeyDown -= OnHostPreviewKeyDown;
-        _hostWindow.PreviewKeyUp -= OnHostPreviewKeyUp;
-        _hostWindow = null;
     }
 
     private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -207,33 +246,33 @@ public partial class VirtualJoystick : UserControl
         }
     }
 
-    private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void OnSurfaceMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        if (!IsEnabled)
+        if (!IsEnabled || _surface == null)
         {
             return;
         }
 
-        joystickSurface.Focus();
+        Focus();
         _pressedKeys.Clear();
         _isMouseActive = true;
         _isMouseDragging = true;
-        joystickSurface.CaptureMouse();
-        SetVector(GetVectorFromMousePosition(e.GetPosition(joystickSurface)), true);
+        _surface.CaptureMouse();
+        SetVector(GetVectorFromMousePosition(e.GetPosition(_surface)), true);
         e.Handled = true;
     }
 
-    private void OnMouseMove(object sender, MouseEventArgs e)
+    private void OnSurfaceMouseMove(object sender, MouseEventArgs e)
     {
-        if (!_isMouseDragging || e.LeftButton != MouseButtonState.Pressed)
+        if (!_isMouseDragging || e.LeftButton != MouseButtonState.Pressed || _surface == null)
         {
             return;
         }
 
-        SetVector(GetVectorFromMousePosition(e.GetPosition(joystickSurface)), true);
+        SetVector(GetVectorFromMousePosition(e.GetPosition(_surface)), true);
     }
 
-    private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private void OnSurfaceMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
         if (!_isMouseDragging)
         {
@@ -241,7 +280,7 @@ public partial class VirtualJoystick : UserControl
         }
 
         _isMouseDragging = false;
-        joystickSurface.ReleaseMouseCapture();
+        _surface?.ReleaseMouseCapture();
         _isMouseActive = false;
         ApplyKeyboardState();
         e.Handled = true;
@@ -249,7 +288,7 @@ public partial class VirtualJoystick : UserControl
 
     private void OnHostPreviewKeyDown(object sender, KeyEventArgs e)
     {
-        if (_isMouseActive || !IsKeyboardTarget() || !IsDirectionKey(e.Key))
+        if (_isMouseActive || !CanProcessKeyboardInput() || !IsDirectionKey(e.Key))
         {
             return;
         }
@@ -263,7 +302,7 @@ public partial class VirtualJoystick : UserControl
 
     private void OnHostPreviewKeyUp(object sender, KeyEventArgs e)
     {
-        if (_isMouseActive || !IsKeyboardTarget() || !IsDirectionKey(e.Key))
+        if (_isMouseActive || !CanProcessKeyboardInput() || !IsDirectionKey(e.Key))
         {
             return;
         }
@@ -275,27 +314,16 @@ public partial class VirtualJoystick : UserControl
         }
     }
 
-    private bool IsKeyboardTarget()
-    {
-        if (!IsEnabled || !IsKeyboardFocusWithin)
-        {
-            return false;
-        }
-
-        return Keyboard.FocusedElement is not TextBoxBase and not PasswordBox;
-    }
-
+    private bool CanProcessKeyboardInput() => IsEnabled && IsKeyboardFocusWithin && Keyboard.FocusedElement is not System.Windows.Controls.Primitives.TextBoxBase and not PasswordBox;
     private static bool IsDirectionKey(Key key) => key is Key.Up or Key.Down or Key.Left or Key.Right;
 
     private void ApplyKeyboardState()
     {
-        if (_isMouseActive)
+        if (!_isMouseActive)
         {
-            return;
+            Point vector = GetKeyboardVector();
+            SetVector(new Point(vector.X * MaxDistance, vector.Y * MaxDistance));
         }
-
-        Point vector = GetKeyboardVector();
-        SetVector(new Point(vector.X * MaxDistance, vector.Y * MaxDistance));
     }
 
     private Point GetKeyboardVector()
@@ -348,7 +376,7 @@ public partial class VirtualJoystick : UserControl
         _pressedKeys.Clear();
         if (_isMouseDragging)
         {
-            joystickSurface.ReleaseMouseCapture();
+            _surface?.ReleaseMouseCapture();
         }
 
         _isMouseDragging = false;
@@ -358,13 +386,13 @@ public partial class VirtualJoystick : UserControl
 
     private void RefreshLayout()
     {
-        if (!IsInitialized)
+        if (_surface == null)
         {
             return;
         }
 
-        joystickSurface.Width = PadDiameter;
-        joystickSurface.Height = PadDiameter;
+        _surface.Width = PadDiameter;
+        _surface.Height = PadDiameter;
         UpdateArcPaths();
         UpdateArrowLayout();
         UpdatePadLayoutMetrics();
@@ -373,26 +401,35 @@ public partial class VirtualJoystick : UserControl
 
     private void UpdatePadLayoutMetrics()
     {
-        double innerDiameter = InnerCircleRadius * 2d;
-        ellipseInnerGuide.Width = innerDiameter;
-        ellipseInnerGuide.Height = innerDiameter;
-        Canvas.SetLeft(ellipseInnerGuide, (PadDiameter - innerDiameter) / 2d);
-        Canvas.SetTop(ellipseInnerGuide, (PadDiameter - innerDiameter) / 2d);
+        if (_innerGuide == null || _knob == null)
+        {
+            return;
+        }
 
+        double innerDiameter = InnerCircleRadius * 2d;
+        _innerGuide.Width = innerDiameter;
+        _innerGuide.Height = innerDiameter;
+        Canvas.SetLeft(_innerGuide, (PadDiameter - innerDiameter) / 2d);
+        Canvas.SetTop(_innerGuide, (PadDiameter - innerDiameter) / 2d);
         double knobDiameter = KnobRadius * 2d;
-        gridKnob.Width = knobDiameter;
-        gridKnob.Height = knobDiameter;
+        _knob.Width = knobDiameter;
+        _knob.Height = knobDiameter;
     }
 
     private void UpdateArcPaths()
     {
+        if (_arcUp == null || _arcRight == null || _arcDown == null || _arcLeft == null)
+        {
+            return;
+        }
+
         double center = PadDiameter / 2d;
         double outerRadius = center - 2d;
         double innerRadius = InnerCircleRadius + 4d;
         const double gap = 0.02d;
         const double halfAngle = Math.PI / 4d;
         double[] centerAngles = [-Math.PI / 2d, 0d, Math.PI / 2d, Math.PI];
-        Path[] paths = [pathArcUp, pathArcRight, pathArcDown, pathArcLeft];
+        Path[] paths = [_arcUp, _arcRight, _arcDown, _arcLeft];
 
         for (int index = 0; index < paths.Length; index++)
         {
@@ -402,20 +439,10 @@ public partial class VirtualJoystick : UserControl
             Point outerEnd = PointOnCircle(center, outerRadius, endAngle);
             Point innerEnd = PointOnCircle(center, innerRadius, endAngle);
             Point innerStart = PointOnCircle(center, innerRadius, startAngle);
-            string data = string.Format(
-                CultureInfo.InvariantCulture,
+            paths[index].Data = Geometry.Parse(string.Format(CultureInfo.InvariantCulture,
                 "M {0} {1} A {2} {2} 0 0 1 {3} {4} L {5} {6} A {7} {7} 0 0 0 {8} {9} Z",
-                outerStart.X,
-                outerStart.Y,
-                outerRadius,
-                outerEnd.X,
-                outerEnd.Y,
-                innerEnd.X,
-                innerEnd.Y,
-                innerRadius,
-                innerStart.X,
-                innerStart.Y);
-            paths[index].Data = Geometry.Parse(data);
+                outerStart.X, outerStart.Y, outerRadius, outerEnd.X, outerEnd.Y,
+                innerEnd.X, innerEnd.Y, innerRadius, innerStart.X, innerStart.Y));
         }
     }
 
@@ -423,17 +450,20 @@ public partial class VirtualJoystick : UserControl
 
     private void UpdateArrowLayout()
     {
-        double iconSize = PadDiameter * 0.14d;
+        if (_arrowUp == null || _arrowDown == null || _arrowLeft == null || _arrowRight == null)
+        {
+            return;
+        }
+
+        double size = PadDiameter * 0.14d;
         double outerRadius = PadDiameter / 2d - 2d;
         double innerRadius = InnerCircleRadius + 4d;
-        double iconCenterRadius = (outerRadius + innerRadius) / 2d;
-        double offset = PadDiameter / 2d - iconCenterRadius - iconSize / 2d;
+        double offset = PadDiameter / 2d - (outerRadius + innerRadius) / 2d - size / 2d;
         double center = PadDiameter / 2d;
-
-        PlaceArrow(viewboxArrowUp, center - iconSize / 2d, offset, iconSize);
-        PlaceArrow(viewboxArrowDown, center - iconSize / 2d, PadDiameter - offset - iconSize, iconSize);
-        PlaceArrow(viewboxArrowLeft, offset, center - iconSize / 2d, iconSize);
-        PlaceArrow(viewboxArrowRight, PadDiameter - offset - iconSize, center - iconSize / 2d, iconSize);
+        PlaceArrow(_arrowUp, center - size / 2d, offset, size);
+        PlaceArrow(_arrowDown, center - size / 2d, PadDiameter - offset - size, size);
+        PlaceArrow(_arrowLeft, offset, center - size / 2d, size);
+        PlaceArrow(_arrowRight, PadDiameter - offset - size, center - size / 2d, size);
     }
 
     private static void PlaceArrow(Viewbox arrow, double left, double top, double size)
@@ -446,45 +476,28 @@ public partial class VirtualJoystick : UserControl
 
     private void UpdateVisualState(bool instant)
     {
+        if (_arcUp == null || _arcRight == null || _arcDown == null || _arcLeft == null ||
+            _arrowUpLine == null || _arrowDownLine == null || _arrowLeftLine == null || _arrowRightLine == null ||
+            _knob == null || _knobEllipse == null)
+        {
+            return;
+        }
+
         JoyStickDirection direction = GetDirectionFromVector(_vector);
         CurrentDirection = direction;
-
-        polyArrowUp.Stroke = polyArrowDown.Stroke = polyArrowLeft.Stroke = polyArrowRight.Stroke = ArrowIdleBrush;
-        pathArcUp.Opacity = pathArcDown.Opacity = pathArcLeft.Opacity = pathArcRight.Opacity = 1d;
+        _arrowUpLine.Stroke = _arrowDownLine.Stroke = _arrowLeftLine.Stroke = _arrowRightLine.Stroke = ArrowIdleBrush;
+        _arcUp.Opacity = _arcDown.Opacity = _arcLeft.Opacity = _arcRight.Opacity = 1d;
 
         switch (direction)
         {
-            case JoyStickDirection.Up:
-                SetActiveDirection(polyArrowUp, pathArcUp);
-                break;
-
-            case JoyStickDirection.UpRight:
-                SetActiveDirection(polyArrowUp, pathArcUp, polyArrowRight, pathArcRight);
-                break;
-
-            case JoyStickDirection.Right:
-                SetActiveDirection(polyArrowRight, pathArcRight);
-                break;
-
-            case JoyStickDirection.DownRight:
-                SetActiveDirection(polyArrowDown, pathArcDown, polyArrowRight, pathArcRight);
-                break;
-
-            case JoyStickDirection.Down:
-                SetActiveDirection(polyArrowDown, pathArcDown);
-                break;
-
-            case JoyStickDirection.DownLeft:
-                SetActiveDirection(polyArrowDown, pathArcDown, polyArrowLeft, pathArcLeft);
-                break;
-
-            case JoyStickDirection.Left:
-                SetActiveDirection(polyArrowLeft, pathArcLeft);
-                break;
-
-            case JoyStickDirection.UpLeft:
-                SetActiveDirection(polyArrowUp, pathArcUp, polyArrowLeft, pathArcLeft);
-                break;
+            case JoyStickDirection.Up: SetActiveDirection(_arrowUpLine, _arcUp); break;
+            case JoyStickDirection.UpRight: SetActiveDirection(_arrowUpLine, _arcUp, _arrowRightLine, _arcRight); break;
+            case JoyStickDirection.Right: SetActiveDirection(_arrowRightLine, _arcRight); break;
+            case JoyStickDirection.DownRight: SetActiveDirection(_arrowDownLine, _arcDown, _arrowRightLine, _arcRight); break;
+            case JoyStickDirection.Down: SetActiveDirection(_arrowDownLine, _arcDown); break;
+            case JoyStickDirection.DownLeft: SetActiveDirection(_arrowDownLine, _arcDown, _arrowLeftLine, _arcLeft); break;
+            case JoyStickDirection.Left: SetActiveDirection(_arrowLeftLine, _arcLeft); break;
+            case JoyStickDirection.UpLeft: SetActiveDirection(_arrowUpLine, _arcUp, _arrowLeftLine, _arcLeft); break;
         }
 
         double knobDiameter = KnobRadius * 2d;
@@ -492,19 +505,19 @@ public partial class VirtualJoystick : UserControl
         double top = PadDiameter / 2d - knobDiameter / 2d + _vector.Y;
         if (instant || _isMouseDragging)
         {
-            gridKnob.BeginAnimation(Canvas.LeftProperty, null);
-            gridKnob.BeginAnimation(Canvas.TopProperty, null);
-            Canvas.SetLeft(gridKnob, left);
-            Canvas.SetTop(gridKnob, top);
+            _knob.BeginAnimation(Canvas.LeftProperty, null);
+            _knob.BeginAnimation(Canvas.TopProperty, null);
+            Canvas.SetLeft(_knob, left);
+            Canvas.SetTop(_knob, top);
         }
         else
         {
             var easing = new QuadraticEase { EasingMode = EasingMode.EaseOut };
-            gridKnob.BeginAnimation(Canvas.LeftProperty, new DoubleAnimation(left, TimeSpan.FromMilliseconds(150d)) { EasingFunction = easing });
-            gridKnob.BeginAnimation(Canvas.TopProperty, new DoubleAnimation(top, TimeSpan.FromMilliseconds(150d)) { EasingFunction = easing });
+            _knob.BeginAnimation(Canvas.LeftProperty, new DoubleAnimation(left, TimeSpan.FromMilliseconds(150d)) { EasingFunction = easing });
+            _knob.BeginAnimation(Canvas.TopProperty, new DoubleAnimation(top, TimeSpan.FromMilliseconds(150d)) { EasingFunction = easing });
         }
 
-        ellipseKnob.Opacity = direction == JoyStickDirection.None ? 0.5d : 0.8d;
+        _knobEllipse.Opacity = direction == JoyStickDirection.None ? 0.5d : 0.8d;
     }
 
     private void SetActiveDirection(Polyline arrow, Path arc, Polyline? secondaryArrow = null, Path? secondaryArc = null)
@@ -525,8 +538,7 @@ public partial class VirtualJoystick : UserControl
             return JoyStickDirection.None;
         }
 
-        double angle = (Math.Atan2(vector.Y, vector.X) * 180d / Math.PI + 360d) % 360d;
-        return ((int)Math.Round(angle / 45d) % 8) switch
+        return ((int)Math.Round(((Math.Atan2(vector.Y, vector.X) * 180d / Math.PI + 360d) % 360d) / 45d) % 8) switch
         {
             0 => JoyStickDirection.Right,
             1 => JoyStickDirection.DownRight,
@@ -538,5 +550,15 @@ public partial class VirtualJoystick : UserControl
             7 => JoyStickDirection.UpRight,
             _ => JoyStickDirection.None,
         };
+    }
+
+    private void DetachSurfaceEvents()
+    {
+        if (_surface != null)
+        {
+            _surface.MouseLeftButtonDown -= OnSurfaceMouseLeftButtonDown;
+            _surface.MouseLeftButtonUp -= OnSurfaceMouseLeftButtonUp;
+            _surface.MouseMove -= OnSurfaceMouseMove;
+        }
     }
 }
