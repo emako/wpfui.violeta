@@ -1,5 +1,8 @@
+using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -106,5 +109,33 @@ public class Swatch : Button
     {
         get => (Thickness)GetValue(SelectionGapThicknessProperty);
         set => SetValue(SelectionGapThicknessProperty, value);
+    }
+}
+
+/// <summary>
+/// Shrinks a <see cref="CornerRadius"/> by a surrounding <see cref="Thickness"/> so a nested
+/// rounded border stays concentric with its parent (outer radius − border thickness).
+/// </summary>
+public sealed class InsetCornerRadiusConverter : IMultiValueConverter
+{
+    public static InsetCornerRadiusConverter Instance { get; } = new();
+
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (values is null || values.Length < 2 || values[0] is not CornerRadius radius || values[1] is not Thickness thickness)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+
+        return new CornerRadius(
+            Math.Max(0, radius.TopLeft - Math.Max(thickness.Left, thickness.Top)),
+            Math.Max(0, radius.TopRight - Math.Max(thickness.Right, thickness.Top)),
+            Math.Max(0, radius.BottomRight - Math.Max(thickness.Right, thickness.Bottom)),
+            Math.Max(0, radius.BottomLeft - Math.Max(thickness.Left, thickness.Bottom)));
+    }
+
+    public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+    {
+        throw new NotSupportedException();
     }
 }

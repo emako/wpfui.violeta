@@ -232,7 +232,6 @@
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
-                            IsSelected="True"
                             Color="#FEC12E" />
                         <vio:Swatch
                             Width="36"
@@ -314,7 +313,6 @@
                             Width="32"
                             Height="32"
                             Margin="2"
-                            IsSelected="True"
                             Color="#D13438" />
                         <vio:Swatch
                             Width="32"
