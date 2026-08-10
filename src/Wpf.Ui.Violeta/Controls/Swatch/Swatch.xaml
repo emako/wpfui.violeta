@@ -48,6 +48,15 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             IsHitTestVisible="False"
                             Opacity="0" />
+                        <!--
+                          Selected state is drawn INSIDE the swatch with two nested borders:
+                          - SelectionRing: accent stroke along the inner edge
+                          - SelectionGapRing: page/background-colored inset that separates
+                            the accent stroke from the swatch fill (creates the gap look)
+
+                          Both sit above SwatchSurface. Opacity stays 0 until IsSelected;
+                          RingScale starts > 1 and animates to 1 for a settle-in effect.
+                        -->
                         <Border
                             x:Name="SelectionRing"
                             BorderBrush="{TemplateBinding SelectionStroke}"
@@ -59,12 +68,14 @@
                             <Border.RenderTransform>
                                 <ScaleTransform x:Name="RingScale" ScaleX="1.18" ScaleY="1.18" />
                             </Border.RenderTransform>
+                            <!-- Inset gap between accent stroke and swatch color -->
                             <Border
                                 x:Name="SelectionGapRing"
                                 BorderBrush="{TemplateBinding SelectionGap}"
                                 BorderThickness="{TemplateBinding SelectionGapThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
                         </Border>
+                        <!-- Keyboard focus outline (independent of selection) -->
                         <Border
                             x:Name="FocusRing"
                             BorderBrush="{TemplateBinding SelectionStroke}"
@@ -146,6 +157,7 @@
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                         </Trigger>
+                        <!-- Fade in SelectionRing and scale RingScale 1.18 → 1 (settle) -->
                         <Trigger Property="IsSelected" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>

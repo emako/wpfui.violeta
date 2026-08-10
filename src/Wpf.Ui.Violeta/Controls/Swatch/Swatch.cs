@@ -72,7 +72,7 @@ public class Swatch : Button
     }
 
     /// <summary>
-    /// Brush of the outer ring drawn around the swatch when it is selected.
+    /// Accent brush for the selected inner stroke (outer of the two nested selection borders).
     /// </summary>
     public Brush? SelectionStroke
     {
@@ -81,7 +81,8 @@ public class Swatch : Button
     }
 
     /// <summary>
-    /// Brush filling the gap between the selection ring and the swatch color.
+    /// Brush for the inset gap between the accent stroke and the swatch fill.
+    /// Typically matches the page/control background so the stroke reads as separated.
     /// </summary>
     public Brush? SelectionGap
     {
@@ -90,7 +91,7 @@ public class Swatch : Button
     }
 
     /// <summary>
-    /// Thickness of the accent stroke drawn inside the swatch when it is selected.
+    /// Thickness of the accent stroke drawn inside the swatch when selected.
     /// </summary>
     public Thickness SelectionStrokeThickness
     {
@@ -99,7 +100,7 @@ public class Swatch : Button
     }
 
     /// <summary>
-    /// Thickness of the gap drawn between the selection stroke and the swatch color.
+    /// Thickness of the background-colored gap between the accent stroke and the swatch fill.
     /// </summary>
     public Thickness SelectionGapThickness
     {
