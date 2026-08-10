@@ -274,10 +274,7 @@ public sealed class Screen
     /// </remarks>
     public static Screen FromWindow(Window window)
     {
-        if (window is null)
-        {
-            throw new ArgumentNullException(nameof(window));
-        }
+        _ = window ?? throw new ArgumentNullException(nameof(window));
 
         nint hwnd = new WindowInteropHelper(window).EnsureHandle();
         return FromHandle(hwnd);
@@ -357,18 +354,19 @@ public sealed class Screen
         }
 
         List<Screen> screens = [];
-        ScreenNativeMethods.MonitorEnumProc callback = (nint hMonitor, nint hdcMonitor, ref RECT _, nint _) =>
-        {
-            screens.Add(new Screen(hMonitor, hdcMonitor));
-            return true;
-        };
 
-        if (!ScreenNativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, callback, IntPtr.Zero) || screens.Count == 0)
+        if (!ScreenNativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero, Callback, IntPtr.Zero) || screens.Count == 0)
         {
             return [new Screen(ScreenNativeMethods.PrimaryMonitor)];
         }
 
         return [.. screens];
+
+        bool Callback(nint hMonitor, nint hdcMonitor, ref RECT lpfnEnum, nint dwData)
+        {
+            screens.Add(new Screen(hMonitor, hdcMonitor));
+            return true;
+        }
     }
 
     private static void OnDisplaySettingsChanging(object? sender, EventArgs e)
