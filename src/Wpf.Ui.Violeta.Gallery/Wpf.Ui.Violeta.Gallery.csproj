@@ -27,9 +27,9 @@
     <ItemGroup>
         <Resource Include="Resources\Images\*.ico" />
         <Resource Include="Resources\Images\*.png" />
-		<Resource Include="$(NuGetPackageRoot)\FluentUI.HarmonyOS.Assets\1.0.0\assets\HarmonyOS_Sans_SC\HarmonyOS_Sans_SC_Regular.ttf">
-			<Link>Resources\Fonts\HarmonyOS_Sans_SC_Regular.ttf</Link>
-		</Resource>
+        <Resource Include="$(NuGetPackageRoot)\FluentUI.HarmonyOS.Assets\1.0.0\assets\HarmonyOS_Sans_SC\HarmonyOS_Sans_SC_Regular.ttf">
+            <Link>Resources\Fonts\HarmonyOS_Sans_SC_Regular.ttf</Link>
+        </Resource>
     </ItemGroup>
 
     <ItemGroup>
@@ -41,7 +41,17 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Update="Resources\Localization\SH.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SH.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
         <EmbeddedResource Update="Resources\Localization\SH.resx">
+            <!-- Legacy code, keep it for reference. -->
+            <!--
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>SH.Designer.cs</LastGenOutput>
             <StronglyTypedFileName>Resources\Localization\SH.Designer.cs</StronglyTypedFileName>
@@ -49,6 +59,7 @@
             <StronglyTypedNamespace>Wpf.Ui.Violeta.Gallery.Resources.Localization</StronglyTypedNamespace>
             <StronglyTypedClassName>SH</StronglyTypedClassName>
             <Public>true</Public>
+            -->
         </EmbeddedResource>
         <EmbeddedResource Update="Resources\Localization\SH.ja.resx">
             <DependentUpon>SH.resx</DependentUpon>
