@@ -3,15 +3,13 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
-using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Resources.Localization;
 using Wpf.Ui.Violeta.Win32;
 using Clipboard = System.Windows.Clipboard;
-using WindowBackdrop = Wpf.Ui.Violeta.Win32.WindowBackdrop;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public partial class ExceptionWindow : FluentWindow
+public partial class ExceptionWindow : ShellWindow
 {
     public Window? owner = null;
 
@@ -106,16 +104,6 @@ public partial class ExceptionWindow : FluentWindow
                 CopyInfo();
             }
         };
-    }
-
-    protected override void OnSourceInitialized(EventArgs e)
-    {
-        base.OnSourceInitialized(e);
-
-        if (WindowBackdrop.IsSupported(WindowBackdropPreference.Mica))
-        {
-            WindowBackdrop.ApplyBackdrop(this, WindowBackdropPreference.Mica);
-        }
     }
 
     public string GetInfo()
