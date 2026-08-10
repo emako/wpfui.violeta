@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:gallery="clr-namespace:Wpf.Ui.Violeta.Gallery"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="CaptionButtonBar"
@@ -28,9 +29,16 @@
                         Text="{I18N {x:Static lang:LangKeys.Sample_029dbfb305}}"
                         TextWrapping="Wrap" />
                     <TextBlock
+                        Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_3b2223252e}}"
                         TextWrapping="Wrap" />
+                    <ui:Button
+                        HorizontalAlignment="Left"
+                        Appearance="Primary"
+                        Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
+                        CommandParameter="windows/content-window"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_74f2862be1}}" />
                 </StackPanel>
             </Border>
         </StackPanel>
