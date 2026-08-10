@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.6] - 2026-08-10
+
+* Add ComboBox placeholder support and style fix
+* Expose caption button state to subclasses
+* Use ShellWindow for exception dialog
+* Expand Colors page with full palette showcase
+* Make color keys selectable in ColorsPage
+* Expand icons gallery page
+* Add ContentWindow link to caption bar page
+* Zip gallery publish output in build script
+
 ## [4.3.0.5] - 2026-08-10
 
 * Add VirtualJoystick control
@@ -598,6 +609,9 @@ feature: Toast
 
 ## Links
 
+[4.3.0.6]: https://github.com/emako/wpfui.violeta/compare/4.3.0.5...4.3.0.6
+[4.3.0.5]: https://github.com/emako/wpfui.violeta/compare/4.3.0.4...4.3.0.5
+[4.3.0.4]: https://github.com/emako/wpfui.violeta/compare/4.3.0.3...4.3.0.4
 [4.3.0.3]: https://github.com/emako/wpfui.violeta/compare/4.3.0.2...4.3.0.3
 [4.3.0.2]: https://github.com/emako/wpfui.violeta/compare/4.3.0.1...4.3.0.2
 [4.3.0.1]: https://github.com/emako/wpfui.violeta/compare/4.3.0...4.3.0.1
