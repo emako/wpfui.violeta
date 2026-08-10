@@ -26,10 +26,17 @@
                         FontSize="16"
                         FontWeight="SemiBold"
                         Text="Popup picker" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="默认 HorizontalAlignment=Left，宽度随内容收缩，不会拉满父容器。"
+                        TextWrapping="Wrap" />
                     <vio:SwatchPicker
                         x:Name="PopupPicker"
                         Margin="0,12,0,0"
-                        SelectedValueChanged="OnSelectedValueChanged">
+                        SelectedValueChanged="OnSelectedValueChanged"
+                        SwatchShape="Rounded"
+                        SwatchSize="28">
                         <vio:SwatchPicker.ItemsSource>
                             <x:Array Type="{x:Type vio:Swatch}">
                                 <vio:Swatch Color="#0078D4" Value="Blue" />
@@ -46,6 +53,42 @@
                         </vio:SwatchPicker.ItemsSource>
                     </vio:SwatchPicker>
                     <TextBlock Margin="0,12,0,0" Text="{Binding SelectedValue, ElementName=PopupPicker, StringFormat=SelectedValue: {0}}" />
+                </StackPanel>
+            </Border>
+            <Border
+                Margin="0,16,0,0"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Text="Grid layout" />
+                    <vio:SwatchPicker
+                        x:Name="GridPicker"
+                        Margin="0,12,0,0"
+                        ColumnCount="4"
+                        Layout="Grid"
+                        Spacing="6"
+                        SwatchShape="Circular"
+                        SwatchSize="32">
+                        <vio:SwatchPicker.ItemsSource>
+                            <x:Array Type="{x:Type vio:Swatch}">
+                                <vio:Swatch Color="#FE1921" Value="Red" />
+                                <vio:Swatch Color="#FE7900" Value="Orange" />
+                                <vio:Swatch Color="#FEC12E" Value="Yellow" />
+                                <vio:Swatch Color="#8FCF56" Value="Lime" />
+                                <vio:Swatch Color="#00AF53" Value="Green" />
+                                <vio:Swatch Color="#00AEEC" Value="Cyan" />
+                                <vio:Swatch Color="#006DBC" Value="Blue" />
+                                <vio:Swatch Color="#702F9D" Value="Purple" />
+                            </x:Array>
+                        </vio:SwatchPicker.ItemsSource>
+                    </vio:SwatchPicker>
+                    <TextBlock Margin="0,12,0,0" Text="{Binding SelectedValue, ElementName=GridPicker, StringFormat=SelectedValue: {0}}" />
                 </StackPanel>
             </Border>
             <Border

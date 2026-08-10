@@ -3,17 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
-    <DataTemplate x:Key="SwatchPickerPreviewTemplate" DataType="{x:Type local:Swatch}">
-        <local:Swatch
-            Width="24"
-            Height="24"
-            CornerRadius="{Binding CornerRadius}"
-            Focusable="False"
-            ImageSource="{Binding ImageSource}"
-            IsEnabled="{Binding IsEnabled}"
-            Color="{Binding Color}"
-            Value="{Binding Value}" />
-    </DataTemplate>
 
     <Style x:Key="SwatchPickerToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent" />
@@ -31,6 +20,7 @@
     <Style TargetType="{x:Type local:SwatchPickerPresenter}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Focusable" Value="True" />
         <Setter Property="SelectionMode" Value="Single" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -38,14 +28,19 @@
             <Setter.Value>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="Padding" Value="0" />
-                    <Setter Property="Margin" Value="2" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
                     <Setter Property="Background" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                <ContentPresenter />
+                                <ContentPresenter
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -55,7 +50,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <WrapPanel IsItemsHost="True" />
+                    <StackPanel Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -67,7 +62,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CanContentScroll="True"
+                        CanContentScroll="False"
                         Focusable="False"
                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                         VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
@@ -79,16 +74,20 @@
     </Style>
 
     <Style TargetType="{x:Type local:SwatchPicker}">
-        <Setter Property="MinWidth" Value="104" />
-        <Setter Property="MinHeight" Value="36" />
+        <!--  Left keeps the closed box at content width; Stretch would fill the parent.  -->
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="MinWidth" Value="72" />
+        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Background" Value="{DynamicResource ComboBoxBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="8,4" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SwatchPicker}">
-                    <Grid>
+                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
                         <Border
                             x:Name="PreviewBorder"
                             MinWidth="{TemplateBinding MinWidth}"
@@ -97,19 +96,33 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{DynamicResource ControlCornerRadius}">
+                            CornerRadius="{DynamicResource ControlCornerRadius}"
+                            SnapsToDevicePixels="True">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <ContentPresenter
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding SelectedItem}"
-                                    ContentTemplate="{StaticResource SwatchPickerPreviewTemplate}" />
+                                <!--
+                                    Dedicated preview Swatch (never SelectedItem itself).
+                                    ContentPresenter + UIElement Content would reparent the list swatch
+                                    and ignore any ContentTemplate.
+                                -->
+                                <local:Swatch
+                                    x:Name="PART_PreviewSwatch"
+                                    Focusable="False"
+                                    IsHitTestVisible="False"
+                                    Visibility="Collapsed" />
+                                <Border
+                                    x:Name="PART_EmptyPreview"
+                                    Width="24"
+                                    Height="24"
+                                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="4" />
                                 <ui:SymbolIcon
                                     Grid.Column="1"
+                                    Margin="8,0,0,0"
                                     VerticalAlignment="Center"
                                     FontSize="12"
                                     Foreground="{DynamicResource ComboBoxDropDownGlyphForeground}"
@@ -131,6 +144,7 @@
                             StaysOpen="True"
                             VerticalOffset="2">
                             <Border
+                                MinWidth="{Binding ActualWidth, ElementName=PreviewBorder}"
                                 Margin="0,4,0,0"
                                 Padding="6"
                                 Background="{DynamicResource ComboBoxDropDownBackground}"
@@ -151,7 +165,11 @@
                                     FocusMode="{Binding FocusMode, RelativeSource={RelativeSource TemplatedParent}}"
                                     ItemTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource TemplatedParent}}"
                                     ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource TemplatedParent}}"
-                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                                    Layout="{Binding Layout, RelativeSource={RelativeSource TemplatedParent}}"
+                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Spacing="{Binding Spacing, RelativeSource={RelativeSource TemplatedParent}}"
+                                    SwatchShape="{Binding SwatchShape, RelativeSource={RelativeSource TemplatedParent}}"
+                                    SwatchSize="{Binding SwatchSize, RelativeSource={RelativeSource TemplatedParent}}" />
                             </Border>
                         </Popup>
                     </Grid>
