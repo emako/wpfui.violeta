@@ -1650,6 +1650,9 @@ Click OK to continue.</value>
   <data name="Sample_d8b5dbc3ee" xml:space="preserve">
     <value>Open ContentWindow demo</value>
   </data>
+  <data name="Sample_74f2862be1" xml:space="preserve">
+    <value>Go to ContentWindow page for examples</value>
+  </data>
   <data name="Sample_d8a7964484" xml:space="preserve">
     <value>Open ShellWindow demo</value>
   </data>

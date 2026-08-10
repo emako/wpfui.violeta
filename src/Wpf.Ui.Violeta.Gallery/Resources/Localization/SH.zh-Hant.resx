@@ -1650,6 +1650,9 @@
   <data name="Sample_d8b5dbc3ee" xml:space="preserve">
     <value>開啟 ContentWindow 示範</value>
   </data>
+  <data name="Sample_74f2862be1" xml:space="preserve">
+    <value>前往 ContentWindow 頁面查看範例</value>
+  </data>
   <data name="Sample_d8a7964484" xml:space="preserve">
     <value>開啟 ShellWindow 示範</value>
   </data>
