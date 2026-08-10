@@ -27,23 +27,23 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="ShowInTaskbar" Value="True" />
         <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:PendingBoxDialog}">
                     <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
-                        <vui:Grid Background="#01000000" RowDefinitions="Auto,*,Auto">
+                        <vui:Grid Background="#01000000" RowDefinitions="*,Auto">
                             <TextBlock
                                 x:Name="PART_Title"
                                 Grid.Row="0"
                                 MinHeight="30"
                                 Margin="8,8,0,0"
-                                FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                 FontSize="13"
                                 Text="{TemplateBinding Title}"
                                 TextTrimming="CharacterEllipsis"
                                 TextWrapping="NoWrap" />
                             <vui:Grid
-                                Grid.Row="1"
+                                Grid.Row="0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 ColumnDefinitions="Auto,Auto">
@@ -51,17 +51,17 @@
                                     x:Name="PART_Loading"
                                     Width="{TemplateBinding LoadingSize}"
                                     Height="{TemplateBinding LoadingSize}"
-                                    Margin="0,0,0,0" />
+                                    Margin="0,21,0,0" />
                                 <TextBlock
                                     x:Name="PART_Message"
                                     Grid.Column="1"
-                                    Margin="16,0,0,0"
+                                    Margin="16,21,0,0"
                                     VerticalAlignment="Center"
                                     Text="{TemplateBinding Message}" />
                             </vui:Grid>
                             <ui:Button
                                 x:Name="PART_CancelButton"
-                                Grid.Row="2"
+                                Grid.Row="1"
                                 MinWidth="80"
                                 Margin="0,0,8,8"
                                 HorizontalAlignment="Right" />
