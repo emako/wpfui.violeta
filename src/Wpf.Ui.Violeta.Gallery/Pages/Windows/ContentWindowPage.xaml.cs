@@ -109,6 +109,8 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         dialog.CanKeyDownResult = CanKeyDownResultToggle.IsChecked == true;
         dialog.ShowInTaskbar = ShowInTaskbarToggle.IsChecked == true;
         dialog.InheritIconFromOwner = InheritIconToggle.IsChecked == true;
+        dialog.IsIconVisible = IsIconVisibleToggle.IsChecked == true;
+        dialog.IsTitleVisible = IsTitleVisibleToggle.IsChecked == true;
         dialog.WindowStartupLocation = ParseStartupLocation();
         dialog.ResizeMode = ParseResizeMode();
 

@@ -292,6 +292,38 @@ public partial class ContentWindow : ShellWindow
         set => SetValue(InheritIconFromOwnerProperty, value);
     }
 
+    public static readonly DependencyProperty IsIconVisibleProperty =
+        DependencyProperty.Register(
+            nameof(IsIconVisible),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// Gets or sets whether the embedded <see cref="TitleBar"/> shows <see cref="Window.Icon"/>.
+    /// </summary>
+    public bool IsIconVisible
+    {
+        get => (bool)GetValue(IsIconVisibleProperty);
+        set => SetValue(IsIconVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsTitleVisibleProperty =
+        DependencyProperty.Register(
+            nameof(IsTitleVisible),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// Gets or sets whether the embedded <see cref="TitleBar"/> shows the window title text.
+    /// </summary>
+    public bool IsTitleVisible
+    {
+        get => (bool)GetValue(IsTitleVisibleProperty);
+        set => SetValue(IsTitleVisibleProperty, value);
+    }
+
     static ContentWindow()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentWindow), new FrameworkPropertyMetadata(typeof(ContentWindow)));

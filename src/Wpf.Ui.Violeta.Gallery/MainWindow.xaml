@@ -12,6 +12,7 @@
     Width="1280"
     Height="800"
     ExtendsContentIntoTitleBar="True"
+    Icon="/Resources/Images/wpfui.ico"
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -29,15 +30,19 @@
 
         <vio:TitleBar
             x:Name="GalleryTitleBar"
+            Title="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}"
             Grid.Row="0"
             BackButtonClick="GalleryTitleBar_OnBackButtonClick"
+            Icon="{Binding Icon, RelativeSource={RelativeSource AncestorType=Window}}"
             IsBackButtonEnabled="False"
             PaneToggleButtonClick="GalleryTitleBar_OnPaneToggleButtonClick">
             <vio:TitleBar.CustomHeader>
                 <TextBlock
                     Margin="8,0"
                     VerticalAlignment="Center"
-                    Text="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}" />
+                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                    Text="{I18N {x:Static lang:LangKeys.Gallery_AppTitle}}"
+                    Visibility="Collapsed" />
             </vio:TitleBar.CustomHeader>
             <vio:TitleBar.CustomFooter>
                 <StackPanel

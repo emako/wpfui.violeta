@@ -78,6 +78,12 @@
                             <vio:FormItem Label="InheritIconFromOwner">
                                 <ui:ToggleSwitch x:Name="InheritIconToggle" IsChecked="True" />
                             </vio:FormItem>
+                            <vio:FormItem Label="IsIconVisible">
+                                <ui:ToggleSwitch x:Name="IsIconVisibleToggle" IsChecked="True" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="IsTitleVisible">
+                                <ui:ToggleSwitch x:Name="IsTitleVisibleToggle" IsChecked="True" />
+                            </vio:FormItem>
                             <vio:FormItem Label="CanKeyDownResult">
                                 <ui:ToggleSwitch x:Name="CanKeyDownResultToggle" IsChecked="True" />
                             </vio:FormItem>

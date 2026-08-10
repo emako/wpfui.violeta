@@ -2,9 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
 
+[TemplatePart(Name = nameof(PART_Icon), Type = typeof(Image))]
+[TemplatePart(Name = nameof(PART_Title), Type = typeof(TextBlock))]
 [TemplatePart(Name = nameof(PART_CustomHeaderContentControl), Type = typeof(ContentControl))]
 [TemplatePart(Name = nameof(PART_CenterContentPresenter), Type = typeof(ContentPresenter))]
 [TemplatePart(Name = nameof(PART_CustomFooterContentControl), Type = typeof(ContentControl))]
@@ -328,10 +331,80 @@ public partial class TitleBar : ContentControl
         set => SetValue(CustomFooterProperty, value);
     }
 
+    public static readonly DependencyProperty IconProperty =
+        DependencyProperty.Register(
+            nameof(Icon),
+            typeof(ImageSource),
+            typeof(TitleBar),
+            new PropertyMetadata(null)
+        );
+
+    /// <summary>
+    /// Gets or sets the icon displayed in the title bar (typically 16×16).
+    /// </summary>
+    public ImageSource? Icon
+    {
+        get => (ImageSource?)GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
+    }
+
+    public static readonly DependencyProperty IsIconVisibleProperty =
+        DependencyProperty.Register(
+            nameof(IsIconVisible),
+            typeof(bool),
+            typeof(TitleBar),
+            new PropertyMetadata(true)
+        );
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the title bar icon is visible when <see cref="Icon"/> is set.
+    /// </summary>
+    public bool IsIconVisible
+    {
+        get => (bool)GetValue(IsIconVisibleProperty);
+        set => SetValue(IsIconVisibleProperty, value);
+    }
+
+    public static readonly DependencyProperty TitleProperty =
+        DependencyProperty.Register(
+            nameof(Title),
+            typeof(string),
+            typeof(TitleBar),
+            new PropertyMetadata(string.Empty)
+        );
+
+    /// <summary>
+    /// Gets or sets the title text displayed in the title bar.
+    /// </summary>
+    public string Title
+    {
+        get => (string)GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
+    }
+
+    public static readonly DependencyProperty IsTitleVisibleProperty =
+        DependencyProperty.Register(
+            nameof(IsTitleVisible),
+            typeof(bool),
+            typeof(TitleBar),
+            new PropertyMetadata(true)
+        );
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the title text is visible.
+    /// </summary>
+    public bool IsTitleVisible
+    {
+        get => (bool)GetValue(IsTitleVisibleProperty);
+        set => SetValue(IsTitleVisibleProperty, value);
+    }
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
 
+        PART_Icon = GetTemplateChild(nameof(PART_Icon)) as Image;
+        PART_Title = GetTemplateChild(nameof(PART_Title)) as TextBlock;
         PART_CustomHeaderContentControl = (ContentControl)GetTemplateChild(nameof(PART_CustomHeaderContentControl));
         PART_CenterContentPresenter = (ContentPresenter)GetTemplateChild(nameof(PART_CenterContentPresenter));
         PART_CustomFooterContentControl = (ContentControl)GetTemplateChild(nameof(PART_CustomFooterContentControl));
@@ -403,6 +476,8 @@ public partial class TitleBar : ContentControl
 
     private Window _ownerWindow = null!;
 
+    private Image? PART_Icon;
+    private TextBlock? PART_Title;
     private ContentControl PART_CustomHeaderContentControl = null!;
     private ContentPresenter PART_CenterContentPresenter = null!;
     private ContentControl PART_CustomFooterContentControl = null!;
