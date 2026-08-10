@@ -180,7 +180,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Blue"
                                 Color="#0078D4"
                                 Value="#0078D4" />
@@ -189,7 +189,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Purple"
                                 Color="#8764B8"
                                 Value="#8764B8" />
@@ -198,7 +198,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Teal"
                                 Color="#00B7C3"
                                 Value="#00B7C3" />
@@ -207,7 +207,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Green"
                                 Color="#107C10"
                                 Value="#107C10" />
@@ -216,7 +216,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Yellow"
                                 Color="#FFB900"
                                 Value="#FFB900" />
@@ -225,7 +225,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Red"
                                 Color="#D13438"
                                 Value="#D13438" />
@@ -234,7 +234,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Orange"
                                 Color="#FF8C00"
                                 Value="#FF8C00" />
@@ -243,7 +243,7 @@
                                 Height="32"
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
-                                CornerRadius="2"
+                                CornerRadius="6"
                                 ToolTip="Magenta"
                                 Color="#E3008C"
                                 Value="#E3008C" />

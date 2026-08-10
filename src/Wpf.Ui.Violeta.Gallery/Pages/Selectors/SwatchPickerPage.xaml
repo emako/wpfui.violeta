@@ -72,64 +72,64 @@
                         Text="Square" />
                     <WrapPanel x:Name="SquareRow" Margin="0,8,0,0">
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#FE1921" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#FE7900" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#FEC12E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#8FCF56" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#00AF53" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#00AEEC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#006DBC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
                             Color="#011F5E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="0"
@@ -142,65 +142,65 @@
                         Text="Circular" />
                     <WrapPanel x:Name="CircularRow" Margin="0,8,0,0">
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#FE1921" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#FE7900" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             IsSelected="True"
                             Color="#FEC12E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#8FCF56" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#00AF53" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#00AEEC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#006DBC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
                             Color="#011F5E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="18"
@@ -213,65 +213,65 @@
                         Text="Rounded" />
                     <WrapPanel x:Name="RoundedRow" Margin="0,8,0,0">
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#FE1921" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#FE7900" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             IsSelected="True"
                             Color="#FEC12E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#8FCF56" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#00AF53" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#00AEEC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#006DBC" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"
                             Color="#011F5E" />
                         <vio:Swatch
-                            Width="35"
-                            Height="35"
+                            Width="36"
+                            Height="36"
                             Margin="2,0"
                             Click="OnShapeSwatchClick"
                             CornerRadius="4"

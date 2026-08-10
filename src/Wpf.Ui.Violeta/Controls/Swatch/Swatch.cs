@@ -19,7 +19,7 @@ public class Swatch : Button
         DependencyProperty.Register(nameof(ImageSource), typeof(ImageSource), typeof(Swatch), new PropertyMetadata(null));
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(Swatch), new PropertyMetadata(new CornerRadius(4)));
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(Swatch), new PropertyMetadata(new CornerRadius(6)));
 
     public static readonly DependencyProperty IsSelectedProperty =
         DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(Swatch), new PropertyMetadata(false));
