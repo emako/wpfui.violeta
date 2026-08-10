@@ -331,7 +331,7 @@
     <value>ContentWindow — コンテンツウィンドウ</value>
   </data>
   <data name="Sample_1e4f285714" xml:space="preserve">
-    <value>ContentWindow は ShellWindow を継承し、ContentWindowControl でカスタム内容をホストし、ContentWindowResult（OK / Cancel など）を返します。ContentDialog ではなく独立ウィンドウが必要な場合に適します。</value>
+    <value>ContentWindow は ShellWindow を継承し、TitleBar を標準で内蔵し、ContentWindowControl でカスタム内容をホストし、ContentWindowResult（OK / Cancel など）を返します。ContentDialog ではなく独立ウィンドウが必要な場合に適します。</value>
   </data>
   <data name="Sample_976db78a60" xml:space="preserve">
     <value>DataGrid — データグリッド</value>
@@ -2719,7 +2719,7 @@ OK をクリックして続行してください。</value>
     <value>AsyncBox のデモ内容です。子コンテンツは非同期 UI スレッドで作成され、読み込み中にインジケーターを表示できます。</value>
   </data>
   <data name="Sample_6d80adabe3" xml:space="preserve">
-    <value>ContentWindow + ContentWindowControl の簡単なデモです。</value>
+    <value>このウィンドウは内蔵 TitleBar（タイトルとキャプションボタン）を使用します。OK / Cancel、または TitleBar から閉じられます。</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
     <value>ExceptionReport ダイアログをプレビューするための Gallery デモ例外です。</value>

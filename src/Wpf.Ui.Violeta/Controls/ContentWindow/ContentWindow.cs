@@ -5,6 +5,8 @@ using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Controls;
 
+[TemplatePart(Name = nameof(PART_TitleBar), Type = typeof(TitleBar))]
+[TemplatePart(Name = nameof(PART_ContentPresenter), Type = typeof(System.Windows.Controls.ContentPresenter))]
 public partial class ContentWindow : ShellWindow
 {
     public event EventHandler<ContentWindowResultEventArgs>? ResultCommandExecuted = null;
@@ -34,18 +36,228 @@ public partial class ContentWindow : ShellWindow
 
     public ContentWindowResult CancelResult { get; set; } = ContentWindowResult.Cancel;
 
-    public ContentWindowControl Control
+    /// <summary>
+    /// Gets the embedded <see cref="TitleBar"/> after the template is applied.
+    /// </summary>
+    public TitleBar? TitleBar { get; private set; }
+
+    public static readonly DependencyProperty ControlProperty =
+        DependencyProperty.Register(
+            nameof(Control),
+            typeof(ContentWindowControl),
+            typeof(ContentWindow),
+            new PropertyMetadata(null, OnControlChanged));
+
+    public ContentWindowControl? Control
     {
-        get => field;
-        set
-        {
-            field = value;
-            if (field != null)
-            {
-                //contentPresenter.Content = value;
-            }
-        }
-    } = null!;
+        get => (ContentWindowControl?)GetValue(ControlProperty);
+        set => SetValue(ControlProperty, value);
+    }
+
+    public static readonly DependencyProperty BackButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(BackButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility BackButtonVisibility
+    {
+        get => (Visibility)GetValue(BackButtonVisibilityProperty);
+        set => SetValue(BackButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty PaneToggleButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(PaneToggleButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility PaneToggleButtonVisibility
+    {
+        get => (Visibility)GetValue(PaneToggleButtonVisibilityProperty);
+        set => SetValue(PaneToggleButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty MinimizeButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(MinimizeButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility MinimizeButtonVisibility
+    {
+        get => (Visibility)GetValue(MinimizeButtonVisibilityProperty);
+        set => SetValue(MinimizeButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty MaximizeButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(MaximizeButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility MaximizeButtonVisibility
+    {
+        get => (Visibility)GetValue(MaximizeButtonVisibilityProperty);
+        set => SetValue(MaximizeButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty CloseButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(CloseButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Visible));
+
+    public Visibility CloseButtonVisibility
+    {
+        get => (Visibility)GetValue(CloseButtonVisibilityProperty);
+        set => SetValue(CloseButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty HelpButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(HelpButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility HelpButtonVisibility
+    {
+        get => (Visibility)GetValue(HelpButtonVisibilityProperty);
+        set => SetValue(HelpButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty IsBackButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsBackButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsBackButtonEnabled
+    {
+        get => (bool)GetValue(IsBackButtonEnabledProperty);
+        set => SetValue(IsBackButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsPaneToggleButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsPaneToggleButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsPaneToggleButtonEnabled
+    {
+        get => (bool)GetValue(IsPaneToggleButtonEnabledProperty);
+        set => SetValue(IsPaneToggleButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsMinimizeButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsMinimizeButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsMinimizeButtonEnabled
+    {
+        get => (bool)GetValue(IsMinimizeButtonEnabledProperty);
+        set => SetValue(IsMinimizeButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsMaximizeButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsMaximizeButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsMaximizeButtonEnabled
+    {
+        get => (bool)GetValue(IsMaximizeButtonEnabledProperty);
+        set => SetValue(IsMaximizeButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsCloseButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsCloseButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsCloseButtonEnabled
+    {
+        get => (bool)GetValue(IsCloseButtonEnabledProperty);
+        set => SetValue(IsCloseButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsHelpButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsHelpButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsHelpButtonEnabled
+    {
+        get => (bool)GetValue(IsHelpButtonEnabledProperty);
+        set => SetValue(IsHelpButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty TitleBarHeaderProperty =
+        DependencyProperty.Register(
+            nameof(TitleBarHeader),
+            typeof(object),
+            typeof(ContentWindow),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Custom header content for the embedded <see cref="TitleBar"/>.
+    /// When null, the window <see cref="Window.Title"/> is shown.
+    /// </summary>
+    public object? TitleBarHeader
+    {
+        get => GetValue(TitleBarHeaderProperty);
+        set => SetValue(TitleBarHeaderProperty, value);
+    }
+
+    public static readonly DependencyProperty TitleBarFooterProperty =
+        DependencyProperty.Register(
+            nameof(TitleBarFooter),
+            typeof(object),
+            typeof(ContentWindow),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Custom footer content for the embedded <see cref="TitleBar"/> (left of caption buttons).
+    /// </summary>
+    public object? TitleBarFooter
+    {
+        get => GetValue(TitleBarFooterProperty);
+        set => SetValue(TitleBarFooterProperty, value);
+    }
+
+    public static readonly DependencyProperty TitleBarContentProperty =
+        DependencyProperty.Register(
+            nameof(TitleBarContent),
+            typeof(object),
+            typeof(ContentWindow),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Center content of the embedded <see cref="TitleBar"/>.
+    /// </summary>
+    public object? TitleBarContent
+    {
+        get => GetValue(TitleBarContentProperty);
+        set => SetValue(TitleBarContentProperty, value);
+    }
 
     static ContentWindow()
     {
@@ -54,28 +266,25 @@ public partial class ContentWindow : ShellWindow
 
     public ContentWindow()
     {
-        MouseMove += (s, e) =>
+        SetResourceReference(StyleProperty, typeof(ContentWindow));
+        WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+        KeyDown += (_, e) =>
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (!CanKeyDownResult)
             {
-                DragMove();
+                return;
             }
-        };
 
-        KeyDown += (s, e) =>
-        {
-            if (CanKeyDownResult)
+            switch (e.Key)
             {
-                switch (e.Key)
-                {
-                    case Key.Enter:
-                        OnResultCommandExecuted(AcceptResult);
-                        break;
+                case Key.Enter:
+                    OnResultCommandExecuted(AcceptResult);
+                    break;
 
-                    case Key.Escape:
-                        OnResultCommandExecuted(CancelResult);
-                        break;
-                }
+                case Key.Escape:
+                    OnResultCommandExecuted(CancelResult);
+                    break;
             }
         };
 
@@ -107,6 +316,14 @@ public partial class ContentWindow : ShellWindow
         };
     }
 
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+        PART_TitleBar = GetTemplateChild(nameof(PART_TitleBar)) as TitleBar;
+        PART_ContentPresenter = GetTemplateChild(nameof(PART_ContentPresenter)) as System.Windows.Controls.ContentPresenter;
+        TitleBar = PART_TitleBar;
+    }
+
     public virtual void OnResultCommandExecuted(ContentWindowResult result)
     {
         ContentWindowResultEventArgs e = new(result);
@@ -118,6 +335,31 @@ public partial class ContentWindow : ShellWindow
         showTcs?.TrySetResult(Result);
         showTcs = null;
     }
+
+    private static void OnControlChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var window = (ContentWindow)d;
+
+        if (e.NewValue is ContentWindowControl control)
+        {
+            control.Owner = window;
+            window.Content = control;
+
+            if (!string.IsNullOrEmpty(control.Title))
+            {
+                window.Title = control.Title;
+            }
+        }
+        else if (e.OldValue is not null && window.Content == e.OldValue)
+        {
+            window.Content = null;
+        }
+    }
+
+#pragma warning disable IDE1006 // Naming Styles — template part names
+    private TitleBar? PART_TitleBar;
+    private System.Windows.Controls.ContentPresenter? PART_ContentPresenter;
+#pragma warning restore IDE1006
 }
 
 public partial class ContentWindow
@@ -127,32 +369,21 @@ public partial class ContentWindow
 
     public static ContentWindow Create<T>(out T? dialogControl) where T : ContentWindowControl, new()
     {
-        var dialog = new ContentWindow()
+        var control = (T)Activator.CreateInstance(typeof(T))!;
+        var dialog = new ContentWindow
         {
-            Control = (T)Activator.CreateInstance(typeof(T))!,
+            Control = control,
         };
-        if (dialog.Control is T control)
-        {
-            control.Owner = dialog;
-            dialog.Title = control.Title;
-            dialogControl = control;
-        }
-        else
-        {
-            dialogControl = null;
-        }
+        dialogControl = control;
         return dialog;
     }
 
     public static ContentWindow Create<T>(T control) where T : ContentWindowControl
     {
-        var dialog = new ContentWindow()
+        return new ContentWindow
         {
             Control = control,
         };
-        control.Owner = dialog;
-        dialog.Title = control.Title;
-        return dialog;
     }
 
     public static ContentWindowResult ShowDialog<T>(DependencyObject d, out T? dialogControl) where T : ContentWindowControl, new()

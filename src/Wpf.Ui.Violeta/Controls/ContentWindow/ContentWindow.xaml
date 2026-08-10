@@ -1,31 +1,92 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Wpf.Ui.Violeta;component/Controls/ShellWindow/ShellWindow.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <Style
         x:Key="DefaultVioletaContentWindowStyle"
-        BasedOn="{x:Type local:ShellWindow}"
+        BasedOn="{StaticResource DefaultShellWindowStyle}"
         TargetType="{x:Type local:ContentWindow}">
+        <Setter Property="ExtendsContentIntoTitleBar" Value="True" />
+        <Setter Property="Width" Value="480" />
+        <Setter Property="Height" Value="320" />
+        <Setter Property="MinWidth" Value="320" />
+        <Setter Property="MinHeight" Value="200" />
+        <Setter Property="ResizeMode" Value="CanResize" />
+        <Setter Property="ShowInTaskbar" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource ContentDialogForeground}" />
+        <Setter Property="BackButtonVisibility" Value="Collapsed" />
+        <Setter Property="PaneToggleButtonVisibility" Value="Collapsed" />
+        <Setter Property="MinimizeButtonVisibility" Value="Collapsed" />
+        <Setter Property="MaximizeButtonVisibility" Value="Collapsed" />
+        <Setter Property="CloseButtonVisibility" Value="Visible" />
+        <Setter Property="HelpButtonVisibility" Value="Collapsed" />
         <Setter Property="Template">
             <Setter.Value>
-                <Button
-                    Width="20"
-                    Height="20"
-                    Margin="0,0,10,0"
-                    HorizontalAlignment="Right"
-                    Background="Transparent"
-                    Command="{Binding ResultCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                    CommandParameter="{x:Static local:ContentWindowResult.None}"
-                    Foreground="#6C6C6C">
-                    <TextBlock
-                        FontFamily="{StaticResource SegoeFluent}"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Text="&#xe947;" />
-                </Button>
+                <ControlTemplate TargetType="{x:Type local:ContentWindow}">
+                    <AdornerDecorator>
+                        <local:ClientAreaBorder
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <local:TitleBar
+                                    x:Name="PART_TitleBar"
+                                    Grid.Row="0"
+                                    BackButtonVisibility="{TemplateBinding BackButtonVisibility}"
+                                    CloseButtonVisibility="{TemplateBinding CloseButtonVisibility}"
+                                    Content="{TemplateBinding TitleBarContent}"
+                                    CustomFooter="{TemplateBinding TitleBarFooter}"
+                                    HelpButtonVisibility="{TemplateBinding HelpButtonVisibility}"
+                                    IsBackButtonEnabled="{TemplateBinding IsBackButtonEnabled}"
+                                    IsCloseButtonEnabled="{TemplateBinding IsCloseButtonEnabled}"
+                                    IsHelpButtonEnabled="{TemplateBinding IsHelpButtonEnabled}"
+                                    IsMaximizeButtonEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
+                                    IsMinimizeButtonEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
+                                    IsPaneToggleButtonEnabled="{TemplateBinding IsPaneToggleButtonEnabled}"
+                                    MaximizeButtonVisibility="{TemplateBinding MaximizeButtonVisibility}"
+                                    MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}"
+                                    PaneToggleButtonVisibility="{TemplateBinding PaneToggleButtonVisibility}">
+                                    <local:TitleBar.CustomHeader>
+                                        <Grid>
+                                            <TextBlock
+                                                Margin="8,0"
+                                                VerticalAlignment="Center"
+                                                Text="{TemplateBinding Title}"
+                                                TextTrimming="CharacterEllipsis">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding TitleBarHeader, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                            <ContentPresenter Content="{TemplateBinding TitleBarHeader}" />
+                                        </Grid>
+                                    </local:TitleBar.CustomHeader>
+                                </local:TitleBar>
+
+                                <ContentPresenter
+                                    x:Name="PART_ContentPresenter"
+                                    Grid.Row="1"
+                                    ContentSource="Content" />
+                            </Grid>
+                        </local:ClientAreaBorder>
+                    </AdornerDecorator>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>

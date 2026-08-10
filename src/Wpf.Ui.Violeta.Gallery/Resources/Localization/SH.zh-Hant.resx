@@ -331,7 +331,7 @@
     <value>ContentWindow — 內容視窗</value>
   </data>
   <data name="Sample_1e4f285714" xml:space="preserve">
-    <value>ContentWindow 繼承自 ShellWindow，配合 ContentWindowControl 承載自訂內容，並傳回 ContentWindowResult（OK / Cancel 等）。適合需要獨立視窗而非 ContentDialog 的情境。</value>
+    <value>ContentWindow 繼承自 ShellWindow，預設內建 TitleBar，配合 ContentWindowControl 承載自訂內容，並傳回 ContentWindowResult（OK / Cancel 等）。適合需要獨立視窗而非 ContentDialog 的情境。</value>
   </data>
   <data name="Sample_976db78a60" xml:space="preserve">
     <value>DataGrid — 資料表格</value>
@@ -2719,7 +2719,7 @@
     <value>這是 AsyncBox 示範內容。子內容在非同步 UI 執行緒中建立，載入時可顯示指示器。</value>
   </data>
   <data name="Sample_6d80adabe3" xml:space="preserve">
-    <value>這是 ContentWindow + ContentWindowControl 的簡單示範。</value>
+    <value>此視窗使用內建 TitleBar（標題與系統按鈕）。可點 OK / Cancel，或透過 TitleBar 關閉。</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
     <value>這是 Gallery 示範例外：用於預覽 ExceptionReport 對話框。</value>

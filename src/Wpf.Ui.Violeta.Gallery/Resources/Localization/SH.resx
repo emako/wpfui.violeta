@@ -331,7 +331,7 @@
     <value>ContentWindow — content window</value>
   </data>
   <data name="Sample_1e4f285714" xml:space="preserve">
-    <value>ContentWindow inherits from ShellWindow, hosts custom content via ContentWindowControl, and returns ContentWindowResult (OK / Cancel, etc.). Use it when you need a separate window instead of a ContentDialog.</value>
+    <value>ContentWindow inherits from ShellWindow, embeds TitleBar by default, hosts custom content via ContentWindowControl, and returns ContentWindowResult (OK / Cancel, etc.). Use it when you need a separate window instead of a ContentDialog.</value>
   </data>
   <data name="Sample_976db78a60" xml:space="preserve">
     <value>DataGrid — data grid</value>
@@ -2719,7 +2719,7 @@ Click OK to continue.</value>
     <value>AsyncBox demo content. Child content is created on an async UI thread; an indicator can show while loading.</value>
   </data>
   <data name="Sample_6d80adabe3" xml:space="preserve">
-    <value>A simple demo of ContentWindow + ContentWindowControl.</value>
+    <value>This window uses the built-in TitleBar (title + caption buttons). Press OK or Cancel, or close via the TitleBar.</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
     <value>Gallery demo exception for previewing the ExceptionReport dialog.</value>
