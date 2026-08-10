@@ -366,3 +366,5 @@ MigrationBackup/
 # Makekits
 /.dist
 MakeKits*.dll
+/build/gallery
+build/Wpf.Ui.Violeta.Gallery.zip
