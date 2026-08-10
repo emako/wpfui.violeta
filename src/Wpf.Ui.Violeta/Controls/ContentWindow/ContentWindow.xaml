@@ -25,6 +25,8 @@
         <Setter Property="MaximizeButtonVisibility" Value="Collapsed" />
         <Setter Property="CloseButtonVisibility" Value="Visible" />
         <Setter Property="HelpButtonVisibility" Value="Collapsed" />
+        <Setter Property="TitleBarVisibility" Value="Visible" />
+        <Setter Property="InheritIconFromOwner" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ContentWindow}">
@@ -55,7 +57,8 @@
                                     IsPaneToggleButtonEnabled="{TemplateBinding IsPaneToggleButtonEnabled}"
                                     MaximizeButtonVisibility="{TemplateBinding MaximizeButtonVisibility}"
                                     MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}"
-                                    PaneToggleButtonVisibility="{TemplateBinding PaneToggleButtonVisibility}">
+                                    PaneToggleButtonVisibility="{TemplateBinding PaneToggleButtonVisibility}"
+                                    Visibility="{TemplateBinding TitleBarVisibility}">
                                     <local:TitleBar.CustomHeader>
                                         <Grid>
                                             <TextBlock

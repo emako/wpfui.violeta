@@ -12,7 +12,12 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="ContentWindow" />
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="ContentWindow" />
+
             <Border
                 Margin="0,0,0,16"
                 Padding="20"
@@ -21,16 +26,147 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,4" FontSize="14" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e7a103d40a}}" />
                     <TextBlock
-                        Margin="0,0,0,12"
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e7a103d40a}}" />
+                    <TextBlock
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_1e4f285714}}"
                         TextWrapping="Wrap" />
-                    <ui:Button
-                        HorizontalAlignment="Left"
-                        Click="OpenContentWindow_Click"
-                        Content="{I18N {x:Static lang:LangKeys.Sample_d8b5dbc3ee}}" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Configure &amp; open" />
+
+                    <vio:Form LabelPosition="Left" LabelWidth="220">
+                        <vio:FormGroup Header="Window">
+                            <vio:FormItem Label="Title">
+                                <ui:TextBox x:Name="TitleTextBox" Text="ContentWindow Demo" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="WindowStartupLocation">
+                                <ComboBox x:Name="StartupLocationComboBox" SelectedIndex="2">
+                                    <ComboBoxItem Content="Manual" Tag="Manual" />
+                                    <ComboBoxItem Content="CenterScreen" Tag="CenterScreen" />
+                                    <ComboBoxItem Content="CenterOwner" Tag="CenterOwner" />
+                                </ComboBox>
+                            </vio:FormItem>
+                            <vio:FormItem Label="ResizeMode">
+                                <ComboBox x:Name="ResizeModeComboBox" SelectedIndex="2">
+                                    <ComboBoxItem Content="NoResize" Tag="NoResize" />
+                                    <ComboBoxItem Content="CanMinimize" Tag="CanMinimize" />
+                                    <ComboBoxItem Content="CanResize" Tag="CanResize" />
+                                    <ComboBoxItem Content="CanResizeWithGrip" Tag="CanResizeWithGrip" />
+                                </ComboBox>
+                            </vio:FormItem>
+                            <vio:FormItem Label="ShowInTaskbar">
+                                <ui:ToggleSwitch x:Name="ShowInTaskbarToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="InheritIconFromOwner">
+                                <ui:ToggleSwitch x:Name="InheritIconToggle" IsChecked="True" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="CanKeyDownResult">
+                                <ui:ToggleSwitch x:Name="CanKeyDownResultToggle" IsChecked="True" />
+                            </vio:FormItem>
+                        </vio:FormGroup>
+
+                        <vio:FormGroup Header="TitleBar">
+                            <vio:FormItem Label="TitleBarVisibility">
+                                <ui:ToggleSwitch x:Name="TitleBarVisibleToggle" IsChecked="True" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="BackButtonVisibility">
+                                <ui:ToggleSwitch x:Name="BackButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="PaneToggleButtonVisibility">
+                                <ui:ToggleSwitch x:Name="PaneToggleButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="MinimizeButtonVisibility">
+                                <ui:ToggleSwitch x:Name="MinimizeButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="MaximizeButtonVisibility">
+                                <ui:ToggleSwitch x:Name="MaximizeButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="CloseButtonVisibility">
+                                <ui:ToggleSwitch x:Name="CloseButtonToggle" IsChecked="True" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="HelpButtonVisibility">
+                                <ui:ToggleSwitch x:Name="HelpButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
+                        </vio:FormGroup>
+
+                        <vio:FormItem NoLabel="True">
+                            <ui:Button
+                                Appearance="Primary"
+                                Click="OpenConfiguredContentWindow_Click"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_d8b5dbc3ee}}" />
+                        </vio:FormItem>
+                    </vio:Form>
+
+                    <TextBlock
+                        x:Name="ResultText"
+                        Margin="0,12,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e35e9417ad}}" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Presets" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Quick-open with common TitleBar / chrome combinations."
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="Dialog (close only)"
+                            Tag="Dialog" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="Tool (min / max / close)"
+                            Tag="Tool" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="Help button"
+                            Tag="Help" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="No TitleBar"
+                            Tag="NoTitleBar" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="CenterScreen"
+                            Tag="CenterScreen" />
+                    </WrapPanel>
                 </StackPanel>
             </Border>
         </StackPanel>

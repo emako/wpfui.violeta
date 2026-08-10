@@ -259,6 +259,39 @@ public partial class ContentWindow : ShellWindow
         set => SetValue(TitleBarContentProperty, value);
     }
 
+    public static readonly DependencyProperty TitleBarVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(TitleBarVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Visible));
+
+    /// <summary>
+    /// Gets or sets the visibility of the embedded <see cref="TitleBar"/>.
+    /// </summary>
+    public Visibility TitleBarVisibility
+    {
+        get => (Visibility)GetValue(TitleBarVisibilityProperty);
+        set => SetValue(TitleBarVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty InheritIconFromOwnerProperty =
+        DependencyProperty.Register(
+            nameof(InheritIconFromOwner),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// When true (default), copies <see cref="Window.Icon"/> from <see cref="Window.Owner"/>
+    /// if this window has no icon of its own.
+    /// </summary>
+    public bool InheritIconFromOwner
+    {
+        get => (bool)GetValue(InheritIconFromOwnerProperty);
+        set => SetValue(InheritIconFromOwnerProperty, value);
+    }
+
     static ContentWindow()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentWindow), new FrameworkPropertyMetadata(typeof(ContentWindow)));
@@ -268,6 +301,8 @@ public partial class ContentWindow : ShellWindow
     {
         SetResourceReference(StyleProperty, typeof(ContentWindow));
         WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+        Loaded += OnLoaded;
 
         KeyDown += (_, e) =>
         {
@@ -324,6 +359,23 @@ public partial class ContentWindow : ShellWindow
         TitleBar = PART_TitleBar;
     }
 
+    /// <summary>
+    /// Copies the owner window icon when <see cref="InheritIconFromOwner"/> is enabled
+    /// and this window does not already have an icon.
+    /// </summary>
+    public void TryInheritIconFromOwner()
+    {
+        if (!InheritIconFromOwner || Icon is not null)
+        {
+            return;
+        }
+
+        if (Owner?.Icon is { } ownerIcon)
+        {
+            Icon = ownerIcon;
+        }
+    }
+
     public virtual void OnResultCommandExecuted(ContentWindowResult result)
     {
         ContentWindowResultEventArgs e = new(result);
@@ -334,6 +386,11 @@ public partial class ContentWindow : ShellWindow
         Result = result;
         showTcs?.TrySetResult(Result);
         showTcs = null;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        TryInheritIconFromOwner();
     }
 
     private static void OnControlChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -391,6 +448,7 @@ public partial class ContentWindow
         ContentWindow window = Create<T>(out dialogControl);
 
         window.Owner = GetWindow(d);
+        window.TryInheritIconFromOwner();
         _ = window.ShowDialog();
         return window.Result;
     }
@@ -399,6 +457,7 @@ public partial class ContentWindow
     {
         ContentWindow window = Create<T>(out dialogControl);
 
+        window.TryInheritIconFromOwner();
         _ = window.ShowDialog();
         return window.Result;
     }
@@ -407,6 +466,7 @@ public partial class ContentWindow
     {
         ContentWindow window = Create<T>(out _);
 
+        window.TryInheritIconFromOwner();
         _ = window.ShowDialog();
         return window.Result;
     }
