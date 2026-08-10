@@ -49,22 +49,22 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" MinWidth="0" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="Auto" />
                                     <!--  BackButton  -->
-                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="Auto" />
                                     <!--  PaneToggleButton / MenuButton  -->
-                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="Auto" />
                                     <!--  Icon  -->
-                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" MinWidth="0" />
                                     <!--  Title  -->
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                     <!--  CustomHeaderContent  -->
                                 </Grid.ColumnDefinitions>
 
@@ -130,12 +130,14 @@
                                 <TextBlock
                                     x:Name="PART_Title"
                                     Grid.Column="3"
+                                    HorizontalAlignment="Stretch"
                                     Style="{StaticResource TitleBarTitleTextBlockStyle}"
                                     Text="{TemplateBinding Title}" />
 
                                 <ContentControl
                                     x:Name="PART_CustomHeaderContentControl"
                                     Grid.Column="4"
+                                    VerticalAlignment="Center"
                                     Content="{TemplateBinding CustomHeader}" />
                             </Grid>
 
