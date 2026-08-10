@@ -3293,4 +3293,8 @@
   <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
     <value>DoubleCommand — IsChecked={0}</value>
   </data>
+
+  <data name="Sample_b63b51f0a2" xml:space="preserve">
+    <value>未選擇時顯示佔位提示；可編輯 ComboBox 複用 ui:TextBox 的佔位能力。</value>
+  </data>
 </root>

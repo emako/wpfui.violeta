@@ -3293,4 +3293,8 @@ Click OK to continue.</value>
   <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
     <value>DoubleCommand — IsChecked={0}</value>
   </data>
+
+  <data name="Sample_b63b51f0a2" xml:space="preserve">
+    <value>Placeholder text when nothing is selected. Editable ComboBox reuses ui:TextBox placeholder.</value>
+  </data>
 </root>

@@ -135,6 +135,48 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="Placeholder" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b63b51f0a2}}" />
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            MinWidth="200"
+                            HorizontalAlignment="Left"
+                            ui:ComboBoxHelper.PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
+                            <ComboBoxItem Content="Blue" />
+                            <ComboBoxItem Content="Green" />
+                            <ComboBoxItem Content="Red" />
+                            <ComboBoxItem Content="Yellow" />
+                        </ComboBox>
+                        <ComboBox
+                            MinWidth="200"
+                            Margin="16,0,0,0"
+                            HorizontalAlignment="Left"
+                            ui:ComboBoxHelper.PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}"
+                            IsEditable="True">
+                            <ComboBoxItem Content="8" />
+                            <ComboBoxItem Content="12" />
+                            <ComboBoxItem Content="16" />
+                            <ComboBoxItem Content="24" />
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="Grouped items" />
                     <TextBlock
                         Margin="0,0,0,12"

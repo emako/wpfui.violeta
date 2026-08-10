@@ -7212,6 +7212,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Placeholder text when nothing is selected. Editable ComboBox reuses ui:TextBox placeholder..
+        /// </summary>
+        internal static string Sample_b63b51f0a2 {
+            get {
+                return ResourceManager.GetString("Sample_b63b51f0a2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Common Segoe Fluent Icons symbol samples..
         /// </summary>
         internal static string Sample_b64c4416d4 {
