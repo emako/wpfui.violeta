@@ -16,6 +16,7 @@
     <system:String x:Key="CaptionRestoryButtonGlyph">&#xE923;</system:String>
     <system:String x:Key="CaptionCloseButtonGlyph">&#xE8BB;</system:String>
     <system:String x:Key="CaptionHelpButtonGlyph">&#xE897;</system:String>
+    <system:String x:Key="CaptionMoreButtonGlyph">&#xE712;</system:String>
     <system:Double x:Key="CaptionButtonIconFontSize">10</system:Double>
     <system:Double x:Key="CaptionButtonInactiveForegroundOpacity">0.382</system:Double>
 
@@ -116,10 +117,20 @@
         </Setter>
     </Style>
 
+    <Style
+        x:Key="CaptionMoreButtonDefaultStyle"
+        BasedOn="{StaticResource CaptionButtonDefaultStyle}"
+        TargetType="{x:Type local:CaptionMoreButton}">
+        <Setter Property="Kind" Value="More" />
+        <Setter Property="Content" Value="{StaticResource CaptionMoreButtonGlyph}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
+    </Style>
+
     <Style BasedOn="{StaticResource CaptionButtonDefaultStyle}" TargetType="{x:Type local:CaptionButton}" />
     <Style BasedOn="{StaticResource CaptionMinimizeButtonDefaultStyle}" TargetType="{x:Type local:CaptionMinimizeButton}" />
     <Style BasedOn="{StaticResource CaptionMaximizeButtonDefaultStyle}" TargetType="{x:Type local:CaptionMaximizeButton}" />
     <Style BasedOn="{StaticResource CaptionCloseButtonDefaultStyle}" TargetType="{x:Type local:CaptionCloseButton}" />
     <Style BasedOn="{StaticResource CaptionHelpButtonDefaultStyle}" TargetType="{x:Type local:CaptionHelpButton}" />
+    <Style BasedOn="{StaticResource CaptionMoreButtonDefaultStyle}" TargetType="{x:Type local:CaptionMoreButton}" />
 
 </ResourceDictionary>

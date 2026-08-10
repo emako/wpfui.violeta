@@ -120,7 +120,13 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         dialog.MinimizeButtonVisibility = ToVisibility(MinimizeButtonToggle.IsChecked);
         dialog.MaximizeButtonVisibility = ToVisibility(MaximizeButtonToggle.IsChecked);
         dialog.CloseButtonVisibility = ToVisibility(CloseButtonToggle.IsChecked);
+        dialog.MoreButtonVisibility = ToVisibility(MoreButtonToggle.IsChecked);
         dialog.HelpButtonVisibility = ToVisibility(HelpButtonToggle.IsChecked);
+
+        if (dialog.MoreButtonVisibility == Visibility.Visible)
+        {
+            dialog.MoreButtonContextMenu = CreateDemoMoreMenu();
+        }
 
         if (dialog.HelpButtonVisibility == Visibility.Visible)
         {
@@ -133,6 +139,16 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
                 }
             };
         }
+    }
+
+    private static ContextMenu CreateDemoMoreMenu()
+    {
+        var menu = new ContextMenu();
+        menu.Items.Add(new MenuItem { Header = "Option A" });
+        menu.Items.Add(new MenuItem { Header = "Option B" });
+        menu.Items.Add(new Separator());
+        menu.Items.Add(new MenuItem { Header = "About" });
+        return menu;
     }
 
     private void ShowAndReport(ContentWindow dialog)

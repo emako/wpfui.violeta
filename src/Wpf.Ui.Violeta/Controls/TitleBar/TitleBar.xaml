@@ -173,10 +173,14 @@
                                     IsHelpButtonEnabled="{TemplateBinding IsHelpButtonEnabled}"
                                     IsMaximizeButtonEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
                                     IsMinimizeButtonEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
+                                    IsMoreButtonEnabled="{TemplateBinding IsMoreButtonEnabled}"
                                     MaximizeButtonCommand="{TemplateBinding MaximizeButtonCommand}"
                                     MaximizeButtonVisibility="{TemplateBinding MaximizeButtonVisibility}"
                                     MinimizeButtonCommand="{TemplateBinding MinimizeButtonCommand}"
-                                    MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}" />
+                                    MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}"
+                                    MoreButtonCommand="{TemplateBinding MoreButtonCommand}"
+                                    MoreButtonContextMenu="{TemplateBinding MoreButtonContextMenu}"
+                                    MoreButtonVisibility="{TemplateBinding MoreButtonVisibility}" />
                             </Grid>
                         </Grid>
                     </Border>

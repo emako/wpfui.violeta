@@ -24,6 +24,7 @@
         <Setter Property="MinimizeButtonVisibility" Value="Collapsed" />
         <Setter Property="MaximizeButtonVisibility" Value="Collapsed" />
         <Setter Property="CloseButtonVisibility" Value="Visible" />
+        <Setter Property="MoreButtonVisibility" Value="Collapsed" />
         <Setter Property="HelpButtonVisibility" Value="Collapsed" />
         <Setter Property="TitleBarVisibility" Value="Visible" />
         <Setter Property="InheritIconFromOwner" Value="True" />
@@ -59,10 +60,14 @@
                                     IsIconVisible="{TemplateBinding IsIconVisible}"
                                     IsMaximizeButtonEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
                                     IsMinimizeButtonEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
+                                    IsMoreButtonEnabled="{TemplateBinding IsMoreButtonEnabled}"
                                     IsPaneToggleButtonEnabled="{TemplateBinding IsPaneToggleButtonEnabled}"
                                     IsTitleVisible="{TemplateBinding IsTitleVisible}"
                                     MaximizeButtonVisibility="{TemplateBinding MaximizeButtonVisibility}"
                                     MinimizeButtonVisibility="{TemplateBinding MinimizeButtonVisibility}"
+                                    MoreButtonCommand="{TemplateBinding MoreButtonCommand}"
+                                    MoreButtonContextMenu="{TemplateBinding MoreButtonContextMenu}"
+                                    MoreButtonVisibility="{TemplateBinding MoreButtonVisibility}"
                                     PaneToggleButtonVisibility="{TemplateBinding PaneToggleButtonVisibility}"
                                     Title="{TemplateBinding Title}"
                                     Visibility="{TemplateBinding TitleBarVisibility}" />

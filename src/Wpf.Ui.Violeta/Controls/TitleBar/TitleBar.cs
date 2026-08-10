@@ -25,6 +25,8 @@ public partial class TitleBar : ContentControl
         Unloaded += OnUnloaded;
     }
 
+    public event EventHandler? MoreButtonClick;
+
     public event EventHandler? BackButtonClick;
 
     public event EventHandler? PaneToggleButtonClick;
@@ -121,6 +123,34 @@ public partial class TitleBar : ContentControl
         set => SetValue(HelpButtonCommandProperty, value);
     }
 
+    public static readonly DependencyProperty MoreButtonCommandProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonCommand),
+            typeof(ICommand),
+            typeof(TitleBar),
+            new PropertyMetadata(null)
+        );
+
+    public ICommand? MoreButtonCommand
+    {
+        get => (ICommand?)GetValue(MoreButtonCommandProperty);
+        set => SetValue(MoreButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty MoreButtonContextMenuProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonContextMenu),
+            typeof(ContextMenu),
+            typeof(TitleBar),
+            new PropertyMetadata(null)
+        );
+
+    public ContextMenu? MoreButtonContextMenu
+    {
+        get => (ContextMenu?)GetValue(MoreButtonContextMenuProperty);
+        set => SetValue(MoreButtonContextMenuProperty, value);
+    }
+
     public static readonly DependencyProperty BackButtonVisibilityProperty =
         DependencyProperty.Register(
             nameof(BackButtonVisibility),
@@ -205,6 +235,20 @@ public partial class TitleBar : ContentControl
         set => SetValue(HelpButtonVisibilityProperty, value);
     }
 
+    public static readonly DependencyProperty MoreButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonVisibility),
+            typeof(Visibility),
+            typeof(TitleBar),
+            new PropertyMetadata(Visibility.Collapsed)
+        );
+
+    public Visibility MoreButtonVisibility
+    {
+        get => (Visibility)GetValue(MoreButtonVisibilityProperty);
+        set => SetValue(MoreButtonVisibilityProperty, value);
+    }
+
     public static readonly DependencyProperty IsBackButtonEnabledProperty =
         DependencyProperty.Register(
             nameof(IsBackButtonEnabled),
@@ -287,6 +331,20 @@ public partial class TitleBar : ContentControl
     {
         get => (bool)GetValue(IsHelpButtonEnabledProperty);
         set => SetValue(IsHelpButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsMoreButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsMoreButtonEnabled),
+            typeof(bool),
+            typeof(TitleBar),
+            new PropertyMetadata(true)
+        );
+
+    public bool IsMoreButtonEnabled
+    {
+        get => (bool)GetValue(IsMoreButtonEnabledProperty);
+        set => SetValue(IsMoreButtonEnabledProperty, value);
     }
 
     public static readonly DependencyProperty IsActiveProperty =
@@ -415,10 +473,16 @@ public partial class TitleBar : ContentControl
 
         PART_BackButton.Click += OnBackButtonClick;
         PART_PaneToggleButton.Click += OnPaneToggleButtonClick;
+        PART_CaptionButtonBar.MoreButtonClick += OnMoreButtonClick;
         PART_CaptionButtonBar.MinimizeButtonClick += OnMinimizeButtonClick;
         PART_CaptionButtonBar.MaximizeButtonClick += OnMaximizeButtonClick;
         PART_CaptionButtonBar.CloseButtonClick += OnCloseButtonClick;
         PART_CaptionButtonBar.HelpButtonClick += OnHelpButtonClick;
+    }
+
+    private void OnMoreButtonClick(object? sender, EventArgs e)
+    {
+        MoreButtonClick?.Invoke(this, e);
     }
 
     private void OnHelpButtonClick(object? sender, EventArgs e)

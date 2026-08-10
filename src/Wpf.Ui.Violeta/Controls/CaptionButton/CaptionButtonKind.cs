@@ -7,4 +7,5 @@ public enum CaptionButtonKind
     Maximize = 9,
     Close = 20,
     Help = 21,
+    More = 22,
 }

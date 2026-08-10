@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interop;
 using Wpf.Ui.Violeta.Win32;
@@ -12,10 +13,11 @@ namespace Wpf.Ui.Violeta.Controls;
 /// whether the window is in the front end, and the buttons will
 /// also control the status of the window.
 /// </summary>
+[TemplatePart(Name = nameof(MoreButton), Type = typeof(CaptionMoreButton))]
+[TemplatePart(Name = nameof(HelpButton), Type = typeof(CaptionHelpButton))]
 [TemplatePart(Name = nameof(MinimizeButton), Type = typeof(CaptionMinimizeButton))]
 [TemplatePart(Name = nameof(MaximizeButton), Type = typeof(CaptionMaximizeButton))]
 [TemplatePart(Name = nameof(CloseButton), Type = typeof(CaptionCloseButton))]
-[TemplatePart(Name = nameof(HelpButton), Type = typeof(CaptionHelpButton))]
 public partial class CaptionButtonBar : Control
 {
     static CaptionButtonBar()
@@ -27,10 +29,11 @@ public partial class CaptionButtonBar : Control
         Unloaded += OnUnloaded;
     }
 
+    public CaptionMoreButton? MoreButton { get; private set; }
+    public CaptionHelpButton? HelpButton { get; private set; }
     public CaptionMinimizeButton? MinimizeButton { get; private set; }
     public CaptionMaximizeButton? MaximizeButton { get; private set; }
     public CaptionCloseButton? CloseButton { get; private set; }
-    public CaptionHelpButton? HelpButton { get; private set; }
 
     /// <summary>
     /// A trigger used to trigger the maximized/restore switch button
@@ -48,6 +51,8 @@ public partial class CaptionButtonBar : Control
         typeof(CaptionButtonBar),
         new PropertyMetadata(WindowState.Normal));
 
+    public event EventHandler? MoreButtonClick;
+
     public event EventHandler? MinimizeButtonClick;
 
     public event EventHandler? MaximizeButtonClick;
@@ -55,6 +60,32 @@ public partial class CaptionButtonBar : Control
     public event EventHandler? CloseButtonClick;
 
     public event EventHandler? HelpButtonClick;
+
+    public static readonly DependencyProperty MoreButtonCommandProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonCommand),
+            typeof(ICommand),
+            typeof(CaptionButtonBar),
+            new PropertyMetadata(null));
+
+    public ICommand? MoreButtonCommand
+    {
+        get => (ICommand?)GetValue(MoreButtonCommandProperty);
+        set => SetValue(MoreButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty MoreButtonContextMenuProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonContextMenu),
+            typeof(ContextMenu),
+            typeof(CaptionButtonBar),
+            new PropertyMetadata(null, OnMoreButtonContextMenuChanged));
+
+    public ContextMenu? MoreButtonContextMenu
+    {
+        get => (ContextMenu?)GetValue(MoreButtonContextMenuProperty);
+        set => SetValue(MoreButtonContextMenuProperty, value);
+    }
 
     public static readonly DependencyProperty MinimizeButtonCommandProperty =
     DependencyProperty.Register(
@@ -110,6 +141,19 @@ public partial class CaptionButtonBar : Control
 
     // ===== Visibility =====
 
+    public static readonly DependencyProperty MoreButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonVisibility),
+            typeof(Visibility),
+            typeof(CaptionButtonBar),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility MoreButtonVisibility
+    {
+        get => (Visibility)GetValue(MoreButtonVisibilityProperty);
+        set => SetValue(MoreButtonVisibilityProperty, value);
+    }
+
     public static readonly DependencyProperty MinimizeButtonVisibilityProperty =
         DependencyProperty.Register(
             nameof(MinimizeButtonVisibility),
@@ -163,6 +207,19 @@ public partial class CaptionButtonBar : Control
     }
 
     // ===== IsEnabled =====
+
+    public static readonly DependencyProperty IsMoreButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsMoreButtonEnabled),
+            typeof(bool),
+            typeof(CaptionButtonBar),
+            new PropertyMetadata(true));
+
+    public bool IsMoreButtonEnabled
+    {
+        get => (bool)GetValue(IsMoreButtonEnabledProperty);
+        set => SetValue(IsMoreButtonEnabledProperty, value);
+    }
 
     public static readonly DependencyProperty IsMinimizeButtonEnabledProperty =
         DependencyProperty.Register(
@@ -233,15 +290,59 @@ public partial class CaptionButtonBar : Control
     {
         base.OnApplyTemplate();
 
+        if (MoreButton is not null)
+        {
+            MoreButton.Click -= OnMoreButtonClick;
+        }
+
+        if (HelpButton is not null)
+        {
+            HelpButton.Click -= OnHelpButtonClick;
+        }
+
+        if (MinimizeButton is not null)
+        {
+            MinimizeButton.Click -= OnMinimizeButtonClick;
+        }
+
+        if (MaximizeButton is not null)
+        {
+            MaximizeButton.Click -= OnMaximizeButtonClick;
+        }
+
+        if (CloseButton is not null)
+        {
+            CloseButton.Click -= OnCloseButtonClick;
+        }
+
+        MoreButton = (CaptionMoreButton)GetTemplateChild(nameof(MoreButton));
+        HelpButton = (CaptionHelpButton)GetTemplateChild(nameof(HelpButton));
         MinimizeButton = (CaptionMinimizeButton)GetTemplateChild(nameof(MinimizeButton));
         MaximizeButton = (CaptionMaximizeButton)GetTemplateChild(nameof(MaximizeButton));
         CloseButton = (CaptionCloseButton)GetTemplateChild(nameof(CloseButton));
-        HelpButton = (CaptionHelpButton)GetTemplateChild(nameof(HelpButton));
 
+        MoreButton.Click += OnMoreButtonClick;
+        HelpButton.Click += OnHelpButtonClick;
         MinimizeButton.Click += OnMinimizeButtonClick;
         MaximizeButton.Click += OnMaximizeButtonClick;
         CloseButton.Click += OnCloseButtonClick;
-        HelpButton.Click += OnHelpButtonClick;
+
+        ApplyMoreButtonContextMenu();
+    }
+
+    private static void OnMoreButtonContextMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((CaptionButtonBar)d).ApplyMoreButtonContextMenu();
+    }
+
+    private void ApplyMoreButtonContextMenu()
+    {
+        if (MoreButton is null)
+        {
+            return;
+        }
+
+        MoreButton.ContextMenu = MoreButtonContextMenu;
     }
 
     private void OnLoaded(object? sender, RoutedEventArgs e)
@@ -253,10 +354,11 @@ public partial class CaptionButtonBar : Control
 
         _ownerHwndSource = HwndSource.FromHwnd(new WindowInteropHelper(_ownerWindow).Handle);
         _captionButtonHandler = new CaptionButtonHandler(_ownerHwndSource);
+        _captionButtonHandler.Add(MoreButton!);
+        _captionButtonHandler.Add(HelpButton!);
         _captionButtonHandler.Add(MinimizeButton!);
         _captionButtonHandler.Add(MaximizeButton!);
         _captionButtonHandler.Add(CloseButton!);
-        _captionButtonHandler.Add(HelpButton!);
 
         nint hWnd = _ownerHwndSource.Handle;
         int style = User32.GetWindowLong(hWnd, User32.GWL_STYLE);
@@ -268,7 +370,7 @@ public partial class CaptionButtonBar : Control
     {
         _ownerWindow.StateChanged -= OnOwnerWindowStateChanged;
         _ownerWindow.Activated -= OnActivated;
-        _ownerWindow.StateChanged -= OnOwnerWindowStateChanged;
+        _ownerWindow.Deactivated -= OnDeactivated;
         _ownerWindow = null!;
     }
 
@@ -287,10 +389,22 @@ public partial class CaptionButtonBar : Control
         IsActive = false;
     }
 
+    private void OnMoreButtonClick(object? sender, RoutedEventArgs e)
+    {
+        MoreButtonClick?.Invoke(this, e);
+
+        if (MoreButtonContextMenu is { } menu && MoreButton is not null)
+        {
+            menu.PlacementTarget = MoreButton;
+            menu.Placement = PlacementMode.Bottom;
+            menu.HorizontalOffset = 0;
+            menu.IsOpen = true;
+        }
+    }
+
     private void OnMinimizeButtonClick(object? sender, RoutedEventArgs e)
     {
         MinimizeButtonClick?.Invoke(this, e);
-        //_ownerWindow.WindowState = WindowState.Minimized;
         SystemCommands.MinimizeWindow(_ownerWindow);
     }
 
@@ -299,12 +413,10 @@ public partial class CaptionButtonBar : Control
         MaximizeButtonClick?.Invoke(this, e);
         if (_ownerWindow.WindowState is WindowState.Maximized)
         {
-            //_ownerWindow.WindowState = WindowState.Normal;
             SystemCommands.RestoreWindow(_ownerWindow);
         }
         else
         {
-            //_ownerWindow.WindowState = WindowState.Maximized;
             SystemCommands.MaximizeWindow(_ownerWindow);
         }
     }

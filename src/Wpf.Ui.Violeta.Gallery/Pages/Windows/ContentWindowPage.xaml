@@ -108,6 +108,9 @@
                             <vio:FormItem Label="CloseButtonVisibility">
                                 <ui:ToggleSwitch x:Name="CloseButtonToggle" IsChecked="True" />
                             </vio:FormItem>
+                            <vio:FormItem Label="MoreButtonVisibility">
+                                <ui:ToggleSwitch x:Name="MoreButtonToggle" IsChecked="False" />
+                            </vio:FormItem>
                             <vio:FormItem Label="HelpButtonVisibility">
                                 <ui:ToggleSwitch x:Name="HelpButtonToggle" IsChecked="False" />
                             </vio:FormItem>

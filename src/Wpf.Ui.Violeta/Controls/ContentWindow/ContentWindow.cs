@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -132,6 +133,45 @@ public partial class ContentWindow : ShellWindow
         set => SetValue(HelpButtonVisibilityProperty, value);
     }
 
+    public static readonly DependencyProperty MoreButtonVisibilityProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonVisibility),
+            typeof(Visibility),
+            typeof(ContentWindow),
+            new PropertyMetadata(Visibility.Collapsed));
+
+    public Visibility MoreButtonVisibility
+    {
+        get => (Visibility)GetValue(MoreButtonVisibilityProperty);
+        set => SetValue(MoreButtonVisibilityProperty, value);
+    }
+
+    public static readonly DependencyProperty MoreButtonCommandProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonCommand),
+            typeof(ICommand),
+            typeof(ContentWindow),
+            new PropertyMetadata(null));
+
+    public ICommand? MoreButtonCommand
+    {
+        get => (ICommand?)GetValue(MoreButtonCommandProperty);
+        set => SetValue(MoreButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty MoreButtonContextMenuProperty =
+        DependencyProperty.Register(
+            nameof(MoreButtonContextMenu),
+            typeof(ContextMenu),
+            typeof(ContentWindow),
+            new PropertyMetadata(null));
+
+    public ContextMenu? MoreButtonContextMenu
+    {
+        get => (ContextMenu?)GetValue(MoreButtonContextMenuProperty);
+        set => SetValue(MoreButtonContextMenuProperty, value);
+    }
+
     public static readonly DependencyProperty IsBackButtonEnabledProperty =
         DependencyProperty.Register(
             nameof(IsBackButtonEnabled),
@@ -208,6 +248,19 @@ public partial class ContentWindow : ShellWindow
     {
         get => (bool)GetValue(IsHelpButtonEnabledProperty);
         set => SetValue(IsHelpButtonEnabledProperty, value);
+    }
+
+    public static readonly DependencyProperty IsMoreButtonEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsMoreButtonEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    public bool IsMoreButtonEnabled
+    {
+        get => (bool)GetValue(IsMoreButtonEnabledProperty);
+        set => SetValue(IsMoreButtonEnabledProperty, value);
     }
 
     public static readonly DependencyProperty TitleBarHeaderProperty =

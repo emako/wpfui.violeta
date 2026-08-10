@@ -18,6 +18,12 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <StackPanel Orientation="Horizontal">
+                            <local:CaptionMoreButton
+                                x:Name="MoreButton"
+                                Command="{TemplateBinding MoreButtonCommand}"
+                                IsActive="{TemplateBinding IsActive}"
+                                IsEnabled="{TemplateBinding IsMoreButtonEnabled}"
+                                Visibility="{TemplateBinding MoreButtonVisibility}" />
                             <local:CaptionHelpButton
                                 x:Name="HelpButton"
                                 Command="{TemplateBinding HelpButtonCommand}"
