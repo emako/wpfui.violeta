@@ -35,8 +35,10 @@
                             <TextBlock
                                 x:Name="PART_Title"
                                 Grid.Row="0"
+                                MinHeight="30"
                                 Margin="8,8,0,0"
-                                FontSize="14"
+                                FontFamily="{DynamicResource ContentControlThemeFontFamily}"
+                                FontSize="13"
                                 Text="{TemplateBinding Title}"
                                 TextTrimming="CharacterEllipsis"
                                 TextWrapping="NoWrap" />
