@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.5] - 2026-08-10
+
+* Add VirtualJoystick control
+* Refactor ContentWindow with built-in TitleBar
+* Expose ContentWindow chrome options
+* Add icon/title visibility support to TitleBar
+* Add More caption button support
+* Fix title bar title character ellipsis
+* Align PendingBox dialog title with TitleBar style
+* Adjust PendingBox dialog layout and font style
+* Add MakeKits packaging for Gallery build
+* Add backdrop support to ContentWindow demo
+* Add ContentWindow link on TitleBar page
+
 ## [4.3.0.4] - 2026-08-07
 
 * Add TeachingTip control
