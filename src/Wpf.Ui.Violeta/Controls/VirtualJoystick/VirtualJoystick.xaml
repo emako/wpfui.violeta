@@ -1,0 +1,86 @@
+<UserControl
+    x:Class="Wpf.Ui.Violeta.Controls.VirtualJoystick"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="self"
+    Width="{Binding PadDiameter, ElementName=self}"
+    Height="{Binding PadDiameter, ElementName=self}">
+    <Canvas
+        x:Name="joystickSurface"
+        Background="Transparent"
+        Cursor="Hand"
+        Focusable="True"
+        MouseLeftButtonDown="OnMouseLeftButtonDown"
+        MouseLeftButtonUp="OnMouseLeftButtonUp"
+        MouseMove="OnMouseMove">
+        <Path
+            x:Name="pathArcUp"
+            Fill="{Binding ArcPathBrush, ElementName=self}"
+            IsHitTestVisible="False" />
+        <Path
+            x:Name="pathArcRight"
+            Fill="{Binding ArcPathBrush, ElementName=self}"
+            IsHitTestVisible="False" />
+        <Path
+            x:Name="pathArcDown"
+            Fill="{Binding ArcPathBrush, ElementName=self}"
+            IsHitTestVisible="False" />
+        <Path
+            x:Name="pathArcLeft"
+            Fill="{Binding ArcPathBrush, ElementName=self}"
+            IsHitTestVisible="False" />
+
+        <Viewbox x:Name="viewboxArrowUp" IsHitTestVisible="False" Stretch="Uniform">
+            <Canvas Width="24" Height="24">
+                <Polyline
+                    x:Name="polyArrowUp"
+                    Fill="Transparent"
+                    Points="6,15 12,9 18,15"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="{Binding ArrowStrokeThickness, ElementName=self}" />
+            </Canvas>
+        </Viewbox>
+        <Viewbox x:Name="viewboxArrowDown" IsHitTestVisible="False" Stretch="Uniform">
+            <Canvas Width="24" Height="24">
+                <Polyline
+                    x:Name="polyArrowDown"
+                    Fill="Transparent"
+                    Points="6,9 12,15 18,9"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="{Binding ArrowStrokeThickness, ElementName=self}" />
+            </Canvas>
+        </Viewbox>
+        <Viewbox x:Name="viewboxArrowLeft" IsHitTestVisible="False" Stretch="Uniform">
+            <Canvas Width="24" Height="24">
+                <Polyline
+                    x:Name="polyArrowLeft"
+                    Fill="Transparent"
+                    Points="15,6 9,12 15,18"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="{Binding ArrowStrokeThickness, ElementName=self}" />
+            </Canvas>
+        </Viewbox>
+        <Viewbox x:Name="viewboxArrowRight" IsHitTestVisible="False" Stretch="Uniform">
+            <Canvas Width="24" Height="24">
+                <Polyline
+                    x:Name="polyArrowRight"
+                    Fill="Transparent"
+                    Points="9,6 15,12 9,18"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="{Binding ArrowStrokeThickness, ElementName=self}" />
+            </Canvas>
+        </Viewbox>
+
+        <Ellipse
+            x:Name="ellipseInnerGuide"
+            Fill="Transparent"
+            IsHitTestVisible="False" />
+        <Grid x:Name="gridKnob" IsHitTestVisible="False">
+            <Ellipse
+                x:Name="ellipseKnob"
+                Fill="{Binding KnobBrush, ElementName=self}"
+                Stroke="{Binding KnobBrush, ElementName=self}"
+                StrokeThickness="2" />
+        </Grid>
+    </Canvas>
+</UserControl>

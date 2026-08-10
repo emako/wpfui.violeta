@@ -91,6 +91,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
         ["basic-input/button-spinner"] = static () => new ButtonSpinnerPage(),
         ["basic-input/range-slider"] = static () => new RangeSliderPage(),
+        ["basic-input/virtual-joystick"] = static () => new VirtualJoystickPage(),
         ["basic-input/key-gesture-input"] = static () => new KeyGestureInputPage(),
         ["basic-input/pin-code"] = static () => new PinCodePage(),
         ["basic-input/toggle-button-group"] = static () => new ToggleButtonGroupPage(),

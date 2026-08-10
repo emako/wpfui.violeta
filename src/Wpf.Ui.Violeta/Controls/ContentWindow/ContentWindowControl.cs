@@ -6,7 +6,7 @@ public class ContentWindowControl : UserControl, IContentWindowControl
 {
     public ContentWindow Owner
     {
-        get => field;
+        get;
         set
         {
             if (value != null && field != value)
