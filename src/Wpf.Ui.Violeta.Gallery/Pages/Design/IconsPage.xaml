@@ -12,23 +12,306 @@
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="Icons" />
-            <Border Margin="0,0,0,16" Padding="20"
+            <TextBlock
+                Margin="0,0,0,8"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Icons" />
+            <TextBlock
+                Margin="0,0,0,24"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Sample_b64c4416d4}}"
+                TextWrapping="Wrap" />
+
+            <!-- FontFamily resources -->
+            <TextBlock
+                Margin="0,0,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="FontFamily resources" />
+            <TextBlock
+                Margin="0,4,0,12"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="Reference these keys with DynamicResource. Select and copy the resource name below."
+                TextWrapping="Wrap" />
+
+            <!-- SymbolThemeFontFamily -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
                 Background="{DynamicResource ControlFillColorSecondaryBrush}"
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1" CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="10">
                 <StackPanel>
-                    <TextBlock Margin="0,0,0,12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b64c4416d4}}" />
-                    <WrapPanel>
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE80F;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE713;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE74C;" />
-                        <ui:FontIcon Margin="0,0,16,12" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE711;" />
+                    <TextBlock FontWeight="SemiBold" Text="SymbolThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Segoe Fluent Icons — default icon font for most controls."
+                        TextWrapping="Wrap" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE80F;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE713;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE74C;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE711;" />
                     </WrapPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="SymbolThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource SymbolThemeFontFamily}"' />
+                </StackPanel>
+            </Border>
+
+            <!-- CustomSymbolThemeFontFamily -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="CustomSymbolThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Violeta Fluent Icons — extra glyphs via CustomFontSymbols."
+                        TextWrapping="Wrap" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:FontIcon
+                            Margin="0,0,16,8"
+                            FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="{x:Static ui:CustomFontSymbols.Edit}" />
+                        <ui:FontIcon
+                            Margin="0,0,16,8"
+                            FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="{x:Static ui:CustomFontSymbols.Empty}" />
+                        <ui:FontIcon
+                            Margin="0,0,16,8"
+                            FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="{x:Static ui:CustomFontSymbols.Extension}" />
+                        <ui:FontIcon
+                            Margin="0,0,16,8"
+                            FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"
+                            FontSize="28"
+                            Glyph="{x:Static ui:CustomFontSymbols.File}" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="CustomSymbolThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource CustomSymbolThemeFontFamily}"' />
+                </StackPanel>
+            </Border>
+
+            <!-- ContentControlThemeFontFamily -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="ContentControlThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Theme content font used by text controls."
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        FontFamily="{DynamicResource ContentControlThemeFontFamily}"
+                        FontSize="28"
+                        FontWeight="SemiBold"
+                        Text="Aa Bb Cc 文本" />
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="ContentControlThemeFontFamily" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource ContentControlThemeFontFamily}"' />
+                </StackPanel>
+            </Border>
+
+            <!-- FluentSystemIcons (WPF UI) -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="FluentSystemIcons" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Fluent System Icons Regular — used by WPF UI SymbolIcon."
+                        TextWrapping="Wrap" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Home24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Settings24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Person24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Search24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Mail24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="CalendarLtr24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Folder24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" FontSize="28" Symbol="Dismiss24" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="FluentSystemIcons" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource FluentSystemIcons}"' />
+                </StackPanel>
+            </Border>
+
+            <!-- FluentSystemIconsFilled -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="FluentSystemIconsFilled" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Fluent System Icons Filled — SymbolIcon with Filled=True."
+                        TextWrapping="Wrap" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Home24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Settings24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Person24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Search24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Mail24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="CalendarLtr24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Folder24" />
+                        <ui:SymbolIcon Margin="0,0,16,8" Filled="True" FontSize="28" Symbol="Dismiss24" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="FluentSystemIconsFilled" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource FluentSystemIconsFilled}"' />
+                </StackPanel>
+            </Border>
+
+            <!-- SegoeFluentIcons -->
+            <Border
+                Margin="0,0,0,12"
+                Padding="16"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="SegoeFluentIcons" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="System Segoe Fluent Icons font family name (from WPF UI Fonts.xaml)."
+                        TextWrapping="Wrap" />
+                    <WrapPanel Margin="0,0,0,12">
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SegoeFluentIcons}" FontSize="28" Glyph="&#xE80F;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SegoeFluentIcons}" FontSize="28" Glyph="&#xE713;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SegoeFluentIcons}" FontSize="28" Glyph="&#xE8BD;" />
+                        <ui:FontIcon Margin="0,0,16,8" FontFamily="{DynamicResource SegoeFluentIcons}" FontSize="28" Glyph="&#xE711;" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Resource key" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="SegoeFluentIcons" />
+                    <TextBlock
+                        Margin="0,8,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Usage" />
+                    <vio:SelectableTextBlock
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='FontFamily="{DynamicResource SegoeFluentIcons}"' />
                 </StackPanel>
             </Border>
         </StackPanel>
