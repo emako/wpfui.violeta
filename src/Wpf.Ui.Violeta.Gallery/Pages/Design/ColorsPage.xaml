@@ -1,4 +1,4 @@
-﻿<vio:Page
+<vio:Page
     x:Class="Wpf.Ui.Violeta.Gallery.Pages.Design.ColorsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -71,7 +71,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Primary" />
                         <TextBlock Grid.Row="1" Text="Rest or hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorPrimaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -86,7 +86,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Secondary" />
                         <TextBlock Grid.Row="1" Text="Rest or hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -101,7 +101,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Tertiary" />
                         <TextBlock Grid.Row="1" Text="Pressed only" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -117,7 +117,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Disabled" />
                         <TextBlock Grid.Row="1" Text="Disabled only" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextFillColorDisabledBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorDisabledBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -166,7 +166,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Primary" />
                         <TextBlock Grid.Row="1" Text="Rest or hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorPrimaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -181,7 +181,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Secondary" />
                         <TextBlock Grid.Row="1" Text="Rest or hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -196,7 +196,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Tertiary" />
                         <TextBlock Grid.Row="1" Text="Pressed only" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -212,7 +212,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Disabled" />
                         <TextBlock Grid.Row="1" Text="Disabled only" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentTextFillColorDisabledBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorDisabledBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -258,7 +258,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Primary" />
                         <TextBlock Grid.Row="1" Text="Rest" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorPrimaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
                 <Border Grid.Column="1" Background="{DynamicResource AccentFillColorDefaultBrush}">
@@ -270,7 +270,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Secondary" />
                         <TextBlock Grid.Row="1" Text="Secondary" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border Grid.Column="2" Background="{DynamicResource AccentFillColorDefaultBrush}">
@@ -282,7 +282,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Disabled" />
                         <TextBlock Grid.Row="1" Text="Disabled" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorDisabledBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorDisabledBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -297,7 +297,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Selected" />
                         <TextBlock Grid.Row="1" Text="Selected text" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="TextOnAccentFillColorSelectedTextBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorSelectedTextBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -328,7 +328,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Default" />
                         <TextBlock Grid.Row="1" Text="Rest" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -343,7 +343,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Secondary" />
                         <TextBlock Grid.Row="1" Text="Hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -358,7 +358,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Tertiary" />
                         <TextBlock Grid.Row="1" Text="Pressed" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -374,7 +374,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Disabled" />
                         <TextBlock Grid.Row="1" Text="Disabled" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="AccentFillColorDisabledBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorDisabledBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -405,7 +405,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="System Accent" />
                         <TextBlock Grid.Row="1" Text="Base" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -422,7 +422,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Primary" />
                         <TextBlock Grid.Row="1" Text="Color key" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorPrimary" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorPrimary" />
                     </Grid>
                 </Border>
                 <Border
@@ -439,7 +439,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
                         <TextBlock Grid.Row="1" Text="Color key" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorSecondary" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorSecondary" />
                     </Grid>
                 </Border>
                 <Border
@@ -457,7 +457,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
                         <TextBlock Grid.Row="1" Text="Color key" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemAccentColorTertiary" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorTertiary" />
                     </Grid>
                 </Border>
             </Grid>
@@ -490,7 +490,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Default" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Rest" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -506,7 +506,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -522,7 +522,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -538,7 +538,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Disabled" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Disabled" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorDisabledBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorDisabledBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -555,7 +555,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Input Active" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Focused input" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlFillColorInputActiveBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorInputActiveBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -586,7 +586,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Strong / Default" />
                         <TextBlock Grid.Row="1" Text="Strong fill" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlStrongFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlStrongFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -601,7 +601,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Solid / Default" />
                         <TextBlock Grid.Row="1" Text="Solid fill" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ControlSolidFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlSolidFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -617,7 +617,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Secondary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SubtleFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SubtleFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -634,7 +634,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Tertiary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SubtleFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SubtleFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -666,7 +666,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Default" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Card surface" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="CardBackgroundFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="CardBackgroundFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -682,7 +682,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Secondary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Secondary card" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="CardBackgroundFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="CardBackgroundFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -698,7 +698,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Layer / Default" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Layer fill" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="LayerFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="LayerFillColorDefaultBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -714,7 +714,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Smoke" />
                         <TextBlock Grid.Row="1" Text="Overlay smoke" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SmokeFillColorDefaultBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SmokeFillColorDefaultBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -747,7 +747,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Base" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Window" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorBaseBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorBaseBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -763,7 +763,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Alt surface" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorSecondaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -779,7 +779,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Tertiary" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorTertiaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -795,7 +795,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Quaternary" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Quaternary" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SolidBackgroundFillColorQuarternaryBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorQuarternaryBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -812,7 +812,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Application" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="App bg" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="ApplicationBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ApplicationBackgroundBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -844,7 +844,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success" />
                         <TextBlock Grid.Row="1" Text="Positive" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorSuccessBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorSuccessBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -859,7 +859,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution" />
                         <TextBlock Grid.Row="1" Text="Warning" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCautionBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCautionBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -874,7 +874,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical" />
                         <TextBlock Grid.Row="1" Text="Error" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCriticalBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCriticalBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -889,7 +889,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral" />
                         <TextBlock Grid.Row="1" Text="Neutral" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorNeutralBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorNeutralBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -905,7 +905,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention" />
                         <TextBlock Grid.Row="1" Text="Info" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorAttentionBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorAttentionBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -938,7 +938,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success BG" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorSuccessBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorSuccessBackgroundBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -954,7 +954,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution BG" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCautionBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCautionBackgroundBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -970,7 +970,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical BG" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorCriticalBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCriticalBackgroundBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -986,7 +986,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention BG" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorAttentionBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorAttentionBackgroundBrush" />
                     </Grid>
                 </Border>
                 <Border
@@ -1003,7 +1003,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral BG" />
                         <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
-                        <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Text="SystemFillColorNeutralBackgroundBrush" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorNeutralBackgroundBrush" />
                     </Grid>
                 </Border>
             </Grid>
@@ -1031,7 +1031,7 @@
                     CornerRadius="8">
                     <StackPanel>
                         <TextBlock FontWeight="SemiBold" Text="Control Stroke" />
-                        <TextBlock
+                        <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -1049,7 +1049,7 @@
                     CornerRadius="8">
                     <StackPanel>
                         <TextBlock FontWeight="SemiBold" Text="Strong Stroke" />
-                        <TextBlock
+                        <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -1067,7 +1067,7 @@
                     CornerRadius="8">
                     <StackPanel>
                         <TextBlock FontWeight="SemiBold" Text="Card Stroke" />
-                        <TextBlock
+                        <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -1084,7 +1084,7 @@
                     CornerRadius="8">
                     <StackPanel>
                         <TextBlock FontWeight="SemiBold" Text="Divider Stroke" />
-                        <TextBlock
+                        <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
