@@ -283,6 +283,7 @@
                         <vio:NavigationViewItem Content="Snackbar" Tag="notifications/snackbar" />
                         <vio:NavigationViewItem Content="Toast" Tag="notifications/toast" />
                         <vio:NavigationViewItem Content="Banner" Tag="notifications/banner" />
+                        <vio:NavigationViewItem Content="Notification" Tag="notifications/notification" />
                         <vio:NavigationViewItem Content="TrayIcon" Tag="notifications/tray-icon" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>

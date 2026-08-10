@@ -1253,26 +1253,25 @@ public partial class MainWindow : ShellWindow
     {
         if (self.Content.ToString() == "Information")
         {
-            TrayIconManager.ShowNotification("Information from Wpf.Ui.Violeta", "This is a information message", ToolTipIcon.Info, clickEvent: () => Toast.Information("User Click Notification"), closeEvent: () => Toast.Information("Notification Closed"));
+            Notification.Information("Information from Wpf.Ui.Violeta", "This is a information message");
         }
         else if (self.Content.ToString() == "Warning")
         {
-            TrayIconManager.ShowNotification("Warning from Wpf.Ui.Violeta", "This is a warning message", ToolTipIcon.Warning, clickEvent: () => Toast.Warning("User Click Notification"), closeEvent: () => Toast.Information("Notification Closed"));
+            Notification.Warning("Warning from Wpf.Ui.Violeta", "This is a warning message");
         }
         else if (self.Content.ToString() == "None")
         {
-            TrayIconManager.ShowNotification("None from Wpf.Ui.Violeta", "This is a none message", ToolTipIcon.None, clickEvent: () => Toast.Question("User Click Notification"), closeEvent: () => Toast.Information("Notification Closed"));
+            Notification.Show("None from Wpf.Ui.Violeta", "This is a none message");
         }
         else if (self.Content.ToString() == "Error")
         {
-            TrayIconManager.ShowNotification("Error from Wpf.Ui.Violeta",
+            Notification.Error("Error from Wpf.Ui.Violeta",
                 """
                 Dummy exception from Violeta:
                    at Violeta.View.MainWindow.OnNotifyIconLeftDoubleClick(NotifyIcon sender, RoutedEventArgs e) in D:\GitHub\Violeta\View\MainWindow.xaml.cs:line 53
                    at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
                    at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
-                """, ToolTipIcon.Error, clickEvent: () => Toast.Error("User Click Notification"), closeEvent: () => Toast.Information("Notification Closed")
-            );
+                """);
         }
     }
 
