@@ -36,9 +36,7 @@
                         Text="Click to copy TextToCopy and play the WinUI-style checkmark animation."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
-                        <vio:CopyButton
-                            Margin="0,0,8,0"
-                            TextToCopy="Hello from CopyButton" />
+                        <vio:CopyButton Margin="0,0,8,0" TextToCopy="Hello from CopyButton" />
                         <TextBlock
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -78,9 +76,56 @@
                             Margin="0,0,8,0"
                             Appearance="Danger"
                             TextToCopy="Danger" />
+                        <vio:CopyButton Appearance="Success" TextToCopy="Success" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Uses Wpf.Ui Button.Icon. Clear Content when icon-only."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
-                            Appearance="Success"
-                            TextToCopy="Success" />
+                            Margin="0,0,8,0"
+                            Content="{x:Null}"
+                            TextToCopy="SymbolIcon Copy24">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Copy24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            Appearance="Primary"
+                            Content="Copy"
+                            FontSize="13"
+                            TextToCopy="Icon + text">
+                            <vio:CopyButton.Icon>
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                        <vio:CopyButton
+                            Content="{x:Null}"
+                            SuccessGlyph="&#xE8FB;"
+                            TextToCopy="Custom success glyph">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Clipboard24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -107,9 +152,7 @@
                         x:Name="CustomTextBox"
                         Margin="0,0,0,12"
                         Text="Custom clipboard payload" />
-                    <vio:CopyButton
-                        Click="CustomCopyButton_Click"
-                        Content="&#xE8C8;" />
+                    <vio:CopyButton Click="CustomCopyButton_Click" />
                 </StackPanel>
             </Border>
 

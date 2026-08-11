@@ -6,19 +6,17 @@
     <!--
         CopyButton — WinUI Gallery CopyToClipboardSuccessAnimation port.
         Timeline (~1.43s): Content fades/scales out → Accept pops in with overshoot → hold → restore.
+        Supports Wpf.Ui Button.Icon + Content (animated together).
     -->
-
     <Style
         x:Key="DefaultCopyButtonStyle"
         BasedOn="{StaticResource DefaultUiButtonStyle}"
         TargetType="{x:Type local:CopyButton}">
         <Setter Property="Padding" Value="6" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ToolTip" Value="Copy to clipboard" />
-        <Setter Property="Content" Value="&#xE8C8;" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CopyButton}">
@@ -49,7 +47,7 @@
                                 <Grid.Resources>
                                     <Storyboard x:Key="CopyToClipboardSuccessAnimation">
                                         <DoubleAnimationUsingKeyFrames
-                                            Storyboard.TargetName="ContentPresenter"
+                                            Storyboard.TargetName="CopyContent"
                                             Storyboard.TargetProperty="Opacity"
                                             Duration="0:0:1.433">
                                             <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1.0" />
@@ -133,22 +131,49 @@
                                     </Storyboard>
                                 </Grid.Resources>
 
-                                <ContentPresenter
-                                    x:Name="ContentPresenter"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding Content}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                    RecognizesAccessKey="True"
-                                    RenderTransformOrigin="0.5,0.5"
-                                    TextElement.FontFamily="{TemplateBinding FontFamily}"
-                                    TextElement.FontSize="{TemplateBinding FontSize}"
-                                    TextElement.Foreground="{TemplateBinding Foreground}">
-                                    <ContentPresenter.RenderTransform>
+                                <Grid x:Name="CopyContent" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
                                         <ScaleTransform x:Name="CopyToClipboardTextScaleTransform" />
-                                    </ContentPresenter.RenderTransform>
-                                </ContentPresenter>
+                                    </Grid.RenderTransform>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--  Default copy glyph: symbol font only here, not on the whole button.  -->
+                                        <TextBlock
+                                            x:Name="DefaultCopyGlyph"
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            Foreground="{TemplateBinding Foreground}"
+                                            Text="&#xE8C8;"
+                                            Visibility="Collapsed" />
+
+                                        <ContentPresenter
+                                            x:Name="ControlIcon"
+                                            Grid.Column="0"
+                                            Margin="{StaticResource ButtonIconMargin}"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Icon}"
+                                            Focusable="False"
+                                            TextElement.FontSize="{TemplateBinding FontSize}"
+                                            TextElement.Foreground="{TemplateBinding Foreground}" />
+
+                                        <ContentPresenter
+                                            x:Name="ContentPresenter"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                            RecognizesAccessKey="True"
+                                            TextElement.FontSize="{TemplateBinding FontSize}"
+                                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                                    </Grid>
+                                </Grid>
 
                                 <TextBlock
                                     x:Name="CopySuccessGlyph"
@@ -186,6 +211,8 @@
                             <Setter TargetName="ContentBorder" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="DefaultCopyGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="CopySuccessGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
@@ -193,8 +220,37 @@
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="DefaultCopyGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                             <Setter TargetName="CopySuccessGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                         </Trigger>
+
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Content" Value="">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                            <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <!--  Show built-in copy glyph only when neither Icon nor Content is provided.  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Icon" Value="{x:Null}" />
+                                <Condition Property="Content" Value="{x:Null}" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="DefaultCopyGlyph" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Icon" Value="{x:Null}" />
+                                <Condition Property="Content" Value="" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="DefaultCopyGlyph" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
 
                         <Trigger Property="Appearance" Value="Secondary">
                             <Setter TargetName="InsetBorder" Property="BorderThickness" Value="0" />

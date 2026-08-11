@@ -11,7 +11,11 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <example>
 /// <code lang="xml">
 /// &lt;vio:CopyButton TextToCopy="Hello" /&gt;
-/// &lt;vio:CopyButton Content="&#xE8C8;" Click="OnCopyClick" /&gt;
+/// &lt;vio:CopyButton Command="{Binding CopyCommand}" Content="{x:Null}"&gt;
+///     &lt;vio:CopyButton.Icon&gt;
+///         &lt;ui:SymbolIcon Symbol="Copy24" /&gt;
+///     &lt;/vio:CopyButton.Icon&gt;
+/// &lt;/vio:CopyButton&gt;
 /// </code>
 /// </example>
 public class CopyButton : Wpf.Ui.Controls.Button
@@ -30,7 +34,7 @@ public class CopyButton : Wpf.Ui.Controls.Button
 
     /// <summary>
     /// Gets or sets the text copied to the clipboard when the button is clicked.
-    /// When null or empty, only the success animation runs (clipboard is left to the Click handler).
+    /// When null or empty, clipboard work is left to <see cref="System.Windows.Controls.Primitives.ButtonBase.Command"/> / Click.
     /// </summary>
     public string? TextToCopy
     {
@@ -66,12 +70,7 @@ public class CopyButton : Wpf.Ui.Controls.Button
     /// <inheritdoc />
     public override void OnApplyTemplate()
     {
-        Click -= OnCopyButtonClick;
-
-        if (_successAnimation is not null)
-        {
-            _successAnimation.Completed -= OnSuccessAnimationCompleted;
-        }
+        _successAnimation?.Completed -= OnSuccessAnimationCompleted;
 
         base.OnApplyTemplate();
 
@@ -84,8 +83,27 @@ public class CopyButton : Wpf.Ui.Controls.Button
             _successAnimation = storyboard.IsFrozen ? storyboard.Clone() : storyboard;
             _successAnimation.Completed += OnSuccessAnimationCompleted;
         }
+    }
 
-        Click += OnCopyButtonClick;
+    /// <summary>
+    /// Gates <see cref="System.Windows.Controls.Primitives.ButtonBase.Command"/> and Click together.
+    /// While the success animation is running, the whole click path is suppressed
+    /// so clipboard / command handlers are not spammed.
+    /// </summary>
+    protected override void OnClick()
+    {
+        if (_isAnimating)
+        {
+            return;
+        }
+
+        if (!string.IsNullOrEmpty(TextToCopy))
+        {
+            Win32.Clipboard.SetText(TextToCopy!);
+        }
+
+        PlaySuccessAnimation();
+        base.OnClick();
     }
 
     /// <summary>
@@ -106,15 +124,5 @@ public class CopyButton : Wpf.Ui.Controls.Button
     private void OnSuccessAnimationCompleted(object? sender, EventArgs e)
     {
         _isAnimating = false;
-    }
-
-    private void OnCopyButtonClick(object sender, RoutedEventArgs e)
-    {
-        if (!string.IsNullOrEmpty(TextToCopy))
-        {
-            Win32.Clipboard.SetText(TextToCopy);
-        }
-
-        PlaySuccessAnimation();
     }
 }
