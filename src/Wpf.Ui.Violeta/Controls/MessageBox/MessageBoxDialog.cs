@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Win32;
 using Button = System.Windows.Controls.Button;
