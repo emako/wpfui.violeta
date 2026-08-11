@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -37,17 +35,11 @@ public class VisualStateGroupListener : FrameworkElement
 
     private void OnGroupChanged(VisualStateGroup oldGroup, VisualStateGroup newGroup)
     {
-        if (oldGroup != null)
-        {
-            oldGroup.CurrentStateChanged -= OnCurrentStateChanged;
-        }
+        oldGroup?.CurrentStateChanged -= OnCurrentStateChanged;
 
-        if (newGroup != null)
-        {
-            newGroup.CurrentStateChanged += OnCurrentStateChanged;
-        }
+        newGroup?.CurrentStateChanged += OnCurrentStateChanged;
 
-        UpdateCurrentStateName(newGroup?.CurrentState);
+        UpdateCurrentStateName(newGroup?.CurrentState!);
     }
 
     private void OnCurrentStateChanged(object? sender, VisualStateChangedEventArgs e)

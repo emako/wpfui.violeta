@@ -10,16 +10,16 @@ using System.Windows.Media;
 namespace Wpf.Ui.Controls;
 
 /// <summary>
-/// Attached properties that extend the stock WPF controls.
+/// Provides attached properties that extend the built-in WPF controls.
 /// </summary>
 /// <remarks>
-/// <see cref="PlaceholderTextProperty"/> reuses <see cref="TextBox.PlaceholderTextProperty"/> via
-/// <see cref="DependencyProperty.AddOwner(System.Type)"/>, so values are stored on the same DP.
-/// <see cref="Wpf.Ui.Controls.ComboBoxHelper"/> aliases this property, so either helper can be used in XAML.
-/// <see cref="IconFontFamilyProperty"/> lets a <see cref="ContextMenu"/>, <see cref="Menu"/> or
-/// <see cref="MenuItem"/> define a font for the glyphs inside its <see cref="MenuItem.Icon"/>
-/// independently of the menu text. Setting it to <see langword="null"/> restores the icon's
-/// original fonts.
+/// <see cref="PlaceholderTextProperty"/> reuses <see cref="TextBox.PlaceholderTextProperty"/> by
+/// calling <see cref="DependencyProperty.AddOwner(System.Type)"/>, so both properties share the
+/// same backing storage.
+/// <see cref="IconFontFamilyProperty"/> allows a <see cref="ContextMenu"/>, <see cref="Menu"/> or
+/// <see cref="MenuItem"/> to specify the font used for the glyphs inside its
+/// <see cref="MenuItem.Icon"/>, independently of the menu text. Setting it to <see langword="null"/>
+/// restores the icons' original fonts.
 /// </remarks>
 public static class ControlHelper
 {
@@ -68,8 +68,8 @@ public static class ControlHelper
         element.SetValue(IconFontFamilyProperty, value);
 
     /// <summary>
-    /// Stores the effective font for an <see cref="ItemsControl"/>, propagated explicitly
-    /// because submenus live in popups that do not participate in property inheritance.
+    /// Stores the effective font of an <see cref="ItemsControl"/>. The value is propagated
+    /// manually because submenus are hosted in popups, where property inheritance does not work.
     /// </summary>
     private static readonly DependencyProperty EffectiveFontProperty =
         DependencyProperty.RegisterAttached(
@@ -79,7 +79,8 @@ public static class ControlHelper
             new PropertyMetadata(null));
 
     /// <summary>
-    /// Marks a container whose events (container generation, Loaded, Icon changes) are already hooked.
+    /// Marks a container whose events (container generation, Loaded, icon changes)
+    /// have already been hooked up.
     /// </summary>
     private static readonly DependencyProperty IsHookedProperty =
         DependencyProperty.RegisterAttached(
@@ -89,8 +90,8 @@ public static class ControlHelper
             new PropertyMetadata(false));
 
     /// <summary>
-    /// Original fonts of the icon text blocks, so that clearing <see cref="IconFontFamilyProperty"/>
-    /// can restore them.
+    /// Remembers the original font of every icon text block, so that clearing
+    /// <see cref="IconFontFamilyProperty"/> can restore them.
     /// </summary>
     [SuppressMessage("Style", "IDE0028:Simplify collection initialization")]
     private static readonly ConditionalWeakTable<TextBlock, FontFamily> OriginalFonts = new();
