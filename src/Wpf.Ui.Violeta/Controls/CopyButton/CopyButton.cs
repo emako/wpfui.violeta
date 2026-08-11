@@ -1,6 +1,8 @@
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media.Animation;
+using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -8,12 +10,21 @@ namespace Wpf.Ui.Violeta.Controls;
 /// A button that plays a WinUI Gallery–style copy → checkmark success animation on click.
 /// Optionally copies <see cref="TextToCopy"/> to the clipboard before animating.
 /// </summary>
+/// <remarks>
+/// Icon typography uses <see cref="ControlHelper.IconFontFamilyProperty"/> /
+/// <see cref="ControlHelper.IconFontSizeProperty"/>. Values applied to
+/// <see cref="Wpf.Ui.Controls.Button.Icon"/> only when the icon has no local
+/// <c>FontFamily</c> / <c>FontSize</c> — so an explicit size on
+/// <c>SymbolIcon</c> / <c>FontIcon</c> wins over the attached properties.
+/// </remarks>
 /// <example>
 /// <code lang="xml">
-/// &lt;vio:CopyButton TextToCopy="Hello" /&gt;
-/// &lt;vio:CopyButton Command="{Binding CopyCommand}" Content="{x:Null}"&gt;
+/// &lt;vio:CopyButton
+///     Content="Copy"
+///     ui:ControlHelper.IconFontSize="20"
+///     TextToCopy="payload"&gt;
 ///     &lt;vio:CopyButton.Icon&gt;
-///         &lt;ui:SymbolIcon Symbol="Copy24" /&gt;
+///         &lt;ui:SymbolIcon Symbol="Copy24" FontSize="12" /&gt;
 ///     &lt;/vio:CopyButton.Icon&gt;
 /// &lt;/vio:CopyButton&gt;
 /// </code>
@@ -23,6 +34,7 @@ public class CopyButton : Wpf.Ui.Controls.Button
     private FrameworkElement? _rootGrid;
     private Storyboard? _successAnimation;
     private bool _isAnimating;
+    private bool _iconAppearanceHooked;
 
     /// <summary>Identifies the <see cref="TextToCopy"/> dependency property.</summary>
     public static readonly DependencyProperty TextToCopyProperty =
@@ -65,6 +77,15 @@ public class CopyButton : Wpf.Ui.Controls.Button
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(CopyButton),
             new FrameworkPropertyMetadata(typeof(CopyButton)));
+
+        IconProperty.OverrideMetadata(
+            typeof(CopyButton),
+            new FrameworkPropertyMetadata(null, OnIconChanged));
+    }
+
+    public CopyButton()
+    {
+        Loaded += OnLoaded;
     }
 
     /// <inheritdoc />
@@ -83,6 +104,9 @@ public class CopyButton : Wpf.Ui.Controls.Button
             _successAnimation = storyboard.IsFrozen ? storyboard.Clone() : storyboard;
             _successAnimation.Completed += OnSuccessAnimationCompleted;
         }
+
+        HookIconAppearanceProperties();
+        SyncIconAppearance();
     }
 
     /// <summary>
@@ -121,8 +145,64 @@ public class CopyButton : Wpf.Ui.Controls.Button
         _successAnimation.Begin(_rootGrid, true);
     }
 
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        HookIconAppearanceProperties();
+        SyncIconAppearance();
+    }
+
+    private void HookIconAppearanceProperties()
+    {
+        if (_iconAppearanceHooked)
+        {
+            return;
+        }
+
+        _iconAppearanceHooked = true;
+        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconFontFamilyProperty, typeof(CopyButton))
+            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
+        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconFontSizeProperty, typeof(CopyButton))
+            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
+    }
+
+    private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((CopyButton)d).SyncIconAppearance();
+    }
+
+    private void OnIconAppearanceAttachedPropertyChanged(object? sender, EventArgs e)
+    {
+        SyncIconAppearance();
+    }
+
     private void OnSuccessAnimationCompleted(object? sender, EventArgs e)
     {
         _isAnimating = false;
+    }
+
+    /// <summary>
+    /// Pushes <see cref="ControlHelper"/> icon typography onto <see cref="Icon"/> when the
+    /// icon has no local FontFamily / FontSize (explicit Icon values always win).
+    /// </summary>
+    private void SyncIconAppearance()
+    {
+        if (Icon is not FontIcon fontIcon)
+        {
+            return;
+        }
+
+        var family = ControlHelper.GetIconFontFamily(this);
+        if (family is not null
+            && fontIcon.ReadLocalValue(FontIcon.FontFamilyProperty) == DependencyProperty.UnsetValue)
+        {
+            fontIcon.SetCurrentValue(FontIcon.FontFamilyProperty, family);
+        }
+
+        var size = ControlHelper.GetIconFontSize(this);
+        if (!double.IsNaN(size)
+            && fontIcon.ReadLocalValue(FontIcon.FontSizeProperty) == DependencyProperty.UnsetValue)
+        {
+            fontIcon.SetCurrentValue(FontIcon.FontSizeProperty, size);
+        }
     }
 }

@@ -93,35 +93,71 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon" />
+                        Text="ControlHelper.IconFontSize (default glyph)" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Uses Wpf.Ui Button.Icon. Clear Content when icon-only."
+                        Text="No Icon — built-in glyph binds IconFontSize directly (12 / 16 default / 28)."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            VerticalAlignment="Center"
+                            ui:ControlHelper.IconFontSize="12"
+                            TextToCopy="size 12" />
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            VerticalAlignment="Center"
+                            TextToCopy="size 16 default" />
+                        <vio:CopyButton
+                            VerticalAlignment="Center"
+                            ui:ControlHelper.IconFontSize="28"
+                            TextToCopy="size 28" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon inherits ControlHelper" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Icon has no local FontSize — ControlHelper.IconFontSize is applied via SetCurrentValue."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
                             Margin="0,0,8,0"
                             Content="{x:Null}"
-                            TextToCopy="SymbolIcon Copy24">
+                            ui:ControlHelper.IconFontSize="14"
+                            TextToCopy="icon inherit 14">
                             <vio:CopyButton.Icon>
                                 <ui:SymbolIcon Symbol="Copy24" />
                             </vio:CopyButton.Icon>
                         </vio:CopyButton>
                         <vio:CopyButton
                             Margin="0,0,8,0"
-                            Appearance="Primary"
-                            Content="Copy"
-                            FontSize="13"
-                            TextToCopy="Icon + text">
+                            Content="{x:Null}"
+                            ui:ControlHelper.IconFontSize="22"
+                            TextToCopy="icon inherit 22">
                             <vio:CopyButton.Icon>
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
+                                <ui:SymbolIcon Symbol="Copy24" />
                             </vio:CopyButton.Icon>
                         </vio:CopyButton>
                         <vio:CopyButton
                             Content="{x:Null}"
-                            SuccessGlyph="&#xE8FB;"
-                            TextToCopy="Custom success glyph">
+                            ui:ControlHelper.IconFontSize="30"
+                            TextToCopy="icon inherit 30">
                             <vio:CopyButton.Icon>
                                 <ui:SymbolIcon Symbol="Clipboard24" />
                             </vio:CopyButton.Icon>
@@ -142,17 +178,196 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Custom click" />
+                        Text="Icon.FontSize wins over ControlHelper" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Leave TextToCopy empty and handle clipboard yourself; animation still plays on Click."
+                        Text="All buttons set ControlHelper.IconFontSize=28. Left/middle Icon sets FontSize=12 / 16 locally and stays small; right has no local FontSize and becomes 28."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,16,0">
+                            <vio:CopyButton
+                                HorizontalAlignment="Center"
+                                Content="{x:Null}"
+                                ui:ControlHelper.IconFontSize="28"
+                                TextToCopy="icon local 12">
+                                <vio:CopyButton.Icon>
+                                    <ui:SymbolIcon FontSize="12" Symbol="Copy24" />
+                                </vio:CopyButton.Icon>
+                            </vio:CopyButton>
+                            <TextBlock
+                                Margin="0,6,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Icon FontSize=12" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,0">
+                            <vio:CopyButton
+                                HorizontalAlignment="Center"
+                                Content="{x:Null}"
+                                ui:ControlHelper.IconFontSize="28"
+                                TextToCopy="icon local 16">
+                                <vio:CopyButton.Icon>
+                                    <ui:SymbolIcon FontSize="16" Symbol="Copy24" />
+                                </vio:CopyButton.Icon>
+                            </vio:CopyButton>
+                            <TextBlock
+                                Margin="0,6,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Icon FontSize=16" />
+                        </StackPanel>
+                        <StackPanel>
+                            <vio:CopyButton
+                                HorizontalAlignment="Center"
+                                Content="{x:Null}"
+                                ui:ControlHelper.IconFontSize="28"
+                                TextToCopy="helper 28">
+                                <vio:CopyButton.Icon>
+                                    <ui:SymbolIcon Symbol="Copy24" />
+                                </vio:CopyButton.Icon>
+                            </vio:CopyButton>
+                            <TextBlock
+                                Margin="0,6,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="no local → 28" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Content FontSize vs IconFontSize" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Button FontSize styles the label; ControlHelper.IconFontSize styles the icon independently."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            Appearance="Primary"
+                            Content="Copy"
+                            FontSize="11"
+                            ui:ControlHelper.IconFontSize="22"
+                            TextToCopy="small text large icon">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Copy24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            Appearance="Primary"
+                            Content="Copy"
+                            FontSize="18"
+                            ui:ControlHelper.IconFontSize="12"
+                            TextToCopy="large text small icon">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Copy24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                        <vio:CopyButton
+                            Appearance="Secondary"
+                            Content="Copy link"
+                            FontSize="13"
+                            ui:ControlHelper.IconFontSize="16"
+                            TextToCopy="balanced">
+                            <vio:CopyButton.Icon>
+                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="IconFontFamily + SuccessGlyph" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Override icon font family / success glyph. Success animation uses the same IconFontSize."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            SuccessGlyph="&#xE8FB;"
+                            ui:ControlHelper.IconFontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            ui:ControlHelper.IconFontSize="20"
+                            TextToCopy="AcceptMedium-style success" />
+                        <vio:CopyButton
+                            Content="{x:Null}"
+                            SuccessGlyph="&#xE73E;"
+                            ui:ControlHelper.IconFontSize="24"
+                            TextToCopy="Fluent clipboard">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Clipboard24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Custom click / Command" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Leave TextToCopy empty and handle clipboard in Click (or bind Command). Animation still plays; rapid clicks are throttled."
                         TextWrapping="Wrap" />
                     <ui:TextBox
                         x:Name="CustomTextBox"
                         Margin="0,0,0,12"
                         Text="Custom clipboard payload" />
-                    <vio:CopyButton Click="CustomCopyButton_Click" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:CopyButton
+                            Margin="0,0,8,0"
+                            Click="CustomCopyButton_Click"
+                            Content="Copy text"
+                            FontSize="12"
+                            ui:ControlHelper.IconFontSize="16">
+                            <vio:CopyButton.Icon>
+                                <ui:SymbolIcon Symbol="Copy24" />
+                            </vio:CopyButton.Icon>
+                        </vio:CopyButton>
+                        <vio:CopyButton Click="CustomCopyButton_Click" />
+                    </StackPanel>
                 </StackPanel>
             </Border>
 
@@ -188,6 +403,7 @@
                             <vio:CopyButton
                                 HorizontalAlignment="Right"
                                 Appearance="Secondary"
+                                ui:ControlHelper.IconFontSize="14"
                                 TextToCopy="#FF0078D4" />
                         </Grid>
                     </Border>

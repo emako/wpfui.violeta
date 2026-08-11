@@ -120,7 +120,7 @@
                             Content="Open below"
                             Icon="{ui:SymbolIcon ChevronDown24}">
                             <ui:Button.ContextMenu>
-                                <ContextMenu>
+                                <ContextMenu ui:ControlHelper.IconFontSize="18">
                                     <ui:MenuItem Header="New" Icon="{ui:SymbolIcon Document24}" />
                                     <ui:MenuItem Header="Open..." Icon="{ui:SymbolIcon FolderOpen24}" />
                                     <ui:MenuItem Header="Save" Icon="{ui:SymbolIcon Save24}" />
