@@ -90,7 +90,7 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItemPresenter));
+        Border.CornerRadiusProperty.AddOwner(typeof(NavigationViewItemPresenter));
 
     public CornerRadius CornerRadius
     {

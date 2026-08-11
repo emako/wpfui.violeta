@@ -1,6 +1,7 @@
 #pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
 
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -57,7 +58,7 @@ partial class SplitView
     /// Identifies the CornerRadius dependency property.
     /// </summary>
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(SplitView));
+        Border.CornerRadiusProperty.AddOwner(typeof(SplitView));
 
     /// <summary>
     /// Gets or sets the radius for the corners of the control's border.

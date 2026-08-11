@@ -19,7 +19,7 @@ public class FlyoutPresenter : ContentControl
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(FlyoutPresenter));
+        Border.CornerRadiusProperty.AddOwner(typeof(FlyoutPresenter));
 
     public CornerRadius CornerRadius
     {

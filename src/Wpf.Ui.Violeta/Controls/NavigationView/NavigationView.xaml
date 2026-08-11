@@ -83,7 +83,7 @@
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForeground}" />
         <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewToggleBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource NavigationViewItemButtonMargin}" />
-        <Setter Property="helpers:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="helpers:FocusVisualHelper.FocusVisualMargin" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -94,7 +94,7 @@
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="{TemplateBinding helpers:ControlHelper.CornerRadius}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}"
                         SnapsToDevicePixels="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -194,7 +194,7 @@
         <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewToggleBorderThickness}" />
         <Setter Property="Padding" Value="{DynamicResource NavigationViewItemButtonMargin}" />
         <Setter Property="Content" Value="&#xF690;" />
-        <Setter Property="helpers:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="helpers:FocusVisualHelper.FocusVisualMargin" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -205,7 +205,7 @@
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="Stretch"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="{TemplateBinding helpers:ControlHelper.CornerRadius}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}"
                         SnapsToDevicePixels="True">
                         <!--  Icon column width = MinWidth (PaneToggleButtonWidth), same as hamburger  -->
                         <Border Width="{TemplateBinding MinWidth}">
@@ -281,7 +281,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Margin" Value="4,2" />
         <Setter Property="Content" Value="&#xF15C;" />
-        <Setter Property="helpers:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource {x:Static SystemParameters.FocusVisualStyleKey}}" />
         <Setter Property="helpers:FocusVisualHelper.FocusVisualMargin" Value="0" />
         <Setter Property="Template">
@@ -290,7 +290,7 @@
                     <Border
                         x:Name="RootGrid"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="{TemplateBinding helpers:ControlHelper.CornerRadius}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}"
                         SnapsToDevicePixels="True">
                         <ui:FontIcon
                             x:Name="Content"

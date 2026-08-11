@@ -341,7 +341,7 @@ public static class TabItemHelper
             scaleFactor = transformToDevice.M11;
 #endif
             var height = tabItem.ActualHeight;
-            var popupRadius = ControlHelper.GetCornerRadius(tabItem);
+            var popupRadius = (CornerRadius)tabItem.GetValue(Border.CornerRadiusProperty);
             var leftCorner = popupRadius.TopLeft;
             var rightCorner = popupRadius.TopRight;
 

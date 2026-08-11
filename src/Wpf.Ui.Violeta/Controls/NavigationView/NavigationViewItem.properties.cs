@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Windows;
+using System.Windows.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -208,7 +209,7 @@ partial class NavigationViewItem
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItem));
+        Border.CornerRadiusProperty.AddOwner(typeof(NavigationViewItem));
 
     public CornerRadius CornerRadius
     {

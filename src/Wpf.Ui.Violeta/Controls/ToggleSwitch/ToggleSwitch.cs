@@ -259,7 +259,7 @@ public class ToggleSwitch : Control
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(ToggleSwitch));
+        Border.CornerRadiusProperty.AddOwner(typeof(ToggleSwitch));
 
     public CornerRadius CornerRadius
     {

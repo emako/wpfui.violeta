@@ -64,7 +64,7 @@
         <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
         <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
         <Setter Property="MinWidth" Value="180" />
-        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
@@ -95,7 +95,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}" />
+                                CornerRadius="{TemplateBinding Border.CornerRadius}" />
                             <Grid Grid.Column="0" Grid.ColumnSpan="2">
                                 <TextBox
                                     x:Name="PART_TextBox"
@@ -252,7 +252,7 @@
                                 VerticalAlignment="Stretch"
                                 BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
                                 BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
-                                CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
+                                CornerRadius="{TemplateBinding Border.CornerRadius}"
                                 IsHitTestVisible="False" />
                         </Grid>
                     </StackPanel>

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,43 +6,6 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 public static class ControlHelper
 {
-    #region CornerRadius
-
-    /// <summary>
-    /// Gets the radius for the corners of the control's border.
-    /// </summary>
-    /// <param name="control">The element from which to read the property value.</param>
-    /// <returns>
-    /// The degree to which the corners are rounded, expressed as values of the CornerRadius
-    /// structure.
-    /// </returns>
-    public static CornerRadius GetCornerRadius(Control control)
-    {
-        return (CornerRadius)control.GetValue(CornerRadiusProperty);
-    }
-
-    /// <summary>
-    /// Sets the radius for the corners of the control's border.
-    /// </summary>
-    /// <param name="control">The element on which to set the attached property.</param>
-    /// <param name="value">The property value to set.</param>
-    public static void SetCornerRadius(Control control, CornerRadius value)
-    {
-        control.SetValue(CornerRadiusProperty, value);
-    }
-
-    /// <summary>
-    /// Identifies the CornerRadius dependency property.
-    /// </summary>
-    public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.RegisterAttached(
-            "CornerRadius",
-            typeof(CornerRadius),
-            typeof(ControlHelper),
-            null);
-
-    #endregion CornerRadius
-
     #region Header
 
     /// <summary>

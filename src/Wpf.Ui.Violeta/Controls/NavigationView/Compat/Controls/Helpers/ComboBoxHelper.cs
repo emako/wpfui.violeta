@@ -107,7 +107,7 @@ public sealed class ComboBoxHelper
 
     private static void UpdateCornerRadius(ComboBox comboBox, bool isDropDownOpen)
     {
-        var textBoxRadius = ControlHelper.GetCornerRadius(comboBox);
+        var textBoxRadius = (CornerRadius)comboBox.GetValue(Border.CornerRadiusProperty);
         var popupRadius = (CornerRadius)ResourceLookup(comboBox, c_overlayCornerRadiusKey);
 
         if (isDropDownOpen)
@@ -130,7 +130,7 @@ public sealed class ComboBoxHelper
         {
             if (GetTemplateChild<TextBox>(c_editableTextName, comboBox) is TextBox textBox)
             {
-                ControlHelper.SetCornerRadius(textBox, textBoxRadius);
+                textBox.SetValue(Border.CornerRadiusProperty, textBoxRadius);
             }
         }
         else

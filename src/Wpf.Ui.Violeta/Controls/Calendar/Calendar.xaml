@@ -15,7 +15,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CalendarItem}">
@@ -40,7 +40,7 @@
                                 <Setter Property="Background" Value="{DynamicResource CalendarViewNavigationButtonBackground}" />
                                 <Setter Property="Foreground" Value="{DynamicResource CalendarViewNavigationButtonForeground}" />
                                 <Setter Property="Padding" Value="12,11.5,12,11.5" />
-                                <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+                                <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type Button}">
@@ -49,11 +49,11 @@
                                                 Background="{TemplateBinding Background}"
                                                 BorderBrush="{DynamicResource CalendarViewNavigationButtonBorderBrush}"
                                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                                CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}">
+                                                CornerRadius="{TemplateBinding Border.CornerRadius}">
                                                 <Border
                                                     x:Name="Border"
                                                     Padding="{TemplateBinding Padding}"
-                                                    CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}">
+                                                    CornerRadius="{TemplateBinding Border.CornerRadius}">
                                                     <primitives:ContentPresenterEx
                                                         x:Name="Text"
                                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -94,7 +94,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}">
+                            CornerRadius="{TemplateBinding Border.CornerRadius}">
                             <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -704,14 +704,13 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Calendar}">
                     <StackPanel x:Name="PART_Root" SnapsToDevicePixels="True">
                         <CalendarItem
                             x:Name="PART_CalendarItem"
-                            chelper:ControlHelper.CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -738,7 +737,7 @@
                     <primitives:ThemeShadowChrome
                         x:Name="Shdw"
                         chelper:OpeningAnimationHelper.Storyboard="{DynamicResource CalendarDatePickerOpeningStoryboard}"
-                        CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}"
                         IsShadowEnabled="True"
                         SnapsToDevicePixels="True">
                         <primitives:ThemeShadowChrome.Resources>
@@ -754,7 +753,6 @@
                         <StackPanel x:Name="PART_Root">
                             <CalendarItem
                                 x:Name="PART_CalendarItem"
-                                chelper:ControlHelper.CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"

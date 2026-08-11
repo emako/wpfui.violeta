@@ -91,7 +91,7 @@ public class InfoBadge : Control
     /// Identifies the CornerRadius dependency property.
     /// </summary>
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(InfoBadge));
+        Border.CornerRadiusProperty.AddOwner(typeof(InfoBadge));
 
     /// <summary>
     /// Gets or sets the radius for the corners of the control's border.

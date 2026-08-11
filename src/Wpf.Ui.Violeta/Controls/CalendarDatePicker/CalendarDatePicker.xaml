@@ -1,7 +1,6 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:chelper="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
 
@@ -97,7 +96,7 @@
         <Setter Property="Padding" Value="{DynamicResource TextControlThemePadding}" />
         <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
         <Setter Property="MinWidth" Value="{DynamicResource TextControlThemeMinWidth}" />
-        <Setter Property="chelper:ControlHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="local:CalendarDatePickerScrollBlock.IsEnabled" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
@@ -118,7 +117,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}" />
+                            CornerRadius="{TemplateBinding Border.CornerRadius}" />
                         <DatePickerTextBox
                             x:Name="PART_TextBox"
                             Grid.Column="0"
@@ -179,7 +178,7 @@
                             VerticalAlignment="Stretch"
                             BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
                             BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
-                            CornerRadius="{TemplateBinding chelper:ControlHelper.CornerRadius}"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
                             IsHitTestVisible="False" />
                     </Grid>
                     <ControlTemplate.Triggers>
