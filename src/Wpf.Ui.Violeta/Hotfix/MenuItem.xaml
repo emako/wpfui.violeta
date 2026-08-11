@@ -53,8 +53,13 @@
                     PlacementTarget="{Binding ElementName=Border}"
                     PopupAnimation="None"
                     VerticalOffset="1">
-                    <Grid x:Name="SubmenuBorder" Margin="12,0,12,18">
+                    <!--
+                        Margin must stay on the chrome Borders (not Popup.Child root),
+                        same as upstream — otherwise placement math drifts.
+                    -->
+                    <Grid>
                         <Border
+                            Margin="12,0,12,18"
                             Background="{DynamicResource FlyoutBackground}"
                             BorderBrush="{DynamicResource FlyoutBorderBrush}"
                             BorderThickness="1"
@@ -69,6 +74,8 @@
                             </Border.Effect>
                         </Border>
                         <Border
+                            x:Name="SubmenuBorder"
+                            Margin="12,0,12,18"
                             Padding="0,3,0,3"
                             Background="{DynamicResource FlyoutBackground}"
                             BorderBrush="{DynamicResource FlyoutBorderBrush}"
@@ -170,13 +177,15 @@
                 Grid.Row="1"
                 AllowsTransparency="True"
                 Focusable="False"
+                HorizontalOffset="-12"
                 IsOpen="{TemplateBinding IsSubmenuOpen}"
                 Placement="Right"
-                PlacementTarget="{Binding ElementName=MenuItemContent}"
+                PlacementTarget="{Binding ElementName=Border}"
                 PopupAnimation="None"
-                VerticalOffset="-20">
-                <Grid x:Name="SubmenuBorder" Margin="12,10,12,30">
+                VerticalOffset="-10">
+                <Grid>
                     <Border
+                        Margin="12,10,12,30"
                         Background="{DynamicResource FlyoutBackground}"
                         BorderBrush="{DynamicResource FlyoutBorderBrush}"
                         BorderThickness="1"
@@ -191,6 +200,8 @@
                         </Border.Effect>
                     </Border>
                     <Border
+                        x:Name="SubmenuBorder"
+                        Margin="12,10,12,30"
                         Padding="0,3,0,3"
                         Background="{DynamicResource FlyoutBackground}"
                         BorderBrush="{DynamicResource FlyoutBorderBrush}"
@@ -329,8 +340,9 @@
                     PlacementTarget="{Binding ElementName=Border}"
                     PopupAnimation="None"
                     VerticalOffset="1">
-                    <Grid x:Name="SubmenuBorder" Margin="12,0,12,18">
+                    <Grid>
                         <Border
+                            Margin="12,0,12,18"
                             Background="{DynamicResource FlyoutBackground}"
                             BorderBrush="{DynamicResource FlyoutBorderBrush}"
                             BorderThickness="1"
@@ -345,6 +357,8 @@
                             </Border.Effect>
                         </Border>
                         <Border
+                            x:Name="SubmenuBorder"
+                            Margin="12,0,12,18"
                             Padding="0,3,0,3"
                             Background="{DynamicResource FlyoutBackground}"
                             BorderBrush="{DynamicResource FlyoutBorderBrush}"
@@ -450,13 +464,15 @@
                 Grid.Row="1"
                 AllowsTransparency="True"
                 Focusable="False"
+                HorizontalOffset="-12"
                 IsOpen="{TemplateBinding IsSubmenuOpen}"
                 Placement="Right"
-                PlacementTarget="{Binding ElementName=MenuItemContent}"
+                PlacementTarget="{Binding ElementName=Border}"
                 PopupAnimation="None"
-                VerticalOffset="-20">
-                <Grid x:Name="SubmenuBorder" Margin="12,10,12,18">
+                VerticalOffset="-10">
+                <Grid>
                     <Border
+                        Margin="12,10,12,18"
                         Background="{DynamicResource FlyoutBackground}"
                         BorderBrush="{DynamicResource FlyoutBorderBrush}"
                         BorderThickness="1"
@@ -471,6 +487,8 @@
                         </Border.Effect>
                     </Border>
                     <Border
+                        x:Name="SubmenuBorder"
+                        Margin="12,10,12,18"
                         Padding="0,3,0,3"
                         Background="{DynamicResource FlyoutBackground}"
                         BorderBrush="{DynamicResource FlyoutBorderBrush}"
