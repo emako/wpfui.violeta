@@ -83,6 +83,13 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
                 dialog.MaximizeButtonVisibility = Visibility.Visible;
                 dialog.CloseButtonVisibility = Visibility.Visible;
                 break;
+
+            case "CustomChrome":
+                dialog.Title = "Custom Header / Footer";
+                dialog.TitleBarHeader = CreateDemoTitleBarHeader();
+                dialog.TitleBarFooter = CreateDemoTitleBarFooter();
+                dialog.CloseButtonVisibility = Visibility.Visible;
+                break;
         }
 
         ShowAndReport(dialog);
@@ -125,6 +132,16 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         dialog.MoreButtonVisibility = ToVisibility(MoreButtonToggle.IsChecked);
         dialog.HelpButtonVisibility = ToVisibility(HelpButtonToggle.IsChecked);
 
+        if (TitleBarHeaderToggle.IsChecked == true)
+        {
+            dialog.TitleBarHeader = CreateDemoTitleBarHeader();
+        }
+
+        if (TitleBarFooterToggle.IsChecked == true)
+        {
+            dialog.TitleBarFooter = CreateDemoTitleBarFooter();
+        }
+
         if (dialog.MoreButtonVisibility == Visibility.Visible)
         {
             dialog.MoreButtonContextMenu = CreateDemoMoreMenu();
@@ -151,6 +168,47 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         menu.Items.Add(new Separator());
         menu.Items.Add(new MenuItem { Header = "About" });
         return menu;
+    }
+
+    private static object CreateDemoTitleBarHeader()
+    {
+        return new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = new Thickness(4, 0, 0, 0),
+            Children =
+            {
+                new TextBlock
+                {
+                    Text = "CustomHeader",
+                    VerticalAlignment = VerticalAlignment.Center,
+                    FontWeight = FontWeights.SemiBold,
+                },
+                new TextBlock
+                {
+                    Text = " · demo",
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Opacity = 0.7,
+                    Margin = new Thickness(4, 0, 0, 0),
+                },
+            },
+        };
+    }
+
+    private static object CreateDemoTitleBarFooter()
+    {
+        var label = new TextBlock
+        {
+            Text = "CustomFooter",
+            FontSize = 12,
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = new Thickness(0, 0, 8, 0),
+            Opacity = 0.85,
+        };
+
+        System.Windows.Shell.WindowChrome.SetIsHitTestVisibleInChrome(label, true);
+        return label;
     }
 
     private void ShowAndReport(ContentWindow dialog)

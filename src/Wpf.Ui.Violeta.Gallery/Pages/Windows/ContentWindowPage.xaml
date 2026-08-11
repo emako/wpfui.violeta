@@ -122,6 +122,12 @@
                             <vio:FormItem Label="HelpButtonVisibility">
                                 <ui:ToggleSwitch x:Name="HelpButtonToggle" IsChecked="False" />
                             </vio:FormItem>
+                            <vio:FormItem Label="TitleBarHeader (CustomHeader)">
+                                <ui:ToggleSwitch x:Name="TitleBarHeaderToggle" IsChecked="False" />
+                            </vio:FormItem>
+                            <vio:FormItem Label="TitleBarFooter (CustomFooter)">
+                                <ui:ToggleSwitch x:Name="TitleBarFooterToggle" IsChecked="False" />
+                            </vio:FormItem>
                         </vio:FormGroup>
 
                         <vio:FormItem NoLabel="True">
@@ -183,6 +189,11 @@
                             Click="OpenPreset_Click"
                             Content="CenterScreen"
                             Tag="CenterScreen" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="OpenPreset_Click"
+                            Content="Custom Header / Footer"
+                            Tag="CustomChrome" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

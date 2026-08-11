@@ -56,16 +56,16 @@
 
                             <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
                                     <!--  BackButton  -->
                                     <ColumnDefinition Width="Auto" />
                                     <!--  PaneToggleButton / MenuButton  -->
                                     <ColumnDefinition Width="Auto" />
                                     <!--  Icon  -->
-                                    <ColumnDefinition Width="*" MinWidth="0" />
-                                    <!--  Title  -->
                                     <ColumnDefinition Width="Auto" />
-                                    <!--  CustomHeaderContent  -->
+                                    <!--  CustomHeaderContent — before Title so it stays left-aligned when Title is collapsed  -->
+                                    <ColumnDefinition Width="Auto" />
+                                    <!--  Title (flex)  -->
+                                    <ColumnDefinition Width="*" MinWidth="0" />
                                 </Grid.ColumnDefinitions>
 
                                 <local:TitleBarButton
@@ -127,18 +127,19 @@
                                     </Image.Style>
                                 </Image>
 
+                                <ContentControl
+                                    x:Name="PART_CustomHeaderContentControl"
+                                    Grid.Column="3"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding CustomHeader}"
+                                    WindowChrome.IsHitTestVisibleInChrome="True" />
+
                                 <TextBlock
                                     x:Name="PART_Title"
-                                    Grid.Column="3"
+                                    Grid.Column="4"
                                     HorizontalAlignment="Stretch"
                                     Style="{StaticResource TitleBarTitleTextBlockStyle}"
                                     Text="{TemplateBinding Title}" />
-
-                                <ContentControl
-                                    x:Name="PART_CustomHeaderContentControl"
-                                    Grid.Column="4"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding CustomHeader}" />
                             </Grid>
 
                             <ContentPresenter
