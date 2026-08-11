@@ -7,7 +7,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Wpf.Ui.Violeta.Controls.Compat;
 using static CppWinRTHelpers;
-using ControlHelper = Wpf.Ui.Violeta.Controls.Compat.ControlHelper;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -91,7 +90,7 @@ public class NavigationViewItemPresenter : ContentControl, IControlProtected
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItemPresenter));
+        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItemPresenter));
 
     public CornerRadius CornerRadius
     {

@@ -5,12 +5,9 @@ using Wpf.Ui.Violeta.Controls;
 
 namespace Wpf.Ui.Violeta.Automation.Peers;
 
-public class ToggleSwitchAutomationPeer : FrameworkElementAutomationPeer, IToggleProvider
+public class ToggleSwitchAutomationPeer(ToggleSwitch owner)
+    : FrameworkElementAutomationPeer(owner), IToggleProvider
 {
-    public ToggleSwitchAutomationPeer(ToggleSwitch owner) : base(owner)
-    {
-    }
-
     public override object GetPattern(PatternInterface patternInterface)
     {
         if (patternInterface == PatternInterface.Toggle)

@@ -10,7 +10,6 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using Wpf.Ui.Violeta.Automation.Peers;
 using Wpf.Ui.Violeta.Controls.Compat;
-using Wpf.Ui.Violeta.Controls.Primitives;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -74,7 +73,6 @@ public class ToggleSwitch : Control
 
     #region Header
 
-
     public object Header
     {
         get => GetValue(HeaderProperty);
@@ -97,7 +95,7 @@ public class ToggleSwitch : Control
     {
     }
 
-    #endregion
+    #endregion Header
 
     #region HeaderTemplate
 
@@ -108,7 +106,7 @@ public class ToggleSwitch : Control
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty =
-        ControlHelper.HeaderTemplateProperty.AddOwner(
+        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.HeaderTemplateProperty.AddOwner(
             typeof(ToggleSwitch),
             new FrameworkPropertyMetadata(OnHeaderTemplateChanged));
 
@@ -117,7 +115,7 @@ public class ToggleSwitch : Control
         ((ToggleSwitch)d).UpdateHeaderContentPresenterVisibility();
     }
 
-    #endregion
+    #endregion HeaderTemplate
 
     #region IsOn
 
@@ -144,7 +142,7 @@ public class ToggleSwitch : Control
         control.UpdateVisualStates(true);
     }
 
-    #endregion
+    #endregion IsOn
 
     #region OffContent
 
@@ -170,7 +168,7 @@ public class ToggleSwitch : Control
     {
     }
 
-    #endregion
+    #endregion OffContent
 
     #region OffContentTemplate
 
@@ -187,7 +185,7 @@ public class ToggleSwitch : Control
             typeof(ToggleSwitch),
             null);
 
-    #endregion
+    #endregion OffContentTemplate
 
     #region OnContent
 
@@ -213,7 +211,7 @@ public class ToggleSwitch : Control
     {
     }
 
-    #endregion
+    #endregion OnContent
 
     #region OnContentTemplate
 
@@ -230,7 +228,7 @@ public class ToggleSwitch : Control
             typeof(ToggleSwitch),
             null);
 
-    #endregion
+    #endregion OnContentTemplate
 
     #region UseSystemFocusVisuals
 
@@ -243,7 +241,7 @@ public class ToggleSwitch : Control
         set => SetValue(UseSystemFocusVisualsProperty, value);
     }
 
-    #endregion
+    #endregion UseSystemFocusVisuals
 
     #region FocusVisualMargin
 
@@ -256,12 +254,12 @@ public class ToggleSwitch : Control
         set => SetValue(FocusVisualMarginProperty, value);
     }
 
-    #endregion
+    #endregion FocusVisualMargin
 
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(ToggleSwitch));
+        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(ToggleSwitch));
 
     public CornerRadius CornerRadius
     {
@@ -269,7 +267,7 @@ public class ToggleSwitch : Control
         set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region IsRightAlignedCompact
 
@@ -282,7 +280,7 @@ public class ToggleSwitch : Control
         set => SetValue(IsRightAlignedCompactProperty, value);
     }
 
-    #endregion
+    #endregion IsRightAlignedCompact
 
     private ContentPresenter? HeaderContentPresenter { get; set; }
 

@@ -21,7 +21,7 @@ partial class NavigationView
     /// Identifies the CornerRadius dependency property.
     /// </summary>
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationView));
+        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationView));
 
     /// <summary>
     /// Gets or sets the radius for the corners of the control's border.

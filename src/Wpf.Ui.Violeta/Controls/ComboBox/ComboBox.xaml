@@ -7,8 +7,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
-    xmlns:helpers="clr-namespace:Wpf.Ui.Controls"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls">
 
     <!--
         WPF-UI ships ComboBoxPadding as 10,8,10,8 in ComboBox.xaml, which overrides the
@@ -243,7 +243,7 @@
                                             FontSize="{TemplateBinding FontSize}"
                                             Foreground="{DynamicResource TextControlPlaceholderForeground}"
                                             IsHitTestVisible="False"
-                                            Text="{Binding Path=(helpers:ComboBoxHelper.PlaceholderText), RelativeSource={RelativeSource TemplatedParent}}"
+                                            Text="{Binding Path=(ui:ControlHelper.PlaceholderText), RelativeSource={RelativeSource TemplatedParent}}"
                                             TextTrimming="CharacterEllipsis"
                                             Visibility="Collapsed" />
                                         <ContentPresenter
@@ -292,7 +292,7 @@
                                             FontSize="{TemplateBinding FontSize}"
                                             Foreground="{TemplateBinding Foreground}"
                                             IsReadOnly="{TemplateBinding IsReadOnly}"
-                                            PlaceholderText="{Binding Path=(helpers:ComboBoxHelper.PlaceholderText), RelativeSource={RelativeSource TemplatedParent}}"
+                                            PlaceholderText="{Binding Path=(ui:ControlHelper.PlaceholderText), RelativeSource={RelativeSource TemplatedParent}}"
                                             Style="{StaticResource DefaultComboBoxTextBoxStyle}" />
                                     </Grid>
                                 </Grid>

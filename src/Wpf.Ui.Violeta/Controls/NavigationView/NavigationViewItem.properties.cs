@@ -208,7 +208,7 @@ partial class NavigationViewItem
     #region CornerRadius
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItem));
+        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.CornerRadiusProperty.AddOwner(typeof(NavigationViewItem));
 
     public CornerRadius CornerRadius
     {
