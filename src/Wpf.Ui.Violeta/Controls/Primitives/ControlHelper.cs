@@ -16,10 +16,12 @@ namespace Wpf.Ui.Controls;
 /// <see cref="PlaceholderTextProperty"/> reuses <see cref="TextBox.PlaceholderTextProperty"/> by
 /// calling <see cref="DependencyProperty.AddOwner(System.Type)"/>, so both properties share the
 /// same backing storage.
-/// <see cref="IconFontFamilyProperty"/> / <see cref="IconFontSizeProperty"/> allow a
-/// <see cref="ContextMenu"/>, <see cref="Menu"/>, <see cref="MenuItem"/>, or other control
-/// (for example <c>CopyButton</c>) to style icon glyphs independently of the host text.
-/// Clearing them restores the icons' original fonts / sizes.
+/// <para />
+/// <see cref="IconFontFamilyProperty"/> / <see cref="IconFontSizeProperty"/> style
+/// <see cref="MenuItem.Icon"/> glyphs on a <see cref="ContextMenu"/>, <see cref="Menu"/> or
+/// <see cref="MenuItem"/> independently of the menu text. Set them on the menu root to affect
+/// all items, or on a single <see cref="MenuItem"/> for that item (and its submenu).
+/// An explicit <c>FontSize</c> / <c>FontFamily</c> on the icon element itself always wins.
 /// </remarks>
 public static class ControlHelper
 {
@@ -113,7 +115,7 @@ public static class ControlHelper
             new PropertyMetadata(double.NaN));
 
     /// <summary>
-    /// Marks a container whose generation / Loaded / Icon hooks are already attached.
+    /// Marks a container whose generation / Loaded / Icon / Opened hooks are already attached.
     /// </summary>
     private static readonly DependencyProperty IsHookedProperty =
         DependencyProperty.RegisterAttached(
@@ -137,16 +139,28 @@ public static class ControlHelper
     {
         _ = e;
 
-        if (d is not ItemsControl container)
+        var family = GetIconFontFamily(d);
+        var size = GetIconFontSize(d);
+
+        // MenuItem: apply to THIS item's Icon first, then walk submenu children.
+        if (d is MenuItem menuItem)
         {
-            // Non-ItemsControl hosts (e.g. CopyButton) consume these APs via template bindings.
+            menuItem.SetValue(EffectiveFontFamilyProperty, family);
+            menuItem.SetValue(EffectiveFontSizeProperty, size);
+            HookContainer(menuItem);
+            ApplyIconAppearance(menuItem.Icon, family, size);
+            ApplyToContainer(menuItem, family, size);
             return;
         }
 
-        container.SetValue(EffectiveFontFamilyProperty, GetIconFontFamily(container));
-        container.SetValue(EffectiveFontSizeProperty, GetIconFontSize(container));
-        HookContainer(container);
-        ApplyToContainer(container, GetIconFontFamily(container), GetIconFontSize(container));
+        // ContextMenu / Menu: push into generated item containers.
+        if (d is ItemsControl container)
+        {
+            container.SetValue(EffectiveFontFamilyProperty, family);
+            container.SetValue(EffectiveFontSizeProperty, size);
+            HookContainer(container);
+            ApplyToContainer(container, family, size);
+        }
     }
 
     private static void HookContainer(ItemsControl container)
@@ -158,12 +172,42 @@ public static class ControlHelper
 
         container.SetValue(IsHookedProperty, true);
         container.ItemContainerGenerator.StatusChanged += OnGeneratorStatusChanged;
+        container.Loaded += OnContainerLoaded;
+
+        if (container is ContextMenu contextMenu)
+        {
+            contextMenu.Opened += OnContextMenuOpened;
+        }
 
         if (container is MenuItem menuItem)
         {
-            menuItem.Loaded += OnMenuItemLoaded;
             DependencyPropertyDescriptor.FromProperty(MenuItem.IconProperty, typeof(MenuItem))
                 .AddValueChanged(menuItem, OnMenuItemIconChanged);
+            menuItem.SubmenuOpened += OnSubmenuOpened;
+        }
+    }
+
+    private static void OnContainerLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is ItemsControl container)
+        {
+            RefreshContainer(container);
+        }
+    }
+
+    private static void OnContextMenuOpened(object sender, RoutedEventArgs e)
+    {
+        if (sender is ContextMenu contextMenu)
+        {
+            RefreshContainer(contextMenu);
+        }
+    }
+
+    private static void OnSubmenuOpened(object sender, RoutedEventArgs e)
+    {
+        if (sender is MenuItem menuItem)
+        {
+            RefreshContainer(menuItem);
         }
     }
 
@@ -172,21 +216,7 @@ public static class ControlHelper
         if (sender is ItemsControl container
             && container.ItemContainerGenerator.Status == System.Windows.Controls.Primitives.GeneratorStatus.ContainersGenerated)
         {
-            ApplyToContainer(
-                container,
-                (FontFamily?)container.GetValue(EffectiveFontFamilyProperty),
-                (double)container.GetValue(EffectiveFontSizeProperty));
-        }
-    }
-
-    private static void OnMenuItemLoaded(object sender, RoutedEventArgs e)
-    {
-        if (sender is MenuItem menuItem)
-        {
-            ApplyIconAppearance(
-                menuItem.Icon,
-                (FontFamily?)menuItem.GetValue(EffectiveFontFamilyProperty),
-                (double)menuItem.GetValue(EffectiveFontSizeProperty));
+            RefreshContainer(container);
         }
     }
 
@@ -201,23 +231,37 @@ public static class ControlHelper
         }
     }
 
+    private static void RefreshContainer(ItemsControl container)
+    {
+        ApplyToContainer(
+            container,
+            (FontFamily?)container.GetValue(EffectiveFontFamilyProperty),
+            (double)container.GetValue(EffectiveFontSizeProperty));
+    }
+
     private static void ApplyToContainer(ItemsControl container, FontFamily? font, double fontSize)
     {
-        for (var i = 0; i < container.Items.Count; i++)
+        var count = container.Items.Count;
+        for (var i = 0; i < count; i++)
         {
-            if (container.ItemContainerGenerator.ContainerFromIndex(i) is MenuItem menuItem)
+            // Direct MenuItem children are their own containers; data-templated items need the generator.
+            var containerFromIndex = container.ItemContainerGenerator.ContainerFromIndex(i);
+            var menuItem = containerFromIndex as MenuItem
+                           ?? container.Items[i] as MenuItem;
+
+            if (menuItem is not null)
             {
                 ApplyToMenuItem(menuItem, font, fontSize);
             }
         }
     }
 
-    private static void ApplyToMenuItem(MenuItem menuItem, FontFamily? font, double fontSize)
+    private static void ApplyToMenuItem(MenuItem menuItem, FontFamily? parentFont, double parentFontSize)
     {
         // Prefer values set directly on the MenuItem; otherwise inherit from the parent container.
-        var effectiveFont = GetIconFontFamily(menuItem) ?? font;
+        var effectiveFont = GetIconFontFamily(menuItem) ?? parentFont;
         var localSize = GetIconFontSize(menuItem);
-        var effectiveSize = !double.IsNaN(localSize) ? localSize : fontSize;
+        var effectiveSize = !double.IsNaN(localSize) ? localSize : parentFontSize;
 
         menuItem.SetValue(EffectiveFontFamilyProperty, effectiveFont);
         menuItem.SetValue(EffectiveFontSizeProperty, effectiveSize);
@@ -248,12 +292,16 @@ public static class ControlHelper
             return;
         }
 
-        var original = OriginalStyles.GetValue(node, static d => CaptureOriginal(d));
+        var original = OriginalStyles.GetValue(node, static _ => new OriginalIconStyle());
 
+        // FontFamily: skip when the icon already has a local value (explicit Icon wins).
         if (font is not null)
         {
-            SetFontFamily(node, font);
-            original.OverrodeFontFamily = true;
+            if (!HasLocalFontFamily(node))
+            {
+                SetFontFamily(node, font);
+                original.OverrodeFontFamily = true;
+            }
         }
         else if (original.OverrodeFontFamily)
         {
@@ -261,16 +309,20 @@ public static class ControlHelper
             original.OverrodeFontFamily = false;
         }
 
+        // FontSize: same local-value priority.
         if (!double.IsNaN(fontSize))
         {
-            if (!original.OverrodeFontSize)
+            if (!HasLocalFontSize(node))
             {
-                original.FontSize = ReadFontSize(node);
-                original.HasFontSize = true;
-            }
+                if (!original.OverrodeFontSize)
+                {
+                    original.FontSize = ReadFontSize(node);
+                    original.HasFontSize = true;
+                }
 
-            SetFontSize(node, fontSize);
-            original.OverrodeFontSize = true;
+                SetFontSize(node, fontSize);
+                original.OverrodeFontSize = true;
+            }
         }
         else if (original.OverrodeFontSize && original.HasFontSize)
         {
@@ -279,20 +331,36 @@ public static class ControlHelper
         }
     }
 
-    private static OriginalIconStyle CaptureOriginal(DependencyObject node) => new();
+    private static bool HasLocalFontFamily(DependencyObject node) =>
+        node switch
+        {
+            FontIcon => node.ReadLocalValue(FontIcon.FontFamilyProperty) != DependencyProperty.UnsetValue,
+            TextBlock => node.ReadLocalValue(TextBlock.FontFamilyProperty) != DependencyProperty.UnsetValue,
+            Control => node.ReadLocalValue(Control.FontFamilyProperty) != DependencyProperty.UnsetValue,
+            _ => true,
+        };
+
+    private static bool HasLocalFontSize(DependencyObject node) =>
+        node switch
+        {
+            FontIcon => node.ReadLocalValue(FontIcon.FontSizeProperty) != DependencyProperty.UnsetValue,
+            TextBlock => node.ReadLocalValue(TextBlock.FontSizeProperty) != DependencyProperty.UnsetValue,
+            Control => node.ReadLocalValue(Control.FontSizeProperty) != DependencyProperty.UnsetValue,
+            _ => true,
+        };
 
     private static void SetFontFamily(DependencyObject node, FontFamily font)
     {
         switch (node)
         {
             case FontIcon fontIcon:
-                fontIcon.FontFamily = font;
+                fontIcon.SetCurrentValue(FontIcon.FontFamilyProperty, font);
                 break;
             case TextBlock textBlock:
-                textBlock.FontFamily = font;
+                textBlock.SetCurrentValue(TextBlock.FontFamilyProperty, font);
                 break;
             case Control control:
-                control.FontFamily = font;
+                control.SetCurrentValue(Control.FontFamilyProperty, font);
                 break;
         }
     }
@@ -327,13 +395,13 @@ public static class ControlHelper
         switch (node)
         {
             case FontIcon fontIcon:
-                fontIcon.FontSize = fontSize;
+                fontIcon.SetCurrentValue(FontIcon.FontSizeProperty, fontSize);
                 break;
             case TextBlock textBlock:
-                textBlock.FontSize = fontSize;
+                textBlock.SetCurrentValue(TextBlock.FontSizeProperty, fontSize);
                 break;
             case Control control:
-                control.FontSize = fontSize;
+                control.SetCurrentValue(Control.FontSizeProperty, fontSize);
                 break;
         }
     }

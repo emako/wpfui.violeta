@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Menu"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -34,9 +34,9 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_31cf6f2636}}"
+                        Text="Menu uses ui:ControlHelper.IconFontSize=18 for top-level / submenu icons."
                         TextWrapping="Wrap" />
-                    <Menu FontSize="14">
+                    <Menu FontSize="14" ui:ControlHelper.IconFontSize="18">
                         <ui:MenuItem Header="File" Icon="{ui:SymbolIcon Document24}">
                             <ui:MenuItem Header="New" InputGestureText="CTRL+N" />
                             <ui:MenuItem Header="Open..." InputGestureText="CTRL+O" />
@@ -80,7 +80,10 @@
                                 <ui:MenuItem Header="Reset" InputGestureText="CTRL+0" />
                             </ui:MenuItem>
                             <ui:MenuItem Header="Layout">
-                                <ui:MenuItem Header="Single column" IsCheckable="True" IsChecked="True" />
+                                <ui:MenuItem
+                                    Header="Single column"
+                                    IsCheckable="True"
+                                    IsChecked="True" />
                                 <ui:MenuItem Header="Two columns" IsCheckable="True" />
                                 <ui:MenuItem Header="Three columns" IsCheckable="True" />
                             </ui:MenuItem>
@@ -111,26 +114,29 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Open below the host like a MenuItem flyout. Hotfix splits DropShadow from menu content so glyphs stay sharp; no From=-90 slide covering the target. Nested items exercise submenu Popup templates."
+                        Text="Left: ContextMenu IconFontSize=20 (all icons). Middle item overrides to 12 via Icon FontSize (wins). Right DropDown unchanged."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <ui:Button
                             Margin="0,0,12,0"
                             Click="OnOpenContextMenuClick"
-                            Content="Open below"
+                            Content="IconFontSize on menu"
                             Icon="{ui:SymbolIcon ChevronDown24}">
                             <ui:Button.ContextMenu>
-                                <ContextMenu ui:ControlHelper.IconFontSize="18">
+                                <ContextMenu ui:ControlHelper.IconFontSize="20">
                                     <ui:MenuItem Header="New" Icon="{ui:SymbolIcon Document24}" />
                                     <ui:MenuItem Header="Open..." Icon="{ui:SymbolIcon FolderOpen24}" />
-                                    <ui:MenuItem Header="Save" Icon="{ui:SymbolIcon Save24}" />
-                                    <ui:MenuItem Header="Share" Icon="{ui:SymbolIcon Share24}">
-                                        <ui:MenuItem Header="Copy link" />
-                                        <ui:MenuItem Header="Email" />
-                                        <ui:MenuItem Header="More">
-                                            <ui:MenuItem Header="Teams" />
-                                            <ui:MenuItem Header="Slack" />
-                                        </ui:MenuItem>
+                                    <ui:MenuItem Header="Save (Icon FontSize=12 wins)">
+                                        <ui:MenuItem.Icon>
+                                            <ui:SymbolIcon FontSize="12" Symbol="Save24" />
+                                        </ui:MenuItem.Icon>
+                                    </ui:MenuItem>
+                                    <ui:MenuItem
+                                        ui:ControlHelper.IconFontSize="28"
+                                        Header="Share (item = 28)"
+                                        Icon="{ui:SymbolIcon Share24}">
+                                        <ui:MenuItem Header="Copy link" Icon="{ui:SymbolIcon Copy24}" />
+                                        <ui:MenuItem Header="Email" Icon="{ui:SymbolIcon Share24}" />
                                     </ui:MenuItem>
                                     <Separator />
                                     <ui:MenuItem Header="Exit" />
@@ -175,7 +181,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Right-click the area below to open a standard ContextMenu at the pointer."
+                        Text="Right-click below. ContextMenu sets IconFontSize=22 for all item icons."
                         TextWrapping="Wrap" />
                     <Border
                         Height="96"
@@ -184,10 +190,19 @@
                         BorderThickness="1"
                         CornerRadius="8">
                         <Border.ContextMenu>
-                            <ContextMenu>
-                                <ui:MenuItem Header="Cut" Icon="{ui:SymbolIcon Cut24}" InputGestureText="CTRL+X" />
-                                <ui:MenuItem Header="Copy" Icon="{ui:SymbolIcon Copy24}" InputGestureText="CTRL+C" />
-                                <ui:MenuItem Header="Paste" Icon="{ui:SymbolIcon ClipboardPaste24}" InputGestureText="CTRL+V" />
+                            <ContextMenu ui:ControlHelper.IconFontSize="22">
+                                <ui:MenuItem
+                                    Header="Cut"
+                                    Icon="{ui:SymbolIcon Cut24}"
+                                    InputGestureText="CTRL+X" />
+                                <ui:MenuItem
+                                    Header="Copy"
+                                    Icon="{ui:SymbolIcon Copy24}"
+                                    InputGestureText="CTRL+C" />
+                                <ui:MenuItem
+                                    Header="Paste"
+                                    Icon="{ui:SymbolIcon ClipboardPaste24}"
+                                    InputGestureText="CTRL+V" />
                                 <ui:MenuItem Header="Paste special">
                                     <ui:MenuItem Header="Keep text only" />
                                     <ui:MenuItem Header="Merge formatting" />
