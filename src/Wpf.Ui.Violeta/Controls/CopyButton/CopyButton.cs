@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Media.Animation;
 
@@ -17,6 +18,7 @@ public class CopyButton : Wpf.Ui.Controls.Button
 {
     private FrameworkElement? _rootGrid;
     private Storyboard? _successAnimation;
+    private bool _isAnimating;
 
     /// <summary>Identifies the <see cref="TextToCopy"/> dependency property.</summary>
     public static readonly DependencyProperty TextToCopyProperty =
@@ -65,14 +67,22 @@ public class CopyButton : Wpf.Ui.Controls.Button
     public override void OnApplyTemplate()
     {
         Click -= OnCopyButtonClick;
+
+        if (_successAnimation is not null)
+        {
+            _successAnimation.Completed -= OnSuccessAnimationCompleted;
+        }
+
         base.OnApplyTemplate();
 
+        _isAnimating = false;
         _rootGrid = GetTemplateChild("PART_RootGrid") as FrameworkElement;
         _successAnimation = null;
 
         if (_rootGrid?.Resources["CopyToClipboardSuccessAnimation"] is Storyboard storyboard)
         {
             _successAnimation = storyboard.IsFrozen ? storyboard.Clone() : storyboard;
+            _successAnimation.Completed += OnSuccessAnimationCompleted;
         }
 
         Click += OnCopyButtonClick;
@@ -80,16 +90,22 @@ public class CopyButton : Wpf.Ui.Controls.Button
 
     /// <summary>
     /// Plays the copy-success animation (copy icon shrinks out, checkmark pops in, then restores).
+    /// If the animation is already running, this is a no-op so rapid clicks do not restart it.
     /// </summary>
     public void PlaySuccessAnimation()
     {
-        if (_rootGrid is null || _successAnimation is null)
+        if (_rootGrid is null || _successAnimation is null || _isAnimating)
         {
             return;
         }
 
-        _successAnimation.Stop(_rootGrid);
+        _isAnimating = true;
         _successAnimation.Begin(_rootGrid, true);
+    }
+
+    private void OnSuccessAnimationCompleted(object? sender, EventArgs e)
+    {
+        _isAnimating = false;
     }
 
     private void OnCopyButtonClick(object sender, RoutedEventArgs e)
