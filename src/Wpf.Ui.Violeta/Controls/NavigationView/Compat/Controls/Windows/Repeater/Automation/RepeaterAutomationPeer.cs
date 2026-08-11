@@ -1,29 +1,25 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 using System.Windows.Automation.Peers;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-public class RepeaterAutomationPeer : FrameworkElementAutomationPeer
+public class RepeaterAutomationPeer(FrameworkElement owner) : FrameworkElementAutomationPeer(owner)
 {
-    public RepeaterAutomationPeer(FrameworkElement owner) :
-        base(owner)
-    {
-    }
-
     protected override List<AutomationPeer> GetChildrenCore()
     {
         var repeater = (ItemsRepeater)Owner;
         var childrenPeers = base.GetChildrenCore();
-        if (childrenPeers == null) return null;
+        if (childrenPeers == null) return null!;
         int peerCount = childrenPeers.Count;
 
-        List<Tuple<int /* index */, AutomationPeer>> realizedPeers = new List<Tuple<int, AutomationPeer>>();
-        realizedPeers.Capacity = peerCount;
+        List<Tuple<int /* index */, AutomationPeer>> realizedPeers = new()
+        {
+            Capacity = peerCount
+        };
 
         // Filter out unrealized peers.
         {
@@ -58,6 +54,7 @@ public class RepeaterAutomationPeer : FrameworkElementAutomationPeer
         return AutomationControlType.Group;
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private UIElement GetElement(AutomationPeer childPeer, ItemsRepeater repeater)
     {
         var childElement = (DependencyObject)((FrameworkElementAutomationPeer)childPeer).Owner;

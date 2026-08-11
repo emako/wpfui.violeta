@@ -1,6 +1,5 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -11,6 +10,7 @@ internal class IndexRange
     {
     }
 
+    [SuppressMessage("Style", "IDE0180:Use tuple to swap values")]
     public IndexRange(int begin, int end)
     {
         // Accept out of order begin/end pairs, just swap them.

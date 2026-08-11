@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,7 +85,7 @@ public class SimpleStackPanel : Panel
     /// <returns>The System.Windows.Size that represents the desired size of the element.</returns>
     protected override Size MeasureOverride(Size constraint)
     {
-        Size stackDesiredSize = new Size();
+        Size stackDesiredSize = new();
         UIElementCollection children = InternalChildren;
         Size layoutSlotSize = constraint;
         bool fHorizontal = Orientation == Orientation.Horizontal;
@@ -155,7 +153,7 @@ public class SimpleStackPanel : Panel
     {
         UIElementCollection children = InternalChildren;
         bool fHorizontal = Orientation == Orientation.Horizontal;
-        Rect rcChild = new Rect(arrangeSize);
+        Rect rcChild = new(arrangeSize);
         double previousChildSize = 0.0;
         double spacing = Spacing;
 

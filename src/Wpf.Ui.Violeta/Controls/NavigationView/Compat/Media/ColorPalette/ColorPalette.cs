@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Windows.Media;
@@ -16,10 +14,8 @@ internal class ColorPalette
 
     public ColorPalette(int steps, IColorPaletteEntry baseColor)
     {
-        if (baseColor == null)
-        {
-            throw new ArgumentNullException("baseColor");
-        }
+        _ = baseColor ?? throw new ArgumentNullException(nameof(baseColor));
+
         if (_steps <= 0)
         {
             throw new ArgumentException("steps must > 0");
@@ -30,10 +26,10 @@ internal class ColorPalette
 
         var scale = GetPaletteScale();
 
-        _palette = new List<ColorPaletteEntry>(_steps);
+        _palette = [with(_steps)];
         for (int i = 0; i < _steps; i++)
         {
-            var c = scale.GetColor((double)i / (double)(_steps - 1), _interpolationMode);
+            var c = scale.GetColor(i / (double)(_steps - 1), _interpolationMode);
             _palette.Add(new ColorPaletteEntry(c));
         }
     }
@@ -75,7 +71,7 @@ internal class ColorPalette
         var baseColorHSL = ColorUtils.RGBToHSL(baseColorRGB);
         var baseColorNormalized = new NormalizedRGB(baseColorRGB);
 
-        var baseScale = new ColorScale(new Color[] { _scaleColorLight, baseColorRGB, _scaleColorDark, });
+        var baseScale = new ColorScale([_scaleColorLight, baseColorRGB, _scaleColorDark,]);
 
         var trimmedScale = baseScale.Trim(_clipLight, 1.0 - _clipDark);
         var trimmedLight = new NormalizedRGB(trimmedScale.GetColor(0, _interpolationMode));
@@ -114,7 +110,7 @@ internal class ColorPalette
             adjustedDark = ColorUtils.InterpolateColor(adjustedDark, overlay, _overlayDark, _interpolationMode);
         }
 
-        var finalScale = new ColorScale(new Color[] { adjustedLight.Denormalize(), baseColorRGB, adjustedDark.Denormalize() });
+        var finalScale = new ColorScale([adjustedLight.Denormalize(), baseColorRGB, adjustedDark.Denormalize()]);
         return finalScale;
     }
 }

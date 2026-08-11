@@ -45,10 +45,7 @@ public static class VisualStates
 
     public static FrameworkElement GetImplementationRoot(DependencyObject dependencyObject)
     {
-        if (dependencyObject is null)
-        {
-            throw new ArgumentNullException(nameof(dependencyObject));
-        }
+        _ = dependencyObject ?? throw new ArgumentNullException(nameof(dependencyObject));
 
         return VisualTreeHelper.GetChildrenCount(dependencyObject) == 1
             ? VisualTreeHelper.GetChild(dependencyObject, 0) as FrameworkElement

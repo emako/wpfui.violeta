@@ -1,11 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Diagnostics;
 using System;
 using System.Runtime.InteropServices;
 using static Wpf.Ui.Violeta.Win32.User32;
-
-#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -37,30 +33,16 @@ public class POINT
 
 // NOTE:  this replaces the RECT struct in NativeMethodsCLR.cs because it adds an extra method IsEmpty
 [StructLayout(LayoutKind.Sequential)]
-public struct RECT
+public struct RECT(int left, int top, int right, int bottom)
 {
-    public int left;
-    public int top;
-    public int right;
-    public int bottom;
+    public int left = left;
+    public int top = top;
+    public int right = right;
+    public int bottom = bottom;
 
-    public RECT(int left, int top, int right, int bottom)
-    {
-        this.left = left;
-        this.top = top;
-        this.right = right;
-        this.bottom = bottom;
-    }
+    public readonly int Width => right - left;
 
-    public int Width
-    {
-        get { return right - left; }
-    }
-
-    public int Height
-    {
-        get { return bottom - top; }
-    }
+    public readonly int Height => bottom - top;
 
     public void Offset(int dx, int dy)
     {
@@ -70,7 +52,7 @@ public struct RECT
         bottom += dy;
     }
 
-    public bool IsEmpty
+    public readonly bool IsEmpty
     {
         get
         {
@@ -127,7 +109,7 @@ internal readonly partial struct HWND
 
     public static implicit operator IntPtr(HWND value) => value.Value;
 
-    public static explicit operator HWND(IntPtr value) => new HWND(value);
+    public static explicit operator HWND(IntPtr value) => new(value);
 
     public static bool operator ==(HWND left, HWND right) => left.Value == right.Value;
 
@@ -228,7 +210,7 @@ internal unsafe readonly partial struct PCWSTR
 
     public static explicit operator char*(PCWSTR value) => value.Value;
 
-    public static implicit operator PCWSTR(char* value) => new PCWSTR(value);
+    public static implicit operator PCWSTR(char* value) => new(value);
 
     public bool Equals(PCWSTR other) => this.Value == other.Value;
 
@@ -256,9 +238,9 @@ internal unsafe readonly partial struct PCWSTR
     /// Returns a <see langword="string"/> with a copy of this character array, up to the first null character (exclusive).
     /// </summary>
     /// <returns>A <see langword="string"/>, or <see langword="null"/> if <see cref="Value"/> is <see langword="null"/>.</returns>
-    public override string ToString() => this.Value is null ? null : new string(this.Value);
+    public override string ToString() => Value is null ? null! : new string(Value);
 
-    private string DebuggerDisplay => this.ToString();
+    private string DebuggerDisplay => ToString();
 }
 
 [DebuggerDisplay("{Value}")]
@@ -275,7 +257,7 @@ internal readonly partial struct HICON
 
     public static implicit operator IntPtr(HICON value) => value.Value;
 
-    public static explicit operator HICON(IntPtr value) => new HICON(value);
+    public static explicit operator HICON(IntPtr value) => new(value);
 
     public static bool operator ==(HICON left, HICON right) => left.Value == right.Value;
 

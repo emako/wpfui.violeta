@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -22,7 +20,7 @@ internal class PopupRepositionHelper : IDisposable
         m_popup.Opened -= OnPopupOpened;
         m_popup.Closed -= OnPopupClosed;
         m_target.LayoutUpdated -= OnTargetLayoutUpdated;
-        OnPopupClosed(null, null);
+        OnPopupClosed(null, null!);
     }
 
     private void OnPopupOpened(object? sender, EventArgs e)
@@ -37,21 +35,14 @@ internal class PopupRepositionHelper : IDisposable
         m_target.LayoutUpdated += OnTargetLayoutUpdated;
 
         m_hostWindow = Window.GetWindow(m_target);
-        if (m_hostWindow != null)
-        {
-            m_hostWindow.LocationChanged += OnHostWindowLocationChanged;
-        }
+        m_hostWindow?.LocationChanged += OnHostWindowLocationChanged;
     }
 
     private void OnPopupClosed(object? sender, EventArgs e)
     {
         m_target.LayoutUpdated -= OnTargetLayoutUpdated;
-
-        if (m_hostWindow != null)
-        {
-            m_hostWindow.LocationChanged -= OnHostWindowLocationChanged;
-            m_hostWindow = null;
-        }
+        m_hostWindow?.LocationChanged -= OnHostWindowLocationChanged;
+        m_hostWindow = null!;
 
         m_isPopupOpen = false;
         m_popupPosition = default;
@@ -87,9 +78,9 @@ internal class PopupRepositionHelper : IDisposable
         }
     }
 
-    private readonly Popup m_popup;
-    private readonly UIElement m_target;
+    private readonly Popup m_popup = null!;
+    private readonly UIElement m_target = null!;
     private bool m_isPopupOpen;
     private Point m_popupPosition;
-    private Window m_hostWindow;
+    private Window m_hostWindow = null!;
 }

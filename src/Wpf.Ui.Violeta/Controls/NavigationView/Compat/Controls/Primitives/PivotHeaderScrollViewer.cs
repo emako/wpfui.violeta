@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +7,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 public class PivotHeaderScrollViewer : ScrollViewerEx
 {
-    private TabControl _tabControl;
+    private TabControl _tabControl = null!;
 
     static PivotHeaderScrollViewer()
     {
@@ -165,19 +163,13 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
 
     protected override void OnVisualParentChanged(DependencyObject oldParent)
     {
-        if (_tabControl != null)
-        {
-            _tabControl.SelectionChanged -= OnTabControlSelectionChanged;
-        }
+        _tabControl?.SelectionChanged -= OnTabControlSelectionChanged;
 
         base.OnVisualParentChanged(oldParent);
 
-        _tabControl = TemplatedParent as TabControl;
+        _tabControl = (TemplatedParent as TabControl)!;
 
-        if (_tabControl != null)
-        {
-            _tabControl.SelectionChanged += OnTabControlSelectionChanged;
-        }
+        _tabControl?.SelectionChanged += OnTabControlSelectionChanged;
     }
 
     protected override void OnScrollChanged(ScrollChangedEventArgs e)
@@ -345,10 +337,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         if (_tabControl != null)
         {
             var item = GetSelectedTabItem(_tabControl);
-            if (item != null)
-            {
-                item.BringIntoView();
-            }
+            item?.BringIntoView();
         }
     }
 
@@ -358,7 +347,7 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
         if (selectedItem != null)
         {
             // Check if the selected item is a TabItem
-            TabItem tabItem = selectedItem as TabItem;
+            TabItem? tabItem = selectedItem as TabItem;
             if (tabItem == null)
             {
                 // It is a data item, get its TabItem container
@@ -374,10 +363,10 @@ public class PivotHeaderScrollViewer : ScrollViewerEx
                 }
             }
 
-            return tabItem;
+            return tabItem!;
         }
 
-        return null;
+        return null!;
     }
 
     private static bool EqualsEx(object o1, object o2)

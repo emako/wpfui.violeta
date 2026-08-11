@@ -1,10 +1,10 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 
@@ -12,18 +12,11 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 // Manages elements on behalf of ItemsRepeater.
 // ViewManager automatically pins focused elements.
-internal class ViewManager
+internal class ViewManager(ItemsRepeater owner)
 {
-    public ViewManager(ItemsRepeater owner)
-    {
-        m_owner = owner;
-        m_resetPool = new UniqueIdElementPool(owner);
-        // ItemsRepeater is not fully constructed yet. Don't interact with it.
-    }
-
     public UIElement GetElement(int index, bool forceCreate, bool suppressAutoRecycle)
     {
-        UIElement element = forceCreate ? null : GetElementIfAlreadyHeldByLayout(index);
+        UIElement? element = forceCreate ? null : GetElementIfAlreadyHeldByLayout(index);
         if (element == null)
         {
             // check if this is the anchor made through repeater in preparation
@@ -37,10 +30,9 @@ internal class ViewManager
                 }
             }
         }
-        if (element == null) { element = GetElementFromUniqueIdResetPool(index); }
-        ;
-        if (element == null) { element = GetElementFromPinnedElements(index); }
-        if (element == null) { element = GetElementFromElementFactory(index); }
+        element ??= GetElementFromUniqueIdResetPool(index);
+        element ??= GetElementFromPinnedElements(index);
+        element ??= GetElementFromElementFactory(index);
 
         var virtInfo = ItemsRepeater.TryGetVirtualizationInfo(element);
         if (suppressAutoRecycle)
@@ -124,11 +116,8 @@ internal class ViewManager
 
         if (m_owner.ItemTemplateShim != null)
         {
-            if (m_ElementFactoryRecycleArgs == null)
-            {
-                // Create one.
-                m_ElementFactoryRecycleArgs = new ElementFactoryRecycleArgs();
-            }
+            // Create one.
+            m_ElementFactoryRecycleArgs ??= new ElementFactoryRecycleArgs();
 
             var context = m_ElementFactoryRecycleArgs;
             context.Element = element;
@@ -136,15 +125,14 @@ internal class ViewManager
 
             m_owner.ItemTemplateShim.RecycleElement(context);
 
-            context.Element = null;
-            context.Parent = null;
+            context.Element = null!;
+            context.Parent = null!;
         }
         else
         {
             // No ItemTemplate to recycle to, remove the element from the children collection.
-            var children = m_owner.Children;
-            int childIndex = 0;
-            bool found = children.IndexOf(element, out childIndex);
+            UIElementCollection children = m_owner.Children;
+            bool found = children.IndexOf(element, out int childIndex);
             if (!found)
             {
                 throw new Exception("ItemsRepeater's child not found in its Children collection.");
@@ -163,6 +151,7 @@ internal class ViewManager
         }
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     public int GetElementIndex(VirtualizationInfo virtInfo)
     {
         if (virtInfo == null)
@@ -198,6 +187,7 @@ internal class ViewManager
         }
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     public void UpdatePin(UIElement element, bool addPin)
     {
         var parent = CachedVisualTreeHelpers.GetParent(element);
@@ -240,7 +230,7 @@ internal class ViewManager
             case NotifyCollectionChangedAction.Add:
                 {
                     var newIndex = args.NewStartingIndex;
-                    var newCount = args.NewItems.Count;
+                    var newCount = args.NewItems!.Count;
                     EnsureFirstLastRealizedIndices();
                     if (newIndex <= m_lastRealizedElementIndexHeldByLayout)
                     {
@@ -290,8 +280,8 @@ internal class ViewManager
                     //         depending on the counts.
                     var oldStartIndex = args.OldStartingIndex;
                     var newStartingIndex = args.NewStartingIndex;
-                    var oldCount = args.OldItems.Count;
-                    var newCount = args.NewItems.Count;
+                    var oldCount = args.OldItems!.Count;
+                    var newCount = args.NewItems!.Count;
                     if (oldStartIndex != newStartingIndex)
                     {
                         throw new Exception("Replace is only allowed with OldStartingIndex equals to NewStartingIndex.");
@@ -337,7 +327,7 @@ internal class ViewManager
             case NotifyCollectionChangedAction.Remove:
                 {
                     var oldStartIndex = args.OldStartingIndex;
-                    var oldCount = args.OldItems.Count;
+                    var oldCount = args.OldItems!.Count;
                     var children = m_owner.Children;
                     for (int i = 0; i < children.Count; ++i)
                     {
@@ -437,7 +427,7 @@ internal class ViewManager
     // and non-virtualizing hosts.
     private UIElement GetElementIfAlreadyHeldByLayout(int index)
     {
-        UIElement element = null;
+        UIElement element = null!;
 
         bool cachedFirstLastIndicesInvalid = m_firstRealizedElementIndexHeldByLayout == FirstRealizedElementIndexDefault;
         Debug.Assert(!cachedFirstLastIndicesInvalid || m_lastRealizedElementIndexHeldByLayout == LastRealizedElementIndexDefault);
@@ -481,7 +471,7 @@ internal class ViewManager
 
     private UIElement GetElementFromUniqueIdResetPool(int index)
     {
-        UIElement element = null;
+        UIElement element = null!;
         // See if you can get it from the reset pool.
         if (m_isDataSourceStableResetPending)
         {
@@ -499,12 +489,12 @@ internal class ViewManager
             }
         }
 
-        return element;
+        return element!;
     }
 
     private UIElement GetElementFromPinnedElements(int index)
     {
-        UIElement element = null;
+        UIElement element = null!;
 
         // See if you can find something among the pinned elements.
         for (int i = 0; i < m_pinnedPool.Count; ++i)
@@ -550,7 +540,7 @@ internal class ViewManager
                 if (providedElementFactory == null)
                 {
                     var factory = XamlReader.Parse("<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'><TextBlock Text='{Binding}'/></DataTemplate>") as DataTemplate;
-                    m_owner.ItemTemplate = factory;
+                    m_owner.ItemTemplate = factory!;
                     return m_owner.ItemTemplateShim;
                 }
                 return providedElementFactory;
@@ -559,10 +549,7 @@ internal class ViewManager
 
             ElementFactoryGetArgs initArgs()
             {
-                if (m_ElementFactoryGetArgs == null)
-                {
-                    m_ElementFactoryGetArgs = new ElementFactoryGetArgs();
-                }
+                m_ElementFactoryGetArgs ??= new ElementFactoryGetArgs();
                 return m_ElementFactoryGetArgs;
             }
             var args = initArgs();
@@ -577,8 +564,8 @@ internal class ViewManager
             }
             finally
             {
-                args.Data = null;
-                args.Parent = null;
+                args.Data = null!;
+                args.Parent = null!;
             }
         }
         var element = initElement();
@@ -708,7 +695,7 @@ internal class ViewManager
 
     private void UpdateFocusedElement()
     {
-        UIElement focusedElement = null;
+        UIElement focusedElement = null!;
 
         var child = Keyboard.FocusedElement as DependencyObject;
 
@@ -725,9 +712,9 @@ internal class ViewManager
                 if (repeater != null)
                 {
                     var element = child as UIElement;
-                    if (repeater == owner && ItemsRepeater.GetVirtualizationInfo(element).IsRealized)
+                    if (repeater == owner && ItemsRepeater.GetVirtualizationInfo(element!).IsRealized)
                     {
-                        focusedElement = element;
+                        focusedElement = element!;
                     }
 
                     break;
@@ -752,7 +739,7 @@ internal class ViewManager
                 UpdatePin(focusedElement, true /* addPin */);
             }
 
-            m_lastFocusedElement = focusedElement;
+            m_lastFocusedElement = focusedElement!;
         }
     }
 
@@ -763,7 +750,7 @@ internal class ViewManager
 
     private void MoveFocusFromClearedIndex(int clearedIndex)
     {
-        UIElement focusedChild = null;
+        UIElement focusedChild = null!;
         if (FindFocusCandidate(clearedIndex, ref focusedChild) != null)
         {
             m_lastFocusedElement = focusedChild;
@@ -773,7 +760,7 @@ internal class ViewManager
         else
         {
             // We could not find a candiate.
-            m_lastFocusedElement = null;
+            m_lastFocusedElement = null!;
         }
     }
 
@@ -783,8 +770,8 @@ internal class ViewManager
         // Note that during a delete the next element would now have the same index.
         int previousIndex = int.MinValue;
         int nextIndex = int.MaxValue;
-        UIElement nextElement = null;
-        UIElement previousElement = null;
+        UIElement nextElement = null!;
+        UIElement previousElement = null!;
         var children = m_owner.Children;
         for (int i = 0; i < children.Count; ++i)
         {
@@ -816,7 +803,7 @@ internal class ViewManager
 
         // Find the next element if one exists, if not use the previous element.
         // If the container itself is not focusable, find a descendent that is.
-        UIElement focusCandidate = null;
+        UIElement? focusCandidate = null;
         if (nextElement != null)
         {
             focusedChild = nextElement as UIElement;
@@ -843,7 +830,7 @@ internal class ViewManager
             }
         }
 
-        return focusCandidate;
+        return focusCandidate!;
     }
 
     private void EnsureEventSubscriptions()
@@ -883,34 +870,28 @@ internal class ViewManager
         }
     }
 
-    private struct PinnedElementInfo
+    private readonly struct PinnedElementInfo(UIElement element)
     {
-        public PinnedElementInfo(UIElement element)
-        {
-            PinnedElement = element;
-            VirtualizationInfo = ItemsRepeater.GetVirtualizationInfo(element);
-        }
-
-        public UIElement PinnedElement { get; }
+        public UIElement PinnedElement { get; } = element;
 
         // We hold on VirtualizationInfo to make sure we can
         // quickly access its content rather than go through
         // ItemsRepeater.GetVirtualizationInfo(element) which is
         // slower (assuming it's implemented using attached
         // properties).
-        public VirtualizationInfo VirtualizationInfo { get; }
+        public VirtualizationInfo VirtualizationInfo { get; } = ItemsRepeater.GetVirtualizationInfo(element);
     }
 
-    private readonly ItemsRepeater m_owner;
+    private readonly ItemsRepeater m_owner = owner;
 
     // Pinned elements that are currently owned by layout are *NOT* in this pool.
-    private readonly List<PinnedElementInfo> m_pinnedPool = new List<PinnedElementInfo>();
+    private readonly List<PinnedElementInfo> m_pinnedPool = [];
 
-    private readonly UniqueIdElementPool m_resetPool;
+    private readonly UniqueIdElementPool m_resetPool = new(owner);
 
     // _lastFocusedElement is listed in _pinnedPool.
     // It has to be an element we own (i.e. a direct child).
-    private UIElement m_lastFocusedElement;
+    private UIElement m_lastFocusedElement = null!;
 
     private bool m_isDataSourceStableResetPending;
 
@@ -920,9 +901,9 @@ internal class ViewManager
     private bool m_lostFocus;
 
     // Cached generate/clear contexts to avoid cost of creation every time.
-    private ElementFactoryGetArgs m_ElementFactoryGetArgs;
+    private ElementFactoryGetArgs? m_ElementFactoryGetArgs;
 
-    private ElementFactoryRecycleArgs m_ElementFactoryRecycleArgs;
+    private ElementFactoryRecycleArgs? m_ElementFactoryRecycleArgs;
 
     // These are first/last indices requested by layout and not cleared yet.
     // These are also not truly first / last because they are a lower / upper bound on the known realized range.

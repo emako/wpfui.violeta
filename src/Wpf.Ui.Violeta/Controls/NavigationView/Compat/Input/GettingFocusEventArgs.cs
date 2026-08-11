@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,8 +5,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal interface IGettingFocusEventArgs2
 {
-    //bool TryCancel();
-    bool TrySetNewFocusedElement(DependencyObject element);
+    public bool TrySetNewFocusedElement(DependencyObject element);
 }
 
 internal class GettingFocusEventArgs : IGettingFocusEventArgs2
@@ -27,8 +24,8 @@ internal class GettingFocusEventArgs : IGettingFocusEventArgs2
             _ => FocusInputDeviceKind.Mouse
         };
 
-        OldFocusedElement = args.OldFocus as DependencyObject;
-        NewFocusedElement = args.NewFocus as DependencyObject;
+        OldFocusedElement = (args.OldFocus as DependencyObject)!;
+        NewFocusedElement = (args.NewFocus as DependencyObject)!;
     }
 
     //public bool TryCancel();
@@ -45,15 +42,14 @@ internal class GettingFocusEventArgs : IGettingFocusEventArgs2
     }
 
     public DependencyObject NewFocusedElement { get; set; }
+
     public bool Handled { get; set; }
+
     public bool Cancel { get; set; }
 
-    //public FocusNavigationDirection Direction { get; }
-    //public FocusState FocusState { get; }
     public FocusInputDeviceKind InputDevice { get; }
 
     public DependencyObject OldFocusedElement { get; }
-    //public Guid CorrelationId { get; }
 
-    private KeyboardFocusChangedEventArgs _args;
+    private readonly KeyboardFocusChangedEventArgs _args;
 }

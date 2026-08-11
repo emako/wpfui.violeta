@@ -1,7 +1,6 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -26,7 +25,10 @@ public class ThemeShadowChrome : Decorator
         s_bg4.Freeze();
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ThemeShadowChrome()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         if (ShadowAssist.UseBitmapCache)
         {
@@ -160,15 +162,9 @@ public class ThemeShadowChrome : Decorator
     {
         var cornerRadius = (CornerRadius)e.NewValue;
 
-        if (_shadow1 != null)
-        {
-            _shadow1.CornerRadius = cornerRadius;
-        }
+        _shadow1?.CornerRadius = cornerRadius;
 
-        if (_shadow2 != null)
-        {
-            _shadow2.CornerRadius = cornerRadius;
-        }
+        _shadow2?.CornerRadius = cornerRadius;
     }
 
     #endregion CornerRadius
@@ -195,6 +191,8 @@ public class ThemeShadowChrome : Decorator
 
     private void OnPopupMarginChanged(DependencyPropertyChangedEventArgs e)
     {
+        _ = e;
+
         ApplyPopupMargin();
     }
 
@@ -312,7 +310,7 @@ public class ThemeShadowChrome : Decorator
     {
         if (IsShadowEnabled)
         {
-            PopupControl parentPopupControl = null;
+            PopupControl parentPopupControl = null!;
 
             var visualParent = VisualParent;
             if (visualParent is ContextMenu contextMenu)
@@ -332,7 +330,7 @@ public class ThemeShadowChrome : Decorator
         }
         else
         {
-            SetParentPopupControl(null);
+            SetParentPopupControl(null!);
         }
     }
 
@@ -447,7 +445,7 @@ public class ThemeShadowChrome : Decorator
         if (_popupPositioner != null)
         {
             _popupPositioner.Dispose();
-            _popupPositioner = null;
+            _popupPositioner = null!;
         }
 
         if (_parentPopupControl != null)
@@ -587,7 +585,7 @@ public class ThemeShadowChrome : Decorator
 
     private bool TryGetCustomPlacementMode(out CustomPlacementMode placement)
     {
-        if (TryGetCustomPlacementMode(_parentPopupControl?.Control, out placement))
+        if (TryGetCustomPlacementMode(_parentPopupControl?.Control!, out placement))
         {
             return true;
         }
@@ -598,6 +596,7 @@ public class ThemeShadowChrome : Decorator
         return false;
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private bool TryGetCustomPlacementMode(DependencyObject element, out CustomPlacementMode placement)
     {
         if (element != null &&
@@ -735,6 +734,7 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private Popup FindParentPopup(FrameworkElement element)
     {
         var parent = element.Parent;
@@ -753,8 +753,10 @@ public class ThemeShadowChrome : Decorator
                 return FindParentPopup(visualParent);
             }
         }
-        return null;
+        return null!;
     }
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     private class PopupControl : IDisposable
     {
@@ -822,10 +824,10 @@ public class ThemeShadowChrome : Decorator
                 }
                 if (_popup != null)
                 {
-                    return _popup.PlacementTarget ??
-                        VisualTreeHelper.GetParent(_popup) as UIElement;
+                    return (_popup.PlacementTarget ??
+                        VisualTreeHelper.GetParent(_popup) as UIElement)!;
                 }
-                return null;
+                return null!;
             }
         }
 
@@ -849,7 +851,7 @@ public class ThemeShadowChrome : Decorator
             }
         }
 
-        private FrameworkElement ChildAsFE =>
+        private FrameworkElement? ChildAsFE =>
             _contextMenu as FrameworkElement ??
             _toolTip as FrameworkElement ??
             _popup?.Child as FrameworkElement;
@@ -861,10 +863,7 @@ public class ThemeShadowChrome : Decorator
         public void SetMargin(Thickness margin)
         {
             var child = ChildAsFE;
-            if (child != null)
-            {
-                child.Margin = margin;
-            }
+            child?.Margin = margin;
         }
 
         public void ClearMargin()
@@ -878,19 +877,19 @@ public class ThemeShadowChrome : Decorator
             {
                 _contextMenu.Opened -= OnOpened;
                 _contextMenu.Closed -= OnClosed;
-                _contextMenu = null;
+                _contextMenu = null!;
             }
             else if (_toolTip != null)
             {
                 _toolTip.Opened -= OnOpened;
                 _toolTip.Closed -= OnClosed;
-                _toolTip = null;
+                _toolTip = null!;
             }
             else if (_popup != null)
             {
                 _popup.Opened -= OnOpened;
                 _popup.Closed -= OnClosed;
-                _popup = null;
+                _popup = null!;
             }
         }
 
@@ -905,6 +904,8 @@ public class ThemeShadowChrome : Decorator
         }
     }
 
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     private readonly Grid _background;
     private readonly BitmapCache _bitmapCache;
     private Border _shadow1;
@@ -914,5 +915,5 @@ public class ThemeShadowChrome : Decorator
     private PopupPositioner _popupPositioner;
 
     private static readonly Brush s_bg1, s_bg2, s_bg3, s_bg4;
-    private static readonly Vector s_noTranslation = new Vector(0, 0);
+    private static readonly Vector s_noTranslation = new(0, 0);
 }

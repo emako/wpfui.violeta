@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,12 +7,18 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal class ItemTemplateWrapper : IElementFactoryShim
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ItemTemplateWrapper(DataTemplate dataTemplate)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         Template = dataTemplate;
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ItemTemplateWrapper(DataTemplateSelector dataTemplateSelector)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         TemplateSelector = dataTemplateSelector;
     }
@@ -29,23 +33,15 @@ internal class ItemTemplateWrapper : IElementFactoryShim
     {
         var selectedTemplate = Template ?? TemplateSelector.SelectTemplate(args.Data, null);
         // Check if selected template we got is valid
-        if (selectedTemplate == null)
-        {
-            selectedTemplate = TemplateSelector.SelectTemplate(args.Data, null);
-
-            if (selectedTemplate == null)
-            {
-                // Still nullptr, fail with a reasonable message now.
-                throw new InvalidOperationException("Null encountered as data template. That is not a valid value for a data template, and can not be used.");
-            }
-        }
+        // Still nullptr, fail with a reasonable message now.
+        selectedTemplate ??= TemplateSelector.SelectTemplate(args.Data, null) ?? throw new InvalidOperationException("Null encountered as data template. That is not a valid value for a data template, and can not be used.");
         var recyclePool = RecyclePool.GetPoolInstance(selectedTemplate);
-        UIElement element = null;
+        UIElement? element = null;
 
         if (recyclePool != null)
         {
             // try to get an element from the recycle pool.
-            element = recyclePool.TryGetElement(string.Empty /* key */, args.Parent as FrameworkElement);
+            element = recyclePool.TryGetElement(string.Empty /* key */, (args.Parent as FrameworkElement)!);
         }
 
         if (element == null)
@@ -54,14 +50,11 @@ internal class ItemTemplateWrapper : IElementFactoryShim
             element = selectedTemplate.LoadContent() as FrameworkElement;
 
             // Template returned null, so insert empty element to render nothing
-            if (element == null)
+            element ??= new Rectangle
             {
-                element = new Rectangle
-                {
-                    Width = 0,
-                    Height = 0
-                };
-            }
+                Width = 0,
+                Height = 0,
+            };
 
             // Associate template with element
             element.SetValue(RecyclePool.OriginTemplateProperty, selectedTemplate);
@@ -73,8 +66,8 @@ internal class ItemTemplateWrapper : IElementFactoryShim
     public void RecycleElement(ElementFactoryRecycleArgs args)
     {
         var element = args.Element;
-        DataTemplate selectedTemplate = Template ??
-            element.GetValue(RecyclePool.OriginTemplateProperty) as DataTemplate;
+        DataTemplate selectedTemplate = (Template ??
+            element.GetValue(RecyclePool.OriginTemplateProperty) as DataTemplate)!;
         var recyclePool = RecyclePool.GetPoolInstance(selectedTemplate);
         if (recyclePool == null)
         {

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -27,14 +25,14 @@ internal static class VisualStateGroupHelper
     {
         for (int stateIndex = 0; stateIndex < group.States.Count; ++stateIndex)
         {
-            VisualState state = (VisualState)group.States[stateIndex];
+            VisualState state = (VisualState)group.States[stateIndex]!;
             if (state.Name == stateName)
             {
                 return state;
             }
         }
 
-        return null;
+        return null!;
     }
 
     #region CurrentStoryboards
@@ -50,7 +48,7 @@ internal static class VisualStateGroupHelper
         var currentStoryboards = (Collection<Storyboard>)group.GetValue(CurrentStoryboardsProperty);
         if (currentStoryboards == null)
         {
-            currentStoryboards = new Collection<Storyboard>();
+            currentStoryboards = [];
             group.SetValue(CurrentStoryboardsProperty, currentStoryboards);
         }
         return currentStoryboards;
@@ -107,10 +105,10 @@ internal static class VisualStateGroupHelper
         }
         catch (Exception)
         {
-            return null;
+            return null!;
         }
     }
 
     private static readonly Lazy<Action<VisualStateGroup, VisualState>> _setCurrentState =
-        new Lazy<Action<VisualStateGroup, VisualState>>(CreateSetCurrentStateDelegate);
+        new(CreateSetCurrentStateDelegate);
 }

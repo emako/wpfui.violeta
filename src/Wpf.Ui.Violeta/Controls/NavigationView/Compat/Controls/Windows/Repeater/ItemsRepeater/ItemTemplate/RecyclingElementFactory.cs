@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +8,12 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 //[ContentProperty(nameof(Templates))]
 public class RecyclingElementFactory : ElementFactory
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public RecyclingElementFactory()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
-        m_templates = new Dictionary<string, DataTemplate>();
+        m_templates = [];
     }
 
     public RecyclePool RecyclePool { get; set; }
@@ -29,10 +30,7 @@ public class RecyclingElementFactory : ElementFactory
         object dataContext,
         UIElement owner)
     {
-        if (m_args == null)
-        {
-            m_args = new SelectTemplateEventArgs();
-        }
+        m_args ??= new SelectTemplateEventArgs();
 
         var args = m_args;
         args.TemplateKey = string.Empty;
@@ -87,10 +85,10 @@ public class RecyclingElementFactory : ElementFactory
             element = dataTemplate.LoadContent() as FrameworkElement;
 
             // Associate ReuseKey with element
-            RecyclePool.SetReuseKey(element, templateKey);
+            RecyclePool.SetReuseKey(element!, templateKey);
         }
 
-        return element;
+        return element!;
     }
 
     protected override void RecycleElementCore(ElementFactoryRecycleArgs args)

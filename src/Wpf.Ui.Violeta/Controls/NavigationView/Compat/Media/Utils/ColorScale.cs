@@ -1,7 +1,6 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows.Media;
 
@@ -32,10 +31,7 @@ internal class ColorScale
     // Evenly distributes the colors provided between 0 and 1
     public ColorScale(IEnumerable<Color> colors)
     {
-        if (colors == null)
-        {
-            throw new ArgumentNullException("colors");
-        }
+        _ = colors ?? throw new ArgumentNullException(nameof(colors));
 
         int count = colors.Count();
         _stops = new ColorScaleStop[count];
@@ -61,10 +57,7 @@ internal class ColorScale
 
     public ColorScale(IEnumerable<ColorScaleStop> stops)
     {
-        if (stops == null)
-        {
-            throw new ArgumentNullException("stops");
-        }
+        _ = stops ?? throw new ArgumentNullException(nameof(stops));
 
         int count = stops.Count();
         _stops = new ColorScaleStop[count];
@@ -78,6 +71,7 @@ internal class ColorScale
 
     private readonly ColorScaleStop[] _stops;
 
+    [SuppressMessage("Style", "IDE0056:Use index operator")]
     public Color GetColor(double position, ColorScaleInterpolationMode mode = ColorScaleInterpolationMode.RGB)
     {
         if (_stops.Length == 1)
@@ -134,9 +128,9 @@ internal class ColorScale
         }
         if (lowerBound == upperBound)
         {
-            return new ColorScale(new Color[] { GetColor(lowerBound, mode) });
+            return new ColorScale([GetColor(lowerBound, mode)]);
         }
-        List<ColorScaleStop> containedStops = new List<ColorScaleStop>(_stops.Length);
+        List<ColorScaleStop> containedStops = [with(_stops.Length)];
 
         for (int i = 0; i < _stops.Length; i++)
         {
@@ -148,7 +142,7 @@ internal class ColorScale
 
         if (containedStops.Count == 0)
         {
-            return new ColorScale(new Color[] { GetColor(lowerBound, mode), GetColor(upperBound, mode) });
+            return new ColorScale([GetColor(lowerBound, mode), GetColor(upperBound, mode)]);
         }
 
         if (containedStops.First().Position != lowerBound)

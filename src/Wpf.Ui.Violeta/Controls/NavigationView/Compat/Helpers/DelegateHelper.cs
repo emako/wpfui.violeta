@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Reflection;
 
@@ -26,7 +24,7 @@ public static class DelegateHelper
             {
                 return CreateDelegate<T>(methodInfo);
             }
-            return null;
+            return null!;
         }
         else
         {
@@ -43,7 +41,7 @@ public static class DelegateHelper
             {
                 return CreateDelegate<T>(target, methodInfo);
             }
-            return null;
+            return null!;
         }
         else
         {
@@ -62,7 +60,7 @@ public static class DelegateHelper
                 return CreateDelegate<Func<TType, TProperty>>(getMethod);
             }
         }
-        return null;
+        return null!;
     }
 
     public static Action<TType, TProperty> CreatePropertySetter<TType, TProperty>(string name, BindingFlags bindingAttr = DefaultLookup, bool nonPublic = false)
@@ -76,7 +74,7 @@ public static class DelegateHelper
                 return CreateDelegate<Action<TType, TProperty>>(setMethod);
             }
         }
-        return null;
+        return null!;
     }
 
     private const BindingFlags DefaultLookup = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public;

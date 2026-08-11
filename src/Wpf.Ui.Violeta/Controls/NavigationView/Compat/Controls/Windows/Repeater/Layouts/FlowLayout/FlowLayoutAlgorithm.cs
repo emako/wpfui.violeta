@@ -1,8 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -19,7 +18,10 @@ internal class FlowLayoutAlgorithm
         SpaceEvenly
     };
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public FlowLayoutAlgorithm()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         m_elementManager = new ElementManager();
     }
@@ -41,9 +43,10 @@ internal class FlowLayoutAlgorithm
             // being held and remove the layout state from the context.
             m_elementManager.ClearRealizedRange();
         }
-        ((ILayoutContextOverrides)context).LayoutStateCore = null;
+        ((ILayoutContextOverrides)context).LayoutStateCore = null!;
     }
 
+    [SuppressMessage("Style", "IDE0060:Remove unused parameter")]
     public Size Measure(
         Size availableSize,
         VirtualizingLayoutContext context,
@@ -91,6 +94,7 @@ internal class FlowLayoutAlgorithm
         return new Size(m_lastExtent.Width, m_lastExtent.Height);
     }
 
+    [SuppressMessage("Style", "IDE0060:Remove unused parameter")]
     public Size Arrange(
         Size finalSize,
         VirtualizingLayoutContext context,
@@ -137,7 +141,7 @@ internal class FlowLayoutAlgorithm
             return m_elementManager.GetRealizedElement(dataIndex);
         }
 
-        return null;
+        return null!;
     }
 
     public bool TryAddElement0(UIElement element)
@@ -274,6 +278,7 @@ internal class FlowLayoutAlgorithm
         return anchorIndex;
     }
 
+    [SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value")]
     private void Generate(
         GenerateDirection direction,
         int anchorIndex,
@@ -306,7 +311,7 @@ internal class FlowLayoutAlgorithm
 
                 // Lay it out.
                 var previousElement = m_elementManager.GetRealizedElement(previousIndex);
-                Rect currentBounds = new Rect(0, 0, desiredSize.Width, desiredSize.Height);
+                Rect currentBounds = new(0, 0, desiredSize.Width, desiredSize.Height);
                 var previousElementBounds = m_elementManager.GetLayoutBoundsForDataIndex(previousIndex);
 
                 if (direction == GenerateDirection.Forward)
@@ -480,9 +485,9 @@ internal class FlowLayoutAlgorithm
 
     private Rect EstimateExtent(Size availableSize, string layoutId)
     {
-        UIElement firstRealizedElement = null;
+        UIElement firstRealizedElement = null!;
         Rect firstBounds = default;
-        UIElement lastRealizedElement = null;
+        UIElement lastRealizedElement = null!;
         Rect lastBounds = default;
         int firstDataIndex = -1;
         int lastDataIndex = -1;
@@ -547,6 +552,7 @@ internal class FlowLayoutAlgorithm
         }
     }
 
+    [SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value")]
     private void ArrangeVirtualizingLayout(
         Size finalSize,
         LineAlignment lineAlignment,
@@ -594,6 +600,7 @@ internal class FlowLayoutAlgorithm
 
     // Align elements within a line. Note that this does not modify LayoutBounds. So if we get
     // repeated measures, the LayoutBounds remain the same in each layout.
+    [SuppressMessage("Style", "IDE0060:Remove unused parameter")]
     private void PerformLineAlignment(
         int lineStartIndex,
         int countInLine,
@@ -716,7 +723,7 @@ internal class FlowLayoutAlgorithm
     private double m_lastItemSpacing;
     private bool m_collectionChangePending;
     private VirtualizingLayoutContext m_context;
-    private IFlowLayoutAlgorithmDelegates m_algorithmCallbacks = null;
+    private IFlowLayoutAlgorithmDelegates m_algorithmCallbacks = null!;
     private Rect m_lastExtent;
     private int m_firstRealizedDataIndexInsideRealizationWindow = -1;
     private int m_lastRealizedDataIndexInsideRealizationWindow = -1;

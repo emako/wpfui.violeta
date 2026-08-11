@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -82,16 +80,16 @@ public class ElevationBorder : ContentControl
         //BindingOperations.SetBinding(_elevationBrush_Stop2, GradientStop.ColorProperty, new Binding(nameof(ElevationColor)) { Source = this });
         //BindingOperations.SetBinding(_elevationBrush_Stop2, GradientStop.OffsetProperty, new Binding(nameof(ElevationTransitionLength)) { Source = this });
 
-        ElevationBrush = new LinearGradientBrush(new GradientStopCollection()
-        {
+        ElevationBrush = new LinearGradientBrush(
+        [
             _elevationBrush_Stop1,
             _elevationBrush_Stop2,
-        })
+        ])
         {
             MappingMode = BrushMappingMode.Absolute
         };
 
-        this.SizeChanged += ElevationBorder_SizeChanged;
+        SizeChanged += ElevationBorder_SizeChanged;
 
         RefreshElevationBrush();
     }
@@ -101,15 +99,15 @@ public class ElevationBorder : ContentControl
         RefreshElevationBrush();
     }
 
-    private GradientStop _elevationBrush_Stop1;
-    private GradientStop _elevationBrush_Stop2;
+    private GradientStop _elevationBrush_Stop1 = null!;
+    private GradientStop _elevationBrush_Stop2 = null!;
 
     public static readonly DependencyProperty CornerRadiusProperty = Border.CornerRadiusProperty.AddOwner(typeof(ElevationBorder));
 
     public CornerRadius CornerRadius
     {
-        get { return (CornerRadius)GetValue(CornerRadiusProperty); }
-        set { SetValue(CornerRadiusProperty, value); }
+        get => (CornerRadius)GetValue(CornerRadiusProperty);
+        set => SetValue(CornerRadiusProperty, value);
     }
 
     public static readonly DependencyProperty ElevationLengthProperty = DependencyProperty.Register(nameof(ElevationLength), typeof(double), typeof(ElevationBorder), new PropertyMetadata(1d, ElevationLengthProperty_ValueChanged));
@@ -121,6 +119,8 @@ public class ElevationBorder : ContentControl
 
     private void ElevationLengthProperty_ValueChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
+        _ = sender;
+
         RefreshElevationBrush();
     }
 
@@ -141,8 +141,8 @@ public class ElevationBorder : ContentControl
             //_elevationBrush_Stop1.Offset = 1;
             //_elevationBrush_Stop2.Offset = 0;
 
-            ElevationBrush.StartPoint = new Point(0.5, Math.Max(this.ActualHeight - ElevationLength - ElevationTransitionLength, 0));
-            ElevationBrush.EndPoint = new Point(0.5, Math.Max(this.ActualHeight - ElevationLength, 0));
+            ElevationBrush.StartPoint = new Point(0.5, Math.Max(ActualHeight - ElevationLength - ElevationTransitionLength, 0));
+            ElevationBrush.EndPoint = new Point(0.5, Math.Max(ActualHeight - ElevationLength, 0));
         }
 
         ElevationBrush.Opacity = ElevationOpacity ?? GetElevationOpacity(BorderBrush) ?? 1d;

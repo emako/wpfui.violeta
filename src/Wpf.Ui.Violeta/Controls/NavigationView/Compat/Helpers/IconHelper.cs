@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -48,7 +46,7 @@ internal static class IconHelper
         // in a native application.  Callers bothering to use this rather than Assembly based reflection
         // are likely doing so because of (at least the potential for) the returned name referring to a
         // native module.
-        StringBuilder buffer = new StringBuilder(MAX_PATH);
+        StringBuilder buffer = new(MAX_PATH);
         while (true)
         {
             int size = GetModuleFileName(hModule, buffer, buffer.Capacity);
@@ -70,8 +68,8 @@ internal static class IconHelper
         }
     }
 
-    [DllImport("Shell32.dll", CharSet = CharSet.Auto)]
-    private extern static int ExtractIconEx(string lpszFile, int nIconIndex, IntPtr[] phiconLarge, IntPtr[] phiconSmall, uint nIcons);
+    [DllImport("Shell32.dll", CharSet = CharSet.Unicode)]
+    private extern static int ExtractIconEx(string lpszFile, int nIconIndex, nint[] phiconLarge, nint[] phiconSmall, uint nIcons);
 
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern int GetModuleFileName(HandleRef hModule, StringBuilder buffer, int length);

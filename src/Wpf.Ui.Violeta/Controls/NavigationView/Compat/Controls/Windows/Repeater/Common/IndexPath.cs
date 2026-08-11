@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 
@@ -124,10 +122,12 @@ public sealed class IndexPath
 
     internal IndexPath CloneWithChildIndex(int childIndex)
     {
-        var newPath = new List<int>(m_path);
-        newPath.Add(childIndex);
+        var newPath = new List<int>(m_path)
+        {
+            childIndex
+        };
         return new IndexPath(newPath);
     }
 
-    private readonly List<int> m_path = new List<int>();
+    private readonly List<int> m_path = [];
 }

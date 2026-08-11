@@ -1,10 +1,9 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -12,10 +11,7 @@ internal class InspectingDataSource : ItemsSourceView
 {
     public InspectingDataSource(object source) : base(source)
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
+        _ = source ?? throw new ArgumentNullException(nameof(source));
 
         if (source is IList vector)
         {
@@ -34,7 +30,7 @@ internal class InspectingDataSource : ItemsSourceView
             }
         }
 
-        m_uniqueIdMaping = source as IKeyIndexMapping;
+        m_uniqueIdMaping = (source as IKeyIndexMapping)!;
     }
 
     ~InspectingDataSource()
@@ -49,7 +45,7 @@ internal class InspectingDataSource : ItemsSourceView
 
     internal override object GetAtCore(int index)
     {
-        return m_vector[index];
+        return m_vector[index]!;
     }
 
     internal override bool HasKeyIndexMappingCore()
@@ -95,9 +91,11 @@ internal class InspectingDataSource : ItemsSourceView
         return index;
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
+    [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
     private IList WrapIterable(IEnumerable iterable)
     {
-        var vector = new List<object>();
+        List<object> vector = [];
         var iterator = iterable.GetEnumerator();
         while (iterator.MoveNext())
         {
@@ -132,5 +130,5 @@ internal class InspectingDataSource : ItemsSourceView
     }
 
     private readonly IList m_vector;
-    private readonly IKeyIndexMapping m_uniqueIdMaping = null;
+    private readonly IKeyIndexMapping m_uniqueIdMaping = null!;
 }

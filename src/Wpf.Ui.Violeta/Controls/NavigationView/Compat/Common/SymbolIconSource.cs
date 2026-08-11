@@ -43,8 +43,10 @@ public class SymbolIconSource : IconSource
     /// <inheritdoc/>
     protected override IconElement CreateIconElementCore()
     {
-        SymbolIcon symbolIcon = new SymbolIcon();
-        symbolIcon.Symbol = Symbol;
+        SymbolIcon symbolIcon = new()
+        {
+            Symbol = Symbol,
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {

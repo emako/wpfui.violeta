@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Media;
 
@@ -152,20 +150,18 @@ public class FontIconSource : IconSource, IFontIconClass
     /// <inheritdoc/>
     protected override IconElement CreateIconElementCore()
     {
-        FontIcon fontIcon = new FontIcon();
-
-        fontIcon.Glyph = Glyph;
-        fontIcon.FontSize = FontSize;
+        FontIcon fontIcon = new()
+        {
+            Glyph = Glyph,
+            FontSize = FontSize
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {
             fontIcon.Foreground = newForeground;
         }
 
-        if (FontFamily == null)
-        {
-            FontFamily = new FontFamily(FontIcon.SegoeIconsFontFamilyName);
-        }
+        FontFamily ??= new FontFamily(FontIcon.SegoeIconsFontFamilyName);
         fontIcon.FontFamily = FontFamily;
 
         fontIcon.FontWeight = FontWeight;

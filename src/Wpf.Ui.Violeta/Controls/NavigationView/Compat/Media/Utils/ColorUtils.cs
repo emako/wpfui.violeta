@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows.Media;
 
@@ -21,7 +19,7 @@ internal static class ColorUtils
         double min = Math.Min(rgb.R, Math.Min(rgb.G, rgb.B));
         double delta = max - min;
 
-        double hue = 0;
+        double hue;
         if (delta == 0)
         {
             hue = 0;
@@ -88,7 +86,7 @@ internal static class ColorUtils
         double x = y + (lab.A / 500.0);
         double z = y - (lab.B / 200.0);
 
-        double LABToXYZHelper(double i)
+        static double LABToXYZHelper(double i)
         {
             if (i > 0.206896552)
             {
@@ -110,7 +108,7 @@ internal static class ColorUtils
     // This conversion uses the D65 constants for 2 degrees. That determines the constants used for the pure white point of the XYZ space of 0.95047, 1.0, 1.08883
     public static LAB XYZToLAB(in XYZ xyz, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
     {
-        double XYZToLABHelper(double i)
+        static double XYZToLABHelper(double i)
         {
             if (i > 0.008856452)
             {
@@ -141,7 +139,7 @@ internal static class ColorUtils
 
     public static XYZ RGBToXYZ(in NormalizedRGB rgb, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
     {
-        double RGBToXYZHelper(double i)
+        static double RGBToXYZHelper(double i)
         {
             if (i <= 0.04045)
             {
@@ -166,7 +164,7 @@ internal static class ColorUtils
 
     public static NormalizedRGB XYZToRGB(in XYZ xyz, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
     {
-        double XYZToRGBHelper(double i)
+        static double XYZToRGBHelper(double i)
         {
             if (i <= 0.0031308)
             {

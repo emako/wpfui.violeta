@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 
@@ -34,5 +32,5 @@ partial class ItemsRepeater
         return new RepeaterUIElementCollection(this, logicalParent);
     }
 
-    private static readonly Size s_zeroSize = new Size();
+    private static readonly Size s_zeroSize = default;
 }

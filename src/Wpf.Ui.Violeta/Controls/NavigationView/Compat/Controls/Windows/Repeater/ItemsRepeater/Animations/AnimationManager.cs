@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Collections.Specialized;
 using System.Windows;
 
@@ -7,30 +5,18 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 // Internal component that contains all
 // the animation related logic for ItemsRepeater.
-internal class AnimationManager
+internal class AnimationManager(ItemsRepeater owner)
 {
-    public AnimationManager(ItemsRepeater owner)
-    {
-        m_owner = owner;
-        // ItemsRepeater is not fully constructed yet. Don't interact with it.
-    }
-
     public void OnAnimatorChanged(ElementAnimator newAnimator)
     {
         // While an element is hiding, we have ownership of it. We need
         // to know when its animation completes so that we give it back
         // to the view generator.
-        if (m_animator != null)
-        {
-            m_animator.HideAnimationCompleted -= OnHideAnimationCompleted;
-        }
+        m_animator?.HideAnimationCompleted -= OnHideAnimationCompleted;
 
         m_animator = newAnimator;
 
-        if (newAnimator != null)
-        {
-            newAnimator.HideAnimationCompleted += OnHideAnimationCompleted;
-        }
+        newAnimator?.HideAnimationCompleted += OnHideAnimationCompleted;
     }
 
     public void OnLayoutChanging()
@@ -133,8 +119,8 @@ internal class AnimationManager
         }
     }
 
-    private readonly ItemsRepeater m_owner;
-    private ElementAnimator m_animator;
+    private readonly ItemsRepeater m_owner = owner;
+    private ElementAnimator m_animator = null!;
 
     // We infer the animation context
     // from heuristics like whether or not

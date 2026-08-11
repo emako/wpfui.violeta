@@ -1,7 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
-// Ported from https://github.com/lindexi/lindexi_gd/blob/master/KenafearcuweYemjecahee/FullscreenHelper.cs
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
@@ -14,6 +10,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 /// Helper class for making a window fullscreen.
 /// Achieves fullscreen by setting window position and size to cover the entire screen.
 /// Known requirements: window must cover the entire screen, must not have WS_THICKFRAME style, must not have a title bar and be maximized.
+/// Ported from https://github.com/lindexi/lindexi_gd/blob/master/KenafearcuweYemjecahee/FullscreenHelper.cs
 /// </summary>
 public static partial class FullscreenHelper
 {
@@ -70,7 +67,7 @@ public static partial class FullscreenHelper
             Win32.User32.SetWindowLongPtr(hwnd, GetWindowLongFields.GWL_STYLE, (IntPtr)style);
 
             // Disable DWM transition animations; ignore return value if DWM is off
-            Win32.Dwmapi.DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, 1,
+            _ = Win32.Dwmapi.DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, 1,
             sizeof(int));
 
             // Add hook to keep window fullscreen when position/size changes
@@ -81,7 +78,7 @@ public static partial class FullscreenHelper
                 // Do not use placement coordinates; placement is work area, not screen coordinates.
 
                 // Use current window rectangle to set position and size; hook will adjust to fullscreen.
-                Win32.User32.SetWindowPos(hwnd, (IntPtr)HwndZOrder.HWND_TOP, rect.Left, rect.Top, rect.Width,
+                _ = Win32.User32.SetWindowPos(hwnd, (IntPtr)HwndZOrder.HWND_TOP, rect.Left, rect.Top, rect.Width,
                 rect.Height, (int)WindowPositionFlags.SWP_NOZORDER);
             }
         }
@@ -163,7 +160,7 @@ public static partial class FullscreenHelper
             }
 
             // Re-enable DWM transition animations; ignore return value if DWM is off
-            Win32.Dwmapi.DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, 0,
+            _ = Win32.Dwmapi.DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_TRANSITIONS_FORCEDISABLED, 0,
             sizeof(int));
 
             // Clear saved state

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,7 +14,10 @@ public sealed class SymbolIcon : IconElement
     /// <summary>
     /// Initializes a new instance of the SymbolIcon class.
     /// </summary>
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public SymbolIcon()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -27,7 +28,10 @@ public sealed class SymbolIcon : IconElement
     /// A named constant of the enumeration that specifies the Segoe MDL2 Assets glyph
     /// to use. The default is **null**.
     /// </param>
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public SymbolIcon(Symbol symbol)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         Symbol = symbol;
     }
@@ -61,10 +65,7 @@ public sealed class SymbolIcon : IconElement
 
     private void OnSymbolChanged(DependencyPropertyChangedEventArgs e)
     {
-        if (_textBlock != null)
-        {
-            _textBlock.Text = ConvertToString((Symbol)e.NewValue);
-        }
+        _textBlock?.Text = ConvertToString((Symbol)e.NewValue);
     }
 
     #endregion Symbol
@@ -91,10 +92,7 @@ public sealed class SymbolIcon : IconElement
 
     private void OnFontSizeChanged(DependencyPropertyChangedEventArgs e)
     {
-        if (_textBlock != null)
-        {
-            _textBlock.FontSize = (double)e.NewValue;
-        }
+        _textBlock?.FontSize = (double)e.NewValue;
     }
 
     #endregion FontSize
@@ -155,8 +153,10 @@ public sealed class SymbolIcon : IconElement
 
     protected override IconSource CreateIconSourceCore()
     {
-        var iconSource = new SymbolIconSource();
-        iconSource.Symbol = Symbol;
+        var iconSource = new SymbolIconSource
+        {
+            Symbol = Symbol,
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {

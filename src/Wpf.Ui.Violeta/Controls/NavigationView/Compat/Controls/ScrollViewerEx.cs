@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -295,6 +293,8 @@ public class ScrollViewerEx : ScrollViewer
     /// <returns><see langword="true"/> if the view is changed; otherwise, <see langword="false"/>.</returns>
     public bool ChangeView(double? horizontalOffset, double? verticalOffset, float? zoomFactor, bool disableAnimation)
     {
+        _ = zoomFactor;
+
         if (disableAnimation)
         {
             if (horizontalOffset.HasValue)
@@ -346,28 +346,32 @@ public class ScrollViewerEx : ScrollViewer
         if (Direction == Orientation.Vertical)
         {
             BeginAnimation(ScrollViewerBehavior.VerticalOffsetProperty, null);
-            DoubleAnimation Animation = new DoubleAnimation();
-            Animation.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
-            Animation.From = VerticalOffset;
-            Animation.To = ToValue;
-            Animation.Duration = TimeSpan.FromMilliseconds(400 * Scale);
+            DoubleAnimation Animation = new()
+            {
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut },
+                From = VerticalOffset,
+                To = ToValue,
+                Duration = TimeSpan.FromMilliseconds(400 * Scale),
+            };
             //Timeline.SetDesiredFrameRate(Animation, 40);
             BeginAnimation(ScrollViewerBehavior.VerticalOffsetProperty, Animation);
         }
         else
         {
             BeginAnimation(ScrollViewerBehavior.HorizontalOffsetProperty, null);
-            DoubleAnimation Animation = new DoubleAnimation();
-            Animation.EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut };
-            Animation.From = HorizontalOffset;
-            Animation.To = ToValue;
-            Animation.Duration = TimeSpan.FromMilliseconds(400 * Scale);
+            DoubleAnimation Animation = new()
+            {
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut },
+                From = HorizontalOffset,
+                To = ToValue,
+                Duration = TimeSpan.FromMilliseconds(400 * Scale),
+            };
             //Timeline.SetDesiredFrameRate(Animation, 40);
             BeginAnimation(ScrollViewerBehavior.HorizontalOffsetProperty, Animation);
         }
 
         BeginAnimation(ScrollViewerBehavior.IsAnimatingProperty, null);
-        BooleanAnimationUsingKeyFrames keyFramesAnimation = new BooleanAnimationUsingKeyFrames();
+        BooleanAnimationUsingKeyFrames keyFramesAnimation = new();
         keyFramesAnimation.KeyFrames.Add(new DiscreteBooleanKeyFrame(true, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))));
         keyFramesAnimation.KeyFrames.Add(new DiscreteBooleanKeyFrame(false, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(400 * Scale + 1))));
         BeginAnimation(ScrollViewerBehavior.IsAnimatingProperty, keyFramesAnimation);

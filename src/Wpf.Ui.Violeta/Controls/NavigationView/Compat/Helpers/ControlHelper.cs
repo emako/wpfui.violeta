@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -28,13 +26,13 @@ public static class TreeViewControlHelper
         {
             if (container.DataContext == item)
             {
-                return container as TreeViewItem;
+                return (container as TreeViewItem)!;
             }
 
             // Expand the current container
-            if (container is TreeViewItem && !((TreeViewItem)container).IsExpanded && autoExpand)
+            if (container is TreeViewItem treeViewItem && !treeViewItem.IsExpanded && autoExpand)
             {
-                container.SetValue(TreeViewItem.IsExpandedProperty, true);
+                treeViewItem.SetValue(TreeViewItem.IsExpandedProperty, true);
             }
 
             // Try to generate the ItemsPresenter and the ItemsPanel.
@@ -66,7 +64,7 @@ public static class TreeViewControlHelper
             Panel itemsHostPanel = (Panel)VisualTreeHelper.GetChild(itemsPresenter, 0);
 
             // Ensure that the generator for this panel has been created.
-            UIElementCollection children = itemsHostPanel.Children;
+            _ = itemsHostPanel.Children;
             Panel virtualizingPanel = itemsHostPanel;
 
             for (int i = 0, count = container.Items.Count; i < count; i++)
@@ -111,7 +109,7 @@ public static class TreeViewControlHelper
             }
         }
 
-        return null;
+        return null!;
     }
 
     /// <summary>
@@ -127,8 +125,7 @@ public static class TreeViewControlHelper
             Visual child = (Visual)VisualTreeHelper.GetChild(visual, i);
             if (child != null)
             {
-                T correctlyTyped = child as T;
-                if (correctlyTyped != null)
+                if (child is T correctlyTyped)
                 {
                     return correctlyTyped;
                 }
@@ -141,7 +138,7 @@ public static class TreeViewControlHelper
             }
         }
 
-        return null;
+        return null!;
     }
 
     public static T FindVisualParent<T>(this Visual visual) where T : Visual
@@ -149,17 +146,14 @@ public static class TreeViewControlHelper
         try
         {
             DependencyObject parent = visual;
-            while (!(parent is T) && parent != null)
+            while (parent is not T && parent != null)
             {
                 parent = VisualTreeHelper.GetParent(parent);
             }
 
-            if (parent is T)
-                return (T)parent;
-            else
-                return null;
+            return parent is T t ? t : null!;
         }
-        catch { return null; }
+        catch { return null!; }
     }
 
     public static TextRange GetFullRange(this RichTextBox box)
@@ -169,20 +163,13 @@ public static class TreeViewControlHelper
 
     public static Key GetRealKey(this KeyEventArgs e)
     {
-        switch (e.Key)
+        return e.Key switch
         {
-            case Key.System:
-                return e.SystemKey;
-
-            case Key.ImeProcessed:
-                return e.ImeProcessedKey;
-
-            case Key.DeadCharProcessed:
-                return e.DeadCharProcessedKey;
-
-            default:
-                return e.Key;
-        }
+            Key.System => e.SystemKey,
+            Key.ImeProcessed => e.ImeProcessedKey,
+            Key.DeadCharProcessed => e.DeadCharProcessedKey,
+            _ => e.Key,
+        };
     }
 
     public static object? FindNameFromTemplate(this Control control, string name)

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -15,7 +13,10 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 public abstract class FlyoutBase : DependencyObject
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     protected FlyoutBase()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -101,12 +102,12 @@ public abstract class FlyoutBase : DependencyObject
         {
             if (m_weakRefToPreviousFocus != null)
             {
-                if (m_weakRefToPreviousFocus.TryGetTarget(out IInputElement previousFocus))
+                if (m_weakRefToPreviousFocus.TryGetTarget(out IInputElement? previousFocus))
                 {
                     previousFocus.Focus();
                 }
 
-                m_weakRefToPreviousFocus = null;
+                m_weakRefToPreviousFocus = null!;
             }
         }
     }
@@ -156,10 +157,7 @@ public abstract class FlyoutBase : DependencyObject
     public static void ShowAttachedFlyout(FrameworkElement flyoutOwner)
     {
         var flyout = GetAttachedFlyout(flyoutOwner);
-        if (flyout != null)
-        {
-            flyout.ShowAt(flyoutOwner);
-        }
+        flyout?.ShowAt(flyoutOwner);
     }
 
     #endregion AttachedFlyout
@@ -180,10 +178,7 @@ public abstract class FlyoutBase : DependencyObject
 
     public void ShowAt(FrameworkElement placementTarget)
     {
-        if (placementTarget is null)
-        {
-            throw new ArgumentNullException(nameof(placementTarget));
-        }
+        _ = placementTarget ?? throw new ArgumentNullException(nameof(placementTarget));
 
         ShowAtCore(placementTarget, false);
     }
@@ -198,10 +193,7 @@ public abstract class FlyoutBase : DependencyObject
 
     internal void ShowAsContextFlyout(FrameworkElement placementTarget)
     {
-        if (placementTarget is null)
-        {
-            throw new ArgumentNullException(nameof(placementTarget));
-        }
+        _ = placementTarget ?? throw new ArgumentNullException(nameof(placementTarget));
 
         ShowAtCore(placementTarget, true);
     }
@@ -225,13 +217,13 @@ public abstract class FlyoutBase : DependencyObject
         }
 
         PreparePopup(placementTarget, showAsContextFlyout);
-        Debug.Assert(m_popup.HasLocalValue(Popup.PlacementProperty));
-        Debug.Assert(m_popup.HasLocalValue(Popup.PlacementTargetProperty));
+        Debug.Assert(m_popup!.HasLocalValue(Popup.PlacementProperty));
+        Debug.Assert(m_popup!.HasLocalValue(Popup.PlacementTargetProperty));
 
         m_target = placementTarget;
         m_showingAsContextFlyout = showAsContextFlyout;
         OnOpening();
-        m_popup.IsOpen = true;
+        m_popup!.IsOpen = true;
     }
 
     internal virtual void HideCore()
@@ -244,17 +236,17 @@ public abstract class FlyoutBase : DependencyObject
 
     internal virtual void OnOpening()
     {
-        Opening?.Invoke(this, null);
+        Opening?.Invoke(this, null!);
     }
 
     internal virtual void OnOpened()
     {
-        Opened?.Invoke(this, null);
+        Opened?.Invoke(this, null!);
     }
 
     internal virtual void OnClosed()
     {
-        Closed?.Invoke(this, null);
+        Closed?.Invoke(this, null!);
 
         var pendingShow = m_pendingShow;
         CancelAsyncShow();
@@ -393,11 +385,8 @@ public abstract class FlyoutBase : DependencyObject
 
     private void UpdatePopupAnimation()
     {
-        if (m_popup != null)
-        {
-            m_popup.PopupAnimation = AreOpenCloseAnimationsEnabled && SharedHelpers.IsAnimationsEnabled ?
-                DesiredPopupAnimation : PopupAnimation.None;
-        }
+        m_popup?.PopupAnimation = AreOpenCloseAnimationsEnabled && SharedHelpers.IsAnimationsEnabled ?
+            DesiredPopupAnimation : PopupAnimation.None;
     }
 
     internal Rect GetPlacementRectangle(UIElement target)
@@ -459,7 +448,7 @@ public abstract class FlyoutBase : DependencyObject
             m_popup.ClearValue(Popup.PlacementRectangleProperty);
             m_popup.ClearValue(FrameworkElement.WidthProperty);
             m_popup.ClearValue(FrameworkElement.HeightProperty);
-            m_target = null;
+            m_target = null!;
             m_showingAsContextFlyout = false;
         }
 
@@ -483,12 +472,12 @@ public abstract class FlyoutBase : DependencyObject
 
     private void CancelAsyncShow()
     {
-        m_pendingShow = null;
+        m_pendingShow = null!;
 
         if (m_asyncShow != null)
         {
             m_asyncShow.Abort();
-            m_asyncShow = null;
+            m_asyncShow = null!;
         }
     }
 

@@ -162,6 +162,6 @@ public static class Notification
         }
     }
 
-    [DllImport("Shell32.dll", CharSet = CharSet.Auto)]
+    [DllImport("Shell32.dll", CharSet = CharSet.Unicode)]
     private static extern int ExtractIconEx(string lpszFile, int nIconIndex, nint[] phiconLarge, nint[] phiconSmall, uint nIcons);
 }

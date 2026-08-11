@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Wpf.Ui.Violeta.Controls.Compat;
 using SplitDataSourceT = Wpf.Ui.Violeta.Controls.SplitDataSourceBase<object, Wpf.Ui.Violeta.Controls.NavigationViewSplitVectorID, double>;
@@ -24,15 +25,12 @@ class TopNavigationViewDataProvider : SplitDataSourceT
 {
     public TopNavigationViewDataProvider()
     {
-        Func<object, int> lambda = (object value) =>
-        {
-            return IndexOf(value);
-        };
+        Func<object, int> lambda = IndexOf;
 
         var primaryVector = new SplitVectorT(NavigationViewSplitVectorID.PrimaryList, lambda);
         var overflowVector = new SplitVectorT(NavigationViewSplitVectorID.OverflowList, lambda);
 
-        InitializeSplitVectors(new List<SplitVectorT> { primaryVector, overflowVector });
+        InitializeSplitVectors([primaryVector, overflowVector]);
     }
 
     public IList GetPrimaryItems()
@@ -128,13 +126,13 @@ class TopNavigationViewDataProvider : SplitDataSourceT
             if (vector != null)
             {
                 // transform PrimaryList index to OrignalVector index
-                indexes = indexesInPrimary.Select(index =>
+                indexes = [.. indexesInPrimary.Select(index =>
                 {
                     return vector.IndexToIndexInOriginalVector(index);
-                }).ToList();
+                })];
             }
         }
-        return indexes ?? new List<int>();
+        return indexes ?? [];
     }
 
     public int ConvertOriginalIndexToIndex(int originalIndex)
@@ -306,12 +304,10 @@ class TopNavigationViewDataProvider : SplitDataSourceT
                     break;
                 }
         }
-        if (m_dataChangeCallback != null)
-        {
-            m_dataChangeCallback(args);
-        }
+        m_dataChangeCallback?.Invoke(args);
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private bool IsValidWidth(double width)
     {
         return (width >= 0) && (width < double.MaxValue);
@@ -338,20 +334,14 @@ class TopNavigationViewDataProvider : SplitDataSourceT
         {
             // update to the new datasource.
 
-            if (oldValue != null)
-            {
-                oldValue.CollectionChanged -= OnDataSourceChanged;
-            }
+            oldValue?.CollectionChanged -= OnDataSourceChanged;
 
             Clear();
 
             m_dataSource = newValue;
             SyncAndInitVectorFlagsWithID(NavigationViewSplitVectorID.NotInitialized, DefaultAttachedData());
 
-            if (newValue != null)
-            {
-                newValue.CollectionChanged += OnDataSourceChanged;
-            }
+            newValue?.CollectionChanged += OnDataSourceChanged;
         }
 
         // Move all to primary list

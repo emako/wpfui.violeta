@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -16,7 +14,10 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 // [TypeConverter(typeof(IconElementConverter))]
 public abstract class IconElement : FrameworkElement
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     private protected IconElement()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -203,5 +204,5 @@ public abstract class IconElement : FrameworkElement
     /// Creates an icon source.
     /// </summary>
     /// <returns>An icon source.</returns>
-    protected virtual IconSource CreateIconSourceCore() => null;
+    protected virtual IconSource CreateIconSourceCore() => null!;
 }

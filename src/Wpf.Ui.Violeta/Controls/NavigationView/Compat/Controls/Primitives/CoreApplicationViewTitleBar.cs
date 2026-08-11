@@ -1,5 +1,4 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Data;
 
@@ -21,24 +20,25 @@ internal sealed class CoreApplicationViewTitleBar
 
     public double Height => TitleBar.GetHeight(_owner);
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     public bool IsVisible => true;
 
     public double SystemOverlayLeftInset => TitleBar.GetSystemOverlayLeftInset(_owner);
 
     public double SystemOverlayRightInset => TitleBar.GetSystemOverlayRightInset(_owner);
 
-    public event TypedEventHandler<CoreApplicationViewTitleBar, object> IsVisibleChanged;
+    public event TypedEventHandler<CoreApplicationViewTitleBar, object>? IsVisibleChanged;
 
-    public event TypedEventHandler<CoreApplicationViewTitleBar, object> LayoutMetricsChanged;
+    public event TypedEventHandler<CoreApplicationViewTitleBar, object>? LayoutMetricsChanged;
 
     private void RaiseIsVisibleChanged()
     {
-        IsVisibleChanged?.Invoke(this, null);
+        IsVisibleChanged?.Invoke(this, null!);
     }
 
     private void RaiseLayoutMetricsChanged()
     {
-        LayoutMetricsChanged?.Invoke(this, null);
+        LayoutMetricsChanged?.Invoke(this, null!);
     }
 
     #region TitleBar
@@ -67,7 +67,7 @@ internal sealed class CoreApplicationViewTitleBar
         {
             return GetTitleBar(window);
         }
-        return null;
+        return null!;
     }
 
     private static void SetTitleBar(Window window, CoreApplicationViewTitleBar value)
@@ -77,8 +77,8 @@ internal sealed class CoreApplicationViewTitleBar
 
     #endregion TitleBar
 
-    private readonly Window _owner;
-    private readonly Listener _listener;
+    private readonly Window _owner = null!;
+    private readonly Listener _listener = null!;
 
     private class Listener : DependencyObject
     {
@@ -119,6 +119,8 @@ internal sealed class CoreApplicationViewTitleBar
 
         private void OnExtendViewIntoTitleBarPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
+            _ = args;
+
             _owner.RaiseLayoutMetricsChanged();
             _owner.RaiseIsVisibleChanged();
         }
@@ -147,6 +149,8 @@ internal sealed class CoreApplicationViewTitleBar
 
         private void OnHeightPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
+            _ = args;
+
             _owner.RaiseLayoutMetricsChanged();
         }
 
@@ -174,6 +178,8 @@ internal sealed class CoreApplicationViewTitleBar
 
         private void OnSystemOverlayLeftInsetPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
+            _ = args;
+
             _owner.RaiseLayoutMetricsChanged();
         }
 
@@ -201,6 +207,8 @@ internal sealed class CoreApplicationViewTitleBar
 
         private void OnSystemOverlayRightInsetPropertyChanged(DependencyPropertyChangedEventArgs args)
         {
+            _ = args;
+
             _owner.RaiseLayoutMetricsChanged();
         }
 

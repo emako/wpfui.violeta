@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Globalization;
 using System.Windows;
@@ -20,7 +18,7 @@ public sealed class TabItemHeaderConverter : IValueConverter
             return headerString;
         }
 
-        return null;
+        return null!;
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -221,7 +219,7 @@ public static class TabItemHelper
 
     private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
-        TabItem TabItem = sender as TabItem;
+        TabItem TabItem = (sender as TabItem)!;
         UpdateTabGeometry(TabItem);
         UpdateHeaderTooltip(TabItem);
         UpdateCloseButtonTooltip(TabItem);
@@ -256,7 +254,7 @@ public static class TabItemHelper
         }
     }
 
-    private static readonly RoutedCommand CloseTabButtonCommand = new RoutedCommand()
+    private static readonly RoutedCommand CloseTabButtonCommand = new()
     {
         InputGestures = { new KeyGesture(Key.F4, ModifierKeys.Control) }
     };
@@ -296,7 +294,7 @@ public static class TabItemHelper
             e.Handled = true;
         }
 
-        CommandBinding closeTabButtonCommandBinding = new CommandBinding(CloseTabButtonCommand, ExecutedCustomCommand, CanExecuteCustomCommand);
+        CommandBinding closeTabButtonCommandBinding = new(CloseTabButtonCommand, ExecutedCustomCommand, CanExecuteCustomCommand);
         item.CommandBindings.Add(closeTabButtonCommandBinding);
         SetCloseTabButtonCommand(item, CloseTabButtonCommand);
 
@@ -325,7 +323,7 @@ public static class TabItemHelper
 
     private static void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
-        UpdateTabGeometry(sender as TabItem);
+        UpdateTabGeometry((sender as TabItem)!);
     }
 
     private static void UpdateTabGeometry(TabItem tabItem)

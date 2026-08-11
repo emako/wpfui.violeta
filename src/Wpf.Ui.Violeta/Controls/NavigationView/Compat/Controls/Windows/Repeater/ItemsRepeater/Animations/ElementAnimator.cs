@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -14,11 +12,11 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 // and overriding virtual/abstract members.
 public class ElementAnimator
 {
-    public event ElementAnimationCompleted ShowAnimationCompleted;
+    public event ElementAnimationCompleted? ShowAnimationCompleted;
 
-    public event ElementAnimationCompleted HideAnimationCompleted;
+    public event ElementAnimationCompleted? HideAnimationCompleted;
 
-    public event ElementAnimationCompleted BoundsChangeAnimationCompleted;
+    public event ElementAnimationCompleted? BoundsChangeAnimationCompleted;
 
     public void OnElementShown(
         UIElement element,
@@ -222,7 +220,7 @@ public class ElementAnimator
         BoundsChange
     }
 
-    private struct ElementInfo
+    private readonly struct ElementInfo
     {
         public ElementInfo(
             UIElement element,
@@ -260,7 +258,7 @@ public class ElementAnimator
         public Rect NewBounds { get; }
     }
 
-    private readonly List<ElementInfo> m_animatingElements = new List<ElementInfo>();
+    private readonly List<ElementInfo> m_animatingElements = [];
 }
 
 public delegate void ElementAnimationCompleted(ElementAnimator sender, UIElement element);

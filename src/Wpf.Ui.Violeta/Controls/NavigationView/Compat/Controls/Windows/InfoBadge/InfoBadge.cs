@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 
@@ -123,26 +121,6 @@ public class InfoBadge : Control
         }
         return defaultDesiredSize;
     }
-
-    //protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs args)
-    //{
-    //    base.OnPropertyChanged(args);
-    //    var property = args.Property;
-    //    Control thisAsControl = this;
-
-    //    if (property == ValueProperty)
-    //    {
-    //        if (Value < -1)
-    //        {
-    //            throw new ArgumentOutOfRangeException("Value must be equal to or greater than -1");
-    //        }
-    //    }
-
-    //    if (property == ValueProperty || property == IconSourceProperty)
-    //    {
-    //        OnDisplayKindPropertiesChanged();
-    //    }
-    //}
 
     void OnDisplayKindPropertiesChanged()
     {

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 
@@ -42,8 +40,7 @@ public static class PanelHelper
     private static void OnSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         // Make sure this is put on a panel
-        var panel = d as Panel;
-        if (panel == null) return;
+        if (d is not Panel panel) return;
 
         // Avoid duplicate registrations
         panel.Loaded -= OnPanelLoaded;
@@ -51,13 +48,13 @@ public static class PanelHelper
 
         if (panel.IsLoaded)
         {
-            OnPanelLoaded(panel, null);
+            OnPanelLoaded(panel, null!);
         }
     }
 
     private static void OnPanelLoaded(object? sender, RoutedEventArgs e)
     {
-        var panel = (Panel)sender;
+        var panel = (Panel)sender!;
         object value = panel.GetProperty("Orientation");
         double spacing = GetSpacing(panel);
         Thickness margin = value != null && value is Orientation orientation ? orientation == Orientation.Horizontal ? new Thickness(0, 0, spacing, 0) : new Thickness(0, 0, 0, spacing) : new Thickness(spacing / 2, spacing / 2, spacing / 2, spacing / 2);
@@ -67,8 +64,7 @@ public static class PanelHelper
         for (var i = 0; i < panel.Children.Count; i++)
         {
             UIElement child = panel.Children[i];
-            var fe = child as FrameworkElement;
-            if (fe == null) continue;
+            if (child is not FrameworkElement fe) continue;
 
             bool isLastItem = i == panel.Children.Count - 1;
             fe.Margin = isLastItem ? lastmargin : margin;

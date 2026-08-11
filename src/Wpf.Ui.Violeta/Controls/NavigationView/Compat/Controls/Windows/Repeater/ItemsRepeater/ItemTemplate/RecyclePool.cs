@@ -1,7 +1,6 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xaml;
@@ -14,7 +13,7 @@ public class RecyclePool
         UIElement element,
         string key)
     {
-        PutElementCore(element, key, null /* owner */);
+        PutElementCore(element, key, null! /* owner */);
     }
 
     public void PutElement(
@@ -28,7 +27,7 @@ public class RecyclePool
     public UIElement TryGetElement(
         string key)
     {
-        return TryGetElementCore(key, null /* owner */);
+        return TryGetElementCore(key, null! /* owner */);
     }
 
     public UIElement TryGetElement(
@@ -47,7 +46,7 @@ public class RecyclePool
         var winrtOwner = owner;
         var winrtOwnerAsPanel = EnsureOwnerIsPanelOrNull(winrtOwner);
 
-        ElementInfo elementInfo = new ElementInfo(element, winrtOwnerAsPanel);
+        ElementInfo elementInfo = new(element, winrtOwnerAsPanel);
 
         if (m_elements.TryGetValue(winrtKey, out var elements))
         {
@@ -55,7 +54,7 @@ public class RecyclePool
         }
         else
         {
-            List<ElementInfo> pool = new List<ElementInfo>();
+            List<ElementInfo> pool = new();
             pool.Add(elementInfo);
             m_elements.Add(winrtKey, pool);
         }
@@ -69,7 +68,7 @@ public class RecyclePool
         {
             if (elements.Count > 0)
             {
-                ElementInfo elementInfo = new ElementInfo(null, null);
+                ElementInfo elementInfo = new(null!, null!);
                 // Prefer an element from the same owner or with no owner so that we don't incur
                 // the enter/leave cost during recycling.
                 // TODO: prioritize elements with the same owner to those without an owner.
@@ -109,7 +108,7 @@ public class RecyclePool
             }
         }
 
-        return null;
+        return null!;
     }
 
     #region Properties
@@ -131,6 +130,7 @@ public class RecyclePool
         element.SetValue(ReuseKeyProperty, value);
     }
 
+    [SuppressMessage("Style", "IDE0090:Use 'new(...)'")]
     private static readonly AttachableMemberIdentifier PoolInstanceProperty =
         new AttachableMemberIdentifier(
             typeof(RecyclePool),
@@ -156,32 +156,24 @@ public class RecyclePool
 
     #endregion Properties
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private Panel EnsureOwnerIsPanelOrNull(UIElement owner)
     {
-        Panel ownerAsPanel = null;
+        Panel ownerAsPanel = null!;
         if (owner != null)
         {
-            ownerAsPanel = owner as Panel;
-            if (ownerAsPanel == null)
-            {
-                throw new ArgumentException("owner must to be a Panel or null.");
-            }
+            ownerAsPanel = owner as Panel ?? throw new ArgumentException("owner must to be a Panel or null.");
         }
 
         return ownerAsPanel;
     }
 
-    private class ElementInfo
+    private class ElementInfo(UIElement element, Panel owner)
     {
-        public ElementInfo(UIElement element, Panel owner)
-        {
-            Element = element;
-            Owner = owner;
-        }
+        public UIElement Element { get; } = element;
 
-        public UIElement Element { get; }
-        public Panel Owner { get; }
+        public Panel Owner { get; } = owner;
     }
 
-    private readonly Dictionary<string, List<ElementInfo>> m_elements = new Dictionary<string, List<ElementInfo>>();
+    private readonly Dictionary<string, List<ElementInfo>> m_elements = [];
 }

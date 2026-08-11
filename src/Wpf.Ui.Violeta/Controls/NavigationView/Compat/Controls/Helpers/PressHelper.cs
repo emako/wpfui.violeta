@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Input;
 
@@ -74,27 +72,27 @@ public static class PressHelper
 
     private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
-        UpdateIsPressed((UIElement)sender);
+        UpdateIsPressed((UIElement)sender!);
     }
 
     private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
-        UpdateIsPressed((UIElement)sender);
+        UpdateIsPressed((UIElement)sender!);
     }
 
     private static void OnMouseEnter(object? sender, MouseEventArgs e)
     {
-        UpdateIsPressed((UIElement)sender);
+        UpdateIsPressed((UIElement)sender!);
     }
 
     private static void OnMouseLeave(object? sender, MouseEventArgs e)
     {
-        UpdateIsPressed((UIElement)sender);
+        UpdateIsPressed((UIElement)sender!);
     }
 
     private static void UpdateIsPressed(UIElement element)
     {
-        Rect itemBounds = new Rect(new Point(), element.RenderSize);
+        Rect itemBounds = new(new Point(), element.RenderSize);
 
         if (Mouse.LeftButton == MouseButtonState.Pressed &&
             element.IsMouseOver &&

@@ -1,8 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
@@ -15,7 +14,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 [ContentProperty(nameof(ItemTemplate))]
 public partial class ItemsRepeater : Panel
 {
-    internal static readonly Point ClearedElementsArrangePosition = new Point(-10000.0, -10000.0);
+    internal static readonly Point ClearedElementsArrangePosition = new(-10000.0, -10000.0);
 
     // A convention we use in the ItemsRepeater codebase for an invalid Rect value.
     internal static readonly Rect InvalidRect = Rect.Empty;
@@ -26,7 +25,10 @@ public partial class ItemsRepeater : Panel
             new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ItemsRepeater()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         AnimationManager = new AnimationManager(this);
         ViewManager = new ViewManager(this);
@@ -39,14 +41,14 @@ public partial class ItemsRepeater : Panel
 
         // Initialize the cached layout to the default value
         var layout = Layout as VirtualizingLayout;
-        OnLayoutChanged(null, layout);
+        OnLayoutChanged(null!, layout!);
     }
 
     ~ItemsRepeater()
     {
-        m_itemTemplate = null;
-        m_animator = null;
-        m_layout = null;
+        m_itemTemplate = null!;
+        m_animator = null!;
+        m_layout = null!;
     }
 
     protected override AutomationPeer OnCreateAutomationPeer()
@@ -164,7 +166,7 @@ public partial class ItemsRepeater : Panel
                 }
                 else
                 {
-                    var newBounds = CachedVisualTreeHelpers.GetLayoutSlot(element as FrameworkElement);
+                    var newBounds = CachedVisualTreeHelpers.GetLayoutSlot((element as FrameworkElement)!);
 
                     if (virtInfo.ArrangeBounds != InvalidRect &&
                         newBounds != virtInfo.ArrangeBounds)
@@ -344,7 +346,7 @@ public partial class ItemsRepeater : Panel
 
     internal UIElement GetElementFromIndexImpl(int index)
     {
-        UIElement result = null;
+        UIElement result = null!;
 
         var children = Children;
         for (int i = 0; i < children.Count && result == null; ++i)
@@ -357,9 +359,10 @@ public partial class ItemsRepeater : Panel
             }
         }
 
-        return result;
+        return result!;
     }
 
+    [SuppressMessage("Usage", "CA2208:Instantiate argument exceptions correctly")]
     internal UIElement GetOrCreateElementImpl(int index)
     {
         if (index >= 0 && index >= ItemsSourceView.Count)
@@ -386,10 +389,10 @@ public partial class ItemsRepeater : Panel
             element.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
         }
 
-        m_viewportManager.OnMakeAnchor(element, isAnchorOutsideRealizedRange);
+        m_viewportManager.OnMakeAnchor(element!, isAnchorOutsideRealizedRange);
         InvalidateMeasure();
 
-        return element;
+        return element!;
     }
 
     internal static VirtualizationInfo TryGetVirtualizationInfo(UIElement element)
@@ -402,10 +405,7 @@ public partial class ItemsRepeater : Panel
     {
         var result = TryGetVirtualizationInfo(element);
 
-        if (result == null)
-        {
-            result = CreateAndInitializeVirtualizationInfo(element);
-        }
+        result ??= CreateAndInitializeVirtualizationInfo(element);
 
         return result;
     }
@@ -438,7 +438,7 @@ public partial class ItemsRepeater : Panel
                     newDataSource = new InspectingDataSource(newValue);
                 }
 
-                OnDataSourcePropertyChanged(ItemsSourceView, newDataSource);
+                OnDataSourcePropertyChanged(ItemsSourceView, newDataSource!);
             }
         }
         else if (property == ItemTemplateProperty)
@@ -570,15 +570,8 @@ public partial class ItemsRepeater : Panel
 
         ItemsSourceView = newValue;
 
-        if (oldValue != null)
-        {
-            oldValue.CollectionChanged -= OnItemsSourceViewChanged;
-        }
-
-        if (newValue != null)
-        {
-            newValue.CollectionChanged += OnItemsSourceViewChanged;
-        }
+        oldValue?.CollectionChanged -= OnItemsSourceViewChanged;
+        newValue?.CollectionChanged += OnItemsSourceViewChanged;
 
         var processingChange = false;
 
@@ -594,7 +587,7 @@ public partial class ItemsRepeater : Panel
 
                 if (layout is VirtualizingLayout virtualLayout)
                 {
-                    ((IVirtualizingLayoutOverrides)virtualLayout).OnItemsChangedCore(GetLayoutContext(), newValue, args);
+                    ((IVirtualizingLayoutOverrides)virtualLayout).OnItemsChangedCore(GetLayoutContext(), newValue!, args);
                 }
                 else if (layout is NonVirtualizingLayout nonVirtualLayout)
                 {
@@ -618,11 +611,12 @@ public partial class ItemsRepeater : Panel
         {
             if (processingChange)
             {
-                m_processingItemsSourceChange = null;
+                m_processingItemsSourceChange = null!;
             }
         }
     }
 
+    [SuppressMessage("Usage", "CA2208:Instantiate argument exceptions correctly")]
     private void OnItemTemplateChanged(object oldValue, object newValue)
     {
         if (m_isLayoutInProgress && oldValue != null)
@@ -673,7 +667,7 @@ public partial class ItemsRepeater : Panel
             }
             // Clear flag for bug #776
             m_isItemTemplateEmpty = false;
-            m_itemTemplateWrapper = newValue as IElementFactoryShim;
+            m_itemTemplateWrapper = (newValue as IElementFactoryShim)!;
             if (m_itemTemplateWrapper == null)
             {
                 // ItemTemplate set does not implement IElementFactoryShim. We also
@@ -703,7 +697,7 @@ public partial class ItemsRepeater : Panel
         {
             if (processingChange)
             {
-                m_processingItemsSourceChange = null;
+                m_processingItemsSourceChange = null!;
             }
         }
     }
@@ -735,7 +729,7 @@ public partial class ItemsRepeater : Panel
                 }
             }
 
-            LayoutState = null;
+            LayoutState = null!;
         }
 
         //if (!SharedHelpers.IsRS5OrHigher())
@@ -784,14 +778,14 @@ public partial class ItemsRepeater : Panel
         m_processingItemsSourceChange = args;
         try
         {
-            AnimationManager.OnItemsSourceChanged(sender, args);
-            ViewManager.OnItemsSourceChanged(sender, args);
+            AnimationManager.OnItemsSourceChanged(sender!, args);
+            ViewManager.OnItemsSourceChanged(sender!, args);
 
             if (Layout is Layout layout)
             {
                 if (layout is VirtualizingLayout virtualLayout)
                 {
-                    ((IVirtualizingLayoutOverrides)virtualLayout).OnItemsChangedCore(GetLayoutContext(), sender, args);
+                    ((IVirtualizingLayoutOverrides)virtualLayout).OnItemsChangedCore(GetLayoutContext(), sender!, args);
                 }
                 else
                 {
@@ -802,7 +796,7 @@ public partial class ItemsRepeater : Panel
         }
         finally
         {
-            m_processingItemsSourceChange = null;
+            m_processingItemsSourceChange = null!;
         }
     }
 
@@ -818,10 +812,7 @@ public partial class ItemsRepeater : Panel
 
     private VirtualizingLayoutContext GetLayoutContext()
     {
-        if (m_layoutContext == null)
-        {
-            m_layoutContext = new RepeaterLayoutContext(this);
-        }
+        m_layoutContext ??= new RepeaterLayoutContext(this);
         return m_layoutContext;
     }
 

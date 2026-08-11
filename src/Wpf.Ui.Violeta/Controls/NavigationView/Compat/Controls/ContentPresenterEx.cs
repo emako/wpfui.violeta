@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -168,9 +166,9 @@ public class ContentPresenterEx : ContentPresenter
         {
             ctrl.TextBlock.TextWrapping = (TextWrapping)e.NewValue;
         }
-        else if (ctrl.AccessText != null)
+        else
         {
-            ctrl.AccessText.TextWrapping = (TextWrapping)e.NewValue;
+            ctrl.AccessText?.TextWrapping = (TextWrapping)e.NewValue;
         }
     }
 
@@ -187,17 +185,11 @@ public class ContentPresenterEx : ContentPresenter
         get => _textBlock;
         set
         {
-            if (_textBlock != null)
-            {
-                _textBlock.ClearValue(TextBlock.TextWrappingProperty);
-            }
+            _textBlock?.ClearValue(TextBlock.TextWrappingProperty);
 
             _textBlock = value;
 
-            if (_textBlock != null)
-            {
-                _textBlock.TextWrapping = TextWrapping;
-            }
+            _textBlock?.TextWrapping = TextWrapping;
         }
     }
 
@@ -208,17 +200,11 @@ public class ContentPresenterEx : ContentPresenter
         get => _accessText;
         set
         {
-            if (_accessText != null)
-            {
-                _accessText.ClearValue(AccessText.TextWrappingProperty);
-            }
+            _accessText?.ClearValue(AccessText.TextWrappingProperty);
 
             _accessText = value;
 
-            if (_accessText != null)
-            {
-                _accessText.TextWrapping = TextWrapping;
-            }
+            _accessText?.TextWrapping = TextWrapping;
         }
     }
 
@@ -228,11 +214,10 @@ public class ContentPresenterEx : ContentPresenter
 
     protected override DataTemplate ChooseTemplate()
     {
-        DataTemplate template = null;
         object content = Content;
 
         // ContentTemplate has first stab
-        template = ContentTemplate;
+        DataTemplate template = ContentTemplate;
 
         // no ContentTemplate set, try ContentTemplateSelector
         if (template == null)

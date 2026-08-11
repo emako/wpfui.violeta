@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -45,7 +43,7 @@ public static class HyperlinkHelper
 
     private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
-        var hyperlink = (Hyperlink)sender;
+        var hyperlink = (Hyperlink)sender!;
         if (hyperlink.IsMouseCaptured && e.ButtonState == MouseButtonState.Pressed)
         {
             hyperlink.SetValue(IsPressedPropertyKey, true);
@@ -54,7 +52,7 @@ public static class HyperlinkHelper
 
     private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
-        var hyperlink = (Hyperlink)sender;
+        var hyperlink = (Hyperlink)sender!;
         if (GetIsPressed(hyperlink))
         {
             hyperlink.SetValue(IsPressedPropertyKey, false);

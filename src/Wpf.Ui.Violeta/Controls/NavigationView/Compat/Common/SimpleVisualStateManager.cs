@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,19 +36,16 @@ public class SimpleVisualStateManager : VisualStateManager
 
     internal static Collection<VisualStateGroup> GetVisualStateGroupsInternal(FrameworkElement obj)
     {
-        if (obj == null)
-        {
-            throw new ArgumentNullException("obj");
-        }
+        _ = obj ?? throw new ArgumentNullException(nameof(obj));
 
         // We don't want to get the default value because it will create/return an empty collection.
         BaseValueSource source = DependencyPropertyHelper.GetValueSource(obj, VisualStateGroupsProperty).BaseValueSource;
         if (source != BaseValueSource.Default)
         {
-            return obj.GetValue(VisualStateManager.VisualStateGroupsProperty) as Collection<VisualStateGroup>;
+            return (obj.GetValue(VisualStateManager.VisualStateGroupsProperty) as Collection<VisualStateGroup>)!;
         }
 
-        return null;
+        return null!;
     }
 
     #endregion VisualStateGroups
@@ -71,22 +66,15 @@ public class SimpleVisualStateManager : VisualStateManager
             }
         }
 
-        group = null;
-        state = null;
+        group = null!;
+        state = null!;
         return false;
     }
 
     private bool GoToStateInternal(FrameworkElement control, FrameworkElement stateGroupsRoot, VisualStateGroup group, VisualState state, bool useTransitions)
     {
-        if (stateGroupsRoot == null)
-        {
-            throw new ArgumentNullException("stateGroupsRoot");
-        }
-
-        if (state == null)
-        {
-            throw new ArgumentNullException("state");
-        }
+        _ = stateGroupsRoot ?? throw new ArgumentNullException(nameof(stateGroupsRoot));
+        _ = state ?? throw new ArgumentNullException(nameof(state));
 
         if (group == null)
         {
@@ -101,7 +89,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
         // Get the transition Storyboard. Even if there are no transitions specified, there might
         // be properties that we're rolling back to their default values.
-        VisualTransition transition = useTransitions ? GetTransition(stateGroupsRoot, group, lastState, state) : null;
+        VisualTransition? transition = useTransitions ? GetTransition(stateGroupsRoot, group, lastState, state) : null;
 
         // If the transition is null, then we want to instantly snap. The dynamicTransition will
         // consist of everything that is being moved back to the default state.
@@ -128,7 +116,7 @@ public class SimpleVisualStateManager : VisualStateManager
         {
             if (transition.Storyboard != null/* && transition.ExplicitStoryboardCompleted == true*/)
             {
-                EventHandler transitionCompleted = null;
+                EventHandler transitionCompleted = null!;
                 transitionCompleted = new EventHandler(delegate (object? sender, EventArgs e)
                 {
                     if (ShouldRunStateStoryboard(control, stateGroupsRoot, state, group))
@@ -149,7 +137,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
             // Start transition and dynamicTransition Storyboards
             // Stop any previously running Storyboards
-            group.StartNewThenStopOld(stateGroupsRoot, transition.Storyboard);
+            group.StartNewThenStopOld(stateGroupsRoot, transition.Storyboard!);
 
             RaiseCurrentStateChanging(group, lastState, state, control, stateGroupsRoot);
         }
@@ -211,23 +199,12 @@ public class SimpleVisualStateManager : VisualStateManager
     /// </returns>
     internal static VisualTransition GetTransition(FrameworkElement element, VisualStateGroup group, VisualState from, VisualState to)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException("element");
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
+        _ = group ?? throw new ArgumentNullException(nameof(group));
+        _ = to ?? throw new ArgumentNullException(nameof(to));
 
-        if (group == null)
-        {
-            throw new ArgumentNullException("group");
-        }
-
-        if (to == null)
-        {
-            throw new ArgumentNullException("to");
-        }
-
-        VisualTransition best = null;
-        VisualTransition defaultTransition = null;
+        VisualTransition best = null!;
+        VisualTransition defaultTransition = null!;
         int bestScore = -1;
 
         IList<VisualTransition> transitions = (IList<VisualTransition>)group.Transitions;
@@ -272,7 +249,7 @@ public class SimpleVisualStateManager : VisualStateManager
             }
         }
 
-        return best ?? defaultTransition;
+        return best ?? defaultTransition!;
     }
 
     internal static bool IsDefault(VisualTransition transition)
@@ -284,7 +261,7 @@ public class SimpleVisualStateManager : VisualStateManager
 
     #region Data
 
-    private static readonly Duration DurationZero = new Duration(TimeSpan.Zero);
+    private static readonly Duration DurationZero = new(TimeSpan.Zero);
 
     #endregion Data
 }

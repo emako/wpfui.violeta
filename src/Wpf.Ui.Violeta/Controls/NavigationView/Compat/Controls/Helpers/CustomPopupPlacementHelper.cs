@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -53,7 +51,7 @@ internal static class CustomPopupPlacementHelper
         Size popupSize,
         Size targetSize,
         Point offset,
-        FrameworkElement child = null)
+        FrameworkElement child = null!)
     {
         Matrix transformToDevice = default;
         if (child != null)
@@ -61,22 +59,22 @@ internal static class CustomPopupPlacementHelper
             Helper.TryGetTransformToDevice(child, out transformToDevice);
         }
 
-        CustomPopupPlacement preferredPlacement = CalculatePopupPlacement(placement, popupSize, targetSize, offset, child, transformToDevice);
+        CustomPopupPlacement preferredPlacement = CalculatePopupPlacement(placement, popupSize, targetSize, offset, child!, transformToDevice);
 
         CustomPopupPlacement? alternativePlacement = null;
         var alternativePlacementMode = GetAlternativePlacementMode(placement);
         if (alternativePlacementMode.HasValue)
         {
-            alternativePlacement = CalculatePopupPlacement(alternativePlacementMode.Value, popupSize, targetSize, offset, child, transformToDevice);
+            alternativePlacement = CalculatePopupPlacement(alternativePlacementMode.Value, popupSize, targetSize, offset, child!, transformToDevice);
         }
 
         if (alternativePlacement.HasValue)
         {
-            return new[] { preferredPlacement, alternativePlacement.Value };
+            return [preferredPlacement, alternativePlacement.Value];
         }
         else
         {
-            return new[] { preferredPlacement };
+            return [preferredPlacement];
         }
     }
 
@@ -85,9 +83,11 @@ internal static class CustomPopupPlacementHelper
         Size popupSize,
         Size targetSize,
         Point offset,
-        FrameworkElement child = null,
+        FrameworkElement child = null!,
         Matrix transformToDevice = default)
     {
+        _ = offset;
+
         Point point;
         PopupPrimaryAxis primaryAxis;
 
@@ -157,7 +157,7 @@ internal static class CustomPopupPlacementHelper
                 point = new Point(targetSize.Width, targetSize.Height - popupSize.Height);
                 primaryAxis = PopupPrimaryAxis.Vertical;
                 break;
-            //case CustomPopupPlacementMode.Auto:
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(placement));
         }
@@ -177,49 +177,23 @@ internal static class CustomPopupPlacementHelper
 
     private static CustomPlacementMode? GetAlternativePlacementMode(CustomPlacementMode placement)
     {
-        switch (placement)
+        return placement switch
         {
-            case CustomPlacementMode.Top:
-                return CustomPlacementMode.Bottom;
-
-            case CustomPlacementMode.Bottom:
-                return CustomPlacementMode.Top;
-
-            case CustomPlacementMode.Left:
-                return CustomPlacementMode.Right;
-
-            case CustomPlacementMode.Right:
-                return CustomPlacementMode.Left;
-
-            case CustomPlacementMode.Full:
-                return null;
-
-            case CustomPlacementMode.TopEdgeAlignedLeft:
-                return CustomPlacementMode.BottomEdgeAlignedLeft;
-
-            case CustomPlacementMode.TopEdgeAlignedRight:
-                return CustomPlacementMode.BottomEdgeAlignedRight;
-
-            case CustomPlacementMode.BottomEdgeAlignedLeft:
-                return CustomPlacementMode.TopEdgeAlignedLeft;
-
-            case CustomPlacementMode.BottomEdgeAlignedRight:
-                return CustomPlacementMode.TopEdgeAlignedRight;
-
-            case CustomPlacementMode.LeftEdgeAlignedTop:
-                return CustomPlacementMode.RightEdgeAlignedTop;
-
-            case CustomPlacementMode.LeftEdgeAlignedBottom:
-                return CustomPlacementMode.RightEdgeAlignedBottom;
-
-            case CustomPlacementMode.RightEdgeAlignedTop:
-                return CustomPlacementMode.RightEdgeAlignedTop;
-
-            case CustomPlacementMode.RightEdgeAlignedBottom:
-                return CustomPlacementMode.LeftEdgeAlignedBottom;
+            CustomPlacementMode.Top => (CustomPlacementMode?)CustomPlacementMode.Bottom,
+            CustomPlacementMode.Bottom => (CustomPlacementMode?)CustomPlacementMode.Top,
+            CustomPlacementMode.Left => (CustomPlacementMode?)CustomPlacementMode.Right,
+            CustomPlacementMode.Right => (CustomPlacementMode?)CustomPlacementMode.Left,
+            CustomPlacementMode.Full => null,
+            CustomPlacementMode.TopEdgeAlignedLeft => (CustomPlacementMode?)CustomPlacementMode.BottomEdgeAlignedLeft,
+            CustomPlacementMode.TopEdgeAlignedRight => (CustomPlacementMode?)CustomPlacementMode.BottomEdgeAlignedRight,
+            CustomPlacementMode.BottomEdgeAlignedLeft => (CustomPlacementMode?)CustomPlacementMode.TopEdgeAlignedLeft,
+            CustomPlacementMode.BottomEdgeAlignedRight => (CustomPlacementMode?)CustomPlacementMode.TopEdgeAlignedRight,
+            CustomPlacementMode.LeftEdgeAlignedTop => (CustomPlacementMode?)CustomPlacementMode.RightEdgeAlignedTop,
+            CustomPlacementMode.LeftEdgeAlignedBottom => (CustomPlacementMode?)CustomPlacementMode.RightEdgeAlignedBottom,
+            CustomPlacementMode.RightEdgeAlignedTop => (CustomPlacementMode?)CustomPlacementMode.RightEdgeAlignedTop,
+            CustomPlacementMode.RightEdgeAlignedBottom => (CustomPlacementMode?)CustomPlacementMode.LeftEdgeAlignedBottom,
             //case CustomPopupPlacementMode.Auto:
-            default:
-                return null;
-        }
+            _ => null,
+        };
     }
 }

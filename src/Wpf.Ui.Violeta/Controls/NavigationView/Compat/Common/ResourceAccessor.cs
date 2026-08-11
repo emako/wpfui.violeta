@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Reflection;
 using System.Resources;
@@ -179,7 +177,7 @@ internal class ResourceAccessor
     private readonly Type? _controlType;
     private readonly string? _baseName;
     private readonly Assembly? _assembly;
-    private ResourceManager _resourceManager;
+    private ResourceManager _resourceManager = null!;
 
     public ResourceAccessor(Type controlType)
     {
@@ -238,6 +236,6 @@ internal class ResourceAccessor
             }
         }
 
-        return new ResourceManager(baseName, assembly);
+        return new ResourceManager(baseName!, assembly!);
     }
 }

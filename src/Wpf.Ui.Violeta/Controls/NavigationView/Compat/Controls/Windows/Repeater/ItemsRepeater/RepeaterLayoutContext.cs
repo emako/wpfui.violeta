@@ -1,17 +1,10 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-internal class RepeaterLayoutContext : VirtualizingLayoutContext
+internal class RepeaterLayoutContext(ItemsRepeater owner) : VirtualizingLayoutContext
 {
-    public RepeaterLayoutContext(ItemsRepeater owner)
-    {
-        m_owner = new WeakReference<ItemsRepeater>(owner);
-    }
-
     protected override object LayoutStateCore
     {
         get => GetOwner().LayoutState;
@@ -75,11 +68,11 @@ internal class RepeaterLayoutContext : VirtualizingLayoutContext
 
     private ItemsRepeater GetOwner()
     {
-        m_owner.TryGetTarget(out ItemsRepeater owner);
-        return owner;
+        m_owner.TryGetTarget(out ItemsRepeater? owner);
+        return owner!;
     }
 
     // We hold a weak reference to prevent a leaking reference
     // cycle between the ItemsRepeater and its layout.
-    private readonly WeakReference<ItemsRepeater> m_owner;
+    private readonly WeakReference<ItemsRepeater> m_owner = new(owner);
 }

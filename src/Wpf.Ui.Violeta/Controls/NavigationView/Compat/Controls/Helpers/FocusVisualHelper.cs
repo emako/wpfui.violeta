@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -375,13 +373,10 @@ public static class FocusVisualHelper
             // Remove the existing focus visual
             if (_focusVisualAdornerCache != null)
             {
-                AdornerLayer adornerlayer = VisualTreeHelper.GetParent(_focusVisualAdornerCache) as AdornerLayer;
+                AdornerLayer? adornerlayer = VisualTreeHelper.GetParent(_focusVisualAdornerCache) as AdornerLayer;
                 Debug.Assert(adornerlayer != null);
-                if (adornerlayer != null)
-                {
-                    adornerlayer.Remove(_focusVisualAdornerCache);
-                }
-                _focusVisualAdornerCache = null;
+                adornerlayer?.Remove(_focusVisualAdornerCache);
+                _focusVisualAdornerCache = null!;
             }
         }
 
@@ -393,7 +388,7 @@ public static class FocusVisualHelper
             if (adornerlayer == null)
                 return;
 
-            Style fvs = target.FocusVisualStyle;
+            Style? fvs = target.FocusVisualStyle;
 
             if (fvs != null && fvs.BasedOn == null && fvs.Setters.Count == 0)
             {
@@ -412,7 +407,7 @@ public static class FocusVisualHelper
 
         static void OnControlIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
         {
-            ((Control)sender).IsVisibleChanged -= OnControlIsVisibleChanged;
+            ((Control)sender!).IsVisibleChanged -= OnControlIsVisibleChanged;
             Debug.Assert((bool)e.NewValue == false);
             if (_focusVisualAdornerCache != null && _focusVisualAdornerCache.FocusedElement == sender)
             {
@@ -465,10 +460,10 @@ public static class FocusVisualHelper
 
     private static void OnFocusVisualIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
-        var focusVisual = (Control)sender;
+        var focusVisual = (Control)sender!;
         if ((bool)e.NewValue)
         {
-            if ((VisualTreeHelper.GetParent(focusVisual) as Adorner)?.AdornedElement is FrameworkElement focusedElement)
+            if (VisualTreeHelper.GetParent(focusVisual) is Adorner { AdornedElement: FrameworkElement focusedElement })
             {
                 SetShowFocusVisual(focusedElement, true);
 
@@ -524,14 +519,14 @@ public static class FocusVisualHelper
 
             FocusedElement = focusedElement;
 
-            Control control = new Control();
+            Control control = new();
             SetIsSystemFocusVisual(control, false);
             control.Style = focusVisualStyle;
-            control.Margin = GetFocusVisualMargin(focusedElement);
-            TransferValue(focusedElement, control, FocusVisualPrimaryBrushProperty);
-            TransferValue(focusedElement, control, FocusVisualPrimaryThicknessProperty);
-            TransferValue(focusedElement, control, FocusVisualSecondaryBrushProperty);
-            TransferValue(focusedElement, control, FocusVisualSecondaryThicknessProperty);
+            control.Margin = GetFocusVisualMargin(focusedElement!);
+            TransferValue(focusedElement!, control, FocusVisualPrimaryBrushProperty);
+            TransferValue(focusedElement!, control, FocusVisualPrimaryThicknessProperty);
+            TransferValue(focusedElement!, control, FocusVisualSecondaryBrushProperty);
+            TransferValue(focusedElement!, control, FocusVisualSecondaryThicknessProperty);
             _adorderChild = control;
             IsClipEnabled = true;
             IsHitTestVisible = false;
@@ -539,7 +534,7 @@ public static class FocusVisualHelper
             AddVisualChild(_adorderChild);
         }
 
-        public Control FocusedElement { get; }
+        public Control? FocusedElement { get; }
 
         /// <summary>
         /// Measure adorner. Default behavior is to size to match the adorned element.
@@ -577,13 +572,7 @@ public static class FocusVisualHelper
         ///  Remark:
         ///      During this virtual method the Visual tree must not be modified.
         /// </summary>
-        protected override int VisualChildrenCount
-        {
-            get
-            {
-                return 1; // _adorderChild created in ctor.
-            }
-        }
+        protected override int VisualChildrenCount => 1; // _adorderChild created in ctor.
 
         /// <summary>
         ///   Derived class must implement to support Visual children. The method must return
@@ -598,16 +587,16 @@ public static class FocusVisualHelper
         {
             if (index == 0)
             {
-                return _adorderChild;
+                return _adorderChild!;
             }
             else
             {
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException(nameof(index));
             }
         }
 
-        private UIElement _adorderChild;
+        private readonly UIElement? _adorderChild;
     }
 
-    private static FocusVisualAdorner _focusVisualAdornerCache = null;
+    private static FocusVisualAdorner _focusVisualAdornerCache = null!;
 }

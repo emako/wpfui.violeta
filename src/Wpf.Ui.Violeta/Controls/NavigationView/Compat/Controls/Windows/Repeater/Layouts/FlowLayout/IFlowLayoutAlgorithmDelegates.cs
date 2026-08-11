@@ -1,22 +1,20 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal interface IFlowLayoutAlgorithmDelegates
 {
-    Size Algorithm_GetMeasureSize(int index, Size availableSize, VirtualizingLayoutContext context);
+    public Size Algorithm_GetMeasureSize(int index, Size availableSize, VirtualizingLayoutContext context);
 
-    Size Algorithm_GetProvisionalArrangeSize(int index, Size measureSize, Size desiredSize, VirtualizingLayoutContext context);
+    public Size Algorithm_GetProvisionalArrangeSize(int index, Size measureSize, Size desiredSize, VirtualizingLayoutContext context);
 
-    bool Algorithm_ShouldBreakLine(int index, double remainingSpace);
+    public bool Algorithm_ShouldBreakLine(int index, double remainingSpace);
 
-    FlowLayoutAnchorInfo Algorithm_GetAnchorForRealizationRect(Size availableSize, VirtualizingLayoutContext context);
+    public FlowLayoutAnchorInfo Algorithm_GetAnchorForRealizationRect(Size availableSize, VirtualizingLayoutContext context);
 
-    FlowLayoutAnchorInfo Algorithm_GetAnchorForTargetElement(int targetIndex, Size availableSize, VirtualizingLayoutContext context);
+    public FlowLayoutAnchorInfo Algorithm_GetAnchorForTargetElement(int targetIndex, Size availableSize, VirtualizingLayoutContext context);
 
-    Rect Algorithm_GetExtent(Size availableSize,
+    public Rect Algorithm_GetExtent(Size availableSize,
         VirtualizingLayoutContext context,
         UIElement firstRealized,
         int firstRealizedItemIndex,
@@ -25,7 +23,7 @@ internal interface IFlowLayoutAlgorithmDelegates
         int lastRealizedItemIndex,
         Rect lastRealizedLayoutBounds);
 
-    void Algorithm_OnElementMeasured(
+    public void Algorithm_OnElementMeasured(
         UIElement element,
         int index,
         Size availableSize,
@@ -34,7 +32,7 @@ internal interface IFlowLayoutAlgorithmDelegates
         Size provisionalArrangeSize,
         VirtualizingLayoutContext context);
 
-    void Algorithm_OnLineArranged(
+    public void Algorithm_OnLineArranged(
         int startIndex,
         int countInLine,
         double lineSize,

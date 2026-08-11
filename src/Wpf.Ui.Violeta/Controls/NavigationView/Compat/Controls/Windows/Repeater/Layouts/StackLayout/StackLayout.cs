@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
@@ -66,7 +64,7 @@ public class StackLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
     protected override void InitializeForContextCore(VirtualizingLayoutContext context)
     {
         var state = context.LayoutState;
-        StackLayoutState stackState = null;
+        StackLayoutState stackState = null!;
         if (state != null)
         {
             stackState = GetAsStackState(state);

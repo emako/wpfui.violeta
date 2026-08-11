@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -8,7 +6,10 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal class GettingFocusHelper : IDisposable
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public GettingFocusHelper(UIElement owner)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         _owner = owner;
         _owner.PreviewGotKeyboardFocus += OnPreviewGotKeyboardFocus;
@@ -16,11 +17,8 @@ internal class GettingFocusHelper : IDisposable
 
     public void Dispose()
     {
-        if (_owner != null)
-        {
-            _owner.PreviewGotKeyboardFocus -= OnPreviewGotKeyboardFocus;
-            _owner = null;
-        }
+        _owner?.PreviewGotKeyboardFocus -= OnPreviewGotKeyboardFocus;
+        _owner = null!;
     }
 
     public event TypedEventHandler<UIElement, GettingFocusEventArgs> GettingFocus;
@@ -41,7 +39,7 @@ internal class GettingFocusHelper : IDisposable
 
                 var args = new GettingFocusEventArgs(e);
 
-                gettingFocus(sender as UIElement, args);
+                gettingFocus((sender as UIElement)!, args);
 
                 if (args.Cancel)
                 {

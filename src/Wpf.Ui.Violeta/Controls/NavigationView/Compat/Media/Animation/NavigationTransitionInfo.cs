@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Media.Animation;
@@ -33,12 +31,12 @@ public class NavigationTransitionInfo : DependencyObject
 
     internal virtual NavigationAnimation GetEnterAnimation(FrameworkElement element, bool movingBackwards)
     {
-        return null;
+        return null!;
     }
 
     internal virtual NavigationAnimation GetExitAnimation(FrameworkElement element, bool movingBackwards)
     {
-        return null;
+        return null!;
     }
 
     internal static readonly TimeSpan ExitDuration = TimeSpan.FromMilliseconds(150);
@@ -48,9 +46,9 @@ public class NavigationTransitionInfo : DependencyObject
     internal static readonly KeySpline AccelerateKeySpline;
     internal static readonly KeySpline DecelerateKeySpline;
 
-    internal static readonly PropertyPath OpacityPath = new PropertyPath(UIElement.OpacityProperty);
-    internal static readonly PropertyPath TranslateXPath = new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)");
-    internal static readonly PropertyPath TranslateYPath = new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)");
-    internal static readonly PropertyPath ScaleXPath = new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)");
-    internal static readonly PropertyPath ScaleYPath = new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)");
+    internal static readonly PropertyPath OpacityPath = new(UIElement.OpacityProperty);
+    internal static readonly PropertyPath TranslateXPath = new("(UIElement.RenderTransform).(TranslateTransform.X)");
+    internal static readonly PropertyPath TranslateYPath = new("(UIElement.RenderTransform).(TranslateTransform.Y)");
+    internal static readonly PropertyPath ScaleXPath = new("(UIElement.RenderTransform).(ScaleTransform.ScaleX)");
+    internal static readonly PropertyPath ScaleYPath = new("(UIElement.RenderTransform).(ScaleTransform.ScaleY)");
 }

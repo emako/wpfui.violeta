@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Input;
 
@@ -108,7 +106,7 @@ internal static class InputHelper
 
     private static void OnMouseLeftButtonDown(object? sender, MouseButtonEventArgs e)
     {
-        var element = (UIElement)sender;
+        var element = (UIElement)sender!;
 
         if (!GetIsPressed(element))
         {
@@ -118,11 +116,11 @@ internal static class InputHelper
 
     private static void OnMouseLeftButtonUp(object? sender, MouseButtonEventArgs e)
     {
-        var element = (UIElement)sender;
+        var element = (UIElement)sender!;
 
         if (GetIsPressed(element))
         {
-            SetIsPressed((UIElement)sender, false);
+            SetIsPressed((UIElement)sender!, false);
 
             var lastArgs = _lastTappedArgs;
 
@@ -143,13 +141,13 @@ internal static class InputHelper
 
     private static void OnLostMouseCapture(object? sender, MouseEventArgs e)
     {
-        SetIsPressed((UIElement)sender, false);
+        SetIsPressed((UIElement)sender!, false);
     }
 
     private static void OnMouseLeave(object? sender, MouseEventArgs e)
     {
-        SetIsPressed((UIElement)sender, false);
+        SetIsPressed((UIElement)sender!, false);
     }
 
-    private static TappedRoutedEventArgs _lastTappedArgs;
+    private static TappedRoutedEventArgs? _lastTappedArgs;
 }

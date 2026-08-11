@@ -1,6 +1,5 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Media;
 
@@ -16,76 +15,77 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
 
     public double TopLeftX
     {
-        get { return this._topLeftX; }
-        set { this._topLeftX = value; }
+        readonly get => _topLeftX;
+        set => _topLeftX = value;
     }
 
     private double _topLeftY;
 
     public double TopLeftY
     {
-        get { return this._topLeftY; }
-        set { this._topLeftY = value; }
+        readonly get => _topLeftY;
+        set => _topLeftY = value;
     }
 
     private double _topRightX;
 
     public double TopRightX
     {
-        get { return this._topRightX; }
-        set { this._topRightX = value; }
+        readonly get => _topRightX;
+        set => _topRightX = value;
     }
 
     private double _topRightY;
 
     public double TopRightY
     {
-        get { return this._topRightY; }
-        set { this._topRightY = value; }
+        readonly get => _topRightY;
+        set => _topRightY = value;
     }
 
     private double _bottomLeftX;
 
     public double BottomLeftX
     {
-        get { return this._bottomLeftX; }
-        set { this._bottomLeftX = value; }
+        readonly get => _bottomLeftX;
+        set => _bottomLeftX = value;
     }
 
     private double _bottomLeftY;
 
     public double BottomLeftY
     {
-        get { return this._bottomLeftY; }
-        set { this._bottomLeftY = value; }
+        readonly get => _bottomLeftY;
+        set => _bottomLeftY = value;
     }
 
     private double _bottomRightX;
 
     public double BottomRightX
     {
-        get { return this._bottomRightX; }
-        set { this._bottomRightX = value; }
+        readonly get => _bottomRightX;
+        set => _bottomRightX = value;
     }
 
     private double _bottomRightY;
 
     public double BottomRightY
     {
-        get { return this._bottomRightY; }
-        set { this._bottomRightY = value; }
+        readonly get => _bottomRightY;
+        set => _bottomRightY = value;
     }
 
+    [SuppressMessage("Style", "IDE0290:Use primary constructor")]
     public CornerRadiusEx(double topLeftX, double topLeftY, double topRightX, double topRightY, double bottomLeftX, double bottomLeftY, double bottomRightX, double bottomRightY)
     {
-        this._topLeftX = topLeftX;
-        this._topLeftY = topLeftY;
-        this._topRightX = topRightX;
-        this._topRightY = topRightY;
-        this._bottomLeftX = bottomLeftX;
-        this._bottomLeftY = bottomLeftY;
-        this._bottomRightX = bottomRightX;
-        this._bottomRightY = bottomRightY;
+        _topLeftX = topLeftX;
+        _topLeftY = topLeftY;
+        _topRightX = topRightX;
+        _topRightY = topRightY;
+        _bottomLeftX = bottomLeftX;
+        _bottomLeftY = bottomLeftY;
+        _bottomRightX = bottomRightX;
+        _bottomRightY = bottomRightY;
     }
 
     public CornerRadiusEx(CornerRadius cornerRadius) : this(cornerRadius.TopLeft, cornerRadius.TopLeft, cornerRadius.TopRight, cornerRadius.TopRight, cornerRadius.BottomLeft, cornerRadius.BottomLeft, cornerRadius.BottomRight, cornerRadius.BottomRight)
@@ -101,7 +101,7 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
         return new CornerRadiusEx(cornerRadius);
     }
 
-    public override string ToString()
+    public override readonly string ToString()
     {
         return $"{TopLeftX} {TopLeftY}, {TopRightX} {TopRightY}, {BottomLeftX} {BottomLeftY},{BottomRightX} {BottomRightY}";
     }
@@ -109,7 +109,7 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
     /// <summary>
     /// Converts this CornerRadiusEx to regular WPF CornerRadius. When the values are different in X and Y axis, an average is used.
     /// </summary>
-    public CornerRadius ToCornerRadius()
+    public readonly CornerRadius ToCornerRadius()
     {
         return new CornerRadius
         (
@@ -160,11 +160,11 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
                           0, false, SweepDirection.Clockwise, true, false);
         }
 
-        geometry.Freeze(); // 让几何体不可变，提高性能
+        geometry.Freeze();
         return geometry;
     }
 
-    public override bool Equals(object? obj)
+    public override readonly bool Equals(object? obj)
     {
         if (obj is CornerRadiusEx other)
         {
@@ -176,7 +176,7 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
         }
     }
 
-    public bool Equals(CornerRadiusEx other)
+    public readonly bool Equals(CornerRadiusEx other)
     {
         return TopLeftX == other.TopLeftX && TopLeftY == other.TopLeftY &&
                TopRightX == other.TopRightX && TopRightY == other.TopRightY &&
@@ -194,7 +194,7 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
         return !left.Equals(right);
     }
 
-    public override int GetHashCode()
+    public override readonly int GetHashCode()
     {
         return _topLeftX.GetHashCode() ^ _topLeftY.GetHashCode() ^ _topRightX.GetHashCode() ^ _topRightY.GetHashCode()
             ^ _bottomLeftX.GetHashCode() ^ _bottomLeftY.GetHashCode() ^ _bottomRightX.GetHashCode() ^ _bottomRightY.GetHashCode();
@@ -206,13 +206,13 @@ public struct CornerRadiusEx : IEquatable<CornerRadiusEx>
     /// <param name="scale"></param>
     public void Scale(double scale)
     {
-        TopLeftX = TopLeftX * scale;
-        TopLeftY = TopLeftY * scale;
-        TopRightX = TopRightX * scale;
-        TopRightY = TopRightY * scale;
-        BottomLeftX = BottomLeftX * scale;
-        BottomLeftY = BottomLeftY * scale;
-        BottomRightX = BottomRightX * scale;
-        BottomRightY = BottomRightY * scale;
+        TopLeftX *= scale;
+        TopLeftY *= scale;
+        TopRightX *= scale;
+        TopRightY *= scale;
+        BottomLeftX *= scale;
+        BottomLeftY *= scale;
+        BottomRightX *= scale;
+        BottomRightY *= scale;
     }
 }

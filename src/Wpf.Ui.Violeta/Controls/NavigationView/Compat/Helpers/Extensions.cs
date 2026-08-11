@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -71,7 +69,7 @@ public static class CompatExtensions
         return Transform.Identity;
     }
 
-    public static object GetProperty(this object item, string name) => item.GetType()?.GetProperty(name)?.GetValue(item, null);
+    public static object GetProperty(this object item, string name) => item.GetType()?.GetProperty(name)?.GetValue(item, null)!;
 
     public static void SetProperty(this object item, string name, object value) => item.GetType()?.GetProperty(name)?.SetValue(item, value);
 }

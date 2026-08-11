@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 
@@ -143,19 +141,19 @@ public static class TextBoxHelper
 
     private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
-        var textBox = (TextBox)sender;
+        var textBox = (TextBox)sender!;
         UpdateVisualStates(textBox, GetIsDeleteButtonVisible(textBox));
     }
 
     private static void OnTextChanged(object? sender, TextChangedEventArgs e)
     {
-        var textBox = (TextBox)sender;
+        var textBox = (TextBox)sender!;
         UpdateHasText(textBox);
     }
 
     private static void OnDeleteButtonClick(object? sender, RoutedEventArgs e)
     {
-        var button = (Button)sender;
+        var button = (Button)sender!;
         if (button.TemplatedParent is TextBox textBox)
         {
             textBox.SetCurrentValue(TextBox.TextProperty, null);

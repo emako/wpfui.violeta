@@ -1,7 +1,7 @@
 using System.Windows;
 using Wpf.Ui.Violeta.Controls.Compat;
 
-static class CppWinRTHelpers
+internal static class CppWinRTHelpers
 {
     public static WinRTReturn GetTemplateChildT<WinRTReturn>(string childName, IControlProtected controlProtected) where WinRTReturn : DependencyObject
     {

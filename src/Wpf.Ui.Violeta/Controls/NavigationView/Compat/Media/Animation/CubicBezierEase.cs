@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -184,10 +182,10 @@ public class CubicBezierEase : EasingFunctionBase
             // Loop while improving the guess
             while (top - bottom > fuzz)
             {
-                double x, dx, absdx;
+                double absdx;
 
                 // Get x and dx/dt at the current parameter
-                GetXAndDx(_parameter, out x, out dx);
+                GetXAndDx(_parameter, out double x, out double dx);
                 absdx = Math.Abs(dx);
 
                 // Clamp down the search interval, relying on the monotonicity of X(t)

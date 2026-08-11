@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -132,7 +130,7 @@ public static class ScrollBarHelper
     {
         if ((bool)e.NewValue)
         {
-            var scrollBar = (ScrollBar)sender;
+            var scrollBar = (ScrollBar)sender!;
             scrollBar.ApplyTemplate();
             UpdateVisualState(scrollBar, false);
         }
@@ -140,7 +138,7 @@ public static class ScrollBarHelper
 
     private static void OnIsMouseOverChanged(object? sender, MouseEventArgs e)
     {
-        var scrollBar = (ScrollBar)sender;
+        var scrollBar = (ScrollBar)sender!;
         if (scrollBar.IsEnabled)
         {
             UpdateVisualState(scrollBar);
@@ -149,7 +147,7 @@ public static class ScrollBarHelper
 
     private static void OnIsEnabledChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
-        var scrollBar = (ScrollBar)sender;
+        var scrollBar = (ScrollBar)sender!;
         UpdateVisualState(scrollBar);
     }
 

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -19,7 +17,10 @@ public class PathIcon : IconElement
     /// <summary>
     /// Initializes a new instance of the PathIcon class.
     /// </summary>
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public PathIcon()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -85,18 +86,12 @@ public class PathIcon : IconElement
 
     private void ApplyForeground()
     {
-        if (_path != null)
-        {
-            _path.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
-        }
+        _path?.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
     }
 
     private void ApplyData()
     {
-        if (_path != null)
-        {
-            _path.Data = Data;
-        }
+        _path?.Data = Data;
     }
 
     private Path _path;

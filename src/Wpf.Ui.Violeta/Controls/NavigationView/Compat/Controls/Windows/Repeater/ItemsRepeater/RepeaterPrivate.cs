@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -12,19 +10,19 @@ internal delegate void ViewportChangedEventHandler(IRepeaterScrollingSurface sen
 
 internal interface IRepeaterScrollingSurface
 {
-    bool IsHorizontallyScrollable { get; }
-    bool IsVerticallyScrollable { get; }
-    UIElement AnchorElement { get; }
+    public bool IsHorizontallyScrollable { get; }
+    public bool IsVerticallyScrollable { get; }
+    public UIElement AnchorElement { get; }
 
-    event ConfigurationChangedEventHandler ConfigurationChanged;
+    public event ConfigurationChangedEventHandler ConfigurationChanged;
 
-    event PostArrangeEventHandler PostArrange;
+    public event PostArrangeEventHandler PostArrange;
 
-    event ViewportChangedEventHandler ViewportChanged;
+    public event ViewportChangedEventHandler ViewportChanged;
 
-    void RegisterAnchorCandidate(UIElement element);
+    public void RegisterAnchorCandidate(UIElement element);
 
-    void UnregisterAnchorCandidate(UIElement element);
+    public void UnregisterAnchorCandidate(UIElement element);
 
-    Rect GetRelativeViewport(UIElement child);
+    public Rect GetRelativeViewport(UIElement child);
 }

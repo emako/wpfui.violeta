@@ -1,9 +1,5 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows.Media;
-
-#pragma warning disable CS0649 // Field is never assigned to, and will always have its default value
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 

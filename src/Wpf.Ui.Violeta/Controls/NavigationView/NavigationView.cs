@@ -3912,7 +3912,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             var widthAvailableToRecover = toBeRemovedItemWidth - widthAtLeastToBeRemoved;
             var itemsToBeAdded = FindMovableItemsRecoverToPrimaryList(widthAvailableToRecover, new List<int> { selectedOverflowItemIndex }/*includeItems*/);
 
-            CollectionHelper.unique_push_back(itemsToBeAdded, selectedOverflowItemIndex);
+            CollectionHelper.UniquePushBack(itemsToBeAdded, selectedOverflowItemIndex);
 
             // Keep track of the item being moved in order to know where to animate selection indicator
             m_lastSelectedItemPendingAnimationInTopNav = itemBeingMoved;
@@ -4069,7 +4069,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         int i = 0;
         while (i < size && availableWidth > 0)
         {
-            if (!m_topDataProvider.IsItemInPrimaryList(i) && !CollectionHelper.contains(includeItems, i))
+            if (!m_topDataProvider.IsItemInPrimaryList(i) && !CollectionHelper.Contains(includeItems, i))
             {
                 var width = m_topDataProvider.GetWidthForItem(i);
                 if (availableWidth >= width)
@@ -4103,7 +4103,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         {
             if (m_topDataProvider.IsItemInPrimaryList(i))
             {
-                if (!CollectionHelper.contains(excludeItems, i))
+                if (!CollectionHelper.Contains(excludeItems, i))
                 {
                     var width = m_topDataProvider.GetWidthForItem(i);
                     toBeMoved.Add(i);

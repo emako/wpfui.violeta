@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections;
 using System.Windows;
@@ -8,16 +6,9 @@ using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-internal class RepeaterUIElementCollection : UIElementCollection
+internal class RepeaterUIElementCollection(UIElement visualParent, FrameworkElement logicalParent)
+    : UIElementCollection(visualParent, logicalParent)
 {
-    public RepeaterUIElementCollection(UIElement visualParent, FrameworkElement logicalParent)
-        : base(visualParent, logicalParent)
-    {
-        _visualChildren = new VisualCollection(visualParent);
-        _visualParent = visualParent;
-        _logicalParent = logicalParent;
-    }
-
     public override int Count => _visualChildren.Count;
 
     public override bool IsSynchronized => _visualChildren.IsSynchronized;
@@ -42,7 +33,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
 
     public override UIElement this[int index]
     {
-        get => _visualChildren[index] as UIElement;
+        get => (_visualChildren[index] as UIElement)!;
         set
         {
             ValidateElement(value);
@@ -53,8 +44,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
             //remove previously hooked element from the logical tree
             if (vc[index] != value)
             {
-                UIElement e = vc[index] as UIElement;
-                if (e != null)
+                if (vc[index] is UIElement e)
                     ClearLogicalParent(e);
 
                 vc[index] = value;
@@ -133,8 +123,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
             //disconnect from logical tree
             for (int i = 0; i < cnt; i++)
             {
-                UIElement e = visuals[i] as UIElement;
-                if (e != null)
+                if (visuals[i] is UIElement e)
                 {
                     ClearLogicalParent(e);
                 }
@@ -164,7 +153,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
         VisualCollection vc = _visualChildren;
 
         //disconnect from logical tree
-        UIElement e = vc[index] as UIElement;
+        UIElement e = (vc[index] as UIElement)!;
 
         vc.RemoveAt(index);
 
@@ -206,8 +195,7 @@ internal class RepeaterUIElementCollection : UIElementCollection
             //disconnect from logical tree
             for (i = 0; i < count; i++)
             {
-                UIElement e = visuals[i] as UIElement;
-                if (e != null)
+                if (visuals[i] is UIElement e)
                 {
                     ClearLogicalParent(e);
                 }
@@ -229,7 +217,5 @@ internal class RepeaterUIElementCollection : UIElementCollection
         return _visualChildren.GetEnumerator();
     }
 
-    private readonly VisualCollection _visualChildren;
-    private readonly UIElement _visualParent;
-    private readonly FrameworkElement _logicalParent;
+    private readonly VisualCollection _visualChildren = new(visualParent);
 }

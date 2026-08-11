@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,29 +68,30 @@ public static class TextBlockHelper
 
     private static void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
-        UpdateTextTrimmed((TextBlock)sender);
+        UpdateTextTrimmed((TextBlock)sender!);
     }
 
     private static void UpdateTextTrimmed(TextBlock textBlock)
     {
         if (!textBlock.IsLoaded) { return; }
 
-        Typeface typeface = new Typeface(
+        Typeface typeface = new(
             textBlock.FontFamily,
             textBlock.FontStyle,
             textBlock.FontWeight,
             textBlock.FontStretch);
 
-        FormattedText formattedText = new FormattedText(
+        FormattedText formattedText = new(
             textBlock.Text,
             Thread.CurrentThread.CurrentCulture,
             textBlock.FlowDirection,
             typeface,
             textBlock.FontSize,
             textBlock.Foreground,
-            VisualTreeHelper.GetDpi(textBlock).PixelsPerDip);
-
-        formattedText.MaxTextWidth = textBlock.ActualWidth;
+            VisualTreeHelper.GetDpi(textBlock).PixelsPerDip)
+        {
+            MaxTextWidth = textBlock.ActualWidth
+        };
 
         bool isTrimmed = formattedText.Height > textBlock.ActualHeight ||
                          formattedText.Width > formattedText.MaxTextWidth;

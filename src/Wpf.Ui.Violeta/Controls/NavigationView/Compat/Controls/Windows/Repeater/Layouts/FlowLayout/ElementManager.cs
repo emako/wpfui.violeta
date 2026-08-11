@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -262,14 +260,14 @@ internal class ElementManager
             {
                 case NotifyCollectionChangedAction.Add:
                     {
-                        OnItemsAdded(args.NewStartingIndex, args.NewItems.Count);
+                        OnItemsAdded(args.NewStartingIndex, args.NewItems!.Count);
                     }
                     break;
 
                 case NotifyCollectionChangedAction.Replace:
                     {
-                        int oldSize = args.OldItems.Count;
-                        int newSize = args.NewItems.Count;
+                        int oldSize = args.OldItems!.Count;
+                        int newSize = args.NewItems!.Count;
                         int oldStartIndex = args.OldStartingIndex;
                         int newStartIndex = args.NewStartingIndex;
 
@@ -289,7 +287,7 @@ internal class ElementManager
                                 if (m_realizedElements[realizedIndex] is UIElement elementRef)
                                 {
                                     m_context.RecycleElement(elementRef);
-                                    m_realizedElements[realizedIndex] = null;
+                                    m_realizedElements[realizedIndex] = null!;
                                 }
                             }
                         }
@@ -303,7 +301,7 @@ internal class ElementManager
 
                 case NotifyCollectionChangedAction.Remove:
                     {
-                        OnItemsRemoved(args.OldStartingIndex, args.OldItems.Count);
+                        OnItemsRemoved(args.OldStartingIndex, args.OldItems!.Count);
                     }
                     break;
 
@@ -327,7 +325,7 @@ internal class ElementManager
     public int GetElementDataIndex(UIElement suggestedAnchor)
     {
         Debug.Assert(suggestedAnchor != null);
-        var index = m_realizedElements.IndexOf(suggestedAnchor);
+        var index = m_realizedElements.IndexOf(suggestedAnchor!);
         return
             index >= 0 ?
             GetDataIndexFromRealizedRangeIndex(index) :
@@ -435,7 +433,7 @@ internal class ElementManager
                 int insertRangeIndex = insertRangeStartIndex + i;
                 int dataIndex = newStartingIndex + i;
                 // This is to keep the contiguousness of the mapping
-                Insert(insertRangeIndex, dataIndex, null);
+                Insert(insertRangeIndex, dataIndex, null!);
             }
         }
         else if (index <= m_firstRealizedDataIndex)
@@ -479,8 +477,8 @@ internal class ElementManager
         }
     }
 
-    private readonly List<UIElement> m_realizedElements = new List<UIElement>();
-    private readonly List<Rect> m_realizedElementLayoutBounds = new List<Rect>();
+    private readonly List<UIElement> m_realizedElements = [];
+    private readonly List<Rect> m_realizedElementLayoutBounds = [];
     private int m_firstRealizedDataIndex = -1;
-    private VirtualizingLayoutContext m_context;
+    private VirtualizingLayoutContext m_context = null!;
 }

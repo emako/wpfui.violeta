@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Collections.Generic;
 using System.Windows;
 
@@ -58,7 +56,7 @@ public class FlowLayoutState
     internal double TotalItemsPerLine { get; private set; }
     internal Size SpecialElementDesiredSize { get; set; }
 
-    private readonly List<double> m_lineSizeEstimationBuffer = new List<double>();
-    private readonly List<double> m_itemsPerLineEstimationBuffer = new List<double>();
+    private readonly List<double> m_lineSizeEstimationBuffer = [];
+    private readonly List<double> m_itemsPerLineEstimationBuffer = [];
     private static readonly int BufferSize = 100;
 }

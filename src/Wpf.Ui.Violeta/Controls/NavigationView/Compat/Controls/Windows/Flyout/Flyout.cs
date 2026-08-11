@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,14 +16,16 @@ public class Flyout : FlyoutBase
     private const double c_translation = 40;
     private static readonly TimeSpan s_translateDuration = TimeSpan.FromMilliseconds(367);
 
-    private static readonly PropertyPath s_opacityPath = new PropertyPath(UIElement.OpacityProperty);
-    private static readonly PropertyPath s_translateXPath = new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)");
-    private static readonly PropertyPath s_translateYPath = new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)");
-    private static readonly KeySpline s_decelerateKeySpline = new KeySpline(0.1, 0.9, 0.2, 1);
+    private static readonly PropertyPath s_opacityPath = new(UIElement.OpacityProperty);
+    private static readonly PropertyPath s_translateXPath = new("(UIElement.RenderTransform).(TranslateTransform.X)");
+    private static readonly PropertyPath s_translateYPath = new("(UIElement.RenderTransform).(TranslateTransform.Y)");
+    private static readonly KeySpline s_decelerateKeySpline = new(0.1, 0.9, 0.2, 1);
+    private static readonly BitmapCache s_bitmapCacheMode = new();
 
-    private static readonly BitmapCache s_bitmapCacheMode = new BitmapCache();
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     public Flyout()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -104,7 +104,7 @@ public class Flyout : FlyoutBase
         var animateFrom = GetAnimateFrom();
         UpdateFromOffsetKeyFrames(animateFrom);
 
-        if (!(presenter.RenderTransform is TranslateTransform))
+        if (presenter.RenderTransform is not TranslateTransform)
         {
             presenter.RenderTransform = new TranslateTransform();
         }

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Reflection;
 using System.Windows.Controls.Primitives;
@@ -10,10 +8,7 @@ internal static class PopupHelper
 {
     public static void Reposition(this Popup popup)
     {
-        if (popup is null)
-        {
-            throw new ArgumentNullException(nameof(popup));
-        }
+        _ = popup ?? throw new ArgumentNullException(nameof(popup));
 
         if (PopupPositioner.GetPositioner(popup) is { } positioner)
         {
@@ -45,9 +40,9 @@ internal static class PopupHelper
         }
         catch
         {
-            return null;
+            return null!;
         }
     }
 
-    private static readonly Lazy<Action<Popup>> s_reposition = new Lazy<Action<Popup>>(CreateRepositionDelegate);
+    private static readonly Lazy<Action<Popup>> s_reposition = new(CreateRepositionDelegate);
 }

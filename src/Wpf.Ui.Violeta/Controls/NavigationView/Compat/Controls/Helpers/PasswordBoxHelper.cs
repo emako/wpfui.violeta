@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,10 +10,10 @@ public class PasswordBoxHelper : DependencyObject
     private const string ButtonVisibleState = "ButtonVisible";
     private const string ButtonCollapsedState = "ButtonCollapsed";
 
-    private static readonly CommandBinding TextBoxCutBinding;
-    private static readonly CommandBinding TextBoxCopyBinding;
+    private static readonly CommandBinding TextBoxCutBinding = null!;
+    private static readonly CommandBinding TextBoxCopyBinding = null!;
 
-    private readonly PasswordBox _passwordBox;
+    private readonly PasswordBox _passwordBox = null!;
 
     private bool _hideRevealButton;
 
@@ -169,9 +167,9 @@ public class PasswordBoxHelper : DependencyObject
 
     #endregion HelperInstance
 
-    private TextBox TextBox { get; set; }
+    private TextBox TextBox { get; set; } = null!;
 
-    private PasswordRevealMode PasswordRevealMode => GetPasswordRevealMode(_passwordBox);
+    private PasswordRevealMode PasswordRevealMode => GetPasswordRevealMode(_passwordBox!);
 
     private static void OnDisabledCommandCanExecute(object? sender, CanExecuteRoutedEventArgs e)
     {
@@ -207,7 +205,7 @@ public class PasswordBoxHelper : DependencyObject
             TextBox.CommandBindings.Remove(TextBoxCutBinding);
             TextBox.CommandBindings.Remove(TextBoxCopyBinding);
             TextBox.TextChanged -= OnTextBoxTextChanged;
-            TextBox = null;
+            TextBox = null!;
         }
     }
 
@@ -278,16 +276,13 @@ public class PasswordBoxHelper : DependencyObject
     {
         if (PasswordRevealMode == PasswordRevealMode.Visible)
         {
-            _passwordBox.Password = ((TextBox)sender).Text;
+            _passwordBox.Password = ((TextBox)sender!).Text;
         }
     }
 
     private void UpdateTextBox()
     {
-        if (TextBox != null)
-        {
-            TextBox.Text = _passwordBox.Password;
-        }
+        TextBox?.Text = _passwordBox.Password;
     }
 
     private void UpdateVisualState(bool useTransitions)

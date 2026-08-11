@@ -1,11 +1,11 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal class FrameworkElementSizeChangedRevoker : EventRevoker<FrameworkElement, SizeChangedEventHandler>
 {
+    [SuppressMessage("Style", "IDE0290:Use primary constructor")]
     public FrameworkElementSizeChangedRevoker(FrameworkElement source, SizeChangedEventHandler handler) : base(source, handler)
     {
     }

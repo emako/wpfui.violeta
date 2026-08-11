@@ -1,13 +1,12 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal static class ListExtensions
 {
-    public static void Resize<T>(this List<T> list, int size, T element = default)
+    public static void Resize<T>(this List<T> list, int size, T element = default!)
     {
         int count = list.Count;
 
@@ -17,13 +16,14 @@ internal static class ListExtensions
         }
         else if (size > count)
         {
-            if (size > list.Capacity)   // Optimization
+            if (size > list.Capacity) // Optimization
                 list.Capacity = size;
 
             list.AddRange(Enumerable.Repeat(element, size - count));
         }
     }
 
+    [SuppressMessage("Style", "IDE0056:Use index operator")]
     public static T Last<T>(this List<T> list)
     {
         return list[list.Count - 1];

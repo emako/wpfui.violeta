@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows;
@@ -303,14 +301,9 @@ public static class DataGridHelper
 
     #endregion ColumnStylesHelper
 
-    private class ColumnStylesHelper
+    private class ColumnStylesHelper(DataGrid dataGrid)
     {
-        private readonly DataGrid _dataGrid;
-
-        public ColumnStylesHelper(DataGrid dataGrid)
-        {
-            _dataGrid = dataGrid;
-        }
+        private readonly DataGrid _dataGrid = dataGrid;
 
         public void Attach()
         {
@@ -343,7 +336,7 @@ public static class DataGridHelper
             }
         }
 
-        private void BindColumnStyleProperties(DataGridColumn column)
+        private void BindColumnStyleProperties(DataGridColumn? column)
         {
             if (column is DataGridTextColumn textColumn)
             {
@@ -368,7 +361,7 @@ public static class DataGridHelper
             }
         }
 
-        private void ClearColumnStyleProperties(DataGridColumn column)
+        private void ClearColumnStyleProperties(DataGridColumn? column)
         {
             if (column is DataGridTextColumn textColumn)
             {
@@ -411,6 +404,8 @@ public static class DataGridHelper
             DependencyObject source,
             DependencyProperty sourceDP)
         {
+            _ = sourceDP;
+
             var binding = BindingOperations.GetBinding(target, targetDP);
             if (binding != null && binding.Source == source)
             {

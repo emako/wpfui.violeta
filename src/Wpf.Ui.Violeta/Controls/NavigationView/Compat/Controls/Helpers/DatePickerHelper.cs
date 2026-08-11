@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Globalization;
 using System.Windows;
@@ -11,7 +9,7 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 
 public static class DatePickerHelper
 {
-    private static readonly FirstNotNullOrEmptyConverter _watermarkConverter = new FirstNotNullOrEmptyConverter();
+    private static readonly FirstNotNullOrEmptyConverter _watermarkConverter = new();
 
     #region IsEnabled
 
@@ -49,7 +47,7 @@ public static class DatePickerHelper
 
     private static void OnLoaded(object? sender, RoutedEventArgs e)
     {
-        var datePicker = (DatePicker)sender;
+        var datePicker = (DatePicker)sender!;
         datePicker.Loaded -= OnLoaded;
         if (datePicker.GetTemplateChild<DatePickerTextBox>("PART_TextBox") is DatePickerTextBox textBox)
         {
@@ -101,7 +99,7 @@ public static class DatePickerHelper
                 }
             }
 
-            return null;
+            return null!;
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

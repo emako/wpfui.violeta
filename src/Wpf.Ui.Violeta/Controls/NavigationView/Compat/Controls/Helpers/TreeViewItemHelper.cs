@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -51,7 +49,7 @@ public static class TreeViewItemHelper
     {
         if ((bool)e.NewValue)
         {
-            UpdateIndentation((TreeViewItem)sender);
+            UpdateIndentation((TreeViewItem)sender!);
         }
     }
 
@@ -64,7 +62,7 @@ public static class TreeViewItemHelper
     /// </summary>
     /// <param name="treeViewItem">The element from which to read the property value.</param>
     /// <returns>The glyph to show for a collapsed tree node.</returns>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static string GetCollapsedGlyph(TreeViewItem treeViewItem)
     {
@@ -76,7 +74,7 @@ public static class TreeViewItemHelper
     /// </summary>
     /// <param name="treeViewItem">The element on which to set the attached property.</param>
     /// <param name="value">The property value to set.</param>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static void SetCollapsedGlyph(TreeViewItem treeViewItem, string value)
     {
@@ -86,7 +84,7 @@ public static class TreeViewItemHelper
     /// <summary>
     /// Identifies the CollapsedGlyph dependency property.
     /// </summary>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static readonly DependencyProperty CollapsedGlyphProperty =
         DependencyProperty.RegisterAttached(
@@ -104,7 +102,7 @@ public static class TreeViewItemHelper
     /// </summary>
     /// <param name="treeViewItem">The element from which to read the property value.</param>
     /// <returns>The glyph to show for an expanded tree node.</returns>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static string GetExpandedGlyph(TreeViewItem treeViewItem)
     {
@@ -116,7 +114,7 @@ public static class TreeViewItemHelper
     /// </summary>
     /// <param name="treeViewItem">The element on which to set the attached property.</param>
     /// <param name="value">The property value to set.</param>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static void SetExpandedGlyph(TreeViewItem treeViewItem, string value)
     {
@@ -126,7 +124,7 @@ public static class TreeViewItemHelper
     /// <summary>
     /// Identifies the ExpandedGlyph dependency property.
     /// </summary>
-    [Obsolete]
+    [Obsolete("This property is obsolete and will be removed in future versions.")]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static readonly DependencyProperty ExpandedGlyphProperty =
         DependencyProperty.RegisterAttached(

@@ -12,7 +12,7 @@ public static class DispatcherHelper
 {
     public static void DoEvents(DispatcherPriority priority = DispatcherPriority.Background)
     {
-        DispatcherFrame frame = new DispatcherFrame();
+        DispatcherFrame frame = new();
         Dispatcher.CurrentDispatcher.BeginInvoke(
             priority,
             new DispatcherOperationCallback(ExitFrame),
@@ -102,10 +102,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task ExecuteOnUIThreadAsync(this DispatcherObject viewToExecuteOn, Action function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (viewToExecuteOn is null)
-        {
-            throw new ArgumentNullException(nameof(viewToExecuteOn));
-        }
+        _ = viewToExecuteOn ?? throw new ArgumentNullException(nameof(viewToExecuteOn));
 
         return GetDispatcher(viewToExecuteOn).AwaitableRunAsync(function, priority);
     }
@@ -121,10 +118,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task<T> ExecuteOnUIThreadAsync<T>(this DispatcherObject viewToExecuteOn, Func<T> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (viewToExecuteOn is null)
-        {
-            throw new ArgumentNullException(nameof(viewToExecuteOn));
-        }
+        _ = viewToExecuteOn ?? throw new ArgumentNullException(nameof(viewToExecuteOn));
 
         return GetDispatcher(viewToExecuteOn).AwaitableRunAsync(function, priority);
     }
@@ -144,10 +138,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task ExecuteOnUIThreadAsync(this DispatcherObject viewToExecuteOn, Func<Task> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (viewToExecuteOn is null)
-        {
-            throw new ArgumentNullException(nameof(viewToExecuteOn));
-        }
+        _ = viewToExecuteOn ?? throw new ArgumentNullException(nameof(viewToExecuteOn));
 
         return GetDispatcher(viewToExecuteOn).AwaitableRunAsync(function, priority);
     }
@@ -163,10 +154,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task<T> ExecuteOnUIThreadAsync<T>(this DispatcherObject viewToExecuteOn, Func<Task<T>> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (viewToExecuteOn is null)
-        {
-            throw new ArgumentNullException(nameof(viewToExecuteOn));
-        }
+        _ = viewToExecuteOn ?? throw new ArgumentNullException(nameof(viewToExecuteOn));
 
         return GetDispatcher(viewToExecuteOn).AwaitableRunAsync(function, priority);
     }
@@ -181,10 +169,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task AwaitableRunAsync(this Dispatcher dispatcher, Action function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (function is null)
-        {
-            throw new ArgumentNullException(nameof(function));
-        }
+        _ = function ?? throw new ArgumentNullException(nameof(function));
 
         /* Run the function directly when we have thread access.
          * Also reuse Task.CompletedTask in case of success,
@@ -240,10 +225,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task<T> AwaitableRunAsync<T>(this Dispatcher dispatcher, Func<T> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (function is null)
-        {
-            throw new ArgumentNullException(nameof(function));
-        }
+        _ = function ?? throw new ArgumentNullException(nameof(function));
 
         // Skip the dispatch, if possible
         if (dispatcher.CheckAccess())
@@ -289,10 +271,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task AwaitableRunAsync(this Dispatcher dispatcher, Func<Task> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (function is null)
-        {
-            throw new ArgumentNullException(nameof(function));
-        }
+        _ = function ?? throw new ArgumentNullException(nameof(function));
 
         /* If we have thread access, we can retrieve the task directly.
          * We don't use ConfigureAwait(false) in this case, in order
@@ -359,10 +338,7 @@ public static class DispatcherHelper
     /// <remarks>If the current thread has UI access, <paramref name="function"/> will be invoked directly.</remarks>
     public static Task<T> AwaitableRunAsync<T>(this Dispatcher dispatcher, Func<Task<T>> function, DispatcherPriority priority = DispatcherPriority.Normal)
     {
-        if (function is null)
-        {
-            throw new ArgumentNullException(nameof(function));
-        }
+        _ = function ?? throw new ArgumentNullException(nameof(function));
 
         // Skip the dispatch, if possible
         if (dispatcher.CheckAccess())

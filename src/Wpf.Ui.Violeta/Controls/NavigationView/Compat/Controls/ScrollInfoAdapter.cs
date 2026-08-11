@@ -1,7 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
-// Ported from https://www.wpf-controls.com/wpf-smooth-scroll-viewer
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,18 +7,16 @@ using System.Windows.Media.Animation;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-public class ScrollInfoAdapter : UIElement, IScrollInfo
+/// <summary>
+/// Ported from https://www.wpf-controls.com/wpf-smooth-scroll-viewer
+/// </summary>
+public class ScrollInfoAdapter(IScrollInfo child) : UIElement, IScrollInfo
 {
-    private IScrollInfo _child;
+    private readonly IScrollInfo _child = child;
     private double _computedVerticalOffset = 0;
     private double _computedHorizontalOffset = 0;
     internal const double _scrollLineDelta = 16.0;
     internal const double _mouseWheelDelta = 48.0;
-
-    public ScrollInfoAdapter(IScrollInfo child)
-    {
-        _child = child;
-    }
 
     #region ForceUseSmoothScroll
 
@@ -286,8 +280,10 @@ public class ScrollInfoAdapter : UIElement, IScrollInfo
     private void Animate(DependencyProperty property, double targetValue, int duration = 300)
     {
         //make a smooth animation that starts and ends slowly
-        var keyFramesAnimation = new DoubleAnimationUsingKeyFrames();
-        keyFramesAnimation.Duration = TimeSpan.FromMilliseconds(duration);
+        var keyFramesAnimation = new DoubleAnimationUsingKeyFrames
+        {
+            Duration = TimeSpan.FromMilliseconds(duration),
+        };
         keyFramesAnimation.KeyFrames.Add(
             new SplineDoubleKeyFrame(
                 targetValue,

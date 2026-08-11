@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,7 +7,7 @@ internal static class ScrollViewerExtensions
 {
     public static UIElement GetContentTemplateRoot(this ScrollViewer scrollViewer)
     {
-        return scrollViewer.Content as UIElement;
+        return (scrollViewer.Content as UIElement)!;
     }
 
     public static bool ChangeView(this ScrollViewer scrollViewer,

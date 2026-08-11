@@ -23,13 +23,13 @@ internal static partial class SafeNativeMethods
 
     private partial class SafeNativeMethodsPrivate
     {
-        [DllImport(ExternDll.User32, EntryPoint = "GetWindowRect", ExactSpelling = true, CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", EntryPoint = "GetWindowRect", ExactSpelling = true, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool IntGetWindowRect(HandleRef hWnd, [In, Out] ref RECT rect);
 
-        [DllImport(ExternDll.User32, ExactSpelling = true)]
+        [DllImport("user32.dll", ExactSpelling = true)]
         public static extern IntPtr MonitorFromRect(ref RECT rect, int flags);
 
-        [DllImport(ExternDll.User32, EntryPoint = "ScreenToClient", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto)]
+        [DllImport("user32.dll", EntryPoint = "ScreenToClient", SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto)]
         public static extern int IntScreenToClient(HandleRef hWnd, [In, Out] POINT pt);
     }
 }

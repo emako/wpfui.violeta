@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -79,7 +77,7 @@ public static class SliderAutoToolTipHelper
 
     private static void OnToolTipIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
-        var toolTip = (ToolTip)sender;
+        var toolTip = (ToolTip)sender!;
         Debug.Assert(toolTip.PlacementTarget is Thumb);
         if (toolTip.PlacementTarget is Thumb thumb)
         {
@@ -98,7 +96,7 @@ public static class SliderAutoToolTipHelper
 
     private static void OnThumbSizeChanged(object? sender, SizeChangedEventArgs e)
     {
-        var thumb = (Thumb)sender;
+        var thumb = (Thumb)sender!;
         if (thumb.ToolTip is ToolTip toolTip)
         {
             UpdatePlacementRectangle(toolTip, e.NewSize);
@@ -154,7 +152,7 @@ public static class SliderAutoToolTipHelper
                 break;
 
             default:
-                return new CustomPopupPlacement[] { };
+                return [];
         }
 
         if (Helper.TryGetTransformToDevice(autoToolTip, out Matrix transformToDevice))
@@ -163,6 +161,6 @@ public static class SliderAutoToolTipHelper
             point -= transformToDevice.Transform(offset);
         }
 
-        return new CustomPopupPlacement[] { new CustomPopupPlacement(point, primaryAxis) };
+        return [new CustomPopupPlacement(point, primaryAxis)];
     }
 }

@@ -1,16 +1,14 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-public class ItemsSourceView : INotifyCollectionChanged
-{
-    public ItemsSourceView(object source)
-    {
-    }
+#pragma warning disable CS9113 // Parameter is unread.
 
+public class ItemsSourceView(object source) : INotifyCollectionChanged
+#pragma warning restore CS9113 // Parameter is unread.
+{
     public int Count
     {
         get
@@ -90,6 +88,7 @@ public class ItemsSourceView : INotifyCollectionChanged
 
     internal class CollectionChangedRevoker : EventRevoker<ItemsSourceView, NotifyCollectionChangedEventHandler>
     {
+        [SuppressMessage("Style", "IDE0290:Use primary constructor")]
         public CollectionChangedRevoker(ItemsSourceView source, NotifyCollectionChangedEventHandler handler) : base(source, handler)
         {
         }

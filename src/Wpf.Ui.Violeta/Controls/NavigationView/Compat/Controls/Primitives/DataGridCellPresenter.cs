@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -227,22 +225,15 @@ public class DataGridCellPresenter : ContentPresenter
         }
     }
 
-    private class BorderHelper
+    private class BorderHelper(UIElement owner)
     {
-        private readonly UIElement _owner;
+        private Size RenderSize => owner.RenderSize;
 
-        public BorderHelper(UIElement owner)
-        {
-            _owner = owner;
-        }
-
-        private Size RenderSize => _owner.RenderSize;
-
-        private Pen PenCache { get; set; }
+        private Pen PenCache { get; set; } = null!;
 
         public void ClearPenCache()
         {
-            PenCache = null;
+            PenCache = null!;
         }
 
         public void DrawBorder(
@@ -266,23 +257,15 @@ public class DataGridCellPresenter : ContentPresenter
                     PenCache = pen;
                 }
 
-                double halfThickness = thickness * 0.5;
+                double halfThickness = thickness * 0.5d;
 
-                Rect rect = new Rect(
+                Rect rect = new(
                     new Point(margin + halfThickness,
                               margin + halfThickness),
                     new Point(RenderSize.Width - margin - halfThickness,
                               RenderSize.Height - margin - halfThickness));
 
-                //GuidelineSet guidelines = new GuidelineSet();
-                //guidelines.GuidelinesX.Add(rect.Left + halfThickness);
-                //guidelines.GuidelinesX.Add(rect.Right + halfThickness);
-                //guidelines.GuidelinesY.Add(rect.Top + halfThickness);
-                //guidelines.GuidelinesY.Add(rect.Bottom + halfThickness);
-
-                //dc.PushGuidelineSet(guidelines);
                 dc.DrawRectangle(null, pen, rect);
-                //dc.Pop();
             }
         }
     }

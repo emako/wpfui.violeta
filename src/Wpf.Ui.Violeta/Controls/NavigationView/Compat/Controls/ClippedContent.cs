@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,7 +37,10 @@ public class ClippedContent : ContentControl
         (d as ClippedContent)?.ApplyClip();
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ClippedContent()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         this.SizeChanged += ClippingBorder_SizeChanged;
         ApplyClip();
@@ -83,8 +84,8 @@ public class ClippedContent : ContentControl
     {
         base.OnApplyTemplate();
 
-        PART_OuterBorder = this.Template.FindName(nameof(PART_OuterBorder), this) as Border;
-        PART_InnerBorder = this.Template.FindName(nameof(PART_InnerBorder), this) as Border;
+        PART_OuterBorder = (Template.FindName(nameof(PART_OuterBorder), this) as Border)!;
+        PART_InnerBorder = (Template.FindName(nameof(PART_InnerBorder), this) as Border)!;
 
         if (PART_InnerBorder != null)
         {

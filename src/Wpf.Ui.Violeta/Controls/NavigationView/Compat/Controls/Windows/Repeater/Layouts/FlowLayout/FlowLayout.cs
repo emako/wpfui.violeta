@@ -1,8 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -81,7 +80,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
     protected override void InitializeForContextCore(VirtualizingLayoutContext context)
     {
         var state = context.LayoutState;
-        FlowLayoutState flowState = null;
+        FlowLayoutState flowState = null!;
         if (state != null)
         {
             flowState = GetAsFlowState(state);
@@ -442,6 +441,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         InvalidateLayout();
     }
 
+    [SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value")]
     private double GetAverageLineInfo(
         Size availableSize,
         VirtualizingLayoutContext context,
@@ -470,6 +470,7 @@ public class FlowLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         return avgLineSize;
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private FlowLayoutState GetAsFlowState(object state)
     {
         return (FlowLayoutState)state;

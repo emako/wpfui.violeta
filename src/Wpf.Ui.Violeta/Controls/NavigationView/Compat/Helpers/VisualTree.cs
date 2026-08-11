@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,12 +24,12 @@ public static class VisualTree
     {
         if (element == null || string.IsNullOrWhiteSpace(name))
         {
-            return null;
+            return null!;
         }
 
         if (name.Equals((element as FrameworkElement)?.Name, StringComparison.OrdinalIgnoreCase))
         {
-            return element as FrameworkElement;
+            return (element as FrameworkElement)!;
         }
 
         var childCount = VisualTreeHelper.GetChildrenCount(element);
@@ -44,7 +42,7 @@ public static class VisualTree
             }
         }
 
-        return null;
+        return null!;
     }
 
     /// <summary>
@@ -56,14 +54,13 @@ public static class VisualTree
     public static T FindDescendant<T>(this DependencyObject element)
         where T : DependencyObject
     {
-        T retValue = null;
+        T retValue = null!;
         var childrenCount = VisualTreeHelper.GetChildrenCount(element);
 
         for (var i = 0; i < childrenCount; i++)
         {
             var child = VisualTreeHelper.GetChild(element, i);
-            var type = child as T;
-            if (type != null)
+            if (child is T type)
             {
                 retValue = type;
                 break;
@@ -77,7 +74,7 @@ public static class VisualTree
             }
         }
 
-        return retValue;
+        return retValue!;
     }
 
     /// <summary>
@@ -88,7 +85,7 @@ public static class VisualTree
     /// <returns>Descendant control or null if not found.</returns>
     public static object FindDescendant(this DependencyObject element, Type type)
     {
-        object retValue = null;
+        object retValue = null!;
         var childrenCount = VisualTreeHelper.GetChildrenCount(element);
 
         for (var i = 0; i < childrenCount; i++)
@@ -108,7 +105,7 @@ public static class VisualTree
             }
         }
 
-        return retValue;
+        return retValue!;
     }
 
     /// <summary>
@@ -125,8 +122,7 @@ public static class VisualTree
         for (var i = 0; i < childrenCount; i++)
         {
             var child = VisualTreeHelper.GetChild(element, i);
-            var type = child as T;
-            if (type != null)
+            if (child is T type)
             {
                 yield return type;
             }
@@ -148,19 +144,19 @@ public static class VisualTree
     {
         if (element == null || string.IsNullOrWhiteSpace(name))
         {
-            return null;
+            return null!;
         }
 
         var parent = VisualTreeHelper.GetParent(element);
 
         if (parent == null)
         {
-            return null;
+            return null!;
         }
 
         if (name.Equals((parent as FrameworkElement)?.Name, StringComparison.OrdinalIgnoreCase))
         {
-            return parent as FrameworkElement;
+            return (parent as FrameworkElement)!;
         }
 
         return parent.FindAscendantByName(name);
@@ -179,12 +175,12 @@ public static class VisualTree
 
         if (parent == null)
         {
-            return null;
+            return null!;
         }
 
         if (parent is T)
         {
-            return parent as T;
+            return (parent as T)!;
         }
 
         return parent.FindAscendant<T>();
@@ -202,7 +198,7 @@ public static class VisualTree
 
         if (parent == null)
         {
-            return null;
+            return null!;
         }
 
         if (parent.GetType() == type)
@@ -280,10 +276,10 @@ public static class VisualTree
                 var bindFlag = BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase;
                 var props = new List<PropertyInfo>
                 {
-                    parentType.GetProperty("Children", bindFlag),
-                    parentType.GetProperty("Child", bindFlag),
-                    parentType.GetProperty("Content", bindFlag),
-                    parentType.GetProperty("Items", bindFlag)
+                    parentType.GetProperty("Children", bindFlag)!,
+                    parentType.GetProperty("Child", bindFlag)!,
+                    parentType.GetProperty("Content", bindFlag)!,
+                    parentType.GetProperty("Items", bindFlag)!
                 };
 
                 bool isRemovalDone = false;
@@ -294,11 +290,11 @@ public static class VisualTree
                     {
                         case "children":
                             var children = prop.GetValue(parent, null);
-                            foreach (var method in children.GetType().GetMethods())
+                            foreach (var method in children!.GetType().GetMethods())
                             {
-                                if (method.Name.ToLower() == "remove")
+                                if (method.Name.Equals("remove", StringComparison.CurrentCultureIgnoreCase))
                                 {
-                                    method.Invoke(children, new object[] { element });
+                                    method.Invoke(children, [element]);
                                     isRemovalDone = true;
                                 }
                             }

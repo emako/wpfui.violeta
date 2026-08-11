@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +12,10 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 [ContentProperty(nameof(ScrollViewer))]
 public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
 {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public ItemsRepeaterScrollHost()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
         m_pendingBringIntoView = new BringIntoViewState(this);
     }
@@ -47,7 +48,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
                 // The best candidate is the element that's the closest to the edge of interest.
                 GetAnchorElement(ref anchorElementRelativeBounds);
 
-            scrollViewer.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
+            scrollViewer!.Arrange(new Rect(0, 0, finalSize.Width, finalSize.Height));
 
             m_pendingViewportShift = 0.0;
 
@@ -100,14 +101,14 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
     {
         get
         {
-            ScrollViewer value = null;
+            ScrollViewer value = null!;
             var children = Children;
             if (children.Count > 0)
             {
-                value = children[0] as ScrollViewer;
+                value = (children[0] as ScrollViewer)!;
             }
 
-            return value;
+            return value!;
         }
         set
         {
@@ -361,7 +362,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
                     scrollViewer.VerticalOffset;
                 double viewportEdgeOffset = verticalOffset + HorizontalAnchorRatio * scrollViewer.ViewportHeight + m_pendingViewportShift;
 
-                CandidateInfo bestCandidate = null;
+                CandidateInfo bestCandidate = null!;
                 double bestCandidateDistance = float.MaxValue;
 
                 foreach (var candidate in m_candidates)
@@ -395,7 +396,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
                 }
                 else
                 {
-                    m_anchorElement = null;
+                    m_anchorElement = null!;
                     m_anchorElementRelativeBounds = CandidateInfo.InvalidBounds;
                 }
             }
@@ -408,7 +409,7 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
             relativeBounds = m_anchorElementRelativeBounds;
         }
 
-        return m_anchorElement;
+        return m_anchorElement!;
     }
 
     private void OnScrollViewerScrollChanged(object? sender, ScrollChangedEventArgs e)
@@ -442,16 +443,10 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
 
     private bool HasPendingBringIntoView => m_pendingBringIntoView.TargetElement != null;
 
-    private class CandidateInfo
+    private class CandidateInfo(UIElement element)
     {
-        public CandidateInfo(UIElement element)
-        {
-            RelativeBounds = InvalidBounds;
-            Element = element;
-        }
-
-        public UIElement Element { get; }
-        public Rect RelativeBounds { get; set; }
+        public UIElement Element { get; } = element;
+        public Rect RelativeBounds { get; set; } = InvalidBounds;
         public bool IsRelativeBoundsSet => RelativeBounds != InvalidBounds;
 
         public static Rect InvalidBounds = Rect.Empty;
@@ -493,12 +488,12 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
 
         public void Reset()
         {
-            TargetElement = null;
+            TargetElement = null!;
             AlignmentX = AlignmentY = OffsetX = OffsetY = 0.0;
         }
     }
 
-    private readonly List<CandidateInfo> m_candidates = new List<CandidateInfo>();
+    private readonly List<CandidateInfo> m_candidates = [];
 
     private UIElement m_anchorElement;
     private Rect m_anchorElementRelativeBounds;
@@ -529,6 +524,8 @@ public class ItemsRepeaterScrollHost : Panel, IRepeaterScrollingSurface
     private event PostArrangeEventHandler PostArrange;
 
 #pragma warning disable CS0067
+
     private event ConfigurationChangedEventHandler ConfigurationChanged;
+
 #pragma warning restore CS0067
 }

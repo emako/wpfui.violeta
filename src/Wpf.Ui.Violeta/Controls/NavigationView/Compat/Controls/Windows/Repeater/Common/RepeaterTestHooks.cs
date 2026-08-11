@@ -1,5 +1,7 @@
 #pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
 internal partial class RepeaterTestHooks
@@ -48,5 +50,6 @@ internal partial class RepeaterTestHooks
         }
     }
 
-    private event TypedEventHandler<object, object> m_buildTreeCompleted;
+    [SuppressMessage("Style", "IDE1006:Naming Styles")]
+    private event TypedEventHandler<object, object>? m_buildTreeCompleted;
 }

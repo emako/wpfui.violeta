@@ -1,4 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
 
 using System.Windows;
 
@@ -118,12 +117,13 @@ public class AnimatedIconSource : IconSource
     /// <inheritdoc/>
     protected override IconElement CreateIconElementCore()
     {
-        AnimatedIcon animatedIcon = new AnimatedIcon();
-
-        animatedIcon.Source = Source;
-        animatedIcon.FallbackIconSource = FallbackIconSource;
-        animatedIcon.MirroredWhenRightToLeft = MirroredWhenRightToLeft;
-        animatedIcon.FontSize = FontSize;
+        AnimatedIcon animatedIcon = new()
+        {
+            Source = Source,
+            FallbackIconSource = FallbackIconSource,
+            MirroredWhenRightToLeft = MirroredWhenRightToLeft,
+            FontSize = FontSize
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {

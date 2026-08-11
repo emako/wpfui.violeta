@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Data;
@@ -18,66 +16,46 @@ public class CornerRadiusExtractionConverter : IValueConverter
 
     public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        if (value is CornerRadius)
+        if (value is CornerRadius radius)
         {
-            var result = 0d;
-            CornerRadius cornerRadius = (CornerRadius)value;
+            double result;
+            CornerRadius cornerRadius = radius;
 
-            switch (TargetMember)
+            result = TargetMember switch
             {
-                case CornerRadiusExtractMember.TopLeft:
-                    result = cornerRadius.TopLeft;
-                    break;
-
-                case CornerRadiusExtractMember.TopRight:
-                    result = cornerRadius.TopRight;
-                    break;
-
-                case CornerRadiusExtractMember.BottomRight:
-                    result = cornerRadius.BottomRight;
-                    break;
-
-                case CornerRadiusExtractMember.BottomLeft:
-                    result = cornerRadius.BottomLeft;
-                    break;
-
-                default:
-                    result = cornerRadius.TopLeft;
-                    break;
-            }
-
+                CornerRadiusExtractMember.TopLeft => cornerRadius.TopLeft,
+                CornerRadiusExtractMember.TopRight => cornerRadius.TopRight,
+                CornerRadiusExtractMember.BottomRight => cornerRadius.BottomRight,
+                CornerRadiusExtractMember.BottomLeft => cornerRadius.BottomLeft,
+                _ => cornerRadius.TopLeft,
+            };
             return result * Scale;
         }
 
-        return null;
+        return null!;
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    public object? ConvertBack(object? value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        if (value is double)
+        switch (value)
         {
-            double doubleValue = (double)value / Scale;
+            case double:
+                {
+                    double doubleValue = (double)value / Scale;
 
-            switch (TargetMember)
-            {
-                case CornerRadiusExtractMember.TopLeft:
-                    return new CornerRadius(doubleValue, 0, 0, 0);
+                    return TargetMember switch
+                    {
+                        CornerRadiusExtractMember.TopLeft => new CornerRadius(doubleValue, 0, 0, 0),
+                        CornerRadiusExtractMember.TopRight => new CornerRadius(0, doubleValue, 0, 0),
+                        CornerRadiusExtractMember.BottomRight => new CornerRadius(0, 0, doubleValue, 0),
+                        CornerRadiusExtractMember.BottomLeft => new CornerRadius(0, 0, 0, doubleValue),
+                        _ => new CornerRadius(doubleValue),
+                    };
+                }
 
-                case CornerRadiusExtractMember.TopRight:
-                    return new CornerRadius(0, doubleValue, 0, 0);
-
-                case CornerRadiusExtractMember.BottomRight:
-                    return new CornerRadius(0, 0, doubleValue, 0);
-
-                case CornerRadiusExtractMember.BottomLeft:
-                    return new CornerRadius(0, 0, 0, doubleValue);
-
-                default:
-                    return new CornerRadius(doubleValue);
-            }
+            default:
+                return new CornerRadius(0);
         }
-
-        return new CornerRadius(0);
     }
 }
 
@@ -86,5 +64,5 @@ public enum CornerRadiusExtractMember
     TopLeft,
     TopRight,
     BottomRight,
-    BottomLeft
+    BottomLeft,
 }

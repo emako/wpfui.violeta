@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -23,32 +21,17 @@ internal static class ColorBlending
 
     public static NormalizedRGB Blend(in NormalizedRGB bottom, in NormalizedRGB top, ColorBlendMode mode)
     {
-        switch (mode)
+        return mode switch
         {
-            case ColorBlendMode.Burn:
-                return BlendBurn(bottom, top);
-
-            case ColorBlendMode.Darken:
-                return BlendDarken(bottom, top);
-
-            case ColorBlendMode.Dodge:
-                return BlendDodge(bottom, top);
-
-            case ColorBlendMode.Lighten:
-                return BlendLighten(bottom, top);
-
-            case ColorBlendMode.Multiply:
-                return BlendMultiply(bottom, top);
-
-            case ColorBlendMode.Overlay:
-                return BlendOverlay(bottom, top);
-
-            case ColorBlendMode.Screen:
-                return BlendScreen(bottom, top);
-
-            default:
-                throw new ArgumentException("Unknown blend mode", "mode");
-        }
+            ColorBlendMode.Burn => BlendBurn(bottom, top),
+            ColorBlendMode.Darken => BlendDarken(bottom, top),
+            ColorBlendMode.Dodge => BlendDodge(bottom, top),
+            ColorBlendMode.Lighten => BlendLighten(bottom, top),
+            ColorBlendMode.Multiply => BlendMultiply(bottom, top),
+            ColorBlendMode.Overlay => BlendOverlay(bottom, top),
+            ColorBlendMode.Screen => BlendScreen(bottom, top),
+            _ => throw new ArgumentException("Unknown blend mode", nameof(mode)),
+        };
     }
 
     public static NormalizedRGB BlendBurn(in NormalizedRGB bottom, in NormalizedRGB top)

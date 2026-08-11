@@ -1,16 +1,11 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Reflection;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-internal class ControlStrings : ResourceAccessor
+internal class ControlStrings(Type controlType, ModernControlCategory category)
+    : ResourceAccessor(GetControlBaseName(controlType, category), GetControlAssembly(controlType))
 {
-    public ControlStrings(Type controlType, ModernControlCategory category) : base(GetControlBaseName(controlType, category), GetControlAssembly(controlType))
-    {
-    }
-
     internal static string GetControlBaseName(Type controlType, ModernControlCategory category)
     {
         _ = category;

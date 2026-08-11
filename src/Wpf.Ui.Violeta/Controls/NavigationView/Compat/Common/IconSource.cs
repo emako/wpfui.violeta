@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Media;
 
@@ -64,12 +62,12 @@ public class IconSource : DependencyObject
             element.Height = DefaultSize.Value.Height;
         }
 
-        return element;
+        return element!;
     }
 
     /// <summary>
     /// Creates an icon UI element.
     /// </summary>
     /// <returns>An icon UI element.</returns>
-    protected virtual IconElement CreateIconElementCore() => null;
+    protected virtual IconElement CreateIconElementCore() => null!;
 }

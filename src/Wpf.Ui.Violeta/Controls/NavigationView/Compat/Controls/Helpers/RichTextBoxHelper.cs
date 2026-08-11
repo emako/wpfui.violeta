@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -92,6 +90,6 @@ public static class RichTextBoxHelper
 
     private static void OnTextChanged(object? sender, TextChangedEventArgs e)
     {
-        UpdateIsEmpty((RichTextBox)sender);
+        UpdateIsEmpty((RichTextBox)sender!);
     }
 }

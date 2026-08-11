@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -173,34 +171,31 @@ public class AnimatedIcon : IconElement
 
     private void OnFontSizeChanged(DependencyPropertyChangedEventArgs e)
     {
-        if (Source != null)
-        {
-            Source.FontSize = (double)e.NewValue;
-        }
+        Source?.FontSize = (double)e.NewValue;
     }
 
     #endregion FontSize
 
     private void OnFallbackIconSourcePropertyChanged(DependencyPropertyChangedEventArgs e)
     {
+        _ = e;
+
         var _source = Source;
-        if (_source != null)
-        {
-            _source.FallbackIconSource = FallbackIconSource;
-        }
+        _source?.FallbackIconSource = FallbackIconSource;
     }
 
     private void OnMirroredWhenRightToLeftPropertyChanged(DependencyPropertyChangedEventArgs e)
     {
+        _ = e;
+
         var _source = Source;
-        if (_source != null)
-        {
-            _source.MirroredWhenRightToLeft = MirroredWhenRightToLeft;
-        }
+        _source?.MirroredWhenRightToLeft = MirroredWhenRightToLeft;
     }
 
     private void OnSourcePropertyChanged(DependencyPropertyChangedEventArgs e)
     {
+        _ = e;
+
         Children.Clear();
 
         Source.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -217,10 +212,7 @@ public class AnimatedIcon : IconElement
     private void OnStatePropertyChanged()
     {
         var _source = Source;
-        if (_source != null)
-        {
-            _source.State = GetState(this);
-        }
+        _source?.State = GetState(this);
     }
 
     private void OnLoaded(object UnnamedParameter, RoutedEventArgs UnnamedParameter2)
@@ -243,7 +235,7 @@ public class AnimatedIcon : IconElement
                 }
                 parent = VisualTreeHelper.GetParent(parent);
             }
-            return (null, string.Empty);
+            return (null, string.Empty)!;
         }
 
         var (ancestorWithState, stateValue) = GetState();
@@ -267,7 +259,7 @@ public class AnimatedIcon : IconElement
 
     private void OnAncestorAnimatedIconStatePropertyChanged(object? sender, DependencyProperty args)
     {
-        SetValue(StateProperty, ((DependencyObject)sender).GetValue(args));
+        SetValue(StateProperty, ((DependencyObject)sender!).GetValue(args));
     }
 
     private protected override void InitializeChildren()
@@ -304,12 +296,13 @@ public class AnimatedIcon : IconElement
 
     protected override IconSource CreateIconSourceCore()
     {
-        var iconSource = new AnimatedIconSource();
-
-        iconSource.Source = Source;
-        iconSource.FallbackIconSource = FallbackIconSource;
-        iconSource.MirroredWhenRightToLeft = MirroredWhenRightToLeft;
-        iconSource.FontSize = FontSize;
+        var iconSource = new AnimatedIconSource
+        {
+            Source = Source,
+            FallbackIconSource = FallbackIconSource,
+            MirroredWhenRightToLeft = MirroredWhenRightToLeft,
+            FontSize = FontSize,
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,12 +13,16 @@ public class FontIcon : IconElement, IFontIconClass
 {
     public const string SegoeIconsFontFamilyName = "Segoe Fluent Icons,Segoe MDL2 Assets,Segoe UI Symbol";
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     /// <summary>
     /// Initializes a new instance of the FontIcon class.F
     /// </summary>
     public FontIcon()
     {
     }
+
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     public FontIcon(FontIconData icon) : this()
     {
@@ -99,17 +101,14 @@ public class FontIcon : IconElement, IFontIconClass
     [Localizability(LocalizationCategory.None)]
     public double FontSize
     {
-        get { return (double)GetValue(FontSizeProperty); }
-        set { SetValue(FontSizeProperty, value); }
+        get => (double)GetValue(FontSizeProperty);
+        set => SetValue(FontSizeProperty, value);
     }
 
     private static void OnFontSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var fontIcon = (FontIcon)d;
-        if (fontIcon._textBlock != null)
-        {
-            fontIcon._textBlock.FontSize = (double)e.NewValue;
-        }
+        fontIcon._textBlock?.FontSize = (double)e.NewValue;
     }
 
     /// <summary>
@@ -132,17 +131,14 @@ public class FontIcon : IconElement, IFontIconClass
     [Bindable(true), Category("Appearance")]
     public FontStyle FontStyle
     {
-        get { return (FontStyle)GetValue(FontStyleProperty); }
-        set { SetValue(FontStyleProperty, value); }
+        get => (FontStyle)GetValue(FontStyleProperty);
+        set => SetValue(FontStyleProperty, value);
     }
 
     private static void OnFontStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var fontIcon = (FontIcon)d;
-        if (fontIcon._textBlock != null)
-        {
-            fontIcon._textBlock.FontStyle = (FontStyle)e.NewValue;
-        }
+        fontIcon._textBlock?.FontStyle = (FontStyle)e.NewValue;
     }
 
     /// <summary>
@@ -171,10 +167,7 @@ public class FontIcon : IconElement, IFontIconClass
     private static void OnFontWeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var fontIcon = (FontIcon)d;
-        if (fontIcon._textBlock != null)
-        {
-            fontIcon._textBlock.FontWeight = (FontWeight)e.NewValue;
-        }
+        fontIcon._textBlock?.FontWeight = (FontWeight)e.NewValue;
     }
 
     /// <summary>
@@ -235,10 +228,7 @@ public class FontIcon : IconElement, IFontIconClass
     private static void OnGlyphChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var fontIcon = (FontIcon)d;
-        if (fontIcon._textBlock != null)
-        {
-            fontIcon._textBlock.Text = (string)e.NewValue;
-        }
+        fontIcon._textBlock?.Text = (string)e.NewValue;
 
         (d as FontIcon)?.UpdateIconData();
     }
@@ -250,8 +240,8 @@ public class FontIcon : IconElement, IFontIconClass
 
     private void UpdateIconData()
     {
-        this.ActualGlyph = this.Glyph ?? this.Icon?.Glyph ?? null;
-        this.ActualFontFamily = this.FontFamily ?? this.Icon?.FontFamily ?? new FontFamily(SegoeIconsFontFamilyName);
+        ActualGlyph = Glyph ?? Icon?.Glyph ?? null!;
+        ActualFontFamily = FontFamily ?? Icon?.FontFamily ?? new FontFamily(SegoeIconsFontFamilyName);
     }
 
     private protected override void InitializeChildren()
@@ -306,20 +296,18 @@ public class FontIcon : IconElement, IFontIconClass
 
     protected override IconSource CreateIconSourceCore()
     {
-        var iconSource = new FontIconSource();
-
-        iconSource.Glyph = Glyph;
-        iconSource.FontSize = FontSize;
+        var iconSource = new FontIconSource
+        {
+            Glyph = Glyph,
+            FontSize = FontSize
+        };
         var newForeground = Foreground;
         if (newForeground != null)
         {
             iconSource.Foreground = newForeground;
         }
 
-        if (FontFamily == null)
-        {
-            FontFamily = new FontFamily(SegoeIconsFontFamilyName);
-        }
+        FontFamily ??= new FontFamily(SegoeIconsFontFamilyName);
         iconSource.FontFamily = FontFamily;
         iconSource.Icon = Icon;
 

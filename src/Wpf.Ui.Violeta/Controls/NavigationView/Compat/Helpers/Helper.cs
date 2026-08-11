@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Media;
@@ -49,27 +47,16 @@ internal static class Helper
 
     private static Point GetPoint(Rect rect, InterestPoint interestPoint)
     {
-        switch (interestPoint)
+        return interestPoint switch
         {
-            case InterestPoint.TopLeft:
-                return rect.TopLeft;
-
-            case InterestPoint.TopRight:
-                return rect.TopRight;
-
-            case InterestPoint.BottomLeft:
-                return rect.BottomLeft;
-
-            case InterestPoint.BottomRight:
-                return rect.BottomRight;
-
-            case InterestPoint.Center:
-                return new Point(rect.Left + rect.Width / 2,
-                                 rect.Top + rect.Height / 2);
-
-            default:
-                throw new ArgumentOutOfRangeException(nameof(interestPoint));
-        }
+            InterestPoint.TopLeft => rect.TopLeft,
+            InterestPoint.TopRight => rect.TopRight,
+            InterestPoint.BottomLeft => rect.BottomLeft,
+            InterestPoint.BottomRight => rect.BottomRight,
+            InterestPoint.Center => new Point(rect.Left + rect.Width / 2,
+                                             rect.Top + rect.Height / 2),
+            _ => throw new ArgumentOutOfRangeException(nameof(interestPoint)),
+        };
     }
 
     public static bool HasDefaultValue(this DependencyObject d, DependencyProperty dp)

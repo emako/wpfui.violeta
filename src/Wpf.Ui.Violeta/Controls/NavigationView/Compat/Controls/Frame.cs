@@ -1,8 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +28,8 @@ public class Frame : System.Windows.Controls.Frame
         FocusVisualStyleProperty.OverrideMetadata(typeof(Frame), new FrameworkPropertyMetadata(null));
     }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     /// <summary>
     /// Initialzies a new instance of the Frame class.
     /// </summary>
@@ -45,6 +46,8 @@ public class Frame : System.Windows.Controls.Frame
         NavigationStopped += OnNavigationStopped;
         NavigationFailed += OnNavigationFailed;
     }
+
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     #region SourcePageType
 
@@ -188,6 +191,7 @@ public class Frame : System.Windows.Controls.Frame
 
     #region Frame
 
+    [SuppressMessage("Style", "IDE0090:Use 'new(...)'")]
     private static readonly AttachableMemberIdentifier FrameProperty =
         new AttachableMemberIdentifier(typeof(Frame), "Frame");
 
@@ -226,7 +230,7 @@ public class Frame : System.Windows.Controls.Frame
 
     private NavigationTransitionInfo DefaultNavigationTransitionInfo { get; set; }
 
-    private JournalEntry BackEntry => BackStack?.OfType<JournalEntry>().FirstOrDefault();
+    private JournalEntry BackEntry => BackStack?.OfType<JournalEntry>().FirstOrDefault()!;
 
     /// <summary>
     /// Causes the Frame to load content represented by the specified Page.
@@ -326,7 +330,7 @@ public class Frame : System.Windows.Controls.Frame
 
         if (Content != null)
         {
-            OnContentChanged(null, Content);
+            OnContentChanged(null!, Content);
         }
     }
 
@@ -446,15 +450,15 @@ public class Frame : System.Windows.Controls.Frame
             {
                 SetNavigationTransitionInfo(backEntry, _transitionInfoOverride);
             }
-            _transitionInfoOverride = null;
+            _transitionInfoOverride = null!;
         }
 
         try
         {
             _ignoreSourcePageTypeChanged = true;
             var pageType = e.Content?.GetType();
-            SourcePageType = pageType;
-            CurrentSourcePageType = pageType;
+            SourcePageType = pageType!;
+            CurrentSourcePageType = pageType!;
         }
         finally
         {
@@ -463,7 +467,7 @@ public class Frame : System.Windows.Controls.Frame
 
         if (_oldPage is { } oldPage)
         {
-            _oldPage = null;
+            _oldPage = null!;
             oldPage.InternalOnNavigatedFrom(e);
         }
 
@@ -475,33 +479,27 @@ public class Frame : System.Windows.Controls.Frame
 
     private void OnNavigationStopped(object? sender, NavigationEventArgs e)
     {
-        _transitionInfoOverride = null;
-        _oldPage = null;
+        _transitionInfoOverride = null!;
+        _oldPage = null!;
     }
 
     private void OnNavigationFailed(object? sender, NavigationFailedEventArgs e)
     {
-        _transitionInfoOverride = null;
-        _oldPage = null;
+        _transitionInfoOverride = null!;
+        _oldPage = null!;
     }
 
     private void BeginTransition()
     {
         Debug.Assert(_exitAnimation != null || _enterAnimation != null);
 
-        if (_exitAnimation != null)
-        {
-            _exitAnimation.Completed += OnExitAnimationCompleted;
-        }
+        _exitAnimation?.Completed += OnExitAnimationCompleted;
 
-        if (_enterAnimation != null)
-        {
-            _enterAnimation.Completed += OnEnterAnimationCompleted;
-        }
+        _enterAnimation?.Completed += OnEnterAnimationCompleted;
 
         _asyncBeginTransition = Dispatcher.BeginInvoke(() =>
         {
-            _asyncBeginTransition = null;
+            _asyncBeginTransition = null!;
 
             if (_exitAnimation != null)
             {
@@ -522,21 +520,15 @@ public class Frame : System.Windows.Controls.Frame
             _oldContentPresenter.Content = null;
         }
 
-        if (_newContentPresenter != null)
-        {
-            _newContentPresenter.Opacity = 1;
-        }
+        _newContentPresenter?.Opacity = 1;
 
         _enterAnimation.Begin();
     }
 
     private void OnExitAnimationCompleted(object? sender, EventArgs e)
     {
-        if (_exitAnimation != null)
-        {
-            _exitAnimation.Stop();
-            _exitAnimation = null;
-        }
+        _exitAnimation?.Stop();
+        _exitAnimation = null!;
 
         if (_enterAnimation != null)
         {
@@ -550,34 +542,20 @@ public class Frame : System.Windows.Controls.Frame
 
     private void OnEnterAnimationCompleted(object? sender, EventArgs e)
     {
-        if (_enterAnimation != null)
-        {
-            _enterAnimation.Stop();
-            _enterAnimation = null;
-        }
+        _enterAnimation?.Stop();
+        _enterAnimation = null!;
 
         StopTransition();
     }
 
     private void StopTransition()
     {
-        if (_asyncBeginTransition != null)
-        {
-            _asyncBeginTransition.Abort();
-            _asyncBeginTransition = null;
-        }
-
-        if (_exitAnimation != null)
-        {
-            _exitAnimation.Stop();
-            _exitAnimation = null;
-        }
-
-        if (_enterAnimation != null)
-        {
-            _enterAnimation.Stop();
-            _enterAnimation = null;
-        }
+        _asyncBeginTransition?.Abort();
+        _asyncBeginTransition = null!;
+        _exitAnimation?.Stop();
+        _exitAnimation = null!;
+        _enterAnimation?.Stop();
+        _enterAnimation = null!;
 
         if (_oldContentPresenter != null)
         {
@@ -596,8 +574,8 @@ public class Frame : System.Windows.Controls.Frame
     private const string FirstContentPresenterName = "FirstContentPresenter";
     private const string SecondContentPresenterName = "SecondContentPresenter";
 
-    private ContentPresenter _oldContentPresenter;
-    private ContentPresenter _newContentPresenter;
+    private ContentPresenter? _oldContentPresenter;
+    private ContentPresenter? _newContentPresenter;
 
     private bool _movingBackwards;
     private bool _ignoreSourcePageTypeChanged;

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Globalization;
 using System.Windows;
@@ -13,11 +11,11 @@ public abstract class AdvancedValueConverterBase<TFrom, TTo> : DependencyObject,
 
     public AdvancedValueConverterBaseDirection ConvertDirection
     {
-        get { return (AdvancedValueConverterBaseDirection)this.GetValue(ConvertDirectionProperty); }
-        set { this.SetValue(ConvertDirectionProperty, value); }
+        get => (AdvancedValueConverterBaseDirection)GetValue(ConvertDirectionProperty);
+        set => SetValue(ConvertDirectionProperty, value);
     }
 
-    public virtual object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public virtual object? Convert(object? value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is TFrom from && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Normal))
         {
@@ -31,7 +29,7 @@ public abstract class AdvancedValueConverterBase<TFrom, TTo> : DependencyObject,
         return null;
     }
 
-    public virtual object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public virtual object? ConvertBack(object? value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value is TTo to && (ConvertDirection == AdvancedValueConverterBaseDirection.Auto || ConvertDirection == AdvancedValueConverterBaseDirection.Normal))
         {
@@ -54,5 +52,5 @@ public enum AdvancedValueConverterBaseDirection
 {
     Normal,
     Inverted,
-    Auto
+    Auto,
 }

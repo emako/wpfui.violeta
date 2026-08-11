@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +20,10 @@ public class BitmapIcon : IconElement
     /// <summary>
     /// Initializes a new instance of the BitmapIcon class.
     /// </summary>
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
     public BitmapIcon()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     {
     }
 
@@ -124,10 +125,7 @@ public class BitmapIcon : IconElement
 
     private void ApplyForeground()
     {
-        if (_foreground != null)
-        {
-            _foreground.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
-        }
+        _foreground?.Fill = ShouldInheritForegroundFromVisualParent ? VisualParentForeground : Foreground;
     }
 
     private void ApplyUriSource()
@@ -153,10 +151,7 @@ public class BitmapIcon : IconElement
     {
         bool showAsMonochrome = ShowAsMonochrome;
 
-        if (_image != null)
-        {
-            _image.Visibility = showAsMonochrome ? Visibility.Hidden : Visibility.Visible;
-        }
+        _image?.Visibility = showAsMonochrome ? Visibility.Hidden : Visibility.Visible;
 
         if (_foreground != null)
         {

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections;
 
@@ -22,12 +20,11 @@ internal class EmptyEnumeratorA : IEnumerator
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = new EmptyEnumeratorA();
-            }
-            return _instance;
+            field ??= new EmptyEnumeratorA();
+            return field;
         }
+
+        private set;
     }
 
     /// <summary>
@@ -59,6 +56,4 @@ internal class EmptyEnumeratorA : IEnumerator
     }
 
 #pragma warning restore 1634, 1691
-
-    private static IEnumerator _instance;
 }

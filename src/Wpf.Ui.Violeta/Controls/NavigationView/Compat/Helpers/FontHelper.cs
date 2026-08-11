@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +36,9 @@ public static class FontHelper
 
     public static TextDecorationCollection ToggleUnderline(this TextDecorationCollection? value, bool? useUnderline = null, TextDecorationCollection? underline = null)
     {
-        if (underline == null) underline = TextDecorations.Underline;
+        underline ??= TextDecorations.Underline;
 
-        List<TextDecorationLocation> locs = new List<TextDecorationLocation>();
+        List<TextDecorationLocation> locs = [];
         foreach (var deco in underline)
         {
             if (!locs.Contains(deco.Location))
@@ -63,10 +61,7 @@ public static class FontHelper
             else useUnderline = true;
         }
 
-        if (value == null)
-        {
-            value = new TextDecorationCollection();
-        }
+        value ??= [];
 
         if (!useUnderline.Value)
         {
@@ -94,7 +89,7 @@ public static class FontHelper
 
     public static TextDecorationCollection CopyCollection(this TextDecorationCollection c)
     {
-        return new TextDecorationCollection(c.ToArray());
+        return [.. c.ToArray()];
     }
 
     public static string SymbolThemeFontFamilyKey => GetSymbolThemeFontFamily();
@@ -125,7 +120,7 @@ public static class FontHelper
         try
         {
             font = new FontFamily(fontName);
-            if (!font.FamilyNames.Any())
+            if (font.FamilyNames.Count == 0)
             {
                 return false;
             }

@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Globalization;
 using System.Windows;
@@ -15,7 +13,7 @@ public class CornerRadiusFilterConverter : DependencyObject, IValueConverter
 
     public static CornerRadiusEx Convert(CornerRadiusEx radius, CornerRadiusFilterKind filterKind, double scale = 1)
     {
-        CornerRadiusEx result = new CornerRadiusEx(0);
+        CornerRadiusEx result = new(0);
 
         if (filterKind.HasFlag(CornerRadiusFilterKind.TopLeft))
         {

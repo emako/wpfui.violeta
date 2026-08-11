@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,17 +6,11 @@ using System.Windows;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
-internal class UniqueIdElementPool : IEnumerable<KeyValuePair<string, UIElement>>
+internal class UniqueIdElementPool(ItemsRepeater owner) : IEnumerable<KeyValuePair<string, UIElement>>
 {
-    public UniqueIdElementPool(ItemsRepeater owner)
-    {
-        m_owner = owner;
-        // ItemsRepeater is not fully constructed yet. Don't interact with it.
-    }
-
     public void Add(UIElement element)
     {
-        Debug.Assert(m_owner.ItemsSourceView.HasKeyIndexMapping);
+        Debug.Assert(owner.ItemsSourceView.HasKeyIndexMapping);
 
         var virtInfo = ItemsRepeater.GetVirtualizationInfo(element);
         var key = virtInfo.UniqueId;
@@ -34,21 +26,21 @@ internal class UniqueIdElementPool : IEnumerable<KeyValuePair<string, UIElement>
 
     public UIElement Remove(int index)
     {
-        Debug.Assert(m_owner.ItemsSourceView.HasKeyIndexMapping);
+        Debug.Assert(owner.ItemsSourceView.HasKeyIndexMapping);
 
         // Check if there is already a element in the mapping and if so, use it.
-        string key = m_owner.ItemsSourceView.KeyFromIndex(index);
-        if (m_elementMap.TryGetValue(key, out UIElement element))
+        string key = owner.ItemsSourceView.KeyFromIndex(index);
+        if (m_elementMap.TryGetValue(key, out UIElement? element))
         {
             m_elementMap.Remove(key);
         }
 
-        return element;
+        return element!;
     }
 
     public void Clear()
     {
-        Debug.Assert(m_owner.ItemsSourceView.HasKeyIndexMapping);
+        Debug.Assert(owner.ItemsSourceView.HasKeyIndexMapping);
         m_elementMap.Clear();
     }
 
@@ -64,8 +56,7 @@ internal class UniqueIdElementPool : IEnumerable<KeyValuePair<string, UIElement>
 
 #if DEBUG
     public bool IsEmpty => m_elementMap.Count == 0;
-#endif
 
-    private readonly ItemsRepeater m_owner;
-    private readonly Dictionary<string, UIElement> m_elementMap = new Dictionary<string, UIElement>();
+#endif
+    private readonly Dictionary<string, UIElement> m_elementMap = [];
 }

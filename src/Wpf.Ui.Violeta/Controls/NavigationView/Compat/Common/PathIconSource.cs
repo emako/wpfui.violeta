@@ -1,5 +1,3 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System.Windows;
 using System.Windows.Media;
 
@@ -41,7 +39,7 @@ public class PathIconSource : IconSource
     /// <inheritdoc/>
     protected override IconElement CreateIconElementCore()
     {
-        PathIcon pathIcon = new PathIcon();
+        PathIcon pathIcon = new();
 
         var data = Data;
         if (data != null)

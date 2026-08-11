@@ -1,8 +1,7 @@
-#pragma warning disable CS8600, CS8601, CS8602, CS8603, CS8604, CS8618, CS8619, CS8625
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -13,19 +12,13 @@ namespace Wpf.Ui.Violeta.Controls.Compat;
 // except that here we do not use EffectiveViewport and ScrollAnchoring features added to the framework in RS5.
 // Instead we use the IRepeaterScrollingSurface internal API. This class is used when building in MUX and
 // should work down-level.
-internal class ViewportManagerDownLevel : ViewportManager
+internal class ViewportManagerDownLevel(ItemsRepeater owner) : ViewportManager
 {
     // Pixel delta by which to inflate the cache buffer on each side.  Rather than fill the entire
     // cache buffer all at once, we chunk the work to make the UI thread more responsive.  We inflate
     // the cache buffer from 0 to a max value determined by the Maximum[Horizontal,Vertical]CacheLength
     // properties.
     private const double CacheBufferPerSideInflationPixelDelta = 40.0;
-
-    public ViewportManagerDownLevel(ItemsRepeater owner)
-    {
-        m_owner = owner;
-        // ItemsRepeater is not fully constructed yet. Don't interact with it.
-    }
 
     public override UIElement SuggestedAnchor
     {
@@ -64,7 +57,7 @@ internal class ViewportManagerDownLevel : ViewportManager
                 }
             }
 
-            return suggestedAnchor;
+            return suggestedAnchor!;
         }
     }
 
@@ -171,10 +164,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
     public override void OnElementCleared(UIElement element)
     {
-        if (m_horizontalScroller != null)
-        {
-            m_horizontalScroller.UnregisterAnchorCandidate(element);
-        }
+        m_horizontalScroller?.UnregisterAnchorCandidate(element);
 
         if (m_verticalScroller != null && m_verticalScroller != m_horizontalScroller)
         {
@@ -242,9 +232,9 @@ internal class ViewportManagerDownLevel : ViewportManager
     public override void ResetScrollers()
     {
         m_parentScrollers.Clear();
-        m_horizontalScroller = null;
-        m_verticalScroller = null;
-        m_innerScrollableScroller = null;
+        m_horizontalScroller = null!;
+        m_verticalScroller = null!;
+        m_innerScrollableScroller = null!;
 
         m_ensuredScrollers = false;
     }
@@ -255,7 +245,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
     private void OnCacheBuildActionCompleted()
     {
-        m_cacheBuildAction = null;
+        m_cacheBuildAction = null!;
         m_owner.InvalidateMeasure();
     }
 
@@ -266,7 +256,7 @@ internal class ViewportManagerDownLevel : ViewportManager
             if (isFinal)
             {
                 // Note that isFinal will never be true for input based manipulations.
-                m_makeAnchorElement = null;
+                m_makeAnchorElement = null!;
                 m_isAnchorOutsideRealizedRange = false;
             }
 
@@ -297,10 +287,7 @@ internal class ViewportManagerDownLevel : ViewportManager
                         var virtInfo = ItemsRepeater.GetVirtualizationInfo(element);
                         if (virtInfo.IsHeldByLayout)
                         {
-                            if (m_horizontalScroller != null)
-                            {
-                                m_horizontalScroller.RegisterAnchorCandidate(element);
-                            }
+                            m_horizontalScroller?.RegisterAnchorCandidate(element);
 
                             if (m_verticalScroller != null && m_verticalScroller != m_horizontalScroller)
                             {
@@ -444,11 +431,12 @@ internal class ViewportManagerDownLevel : ViewportManager
         }
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private void ValidateCacheLength(double cacheLength)
     {
         if (cacheLength < 0.0 || double.IsInfinity(cacheLength) || double.IsNaN(cacheLength))
         {
-            throw new ArgumentOutOfRangeException("The maximum cache length must be equal or superior to zero.");
+            throw new ArgumentOutOfRangeException(nameof(cacheLength), "The maximum cache length must be equal or superior to zero.");
         }
     }
 
@@ -486,7 +474,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
     private IRepeaterScrollingSurface GetOuterScroller()
     {
-        IRepeaterScrollingSurface scroller = null;
+        IRepeaterScrollingSurface scroller = null!;
 
         if (!m_parentScrollers.Empty())
         {
@@ -498,7 +486,7 @@ internal class ViewportManagerDownLevel : ViewportManager
 
     private string GetLayoutId()
     {
-        string layoutId = null;
+        string layoutId = null!;
         if (m_owner.Layout is { } layout)
         {
             layoutId = layout.LayoutId;
@@ -507,7 +495,7 @@ internal class ViewportManagerDownLevel : ViewportManager
         return layoutId;
     }
 
-    private readonly ItemsRepeater m_owner;
+    private readonly ItemsRepeater m_owner = owner;
 
     // List of parent scrollers.
     // The list stops when we reach the root scroller OR when both m_horizontalScroller
@@ -515,22 +503,22 @@ internal class ViewportManagerDownLevel : ViewportManager
     // scroller that we haven't reached yet.
     private bool m_ensuredScrollers = false;
 
-    private readonly List<ScrollerInfo> m_parentScrollers = new List<ScrollerInfo>();
+    private readonly List<ScrollerInfo> m_parentScrollers = [];
 
     // In order to support the Store scenario (vertical list of horizontal lists),
     // we need to build a synthetic virtualization window by taking the horizontal and
     // vertical components of the viewport from two different scrollers.
-    private IRepeaterScrollingSurface m_horizontalScroller;
+    private IRepeaterScrollingSurface m_horizontalScroller = null!;
 
-    private IRepeaterScrollingSurface m_verticalScroller;
+    private IRepeaterScrollingSurface m_verticalScroller = null!;
 
     // Invariant: !m_innerScrollableScroller || m_horizontalScroller == m_innerScrollableScroller || m_verticalScroller == m_innerScrollableScroller.
-    private IRepeaterScrollingSurface m_innerScrollableScroller;
+    private IRepeaterScrollingSurface m_innerScrollableScroller = null!;
 
-    private UIElement m_makeAnchorElement;
+    private UIElement m_makeAnchorElement = null!;
     private bool m_isAnchorOutsideRealizedRange;  // Value is only valid when m_makeAnchorElement is set.
 
-    private DispatcherOperation m_cacheBuildAction;
+    private DispatcherOperation m_cacheBuildAction = null!;
 
     private Rect m_visibleWindow;
     private Rect m_layoutExtent;
@@ -554,13 +542,8 @@ internal class ViewportManagerDownLevel : ViewportManager
     // - ConfigurationChanged on all scrollers.
     // - PostArrange only on the outer most scroller, because we need to wait for that one
     //   to arrange its children before we can reliably figure out our relative viewport.
-    private struct ScrollerInfo
+    private readonly struct ScrollerInfo(IRepeaterScrollingSurface scroller)
     {
-        public ScrollerInfo(IRepeaterScrollingSurface scroller)
-        {
-            Scroller = scroller;
-        }
-
-        public IRepeaterScrollingSurface Scroller { get; }
+        public IRepeaterScrollingSurface Scroller { get; } = scroller;
     };
 }
