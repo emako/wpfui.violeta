@@ -40,7 +40,15 @@
                             <ContextMenu>
                                 <MenuItem Header="Add" />
                                 <MenuItem Header="Remove" />
-                                <MenuItem Header="Send" />
+                                <MenuItem Header="Send">
+                                    <MenuItem Header="As email" />
+                                    <MenuItem Header="As file" />
+                                    <MenuItem Header="To device">
+                                        <MenuItem Header="Phone" />
+                                        <MenuItem Header="Tablet" />
+                                        <MenuItem Header="Desktop" />
+                                    </MenuItem>
+                                </MenuItem>
                                 <MenuItem Header="Hello" />
                             </ContextMenu>
                         </vio:DropDownButton.Flyout>

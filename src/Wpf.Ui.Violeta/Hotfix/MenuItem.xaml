@@ -1,0 +1,556 @@
+<!--
+    Hotfix: submenu Popup DropShadowEffect must not wrap IsItemsHost content,
+    otherwise WPF rasterizes menu text (blurry glyphs). Pairs with Hotfix/ContextMenu.xaml.
+    Also drops upstream From=-90 slide-in on open.
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+
+    <!--  TopLevelHeader (System.Windows.Controls.MenuItem)  -->
+    <ControlTemplate x:Key="{x:Static MenuItem.TopLevelHeaderTemplateKey}" TargetType="{x:Type MenuItem}">
+        <Border
+            x:Name="Border"
+            Margin="4"
+            Background="Transparent"
+            CornerRadius="6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentPresenter
+                        x:Name="Icon"
+                        Grid.Column="0"
+                        Margin="0,0,6,0"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Icon}" />
+                    <ContentPresenter
+                        x:Name="Header"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        ContentSource="Header"
+                        RecognizesAccessKey="True"
+                        TextElement.Foreground="{TemplateBinding Foreground}" />
+                </Grid>
+
+                <Popup
+                    x:Name="Popup"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    AllowsTransparency="True"
+                    Focusable="False"
+                    HorizontalOffset="-12"
+                    IsOpen="{TemplateBinding IsSubmenuOpen}"
+                    Placement="Bottom"
+                    PlacementTarget="{Binding ElementName=Border}"
+                    PopupAnimation="None"
+                    VerticalOffset="1">
+                    <Grid x:Name="SubmenuBorder" Margin="12,0,12,18">
+                        <Border
+                            Background="{DynamicResource FlyoutBackground}"
+                            BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="20"
+                                    Direction="270"
+                                    Opacity="0.135"
+                                    ShadowDepth="10"
+                                    Color="#202020" />
+                            </Border.Effect>
+                        </Border>
+                        <Border
+                            Padding="0,3,0,3"
+                            Background="{DynamicResource FlyoutBackground}"
+                            BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            SnapsToDevicePixels="True">
+                            <controls:PassiveScrollViewer CanContentScroll="True" Style="{StaticResource UiMenuItemScrollViewer}">
+                                <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                            </controls:PassiveScrollViewer>
+                        </Border>
+                    </Grid>
+                </Popup>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundPressed}" />
+                <Setter TargetName="Icon" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+                <Setter TargetName="Header" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+            </MultiTrigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="Header" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Margin" Value="0" />
+                <Setter TargetName="Header" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--  SubmenuHeader (System.Windows.Controls.MenuItem) — nested submenu  -->
+    <ControlTemplate x:Key="{x:Static MenuItem.SubmenuHeaderTemplateKey}" TargetType="{x:Type MenuItem}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border
+                x:Name="Border"
+                Grid.Row="1"
+                Margin="4,1,4,1"
+                BorderThickness="1"
+                CornerRadius="4">
+                <Grid x:Name="MenuItemContent" Margin="8,6,8,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ContentPresenter
+                        x:Name="Icon"
+                        Grid.Column="0"
+                        Margin="0,0,6,0"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Icon}"
+                        KeyboardNavigation.IsTabStop="False" />
+
+                    <ContentPresenter
+                        x:Name="Header"
+                        Grid.Column="1"
+                        ContentSource="Header"
+                        RecognizesAccessKey="True" />
+
+                    <Grid Grid.Column="2">
+                        <controls:SymbolIcon
+                            x:Name="Chevron"
+                            Margin="0,3,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            Symbol="ChevronRight20" />
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Popup
+                x:Name="Popup"
+                Grid.Row="1"
+                AllowsTransparency="True"
+                Focusable="False"
+                IsOpen="{TemplateBinding IsSubmenuOpen}"
+                Placement="Right"
+                PlacementTarget="{Binding ElementName=MenuItemContent}"
+                PopupAnimation="None"
+                VerticalOffset="-20">
+                <Grid x:Name="SubmenuBorder" Margin="12,10,12,30">
+                    <Border
+                        Background="{DynamicResource FlyoutBackground}"
+                        BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="20"
+                                Direction="270"
+                                Opacity="0.135"
+                                ShadowDepth="10"
+                                Color="#202020" />
+                        </Border.Effect>
+                    </Border>
+                    <Border
+                        Padding="0,3,0,3"
+                        Background="{DynamicResource FlyoutBackground}"
+                        BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <controls:PassiveScrollViewer CanContentScroll="True" Style="{StaticResource UiMenuItemScrollViewer}">
+                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                        </controls:PassiveScrollViewer>
+                    </Border>
+                </Grid>
+            </Popup>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="Icon" Property="Margin" Value="0" />
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundPressed}" />
+                <Setter TargetName="Icon" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+                <Setter TargetName="Header" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Chevron" Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--
+        Re-bind default MenuItem style so StaticResource picks up overridden templates
+        (upstream Style resolved template keys at parse time).
+    -->
+    <Style x:Key="UiMenuItem" TargetType="{x:Type MenuItem}">
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource DefaultControlFocusVisualStyle}">
+                    <Setter Property="Control.Margin" Value="4,1" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="Role" Value="TopLevelHeader">
+                <Setter Property="Template" Value="{StaticResource {x:Static MenuItem.TopLevelHeaderTemplateKey}}" />
+                <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+            </Trigger>
+            <Trigger Property="Role" Value="TopLevelItem">
+                <Setter Property="Template" Value="{StaticResource {x:Static MenuItem.TopLevelItemTemplateKey}}" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuHeader">
+                <Setter Property="Template" Value="{StaticResource {x:Static MenuItem.SubmenuHeaderTemplateKey}}" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuItem">
+                <Setter Property="Template" Value="{StaticResource {x:Static MenuItem.SubmenuItemTemplateKey}}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="{x:Type MenuItem}"
+        BasedOn="{StaticResource UiMenuItem}"
+        TargetType="{x:Type MenuItem}" />
+
+    <!--  TopLevelHeader (Wpf.Ui.Controls.MenuItem)  -->
+    <ControlTemplate x:Key="WpfUiMenuItemTopLevelHeaderTemplateKey" TargetType="{x:Type controls:MenuItem}">
+        <Border
+            x:Name="Border"
+            Margin="4"
+            Background="Transparent"
+            CornerRadius="6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl
+                        x:Name="Icon"
+                        Grid.Column="0"
+                        Margin="0,0,6,0"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Icon}"
+                        FontSize="{TemplateBinding FontSize}"
+                        KeyboardNavigation.IsTabStop="False" />
+                    <ContentPresenter
+                        x:Name="Header"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        ContentSource="Header"
+                        RecognizesAccessKey="True"
+                        TextElement.Foreground="{TemplateBinding Foreground}" />
+                </Grid>
+
+                <Popup
+                    x:Name="Popup"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    AllowsTransparency="True"
+                    Focusable="False"
+                    HorizontalOffset="-12"
+                    IsOpen="{TemplateBinding IsSubmenuOpen}"
+                    Placement="Bottom"
+                    PlacementTarget="{Binding ElementName=Border}"
+                    PopupAnimation="None"
+                    VerticalOffset="1">
+                    <Grid x:Name="SubmenuBorder" Margin="12,0,12,18">
+                        <Border
+                            Background="{DynamicResource FlyoutBackground}"
+                            BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="20"
+                                    Direction="270"
+                                    Opacity="0.135"
+                                    ShadowDepth="10"
+                                    Color="#202020" />
+                            </Border.Effect>
+                        </Border>
+                        <Border
+                            Padding="0,3,0,3"
+                            Background="{DynamicResource FlyoutBackground}"
+                            BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            SnapsToDevicePixels="True">
+                            <controls:PassiveScrollViewer CanContentScroll="True" Style="{StaticResource UiMenuItemScrollViewer}">
+                                <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                            </controls:PassiveScrollViewer>
+                        </Border>
+                    </Grid>
+                </Popup>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="Icon" Property="Margin" Value="0" />
+            </Trigger>
+            <Trigger Property="Header" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Margin" Value="0" />
+                <Setter TargetName="Header" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundPressed}" />
+                <Setter TargetName="Icon" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+                <Setter TargetName="Header" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--  SubmenuHeader (Wpf.Ui.Controls.MenuItem) — nested submenu  -->
+    <ControlTemplate x:Key="WpfUiMenuItemSubmenuHeaderTemplateKey" TargetType="{x:Type controls:MenuItem}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border
+                x:Name="Border"
+                Grid.Row="1"
+                Margin="4,1,4,1"
+                BorderThickness="1"
+                CornerRadius="4">
+                <Grid x:Name="MenuItemContent" Margin="8,6,8,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentControl
+                        x:Name="Icon"
+                        Grid.Column="0"
+                        Margin="0,0,6,0"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Icon}"
+                        FontSize="16"
+                        KeyboardNavigation.IsTabStop="False" />
+
+                    <ContentPresenter
+                        x:Name="Header"
+                        Grid.Column="2"
+                        ContentSource="Header"
+                        RecognizesAccessKey="True" />
+
+                    <Grid Grid.Column="3">
+                        <controls:SymbolIcon
+                            x:Name="Chevron"
+                            Margin="0,3,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            Symbol="ChevronRight20" />
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Popup
+                x:Name="Popup"
+                Grid.Row="1"
+                AllowsTransparency="True"
+                Focusable="False"
+                IsOpen="{TemplateBinding IsSubmenuOpen}"
+                Placement="Right"
+                PlacementTarget="{Binding ElementName=MenuItemContent}"
+                PopupAnimation="None"
+                VerticalOffset="-20">
+                <Grid x:Name="SubmenuBorder" Margin="12,10,12,18">
+                    <Border
+                        Background="{DynamicResource FlyoutBackground}"
+                        BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="20"
+                                Direction="270"
+                                Opacity="0.135"
+                                ShadowDepth="10"
+                                Color="#202020" />
+                        </Border.Effect>
+                    </Border>
+                    <Border
+                        Padding="0,3,0,3"
+                        Background="{DynamicResource FlyoutBackground}"
+                        BorderBrush="{DynamicResource FlyoutBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <controls:PassiveScrollViewer CanContentScroll="True" Style="{StaticResource UiMenuItemScrollViewer}">
+                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                        </controls:PassiveScrollViewer>
+                    </Border>
+                </Grid>
+            </Popup>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="Icon" Property="Margin" Value="0" />
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundPressed}" />
+                <Setter TargetName="Icon" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+                <Setter TargetName="Header" Property="TextElement.Foreground" Value="{DynamicResource MenuBarItemTextForegroundPressed}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundPressed}" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Chevron" Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource TextFillColorDisabled}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="WpfUiMenuItem" TargetType="{x:Type controls:MenuItem}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource DefaultControlFocusVisualStyle}">
+                    <Setter Property="Control.Margin" Value="4,1" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="Role" Value="TopLevelHeader">
+                <Setter Property="Template" Value="{StaticResource WpfUiMenuItemTopLevelHeaderTemplateKey}" />
+                <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+            </Trigger>
+            <Trigger Property="Role" Value="TopLevelItem">
+                <Setter Property="Template" Value="{StaticResource WpfUiMenuItemTopLevelItemTemplateKey}" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuHeader">
+                <Setter Property="Template" Value="{StaticResource WpfUiMenuItemSubmenuHeaderTemplateKey}" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuItem">
+                <Setter Property="Template" Value="{StaticResource WpfUiMenuItemSubmenuItemTemplateKey}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource WpfUiMenuItem}" TargetType="{x:Type controls:MenuItem}" />
+
+</ResourceDictionary>

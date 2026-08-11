@@ -94,5 +94,7 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/NumberBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ToggleSwitch.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ContextMenu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/MenuItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

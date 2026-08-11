@@ -43,6 +43,16 @@
                             <ui:MenuItem Header="Save" InputGestureText="CTRL+S" />
                             <ui:MenuItem Header="Save As..." InputGestureText="CTRL+SHIFT+S" />
                             <Separator />
+                            <ui:MenuItem Header="Recent">
+                                <ui:MenuItem Header="Project A.sln" Icon="{ui:SymbolIcon Document24}" />
+                                <ui:MenuItem Header="Project B.sln" Icon="{ui:SymbolIcon Document24}" />
+                                <ui:MenuItem Header="More">
+                                    <ui:MenuItem Header="Archive 2024" />
+                                    <ui:MenuItem Header="Archive 2025" />
+                                    <ui:MenuItem Header="Archive 2026" />
+                                </ui:MenuItem>
+                            </ui:MenuItem>
+                            <Separator />
                             <ui:MenuItem Header="Exit" />
                         </ui:MenuItem>
                         <ui:MenuItem Header="Edit" Icon="{ui:SymbolIcon DocumentEdit20}">
@@ -62,6 +72,20 @@
                             <ui:MenuItem Header="Find next" InputGestureText="F3" />
                             <Separator />
                             <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
+                        </ui:MenuItem>
+                        <ui:MenuItem Header="View" Icon="{ui:SymbolIcon Eye24}">
+                            <ui:MenuItem Header="Zoom">
+                                <ui:MenuItem Header="Zoom In" InputGestureText="CTRL++" />
+                                <ui:MenuItem Header="Zoom Out" InputGestureText="CTRL+-" />
+                                <ui:MenuItem Header="Reset" InputGestureText="CTRL+0" />
+                            </ui:MenuItem>
+                            <ui:MenuItem Header="Layout">
+                                <ui:MenuItem Header="Single column" IsCheckable="True" IsChecked="True" />
+                                <ui:MenuItem Header="Two columns" IsCheckable="True" />
+                                <ui:MenuItem Header="Three columns" IsCheckable="True" />
+                            </ui:MenuItem>
+                            <Separator />
+                            <ui:MenuItem Header="Full screen" InputGestureText="F11" />
                         </ui:MenuItem>
                         <Separator />
                         <ui:MenuItem Icon="{ui:SymbolIcon TextBold20}" />
@@ -87,7 +111,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Open below the host like a MenuItem flyout. Violeta removes the upstream From=-90 slide so the animation does not cover the target."
+                        Text="Open below the host like a MenuItem flyout. Hotfix splits DropShadow from menu content so glyphs stay sharp; no From=-90 slide covering the target. Nested items exercise submenu Popup templates."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <ui:Button
@@ -100,6 +124,14 @@
                                     <ui:MenuItem Header="New" Icon="{ui:SymbolIcon Document24}" />
                                     <ui:MenuItem Header="Open..." Icon="{ui:SymbolIcon FolderOpen24}" />
                                     <ui:MenuItem Header="Save" Icon="{ui:SymbolIcon Save24}" />
+                                    <ui:MenuItem Header="Share" Icon="{ui:SymbolIcon Share24}">
+                                        <ui:MenuItem Header="Copy link" />
+                                        <ui:MenuItem Header="Email" />
+                                        <ui:MenuItem Header="More">
+                                            <ui:MenuItem Header="Teams" />
+                                            <ui:MenuItem Header="Slack" />
+                                        </ui:MenuItem>
+                                    </ui:MenuItem>
                                     <Separator />
                                     <ui:MenuItem Header="Exit" />
                                 </ContextMenu>
@@ -110,7 +142,16 @@
                                 <ContextMenu>
                                     <MenuItem Header="Add" />
                                     <MenuItem Header="Remove" />
-                                    <MenuItem Header="Send" />
+                                    <MenuItem Header="Send">
+                                        <MenuItem Header="As email" />
+                                        <MenuItem Header="As file" />
+                                        <MenuItem Header="To device">
+                                            <MenuItem Header="Phone" />
+                                            <MenuItem Header="Tablet" />
+                                            <MenuItem Header="Desktop" />
+                                        </MenuItem>
+                                    </MenuItem>
+                                    <MenuItem Header="Hello" />
                                 </ContextMenu>
                             </vio:DropDownButton.Flyout>
                         </vio:DropDownButton>
@@ -147,6 +188,11 @@
                                 <ui:MenuItem Header="Cut" Icon="{ui:SymbolIcon Cut24}" InputGestureText="CTRL+X" />
                                 <ui:MenuItem Header="Copy" Icon="{ui:SymbolIcon Copy24}" InputGestureText="CTRL+C" />
                                 <ui:MenuItem Header="Paste" Icon="{ui:SymbolIcon ClipboardPaste24}" InputGestureText="CTRL+V" />
+                                <ui:MenuItem Header="Paste special">
+                                    <ui:MenuItem Header="Keep text only" />
+                                    <ui:MenuItem Header="Merge formatting" />
+                                    <ui:MenuItem Header="Keep source formatting" />
+                                </ui:MenuItem>
                                 <Separator />
                                 <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
                             </ContextMenu>
