@@ -45,6 +45,9 @@
         </Setter>
     </Style>
 
+    <!--  Global: same file so StaticResource resolves; replaces upstream From=-90 slide.  -->
+    <Style BasedOn="{StaticResource DefaultDropDownFlyoutContextMenuStyle}" TargetType="{x:Type ContextMenu}" />
+
     <Style
         x:Key="DefaultDropDownButtonStyle"
         BasedOn="{StaticResource DefaultUiButtonStyle}"

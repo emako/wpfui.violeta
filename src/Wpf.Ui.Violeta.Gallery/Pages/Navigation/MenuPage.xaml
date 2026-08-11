@@ -70,6 +70,95 @@
                     </Menu>
                 </StackPanel>
             </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ContextMenu (Placement=Bottom)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Open below the host like a MenuItem flyout. Violeta removes the upstream From=-90 slide so the animation does not cover the target."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button
+                            Margin="0,0,12,0"
+                            Click="OnOpenContextMenuClick"
+                            Content="Open below"
+                            Icon="{ui:SymbolIcon ChevronDown24}">
+                            <ui:Button.ContextMenu>
+                                <ContextMenu>
+                                    <ui:MenuItem Header="New" Icon="{ui:SymbolIcon Document24}" />
+                                    <ui:MenuItem Header="Open..." Icon="{ui:SymbolIcon FolderOpen24}" />
+                                    <ui:MenuItem Header="Save" Icon="{ui:SymbolIcon Save24}" />
+                                    <Separator />
+                                    <ui:MenuItem Header="Exit" />
+                                </ContextMenu>
+                            </ui:Button.ContextMenu>
+                        </ui:Button>
+                        <vio:DropDownButton Content="DropDownButton" Icon="{ui:SymbolIcon Fluent24}">
+                            <vio:DropDownButton.Flyout>
+                                <ContextMenu>
+                                    <MenuItem Header="Add" />
+                                    <MenuItem Header="Remove" />
+                                    <MenuItem Header="Send" />
+                                </ContextMenu>
+                            </vio:DropDownButton.Flyout>
+                        </vio:DropDownButton>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ContextMenu (right-click)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Right-click the area below to open a standard ContextMenu at the pointer."
+                        TextWrapping="Wrap" />
+                    <Border
+                        Height="96"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <ui:MenuItem Header="Cut" Icon="{ui:SymbolIcon Cut24}" InputGestureText="CTRL+X" />
+                                <ui:MenuItem Header="Copy" Icon="{ui:SymbolIcon Copy24}" InputGestureText="CTRL+C" />
+                                <ui:MenuItem Header="Paste" Icon="{ui:SymbolIcon ClipboardPaste24}" InputGestureText="CTRL+V" />
+                                <Separator />
+                                <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
+                            </ContextMenu>
+                        </Border.ContextMenu>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Right-click here" />
+                    </Border>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
