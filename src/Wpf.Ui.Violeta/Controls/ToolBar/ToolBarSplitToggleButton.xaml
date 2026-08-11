@@ -136,7 +136,7 @@
                                 <Condition Property="IsPressed" Value="False" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                             <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -145,7 +145,7 @@
                                 <Condition Property="IsPressed" Value="False" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                             <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                         </MultiTrigger>
 
@@ -156,7 +156,7 @@
                                 <Condition SourceName="PART_ToggleButton" Property="IsPressed" Value="True" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                             <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -165,7 +165,7 @@
                                 <Condition Property="IsPressed" Value="True" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                             <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />

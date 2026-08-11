@@ -27,13 +27,14 @@
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!--  Transparent toolbar chrome uses SubtleFill (not ControlFill/ButtonBackground*) so hover is visible on light surfaces.  -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
+                            <Setter Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                             <Setter TargetName="ContentPresenter" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
                             <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerPressed}" />
+                            <Setter Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                             <Setter TargetName="ContentPresenter" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
                             <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
                         </Trigger>

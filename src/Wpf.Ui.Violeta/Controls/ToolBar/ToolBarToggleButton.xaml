@@ -34,7 +34,7 @@
                                 <Condition Property="IsChecked" Value="False" />
                                 <Condition Property="IsPressed" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+                            <Setter Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForeground}" />
                         </MultiTrigger>
@@ -43,7 +43,7 @@
                                 <Condition Property="IsPressed" Value="True" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+                            <Setter Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
                             <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                         </MultiTrigger>
