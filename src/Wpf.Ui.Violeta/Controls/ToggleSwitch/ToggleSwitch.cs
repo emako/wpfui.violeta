@@ -80,7 +80,7 @@ public class ToggleSwitch : Control
     }
 
     public static readonly DependencyProperty HeaderProperty =
-        ControlHelper.HeaderProperty.AddOwner(
+        global::Wpf.Ui.Controls.ControlHelper.HeaderProperty.AddOwner(
             typeof(ToggleSwitch),
             new FrameworkPropertyMetadata(OnHeaderChanged));
 
@@ -106,7 +106,7 @@ public class ToggleSwitch : Control
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty =
-        global::Wpf.Ui.Violeta.Controls.Compat.ControlHelper.HeaderTemplateProperty.AddOwner(
+        global::Wpf.Ui.Controls.ControlHelper.HeaderTemplateProperty.AddOwner(
             typeof(ToggleSwitch),
             new FrameworkPropertyMetadata(OnHeaderTemplateChanged));
 
@@ -468,7 +468,7 @@ public class ToggleSwitch : Control
     {
         if (HeaderContentPresenter != null)
         {
-            bool showHeader = !ControlHelper.IsNullOrEmptyString(Header) || HeaderTemplate != null;
+            bool showHeader = !global::Wpf.Ui.Controls.ControlHelper.IsNullOrEmptyString(Header) || HeaderTemplate != null;
             HeaderContentPresenter.Visibility = showHeader ? Visibility.Visible : Visibility.Collapsed;
         }
     }

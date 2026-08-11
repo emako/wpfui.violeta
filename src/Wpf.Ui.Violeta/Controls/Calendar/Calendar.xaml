@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:chelper="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
-    xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+    xmlns:primitives="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
@@ -398,13 +399,13 @@
                             <Setter TargetName="PART_MonthView" Property="TextElement.Foreground" Value="{DynamicResource CalendarViewWeekDayForegroundDisabled}" />
                         </Trigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Year">
-                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Year" />
+                            <Setter TargetName="PART_Root" Property="ui:ControlHelper.VisualState" Value="Year" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Month">
-                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Month" />
+                            <Setter TargetName="PART_Root" Property="ui:ControlHelper.VisualState" Value="Month" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Decade">
-                            <Setter TargetName="PART_Root" Property="chelper:ControlHelper.VisualState" Value="Decade" />
+                            <Setter TargetName="PART_Root" Property="ui:ControlHelper.VisualState" Value="Decade" />
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

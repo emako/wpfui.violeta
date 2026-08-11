@@ -15,30 +15,59 @@ public class CaptionButtonHandler
         _hwndSource.AddHook(OnHwndSourceMessage);
     }
 
-    public void Add(CaptionButton button)
+    public void Add(CaptionButton? button)
     {
+        if (button is null)
+        {
+            return;
+        }
+
         _buttons.Add(button);
 
-        if (button.IsVisible)
-        {
-            DependencyObject child = VisualTreeHelper.GetChild(button, 0);
-            _cacheChildToButton.Add(child, button);
-        }
-        else
+        if (!TryCacheButtonChild(button))
         {
             button.IsVisibleChanged += OnButtonIsVisibleChanged;
+            button.Loaded += OnButtonLoaded;
         }
     }
 
     private void OnButtonIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
     {
-        CaptionButton button = (CaptionButton)sender!;
-        if (button.IsVisible)
+        if (sender is CaptionButton button)
         {
-            DependencyObject child = VisualTreeHelper.GetChild(button, 0);
-            _cacheChildToButton.Add(child, button);
-            button.IsVisibleChanged -= OnButtonIsVisibleChanged;
+            TryFinishCache(button);
         }
+    }
+
+    private void OnButtonLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is CaptionButton button)
+        {
+            TryFinishCache(button);
+        }
+    }
+
+    private void TryFinishCache(CaptionButton button)
+    {
+        if (!TryCacheButtonChild(button))
+        {
+            return;
+        }
+
+        button.IsVisibleChanged -= OnButtonIsVisibleChanged;
+        button.Loaded -= OnButtonLoaded;
+    }
+
+    private bool TryCacheButtonChild(CaptionButton button)
+    {
+        if (!button.IsVisible || VisualTreeHelper.GetChildrenCount(button) <= 0)
+        {
+            return false;
+        }
+
+        DependencyObject child = VisualTreeHelper.GetChild(button, 0);
+        _cacheChildToButton[child] = button;
+        return true;
     }
 
     private nint OnHwndSourceMessage(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
@@ -117,9 +146,22 @@ public class CaptionButtonHandler
 
     private CaptionButton? GetPointedButton(nint lParam)
     {
+        if (_buttons.Count == 0)
+        {
+            return null;
+        }
+
         Point pointerScreenPosition = new(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
-        Window ownerWindow = Window.GetWindow(_buttons.First());
-        return ownerWindow.InputHitTest(ownerWindow.PointFromScreen(pointerScreenPosition)) is DependencyObject hit && _cacheChildToButton.TryGetValue(hit, out CaptionButton? button) ? button : null;
+        Window? ownerWindow = Window.GetWindow(_buttons.First());
+        if (ownerWindow is null)
+        {
+            return null;
+        }
+
+        return ownerWindow.InputHitTest(ownerWindow.PointFromScreen(pointerScreenPosition)) is DependencyObject hit
+            && _cacheChildToButton.TryGetValue(hit, out CaptionButton? button)
+            ? button
+            : null;
     }
 
     private static nint GET_X_LPARAM(nint lParam) => lParam & 0x0000FFFF;

@@ -55,7 +55,7 @@ public static class DatePickerHelper
             {
                 var placeholderTextBinding = new Binding
                 {
-                    Path = new PropertyPath(ControlHelper.PlaceholderTextProperty),
+                    Path = new PropertyPath(global::Wpf.Ui.Controls.ControlHelper.PlaceholderTextProperty),
                     Source = datePicker
                 };
 

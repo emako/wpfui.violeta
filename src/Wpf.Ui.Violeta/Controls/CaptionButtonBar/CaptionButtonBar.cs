@@ -315,17 +315,36 @@ public partial class CaptionButtonBar : Control
             CloseButton.Click -= OnCloseButtonClick;
         }
 
-        MoreButton = (CaptionMoreButton)GetTemplateChild(nameof(MoreButton));
-        HelpButton = (CaptionHelpButton)GetTemplateChild(nameof(HelpButton));
-        MinimizeButton = (CaptionMinimizeButton)GetTemplateChild(nameof(MinimizeButton));
-        MaximizeButton = (CaptionMaximizeButton)GetTemplateChild(nameof(MaximizeButton));
-        CloseButton = (CaptionCloseButton)GetTemplateChild(nameof(CloseButton));
+        MoreButton = GetTemplateChild(nameof(MoreButton)) as CaptionMoreButton;
+        HelpButton = GetTemplateChild(nameof(HelpButton)) as CaptionHelpButton;
+        MinimizeButton = GetTemplateChild(nameof(MinimizeButton)) as CaptionMinimizeButton;
+        MaximizeButton = GetTemplateChild(nameof(MaximizeButton)) as CaptionMaximizeButton;
+        CloseButton = GetTemplateChild(nameof(CloseButton)) as CaptionCloseButton;
 
-        MoreButton.Click += OnMoreButtonClick;
-        HelpButton.Click += OnHelpButtonClick;
-        MinimizeButton.Click += OnMinimizeButtonClick;
-        MaximizeButton.Click += OnMaximizeButtonClick;
-        CloseButton.Click += OnCloseButtonClick;
+        if (MoreButton is not null)
+        {
+            MoreButton.Click += OnMoreButtonClick;
+        }
+
+        if (HelpButton is not null)
+        {
+            HelpButton.Click += OnHelpButtonClick;
+        }
+
+        if (MinimizeButton is not null)
+        {
+            MinimizeButton.Click += OnMinimizeButtonClick;
+        }
+
+        if (MaximizeButton is not null)
+        {
+            MaximizeButton.Click += OnMaximizeButtonClick;
+        }
+
+        if (CloseButton is not null)
+        {
+            CloseButton.Click += OnCloseButtonClick;
+        }
 
         ApplyMoreButtonContextMenu();
     }
@@ -348,26 +367,49 @@ public partial class CaptionButtonBar : Control
     private void OnLoaded(object? sender, RoutedEventArgs e)
     {
         _ownerWindow = Window.GetWindow(this);
+        if (_ownerWindow is null)
+        {
+            return;
+        }
+
+        // Ensure template parts exist before wiring HWND hit-testing.
+        ApplyTemplate();
+
         _ownerWindow.Activated += OnActivated;
         _ownerWindow.Deactivated += OnDeactivated;
         _ownerWindow.StateChanged += OnOwnerWindowStateChanged;
 
-        _ownerHwndSource = HwndSource.FromHwnd(new WindowInteropHelper(_ownerWindow).Handle);
-        _captionButtonHandler = new CaptionButtonHandler(_ownerHwndSource);
-        _captionButtonHandler.Add(MoreButton!);
-        _captionButtonHandler.Add(HelpButton!);
-        _captionButtonHandler.Add(MinimizeButton!);
-        _captionButtonHandler.Add(MaximizeButton!);
-        _captionButtonHandler.Add(CloseButton!);
+        nint handle = new WindowInteropHelper(_ownerWindow).Handle;
+        if (handle == 0)
+        {
+            return;
+        }
 
-        nint hWnd = _ownerHwndSource.Handle;
-        int style = User32.GetWindowLong(hWnd, User32.GWL_STYLE);
+        _ownerHwndSource = HwndSource.FromHwnd(handle);
+        if (_ownerHwndSource is null)
+        {
+            return;
+        }
+
+        _captionButtonHandler = new CaptionButtonHandler(_ownerHwndSource);
+        _captionButtonHandler.Add(MoreButton);
+        _captionButtonHandler.Add(HelpButton);
+        _captionButtonHandler.Add(MinimizeButton);
+        _captionButtonHandler.Add(MaximizeButton);
+        _captionButtonHandler.Add(CloseButton);
+
+        int style = User32.GetWindowLong(handle, User32.GWL_STYLE);
         style &= ~User32.WS_SYSMENU;
-        _ = User32.SetWindowLong(hWnd, User32.GWL_STYLE, style);
+        _ = User32.SetWindowLong(handle, User32.GWL_STYLE, style);
     }
 
     private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
+        if (_ownerWindow is null)
+        {
+            return;
+        }
+
         _ownerWindow.StateChanged -= OnOwnerWindowStateChanged;
         _ownerWindow.Activated -= OnActivated;
         _ownerWindow.Deactivated -= OnDeactivated;
