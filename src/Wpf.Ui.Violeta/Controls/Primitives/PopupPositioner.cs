@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -125,16 +126,10 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     // This struct is returned by GetPointCombination to indicate
     // which points on the target can align with points on the child
-    private struct PointCombination
+    private struct PointCombination(InterestPoint targetInterestPoint, InterestPoint childInterestPoint)
     {
-        public PointCombination(InterestPoint targetInterestPoint, InterestPoint childInterestPoint)
-        {
-            TargetInterestPoint = targetInterestPoint;
-            ChildInterestPoint = childInterestPoint;
-        }
-
-        public InterestPoint TargetInterestPoint;
-        public InterestPoint ChildInterestPoint;
+        public InterestPoint TargetInterestPoint = targetInterestPoint;
+        public InterestPoint ChildInterestPoint = childInterestPoint;
     }
 
     private class PositionInfo
@@ -154,6 +149,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
     // (based on PlacementMode) to find the position that best fits on the screen.
     // NOTE: any reference to the screen implies the monitor for full trust and
     //       the browser area for partial trust
+    [SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value")]
     private void UpdatePosition()
     {
         if (_popupRoot == null)
@@ -500,6 +496,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
     }
 
     // Gets the smallest rectangle that contains all points in the list
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private Rect GetBounds(Point[] interestPoints)
     {
         double left, right, top, bottom;
@@ -522,29 +519,13 @@ internal class PopupPositioner : DependencyObject, IDisposable
     // Gets the number of InterestPoint combinations for the given placement
     private static int GetNumberOfCombinations(PlacementMode placement)
     {
-        switch (placement)
+        return placement switch
         {
-            case PlacementMode.Bottom:
-            case PlacementMode.Top:
-            case PlacementMode.Mouse:
-                return 2;
-
-            case PlacementMode.Right:
-            case PlacementMode.Left:
-            case PlacementMode.RelativePoint:
-            case PlacementMode.MousePoint:
-            case PlacementMode.AbsolutePoint:
-                return 4;
-
-            case PlacementMode.Custom:
-                return 0;
-
-            case PlacementMode.Absolute:
-            case PlacementMode.Relative:
-            case PlacementMode.Center:
-            default:
-                return 1;
-        }
+            PlacementMode.Bottom or PlacementMode.Top or PlacementMode.Mouse => 2,
+            PlacementMode.Right or PlacementMode.Left or PlacementMode.RelativePoint or PlacementMode.MousePoint or PlacementMode.AbsolutePoint => 4,
+            PlacementMode.Custom => 0,
+            _ => 1,
+        };
     }
 
     private Rect GetScreenBounds(Rect boundingBox, Point p)
@@ -560,7 +541,7 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
     private FrameworkElement _popupRoot = null!;
 
-    private PopupSecurityHelper _secHelper = null!;
+    private readonly PopupSecurityHelper _secHelper = null!;
 
     private class PopupSecurityHelper
     {
