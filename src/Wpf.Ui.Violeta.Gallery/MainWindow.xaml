@@ -153,7 +153,6 @@
                         <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
                         <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />
                         <vio:NavigationViewItem Content="SplitButton" Tag="basic-input/split-button" />
-                        <vio:NavigationViewItem Content="ToggleComboBox" Tag="basic-input/toggle-combo-box" />
                         <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
                         <vio:NavigationViewItem Content="CopyButton" Tag="basic-input/copy-button" />
                         <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
@@ -232,6 +231,7 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
+                        <vio:NavigationViewItem Content="ToggleComboBox" Tag="basic-input/toggle-combo-box" />
                         <vio:NavigationViewItem Content="MultiComboBox" Tag="selectors/multi-combo-box" />
                         <vio:NavigationViewItem Content="CascadingComboBox" Tag="selectors/cascading-combo-box" />
                         <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />
