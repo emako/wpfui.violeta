@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -12,17 +13,34 @@ namespace Wpf.Ui.Violeta.Controls;
 /// A button with a primary action area and a separate chevron that opens a flyout.
 /// Primary click uses <see cref="System.Windows.Controls.Primitives.ButtonBase.Command"/>;
 /// double-click on the primary area uses <see cref="DoubleCommand"/>.
+/// Chevron uses a WinUI AnimatedChevronDownSmall-style clipped translate bounce.
 /// </summary>
 [TemplatePart(Name = TemplateElementToggle, Type = typeof(Border))]
 [TemplatePart(Name = TemplateElementToggleButton, Type = typeof(ToggleButton))]
+[TemplatePart(Name = ChevronHostPart, Type = typeof(FrameworkElement))]
+[TemplatePart(Name = ChevronIconPart, Type = typeof(UIElement))]
 public class SplitButton : Wpf.Ui.Controls.Button
 {
     private const string TemplateElementToggle = "PART_Toggle";
     private const string TemplateElementToggleButton = "PART_ToggleButton";
+    private const string ChevronHostPart = "PART_ChevronHost";
+    private const string ChevronIconPart = "PART_ChevronIcon";
     private const string FlyoutContextMenuStyleKey = "DefaultDropDownFlyoutContextMenuStyle";
+
+    /// <summary>
+    /// Fraction of the clipped chevron viewport translated on press.
+    /// Matched to <see cref="DropDownButton"/>.
+    /// </summary>
+    private const double PressDepthRatio = 0.18;
+
+    /// <summary>Upward overshoot on release, relative to viewport height.</summary>
+    private const double OvershootRatio = 0.10;
 
     private ContextMenu? _contextMenu;
     private Border? _splitButtonToggleBorder;
+    private TranslateTransform? _chevronTranslate;
+    private FrameworkElement? _chevronHost;
+    private bool _dismissFlyoutOnClick;
 
     /// <summary>Gets or sets the control responsible for toggling the drop-down.</summary>
     protected ToggleButton? SplitButtonToggleButton { get; set; }
@@ -169,6 +187,22 @@ public class SplitButton : Wpf.Ui.Controls.Button
                 $"Element {TemplateElementToggleButton} of type {typeof(ToggleButton)} not found in {typeof(SplitButton)}");
 
         _splitButtonToggleBorder = GetTemplateChild(TemplateElementToggle) as Border;
+        _chevronHost =
+            GetTemplateChild(ChevronHostPart) as FrameworkElement
+            ?? SplitButtonToggleButton.Content as FrameworkElement;
+        _chevronTranslate = null;
+
+        var chevron =
+            GetTemplateChild(ChevronIconPart) as UIElement
+            ?? (_chevronHost as Decorator)?.Child;
+
+        if (chevron is not null)
+        {
+            // Template Freezables are immutable — always install a fresh transform.
+            _chevronTranslate = new TranslateTransform();
+            chevron.RenderTransform = _chevronTranslate;
+            chevron.RenderTransformOrigin = new Point(0.5, 0.5);
+        }
 
         AttachToggleButtonClick();
     }
@@ -202,8 +236,14 @@ public class SplitButton : Wpf.Ui.Controls.Button
     {
         if (SplitButtonToggleButton is not null)
         {
-            SplitButtonToggleButton.PreviewMouseLeftButtonUp -= OnSplitButtonToggleButtonOnPreviewMouseLeftButtonUp;
+            SplitButtonToggleButton.PreviewMouseLeftButtonDown -= OnTogglePreviewMouseLeftButtonDown;
+            SplitButtonToggleButton.PreviewMouseLeftButtonUp -= OnTogglePreviewMouseLeftButtonUp;
+            SplitButtonToggleButton.LostMouseCapture -= OnToggleLostMouseCapture;
         }
+
+        _dismissFlyoutOnClick = false;
+        _chevronTranslate = null;
+        _chevronHost = null;
     }
 
     private void AttachToggleButtonClick()
@@ -213,12 +253,40 @@ public class SplitButton : Wpf.Ui.Controls.Button
             return;
         }
 
-        SplitButtonToggleButton.PreviewMouseLeftButtonUp -= OnSplitButtonToggleButtonOnPreviewMouseLeftButtonUp;
-        SplitButtonToggleButton.PreviewMouseLeftButtonUp += OnSplitButtonToggleButtonOnPreviewMouseLeftButtonUp;
+        SplitButtonToggleButton.PreviewMouseLeftButtonDown -= OnTogglePreviewMouseLeftButtonDown;
+        SplitButtonToggleButton.PreviewMouseLeftButtonUp -= OnTogglePreviewMouseLeftButtonUp;
+        SplitButtonToggleButton.LostMouseCapture -= OnToggleLostMouseCapture;
+
+        SplitButtonToggleButton.PreviewMouseLeftButtonDown += OnTogglePreviewMouseLeftButtonDown;
+        SplitButtonToggleButton.PreviewMouseLeftButtonUp += OnTogglePreviewMouseLeftButtonUp;
+        SplitButtonToggleButton.LostMouseCapture += OnToggleLostMouseCapture;
     }
 
-    private void OnSplitButtonToggleButtonOnPreviewMouseLeftButtonUp(object sender, MouseEventArgs e)
+    private void OnTogglePreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
+        // WinUI toggles the flyout: a click while open dismisses it without press chrome.
+        _dismissFlyoutOnClick = _contextMenu?.IsOpen == true || IsDropDownOpen;
+        if (_dismissFlyoutOnClick)
+        {
+            _contextMenu?.SetCurrentValue(ContextMenu.IsOpenProperty, false);
+            e.Handled = true;
+            return;
+        }
+
+        BeginChevronPressAnimation();
+    }
+
+    private void OnTogglePreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    {
+        if (_dismissFlyoutOnClick)
+        {
+            _dismissFlyoutOnClick = false;
+            e.Handled = true;
+            return;
+        }
+
+        BeginChevronReleaseAnimation();
+
         if (sender is not ToggleButton || _contextMenu is null || _splitButtonToggleBorder is null)
         {
             return;
@@ -234,6 +302,76 @@ public class SplitButton : Wpf.Ui.Controls.Button
         _contextMenu.SetCurrentValue(ContextMenu.PlacementTargetProperty, this);
         _contextMenu.SetCurrentValue(ContextMenu.PlacementProperty, PlacementMode.Bottom);
         _contextMenu.SetCurrentValue(ContextMenu.IsOpenProperty, true);
+    }
+
+    private void OnToggleLostMouseCapture(object sender, MouseEventArgs e)
+    {
+        _dismissFlyoutOnClick = false;
+
+        if (_chevronTranslate is not null && Math.Abs(_chevronTranslate.Y) > 0.01)
+        {
+            BeginChevronReleaseAnimation();
+        }
+    }
+
+    private double GetPressDepth()
+    {
+        var viewport = _chevronHost?.ActualHeight > 0
+            ? _chevronHost.ActualHeight
+            : 12.0;
+        return viewport * PressDepthRatio;
+    }
+
+    private double GetOvershoot()
+    {
+        var viewport = _chevronHost?.ActualHeight > 0
+            ? _chevronHost.ActualHeight
+            : 12.0;
+        return -(viewport * OvershootRatio);
+    }
+
+    private void BeginChevronPressAnimation()
+    {
+        if (_chevronTranslate is null)
+        {
+            return;
+        }
+
+        var depth = GetPressDepth();
+        var animation = new DoubleAnimationUsingKeyFrames
+        {
+            FillBehavior = FillBehavior.HoldEnd,
+        };
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(depth, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150)))
+            {
+                KeySpline = new KeySpline(0.167, 0.167, 0.65, 1.0),
+            });
+
+        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
+    }
+
+    private void BeginChevronReleaseAnimation()
+    {
+        if (_chevronTranslate is null)
+        {
+            return;
+        }
+
+        var overshoot = GetOvershoot();
+        var animation = new DoubleAnimationUsingKeyFrames();
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(overshoot, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(83)))
+            {
+                KeySpline = new KeySpline(0.55, 0.0, 0.75, 1.0),
+            });
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(317)))
+            {
+                KeySpline = new KeySpline(0.35, 0.0, 0.0, 1.0),
+            });
+
+        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
     }
 
     private bool IsOverToggle(Point positionRelativeToThis)

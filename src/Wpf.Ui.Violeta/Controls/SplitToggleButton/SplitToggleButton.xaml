@@ -195,7 +195,26 @@
                                         Foreground="{TemplateBinding Foreground}"
                                         IsChecked="{Binding IsDropDownOpen, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
                                         Style="{DynamicResource DefaultSplitToggleButtonChevronStyle}">
-                                        <ui:SymbolIcon FontSize="10" Symbol="ChevronDown24" />
+                                        <Border
+                                            x:Name="PART_ChevronHost"
+                                            Width="14"
+                                            Height="12"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            ClipToBounds="True"
+                                            SnapsToDevicePixels="True">
+                                            <ui:SymbolIcon
+                                                x:Name="PART_ChevronIcon"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="10"
+                                                RenderTransformOrigin="0.5,0.5"
+                                                Symbol="ChevronDown24">
+                                                <ui:SymbolIcon.RenderTransform>
+                                                    <TranslateTransform Y="0" />
+                                                </ui:SymbolIcon.RenderTransform>
+                                            </ui:SymbolIcon>
+                                        </Border>
                                     </ToggleButton>
                                 </Border>
                             </Grid>
