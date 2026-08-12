@@ -134,6 +134,13 @@ internal static class User32
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool DestroyWindow(nint hWnd);
 
+    [DllImport("user32.dll", ExactSpelling = true)]
+    public static extern nint SetTimer(nint hWnd, nint nIDEvent, uint uElapse, nint lpTimerFunc);
+
+    [DllImport("user32.dll", ExactSpelling = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool KillTimer(nint hWnd, nint uIDEvent);
+
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     public static extern uint RegisterWindowMessage(string lpString);
 

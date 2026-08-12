@@ -62,6 +62,12 @@ internal partial class TrayIconManager
                 },
                 new TrayMenuItem()
                 {
+                    Header = "Twink",
+                    IsChecked = false,
+                    Command = ToggleTwinkCommand,
+                },
+                new TrayMenuItem()
+                {
                     Header = "Restart",
                     Command = RestartCommand,
                     IsBold = true, // Test the bold style
@@ -163,6 +169,27 @@ internal partial class TrayIconManager : ObservableObject
                 fileName += ".exe";
 
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+        }
+    }
+
+    [RelayCommand]
+    private void ToggleTwink()
+    {
+        if (_iconHost is null)
+            return;
+
+        _iconHost.IsTwink = !_iconHost.IsTwink;
+
+        if (_iconHost.Menu is not null)
+        {
+            foreach (ITrayMenuItemBase item in _iconHost.Menu)
+            {
+                if (item is TrayMenuItem { Header: "Twink" } twinkItem)
+                {
+                    twinkItem.IsChecked = _iconHost.IsTwink;
+                    break;
+                }
+            }
         }
     }
 

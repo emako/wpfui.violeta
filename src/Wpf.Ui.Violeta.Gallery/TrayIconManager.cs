@@ -50,6 +50,12 @@ internal partial class TrayIconManager
                     Header = LangKeys.Sample_c054855df3.Tr(),
                     Command = ShowSampleNotificationCommand,
                 },
+                new TrayMenuItem
+                {
+                    Header = "Twink",
+                    IsChecked = false,
+                    Command = ToggleTwinkCommand,
+                },
                 new TraySeparator(),
                 new TrayMenuItem
                 {
@@ -149,6 +155,27 @@ internal partial class TrayIconManager : ObservableObject
             LangKeys.Sample_e2524ddfb6.Tr(),
             ToolTipIcon.Info,
             clickEvent: ActivateOrRestoreMainWindow);
+    }
+
+    [RelayCommand]
+    private void ToggleTwink()
+    {
+        if (_iconHost is null)
+            return;
+
+        _iconHost.IsTwink = !_iconHost.IsTwink;
+
+        if (_iconHost.Menu is not null)
+        {
+            foreach (ITrayMenuItemBase item in _iconHost.Menu)
+            {
+                if (item is TrayMenuItem { Header: "Twink" } twinkItem)
+                {
+                    twinkItem.IsChecked = _iconHost.IsTwink;
+                    break;
+                }
+            }
+        }
     }
 
     [RelayCommand]
