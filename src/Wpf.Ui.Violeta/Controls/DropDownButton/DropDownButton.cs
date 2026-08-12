@@ -1,20 +1,37 @@
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// A button that opens a flyout of choices. Flyout ContextMenu uses a Violeta style
 /// without the upstream slide-from-above animation that covers the button.
+/// Chevron uses a WinUI AnimatedChevronDownSmall-style clipped translate bounce.
 /// </summary>
+[TemplatePart(Name = ChevronIconPart, Type = typeof(UIElement))]
 public class DropDownButton : Wpf.Ui.Controls.Button
 {
     private const string FlyoutContextMenuStyleKey = "DefaultDropDownFlyoutContextMenuStyle";
+    private const string ChevronIconPart = "PART_ChevronIcon";
+
+    /// <summary>
+    /// Fraction of the clipped chevron viewport translated on press.
+    /// WinUI uses 7.5/48 (~0.156); tuned for FontSize-10 with ClipToBounds sink look.
+    /// </summary>
+    private const double PressDepthRatio = 0.18;
+
+    /// <summary>Upward overshoot on release, relative to viewport height.</summary>
+    private const double OvershootRatio = 0.10;
 
     private ContextMenu? _contextMenu;
+    private TranslateTransform? _chevronTranslate;
+    private FrameworkElement? _chevronHost;
 
     static DropDownButton()
     {
@@ -25,7 +42,9 @@ public class DropDownButton : Wpf.Ui.Controls.Button
 
     public DropDownButton()
     {
+        PreviewMouseLeftButtonDown += OnPreviewMouseLeftButtonDown;
         PreviewMouseLeftButtonUp += OnPreviewMouseLeftButtonUp;
+        LostMouseCapture += OnLostMouseCapture;
     }
 
     /// <summary>Identifies the <see cref="Flyout"/> dependency property.</summary>
@@ -58,6 +77,23 @@ public class DropDownButton : Wpf.Ui.Controls.Button
     {
         get => (bool)GetValue(IsDropDownOpenProperty);
         set => SetValue(IsDropDownOpenProperty, value);
+    }
+
+    /// <inheritdoc />
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+
+        _chevronTranslate = null;
+        _chevronHost = GetTemplateChild("PART_ChevronHost") as FrameworkElement;
+
+        if (GetTemplateChild(ChevronIconPart) is UIElement chevron)
+        {
+            // Template Freezables are immutable — always install a fresh transform.
+            _chevronTranslate = new TranslateTransform();
+            chevron.RenderTransform = _chevronTranslate;
+            chevron.RenderTransformOrigin = new Point(0.5, 0.5);
+        }
     }
 
     private static void OnFlyoutChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -95,8 +131,15 @@ public class DropDownButton : Wpf.Ui.Controls.Button
         SetCurrentValue(IsDropDownOpenProperty, true);
     }
 
+    private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        BeginChevronPressAnimation();
+    }
+
     private void OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
+        BeginChevronReleaseAnimation();
+
         if (_contextMenu is null)
         {
             return;
@@ -106,6 +149,77 @@ public class DropDownButton : Wpf.Ui.Controls.Button
         _contextMenu.SetCurrentValue(ContextMenu.PlacementTargetProperty, this);
         _contextMenu.SetCurrentValue(ContextMenu.PlacementProperty, PlacementMode.Bottom);
         _contextMenu.SetCurrentValue(ContextMenu.IsOpenProperty, true);
+    }
+
+    private void OnLostMouseCapture(object sender, MouseEventArgs e)
+    {
+        // Ensure we never leave the chevron stuck in the pressed offset.
+        if (_chevronTranslate is not null && Math.Abs(_chevronTranslate.Y) > 0.01)
+        {
+            BeginChevronReleaseAnimation();
+        }
+    }
+
+    private double GetPressDepth()
+    {
+        var viewport = _chevronHost?.ActualHeight > 0
+            ? _chevronHost.ActualHeight
+            : 12.0;
+        return viewport * PressDepthRatio;
+    }
+
+    private double GetOvershoot()
+    {
+        var viewport = _chevronHost?.ActualHeight > 0
+            ? _chevronHost.ActualHeight
+            : 12.0;
+        return -(viewport * OvershootRatio);
+    }
+
+    private void BeginChevronPressAnimation()
+    {
+        if (_chevronTranslate is null)
+        {
+            return;
+        }
+
+        var depth = GetPressDepth();
+        var animation = new DoubleAnimationUsingKeyFrames
+        {
+            FillBehavior = FillBehavior.HoldEnd,
+        };
+        // WinUI PointerOverToPressed ≈ 150ms, cubic-bezier(0.167, 0.167, 0.65, 1)
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(depth, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150)))
+            {
+                KeySpline = new KeySpline(0.167, 0.167, 0.65, 1.0),
+            });
+
+        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
+    }
+
+    private void BeginChevronReleaseAnimation()
+    {
+        if (_chevronTranslate is null)
+        {
+            return;
+        }
+
+        var overshoot = GetOvershoot();
+        var animation = new DoubleAnimationUsingKeyFrames();
+        // WinUI PressedToNormal: depth → −overshoot (~83ms) → 0 (~317ms)
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(overshoot, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(83)))
+            {
+                KeySpline = new KeySpline(0.55, 0.0, 0.75, 1.0),
+            });
+        animation.KeyFrames.Add(
+            new SplineDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(317)))
+            {
+                KeySpline = new KeySpline(0.35, 0.0, 0.0, 1.0),
+            });
+
+        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
     }
 
     private void ApplyFlyoutContextMenuStyle(ContextMenu contextMenu)
