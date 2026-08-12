@@ -9,6 +9,19 @@ Write-Host @"
 ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ ╚══════╝   ╚═╝   
 "@
 
+$projects = @(
+    "..\src\Wpf.Ui.Violeta"
+)
+
+foreach ($proj in $projects) {
+    Push-Location $proj
+    Write-Host "Processing $proj..."
+    dotnet restore /p:Configuration=Release
+    dotnet build -c Release --no-restore
+    dotnet pack -c Release -o ../../build/
+    Pop-Location
+}
+
 # Verify that 'pmc' exists on the system before doing anything else.
 $pmcPath = & where.exe pmc 2>$null
 if ($LASTEXITCODE -ne 0 -or -not $pmcPath) {
