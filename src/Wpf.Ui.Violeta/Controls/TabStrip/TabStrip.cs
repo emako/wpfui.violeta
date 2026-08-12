@@ -59,6 +59,23 @@ public class TabStrip : ListBox
         set => SetValue(IsSelectedItemBoldProperty, value);
     }
 
+    public static readonly DependencyProperty IsSeparatorVisibleProperty = DependencyProperty.Register(
+        nameof(IsSeparatorVisible),
+        typeof(bool),
+        typeof(TabStrip),
+        new FrameworkPropertyMetadata(true));
+
+    /// <summary>
+    /// Gets or sets whether the 1 px horizontal separator line under the tab strip is shown.
+    /// Defaults to <see langword="true"/>. Applies to the default and Card styles; the Button
+    /// style has no separator.
+    /// </summary>
+    public bool IsSeparatorVisible
+    {
+        get => (bool)GetValue(IsSeparatorVisibleProperty);
+        set => SetValue(IsSeparatorVisibleProperty, value);
+    }
+
     public static readonly DependencyProperty IndicatorAnimationProperty = DependencyProperty.Register(
         nameof(IndicatorAnimation),
         typeof(TabStripIndicatorAnimation),

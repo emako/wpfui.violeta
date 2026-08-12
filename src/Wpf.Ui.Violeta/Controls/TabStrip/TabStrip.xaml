@@ -111,8 +111,8 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
-                                <!--  1 px separator  -->
-                                <RowDefinition Height="1" />
+                                <!--  1 px separator (collapsed via IsSeparatorVisible)  -->
+                                <RowDefinition x:Name="SeparatorRow" Height="1" />
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
                                 <ItemsPresenter />
@@ -133,11 +133,18 @@
                                 </Rectangle>
                             </Grid>
                             <Rectangle
+                                x:Name="PART_Separator"
                                 Grid.Row="1"
                                 Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
                                 SnapsToDevicePixels="True" />
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSeparatorVisible" Value="False">
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
