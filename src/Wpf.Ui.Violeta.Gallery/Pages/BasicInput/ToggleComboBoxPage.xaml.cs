@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,7 +9,7 @@ using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.BasicInput;
 
-public partial class SplitToggleButtonPage : Wpf.Ui.Violeta.Controls.Page
+public partial class ToggleComboBoxPage : Wpf.Ui.Violeta.Controls.Page
 {
     public ObservableCollection<ToolItem> Tools { get; } =
     [
@@ -29,36 +29,36 @@ public partial class SplitToggleButtonPage : Wpf.Ui.Violeta.Controls.Page
 
     public ICommand DoubleCommand { get; }
 
-    public SplitToggleButtonPage()
+    public ToggleComboBoxPage()
     {
         DoubleCommand = new RelayCommand(OnDoubleCommand);
         DataContext = this;
         InitializeComponent();
 
-        BasicSplitToggle.Checked += (_, _) => UpdateBasicStatus();
-        BasicSplitToggle.Unchecked += (_, _) => UpdateBasicStatus();
+        BasicToggleComboBox.Checked += (_, _) => UpdateBasicStatus();
+        BasicToggleComboBox.Unchecked += (_, _) => UpdateBasicStatus();
         UpdateBasicStatus();
     }
 
-    private void BasicSplitToggle_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void BasicToggleComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         UpdateBasicStatus();
     }
 
-    private void CommandSplitToggle_OnClick(object sender, RoutedEventArgs e)
+    private void CommandToggleComboBox_OnClick(object sender, RoutedEventArgs e)
     {
-        CommandStatusText.Text = LangKeys.Format_SplitToggleCommandClick.Tr(CommandSplitToggle.IsChecked == true);
+        CommandStatusText.Text = LangKeys.Format_ToggleComboBoxCommandClick.Tr(CommandToggleComboBox.IsChecked == true);
     }
 
     private void OnDoubleCommand()
     {
-        CommandStatusText.Text = LangKeys.Format_SplitToggleDoubleCommand.Tr(CommandSplitToggle.IsChecked == true);
+        CommandStatusText.Text = LangKeys.Format_ToggleComboBoxDoubleCommand.Tr(CommandToggleComboBox.IsChecked == true);
     }
 
     private void UpdateBasicStatus()
     {
-        var selected = BasicSplitToggle.SelectedItem?.ToString() ?? LangKeys.Sample_97139627c1.Tr();
-        BasicStatusText.Text = LangKeys.Format_SplitToggleBasicStatus.Tr(BasicSplitToggle.IsChecked == true, selected);
+        var selected = BasicToggleComboBox.SelectedItem?.ToString() ?? LangKeys.Sample_97139627c1.Tr();
+        BasicStatusText.Text = LangKeys.Format_ToggleComboBoxBasicStatus.Tr(BasicToggleComboBox.IsChecked == true, selected);
     }
 
     public sealed record ToolItem(string Name, string Description);

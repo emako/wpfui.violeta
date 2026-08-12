@@ -180,27 +180,27 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         /// <summary>
         ///   Looks up a localized string similar to IsChecked={0}, Selected={1}.
         /// </summary>
-        internal static string Format_SplitToggleBasicStatus {
+        internal static string Format_ToggleComboBoxBasicStatus {
             get {
-                return ResourceManager.GetString("Format_SplitToggleBasicStatus", resourceCulture);
+                return ResourceManager.GetString("Format_ToggleComboBoxBasicStatus", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Command (click) — IsChecked={0}.
         /// </summary>
-        internal static string Format_SplitToggleCommandClick {
+        internal static string Format_ToggleComboBoxCommandClick {
             get {
-                return ResourceManager.GetString("Format_SplitToggleCommandClick", resourceCulture);
+                return ResourceManager.GetString("Format_ToggleComboBoxCommandClick", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to DoubleCommand — IsChecked={0}.
         /// </summary>
-        internal static string Format_SplitToggleDoubleCommand {
+        internal static string Format_ToggleComboBoxDoubleCommand {
             get {
-                return ResourceManager.GetString("Format_SplitToggleDoubleCommand", resourceCulture);
+                return ResourceManager.GetString("Format_ToggleComboBoxDoubleCommand", resourceCulture);
             }
         }
         

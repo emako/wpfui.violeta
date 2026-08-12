@@ -1,5 +1,5 @@
-<vio:Page
-    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.SplitToggleButtonPage"
+﻿<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.ToggleComboBoxPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="SplitToggleButton"
+    Title="ToggleComboBox"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="SplitToggleButton" />
+                Text="ToggleComboBox" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -43,19 +43,19 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_30d371c179}}" />
                     <StackPanel Orientation="Horizontal">
-                        <vio:SplitToggleButton
-                            x:Name="BasicSplitToggle"
+                        <vio:ToggleComboBox
+                            x:Name="BasicToggleComboBox"
                             Content="Bold"
                             Icon="{ui:SymbolIcon TextBold24}"
-                            SelectionChanged="BasicSplitToggle_OnSelectionChanged">
-                            <vio:SplitToggleButton.ItemsSource>
+                            SelectionChanged="BasicToggleComboBox_OnSelectionChanged">
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>Bold</sys:String>
                                     <sys:String>Italic</sys:String>
                                     <sys:String>Underline</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
                         <TextBlock
                             x:Name="BasicStatusText"
                             Margin="16,0,0,0"
@@ -84,61 +84,61 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_92791c5349}}" />
                     <StackPanel Orientation="Horizontal">
-                        <vio:SplitToggleButton
+                        <vio:ToggleComboBox
                             Margin="0,0,12,0"
                             Content="{I18N {x:Static lang:LangKeys.Sample_e02ff1e53f}}"
                             SyncContentWithSelection="True">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>Red</sys:String>
                                     <sys:String>Green</sys:String>
                                     <sys:String>Blue</sys:String>
                                     <sys:String>Orange</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
-                        <vio:SplitToggleButton
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
+                        <vio:ToggleComboBox
                             Margin="0,0,12,0"
                             Content="A"
                             SyncContentWithSelection="True">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>A</sys:String>
                                     <sys:String>B</sys:String>
                                     <sys:String>C</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
-                        <vio:SplitToggleButton
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
+                        <vio:ToggleComboBox
                             Content="Times New Roman"
                             SyncContentWithSelection="True">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>Arial</sys:String>
                                     <sys:String>Consolas</sys:String>
                                     <sys:String>Segoe UI</sys:String>
                                     <sys:String>Times New Roman</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
                     </StackPanel>
                     <TextBlock
                         Margin="0,12,0,8"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="Fixed MinWidth (left-aligned content)" />
-                    <vio:SplitToggleButton
+                    <vio:ToggleComboBox
                         MinWidth="220"
                         Content="Green"
                         SyncContentWithSelection="True">
-                        <vio:SplitToggleButton.ItemsSource>
+                        <vio:ToggleComboBox.ItemsSource>
                             <x:Array Type="{x:Type sys:String}">
                                 <sys:String>Red</sys:String>
                                 <sys:String>Green</sys:String>
                                 <sys:String>Blue</sys:String>
                                 <sys:String>Orange</sys:String>
                             </x:Array>
-                        </vio:SplitToggleButton.ItemsSource>
-                    </vio:SplitToggleButton>
+                        </vio:ToggleComboBox.ItemsSource>
+                    </vio:ToggleComboBox>
                 </StackPanel>
             </Border>
 
@@ -166,36 +166,36 @@
                                 Margin="0,0,0,8"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_5778ff39b2}}" />
-                            <vio:SplitToggleButton
+                            <vio:ToggleComboBox
                                 Content="{I18N {x:Static lang:LangKeys.Sample_6f6cb72d54}}"
                                 IsSelectionCancelable="True"
                                 SyncContentWithSelection="True">
-                                <vio:SplitToggleButton.ItemsSource>
+                                <vio:ToggleComboBox.ItemsSource>
                                     <x:Array Type="{x:Type sys:String}">
                                         <sys:String>Small</sys:String>
                                         <sys:String>Medium</sys:String>
                                         <sys:String>Large</sys:String>
                                     </x:Array>
-                                </vio:SplitToggleButton.ItemsSource>
-                            </vio:SplitToggleButton>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock
                                 Margin="0,0,0,8"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_971c80bebe}}" />
-                            <vio:SplitToggleButton
+                            <vio:ToggleComboBox
                                 Content="{I18N {x:Static lang:LangKeys.Sample_6f6cb72d54}}"
                                 IsSelectionCancelable="False"
                                 SyncContentWithSelection="True">
-                                <vio:SplitToggleButton.ItemsSource>
+                                <vio:ToggleComboBox.ItemsSource>
                                     <x:Array Type="{x:Type sys:String}">
                                         <sys:String>Small</sys:String>
                                         <sys:String>Medium</sys:String>
                                         <sys:String>Large</sys:String>
                                     </x:Array>
-                                </vio:SplitToggleButton.ItemsSource>
-                            </vio:SplitToggleButton>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -220,21 +220,21 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_9488273dae}}" />
                     <StackPanel Orientation="Horizontal">
-                        <vio:SplitToggleButton
-                            x:Name="CommandSplitToggle"
+                        <vio:ToggleComboBox
+                            x:Name="CommandToggleComboBox"
                             MinWidth="160"
-                            Click="CommandSplitToggle_OnClick"
+                            Click="CommandToggleComboBox_OnClick"
                             Content="{I18N {x:Static lang:LangKeys.Sample_9639e32cab}}"
                             DoubleCommand="{Binding DoubleCommand}"
                             Icon="{ui:SymbolIcon Checkmark24}">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>Apply</sys:String>
                                     <sys:String>Preview</sys:String>
                                     <sys:String>Reset</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
                         <TextBlock
                             x:Name="CommandStatusText"
                             Margin="16,0,0,0"
@@ -263,8 +263,8 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_23b09dfdc7}}" />
-                    <vio:SplitToggleButton
-                        x:Name="ObjectSplitToggle"
+                    <vio:ToggleComboBox
+                        x:Name="ObjectToggleComboBox"
                         MinWidth="200"
                         Content="{I18N {x:Static lang:LangKeys.Sample_dbdced69d1}}"
                         DisplayMemberPath="Name"
@@ -291,12 +291,12 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_f11b4b9255}}" />
-                    <vio:SplitToggleButton
+                    <vio:ToggleComboBox
                         MinWidth="180"
                         Content="{I18N {x:Static lang:LangKeys.Sample_278f9a3d30}}"
                         ItemsSource="{Binding Colors}"
                         SyncContentWithSelection="False">
-                        <vio:SplitToggleButton.ItemTemplate>
+                        <vio:ToggleComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Border
@@ -308,8 +308,8 @@
                                     <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
                                 </StackPanel>
                             </DataTemplate>
-                        </vio:SplitToggleButton.ItemTemplate>
-                    </vio:SplitToggleButton>
+                        </vio:ToggleComboBox.ItemTemplate>
+                    </vio:ToggleComboBox>
                 </StackPanel>
             </Border>
 
@@ -332,29 +332,29 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_7e2b4a08c3}}" />
                     <StackPanel Orientation="Horizontal">
-                        <vio:SplitToggleButton
+                        <vio:ToggleComboBox
                             MinWidth="140"
                             Margin="0,0,12,0"
                             Content="{I18N {x:Static lang:LangKeys.Sample_2627637e26}}"
                             IsChecked="True">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>A</sys:String>
                                     <sys:String>B</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
-                        <vio:SplitToggleButton
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
+                        <vio:ToggleComboBox
                             MinWidth="140"
                             Content="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}"
                             IsEnabled="False">
-                            <vio:SplitToggleButton.ItemsSource>
+                            <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
                                     <sys:String>A</sys:String>
                                     <sys:String>B</sys:String>
                                 </x:Array>
-                            </vio:SplitToggleButton.ItemsSource>
-                        </vio:SplitToggleButton>
+                            </vio:ToggleComboBox.ItemsSource>
+                        </vio:ToggleComboBox>
                     </StackPanel>
                 </StackPanel>
             </Border>

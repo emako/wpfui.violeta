@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to [WPF-UI.Violeta](https://github.com/emako/wpfui.violeta) are documented in this file.
 
@@ -38,7 +38,7 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Add ColorPicker control
 * Add SearchBox control
 * Add Carousel control
-* Add SplitToggleButton control
+* Add ToggleComboBox control
 * Add SwatchPicker control
 * Add Win32 CredentialDialog
 * Add Win32 OpenFolderDialog support

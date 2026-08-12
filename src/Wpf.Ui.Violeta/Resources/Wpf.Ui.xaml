@@ -21,7 +21,7 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Form/Form.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarToggleButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarSplitToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarToggleComboBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBarCopyButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToolBar/ToolBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/LoadingButton/LoadingButton.xaml" />
@@ -90,7 +90,7 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TeachingTip/TeachingTip.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/DropDownButton/DropDownButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SplitButton/SplitButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SplitToggleButton/SplitToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToggleComboBox/ToggleComboBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ComboBox/ComboBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ToggleButton.xaml" />

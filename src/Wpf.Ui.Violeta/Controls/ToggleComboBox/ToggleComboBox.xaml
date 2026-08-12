@@ -1,20 +1,19 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
-    <Thickness x:Key="SplitToggleButtonChevronIconMargin">8,0,0,0</Thickness>
-    <!--  Match WPF-UI ComboBoxItemMargin / ComboBoxItemContentMargin  -->
-    <Thickness x:Key="SplitToggleButtonItemMargin">6,4,6,0</Thickness>
-    <Thickness x:Key="SplitToggleButtonItemPadding">10,8,8,8</Thickness>
+    <Thickness x:Key="ToggleComboBoxItemMargin">6,4,6,0</Thickness>
+    <Thickness x:Key="ToggleComboBoxItemPadding">10,8,8,8</Thickness>
 
-    <local:LeftSplitThicknessConverter x:Key="SplitToggleLeftSplitThicknessConverter" />
-    <local:RightSplitThicknessConverter x:Key="SplitToggleRightSplitThicknessConverter" />
-    <local:LeftSplitCornerRadiusConverter x:Key="SplitToggleLeftSplitCornerRadiusConverter" />
-    <local:RightSplitCornerRadiusConverter x:Key="SplitToggleRightSplitCornerRadiusConverter" />
+    <local:LeftSplitThicknessConverter x:Key="ToggleComboBoxLeftSplitThicknessConverter" />
+    <local:RightSplitThicknessConverter x:Key="ToggleComboBoxRightSplitThicknessConverter" />
+    <local:LeftSplitCornerRadiusConverter x:Key="ToggleComboBoxLeftSplitCornerRadiusConverter" />
+    <local:RightSplitCornerRadiusConverter x:Key="ToggleComboBoxRightSplitCornerRadiusConverter" />
 
-    <Style x:Key="DefaultSplitToggleButtonChevronStyle" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="DefaultToggleComboBoxChevronStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
@@ -44,11 +43,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultSplitToggleButtonItemStyle" TargetType="{x:Type ListBoxItem}">
+    <!--  ComboBoxItem chrome (same pill look as before)  -->
+    <Style x:Key="DefaultToggleComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="Foreground" Value="{DynamicResource ComboBoxForeground}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="{StaticResource SplitToggleButtonItemPadding}" />
+        <Setter Property="Padding" Value="{StaticResource ToggleComboBoxItemPadding}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -57,12 +57,11 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <!--  Same layout as DefaultComboBoxItemStyle  -->
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
                     <Grid Background="Transparent">
                         <Border
                             x:Name="ItemBorder"
-                            Margin="{StaticResource SplitToggleButtonItemMargin}"
+                            Margin="{StaticResource ToggleComboBoxItemMargin}"
                             Padding="0"
                             VerticalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
@@ -74,9 +73,6 @@
                                     Margin="{TemplateBinding Padding}"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Content="{TemplateBinding Content}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                     TextElement.Foreground="{TemplateBinding Foreground}" />
                                 <Rectangle
                                     x:Name="ActiveRectangle"
@@ -93,7 +89,7 @@
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
+                        <Trigger Property="IsHighlighted" Value="True">
                             <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource ComboBoxItemBackgroundSelected}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
@@ -110,7 +106,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DefaultSplitToggleButtonStyle" TargetType="{x:Type local:SplitToggleButton}">
+    <Style x:Key="DefaultToggleComboBoxStyle" TargetType="{x:Type local:ToggleComboBox}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
@@ -124,12 +120,17 @@
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="IsDropDownOpen" Value="False" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultToggleComboBoxItemStyle}" />
+        <Setter Property="Popup.PopupAnimation" Value="None" />
+        <Setter Property="Popup.Placement" Value="Bottom" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:SplitToggleButton}">
+                <ControlTemplate TargetType="{x:Type local:ToggleComboBox}">
                     <Grid x:Name="RootGrid" SnapsToDevicePixels="True">
                         <Border
                             x:Name="ContentBorder"
@@ -145,6 +146,8 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
+
+                                <!--  Primary split (IsChecked / Click / Command)  -->
                                 <Border
                                     x:Name="PART_Content"
                                     Grid.Column="0"
@@ -152,8 +155,8 @@
                                     Padding="{TemplateBinding Padding}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SplitToggleLeftSplitThicknessConverter}}"
-                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource SplitToggleLeftSplitCornerRadiusConverter}}">
+                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ToggleComboBoxLeftSplitCornerRadiusConverter}}">
                                     <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -178,14 +181,16 @@
                                             TextElement.Foreground="{TemplateBinding Foreground}" />
                                     </Grid>
                                 </Border>
+
+                                <!--  Chevron: TwoWay IsDropDownOpen - same as ComboBox  -->
                                 <Border
                                     x:Name="PART_Toggle"
                                     Grid.Column="1"
                                     Margin="0"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource SplitToggleRightSplitThicknessConverter}}"
-                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource SplitToggleRightSplitCornerRadiusConverter}}">
+                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ToggleComboBoxRightSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ToggleComboBoxRightSplitCornerRadiusConverter}}">
                                     <ToggleButton
                                         x:Name="PART_ToggleButton"
                                         HorizontalAlignment="Stretch"
@@ -193,8 +198,8 @@
                                         ClickMode="Press"
                                         Focusable="False"
                                         Foreground="{TemplateBinding Foreground}"
-                                        IsChecked="{Binding IsDropDownOpen, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Style="{DynamicResource DefaultSplitToggleButtonChevronStyle}">
+                                        IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Style="{DynamicResource DefaultToggleComboBoxChevronStyle}">
                                         <Border
                                             x:Name="PART_ChevronHost"
                                             Width="14"
@@ -217,51 +222,86 @@
                                         </Border>
                                     </ToggleButton>
                                 </Border>
+
+                                <!--  ComboBox-identical Popup (name must be Popup)  -->
+                                <Popup
+                                    x:Name="Popup"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    AllowsTransparency="True"
+                                    Focusable="False"
+                                    IsOpen="{TemplateBinding IsDropDownOpen}"
+                                    Placement="{TemplateBinding Popup.Placement}"
+                                    PlacementTarget="{Binding ElementName=ContentBorder}"
+                                    PopupAnimation="{TemplateBinding Popup.PopupAnimation}"
+                                    VerticalOffset="1">
+                                    <controls:EffectThicknessDecorator
+                                        AnimationDelay="00:00:00.167"
+                                        AnimationElement="{Binding ElementName=DropDownBorder}"
+                                        Thickness="30,0,30,30">
+                                        <Border
+                                            x:Name="DropDownBorder"
+                                            MinWidth="{Binding ActualWidth, ElementName=ContentBorder}"
+                                            Margin="0"
+                                            Padding="0,4,0,6"
+                                            Background="{DynamicResource ComboBoxDropDownBackground}"
+                                            BorderBrush="{DynamicResource ComboBoxDropDownBorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="{DynamicResource PopupCornerRadius}"
+                                            SnapsToDevicePixels="True">
+                                            <Border.RenderTransform>
+                                                <TranslateTransform />
+                                            </Border.RenderTransform>
+                                            <Border.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="20"
+                                                    Direction="270"
+                                                    Opacity="0.135"
+                                                    ShadowDepth="10"
+                                                    Color="#202020" />
+                                            </Border.Effect>
+                                            <controls:DynamicScrollViewer
+                                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                                Margin="0"
+                                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                SnapsToDevicePixels="True"
+                                                TextElement.FontSize="{TemplateBinding FontSize}"
+                                                TextElement.FontWeight="{TemplateBinding FontWeight}"
+                                                TextElement.Foreground="{TemplateBinding Foreground}"
+                                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" TextElement.FontSize="{TemplateBinding FontSize}" />
+                                            </controls:DynamicScrollViewer>
+                                        </Border>
+                                    </controls:EffectThicknessDecorator>
+                                </Popup>
                             </Grid>
                         </Border>
-
-                        <Popup
-                            x:Name="PART_Popup"
-                            AllowsTransparency="True"
-                            Focusable="False"
-                            IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                            Placement="Bottom"
-                            PlacementTarget="{Binding ElementName=ContentBorder}"
-                            PopupAnimation="None"
-                            StaysOpen="True"
-                            VerticalOffset="1">
-                            <Border
-                                x:Name="DropDownBorder"
-                                MinWidth="{Binding ActualWidth, ElementName=ContentBorder}"
-                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                Margin="0"
-                                Padding="0,4,0,6"
-                                Background="{DynamicResource ComboBoxDropDownBackground}"
-                                BorderBrush="{DynamicResource ComboBoxDropDownBorderBrush}"
-                                BorderThickness="1"
-                                CornerRadius="{DynamicResource PopupCornerRadius}">
-                                <ListBox
-                                    x:Name="PART_ItemsHost"
-                                    Padding="0"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
-                                    ItemContainerStyle="{StaticResource DefaultSplitToggleButtonItemStyle}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    ItemsSource="{TemplateBinding ItemsSource}"
-                                    ScrollViewer.CanContentScroll="False"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
-                            </Border>
-                        </Popup>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <!--  Unchecked hover — Button brushes  -->
+                        <Trigger Property="IsDropDownOpen" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="DropDownBorder"
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                            From="-90"
+                                            To="0"
+                                            Duration="00:00:00.167">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CircleEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
+
+                        <!--  Unchecked hover  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsPrimaryPressed" Value="False" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
@@ -270,14 +310,14 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Content" Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsPrimaryPressed" Value="False" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
                             <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                         </MultiTrigger>
 
-                        <!--  Unchecked pressed — Button brushes  -->
+                        <!--  Unchecked pressed  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
@@ -290,7 +330,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="False" />
-                                <Condition Property="IsPressed" Value="True" />
+                                <Condition Property="IsPrimaryPressed" Value="True" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
@@ -299,12 +339,12 @@
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
                         </MultiTrigger>
 
-                        <!--  Checked — Toggle fill, Button border  -->
+                        <!--  Checked  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsMouseOver" Value="False" />
-                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsPrimaryPressed" Value="False" />
                                 <Condition Property="IsEnabled" Value="True" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
@@ -319,7 +359,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsPressed" Value="False" />
+                                <Condition Property="IsPrimaryPressed" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
@@ -332,7 +372,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
-                                <Condition Property="IsPressed" Value="True" />
+                                <Condition Property="IsPrimaryPressed" Value="True" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
@@ -368,6 +408,6 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource DefaultSplitToggleButtonStyle}" TargetType="{x:Type local:SplitToggleButton}" />
+    <Style BasedOn="{StaticResource DefaultToggleComboBoxStyle}" TargetType="{x:Type local:ToggleComboBox}" />
 
 </ResourceDictionary>

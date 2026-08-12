@@ -3284,13 +3284,13 @@
   <data name="Sample_97139627c1" xml:space="preserve">
     <value>（无）</value>
   </data>
-  <data name="Format_SplitToggleBasicStatus" xml:space="preserve">
+  <data name="Format_ToggleComboBoxBasicStatus" xml:space="preserve">
     <value>IsChecked={0}，Selected={1}</value>
   </data>
-  <data name="Format_SplitToggleCommandClick" xml:space="preserve">
+  <data name="Format_ToggleComboBoxCommandClick" xml:space="preserve">
     <value>Command（单击）— IsChecked={0}</value>
   </data>
-  <data name="Format_SplitToggleDoubleCommand" xml:space="preserve">
+  <data name="Format_ToggleComboBoxDoubleCommand" xml:space="preserve">
     <value>DoubleCommand — IsChecked={0}</value>
   </data>
 

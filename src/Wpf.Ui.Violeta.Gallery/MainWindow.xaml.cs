@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -84,7 +84,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/rating"] = static () => new RatingPage(),
         ["basic-input/thumb-rate"] = static () => new ThumbRatePage(),
         ["basic-input/split-button"] = static () => new SplitButtonPage(),
-        ["basic-input/split-toggle-button"] = static () => new SplitToggleButtonPage(),
+        ["basic-input/toggle-combo-box"] = static () => new ToggleComboBoxPage(),
         ["basic-input/slider"] = static () => new SliderPage(),
         ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
         ["basic-input/copy-button"] = static () => new CopyButtonPage(),

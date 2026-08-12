@@ -1,4 +1,4 @@
-<vio:Page
+﻿<vio:Page
     x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.ToolBarPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -200,19 +200,19 @@
                                     </ContextMenu>
                                 </vio:SplitButton.Flyout>
                             </vio:SplitButton>
-                            <vio:SplitToggleButton
+                            <vio:ToggleComboBox
                                 Padding="10,4"
                                 Content="Bold"
                                 Icon="{ui:SymbolIcon TextBold24}"
-                                Style="{StaticResource ToolBarSplitToggleButtonStyle}">
-                                <vio:SplitToggleButton.ItemsSource>
+                                Style="{StaticResource ToolBarToggleComboBoxStyle}">
+                                <vio:ToggleComboBox.ItemsSource>
                                     <x:Array Type="{x:Type sys:String}">
                                         <sys:String>Bold</sys:String>
                                         <sys:String>Italic</sys:String>
                                         <sys:String>Underline</sys:String>
                                     </x:Array>
-                                </vio:SplitToggleButton.ItemsSource>
-                            </vio:SplitToggleButton>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>
