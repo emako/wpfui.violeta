@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Interop;
 using System.Windows.Media;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 

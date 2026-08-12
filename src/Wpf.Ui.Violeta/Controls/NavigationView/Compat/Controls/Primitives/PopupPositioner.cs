@@ -9,7 +9,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
-using static Wpf.Ui.Violeta.Win32.User32;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -592,17 +592,17 @@ internal class PopupPositioner : DependencyObject, IDisposable
 
         internal void SetPopupPos(bool position, int x, int y, bool size, int width, int height)
         {
-            SET_WINDOW_POS_FLAGS flags = SET_WINDOW_POS_FLAGS.SWP_NOZORDER | SET_WINDOW_POS_FLAGS.SWP_NOACTIVATE;
+            User32.SET_WINDOW_POS_FLAGS flags = User32.SET_WINDOW_POS_FLAGS.SWP_NOZORDER | User32.SET_WINDOW_POS_FLAGS.SWP_NOACTIVATE;
             if (!position)
             {
-                flags |= SET_WINDOW_POS_FLAGS.SWP_NOMOVE;
+                flags |= User32.SET_WINDOW_POS_FLAGS.SWP_NOMOVE;
             }
             if (!size)
             {
-                flags |= SET_WINDOW_POS_FLAGS.SWP_NOSIZE;
+                flags |= User32.SET_WINDOW_POS_FLAGS.SWP_NOSIZE;
             }
 
-            User32.SetWindowPos(new HWND(Handle), new HWND(IntPtr.Zero),
+            User32.SetWindowPos(Handle, IntPtr.Zero,
                 x, y, width, height, flags);
         }
 

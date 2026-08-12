@@ -1,4 +1,5 @@
 using System.Windows;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -8,10 +9,10 @@ internal static class PointUtil
     {
         Rect rect = new()
         {
-            X = rc.left,
-            Y = rc.top,
-            Width = rc.right - rc.left,
-            Height = rc.bottom - rc.top
+            X = rc.Left,
+            Y = rc.Top,
+            Width = rc.Right - rc.Left,
+            Height = rc.Bottom - rc.Top
         };
 
         return rect;

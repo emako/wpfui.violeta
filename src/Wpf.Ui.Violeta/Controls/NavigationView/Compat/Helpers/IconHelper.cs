@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
 
@@ -10,7 +11,7 @@ internal static class IconHelper
 {
     internal const int MAX_PATH = 260;
 
-    public static void GetDefaultIconHandles(IntPtr[] largeIconHandle, IntPtr[] smallIconHandle)
+    public static void GetDefaultIconHandles(nint[] largeIconHandle, nint[] smallIconHandle)
     {
         // Get the handle of the module that created the running process.
         string iconModuleFile = GetModuleFileName(new HandleRef());
@@ -19,9 +20,9 @@ internal static class IconHelper
         _ = ExtractIconEx(iconModuleFile, 0, largeIconHandle, smallIconHandle, 1);
     }
 
-    public static bool DestroyIcon(IntPtr icon)
+    public static bool DestroyIcon(nint icon)
     {
-        bool result = User32.DestroyIcon(new HICON(icon));
+        bool result = User32.DestroyIcon(icon) != 0;
         int error = Marshal.GetLastWin32Error();
 
         if (!result)
