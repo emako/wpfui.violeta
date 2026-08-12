@@ -194,7 +194,18 @@
                             Grid.Row="0"
                             HorizontalScrollBarVisibility="Hidden"
                             VerticalScrollBarVisibility="Disabled">
-                            <ItemsPresenter x:Name="PART_ItemsPresenter" />
+                            <!--
+                              Horizontal host so a trailing circular clone can sit after the
+                              real slides (WPFDevelopers-style last→first wrap).
+                            -->
+                            <StackPanel Orientation="Horizontal">
+                                <ItemsPresenter x:Name="PART_ItemsPresenter" />
+                                <ContentPresenter
+                                    x:Name="PART_CircularClone"
+                                    Focusable="False"
+                                    IsHitTestVisible="False"
+                                    Visibility="Collapsed" />
+                            </StackPanel>
                         </local:AnimatableScrollViewer>
 
                         <ContentPresenter

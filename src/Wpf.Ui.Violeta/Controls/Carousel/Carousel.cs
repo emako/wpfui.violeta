@@ -17,12 +17,15 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 [TemplatePart(Name = PART_ScrollViewer, Type = typeof(AnimatableScrollViewer))]
 [TemplatePart(Name = PART_NavHost, Type = typeof(ContentPresenter))]
+[TemplatePart(Name = PART_CircularClone, Type = typeof(ContentPresenter))]
 public class Carousel : Selector
 {
     public const string PART_ScrollViewer = "PART_ScrollViewer";
     public const string PART_NavHost = "PART_NavHost";
+    public const string PART_CircularClone = "PART_CircularClone";
 
     private AnimatableScrollViewer? _scrollViewer;
+    private ContentPresenter? _circularClone;
     private bool _isAnimating;
     private bool _suppressSelectionSync;
     private bool _suppressActiveIndexCallback;
@@ -31,6 +34,7 @@ public class Carousel : Selector
     private double _dragStartOffset;
     private bool _isDragging;
     private bool _autoplayPaused;
+    private int _slideFromIndex = -1;
 
     static Carousel()
     {
@@ -63,7 +67,7 @@ public class Carousel : Selector
             nameof(Circular),
             typeof(bool),
             typeof(Carousel),
-            new PropertyMetadata(false));
+            new PropertyMetadata(false, OnCircularChanged));
 
     public static readonly DependencyProperty AppearanceProperty =
         DependencyProperty.Register(
@@ -239,6 +243,7 @@ public class Carousel : Selector
         base.OnApplyTemplate();
 
         _scrollViewer = GetTemplateChild(PART_ScrollViewer) as AnimatableScrollViewer;
+        _circularClone = GetTemplateChild(PART_CircularClone) as ContentPresenter;
 
         SizeChanged += OnSizeChanged;
         AttachDragHandlers();
@@ -249,6 +254,7 @@ public class Carousel : Selector
         EnsureDefaultNav();
         SyncActiveIndexFromSelection(raiseEvent: false);
         UpdateItemStates();
+        UpdateCircularClone();
         GoToActiveIndex(animate: false);
         UpdateAutoplayTimer();
     }
@@ -279,6 +285,10 @@ public class Carousel : Selector
         base.PrepareContainerForItemOverride(element, item);
         if (element is CarouselItem container)
             ApplyItemSize(container);
+
+        // First container may appear after ApplyTemplate; refresh the circular clone.
+        if (Circular && Motion == CarouselMotion.Slide)
+            Dispatcher.BeginInvoke(UpdateCircularClone, DispatcherPriority.Loaded);
     }
 
     protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
@@ -295,6 +305,7 @@ public class Carousel : Selector
         SyncActiveIndexFromSelection(raiseEvent: true);
         UpdateItemSizes();
         UpdateItemStates();
+        UpdateCircularClone();
         GoToActiveIndex(animate: false);
         UpdateAutoplayTimer();
         NotifyNavSlidesChanged();
@@ -316,7 +327,14 @@ public class Carousel : Selector
         if (_suppressSelectionSync)
             return;
 
-        SyncActiveIndexFromSelection(raiseEvent: true);
+        // Prefer ActiveIndex → SelectedIndex path; avoid a second GoToActiveIndex that
+        // would interrupt circular wrap (last→first) mid-animation.
+        if (ActiveIndex != SelectedIndex)
+        {
+            SyncActiveIndexFromSelection(raiseEvent: true);
+            return;
+        }
+
         UpdateItemStates();
         GoToActiveIndex(animate: true);
         ResetAutoplay();
@@ -426,6 +444,7 @@ public class Carousel : Selector
             carousel._suppressSelectionSync = false;
         }
 
+        carousel._slideFromIndex = oldIndex;
         carousel.UpdateItemStates();
         carousel.GoToActiveIndex(animate: true);
         carousel.RaiseEvent(new RoutedPropertyChangedEventArgs<int>(oldIndex, newIndex, ActiveIndexChangedEvent));
@@ -470,13 +489,22 @@ public class Carousel : Selector
     private void OnSizeChanged(object? sender, SizeChangedEventArgs e)
     {
         UpdateItemSizes();
+        UpdateCircularClone();
         GoToActiveIndex(animate: false);
+    }
+
+    private static void OnCircularChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var carousel = (Carousel)d;
+        carousel.UpdateCircularClone();
+        carousel.GoToActiveIndex(animate: false);
     }
 
     private static void OnLayoutAffectingPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var carousel = (Carousel)d;
         carousel.UpdateItemSizes();
+        carousel.UpdateCircularClone();
         carousel.GoToActiveIndex(animate: false);
     }
 
@@ -524,10 +552,60 @@ public class Carousel : Selector
         if (Motion == CarouselMotion.Fade)
         {
             AnimateFade(animate);
+            _slideFromIndex = ActiveIndex;
             return;
         }
 
         AnimateSlide(animate);
+        _slideFromIndex = ActiveIndex;
+    }
+
+    private void UpdateCircularClone()
+    {
+        if (_circularClone == null) return;
+
+        int count = Items.Count;
+        bool showClone = Circular
+            && Motion == CarouselMotion.Slide
+            && count > 1
+            && _scrollViewer != null
+            && _scrollViewer.ActualWidth > 0;
+
+        if (!showClone)
+        {
+            _circularClone.Visibility = Visibility.Collapsed;
+            _circularClone.Width = 0;
+            _circularClone.Height = 0;
+            _circularClone.Content = null;
+            return;
+        }
+
+        double width = _scrollViewer!.ActualWidth;
+        double height = _scrollViewer.ActualHeight > 0 ? _scrollViewer.ActualHeight : ActualHeight;
+        if (height <= 0) height = ActualHeight;
+
+        FrameworkElement? visual = ItemContainerGenerator.ContainerFromIndex(0) as FrameworkElement;
+        if (visual == null)
+        {
+            // Containers may not be ready yet; retry after layout.
+            Dispatcher.BeginInvoke(UpdateCircularClone, DispatcherPriority.Loaded);
+            return;
+        }
+
+        _circularClone.Width = width;
+        _circularClone.Height = height;
+        _circularClone.Content = new Border
+        {
+            Width = width,
+            Height = height,
+            Background = new VisualBrush(visual)
+            {
+                Stretch = Stretch.None,
+                AlignmentX = AlignmentX.Left,
+                AlignmentY = AlignmentY.Top,
+            },
+        };
+        _circularClone.Visibility = Visibility.Visible;
     }
 
     private void AnimateSlide(bool animate)
@@ -546,8 +624,13 @@ public class Carousel : Selector
             }
         }
 
+        UpdateCircularClone();
+
+        int count = Items.Count;
         double pageWidth = _scrollViewer.ActualWidth;
-        double targetOffset = ActiveIndex * pageWidth;
+        int fromIndex = _slideFromIndex;
+        int toIndex = ActiveIndex;
+        double targetOffset = toIndex * pageWidth;
 
         // Align adjustment for partial last pages is a no-op when page == viewport width.
         targetOffset = Align switch
@@ -556,6 +639,15 @@ public class Carousel : Selector
             CarouselAlign.Start => targetOffset,
             _ => targetOffset,
         };
+
+        bool wrapForward = Circular
+            && count > 1
+            && fromIndex == count - 1
+            && toIndex == 0;
+        bool wrapBackward = Circular
+            && count > 1
+            && fromIndex == 0
+            && toIndex == count - 1;
 
         if (!animate || MotionDuration.TimeSpan.TotalMilliseconds <= 0)
         {
@@ -573,17 +665,49 @@ public class Carousel : Selector
             return;
         }
 
+        if (wrapForward)
+        {
+            // Animate onto the trailing first-slide clone, then snap to real index 0.
+            double cloneOffset = count * pageWidth;
+            AnimateHorizontalOffset(_scrollViewer.ContentHorizontalOffset, cloneOffset, () =>
+            {
+                _scrollViewer.BeginAnimation(AnimatableScrollViewer.HorizontalOffsetProperty, null);
+                _scrollViewer.ScrollToHorizontalOffset(0);
+            });
+            return;
+        }
+
+        if (wrapBackward)
+        {
+            // Jump to the clone (visually identical to index 0), then slide left to last.
+            double cloneOffset = count * pageWidth;
+            _scrollViewer.BeginAnimation(AnimatableScrollViewer.HorizontalOffsetProperty, null);
+            _scrollViewer.ScrollToHorizontalOffset(cloneOffset);
+            AnimateHorizontalOffset(cloneOffset, (count - 1) * pageWidth, null);
+            return;
+        }
+
+        AnimateHorizontalOffset(_scrollViewer.ContentHorizontalOffset, targetOffset, null);
+    }
+
+    private void AnimateHorizontalOffset(double fromOffset, double toOffset, Action? onCompleted)
+    {
+        if (_scrollViewer == null) return;
+
         _isAnimating = true;
-        double fromOffset = _scrollViewer.ContentHorizontalOffset;
         var animation = new DoubleAnimation
         {
             From = fromOffset,
-            To = targetOffset,
+            To = toOffset,
             Duration = MotionDuration,
             EasingFunction = new ExponentialEase { Exponent = 6d, EasingMode = EasingMode.EaseOut },
             FillBehavior = FillBehavior.HoldEnd,
         };
-        animation.Completed += (_, _) => _isAnimating = false;
+        animation.Completed += (_, _) =>
+        {
+            _isAnimating = false;
+            onCompleted?.Invoke();
+        };
         _scrollViewer.BeginAnimation(AnimatableScrollViewer.HorizontalOffsetProperty, animation);
     }
 
@@ -686,8 +810,32 @@ public class Carousel : Selector
         if (_scrollViewer == null || _scrollViewer.ActualWidth <= 0) return;
 
         double pageWidth = _scrollViewer.ActualWidth;
-        int target = (int)Math.Round(_scrollViewer.ContentHorizontalOffset / pageWidth);
-        target = Math.Max(0, Math.Min(Items.Count - 1, target));
+        int count = Items.Count;
+        double offset = _scrollViewer.ContentHorizontalOffset;
+        int target = (int)Math.Round(offset / pageWidth);
+
+        if (Circular && count > 1)
+        {
+            // Dragged onto the trailing first-slide clone → wrap to index 0 without reverse slide.
+            if (target >= count)
+            {
+                _isAnimating = false;
+                _scrollViewer.BeginAnimation(AnimatableScrollViewer.HorizontalOffsetProperty, null);
+                _scrollViewer.ScrollToHorizontalOffset(0);
+                _slideFromIndex = 0;
+                if (ActiveIndex != 0)
+                    ActiveIndex = 0;
+                else
+                    GoToActiveIndex(animate: false);
+                ResetAutoplay();
+                return;
+            }
+
+            if (target < 0)
+                target = count - 1;
+        }
+
+        target = Math.Max(0, Math.Min(count - 1, target));
         if (target == ActiveIndex)
             GoToActiveIndex(animate: true);
         else
