@@ -3,8 +3,9 @@
     otherwise WPF rasterizes menu text (blurry glyphs). Also drops upstream
     From=-90 slide-in that covers the host when Placement=Bottom.
     Used globally and by DropDownButton / SplitButton (DefaultDropDownFlyoutContextMenuStyle).
-    Icon glyphs: set ui:ControlHelper.IconFontFamily / IconFontSize on ContextMenu or MenuItem
+    Icon glyphs: set ui:ControlHelper.IconFontFamily / IconFontSize / IconWidth on ContextMenu or MenuItem
     (Wpf.Ui.Controls.ControlHelper in this package) to style icons independently of menu text.
+    IconWidth (default NaN = auto) pins a uniform slot so mixed glyphs align.
 -->
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

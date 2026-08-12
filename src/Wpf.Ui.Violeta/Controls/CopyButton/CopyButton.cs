@@ -11,10 +11,11 @@ namespace Wpf.Ui.Violeta.Controls;
 /// Optionally copies <see cref="TextToCopy"/> to the clipboard before animating.
 /// </summary>
 /// <remarks>
-/// Icon typography uses <see cref="ControlHelper.IconFontFamilyProperty"/> /
-/// <see cref="ControlHelper.IconFontSizeProperty"/>. Values applied to
+/// Icon appearance uses <see cref="ControlHelper.IconFontFamilyProperty"/> /
+/// <see cref="ControlHelper.IconFontSizeProperty"/> /
+/// <see cref="ControlHelper.IconWidthProperty"/>. Values applied to
 /// <see cref="Wpf.Ui.Controls.Button.Icon"/> only when the icon has no local
-/// <c>FontFamily</c> / <c>FontSize</c> — so an explicit size on
+/// <c>FontFamily</c> / <c>FontSize</c> / <c>Width</c> — so an explicit value on
 /// <c>SymbolIcon</c> / <c>FontIcon</c> wins over the attached properties.
 /// </remarks>
 /// <example>
@@ -22,6 +23,7 @@ namespace Wpf.Ui.Violeta.Controls;
 /// &lt;vio:CopyButton
 ///     Content="Copy"
 ///     ui:ControlHelper.IconFontSize="20"
+///     ui:ControlHelper.IconWidth="20"
 ///     TextToCopy="payload"&gt;
 ///     &lt;vio:CopyButton.Icon&gt;
 ///         &lt;ui:SymbolIcon Symbol="Copy24" FontSize="12" /&gt;
@@ -163,6 +165,8 @@ public class CopyButton : Wpf.Ui.Controls.Button
             .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
         DependencyPropertyDescriptor.FromProperty(ControlHelper.IconFontSizeProperty, typeof(CopyButton))
             .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
+        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconWidthProperty, typeof(CopyButton))
+            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
     }
 
     private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -181,8 +185,8 @@ public class CopyButton : Wpf.Ui.Controls.Button
     }
 
     /// <summary>
-    /// Pushes <see cref="ControlHelper"/> icon typography onto <see cref="Icon"/> when the
-    /// icon has no local FontFamily / FontSize (explicit Icon values always win).
+    /// Pushes <see cref="ControlHelper"/> icon appearance onto <see cref="Icon"/> when the
+    /// icon has no local FontFamily / FontSize / Width (explicit Icon values always win).
     /// </summary>
     private void SyncIconAppearance()
     {
@@ -203,6 +207,20 @@ public class CopyButton : Wpf.Ui.Controls.Button
             && fontIcon.ReadLocalValue(FontIcon.FontSizeProperty) == DependencyProperty.UnsetValue)
         {
             fontIcon.SetCurrentValue(FontIcon.FontSizeProperty, size);
+        }
+
+        var width = ControlHelper.GetIconWidth(this);
+        if (!double.IsNaN(width)
+            && fontIcon.ReadLocalValue(FrameworkElement.WidthProperty) == DependencyProperty.UnsetValue)
+        {
+            fontIcon.SetCurrentValue(FrameworkElement.WidthProperty, width);
+            if (fontIcon.ReadLocalValue(FrameworkElement.HorizontalAlignmentProperty)
+                == DependencyProperty.UnsetValue)
+            {
+                fontIcon.SetCurrentValue(
+                    FrameworkElement.HorizontalAlignmentProperty,
+                    HorizontalAlignment.Center);
+            }
         }
     }
 }

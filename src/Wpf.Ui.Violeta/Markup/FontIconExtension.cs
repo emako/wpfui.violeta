@@ -67,6 +67,11 @@ public class FontIconExtension : MarkupExtension
     public double FontSize { get; set; }
 
     /// <summary>
+    /// Width of the produced <see cref="FontIcon"/>. Defaults to <see cref="double.NaN"/> (auto).
+    /// </summary>
+    public double Width { get; set; } = double.NaN;
+
+    /// <summary>
     /// Intercepts nested markup extensions on this extension's properties.
     /// Required for <see cref="DynamicResourceExtension"/>, which can only target a dependency property.
     /// </summary>
@@ -105,6 +110,11 @@ public class FontIconExtension : MarkupExtension
         if (FontSize > 0)
         {
             fontIcon.FontSize = FontSize;
+        }
+
+        if (!double.IsNaN(Width))
+        {
+            fontIcon.Width = Width;
         }
 
         return fontIcon;

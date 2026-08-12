@@ -8,7 +8,7 @@
         CopyButton — WinUI Gallery CopyToClipboardSuccessAnimation port.
         Timeline (~1.43s): Content fades/scales out → Accept pops in with overshoot → hold → restore.
         Supports Wpf.Ui Button.Icon + Content (animated together).
-        Icon typography uses ui:ControlHelper.IconFontFamily / IconFontSize so Content text is unaffected.
+        Icon appearance uses ui:ControlHelper.IconFontFamily / IconFontSize / IconWidth so Content text is unaffected.
     -->
     <Style
         x:Key="DefaultCopyButtonStyle"

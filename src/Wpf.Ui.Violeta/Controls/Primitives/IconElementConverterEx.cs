@@ -13,9 +13,10 @@ namespace Wpf.Ui.Violeta.Controls.Primitives;
 /// Registered at startup via <see cref="TypeDescriptor.AddAttributes(System.Type, System.Attribute[])"/>
 /// so it applies to every <see cref="IconElement"/>-typed property (including
 /// <see cref="MenuItem.Icon"/>). Must be public so <see cref="TypeDescriptor"/> can instantiate it.
-/// <see cref="FontIcon.Glyph"/> is the string. FontFamily / FontSize are left unset so
-/// <see cref="ControlHelper"/> can apply <c>SymbolThemeFontFamily</c> and
-/// <see cref="ControlHelper.IconFontSizeProperty"/>.
+/// <see cref="FontIcon.Glyph"/> is the string. FontFamily / FontSize / Width are left unset so
+/// <see cref="ControlHelper"/> can apply <c>SymbolThemeFontFamily</c>,
+/// <see cref="ControlHelper.IconFontSizeProperty"/> and
+/// <see cref="ControlHelper.IconWidthProperty"/>.
 /// </remarks>
 public sealed class IconElementConverterEx : TypeConverter
 {
@@ -58,8 +59,9 @@ public sealed class IconElementConverterEx : TypeConverter
 
     /// <summary>
     /// Builds a <see cref="FontIcon"/> from a glyph string (shared with runtime conversion).
-    /// FontFamily / FontSize are left unset so <see cref="ControlHelper"/> can apply
-    /// <c>SymbolThemeFontFamily</c> and <see cref="ControlHelper.IconFontSizeProperty"/>.
+    /// FontFamily / FontSize / Width are left unset so <see cref="ControlHelper"/> can apply
+    /// <c>SymbolThemeFontFamily</c>, <see cref="ControlHelper.IconFontSizeProperty"/> and
+    /// <see cref="ControlHelper.IconWidthProperty"/>.
     /// </summary>
     public static FontIcon CreateFontIconFromGlyph(string glyph)
     {

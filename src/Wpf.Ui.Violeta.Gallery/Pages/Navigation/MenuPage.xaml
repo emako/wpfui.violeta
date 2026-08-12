@@ -34,9 +34,12 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Menu uses ui:ControlHelper.IconFontSize=18 for top-level / submenu icons."
+                        Text="Menu uses ui:ControlHelper.IconFontSize=18 and IconWidth=20 so top-level / submenu icons share a uniform slot (default IconWidth=NaN is auto)."
                         TextWrapping="Wrap" />
-                    <Menu FontSize="14" ui:ControlHelper.IconFontSize="18">
+                    <Menu
+                        FontSize="14"
+                        ui:ControlHelper.IconFontSize="18"
+                        ui:ControlHelper.IconWidth="20">
                         <ui:MenuItem Header="File" Icon="{ui:SymbolIcon Document24}">
                             <ui:MenuItem Header="New" InputGestureText="CTRL+N" />
                             <ui:MenuItem Header="Open..." InputGestureText="CTRL+O" />
@@ -115,16 +118,18 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Left: ContextMenu IconFontSize=20 (all icons). Middle item overrides to 12 via Icon FontSize (wins). Right DropDown unchanged."
+                        Text="Left: ContextMenu IconFontSize=20 + IconWidth=22 (all icons). Middle item FontSize=12 wins size; Share item overrides IconFontSize/IconWidth. Right DropDown unchanged."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <ui:Button
                             Margin="0,0,12,0"
                             Click="OnOpenContextMenuClick"
-                            Content="IconFontSize on menu"
+                            Content="IconFontSize / IconWidth on menu"
                             Icon="{ui:SymbolIcon ChevronDown24}">
                             <ui:Button.ContextMenu>
-                                <ContextMenu ui:ControlHelper.IconFontSize="20">
+                                <ContextMenu
+                                    ui:ControlHelper.IconFontSize="20"
+                                    ui:ControlHelper.IconWidth="22">
                                     <ui:MenuItem Header="New" Icon="&#xE8A5;" />
                                     <ui:MenuItem Header="Open..." Icon="&#xE838;" />
                                     <ui:MenuItem Header="Save (Icon FontSize=12 wins)">
@@ -134,7 +139,8 @@
                                     </ui:MenuItem>
                                     <ui:MenuItem
                                         ui:ControlHelper.IconFontSize="28"
-                                        Header="Share (item = 28)"
+                                        ui:ControlHelper.IconWidth="32"
+                                        Header="Share (item = 28 / 32)"
                                         Icon="&#xE72D;">
                                         <ui:MenuItem Header="Copy link" Icon="&#xE8C8;" />
                                         <ui:MenuItem Header="Email" Icon="&#xE715;" />
@@ -182,7 +188,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Right-click below. ContextMenu sets IconFontSize=22 for all item icons."
+                        Text="Right-click below. ContextMenu sets IconFontSize=22 and IconWidth=24 for all item icons (submenu items inherit)."
                         TextWrapping="Wrap" />
                     <Border
                         Height="96"
@@ -191,7 +197,9 @@
                         BorderThickness="1"
                         CornerRadius="8">
                         <Border.ContextMenu>
-                            <ContextMenu ui:ControlHelper.IconFontSize="22">
+                            <ContextMenu
+                                ui:ControlHelper.IconFontSize="22"
+                                ui:ControlHelper.IconWidth="24">
                                 <ui:MenuItem
                                     Header="Cut"
                                     Icon="{ui:SymbolIcon Cut24}"
@@ -204,10 +212,10 @@
                                     Header="Paste"
                                     Icon="{ui:SymbolIcon ClipboardPaste24}"
                                     InputGestureText="CTRL+V" />
-                                <ui:MenuItem Header="Paste special">
-                                    <ui:MenuItem Header="Keep text only" />
-                                    <ui:MenuItem Header="Merge formatting" />
-                                    <ui:MenuItem Header="Keep source formatting" />
+                                <ui:MenuItem Header="Paste special" Icon="{ui:SymbolIcon ClipboardPaste24}">
+                                    <ui:MenuItem Header="Keep text only" Icon="&#xE8C8;" />
+                                    <ui:MenuItem Header="Merge formatting" Icon="&#xE8AB;" />
+                                    <ui:MenuItem Header="Keep source formatting" Icon="&#xE8A5;" />
                                 </ui:MenuItem>
                                 <Separator />
                                 <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
