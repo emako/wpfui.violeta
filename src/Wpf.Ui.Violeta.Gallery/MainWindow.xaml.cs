@@ -157,6 +157,7 @@ public partial class MainWindow : ShellWindow
         ["collections/tree-model-list-view"] = static () => new TreeModelListViewPage(),
         ["collections/flip-view"] = static () => new FlipViewPage(),
         ["collections/carousel"] = static () => new CarouselPage(),
+        ["collections/card-carousel"] = static () => new CardCarouselPage(),
         ["collections/pagination"] = static () => new PaginationPage(),
         ["collections/timeline"] = static () => new TimelinePage(),
 
