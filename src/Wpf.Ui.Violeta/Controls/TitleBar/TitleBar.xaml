@@ -160,7 +160,8 @@
                                     x:Name="PART_CustomFooterContentControl"
                                     Grid.Column="0"
                                     HorizontalAlignment="Right"
-                                    Content="{TemplateBinding CustomFooter}" />
+                                    Content="{TemplateBinding CustomFooter}"
+                                    WindowChrome.IsHitTestVisibleInChrome="True" />
 
                                 <local:CaptionButtonBar
                                     x:Name="PART_CaptionButtonBar"
