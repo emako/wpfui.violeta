@@ -166,9 +166,20 @@ internal readonly struct HSV : IEquatable<HSV>
     public readonly double S;
     public readonly double V;
 
+    public HSV()
+    { 
+    }
+
+    public HSV(double h, double s, double v)
+    {
+        H = h;
+        S = s;
+        V = v;
+    }
+
     #region IEquatable<HSV>
 
-    public bool Equals(HSV other)
+    public readonly bool Equals(HSV other)
     {
         return H == other.H && S == other.S && V == other.V;
     }
@@ -177,7 +188,7 @@ internal readonly struct HSV : IEquatable<HSV>
 
     #region Equals
 
-    public override bool Equals(object? obj)
+    public override readonly bool Equals(object? obj)
     {
         if (obj is HSV other)
         {
@@ -189,7 +200,7 @@ internal readonly struct HSV : IEquatable<HSV>
         }
     }
 
-    public override int GetHashCode()
+    public override readonly int GetHashCode()
     {
         return H.GetHashCode() ^ S.GetHashCode() ^ V.GetHashCode();
     }
@@ -198,7 +209,7 @@ internal readonly struct HSV : IEquatable<HSV>
 
     #region ToString
 
-    public override string ToString()
+    public override readonly string ToString()
     {
         return string.Format("{0},{1},{2}", H, S, V);
     }
