@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Wpf.Ui.Controls;
@@ -32,6 +33,9 @@ namespace Wpf.Ui.Controls;
 /// unless <see cref="IconFontFamilyProperty"/> is set; <see cref="IconFontSizeProperty"/>
 /// supplies the default glyph size when present; <see cref="IconWidthProperty"/> pins a
 /// uniform icon slot width (default <see cref="double.NaN"/> = auto / content width).
+/// <para />
+/// <see cref="IsDragMoveEnabledProperty"/> lets any element drag-move its host
+/// <see cref="Window"/> via left-button drag (calls <see cref="Window.DragMove"/>).
 /// </remarks>
 public static class ControlHelper
 {
@@ -934,4 +938,71 @@ public static class ControlHelper
 
     internal static bool IsNullOrEmptyString(object? obj) =>
         obj is null || obj is string s && string.IsNullOrEmpty(s);
+
+    // -- IsDragMoveEnabled ---------------------------------------------------
+
+    /// <summary>
+    /// Identifies the IsDragMoveEnabled attached property.
+    /// </summary>
+    public static readonly DependencyProperty IsDragMoveEnabledProperty =
+        DependencyProperty.RegisterAttached(
+            "IsDragMoveEnabled",
+            typeof(bool),
+            typeof(ControlHelper),
+            new PropertyMetadata(false, OnIsDragMoveEnabledChanged));
+
+    /// <summary>
+    /// Gets a value indicating whether left-button drag on the element moves the host window.
+    /// </summary>
+    public static bool GetIsDragMoveEnabled(DependencyObject element) =>
+        (bool)element.GetValue(IsDragMoveEnabledProperty);
+
+    /// <summary>
+    /// Sets a value indicating whether left-button drag on the element moves the host window.
+    /// </summary>
+    public static void SetIsDragMoveEnabled(DependencyObject element, bool value) =>
+        element.SetValue(IsDragMoveEnabledProperty, value);
+
+    private static void OnIsDragMoveEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not UIElement element)
+        {
+            return;
+        }
+
+        element.MouseLeftButtonDown -= OnDragMoveMouseLeftButtonDown;
+
+        if ((bool)e.NewValue)
+        {
+            element.MouseLeftButtonDown += OnDragMoveMouseLeftButtonDown;
+        }
+    }
+
+    private static void OnDragMoveMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton != MouseButton.Left || e.ButtonState != MouseButtonState.Pressed)
+        {
+            return;
+        }
+
+        if (sender is not DependencyObject d)
+        {
+            return;
+        }
+
+        var window = Window.GetWindow(d);
+        if (window is null)
+        {
+            return;
+        }
+
+        try
+        {
+            window.DragMove();
+        }
+        catch (InvalidOperationException)
+        {
+            // DragMove requires the left mouse button to remain pressed.
+        }
+    }
 }
