@@ -32,6 +32,7 @@ public class DropDownButton : Wpf.Ui.Controls.Button
     private ContextMenu? _contextMenu;
     private TranslateTransform? _chevronTranslate;
     private FrameworkElement? _chevronHost;
+    private bool _dismissFlyoutOnClick;
 
     static DropDownButton()
     {
@@ -133,11 +134,30 @@ public class DropDownButton : Wpf.Ui.Controls.Button
 
     private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
+        // WinUI toggles the flyout: a click while open dismisses it.
+        // WPF ContextMenu usually closes on MouseDown before MouseUp, so remember
+        // not to reopen on the matching MouseUp.
+        _dismissFlyoutOnClick = _contextMenu?.IsOpen == true || IsDropDownOpen;
+        if (_dismissFlyoutOnClick)
+        {
+            _contextMenu?.SetCurrentValue(ContextMenu.IsOpenProperty, false);
+            // Suppress Button IsPressed / Click chrome — dismiss is not a press.
+            e.Handled = true;
+            return;
+        }
+
         BeginChevronPressAnimation();
     }
 
     private void OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
     {
+        if (_dismissFlyoutOnClick)
+        {
+            _dismissFlyoutOnClick = false;
+            e.Handled = true;
+            return;
+        }
+
         BeginChevronReleaseAnimation();
 
         if (_contextMenu is null)
@@ -153,6 +173,8 @@ public class DropDownButton : Wpf.Ui.Controls.Button
 
     private void OnLostMouseCapture(object sender, MouseEventArgs e)
     {
+        _dismissFlyoutOnClick = false;
+
         // Ensure we never leave the chevron stuck in the pressed offset.
         if (_chevronTranslate is not null && Math.Abs(_chevronTranslate.Y) > 0.01)
         {
