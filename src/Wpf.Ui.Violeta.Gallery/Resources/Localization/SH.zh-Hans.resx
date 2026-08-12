@@ -3297,4 +3297,28 @@
   <data name="Sample_b63b51f0a2" xml:space="preserve">
     <value>未选择时显示占位提示；可编辑 ComboBox 复用 ui:TextBox 的占位能力。</value>
   </data>
+  <data name="Sample_SplitButton_PrimaryFlyoutDesc" xml:space="preserve">
+    <value>主区域单击执行 Save；打开箭头菜单可选择另存为 / 导出。</value>
+  </data>
+  <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
+    <value>主区域单击分享；下拉可嵌套 Send 及设备目标。</value>
+  </data>
+  <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
+    <value>Appearance 作用于整个拆分按钮；各自仍有独立下拉命令。</value>
+  </data>
+  <data name="Sample_SplitButton_ColorSwatchDesc" xml:space="preserve">
+    <value>主区域单击报告当前颜色；下拉项会更新色块。</value>
+  </data>
+  <data name="Sample_SplitButton_DisabledDesc" xml:space="preserve">
+    <value>禁用后，主操作与箭头下拉均不可用。</value>
+  </data>
+  <data name="Format_SplitButtonPrimaryClick" xml:space="preserve">
+    <value>主区域单击 / Command - {0}</value>
+  </data>
+  <data name="Format_SplitButtonDoubleCommand" xml:space="preserve">
+    <value>DoubleCommand - {0}</value>
+  </data>
+  <data name="Format_SplitButtonMenuCommand" xml:space="preserve">
+    <value>菜单命令 - {0}</value>
+  </data>
 </root>

@@ -203,6 +203,78 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToggleComboBoxDoubleCommand", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click runs Save; open the chevron for Save As / Export..
+        /// </summary>
+        internal static string Sample_SplitButton_PrimaryFlyoutDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_PrimaryFlyoutDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click shares; the flyout can nest Send and device targets..
+        /// </summary>
+        internal static string Sample_SplitButton_NestedFlyoutDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_NestedFlyoutDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance styles the whole split control; each still has its own flyout commands..
+        /// </summary>
+        internal static string Sample_SplitButton_AppearanceDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_AppearanceDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click reports the current color; flyout items update the swatch..
+        /// </summary>
+        internal static string Sample_SplitButton_ColorSwatchDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_ColorSwatchDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to When disabled, neither the primary action nor the chevron flyout can be used..
+        /// </summary>
+        internal static string Sample_SplitButton_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_DisabledDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click / Command - {0}.
+        /// </summary>
+        internal static string Format_SplitButtonPrimaryClick {
+            get {
+                return ResourceManager.GetString("Format_SplitButtonPrimaryClick", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleCommand - {0}.
+        /// </summary>
+        internal static string Format_SplitButtonDoubleCommand {
+            get {
+                return ResourceManager.GetString("Format_SplitButtonDoubleCommand", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Menu command - {0}.
+        /// </summary>
+        internal static string Format_SplitButtonMenuCommand {
+            get {
+                return ResourceManager.GetString("Format_SplitButtonMenuCommand", resourceCulture);
+            }
+        }
+
         
         /// <summary>
         ///   Looks up a localized string similar to Theme switched: {0}.

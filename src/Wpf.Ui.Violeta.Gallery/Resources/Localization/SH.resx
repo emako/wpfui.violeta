@@ -3297,4 +3297,28 @@ Click OK to continue.</value>
   <data name="Sample_b63b51f0a2" xml:space="preserve">
     <value>Placeholder text when nothing is selected. Editable ComboBox reuses ui:TextBox placeholder.</value>
   </data>
+  <data name="Sample_SplitButton_PrimaryFlyoutDesc" xml:space="preserve">
+    <value>Primary click runs Save; open the chevron for Save As / Export.</value>
+  </data>
+  <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
+    <value>Primary click shares; the flyout can nest Send and device targets.</value>
+  </data>
+  <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
+    <value>Appearance styles the whole split control; each still has its own flyout commands.</value>
+  </data>
+  <data name="Sample_SplitButton_ColorSwatchDesc" xml:space="preserve">
+    <value>Primary click reports the current color; flyout items update the swatch.</value>
+  </data>
+  <data name="Sample_SplitButton_DisabledDesc" xml:space="preserve">
+    <value>When disabled, neither the primary action nor the chevron flyout can be used.</value>
+  </data>
+  <data name="Format_SplitButtonPrimaryClick" xml:space="preserve">
+    <value>Primary click / Command - {0}</value>
+  </data>
+  <data name="Format_SplitButtonDoubleCommand" xml:space="preserve">
+    <value>DoubleCommand - {0}</value>
+  </data>
+  <data name="Format_SplitButtonMenuCommand" xml:space="preserve">
+    <value>Menu command - {0}</value>
+  </data>
 </root>
