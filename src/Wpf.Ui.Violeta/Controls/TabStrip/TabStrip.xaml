@@ -14,7 +14,7 @@
     -->
     <Style x:Key="DefaultTabStripItemStyle" TargetType="{x:Type local:TabStripItem}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
@@ -161,7 +161,7 @@
     -->
     <Style x:Key="CardTabStripItemStyle" TargetType="{x:Type local:TabStripItem}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
@@ -250,7 +250,7 @@
     -->
     <Style x:Key="ButtonTabStripItemStyle" TargetType="{x:Type local:TabStripItem}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
