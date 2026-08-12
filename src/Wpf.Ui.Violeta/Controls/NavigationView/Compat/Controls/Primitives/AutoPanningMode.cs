@@ -44,7 +44,7 @@ public static class AutoPanningMode
 
     private static void ScrollViewer_Loaded(object? sender, RoutedEventArgs e)
     {
-        var sv = (ScrollViewer)sender;
+        var sv = (ScrollViewer)sender!;
         sv.Loaded -= ScrollViewer_Loaded;
 
         if (sv.TemplatedParent == null)

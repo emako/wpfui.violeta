@@ -162,7 +162,7 @@ public class ExpanderHelper
 
     private static void OnContentSizeChanged(object? sender, SizeChangedEventArgs args)
     {
-        if (((FrameworkElement)sender).FindAscendant<Expander>() is Expander expander)
+        if (((FrameworkElement)sender!).FindAscendant<Expander>() is Expander expander)
         {
             var width = args.NewSize.Width;
             SetContentWidth(expander, width);

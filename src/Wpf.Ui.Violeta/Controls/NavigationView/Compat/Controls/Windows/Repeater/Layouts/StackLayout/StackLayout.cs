@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -366,9 +367,10 @@ public class StackLayout : VirtualizingLayout, IFlowLayoutAlgorithmDelegates
         return averageElementSize;
     }
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private StackLayoutState GetAsStackState(object state)
     {
-        return state as StackLayoutState;
+        return (state as StackLayoutState)!;
     }
 
     private void InvalidateLayout()
