@@ -361,6 +361,29 @@ public partial class TitleBar : ContentControl
         set => SetValue(IsActiveProperty, value);
     }
 
+    /// <summary>
+    /// Gets or sets whether the title bar dims when the owner window is inactive.
+    /// Default is <c>true</c>.
+    /// </summary>
+    public static readonly DependencyProperty IsInactiveAppearanceEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsInactiveAppearanceEnabled),
+            typeof(bool),
+            typeof(TitleBar),
+            new PropertyMetadata(true, OnIsInactiveAppearanceEnabledChanged)
+        );
+
+    public bool IsInactiveAppearanceEnabled
+    {
+        get => (bool)GetValue(IsInactiveAppearanceEnabledProperty);
+        set => SetValue(IsInactiveAppearanceEnabledProperty, value);
+    }
+
+    private static void OnIsInactiveAppearanceEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((TitleBar)d).UpdateIsActiveFromOwnerWindow();
+    }
+
     public static readonly DependencyProperty CustomHeaderProperty =
         DependencyProperty.Register(
             nameof(CustomHeader),
@@ -510,6 +533,7 @@ public partial class TitleBar : ContentControl
         _ownerWindow = Window.GetWindow(this);
         _ownerWindow.Activated += OnOwnerWindowActivated;
         _ownerWindow.Deactivated += OnOwnerWindowDeactivated;
+        UpdateIsActiveFromOwnerWindow();
     }
 
     private void OnUnloaded(object? sender, RoutedEventArgs e)
@@ -520,12 +544,23 @@ public partial class TitleBar : ContentControl
 
     private void OnOwnerWindowActivated(object? sender, EventArgs e)
     {
-        IsActive = true;
+        UpdateIsActiveFromOwnerWindow();
     }
 
     private void OnOwnerWindowDeactivated(object? sender, EventArgs e)
     {
-        IsActive = false;
+        UpdateIsActiveFromOwnerWindow();
+    }
+
+    private void UpdateIsActiveFromOwnerWindow()
+    {
+        if (!IsInactiveAppearanceEnabled)
+        {
+            IsActive = true;
+            return;
+        }
+
+        IsActive = _ownerWindow?.IsActive ?? true;
     }
 
     private void OnBackButtonClick(object? sender, RoutedEventArgs e)

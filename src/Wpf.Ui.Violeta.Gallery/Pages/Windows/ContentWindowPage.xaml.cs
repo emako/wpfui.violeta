@@ -131,6 +131,7 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
         dialog.CloseButtonVisibility = ToVisibility(CloseButtonToggle.IsChecked);
         dialog.MoreButtonVisibility = ToVisibility(MoreButtonToggle.IsChecked);
         dialog.HelpButtonVisibility = ToVisibility(HelpButtonToggle.IsChecked);
+        dialog.IsInactiveAppearanceEnabled = IsInactiveAppearanceEnabledToggle.IsChecked == true;
 
         if (TitleBarHeaderToggle.IsChecked == true)
         {

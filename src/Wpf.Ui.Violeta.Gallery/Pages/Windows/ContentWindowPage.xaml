@@ -128,6 +128,9 @@
                             <vio:FormItem Label="TitleBarFooter (CustomFooter)">
                                 <ui:ToggleSwitch x:Name="TitleBarFooterToggle" IsChecked="False" />
                             </vio:FormItem>
+                            <vio:FormItem Label="IsInactiveAppearanceEnabled">
+                                <ui:ToggleSwitch x:Name="IsInactiveAppearanceEnabledToggle" IsChecked="True" />
+                            </vio:FormItem>
                         </vio:FormGroup>
 
                         <vio:FormItem NoLabel="True">

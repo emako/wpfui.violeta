@@ -286,6 +286,28 @@ public partial class CaptionButtonBar : Control
         set => SetValue(IsActiveProperty, value);
     }
 
+    /// <summary>
+    /// Gets or sets whether caption buttons dim when the owner window is inactive.
+    /// Default is <c>true</c>.
+    /// </summary>
+    public static readonly DependencyProperty IsInactiveAppearanceEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsInactiveAppearanceEnabled),
+            typeof(bool),
+            typeof(CaptionButtonBar),
+            new PropertyMetadata(true, OnIsInactiveAppearanceEnabledChanged));
+
+    public bool IsInactiveAppearanceEnabled
+    {
+        get => (bool)GetValue(IsInactiveAppearanceEnabledProperty);
+        set => SetValue(IsInactiveAppearanceEnabledProperty, value);
+    }
+
+    private static void OnIsInactiveAppearanceEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((CaptionButtonBar)d).UpdateIsActiveFromOwnerWindow();
+    }
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
@@ -378,6 +400,7 @@ public partial class CaptionButtonBar : Control
         _ownerWindow.Activated += OnActivated;
         _ownerWindow.Deactivated += OnDeactivated;
         _ownerWindow.StateChanged += OnOwnerWindowStateChanged;
+        UpdateIsActiveFromOwnerWindow();
 
         nint handle = new WindowInteropHelper(_ownerWindow).Handle;
         if (handle == 0)
@@ -423,12 +446,23 @@ public partial class CaptionButtonBar : Control
 
     private void OnActivated(object? sender, EventArgs e)
     {
-        IsActive = true;
+        UpdateIsActiveFromOwnerWindow();
     }
 
     private void OnDeactivated(object? sender, EventArgs e)
     {
-        IsActive = false;
+        UpdateIsActiveFromOwnerWindow();
+    }
+
+    private void UpdateIsActiveFromOwnerWindow()
+    {
+        if (!IsInactiveAppearanceEnabled)
+        {
+            IsActive = true;
+            return;
+        }
+
+        IsActive = _ownerWindow?.IsActive ?? true;
     }
 
     private void OnMoreButtonClick(object? sender, RoutedEventArgs e)

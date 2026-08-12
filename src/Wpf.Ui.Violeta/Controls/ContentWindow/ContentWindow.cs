@@ -377,6 +377,23 @@ public partial class ContentWindow : ShellWindow
         set => SetValue(IsTitleVisibleProperty, value);
     }
 
+    public static readonly DependencyProperty IsInactiveAppearanceEnabledProperty =
+        DependencyProperty.Register(
+            nameof(IsInactiveAppearanceEnabled),
+            typeof(bool),
+            typeof(ContentWindow),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// Gets or sets whether the embedded <see cref="TitleBar"/> dims when this window is inactive.
+    /// Default is <c>true</c>.
+    /// </summary>
+    public bool IsInactiveAppearanceEnabled
+    {
+        get => (bool)GetValue(IsInactiveAppearanceEnabledProperty);
+        set => SetValue(IsInactiveAppearanceEnabledProperty, value);
+    }
+
     static ContentWindow()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(ContentWindow), new FrameworkPropertyMetadata(typeof(ContentWindow)));

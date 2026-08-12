@@ -32,6 +32,7 @@
         <Setter Property="InheritIconFromOwner" Value="True" />
         <Setter Property="IsIconVisible" Value="True" />
         <Setter Property="IsTitleVisible" Value="True" />
+        <Setter Property="IsInactiveAppearanceEnabled" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ContentWindow}">
@@ -60,6 +61,7 @@
                                     IsCloseButtonEnabled="{TemplateBinding IsCloseButtonEnabled}"
                                     IsHelpButtonEnabled="{TemplateBinding IsHelpButtonEnabled}"
                                     IsIconVisible="{TemplateBinding IsIconVisible}"
+                                    IsInactiveAppearanceEnabled="{TemplateBinding IsInactiveAppearanceEnabled}"
                                     IsMaximizeButtonEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
                                     IsMinimizeButtonEnabled="{TemplateBinding IsMinimizeButtonEnabled}"
                                     IsMoreButtonEnabled="{TemplateBinding IsMoreButtonEnabled}"
