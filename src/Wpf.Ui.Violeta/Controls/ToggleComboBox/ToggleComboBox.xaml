@@ -200,26 +200,17 @@
                                         Foreground="{TemplateBinding Foreground}"
                                         IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                         Style="{DynamicResource DefaultToggleComboBoxChevronStyle}">
-                                        <Border
-                                            x:Name="PART_ChevronHost"
-                                            Width="14"
-                                            Height="12"
+                                        <ui:SymbolIcon
+                                            x:Name="PART_ChevronIcon"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            ClipToBounds="True"
-                                            SnapsToDevicePixels="True">
-                                            <ui:SymbolIcon
-                                                x:Name="PART_ChevronIcon"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                RenderTransformOrigin="0.5,0.5"
-                                                Symbol="ChevronDown24">
-                                                <ui:SymbolIcon.RenderTransform>
-                                                    <TranslateTransform Y="0" />
-                                                </ui:SymbolIcon.RenderTransform>
-                                            </ui:SymbolIcon>
-                                        </Border>
+                                            FontSize="10"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            Symbol="ChevronDown24">
+                                            <ui:SymbolIcon.RenderTransform>
+                                                <RotateTransform Angle="0" />
+                                            </ui:SymbolIcon.RenderTransform>
+                                        </ui:SymbolIcon>
                                     </ToggleButton>
                                 </Border>
 
@@ -283,6 +274,12 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation
+                                            Storyboard.TargetName="PART_ChevronIcon"
+                                            Storyboard.TargetProperty="(ui:SymbolIcon.RenderTransform).(RotateTransform.Angle)"
+                                            From="0"
+                                            To="180"
+                                            Duration="00:00:00.167" />
+                                        <DoubleAnimation
                                             Storyboard.TargetName="DropDownBorder"
                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
                                             From="-90"
@@ -295,6 +292,18 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_ChevronIcon"
+                                            Storyboard.TargetProperty="(ui:SymbolIcon.RenderTransform).(RotateTransform.Angle)"
+                                            From="180"
+                                            To="0"
+                                            Duration="00:00:00.167" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
 
                         <!--  Unchecked hover  -->

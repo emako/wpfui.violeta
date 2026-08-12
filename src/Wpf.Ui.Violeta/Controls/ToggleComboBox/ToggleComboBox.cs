@@ -6,7 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using Wpf.Ui.Controls;
 using Border = System.Windows.Controls.Border;
 
@@ -19,22 +18,12 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 [TemplatePart(Name = TemplateElementToggle, Type = typeof(Border))]
 [TemplatePart(Name = TemplateElementToggleButton, Type = typeof(ToggleButton))]
-[TemplatePart(Name = ChevronHostPart, Type = typeof(FrameworkElement))]
-[TemplatePart(Name = ChevronIconPart, Type = typeof(UIElement))]
 public class ToggleComboBox : System.Windows.Controls.ComboBox
 {
     private const string TemplateElementToggle = "PART_Toggle";
     private const string TemplateElementToggleButton = "PART_ToggleButton";
-    private const string ChevronHostPart = "PART_ChevronHost";
-    private const string ChevronIconPart = "PART_ChevronIcon";
-
-    private const double PressDepthRatio = 0.18;
-    private const double OvershootRatio = 0.10;
 
     private Border? _chevronBorder;
-    private TranslateTransform? _chevronTranslate;
-    private FrameworkElement? _chevronHost;
-    private bool _playChevronReleaseOnUp;
     private object? _contentBeforeSync;
 
     /// <summary>Gets or sets the control responsible for toggling the drop-down.</summary>
@@ -252,29 +241,10 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
 
     public override void OnApplyTemplate()
     {
-        ReleaseChevronHandlers();
-
         base.OnApplyTemplate();
 
         ChevronToggleButton = GetTemplateChild(TemplateElementToggleButton) as ToggleButton;
         _chevronBorder = GetTemplateChild(TemplateElementToggle) as Border;
-        _chevronHost =
-            GetTemplateChild(ChevronHostPart) as FrameworkElement
-            ?? ChevronToggleButton?.Content as FrameworkElement;
-        _chevronTranslate = null;
-
-        var chevron =
-            GetTemplateChild(ChevronIconPart) as UIElement
-            ?? (_chevronHost as Decorator)?.Child;
-
-        if (chevron is not null)
-        {
-            _chevronTranslate = new TranslateTransform();
-            chevron.RenderTransform = _chevronTranslate;
-            chevron.RenderTransformOrigin = new Point(0.5, 0.5);
-        }
-
-        AttachChevronHandlers();
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
@@ -474,118 +444,6 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
         }
 
         return current;
-    }
-
-    private void AttachChevronHandlers()
-    {
-        if (ChevronToggleButton is null)
-        {
-            return;
-        }
-
-        ChevronToggleButton.PreviewMouseLeftButtonDown += OnChevronPreviewMouseLeftButtonDown;
-        ChevronToggleButton.PreviewMouseLeftButtonUp += OnChevronPreviewMouseLeftButtonUp;
-        ChevronToggleButton.LostMouseCapture += OnChevronLostMouseCapture;
-    }
-
-    private void ReleaseChevronHandlers()
-    {
-        if (ChevronToggleButton is not null)
-        {
-            ChevronToggleButton.PreviewMouseLeftButtonDown -= OnChevronPreviewMouseLeftButtonDown;
-            ChevronToggleButton.PreviewMouseLeftButtonUp -= OnChevronPreviewMouseLeftButtonUp;
-            ChevronToggleButton.LostMouseCapture -= OnChevronLostMouseCapture;
-        }
-
-        _playChevronReleaseOnUp = false;
-        _chevronTranslate = null;
-        _chevronHost = null;
-    }
-
-    private void OnChevronPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-    {
-        // Do not handle ?ComboBox ToggleButton must toggle IsDropDownOpen.
-        if (IsDropDownOpen)
-        {
-            _playChevronReleaseOnUp = false;
-            return;
-        }
-
-        BeginChevronPressAnimation();
-        _playChevronReleaseOnUp = true;
-    }
-
-    private void OnChevronPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-    {
-        if (!_playChevronReleaseOnUp)
-        {
-            return;
-        }
-
-        _playChevronReleaseOnUp = false;
-        BeginChevronReleaseAnimation();
-    }
-
-    private void OnChevronLostMouseCapture(object sender, MouseEventArgs e)
-    {
-        if (_playChevronReleaseOnUp)
-        {
-            _playChevronReleaseOnUp = false;
-            BeginChevronReleaseAnimation();
-        }
-        else if (_chevronTranslate is not null && Math.Abs(_chevronTranslate.Y) > 0.01)
-        {
-            BeginChevronReleaseAnimation();
-        }
-    }
-
-    private double GetPressDepth()
-    {
-        var viewport = _chevronHost?.ActualHeight > 0 ? _chevronHost.ActualHeight : 12.0;
-        return viewport * PressDepthRatio;
-    }
-
-    private double GetOvershoot()
-    {
-        var viewport = _chevronHost?.ActualHeight > 0 ? _chevronHost.ActualHeight : 12.0;
-        return -(viewport * OvershootRatio);
-    }
-
-    private void BeginChevronPressAnimation()
-    {
-        if (_chevronTranslate is null)
-        {
-            return;
-        }
-
-        var animation = new DoubleAnimationUsingKeyFrames { FillBehavior = FillBehavior.HoldEnd };
-        animation.KeyFrames.Add(
-            new SplineDoubleKeyFrame(GetPressDepth(), KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(150)))
-            {
-                KeySpline = new KeySpline(0.167, 0.167, 0.65, 1.0),
-            });
-        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
-    }
-
-    private void BeginChevronReleaseAnimation()
-    {
-        if (_chevronTranslate is null)
-        {
-            return;
-        }
-
-        var animation = new DoubleAnimationUsingKeyFrames();
-        animation.KeyFrames.Add(
-            new SplineDoubleKeyFrame(GetOvershoot(), KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(83)))
-            {
-                KeySpline = new KeySpline(0.55, 0.0, 0.75, 1.0),
-            });
-        animation.KeyFrames.Add(
-            new SplineDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(317)))
-            {
-                KeySpline = new KeySpline(0.35, 0.0, 0.0, 1.0),
-            });
-        _chevronTranslate.BeginAnimation(TranslateTransform.YProperty, animation);
     }
 
     private bool IsOverToggle(Point positionRelativeToThis)
