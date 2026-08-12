@@ -91,6 +91,23 @@ internal partial class TrayIconManager
     /// </summary>
     public static bool MinimizeToTrayOnClose { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the tray icon is twinkling.
+    /// </summary>
+    public static bool IsTwink
+    {
+        get => GetInstance()._iconHost?.IsTwink ?? false;
+        set
+        {
+            TrayIconManager instance = GetInstance();
+            if (instance._iconHost is null)
+                return;
+
+            instance._iconHost.IsTwink = value;
+            instance.SyncTwinkMenuItem();
+        }
+    }
+
     public static void ShowNotification(
         string title,
         string content,
@@ -164,16 +181,20 @@ internal partial class TrayIconManager : ObservableObject
             return;
 
         _iconHost.IsTwink = !_iconHost.IsTwink;
+        SyncTwinkMenuItem();
+    }
 
-        if (_iconHost.Menu is not null)
+    private void SyncTwinkMenuItem()
+    {
+        if (_iconHost?.Menu is null)
+            return;
+
+        foreach (ITrayMenuItemBase item in _iconHost.Menu)
         {
-            foreach (ITrayMenuItemBase item in _iconHost.Menu)
+            if (item is TrayMenuItem { Header: "Twink" } twinkItem)
             {
-                if (item is TrayMenuItem { Header: "Twink" } twinkItem)
-                {
-                    twinkItem.IsChecked = _iconHost.IsTwink;
-                    break;
-                }
+                twinkItem.IsChecked = _iconHost.IsTwink;
+                break;
             }
         }
     }

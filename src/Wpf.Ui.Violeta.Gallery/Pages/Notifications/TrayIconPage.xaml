@@ -57,6 +57,13 @@
                             Click="ShowFromTray_Click"
                             Content="{I18N {x:Static lang:LangKeys.Sample_ca624f0706}}" />
                     </WrapPanel>
+                    <ui:ToggleSwitch
+                        x:Name="TwinkToggle"
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Left"
+                        Content="Twink"
+                        Checked="TwinkToggle_OnChanged"
+                        Unchecked="TwinkToggle_OnChanged" />
                 </StackPanel>
             </Border>
 

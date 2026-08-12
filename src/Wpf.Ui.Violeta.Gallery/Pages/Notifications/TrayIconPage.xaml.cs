@@ -7,9 +7,38 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Notifications;
 
 public partial class TrayIconPage : Wpf.Ui.Violeta.Controls.Page
 {
+    private bool _syncingTwink;
+
     public TrayIconPage()
     {
         InitializeComponent();
+        Loaded += OnLoaded;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        SyncTwinkToggle();
+    }
+
+    private void SyncTwinkToggle()
+    {
+        _syncingTwink = true;
+        try
+        {
+            TwinkToggle.IsChecked = TrayIconManager.IsTwink;
+        }
+        finally
+        {
+            _syncingTwink = false;
+        }
+    }
+
+    private void TwinkToggle_OnChanged(object sender, RoutedEventArgs e)
+    {
+        if (!IsLoaded || _syncingTwink)
+            return;
+
+        TrayIconManager.IsTwink = TwinkToggle.IsChecked == true;
     }
 
     private void ShowTrayBalloon_Click(object sender, RoutedEventArgs e)
