@@ -22,9 +22,33 @@ namespace Wpf.Ui.Controls;
 /// <see cref="MenuItem"/> independently of the menu text. Set them on the menu root to affect
 /// all items, or on a single <see cref="MenuItem"/> for that item (and its submenu).
 /// An explicit <c>FontSize</c> / <c>FontFamily</c> on the icon element itself always wins.
+/// <para />
+/// When <see cref="MenuItem.Icon"/> is assigned a <see cref="string"/> (e.g. XAML
+/// <c>Icon="&amp;#xEA66;"</c>), it is automatically converted to a
+/// <see cref="FontIcon"/> whose <see cref="FontIcon.Glyph"/> is that string.
+/// <see cref="FontIcon.FontFamily"/> defaults to the <c>SymbolThemeFontFamily</c> resource
+/// unless <see cref="IconFontFamilyProperty"/> is set; <see cref="IconFontSizeProperty"/>
+/// supplies the default glyph size when present.
 /// </remarks>
 public static class ControlHelper
 {
+    private const string SymbolThemeFontFamilyKey = "SymbolThemeFontFamily";
+
+    //[ModuleInitializer]
+    internal static void InitializeMenuItemStringIcon()
+    {
+        // XAML Icon="&#xEA66;" on IconElement-typed properties (ui:MenuItem.Icon, …).
+        TypeDescriptor.AddAttributes(
+            typeof(IconElement),
+            new TypeConverterAttribute(typeof(Violeta.Controls.Primitives.IconElementConverterEx)));
+
+        // Runtime string Icon on MenuItem (object DP / code-behind), even without IconFont*.
+        EventManager.RegisterClassHandler(
+            typeof(MenuItem),
+            FrameworkElement.LoadedEvent,
+            new RoutedEventHandler(OnAnyMenuItemLoaded));
+    }
+
     // -- Header --------------------------------------------------------------
 
     /// <summary>
@@ -417,6 +441,7 @@ public static class ControlHelper
             menuItem.SetValue(EffectiveFontFamilyProperty, family);
             menuItem.SetValue(EffectiveFontSizeProperty, size);
             HookContainer(menuItem);
+            TryConvertStringIcon(menuItem);
             ApplyIconAppearance(menuItem.Icon, family, size);
             ApplyToContainer(menuItem, family, size);
             return;
@@ -430,6 +455,27 @@ public static class ControlHelper
             HookContainer(container);
             ApplyToContainer(container, family, size);
         }
+    }
+
+    private static void OnAnyMenuItemLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is not MenuItem menuItem)
+        {
+            return;
+        }
+
+        HookMenuItemIcon(menuItem);
+        TryConvertStringIcon(menuItem);
+
+        // Pull effective icon style from nearest ancestor menu / item when present.
+        var family = (FontFamily?)menuItem.GetValue(EffectiveFontFamilyProperty) ?? GetIconFontFamily(menuItem);
+        var size = (double)menuItem.GetValue(EffectiveFontSizeProperty);
+        if (double.IsNaN(size))
+        {
+            size = GetIconFontSize(menuItem);
+        }
+
+        ApplyIconAppearance(menuItem.Icon, family, size);
     }
 
     private static void HookContainer(ItemsControl container)
@@ -450,11 +496,32 @@ public static class ControlHelper
 
         if (container is MenuItem menuItem)
         {
-            DependencyPropertyDescriptor.FromProperty(MenuItem.IconProperty, typeof(MenuItem))
-                .AddValueChanged(menuItem, OnMenuItemIconChanged);
+            HookMenuItemIcon(menuItem);
             menuItem.SubmenuOpened += OnSubmenuOpened;
         }
     }
+
+    private static void HookMenuItemIcon(MenuItem menuItem)
+    {
+        if ((bool)menuItem.GetValue(IsIconHookedProperty))
+        {
+            return;
+        }
+
+        menuItem.SetValue(IsIconHookedProperty, true);
+        DependencyPropertyDescriptor.FromProperty(MenuItem.IconProperty, typeof(MenuItem))
+            .AddValueChanged(menuItem, OnMenuItemIconChanged);
+    }
+
+    /// <summary>
+    /// Marks a <see cref="MenuItem"/> whose <see cref="MenuItem.IconProperty"/> change hook is attached.
+    /// </summary>
+    private static readonly DependencyProperty IsIconHookedProperty =
+        DependencyProperty.RegisterAttached(
+            "IconAppearance_IsIconHooked",
+            typeof(bool),
+            typeof(ControlHelper),
+            new PropertyMetadata(false));
 
     private static void OnContainerLoaded(object sender, RoutedEventArgs e)
     {
@@ -491,13 +558,44 @@ public static class ControlHelper
 
     private static void OnMenuItemIconChanged(object? sender, EventArgs e)
     {
-        if (sender is MenuItem menuItem)
+        if (sender is not MenuItem menuItem)
         {
-            ApplyIconAppearance(
-                menuItem.Icon,
-                (FontFamily?)menuItem.GetValue(EffectiveFontFamilyProperty),
-                (double)menuItem.GetValue(EffectiveFontSizeProperty));
+            return;
         }
+
+        TryConvertStringIcon(menuItem);
+        ApplyIconAppearance(
+            menuItem.Icon,
+            (FontFamily?)menuItem.GetValue(EffectiveFontFamilyProperty) ?? GetIconFontFamily(menuItem),
+            ResolveEffectiveFontSize(menuItem));
+    }
+
+    private static double ResolveEffectiveFontSize(MenuItem menuItem)
+    {
+        var size = (double)menuItem.GetValue(EffectiveFontSizeProperty);
+        if (!double.IsNaN(size))
+        {
+            return size;
+        }
+
+        return GetIconFontSize(menuItem);
+    }
+
+    /// <summary>
+    /// Turns a string <see cref="MenuItem.Icon"/> into a <see cref="FontIcon"/> (Glyph = string).
+    /// </summary>
+    private static void TryConvertStringIcon(MenuItem menuItem)
+    {
+        // Base DP is object; ui:MenuItem.Icon getter casts to IconElement and throws on string.
+        // Read the raw DP value so runtime / unconverted strings are still handled.
+        var raw = menuItem.GetValue(MenuItem.IconProperty);
+        if (raw is not string glyph || string.IsNullOrEmpty(glyph))
+        {
+            return;
+        }
+
+        var fontIcon = Violeta.Controls.Primitives.IconElementConverterEx.CreateFontIconFromGlyph(glyph);
+        menuItem.SetCurrentValue(MenuItem.IconProperty, fontIcon);
     }
 
     private static void RefreshContainer(ItemsControl container)
@@ -535,6 +633,7 @@ public static class ControlHelper
         menuItem.SetValue(EffectiveFontFamilyProperty, effectiveFont);
         menuItem.SetValue(EffectiveFontSizeProperty, effectiveSize);
         HookContainer(menuItem);
+        TryConvertStringIcon(menuItem);
         ApplyIconAppearance(menuItem.Icon, effectiveFont, effectiveSize);
         ApplyToContainer(menuItem, effectiveFont, effectiveSize);
     }
@@ -563,25 +662,35 @@ public static class ControlHelper
 
         var original = OriginalStyles.GetValue(node, static _ => new OriginalIconStyle());
 
-        // FontFamily: skip when the icon already has a local value (explicit Icon wins).
+        // FontFamily: explicit local value on the icon always wins.
+        // When IconFontFamily is unset, FontIcon without a local family defaults to SymbolThemeFontFamily
+        // (string→FontIcon leaves FontFamily unset on purpose).
         if (font is not null)
         {
-            if (!HasLocalFontFamily(node))
+            if (!HasLocalFontFamily(node) || original.OverrodeFontFamily)
             {
                 SetFontFamily(node, font);
                 original.OverrodeFontFamily = true;
             }
         }
-        else if (original.OverrodeFontFamily)
+        else if (!HasLocalFontFamily(node) || original.OverrodeFontFamily)
         {
-            ClearFontFamily(node);
-            original.OverrodeFontFamily = false;
+            if (node is FontIcon fontIcon)
+            {
+                fontIcon.SetResourceReference(FontIcon.FontFamilyProperty, SymbolThemeFontFamilyKey);
+                original.OverrodeFontFamily = true;
+            }
+            else if (original.OverrodeFontFamily)
+            {
+                ClearFontFamily(node);
+                original.OverrodeFontFamily = false;
+            }
         }
 
         // FontSize: same local-value priority.
         if (!double.IsNaN(fontSize))
         {
-            if (!HasLocalFontSize(node))
+            if (!HasLocalFontSize(node) || original.OverrodeFontSize)
             {
                 if (!original.OverrodeFontSize)
                 {
@@ -625,9 +734,11 @@ public static class ControlHelper
             case FontIcon fontIcon:
                 fontIcon.SetCurrentValue(FontIcon.FontFamilyProperty, font);
                 break;
+
             case TextBlock textBlock:
                 textBlock.SetCurrentValue(TextBlock.FontFamilyProperty, font);
                 break;
+
             case Control control:
                 control.SetCurrentValue(Control.FontFamilyProperty, font);
                 break;
@@ -641,9 +752,11 @@ public static class ControlHelper
             case FontIcon:
                 node.ClearValue(FontIcon.FontFamilyProperty);
                 break;
+
             case TextBlock:
                 node.ClearValue(TextBlock.FontFamilyProperty);
                 break;
+
             case Control:
                 node.ClearValue(Control.FontFamilyProperty);
                 break;
@@ -666,9 +779,11 @@ public static class ControlHelper
             case FontIcon fontIcon:
                 fontIcon.SetCurrentValue(FontIcon.FontSizeProperty, fontSize);
                 break;
+
             case TextBlock textBlock:
                 textBlock.SetCurrentValue(TextBlock.FontSizeProperty, fontSize);
                 break;
+
             case Control control:
                 control.SetCurrentValue(Control.FontSizeProperty, fontSize);
                 break;

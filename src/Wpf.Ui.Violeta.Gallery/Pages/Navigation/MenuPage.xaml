@@ -44,8 +44,9 @@
                             <ui:MenuItem Header="Save As..." InputGestureText="CTRL+SHIFT+S" />
                             <Separator />
                             <ui:MenuItem Header="Recent">
-                                <ui:MenuItem Header="Project A.sln" Icon="{ui:SymbolIcon Document24}" />
-                                <ui:MenuItem Header="Project B.sln" Icon="{ui:SymbolIcon Document24}" />
+                                <!-- string Icon → FontIcon (Glyph), FontFamily=SymbolThemeFontFamily, size from IconFontSize -->
+                                <ui:MenuItem Header="Project A.sln" Icon="&#xE8A5;" />
+                                <ui:MenuItem Header="Project B.sln" Icon="&#xE8A5;" />
                                 <ui:MenuItem Header="More">
                                     <ui:MenuItem Header="Archive 2024" />
                                     <ui:MenuItem Header="Archive 2025" />
@@ -124,8 +125,8 @@
                             Icon="{ui:SymbolIcon ChevronDown24}">
                             <ui:Button.ContextMenu>
                                 <ContextMenu ui:ControlHelper.IconFontSize="20">
-                                    <ui:MenuItem Header="New" Icon="{ui:SymbolIcon Document24}" />
-                                    <ui:MenuItem Header="Open..." Icon="{ui:SymbolIcon FolderOpen24}" />
+                                    <ui:MenuItem Header="New" Icon="&#xE8A5;" />
+                                    <ui:MenuItem Header="Open..." Icon="&#xE838;" />
                                     <ui:MenuItem Header="Save (Icon FontSize=12 wins)">
                                         <ui:MenuItem.Icon>
                                             <ui:SymbolIcon FontSize="12" Symbol="Save24" />
@@ -134,9 +135,9 @@
                                     <ui:MenuItem
                                         ui:ControlHelper.IconFontSize="28"
                                         Header="Share (item = 28)"
-                                        Icon="{ui:SymbolIcon Share24}">
-                                        <ui:MenuItem Header="Copy link" Icon="{ui:SymbolIcon Copy24}" />
-                                        <ui:MenuItem Header="Email" Icon="{ui:SymbolIcon Share24}" />
+                                        Icon="&#xE72D;">
+                                        <ui:MenuItem Header="Copy link" Icon="&#xE8C8;" />
+                                        <ui:MenuItem Header="Email" Icon="&#xE715;" />
                                     </ui:MenuItem>
                                     <Separator />
                                     <ui:MenuItem Header="Exit" />
