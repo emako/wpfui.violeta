@@ -10,7 +10,11 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/ToggleComboBox/ToggleComboBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--  Toolbar ToggleComboBox: transparent / no visible border by default; background and border only on Hover / Pressed / Checked  -->
+    <!--
+        Toolbar ToggleComboBox:
+        - Unchecked: transparent chrome; SubtleFill hover / press (same as ToolBarButtonStyle)
+        - Checked: ToggleButton accent fill + foreground (same as ToolBarToggleButtonStyle)
+    -->
     <Style
         x:Key="SimpleToggleComboBoxStyle"
         BasedOn="{StaticResource DefaultToggleComboBoxStyle}"
@@ -18,7 +22,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="{StaticResource ButtonBorderThemeThickness}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ToggleComboBox}">
@@ -192,7 +196,7 @@
                             </Trigger.ExitActions>
                         </Trigger>
 
-                        <!--  Unchecked hover  -->
+                        <!--  Unchecked hover — SubtleFill (toolbar chrome)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
@@ -200,7 +204,6 @@
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -209,7 +212,6 @@
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                         </MultiTrigger>
 
                         <!--  Unchecked pressed  -->
@@ -220,7 +222,6 @@
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -229,12 +230,11 @@
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                         </MultiTrigger>
 
-                        <!--  Checked  -->
+                        <!--  Checked — accent fill / foreground (same as ToolBarToggleButtonStyle)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
@@ -242,10 +242,11 @@
                                 <Condition Property="IsPrimaryPressed" Value="False" />
                                 <Condition Property="IsEnabled" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -253,27 +254,46 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsPrimaryPressed" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsPrimaryPressed" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ControlFillColorInputActiveBrush}" />
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ControlFillColorInputActiveBrush}" />
-                            <Setter TargetName="PART_Content" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
                         </MultiTrigger>
 
-                        <Trigger Property="IsEnabled" Value="False">
+                        <!--  Disabled  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
                             <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
-                        </Trigger>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IsChecked" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Content" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedDisabled}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedDisabled}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                            <Setter TargetName="PART_ToggleButton" Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
+                        </MultiTrigger>
+
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
                         </Trigger>
