@@ -299,6 +299,7 @@
                         <vio:NavigationViewItem Content="DataGrid" Tag="collections/data-grid" />
                         <vio:NavigationViewItem Content="ListBox" Tag="collections/list-box" />
                         <vio:NavigationViewItem Content="ListView" Tag="collections/list-view" />
+                        <vio:NavigationViewItem Content="GridView" Tag="collections/grid-view" />
                         <vio:NavigationViewItem Content="TreeView" Tag="collections/tree-view" />
                         <vio:NavigationViewItem Content="TreeListView" Tag="collections/tree-list-view" />
                         <vio:NavigationViewItem Content="TreeModelListView" Tag="collections/tree-model-list-view" />

@@ -120,4 +120,18 @@
     <FontFamily x:Key="PivotHeaderItemFontFamily">Segoe UI Variable, Segoe UI</FontFamily>
     <FontFamily x:Key="PivotTitleFontFamily">Segoe UI Variable, Segoe UI</FontFamily>
 
+    <!--  GridView (WinUI-style)  -->
+    <sys:Double x:Key="GridViewItemMinWidth">44</sys:Double>
+    <sys:Double x:Key="GridViewItemMinHeight">44</sys:Double>
+    <sys:Double x:Key="GridViewHeaderItemMinHeight">44</sys:Double>
+    <sys:Double x:Key="GridViewHeaderItemThemeFontSize">20</sys:Double>
+    <sys:Double x:Key="GridViewItemDisabledThemeOpacity">0.3</sys:Double>
+    <sys:Double x:Key="CheckBoxSize">20</sys:Double>
+    <sys:Double x:Key="CheckBoxGlyphSize">13</sys:Double>
+    <sys:String x:Key="CheckBoxCheckedGlyph">&#xE73E;</sys:String>
+    <sys:TimeSpan x:Key="CheckBoxAnimationOffset">00:00:00.250</sys:TimeSpan>
+    <Duration x:Key="CheckBoxAnimationDuration">00:00:00.250</Duration>
+    <sys:Boolean x:Key="UseSystemFocusVisuals">True</sys:Boolean>
+    <sys:Boolean x:Key="AutoHideScrollBars">False</sys:Boolean>
+
 </ResourceDictionary>

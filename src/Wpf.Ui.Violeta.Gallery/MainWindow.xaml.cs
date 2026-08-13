@@ -154,6 +154,7 @@ public partial class MainWindow : ShellWindow
         ["collections/data-grid"] = static () => new DataGridPage(),
         ["collections/list-box"] = static () => new ListBoxPage(),
         ["collections/list-view"] = static () => new ListViewPage(),
+        ["collections/grid-view"] = static () => new GridViewPage(),
         ["collections/tree-view"] = static () => new TreeViewPage(),
         ["collections/tree-list-view"] = static () => new TreeListViewPage(),
         ["collections/tree-model-list-view"] = static () => new TreeModelListViewPage(),
