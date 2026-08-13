@@ -18,7 +18,7 @@
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Kind names mirror Microsoft.UI.Xaml.Controls.AnimatedVisuals (*VisualSource). Press / expand to preview."
+                Text="Kind mirrors AnimatedVisuals. Override icons via IconFontFamily / IconFontSize / IconGlyph and SecondaryIcon* (two-glyph kinds)."
                 TextWrapping="Wrap" />
 
             <Border
@@ -87,11 +87,13 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedChevronDownSmallVisualSource — clipped translate bounce (DropDownButton)."
+                        Text="AnimatedChevronDownSmallVisualSource — clipped translate (DropDownButton). Trailing chevron after Content."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="ChevronDownSmall" />
-                        <vio:AnimatedSymbolButton Content="More" Kind="ChevronDownSmall" />
+                        <vio:AnimatedSymbolButton
+                            Content="More"
+                            Kind="ChevronDownSmall" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -139,7 +141,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedGlobalNavigationButtonVisualSource — horizontal squash (NavigationView hamburger)."
+                        Text="AnimatedGlobalNavigationButtonVisualSource — Segoe GlobalNavButton E700 (not Fluent F4E1)."
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="GlobalNavigationButton" />

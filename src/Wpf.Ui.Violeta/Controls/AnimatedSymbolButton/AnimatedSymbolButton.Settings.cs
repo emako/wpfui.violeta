@@ -9,12 +9,14 @@ namespace Wpf.Ui.Violeta.Controls;
 public partial class AnimatedSymbolButton
 {
     /// <summary>
-    /// <c>AnimatedSettingsVisualSource</c> — wind back on press, full turn on release
-    /// (NavigationView settings item).
+    /// <c>AnimatedSettingsVisualSource</c> — 1:1 port of
+    /// <c>NavigationView</c> settings gear rotation
+    /// (press → -22.5°, release → 360° then snap to 0).
     /// </summary>
     internal sealed class SettingsBehavior : AnimatedSymbolBehavior
     {
         private Storyboard? _storyboard;
+        private FrameworkElement? _iconElement;
 
         public override string DefaultGlyph => "\uE713";
 
@@ -27,9 +29,15 @@ public partial class AnimatedSymbolButton
                 return;
             }
 
-            EnsureFreshRotateTransform();
-            Owner.AddHandler(PreviewMouseLeftButtonDownEvent, (MouseButtonEventHandler)OnPreviewMouseDown, true);
-            Owner.AddHandler(PreviewMouseLeftButtonUpEvent, (MouseButtonEventHandler)OnPreviewMouseUp, true);
+            // Prefer the glyph TextBlock (same role as NavigationViewItem.Icon).
+            _iconElement =
+                Owner.GetPart(DefaultGlyphPart) as FrameworkElement
+                ?? AnimatedVisual;
+
+            EnsureIconRotateTransform();
+
+            Owner.PreviewMouseLeftButtonDown += OnPreviewMouseLeftButtonDown;
+            Owner.PreviewMouseLeftButtonUp += OnPreviewMouseLeftButtonUp;
         }
 
         protected override void OnDetaching()
@@ -39,61 +47,83 @@ public partial class AnimatedSymbolButton
                 return;
             }
 
-            Owner.RemoveHandler(PreviewMouseLeftButtonDownEvent, (MouseButtonEventHandler)OnPreviewMouseDown);
-            Owner.RemoveHandler(PreviewMouseLeftButtonUpEvent, (MouseButtonEventHandler)OnPreviewMouseUp);
-            _storyboard?.Stop();
+            Owner.PreviewMouseLeftButtonDown -= OnPreviewMouseLeftButtonDown;
+            Owner.PreviewMouseLeftButtonUp -= OnPreviewMouseLeftButtonUp;
+
+            _storyboard?.Stop(Owner);
+            _storyboard?.Remove(Owner);
             _storyboard = null;
-            if (TryGetRotate() is { } rotate)
+
+            if (_iconElement?.RenderTransform is RotateTransform rotate)
             {
                 rotate.BeginAnimation(RotateTransform.AngleProperty, null);
                 rotate.Angle = 0;
             }
+
+            _iconElement = null;
         }
 
-        private void OnPreviewMouseDown(object sender, MouseButtonEventArgs e) =>
-            BeginRotation(toAngle: -22.5, durationSeconds: 0.1, EasingMode.EaseIn, resetAfter: false);
-
-        private void OnPreviewMouseUp(object sender, MouseButtonEventArgs e) =>
-            BeginRotation(toAngle: 360, durationSeconds: 0.5, EasingMode.EaseOut, resetAfter: true);
-
-        private void EnsureFreshRotateTransform()
+        // NavigationView.OnSettingsItemPreviewMouseLeftButtonDown
+        private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (AnimatedVisual is null)
+            // Match settings gear: wind back to -22.5° in 0.1s (CircleEase EaseIn)
+            BeginSettingsIconRotation(toAngle: -22.5, durationSeconds: 0.1, easingMode: EasingMode.EaseIn, resetAfter: false);
+        }
+
+        // NavigationView.OnSettingsItemPreviewMouseLeftButtonUp
+        private void OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            // Match settings gear: spin to 360° in 0.5s (CircleEase EaseOut), then snap angle back to 0
+            BeginSettingsIconRotation(toAngle: 360, durationSeconds: 0.5, easingMode: EasingMode.EaseOut, resetAfter: true);
+        }
+
+        // NavigationView.TryGetSettingsIconElement
+        private FrameworkElement? TryGetSettingsIconElement()
+        {
+            if (_iconElement is null)
+            {
+                _iconElement =
+                    Owner?.GetPart(DefaultGlyphPart) as FrameworkElement
+                    ?? AnimatedVisual;
+            }
+
+            return EnsureIconRotateTransform();
+        }
+
+        private FrameworkElement? EnsureIconRotateTransform()
+        {
+            if (_iconElement is null)
+            {
+                return null;
+            }
+
+            if (!(_iconElement.RenderTransform is RotateTransform))
+            {
+                _iconElement.RenderTransformOrigin = new Point(0.5, 0.5);
+                _iconElement.RenderTransform = new RotateTransform { Angle = 0 };
+            }
+
+            return _iconElement;
+        }
+
+        // NavigationView.BeginSettingsIconRotation — line-for-line
+        private void BeginSettingsIconRotation(
+            double toAngle,
+            double durationSeconds,
+            EasingMode easingMode,
+            bool resetAfter)
+        {
+            var iconElement = TryGetSettingsIconElement();
+            if (iconElement is null || Owner is null)
             {
                 return;
             }
 
-            AnimatedVisual.RenderTransform = new TransformGroup
-            {
-                Children =
-                {
-                    new ScaleTransform(1, 1),
-                    new TranslateTransform(),
-                    new RotateTransform(),
-                },
-            };
-        }
+            _storyboard?.Stop(Owner);
+            _storyboard?.Remove(Owner);
 
-        private RotateTransform? TryGetRotate()
-        {
-            if (AnimatedVisual?.RenderTransform is TransformGroup group
-                && group.Children.Count > 2
-                && group.Children[2] is RotateTransform rotate)
-            {
-                return rotate;
-            }
-
-            return null;
-        }
-
-        private void BeginRotation(double toAngle, double durationSeconds, EasingMode easingMode, bool resetAfter)
-        {
-            if (TryGetRotate() is not { } rotate)
-            {
-                return;
-            }
-
-            _storyboard?.Stop();
+            // Animate via the icon element path (same idea as settings gear).
+            var anglePath = new PropertyPath("(UIElement.RenderTransform).(RotateTransform.Angle)");
 
             var animation = new DoubleAnimation
             {
@@ -104,8 +134,8 @@ public partial class AnimatedSymbolButton
             };
 
             var storyboard = new Storyboard();
-            Storyboard.SetTarget(animation, rotate);
-            Storyboard.SetTargetProperty(animation, new PropertyPath(RotateTransform.AngleProperty));
+            Storyboard.SetTarget(animation, iconElement);
+            Storyboard.SetTargetProperty(animation, anglePath);
             storyboard.Children.Add(animation);
 
             if (resetAfter)
@@ -115,14 +145,16 @@ public partial class AnimatedSymbolButton
                     To = 0,
                     BeginTime = TimeSpan.FromSeconds(durationSeconds),
                     Duration = TimeSpan.Zero,
+                    FillBehavior = FillBehavior.HoldEnd,
                 };
-                Storyboard.SetTarget(reset, rotate);
-                Storyboard.SetTargetProperty(reset, new PropertyPath(RotateTransform.AngleProperty));
+                Storyboard.SetTarget(reset, iconElement);
+                Storyboard.SetTargetProperty(reset, anglePath);
                 storyboard.Children.Add(reset);
             }
 
             _storyboard = storyboard;
-            storyboard.Begin();
+            // Controllable clock so Stop/Remove on the next press/release works (Button captures mouse).
+            storyboard.Begin(Owner, isControllable: true);
         }
     }
 }

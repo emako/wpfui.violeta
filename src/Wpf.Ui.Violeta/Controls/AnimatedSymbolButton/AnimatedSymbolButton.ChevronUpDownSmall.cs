@@ -19,16 +19,7 @@ public partial class AnimatedSymbolButton
 
         protected override void OnAttached()
         {
-            AnimatedVisual?.RenderTransform = new TransformGroup
-            {
-                Children =
-                {
-                    new ScaleTransform(1, 1),
-                    new TranslateTransform(),
-                    new RotateTransform(),
-                },
-            };
-
+            EnsureRotateTransform();
             ApplyExpanded(Owner?.IsExpanded == true, animate: false);
         }
 
@@ -37,21 +28,30 @@ public partial class AnimatedSymbolButton
             ApplyExpanded(isExpanded, animate: true);
         }
 
-        private RotateTransform? TryGetRotate()
+        private void EnsureRotateTransform()
         {
-            if (AnimatedVisual?.RenderTransform is TransformGroup group
-                && group.Children.Count > 2
-                && group.Children[2] is RotateTransform rotate)
+            if (AnimatedVisual is null)
             {
-                return rotate;
+                return;
             }
 
-            return null;
+            AnimatedVisual.RenderTransformOrigin = RenderTransformOrigin;
+            if (!(AnimatedVisual.RenderTransform is RotateTransform))
+            {
+                AnimatedVisual.RenderTransform = new RotateTransform { Angle = 0 };
+            }
+        }
+
+        private RotateTransform? TryGetRotate()
+        {
+            return AnimatedVisual?.RenderTransform as RotateTransform;
         }
 
         private void ApplyExpanded(bool isExpanded, bool animate)
         {
-            if (TryGetRotate() is not { } rotate)
+            EnsureRotateTransform();
+            var rotate = TryGetRotate();
+            if (rotate is null)
             {
                 return;
             }

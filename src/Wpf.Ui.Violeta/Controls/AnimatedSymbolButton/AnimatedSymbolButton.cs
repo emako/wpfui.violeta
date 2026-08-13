@@ -1,31 +1,26 @@
 using System;
-using System.ComponentModel;
 using System.Windows;
+using System.Windows.Media;
 using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// A button that plays a WinUI AnimatedVisuals–aligned symbol animation selected by
-/// <see cref="Kind"/>. Layout matches <see cref="CopyButton"/> (icon host + optional Content).
+/// <see cref="Kind"/>. Layout matches <see cref="CopyButton"/> (symbol host + optional Content).
 /// </summary>
 /// <remarks>
-/// Kind names follow <c>Microsoft.UI.Xaml.Controls.AnimatedVisuals</c>
-/// (<see cref="AnimatedSymbolKind"/>). Per-kind motion lives in
-/// <c>AnimatedSymbolButton.&lt;Kind&gt;.cs</c> / <c>.xaml</c> partials.
+/// Primary / secondary icon appearance:
+/// <see cref="IconFontFamily"/>, <see cref="IconFontSize"/>, <see cref="IconGlyph"/> and
+/// <see cref="SecondaryIconFontFamily"/>, <see cref="SecondaryIconFontSize"/>, <see cref="SecondaryIconGlyph"/>
+/// (secondary is used by two-glyph kinds such as <see cref="AnimatedSymbolKind.CopyToClipboard"/>).
 /// </remarks>
-/// <example>
-/// <code lang="xml">
-/// &lt;vio:AnimatedSymbolButton Kind="Back" /&gt;
-/// &lt;vio:AnimatedSymbolButton Kind="Settings" Content="Settings" /&gt;
-/// &lt;vio:AnimatedSymbolButton Kind="CopyToClipboard" TextToCopy="payload" /&gt;
-/// </code>
-/// </example>
 [TemplatePart(Name = RootGridPart, Type = typeof(FrameworkElement))]
 [TemplatePart(Name = ClipHostPart, Type = typeof(FrameworkElement))]
 [TemplatePart(Name = AnimatedVisualPart, Type = typeof(FrameworkElement))]
 [TemplatePart(Name = SuccessGlyphPart, Type = typeof(FrameworkElement))]
 [TemplatePart(Name = DefaultGlyphPart, Type = typeof(FrameworkElement))]
+[TemplatePart(Name = IconHostPart, Type = typeof(FrameworkElement))]
 public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
 {
     internal const string RootGridPart = "PART_RootGrid";
@@ -33,11 +28,11 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
     internal const string AnimatedVisualPart = "PART_AnimatedVisual";
     internal const string SuccessGlyphPart = "PART_SuccessGlyph";
     internal const string DefaultGlyphPart = "PART_DefaultGlyph";
+    internal const string IconHostPart = "PART_IconHost";
 
     private AnimatedSymbolBehavior? _behavior;
-    private bool _iconAppearanceHooked;
 
-    #region Dependency properties
+    #region Kind / expand
 
     public static readonly DependencyProperty KindProperty = DependencyProperty.Register(
         nameof(Kind),
@@ -45,9 +40,6 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         typeof(AnimatedSymbolButton),
         new PropertyMetadata(AnimatedSymbolKind.Back, OnKindChanged));
 
-    /// <summary>
-    /// Gets or sets which AnimatedVisuals-aligned animation to play.
-    /// </summary>
     public AnimatedSymbolKind Kind
     {
         get => (AnimatedSymbolKind)GetValue(KindProperty);
@@ -63,10 +55,6 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
             OnIsExpandedChanged));
 
-    /// <summary>
-    /// Gets or sets the expanded state used by <see cref="AnimatedSymbolKind.ChevronUpDownSmall"/>
-    /// (0° ↔ 180°). Other kinds ignore this property.
-    /// </summary>
     public bool IsExpanded
     {
         get => (bool)GetValue(IsExpandedProperty);
@@ -79,10 +67,6 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         typeof(AnimatedSymbolButton),
         new PropertyMetadata(true));
 
-    /// <summary>
-    /// Gets or sets whether a click toggles <see cref="IsExpanded"/> when
-    /// <see cref="Kind"/> is <see cref="AnimatedSymbolKind.ChevronUpDownSmall"/>.
-    /// </summary>
     public bool ToggleExpandedOnClick
     {
         get => (bool)GetValue(ToggleExpandedOnClickProperty);
@@ -95,59 +79,190 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         typeof(AnimatedSymbolButton),
         new PropertyMetadata(null));
 
-    /// <summary>
-    /// Gets or sets clipboard text for <see cref="AnimatedSymbolKind.CopyToClipboard"/>.
-    /// </summary>
     public string? TextToCopy
     {
         get => (string?)GetValue(TextToCopyProperty);
         set => SetValue(TextToCopyProperty, value);
     }
 
-    public static readonly DependencyProperty SuccessGlyphProperty = DependencyProperty.Register(
-        nameof(SuccessGlyph),
-        typeof(string),
-        typeof(AnimatedSymbolButton),
-        new PropertyMetadata("\uE73E"));
+    #endregion
 
-    /// <summary>
-    /// Gets or sets the Accept glyph shown by <see cref="AnimatedSymbolKind.CopyToClipboard"/>.
-    /// Defaults to <c>E73E</c>.
-    /// </summary>
-    public string SuccessGlyph
+    #region Primary icon (FontFamily / FontSize / Glyph)
+
+    public static readonly DependencyProperty IconFontFamilyProperty = DependencyProperty.Register(
+        nameof(IconFontFamily),
+        typeof(FontFamily),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(null, OnPrimaryIconChanged));
+
+    /// <summary>Primary symbol font. Null → Kind default (<c>SymbolThemeFontFamily</c>).</summary>
+    public FontFamily? IconFontFamily
     {
-        get => (string)GetValue(SuccessGlyphProperty);
-        set => SetValue(SuccessGlyphProperty, value);
+        get => (FontFamily?)GetValue(IconFontFamilyProperty);
+        set => SetValue(IconFontFamilyProperty, value);
     }
 
-    public static readonly DependencyProperty SymbolGlyphProperty = DependencyProperty.Register(
-        nameof(SymbolGlyph),
-        typeof(string),
+    public static readonly DependencyProperty IconFontSizeProperty = DependencyProperty.Register(
+        nameof(IconFontSize),
+        typeof(double),
         typeof(AnimatedSymbolButton),
-        new PropertyMetadata(null, OnSymbolGlyphChanged));
+        new PropertyMetadata(double.NaN, OnPrimaryIconChanged));
 
-    /// <summary>
-    /// Gets or sets an optional override for the built-in Segoe Fluent Icons glyph.
-    /// When null, the glyph comes from <see cref="Kind"/>.
-    /// </summary>
-    public string? SymbolGlyph
+    /// <summary>Primary symbol size. <see cref="double.NaN"/> → 16.</summary>
+    public double IconFontSize
     {
-        get => (string?)GetValue(SymbolGlyphProperty);
-        set => SetValue(SymbolGlyphProperty, value);
+        get => (double)GetValue(IconFontSizeProperty);
+        set => SetValue(IconFontSizeProperty, value);
     }
 
-    private static readonly DependencyPropertyKey ResolvedSymbolGlyphPropertyKey =
+    public static readonly DependencyProperty IconGlyphProperty = DependencyProperty.Register(
+        nameof(IconGlyph),
+        typeof(string),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(null, OnPrimaryIconChanged));
+
+    /// <summary>Primary glyph override. Null → Kind default.</summary>
+    public string? IconGlyph
+    {
+        get => (string?)GetValue(IconGlyphProperty);
+        set => SetValue(IconGlyphProperty, value);
+    }
+
+    private static readonly DependencyPropertyKey ResolvedIconFontFamilyPropertyKey =
         DependencyProperty.RegisterReadOnly(
-            nameof(ResolvedSymbolGlyph),
+            nameof(ResolvedIconFontFamily),
+            typeof(FontFamily),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata(null));
+
+    public static readonly DependencyProperty ResolvedIconFontFamilyProperty =
+        ResolvedIconFontFamilyPropertyKey.DependencyProperty;
+
+    public FontFamily? ResolvedIconFontFamily => (FontFamily?)GetValue(ResolvedIconFontFamilyProperty);
+
+    private static readonly DependencyPropertyKey ResolvedIconFontSizePropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ResolvedIconFontSize),
+            typeof(double),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata(16.0));
+
+    public static readonly DependencyProperty ResolvedIconFontSizeProperty =
+        ResolvedIconFontSizePropertyKey.DependencyProperty;
+
+    public double ResolvedIconFontSize => (double)GetValue(ResolvedIconFontSizeProperty);
+
+    private static readonly DependencyPropertyKey ResolvedIconGlyphPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ResolvedIconGlyph),
             typeof(string),
             typeof(AnimatedSymbolButton),
             new PropertyMetadata("\uE72B"));
 
-    public static readonly DependencyProperty ResolvedSymbolGlyphProperty =
-        ResolvedSymbolGlyphPropertyKey.DependencyProperty;
+    public static readonly DependencyProperty ResolvedIconGlyphProperty =
+        ResolvedIconGlyphPropertyKey.DependencyProperty;
 
-    /// <summary>Gets the glyph actually shown when <see cref="Icon"/> is unset.</summary>
-    public string ResolvedSymbolGlyph => (string)GetValue(ResolvedSymbolGlyphProperty);
+    public string ResolvedIconGlyph => (string)GetValue(ResolvedIconGlyphProperty);
+
+    #endregion
+
+    #region Secondary icon (two-glyph kinds, e.g. CopyToClipboard)
+
+    public static readonly DependencyProperty SecondaryIconFontFamilyProperty = DependencyProperty.Register(
+        nameof(SecondaryIconFontFamily),
+        typeof(FontFamily),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(null, OnSecondaryIconChanged));
+
+    public FontFamily? SecondaryIconFontFamily
+    {
+        get => (FontFamily?)GetValue(SecondaryIconFontFamilyProperty);
+        set => SetValue(SecondaryIconFontFamilyProperty, value);
+    }
+
+    public static readonly DependencyProperty SecondaryIconFontSizeProperty = DependencyProperty.Register(
+        nameof(SecondaryIconFontSize),
+        typeof(double),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(double.NaN, OnSecondaryIconChanged));
+
+    public double SecondaryIconFontSize
+    {
+        get => (double)GetValue(SecondaryIconFontSizeProperty);
+        set => SetValue(SecondaryIconFontSizeProperty, value);
+    }
+
+    public static readonly DependencyProperty SecondaryIconGlyphProperty = DependencyProperty.Register(
+        nameof(SecondaryIconGlyph),
+        typeof(string),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(null, OnSecondaryIconChanged));
+
+    /// <summary>
+    /// Secondary glyph (e.g. Accept for <see cref="AnimatedSymbolKind.CopyToClipboard"/>).
+    /// Null → Kind default.
+    /// </summary>
+    public string? SecondaryIconGlyph
+    {
+        get => (string?)GetValue(SecondaryIconGlyphProperty);
+        set => SetValue(SecondaryIconGlyphProperty, value);
+    }
+
+    private static readonly DependencyPropertyKey ResolvedSecondaryIconFontFamilyPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ResolvedSecondaryIconFontFamily),
+            typeof(FontFamily),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata(null));
+
+    public static readonly DependencyProperty ResolvedSecondaryIconFontFamilyProperty =
+        ResolvedSecondaryIconFontFamilyPropertyKey.DependencyProperty;
+
+    public FontFamily? ResolvedSecondaryIconFontFamily =>
+        (FontFamily?)GetValue(ResolvedSecondaryIconFontFamilyProperty);
+
+    private static readonly DependencyPropertyKey ResolvedSecondaryIconFontSizePropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ResolvedSecondaryIconFontSize),
+            typeof(double),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata(16.0));
+
+    public static readonly DependencyProperty ResolvedSecondaryIconFontSizeProperty =
+        ResolvedSecondaryIconFontSizePropertyKey.DependencyProperty;
+
+    public double ResolvedSecondaryIconFontSize => (double)GetValue(ResolvedSecondaryIconFontSizeProperty);
+
+    private static readonly DependencyPropertyKey ResolvedSecondaryIconGlyphPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(ResolvedSecondaryIconGlyph),
+            typeof(string),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata("\uE73E"));
+
+    public static readonly DependencyProperty ResolvedSecondaryIconGlyphProperty =
+        ResolvedSecondaryIconGlyphPropertyKey.DependencyProperty;
+
+    public string ResolvedSecondaryIconGlyph => (string)GetValue(ResolvedSecondaryIconGlyphProperty);
+
+    #endregion
+
+    #region Layout
+
+    private static readonly DependencyPropertyKey IsSymbolTrailingPropertyKey =
+        DependencyProperty.RegisterReadOnly(
+            nameof(IsSymbolTrailing),
+            typeof(bool),
+            typeof(AnimatedSymbolButton),
+            new PropertyMetadata(false));
+
+    public static readonly DependencyProperty IsSymbolTrailingProperty =
+        IsSymbolTrailingPropertyKey.DependencyProperty;
+
+    /// <summary>
+    /// True for chevron kinds — symbol is placed after Content (DropDownButton / ComboBox layout).
+    /// </summary>
+    public bool IsSymbolTrailing => (bool)GetValue(IsSymbolTrailingProperty);
 
     #endregion
 
@@ -156,10 +271,6 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(AnimatedSymbolButton),
             new FrameworkPropertyMetadata(typeof(AnimatedSymbolButton)));
-
-        IconProperty.OverrideMetadata(
-            typeof(AnimatedSymbolButton),
-            new FrameworkPropertyMetadata(null, OnIconChanged));
     }
 
     public AnimatedSymbolButton()
@@ -171,11 +282,9 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
-        HookIconAppearanceProperties();
-        SyncIconAppearance();
         EnsureBehavior();
         _behavior?.OnTemplateApplied();
-        UpdateResolvedGlyph();
+        UpdateResolvedIconAppearance();
     }
 
     /// <inheritdoc />
@@ -209,19 +318,23 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
 
     private static void OnIsExpandedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        var button = (AnimatedSymbolButton)d;
-        button._behavior?.NotifyExpandedChanged((bool)e.NewValue);
+        ((AnimatedSymbolButton)d)._behavior?.NotifyExpandedChanged((bool)e.NewValue);
     }
 
-    private static void OnSymbolGlyphChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnPrimaryIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        ((AnimatedSymbolButton)d).UpdateResolvedGlyph();
+        ((AnimatedSymbolButton)d).UpdateResolvedIconAppearance();
+    }
+
+    private static void OnSecondaryIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((AnimatedSymbolButton)d).UpdateResolvedIconAppearance();
     }
 
     private void OnKindChanged()
     {
         EnsureBehavior(forceRecreate: true);
-        UpdateResolvedGlyph();
+        UpdateResolvedIconAppearance();
     }
 
     private void EnsureBehavior(bool forceRecreate = false)
@@ -236,78 +349,58 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         _behavior?.Attach(this);
     }
 
-    private void UpdateResolvedGlyph()
+    private void UpdateResolvedIconAppearance()
     {
-        var glyph = !string.IsNullOrEmpty(SymbolGlyph)
-            ? SymbolGlyph!
-            : _behavior?.DefaultGlyph ?? "\uE72B";
-        SetValue(ResolvedSymbolGlyphPropertyKey, glyph);
+        var defaults = AnimatedSymbolDefaults.For(Kind);
+
+        var primaryFamily = IconFontFamily
+            ?? TryFindResource("SymbolThemeFontFamily") as FontFamily
+            ?? defaults.FontFamily;
+        var primarySize = !double.IsNaN(IconFontSize) ? IconFontSize : defaults.FontSize;
+        var primaryGlyph = !string.IsNullOrEmpty(IconGlyph) ? IconGlyph! : defaults.Glyph;
+
+        SetValue(ResolvedIconFontFamilyPropertyKey, primaryFamily);
+        SetValue(ResolvedIconFontSizePropertyKey, primarySize);
+        SetValue(ResolvedIconGlyphPropertyKey, primaryGlyph);
+
+        var secondaryFamily = SecondaryIconFontFamily ?? primaryFamily;
+        var secondarySize = !double.IsNaN(SecondaryIconFontSize) ? SecondaryIconFontSize : primarySize;
+        var secondaryGlyph = !string.IsNullOrEmpty(SecondaryIconGlyph)
+            ? SecondaryIconGlyph!
+            : defaults.SecondaryGlyph;
+
+        SetValue(ResolvedSecondaryIconFontFamilyPropertyKey, secondaryFamily);
+        SetValue(ResolvedSecondaryIconFontSizePropertyKey, secondarySize);
+        SetValue(ResolvedSecondaryIconGlyphPropertyKey, secondaryGlyph);
+
+        var trailing = Kind is AnimatedSymbolKind.ChevronDownSmall or AnimatedSymbolKind.ChevronUpDownSmall;
+        SetValue(IsSymbolTrailingPropertyKey, trailing);
     }
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        HookIconAppearanceProperties();
-        SyncIconAppearance();
         EnsureBehavior();
-        UpdateResolvedGlyph();
+        UpdateResolvedIconAppearance();
     }
+}
 
-    private void HookIconAppearanceProperties()
-    {
-        if (_iconAppearanceHooked)
+/// <summary>Per-<see cref="AnimatedSymbolKind"/> default glyph / size (Segoe Fluent Icons).</summary>
+internal readonly record struct AnimatedSymbolDefaults(
+    string Glyph,
+    double FontSize,
+    string SecondaryGlyph,
+    FontFamily? FontFamily = null)
+{
+    public static AnimatedSymbolDefaults For(AnimatedSymbolKind kind) =>
+        kind switch
         {
-            return;
-        }
-
-        _iconAppearanceHooked = true;
-        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconFontFamilyProperty, typeof(AnimatedSymbolButton))
-            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
-        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconFontSizeProperty, typeof(AnimatedSymbolButton))
-            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
-        DependencyPropertyDescriptor.FromProperty(ControlHelper.IconWidthProperty, typeof(AnimatedSymbolButton))
-            .AddValueChanged(this, OnIconAppearanceAttachedPropertyChanged);
-    }
-
-    private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        ((AnimatedSymbolButton)d).SyncIconAppearance();
-    }
-
-    private void OnIconAppearanceAttachedPropertyChanged(object? sender, EventArgs e) => SyncIconAppearance();
-
-    private void SyncIconAppearance()
-    {
-        if (Icon is not FontIcon fontIcon)
-        {
-            return;
-        }
-
-        var family = ControlHelper.GetIconFontFamily(this);
-        if (family is not null
-            && fontIcon.ReadLocalValue(FontIcon.FontFamilyProperty) == DependencyProperty.UnsetValue)
-        {
-            fontIcon.SetCurrentValue(FontIcon.FontFamilyProperty, family);
-        }
-
-        var size = ControlHelper.GetIconFontSize(this);
-        if (!double.IsNaN(size)
-            && fontIcon.ReadLocalValue(FontIcon.FontSizeProperty) == DependencyProperty.UnsetValue)
-        {
-            fontIcon.SetCurrentValue(FontIcon.FontSizeProperty, size);
-        }
-
-        var width = ControlHelper.GetIconWidth(this);
-        if (!double.IsNaN(width)
-            && fontIcon.ReadLocalValue(FrameworkElement.WidthProperty) == DependencyProperty.UnsetValue)
-        {
-            fontIcon.SetCurrentValue(FrameworkElement.WidthProperty, width);
-            if (fontIcon.ReadLocalValue(FrameworkElement.HorizontalAlignmentProperty)
-                == DependencyProperty.UnsetValue)
-            {
-                fontIcon.SetCurrentValue(
-                    FrameworkElement.HorizontalAlignmentProperty,
-                    HorizontalAlignment.Center);
-            }
-        }
-    }
+            // Segoe Fluent Icons: GlobalNavButton (not Fluent System Icons F4E1 / LineHorizontal3)
+            AnimatedSymbolKind.GlobalNavigationButton => new("\uE700", 16, "\uE700"),
+            AnimatedSymbolKind.Settings => new("\uE713", 16, "\uE713"),
+            AnimatedSymbolKind.ChevronDownSmall => new("\uE70D", 10, "\uE70D"),
+            AnimatedSymbolKind.ChevronUpDownSmall => new("\uE70D", 10, "\uE70D"),
+            AnimatedSymbolKind.CopyToClipboard => new("\uE8C8", 16, "\uE73E"),
+            AnimatedSymbolKind.Back => new("\uE72B", 16, "\uE72B"),
+            _ => new("\uE72B", 16, "\uE72B"),
+        };
 }

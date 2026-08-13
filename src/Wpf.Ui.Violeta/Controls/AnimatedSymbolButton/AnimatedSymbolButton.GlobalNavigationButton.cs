@@ -13,7 +13,7 @@ public partial class AnimatedSymbolButton
     /// </summary>
     internal sealed class GlobalNavigationButtonBehavior : AnimatedSymbolBehavior
     {
-        public override string DefaultGlyph => "\uF4E1";
+        public override string DefaultGlyph => "\uE700";
 
         public override Point RenderTransformOrigin => new(0.5, 0.5);
 
