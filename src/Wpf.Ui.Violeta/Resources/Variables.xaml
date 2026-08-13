@@ -105,4 +105,19 @@
     <sys:Double x:Key="ListViewItemPillMinScale">0.625</sys:Double>
     <KeyTime x:Key="ListViewItemScaleAnimationDuration">00:00:00.167</KeyTime>
 
+    <!--  Pivot (UI.WPF.Modern style)  -->
+    <sys:Double x:Key="PivotHeaderItemSelectedPipeMinScale">0.625</sys:Double>
+    <KeyTime x:Key="PivotHeaderItemScaleAnimationDuration">00:00:00.167</KeyTime>
+    <sys:Double x:Key="PivotHeaderItemFontSize">24</sys:Double>
+    <sys:Double x:Key="PivotTitleFontSize">14</sys:Double>
+    <Thickness x:Key="PivotHeaderItemMargin">12,0,12,0</Thickness>
+    <Thickness x:Key="PivotItemMargin">12,0,12,0</Thickness>
+    <Thickness x:Key="PivotPortraitThemePadding">12,14,0,13</Thickness>
+    <Thickness x:Key="PivotNavButtonBorderThemeThickness">0</Thickness>
+    <Thickness x:Key="PivotNavButtonMargin">0,6,0,0</Thickness>
+    <FontWeight x:Key="PivotHeaderItemThemeFontWeight">350</FontWeight>
+    <FontWeight x:Key="PivotTitleThemeFontWeight">Bold</FontWeight>
+    <FontFamily x:Key="PivotHeaderItemFontFamily">Segoe UI Variable, Segoe UI</FontFamily>
+    <FontFamily x:Key="PivotTitleFontFamily">Segoe UI Variable, Segoe UI</FontFamily>
+
 </ResourceDictionary>

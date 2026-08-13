@@ -1,0 +1,155 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Navigation.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="Pivot"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="Pivot" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="A basic Pivot" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="TabControl + TabControlPivotStyle + PivotHelper.Title" />
+                    <TabControl
+                        MinHeight="280"
+                        Style="{StaticResource TabControlPivotStyle}"
+                        vio:PivotHelper.Title="EMAIL">
+                        <TabItem Header="All">
+                            <TextBlock Margin="0,12,0,0" Text="All emails go here." />
+                        </TabItem>
+                        <TabItem Header="Unread">
+                            <TextBlock Margin="0,12,0,0" Text="Unread emails go here." />
+                        </TabItem>
+                        <TabItem Header="Flagged">
+                            <TextBlock Margin="0,12,0,0" Text="Flagged emails go here." />
+                        </TabItem>
+                        <TabItem Header="Urgent">
+                            <TextBlock Margin="0,12,0,0" Text="Urgent emails go here." />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="With left / right headers" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="PivotHelper.LeftHeader / RightHeader" />
+                    <TabControl
+                        MinHeight="240"
+                        Style="{StaticResource TabControlPivotStyle}"
+                        vio:PivotHelper.Title="SETTINGS">
+                        <vio:PivotHelper.LeftHeader>
+                            <ui:SymbolIcon
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Symbol="Settings24" />
+                        </vio:PivotHelper.LeftHeader>
+                        <vio:PivotHelper.RightHeader>
+                            <ui:Button
+                                Margin="0,6,8,0"
+                                Padding="8,4"
+                                Appearance="Transparent"
+                                Content="More" />
+                        </vio:PivotHelper.RightHeader>
+                        <TabItem Header="General">
+                            <TextBlock Margin="0,12,0,0" Text="General settings content." />
+                        </TabItem>
+                        <TabItem Header="Account">
+                            <TextBlock Margin="0,12,0,0" Text="Account settings content." />
+                        </TabItem>
+                        <TabItem Header="Privacy">
+                            <TextBlock Margin="0,12,0,0" Text="Privacy settings content." />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Overflow headers (scroll)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Hover the header strip to show prev/next when tabs overflow" />
+                    <TabControl
+                        MinHeight="200"
+                        MaxWidth="420"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource TabControlPivotStyle}">
+                        <TabItem Header="Monday">
+                            <TextBlock Margin="0,12,0,0" Text="Monday content." />
+                        </TabItem>
+                        <TabItem Header="Tuesday">
+                            <TextBlock Margin="0,12,0,0" Text="Tuesday content." />
+                        </TabItem>
+                        <TabItem Header="Wednesday">
+                            <TextBlock Margin="0,12,0,0" Text="Wednesday content." />
+                        </TabItem>
+                        <TabItem Header="Thursday">
+                            <TextBlock Margin="0,12,0,0" Text="Thursday content." />
+                        </TabItem>
+                        <TabItem Header="Friday">
+                            <TextBlock Margin="0,12,0,0" Text="Friday content." />
+                        </TabItem>
+                        <TabItem Header="Saturday">
+                            <TextBlock Margin="0,12,0,0" Text="Saturday content." />
+                        </TabItem>
+                        <TabItem Header="Sunday">
+                            <TextBlock Margin="0,12,0,0" Text="Sunday content." />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

@@ -322,6 +322,7 @@
                         <vio:NavigationViewItem Content="TabControl" Tag="navigation/tab-control" />
                         <vio:NavigationViewItem Content="TabView" Tag="navigation/tab-view" />
                         <vio:NavigationViewItem Content="TabStrip" Tag="navigation/tab-strip" />
+                        <vio:NavigationViewItem Content="Pivot" Tag="navigation/pivot" />
                         <vio:NavigationViewItem Content="Anchor" Tag="navigation/anchor" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>

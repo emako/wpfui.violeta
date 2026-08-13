@@ -242,4 +242,42 @@
     <m:StaticResource x:Key="TeachingTipAlternateCloseButtonBorderBrushPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
     <m:StaticResource x:Key="TeachingTipAlternateCloseButtonBorderBrushDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
 
+    <!--  Pivot  -->
+    <m:StaticResource x:Key="PivotBackground" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderBackground" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotItemBackground" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBackground" ResourceKey="ControlFillColorDefaultBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBackgroundPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBackgroundPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBorderBrush" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBorderBrushPointerOver" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotNextButtonBorderBrushPressed" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotNextButtonForeground" ResourceKey="TextFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="PivotNextButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotNextButtonForegroundPressed" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBackground" ResourceKey="ControlFillColorDefaultBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBackgroundPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBackgroundPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBorderBrush" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBorderBrushPointerOver" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonBorderBrushPressed" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonForeground" ResourceKey="TextFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotPreviousButtonForegroundPressed" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundUnselected" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundUnselectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundUnselectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundSelected" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemBackgroundDisabled" ResourceKey="ControlFillColorTransparentBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundUnselected" ResourceKey="TextFillColorSecondaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundUnselectedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundUnselectedPressed" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundSelected" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundSelectedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundSelectedPressed" ResourceKey="TextFillColorPrimaryBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+    <m:StaticResource x:Key="PivotHeaderItemSelectedPipeFill" ResourceKey="AccentFillColorDefaultBrush" />
+
 </ResourceDictionary>
