@@ -1,0 +1,274 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls">
+
+    <!--
+        AnimatedSymbolButton — CopyButton-like chrome; Kind selects a WinUI AnimatedVisuals–aligned motion.
+        Per-kind drivers: AnimatedSymbolButton.<Kind>.cs (CopyToClipboard storyboard below).
+    -->
+    <Style
+        x:Key="DefaultAnimatedSymbolButtonStyle"
+        BasedOn="{StaticResource DefaultUiButtonStyle}"
+        TargetType="{x:Type local:AnimatedSymbolButton}">
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ui:ControlHelper.IconFontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
+        <Setter Property="ui:ControlHelper.IconFontSize" Value="16" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:AnimatedSymbolButton}">
+                    <Border
+                        x:Name="ContentBorder"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        MinWidth="{TemplateBinding MinWidth}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="0"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border
+                            x:Name="InsetBorder"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BorderBrush="{Binding ElementName=ContentBorder, Path=BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid
+                                x:Name="PART_RootGrid"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Grid.Resources>
+                                    <!--  WinUI Gallery CopyToClipboardSuccessAnimation (icon host only).  -->
+                                    <Storyboard x:Key="CopyToClipboardSuccessAnimation">
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_AnimatedVisual"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:1.433">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.33,0.0 0.67,1.0"
+                                                KeyTime="0:0:0.133"
+                                                Value="0.0" />
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:1.3" Value="0.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="1.0,0.0 1.0,1.0"
+                                                KeyTime="0:0:1.433"
+                                                Value="1.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_ScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            Duration="0:0:1.2">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.13,0.0 0.0,1.0"
+                                                KeyTime="0:0:0.133"
+                                                Value="0.273" />
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:1.167" Value="0.273" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:1.2" Value="1.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_ScaleTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            Duration="0:0:1.2">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.13,0.0 0.0,1.0"
+                                                KeyTime="0:0:0.133"
+                                                Value="0.273" />
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:1.167" Value="0.273" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:1.2" Value="1.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_SuccessGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            Duration="0:0:1.3">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.133" Value="0.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.33,0.0 0.67,1.0"
+                                                KeyTime="0:0:0.267"
+                                                Value="1.0" />
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:1.167" Value="1.0" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="1.0,0.0 0.98,1.0"
+                                                KeyTime="0:0:1.3"
+                                                Value="0.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_SuccessScaleTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            Duration="0:0:0.333">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.133" Value="0.385" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.39,0.0 0.63,1.0"
+                                                KeyTime="0:0:0.267"
+                                                Value="1.146" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.55,0.0 0.02,1.0"
+                                                KeyTime="0:0:0.333"
+                                                Value="1.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+                                            Storyboard.TargetName="PART_SuccessScaleTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            Duration="0:0:0.333">
+                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.133" Value="0.385" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.39,0.0 0.63,1.0"
+                                                KeyTime="0:0:0.267"
+                                                Value="1.146" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0.55,0.0 0.02,1.0"
+                                                KeyTime="0:0:0.333"
+                                                Value="1.0" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </Grid.Resources>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid
+                                    x:Name="PART_IconHost"
+                                    Grid.Column="0"
+                                    VerticalAlignment="Center">
+                                    <Border
+                                        x:Name="PART_ClipHost"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        ClipToBounds="False">
+                                        <Grid x:Name="PART_AnimatedVisual" RenderTransformOrigin="0.5,0.5">
+                                            <Grid.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform x:Name="PART_ScaleTransform" ScaleX="1" ScaleY="1" />
+                                                    <TranslateTransform x:Name="PART_TranslateTransform" />
+                                                    <RotateTransform x:Name="PART_RotateTransform" Angle="0" />
+                                                </TransformGroup>
+                                            </Grid.RenderTransform>
+
+                                            <TextBlock
+                                                x:Name="PART_DefaultGlyph"
+                                                Margin="{StaticResource ButtonIconMargin}"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{Binding Path=(ui:ControlHelper.IconFontFamily), RelativeSource={RelativeSource TemplatedParent}}"
+                                                FontSize="{Binding Path=(ui:ControlHelper.IconFontSize), RelativeSource={RelativeSource TemplatedParent}}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                Text="{TemplateBinding ResolvedSymbolGlyph}"
+                                                Visibility="Collapsed" />
+
+                                            <ContentPresenter
+                                                x:Name="ControlIcon"
+                                                Margin="{StaticResource ButtonIconMargin}"
+                                                VerticalAlignment="Center"
+                                                Content="{TemplateBinding Icon}"
+                                                Focusable="False"
+                                                TextElement.FontFamily="{Binding Path=(ui:ControlHelper.IconFontFamily), RelativeSource={RelativeSource TemplatedParent}}"
+                                                TextElement.FontSize="{Binding Path=(ui:ControlHelper.IconFontSize), RelativeSource={RelativeSource TemplatedParent}}"
+                                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                                        </Grid>
+                                    </Border>
+
+                                    <TextBlock
+                                        x:Name="PART_SuccessGlyph"
+                                        Margin="{StaticResource ButtonIconMargin}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{Binding Path=(ui:ControlHelper.IconFontFamily), RelativeSource={RelativeSource TemplatedParent}}"
+                                        FontSize="{Binding Path=(ui:ControlHelper.IconFontSize), RelativeSource={RelativeSource TemplatedParent}}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        Opacity="0"
+                                        RenderTransformOrigin="0.5,0.5"
+                                        Text="{TemplateBinding SuccessGlyph}"
+                                        Visibility="Collapsed">
+                                        <TextBlock.RenderTransform>
+                                            <ScaleTransform x:Name="PART_SuccessScaleTransform" />
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                </Grid>
+
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                    RecognizesAccessKey="True"
+                                    TextElement.FontSize="{TemplateBinding FontSize}"
+                                    TextElement.Foreground="{TemplateBinding Foreground}" />
+                            </Grid>
+                        </Border>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsPressed" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{Binding MouseOverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{Binding MouseOverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsPressed" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_DefaultGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_SuccessGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="PART_DefaultGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="PART_SuccessGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                        </Trigger>
+
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                            <Setter TargetName="PART_DefaultGlyph" Property="Margin" Value="0" />
+                            <Setter TargetName="PART_SuccessGlyph" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Content" Value="">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                            <Setter TargetName="PART_DefaultGlyph" Property="Margin" Value="0" />
+                            <Setter TargetName="PART_SuccessGlyph" Property="Margin" Value="0" />
+                        </Trigger>
+
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
+                            <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_DefaultGlyph" Property="Visibility" Value="Visible" />
+                        </Trigger>
+
+                        <Trigger Property="Appearance" Value="Secondary">
+                            <Setter TargetName="InsetBorder" Property="BorderThickness" Value="0" />
+                            <Setter TargetName="ContentBorder" Property="BorderThickness" Value="{Binding BorderThickness, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultAnimatedSymbolButtonStyle}" TargetType="{x:Type local:AnimatedSymbolButton}" />
+
+</ResourceDictionary>
