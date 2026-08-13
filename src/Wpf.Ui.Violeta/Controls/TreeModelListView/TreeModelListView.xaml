@@ -85,7 +85,10 @@
     </ControlTemplate>
 
     <Style x:Key="TreeModelListViewStyle" TargetType="{x:Type local:TreeModelListView}">
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -103,7 +106,8 @@
                         Background="Transparent"
                         BorderBrush="{TemplateBinding Border.BorderBrush}"
                         BorderThickness="{TemplateBinding Border.BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        SnapsToDevicePixels="True">
                         <ui:PassiveScrollViewer
                             Padding="{TemplateBinding Control.Padding}"
                             CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"

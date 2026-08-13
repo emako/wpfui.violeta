@@ -193,10 +193,10 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <!--  Default BorderBrush is from WPF instead of WPF-UI  -->
-        <Setter Property="BorderBrush" Value="#828790" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="4" />
+        <!--  Match WPF-UI DataGrid / TreeView: no classic gray chrome  -->
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="False" />

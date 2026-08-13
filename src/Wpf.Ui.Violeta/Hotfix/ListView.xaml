@@ -1,0 +1,82 @@
+<!--
+    Hotfix: Align ListView outer chrome with DataGrid (WPF-UI).
+    Clears classic theme gray border via OverridesDefaultStyle; adds ControlCornerRadius.
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+
+    <ControlTemplate x:Key="NullViewTemplate" TargetType="{x:Type controls:ListView}">
+        <Border
+            x:Name="Bd"
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            CornerRadius="{TemplateBinding Border.CornerRadius}"
+            SnapsToDevicePixels="True">
+            <Grid>
+                <controls:PassiveScrollViewer
+                    x:Name="PART_ContentHost"
+                    CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                    <ItemsPresenter />
+                </controls:PassiveScrollViewer>
+                <Rectangle
+                    x:Name="PART_DisabledVisual"
+                    Opacity="0"
+                    RadiusX="2"
+                    RadiusY="2"
+                    Stretch="Fill"
+                    Stroke="Transparent"
+                    StrokeThickness="0"
+                    Visibility="Collapsed">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="PART_DisabledVisual" Property="Visibility" Value="Visible" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="GridViewTemplate" TargetType="{x:Type controls:ListView}">
+        <Border
+            Name="Bd"
+            Background="Transparent"
+            BorderBrush="{TemplateBinding Border.BorderBrush}"
+            BorderThickness="{TemplateBinding Border.BorderThickness}"
+            CornerRadius="{TemplateBinding Border.CornerRadius}"
+            SnapsToDevicePixels="True">
+            <controls:PassiveScrollViewer
+                Padding="{TemplateBinding Control.Padding}"
+                CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                Focusable="False"
+                Template="{DynamicResource GridViewScrollViewerTemplate}">
+                <ItemsPresenter />
+            </controls:PassiveScrollViewer>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ControlFillColorDisabledBrush}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style
+        x:Key="ListViewStyle"
+        BasedOn="{StaticResource ListViewStyle}"
+        TargetType="{x:Type controls:ListView}">
+        <!--  Same as DataGrid: ignore classic theme chrome  -->
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+    </Style>
+
+    <Style BasedOn="{StaticResource ListViewStyle}" TargetType="{x:Type controls:ListView}" />
+
+</ResourceDictionary>

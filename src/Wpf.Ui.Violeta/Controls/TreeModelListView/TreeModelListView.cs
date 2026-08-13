@@ -45,7 +45,7 @@ public class TreeModelListView : ListView
     }
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeModelListView), new PropertyMetadata(new CornerRadius(3)));
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeModelListView), new PropertyMetadata(new CornerRadius(4)));
 
     internal TreeModelNode Root { get; set; } = null!;
 

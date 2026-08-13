@@ -86,7 +86,7 @@ public class TreeListView : TreeView
     }
 
     public static readonly DependencyProperty CornerRadiusProperty =
-        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeListView), new PropertyMetadata(new CornerRadius(4d)));
+        DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TreeListView), new PropertyMetadata(new CornerRadius(4)));
 
     protected override DependencyObject GetContainerForItemOverride()
     {
