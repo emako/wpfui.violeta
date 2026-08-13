@@ -117,7 +117,7 @@ public class ToolBar : ItemsControl
             nameof(HasOverflowItems),
             typeof(bool),
             typeof(ToolBar),
-            new PropertyMetadata(false));
+            new PropertyMetadata(false, OnHasOverflowItemsChanged));
 
     public static readonly DependencyProperty HasOverflowItemsProperty =
         HasOverflowItemsPropertyKey.DependencyProperty;
@@ -130,6 +130,57 @@ public class ToolBar : ItemsControl
     }
 
     internal void SetHasOverflowItems(bool value) => HasOverflowItems = value;
+
+    private static void OnHasOverflowItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not ToolBar toolBar)
+        {
+            return;
+        }
+
+        // Overflow button Visibility is toggled by a template trigger. That change must
+        // participate in layout; otherwise the "..." button only appears after a later resize.
+        toolBar.InvalidateMeasure();
+        toolBar.InvalidateArrange();
+    }
+
+    /// <summary>
+    /// Width that <see cref="ToolBarPanel"/> should subtract for the overflow ("...") button
+    /// when the button is not yet participating in layout (Collapsed). Once Visible, DockPanel
+    /// already excludes its width from the panel constraint — do not reserve again.
+    /// </summary>
+    internal double GetOverflowButtonReserveWidth()
+    {
+        if (!ShowOverflowMenu || _overflowButton is null)
+        {
+            return 0;
+        }
+
+        // Already laid out by the DockPanel parent — panel constraint already excludes it.
+        if (_overflowButton.Visibility == Visibility.Visible)
+        {
+            return 0;
+        }
+
+        // Collapsed elements report 0 desired size; measure against infinity so the
+        // reserved width is correct before the button becomes Visible.
+        _overflowButton.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+        double width = _overflowButton.DesiredSize.Width;
+        if (width <= 0)
+        {
+            width = _overflowButton.Width;
+        }
+
+        if (double.IsNaN(width) || width <= 0)
+        {
+            width = 32;
+        }
+
+        Thickness margin = _overflowButton.Margin;
+        width += margin.Left + margin.Right;
+
+        return width;
+    }
 
     #endregion HasOverflowItems
 
@@ -378,7 +429,23 @@ public class ToolBar : ItemsControl
     {
         EnsureOverflowFlyout();
         EnsureContainersRealized();
+        // Containers / item DesiredSize may only be final after the first arrange.
+        // Force a follow-up measure so overflow is detected without requiring a resize.
         _toolBarPanel?.InvalidateMeasure();
+        InvalidateMeasure();
+        Dispatcher.BeginInvoke(
+            new Action(() =>
+            {
+                if (!IsLoaded)
+                {
+                    return;
+                }
+
+                EnsureContainersRealized();
+                _toolBarPanel?.InvalidateMeasure();
+                InvalidateMeasure();
+            }),
+            DispatcherPriority.Loaded);
     }
 
     private void OnUnloaded(object sender, RoutedEventArgs e)

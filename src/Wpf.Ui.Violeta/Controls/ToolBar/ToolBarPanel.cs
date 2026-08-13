@@ -44,6 +44,7 @@ public class ToolBarPanel : Panel
         double maxHeight = 0;
         var modes = new ToolBarOverflowMode[count];
         var sizes = new Size[count];
+        var children = new UIElement?[count];
 
         for (int i = 0; i < count; i++)
         {
@@ -51,16 +52,78 @@ public class ToolBarPanel : Panel
             {
                 modes[i] = ToolBarOverflowMode.AsNeeded;
                 sizes[i] = new Size();
+                children[i] = null;
                 continue;
             }
 
+            children[i] = child;
             modes[i] = ResolveOverflowMode(toolBar, i, child);
             child.Measure(infinite);
             sizes[i] = child.DesiredSize;
             maxHeight = Math.Max(maxHeight, sizes[i].Height);
         }
 
+        // Pass 1: full width (overflow button still Collapsed / not yet reserved).
+        // Pass 2: if overflow is needed and the menu is shown, reserve the "..." button
+        // width so the first layout pass matches post-resize behavior.
         double available = double.IsInfinity(constraint.Width) ? double.PositiveInfinity : constraint.Width;
+        var pass = MeasureOverflowPass(children, modes, sizes, spacing, available);
+        bool hasOverflow = pass.HasAlways || pass.HasAsNeededOverflow;
+
+        if (hasOverflow && toolBar.ShowOverflowMenu && !double.IsInfinity(available))
+        {
+            double reserved = toolBar.GetOverflowButtonReserveWidth();
+            if (reserved > 0)
+            {
+                double reduced = Math.Max(0, available - reserved);
+                if (reduced < available)
+                {
+                    pass = MeasureOverflowPass(children, modes, sizes, spacing, reduced);
+                    hasOverflow = pass.HasAlways || pass.HasAsNeededOverflow;
+                }
+            }
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            if (children[i] is { } child)
+            {
+                ApplyOverflowState(child, pass.Overflow[i]);
+            }
+        }
+
+        toolBar.SetHasOverflowItems(hasOverflow);
+
+        double width = double.IsInfinity(constraint.Width) ? pass.PrimaryWidth : Math.Min(pass.PrimaryWidth, constraint.Width);
+        double height = double.IsInfinity(constraint.Height) ? maxHeight : Math.Min(maxHeight, constraint.Height);
+        return new Size(Math.Max(0, width), Math.Max(0, height));
+    }
+
+    private readonly struct OverflowMeasureResult
+    {
+        public OverflowMeasureResult(bool[] overflow, bool hasAlways, bool hasAsNeededOverflow, double primaryWidth)
+        {
+            Overflow = overflow;
+            HasAlways = hasAlways;
+            HasAsNeededOverflow = hasAsNeededOverflow;
+            PrimaryWidth = primaryWidth;
+        }
+
+        public bool[] Overflow { get; }
+        public bool HasAlways { get; }
+        public bool HasAsNeededOverflow { get; }
+        public double PrimaryWidth { get; }
+    }
+
+    private static OverflowMeasureResult MeasureOverflowPass(
+        UIElement?[] children,
+        ToolBarOverflowMode[] modes,
+        Size[] sizes,
+        double spacing,
+        double available)
+    {
+        int count = children.Length;
+        var overflowFlags = new bool[count];
         double remaining = available;
         bool sendToOverflow = false;
         bool hasAlways = false;
@@ -70,7 +133,7 @@ public class ToolBarPanel : Panel
 
         for (int i = 0; i < count; i++)
         {
-            if (generator.ContainerFromIndex(i) is not UIElement child)
+            if (children[i] is null)
             {
                 continue;
             }
@@ -106,7 +169,7 @@ public class ToolBarPanel : Panel
                     }
             }
 
-            ApplyOverflowState(child, overflow);
+            overflowFlags[i] = overflow;
 
             if (!overflow)
             {
@@ -129,11 +192,7 @@ public class ToolBarPanel : Panel
             }
         }
 
-        toolBar.SetHasOverflowItems(hasAlways || hasAsNeededOverflow);
-
-        double width = double.IsInfinity(constraint.Width) ? primaryWidth : Math.Min(primaryWidth, constraint.Width);
-        double height = double.IsInfinity(constraint.Height) ? maxHeight : Math.Min(maxHeight, constraint.Height);
-        return new Size(Math.Max(0, width), Math.Max(0, height));
+        return new OverflowMeasureResult(overflowFlags, hasAlways, hasAsNeededOverflow, primaryWidth);
     }
 
     protected override Size ArrangeOverride(Size finalSize)

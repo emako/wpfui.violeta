@@ -31,13 +31,17 @@
     </Style>
 
     <Style x:Key="DefaultToolBarOverflowButtonStyle" TargetType="{x:Type ButtonBase}">
+        <!--  Width only — height follows primary items so showing "..." does not resize the bar.  -->
         <Setter Property="Width" Value="32" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="MinWidth" Value="32" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Focusable" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -91,15 +95,15 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{DynamicResource ControlCornerRadius}"
                         SnapsToDevicePixels="True">
-                        <DockPanel LastChildFill="True">
+                        <DockPanel LastChildFill="True" VerticalAlignment="Center">
                             <Button
                                 x:Name="PART_OverflowButton"
                                 Margin="2,0,0,0"
-                                VerticalAlignment="Center"
+                                VerticalAlignment="Stretch"
                                 DockPanel.Dock="Right"
                                 Style="{TemplateBinding OverflowButtonStyle}"
                                 Visibility="Collapsed" />
-                            <local:ToolBarPanel x:Name="PART_ToolBarPanel" VerticalAlignment="Center" />
+                            <local:ToolBarPanel x:Name="PART_ToolBarPanel" VerticalAlignment="Stretch" />
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
