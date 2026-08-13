@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <PackageId>WPF-UI.TextEditor</PackageId>
+	  <Product>WPF-UI.TextEditor</Product>
+	  <TargetFrameworks>net462;net47;net471;net472;net48;net481;net6.0-windows;net7.0-windows;net8.0-windows;</TargetFrameworks>
+	  <UseWPF>true</UseWPF>
+	  <UseWinUI>false</UseWinUI>
+	  <UseWindowsForms>false</UseWindowsForms>
+	  <LangVersion>latest</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <AssemblyVersion>3.0.5.0</AssemblyVersion>
+	  <FileVersion>3.0.5.0</FileVersion>
+	  <Version>$(VersionPrefix)3.0.5.0</Version>
+	  <Authors>ema</Authors>
+	  <Company>ema</Company>
+	  <Description>WPF UI TextEditor is based on WPF UI, and provides the TextBox-like viewer.</Description>
+	  <PackageProjectUrl>https://github.com/emako/wpfui.texteditor</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/emako/wpfui.texteditor</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>WPF-UI .NET WPF TextEditor</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageIcon>wpfui.png</PackageIcon>
+	  <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Fonts\*.ttf" />
+		<Resource Include="Resources\Syntax\Dark\*.xshd" />
+		<Resource Include="Resources\Syntax\Light\*.xshd" />
+		<Resource Include="Resources\Images\*.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\Fonts\*.ttf" />
+		<None Remove="Resources\Syntax\Dark\*.xshd" />
+		<None Remove="Resources\Syntax\Light\*.xshd" />
+		<None Remove="Resources\Images\*.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+		<None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="WPF-UI" Version="3.0.5" />
+		<PackageReference Include="AvalonEdit" Version="6.3.0.90" />
+	</ItemGroup>
+
+</Project>
