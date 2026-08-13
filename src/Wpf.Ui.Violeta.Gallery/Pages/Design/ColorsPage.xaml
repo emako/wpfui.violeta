@@ -1093,6 +1093,100 @@
                     </StackPanel>
                 </Border>
             </Grid>
+
+            <!-- Utility / Patterns -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Utility / Patterns" />
+            <TextBlock
+                Margin="0,8,0,0"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="Special brushes and common sample-card combinations used across the Gallery."
+                TextWrapping="Wrap" />
+
+            <Grid Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Column="0"
+                    Margin="0,0,8,0"
+                    MinHeight="140"
+                    Padding="12"
+                    Background="{DynamicResource StripedBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <StackPanel VerticalAlignment="Bottom">
+                        <TextBlock FontWeight="SemiBold" Text="Striped Background" />
+                        <TextBlock
+                            Margin="0,4,0,0"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Placeholder / demo surface" />
+                        <vio:SelectableTextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="StripedBackgroundBrush" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Margin="8,0,0,0"
+                    MinHeight="140"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Left Navigation Separator" />
+                        <TextBlock
+                            Margin="0,4,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="1px gradient divider used by NavigationView" />
+                        <Border
+                            Height="1"
+                            Margin="0,4,0,4"
+                            Background="{DynamicResource LeftNavigationViewSeparatorBrush}" />
+                        <vio:SelectableTextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="LeftNavigationViewSeparatorBrush" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border
+                Margin="0,16,0,0"
+                MinHeight="120"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="Sample Card" />
+                    <TextBlock
+                        Margin="0,4,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Common Gallery sample container: secondary fill + card stroke."
+                        TextWrapping="Wrap" />
+                    <vio:SelectableTextBlock
+                        FontSize="11"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        TextWrapping="Wrap"
+                        Text="Background=ControlFillColorSecondaryBrush, BorderBrush=CardStrokeColorDefaultBrush" />
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
