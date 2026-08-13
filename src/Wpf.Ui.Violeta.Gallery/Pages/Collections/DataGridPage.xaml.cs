@@ -16,7 +16,7 @@ public partial class DataGridPage : Wpf.Ui.Violeta.Controls.Page
         InitializeComponent();
         Loaded += (_, _) =>
         {
-            SampleDataGrid.ItemsSource = new[]
+            var items = new[]
             {
                 new SampleEmployee(LangKeys.Sample_305be79653.Tr(), LangKeys.Sample_9176a628cc.Tr(), 92, LangKeys.Sample_b5509be4c5.Tr()),
                 new SampleEmployee(LangKeys.Sample_b1db96a48b.Tr(), LangKeys.Sample_829ec9c321.Tr(), 88, LangKeys.Sample_b5509be4c5.Tr()),
@@ -27,6 +27,11 @@ public partial class DataGridPage : Wpf.Ui.Violeta.Controls.Page
                 new SampleEmployee(LangKeys.Sample_e90b708ea5.Tr(), LangKeys.Sample_73b1110542.Tr(), 79, LangKeys.Sample_583e7924e9.Tr()),
                 new SampleEmployee(LangKeys.Sample_9a201c3894.Tr(), LangKeys.Sample_9176a628cc.Tr(), 97, LangKeys.Sample_b5509be4c5.Tr()),
             };
+
+            SampleDataGrid.ItemsSource = items;
+            HorizontalGridLinesDataGrid.ItemsSource = items;
+            VerticalGridLinesDataGrid.ItemsSource = items;
+            AllGridLinesDataGrid.ItemsSource = items;
         };
     }
 }

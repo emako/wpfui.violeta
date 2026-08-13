@@ -249,6 +249,60 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesHorizontalTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;Horizontal&quot;. Default brushes use ControlElevationBorderBrush..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesHorizontalDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesVerticalTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;Vertical&quot; for column separators only..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesVerticalDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to All grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesAllTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;All&quot; and optionally customize HorizontalGridLinesBrush / VerticalGridLinesBrush..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesAllDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Primary click / Command - {0}.
         /// </summary>
         internal static string Format_SplitButtonPrimaryClick {

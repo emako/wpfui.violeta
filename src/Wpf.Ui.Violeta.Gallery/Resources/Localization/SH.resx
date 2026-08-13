@@ -3321,4 +3321,22 @@ Click OK to continue.</value>
   <data name="Format_SplitButtonMenuCommand" xml:space="preserve">
     <value>Menu command - {0}</value>
   </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalTitle" xml:space="preserve">
+    <value>Horizontal grid lines</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalDesc" xml:space="preserve">
+    <value>Set GridLinesVisibility="Horizontal". Default brushes use ControlElevationBorderBrush.</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalTitle" xml:space="preserve">
+    <value>Vertical grid lines</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalDesc" xml:space="preserve">
+    <value>Set GridLinesVisibility="Vertical" for column separators only.</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllTitle" xml:space="preserve">
+    <value>All grid lines</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
+    <value>Set GridLinesVisibility="All" and optionally customize HorizontalGridLinesBrush / VerticalGridLinesBrush.</value>
+  </data>
 </root>

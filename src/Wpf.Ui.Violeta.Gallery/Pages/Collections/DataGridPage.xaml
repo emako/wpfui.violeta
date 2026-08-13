@@ -64,6 +64,146 @@
                 </StackPanel>
             </Border>
 
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesHorizontalTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesHorizontalDesc}}" />
+                    <ui:DataGrid
+                        x:Name="HorizontalGridLinesDataGrid"
+                        MaxHeight="280"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        GridLinesVisibility="Horizontal"
+                        IsReadOnly="True">
+                        <ui:DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Name}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Department}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Score}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_b34422e637}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Status}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
+                        </ui:DataGrid.Columns>
+                    </ui:DataGrid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesVerticalTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesVerticalDesc}}" />
+                    <ui:DataGrid
+                        x:Name="VerticalGridLinesDataGrid"
+                        MaxHeight="280"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        GridLinesVisibility="Vertical"
+                        IsReadOnly="True">
+                        <ui:DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Name}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Department}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Score}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_b34422e637}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Status}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
+                        </ui:DataGrid.Columns>
+                    </ui:DataGrid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesAllTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_GridLinesAllDesc}}" />
+                    <ui:DataGrid
+                        x:Name="AllGridLinesDataGrid"
+                        MaxHeight="280"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        GridLinesVisibility="All"
+                        HorizontalGridLinesBrush="{DynamicResource ControlElevationBorderBrush}"
+                        IsReadOnly="True"
+                        VerticalGridLinesBrush="{DynamicResource ControlElevationBorderBrush}">
+                        <ui:DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Name}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Department}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Score}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_b34422e637}}" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Status}"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
+                        </ui:DataGrid.Columns>
+                    </ui:DataGrid>
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

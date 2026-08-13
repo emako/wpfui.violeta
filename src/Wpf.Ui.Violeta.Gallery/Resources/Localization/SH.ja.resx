@@ -3321,4 +3321,22 @@ OK をクリックして続行してください。</value>
   <data name="Format_SplitButtonMenuCommand" xml:space="preserve">
     <value>Menu command - {0}</value>
   </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalTitle" xml:space="preserve">
+    <value>水平グリッド線</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalDesc" xml:space="preserve">
+    <value>GridLinesVisibility="Horizontal" を設定します。既定のブラシは ControlElevationBorderBrush です。</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalTitle" xml:space="preserve">
+    <value>垂直グリッド線</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalDesc" xml:space="preserve">
+    <value>GridLinesVisibility="Vertical" を設定し、列の区切り線のみ表示します。</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllTitle" xml:space="preserve">
+    <value>すべてのグリッド線</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
+    <value>GridLinesVisibility="All" を設定し、必要に応じて HorizontalGridLinesBrush / VerticalGridLinesBrush で色を指定します。</value>
+  </data>
 </root>

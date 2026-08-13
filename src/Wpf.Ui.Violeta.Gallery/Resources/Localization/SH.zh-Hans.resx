@@ -3321,4 +3321,22 @@
   <data name="Format_SplitButtonMenuCommand" xml:space="preserve">
     <value>菜单命令 - {0}</value>
   </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalTitle" xml:space="preserve">
+    <value>水平网格线</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesHorizontalDesc" xml:space="preserve">
+    <value>设置 GridLinesVisibility="Horizontal"。默认画刷为 ControlElevationBorderBrush。</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalTitle" xml:space="preserve">
+    <value>垂直网格线</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesVerticalDesc" xml:space="preserve">
+    <value>设置 GridLinesVisibility="Vertical"，仅显示列分割线。</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllTitle" xml:space="preserve">
+    <value>全部网格线</value>
+  </data>
+  <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
+    <value>设置 GridLinesVisibility="All"，并可用 HorizontalGridLinesBrush / VerticalGridLinesBrush 自定义颜色。</value>
+  </data>
 </root>
