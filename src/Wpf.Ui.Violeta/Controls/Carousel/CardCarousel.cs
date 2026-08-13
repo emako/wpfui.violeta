@@ -566,6 +566,17 @@ public class CardCarousel : Selector, ICarouselNavHost
     {
         if (index < 0 || index >= _count) return;
 
+        ApplyLayoutImmediate(index);
+        SetSelectedIndexSilent(index);
+    }
+
+    /// <summary>
+    /// Snaps cards to left/center/right for <paramref name="index"/> without changing selection.
+    /// </summary>
+    private void ApplyLayoutImmediate(int index)
+    {
+        if (index < 0 || index >= _count) return;
+
         int prev = index - 1;
         if (prev < 0) prev = _count - 1;
         int next = index + 1;
@@ -612,16 +623,23 @@ public class CardCarousel : Selector, ICarouselNavHost
                 SetActive(element, false);
             }
         }
-
-        SetSelectedIndexSilent(index);
     }
 
     // --- Animation -----------------------------------------------------------
 
     private void PlayToIndex(int index)
     {
-        if (index < 0 || index >= _count || _isAnimating)
+        if (index < 0 || index >= _count)
             return;
+
+        // Allow interrupting an in-flight transition (e.g. rapid CarouselNav clicks).
+        if (_isAnimating)
+        {
+            int inProgressCenter = GetSlotIndex(Slot.Center);
+            StopCurrentAnimation();
+            if (inProgressCenter >= 0)
+                ApplyLayoutImmediate(inProgressCenter);
+        }
 
         int center = GetSlotIndex(Slot.Center);
         if (center == index)
@@ -640,6 +658,33 @@ public class CardCarousel : Selector, ICarouselNavHost
         }
 
         PlayJumpTo(index);
+    }
+
+    private void StopCurrentAnimation()
+    {
+        if (_storyboard != null)
+        {
+            _storyboard.Completed -= OnStoryboardCompleted;
+            _storyboard.Stop();
+            _storyboard.Children.Clear();
+        }
+
+        foreach (FrameworkElement element in _elements.Values)
+            ClearElementAnimations(element);
+
+        _isAnimating = false;
+    }
+
+    private static void ClearElementAnimations(FrameworkElement element)
+    {
+        element.BeginAnimation(Canvas.LeftProperty, null);
+        element.BeginAnimation(Panel.ZIndexProperty, null);
+        if (element.RenderTransform is TransformGroup group
+            && group.Children.Count > 0
+            && group.Children[0] is ScaleTransform scale)
+        {
+            scale.BeginAnimation(ScaleTransform.ScaleYProperty, null);
+        }
     }
 
     private bool PlayRightToLeft()
