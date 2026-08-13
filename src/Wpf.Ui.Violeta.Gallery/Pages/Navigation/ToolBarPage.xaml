@@ -182,7 +182,10 @@
                                 <ui:SymbolIcon Symbol="Search24" />
                             </Button>
                             <Separator />
-                            <vio:DropDownButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}">
+                            <vio:DropDownButton
+                                Padding="10,4"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}"
+                                Style="{StaticResource ToolBarDropDownButtonStyle}">
                                 <vio:DropDownButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_20def79426}}" />
