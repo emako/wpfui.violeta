@@ -1187,6 +1187,106 @@
                         Text="Background=ControlFillColorSecondaryBrush, BorderBrush=CardStrokeColorDefaultBrush" />
                 </StackPanel>
             </Border>
+
+            <TextBlock
+                Margin="0,24,0,0"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Text="Elevation Borders" />
+            <TextBlock
+                Margin="0,4,0,0"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="LinearGradientBrush borders from Wpf.Ui theme (button / text / accent / circle controls)."
+                TextWrapping="Wrap" />
+            <Grid MinHeight="100" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Control" />
+                        <vio:SelectableTextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="ControlElevationBorderBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource TextControlElevationBorderBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Text Control" />
+                        <vio:SelectableTextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextWrapping="Wrap"
+                            Text="TextControlElevationBorderBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource AccentFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource AccentControlElevationBorderBrush}"
+                    BorderThickness="3"
+                    CornerRadius="8"
+                    TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
+                    <StackPanel>
+                        <TextBlock FontWeight="SemiBold" Text="Accent Control" />
+                        <vio:SelectableTextBlock
+                            Margin="0,8,0,0"
+                            FontSize="11"
+                            Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Border}}"
+                            TextWrapping="Wrap"
+                            Text="AccentControlElevationBorderBrush" />
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Width="100"
+                    Height="100"
+                    HorizontalAlignment="Left"
+                    Background="{DynamicResource ControlFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CircleElevationBorderBrush}"
+                    BorderThickness="3"
+                    CornerRadius="50">
+                    <StackPanel
+                        Margin="12"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Text="Circle" />
+                        <vio:SelectableTextBlock
+                            Margin="0,4,0,0"
+                            FontSize="10"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            Text="CircleElevationBorderBrush" />
+                    </StackPanel>
+                </Border>
+            </Grid>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
