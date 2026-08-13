@@ -101,4 +101,8 @@
     <sys:Double x:Key="NavigationBackButtonWidth">40</sys:Double>
     <sys:Double x:Key="NavigationBackButtonHeight">36</sys:Double>
 
+    <!--  ListViewItem selection pill (UI.WPF.Modern style)  -->
+    <sys:Double x:Key="ListViewItemPillMinScale">0.625</sys:Double>
+    <KeyTime x:Key="ListViewItemScaleAnimationDuration">00:00:00.167</KeyTime>
+
 </ResourceDictionary>
