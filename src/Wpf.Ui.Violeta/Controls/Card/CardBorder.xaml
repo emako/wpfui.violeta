@@ -2,16 +2,16 @@
 
     <!--  Content Border for directly imitating the card style  -->
     <Style x:Key="CardBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorDefaultBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
+        <Setter Property="Background" Value="{DynamicResource CardBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource CardBorderThemeThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
     </Style>
 
     <!--  Content Border for directly imitating the secondary card style  -->
     <Style x:Key="SecondaryBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorSecondaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultSolidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
     </Style>

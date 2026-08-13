@@ -4,9 +4,12 @@
     xmlns:local="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
     <!--  Content Card  -->
-    <Style x:Key="SecondaryCardStyle" TargetType="{x:Type local:Card}">
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundFillColorSecondaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultSolidBrush}" />
+    <Style
+        x:Key="SecondaryCardStyle"
+        BasedOn="{StaticResource {x:Type local:Card}}"
+        TargetType="{x:Type local:Card}">
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
     </Style>
 
 </ResourceDictionary>
