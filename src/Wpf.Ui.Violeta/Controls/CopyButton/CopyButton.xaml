@@ -15,7 +15,6 @@
         BasedOn="{StaticResource DefaultUiButtonStyle}"
         TargetType="{x:Type local:CopyButton}">
         <Setter Property="Padding" Value="6" />
-        <Setter Property="FontSize" Value="16" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="ToolTip" Value="Copy to clipboard" />
@@ -145,9 +144,7 @@
                                     x:Name="IconHost"
                                     Grid.Column="0"
                                     VerticalAlignment="Center">
-                                    <Grid
-                                        x:Name="CopyContent"
-                                        RenderTransformOrigin="0.5,0.5">
+                                    <Grid x:Name="CopyContent" RenderTransformOrigin="0.5,0.5">
                                         <Grid.RenderTransform>
                                             <ScaleTransform x:Name="CopyToClipboardTextScaleTransform" />
                                         </Grid.RenderTransform>
