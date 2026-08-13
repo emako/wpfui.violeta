@@ -194,7 +194,10 @@
                                     </ContextMenu>
                                 </vio:DropDownButton.Flyout>
                             </vio:DropDownButton>
-                            <vio:SplitButton Padding="10,4" Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}">
+                            <vio:SplitButton
+                                Padding="10,4"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}"
+                                Style="{StaticResource ToolBarSplitButtonStyle}">
                                 <vio:SplitButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_d47722faec}}" />
