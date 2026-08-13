@@ -120,7 +120,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Advances every 2 seconds. Hover pauses autoplay." />
+                        Text="CarouselNav Appearance=Brand, IsAutoplayEnabled, 2s interval. Hover pauses autoplay." />
                     <vio:CardCarousel
                         Height="280"
                         MaxWidth="720"
@@ -128,6 +128,9 @@
                         AutoplayInterval="2000"
                         IsAutoplayEnabled="True"
                         ShowArrows="False">
+                        <vio:CardCarousel.Nav>
+                            <vio:CarouselNav Appearance="Brand" />
+                        </vio:CardCarousel.Nav>
                         <vio:CardCarouselItem>
                             <Border Background="{DynamicResource AccentFillColorDefaultBrush}">
                                 <TextBlock

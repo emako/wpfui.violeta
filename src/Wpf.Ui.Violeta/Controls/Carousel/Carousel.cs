@@ -18,7 +18,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = PART_ScrollViewer, Type = typeof(AnimatableScrollViewer))]
 [TemplatePart(Name = PART_NavHost, Type = typeof(ContentPresenter))]
 [TemplatePart(Name = PART_CircularClone, Type = typeof(ContentPresenter))]
-public class Carousel : Selector
+public class Carousel : Selector, ICarouselNavHost
 {
     public const string PART_ScrollViewer = "PART_ScrollViewer";
     public const string PART_NavHost = "PART_NavHost";

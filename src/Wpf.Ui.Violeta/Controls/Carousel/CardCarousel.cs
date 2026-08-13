@@ -14,17 +14,18 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// Cover-flow style carousel that shows three overlapping cards (left / center / right).
 /// Ported from WPFDevelopers <c>CardCarousel</c>; chrome uses WPF UI Card brushes.
+/// Pagination uses the same <see cref="Nav"/> / <see cref="CarouselNav"/> pattern as <see cref="Carousel"/>.
 /// </summary>
 [TemplatePart(Name = PART_ItemsPresenter, Type = typeof(ItemsPresenter))]
 [TemplatePart(Name = PART_PrevButton, Type = typeof(ButtonBase))]
 [TemplatePart(Name = PART_NextButton, Type = typeof(ButtonBase))]
-[TemplatePart(Name = PART_DotsHost, Type = typeof(Panel))]
-public class CardCarousel : Selector
+[TemplatePart(Name = PART_NavHost, Type = typeof(ContentPresenter))]
+public class CardCarousel : Selector, ICarouselNavHost
 {
     public const string PART_ItemsPresenter = "PART_ItemsPresenter";
     public const string PART_PrevButton = "PART_PrevButton";
     public const string PART_NextButton = "PART_NextButton";
-    public const string PART_DotsHost = "PART_DotsHost";
+    public const string PART_NavHost = "PART_NavHost";
 
     private enum Slot
     {
@@ -51,8 +52,8 @@ public class CardCarousel : Selector
     private Canvas? _contentDock;
     private ButtonBase? _prevButton;
     private ButtonBase? _nextButton;
-    private Panel? _dotsHost;
     private bool _listeningGenerator;
+    private int _reportedActiveIndex = -1;
 
     private double _shellWidth;
     private double _elementWidth;
@@ -88,12 +89,12 @@ public class CardCarousel : Selector
 
     // --- Dependency properties ------------------------------------------------
 
-    public static readonly DependencyProperty ShowDotsProperty =
+    public static readonly DependencyProperty ShowNavProperty =
         DependencyProperty.Register(
-            nameof(ShowDots),
+            nameof(ShowNav),
             typeof(bool),
             typeof(CardCarousel),
-            new PropertyMetadata(true, OnShowChromeChanged));
+            new PropertyMetadata(true));
 
     public static readonly DependencyProperty ShowArrowsProperty =
         DependencyProperty.Register(
@@ -123,11 +124,25 @@ public class CardCarousel : Selector
             typeof(CardCarousel),
             new PropertyMetadata(new Duration(TimeSpan.FromSeconds(AnimationSeconds))));
 
-    /// <summary>Whether pagination dots are visible.</summary>
-    public bool ShowDots
+    public static readonly DependencyProperty NavProperty =
+        DependencyProperty.Register(
+            nameof(Nav),
+            typeof(object),
+            typeof(CardCarousel),
+            new PropertyMetadata(null));
+
+    public static readonly RoutedEvent ActiveIndexChangedEvent =
+        EventManager.RegisterRoutedEvent(
+            nameof(ActiveIndexChanged),
+            RoutingStrategy.Bubble,
+            typeof(RoutedPropertyChangedEventHandler<int>),
+            typeof(CardCarousel));
+
+    /// <summary>Whether the <see cref="Nav"/> host is visible.</summary>
+    public bool ShowNav
     {
-        get => (bool)GetValue(ShowDotsProperty);
-        set => SetValue(ShowDotsProperty, value);
+        get => (bool)GetValue(ShowNavProperty);
+        set => SetValue(ShowNavProperty, value);
     }
 
     /// <summary>Whether previous/next arrow buttons are visible.</summary>
@@ -158,6 +173,28 @@ public class CardCarousel : Selector
         set => SetValue(MotionDurationProperty, value);
     }
 
+    /// <summary>
+    /// Optional nav content (typically a <see cref="CarouselNav"/>) rendered below the viewport.
+    /// </summary>
+    public object? Nav
+    {
+        get => GetValue(NavProperty);
+        set => SetValue(NavProperty, value);
+    }
+
+    /// <summary>Total number of cards (equals <see cref="ItemsControl.Items"/>.Count).</summary>
+    public int TotalSlides => Items.Count;
+
+    /// <summary>Zero-based index of the active card.</summary>
+    public int ActiveIndex => SelectedIndex;
+
+    /// <summary>Raised when the active card index changes.</summary>
+    public event RoutedPropertyChangedEventHandler<int> ActiveIndexChanged
+    {
+        add => AddHandler(ActiveIndexChangedEvent, value);
+        remove => RemoveHandler(ActiveIndexChangedEvent, value);
+    }
+
     // --- Template / ItemsControl ---------------------------------------------
 
     public override void OnApplyTemplate()
@@ -168,7 +205,6 @@ public class CardCarousel : Selector
 
         _prevButton = GetTemplateChild(PART_PrevButton) as ButtonBase;
         _nextButton = GetTemplateChild(PART_NextButton) as ButtonBase;
-        _dotsHost = GetTemplateChild(PART_DotsHost) as Panel;
         _itemsPresenter = GetTemplateChild(PART_ItemsPresenter) as ItemsPresenter;
         _contentDock = null;
 
@@ -180,10 +216,33 @@ public class CardCarousel : Selector
         if (SelectedIndex < 0 && Items.Count > 0)
             SelectedIndex = 0;
 
+        EnsureDefaultNav();
         AttachGenerator();
         Rebuild();
         UpdateChromeVisibility();
         UpdateAutoplayTimer();
+    }
+
+    private void EnsureDefaultNav()
+    {
+        if (Nav == null && ShowNav)
+            Nav = new CarouselNav();
+
+        if (Nav is CarouselNav nav)
+        {
+            nav.SetCurrentValue(CarouselNav.CarouselProperty, this);
+            nav.SetCurrentValue(CarouselNav.TotalSlidesProperty, Items.Count);
+            nav.SetCurrentValue(CarouselNav.SelectedIndexProperty, SelectedIndex);
+        }
+    }
+
+    private void NotifyNavSlidesChanged()
+    {
+        if (Nav is CarouselNav nav)
+        {
+            nav.SetCurrentValue(CarouselNav.TotalSlidesProperty, Items.Count);
+            nav.SetCurrentValue(CarouselNav.SelectedIndexProperty, SelectedIndex);
+        }
     }
 
     protected override bool IsItemItsOwnContainerOverride(object item) =>
@@ -215,6 +274,7 @@ public class CardCarousel : Selector
             SelectedIndex = Items.Count - 1;
 
         Rebuild();
+        NotifyNavSlidesChanged();
         UpdateAutoplayTimer();
     }
 
@@ -224,7 +284,15 @@ public class CardCarousel : Selector
         if (_suppressSelection)
             return;
 
-        UpdateDotSelection();
+        int oldIndex = _reportedActiveIndex;
+        int newIndex = SelectedIndex;
+        if (oldIndex != newIndex)
+        {
+            _reportedActiveIndex = newIndex;
+            RaiseEvent(new RoutedPropertyChangedEventArgs<int>(oldIndex, newIndex, ActiveIndexChangedEvent));
+        }
+
+        NotifyNavSlidesChanged();
         PlayToIndex(SelectedIndex);
         ResetAutoplay();
     }
@@ -281,6 +349,12 @@ public class CardCarousel : Selector
         SelectedIndex = prev;
     }
 
+    public void SelectPageByIndex(int index)
+    {
+        if (index < 0 || index >= Items.Count) return;
+        SelectedIndex = index;
+    }
+
     public void ResetAutoplay()
     {
         if (_autoplayTimer == null) return;
@@ -322,7 +396,6 @@ public class CardCarousel : Selector
             _prevButton.Click -= OnPrevClick;
         if (_nextButton != null)
             _nextButton.Click -= OnNextClick;
-        ClearDots();
     }
 
     private void AttachGenerator()
@@ -356,7 +429,6 @@ public class CardCarousel : Selector
     {
         _prevButton?.Visibility = ShowArrows ? Visibility.Visible : Visibility.Collapsed;
         _nextButton?.Visibility = ShowArrows ? Visibility.Visible : Visibility.Collapsed;
-        _dotsHost?.Visibility = ShowDots ? Visibility.Visible : Visibility.Collapsed;
     }
 
     // --- Build ---------------------------------------------------------------
@@ -379,7 +451,7 @@ public class CardCarousel : Selector
         _count = Items.Count;
         if (_count == 0)
         {
-            RebuildDots();
+            NotifyNavSlidesChanged();
             return;
         }
 
@@ -415,7 +487,7 @@ public class CardCarousel : Selector
 
         int desired = SelectedIndex >= 0 ? SelectedIndex : 0;
         ArrangeToIndexImmediate(desired);
-        RebuildDots();
+        NotifyNavSlidesChanged();
     }
 
     private Canvas? ResolveItemsCanvas()
@@ -855,6 +927,7 @@ public class CardCarousel : Selector
     private void SetSelectedIndexSilent(int index)
     {
         if (SelectedIndex == index) return;
+        int oldIndex = _reportedActiveIndex;
         _suppressSelection = true;
         try
         {
@@ -865,7 +938,10 @@ public class CardCarousel : Selector
             _suppressSelection = false;
         }
 
-        UpdateDotSelection();
+        _reportedActiveIndex = index;
+        if (oldIndex != index)
+            RaiseEvent(new RoutedPropertyChangedEventArgs<int>(oldIndex, index, ActiveIndexChangedEvent));
+        NotifyNavSlidesChanged();
     }
 
     private void HandleClick(Point pos)
@@ -886,55 +962,6 @@ public class CardCarousel : Selector
             }
 
             current = VisualTreeHelper.GetParent(current);
-        }
-    }
-
-    // --- Dots ----------------------------------------------------------------
-
-    private void RebuildDots()
-    {
-        if (_dotsHost == null) return;
-        ClearDots();
-
-        for (int i = 0; i < _count; i++)
-        {
-            var button = new CarouselNavButton
-            {
-                Index = i,
-                ToolTip = $"Page {i + 1}",
-            };
-            button.Click += OnDotClick;
-            _dotsHost.Children.Add(button);
-        }
-
-        UpdateDotSelection();
-    }
-
-    private void ClearDots()
-    {
-        if (_dotsHost == null) return;
-        foreach (UIElement child in _dotsHost.Children)
-        {
-            if (child is CarouselNavButton button)
-                button.Click -= OnDotClick;
-        }
-
-        _dotsHost.Children.Clear();
-    }
-
-    private void OnDotClick(object sender, RoutedEventArgs e)
-    {
-        if (sender is CarouselNavButton button)
-            SelectedIndex = button.Index;
-    }
-
-    private void UpdateDotSelection()
-    {
-        if (_dotsHost == null) return;
-        for (int i = 0; i < _dotsHost.Children.Count; i++)
-        {
-            if (_dotsHost.Children[i] is CarouselNavButton button)
-                button.IsSelected = i == SelectedIndex;
         }
     }
 

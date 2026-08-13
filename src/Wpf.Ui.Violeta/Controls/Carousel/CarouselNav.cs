@@ -8,7 +8,7 @@ using System.Windows.Media;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Pagination tablist for a <see cref="Carousel"/>.
+/// Pagination tablist for a <see cref="Carousel"/> or <see cref="CardCarousel"/>.
 /// Mirrors Fluent UI React <c>CarouselNav</c> (<c>role="tablist"</c>).
 /// </summary>
 [TemplatePart(Name = PART_ItemsHost, Type = typeof(Panel))]
@@ -17,8 +17,8 @@ public class CarouselNav : Control
     public const string PART_ItemsHost = "PART_ItemsHost";
 
     private Panel? _itemsHost;
-    private Carousel? _attachedCarousel;
-    private bool _syncingFromCarousel;
+    private ICarouselNavHost? _attachedHost;
+    private bool _syncingFromHost;
 
     static CarouselNav()
     {
@@ -62,7 +62,7 @@ public class CarouselNav : Control
     public static readonly DependencyProperty CarouselProperty =
         DependencyProperty.Register(
             nameof(Carousel),
-            typeof(Carousel),
+            typeof(ICarouselNavHost),
             typeof(CarouselNav),
             new PropertyMetadata(null, OnCarouselChanged));
 
@@ -74,7 +74,7 @@ public class CarouselNav : Control
     }
 
     /// <summary>
-    /// Total slides to render. Usually subscribed from a parent <see cref="Carousel"/>;
+    /// Total slides to render. Usually subscribed from a parent host;
     /// can be set manually when used standalone.
     /// </summary>
     public int TotalSlides
@@ -91,11 +91,12 @@ public class CarouselNav : Control
     }
 
     /// <summary>
-    /// Explicit carousel association. When null, the nearest ancestor <see cref="Carousel"/> is used.
+    /// Explicit host association. When null, the nearest ancestor
+    /// <see cref="ICarouselNavHost"/> (<see cref="Carousel"/> / <see cref="CardCarousel"/>) is used.
     /// </summary>
-    public Carousel? Carousel
+    public ICarouselNavHost? Carousel
     {
-        get => (Carousel?)GetValue(CarouselProperty);
+        get => (ICarouselNavHost?)GetValue(CarouselProperty);
         set => SetValue(CarouselProperty, value);
     }
 
@@ -136,42 +137,42 @@ public class CarouselNav : Control
         }
     }
 
-    // --- Carousel association -------------------------------------------------
+    // --- Host association -----------------------------------------------------
 
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
-        AttachToCarousel(ResolveCarousel());
+        AttachToHost(ResolveHost());
         // Items may already exist before Nav loads; force a sync + rebuild.
-        SyncFromCarousel();
+        SyncFromHost();
         RebuildButtons();
         UpdateSelection();
     }
 
-    private void OnUnloaded(object sender, RoutedEventArgs e) => DetachFromCarousel();
+    private void OnUnloaded(object sender, RoutedEventArgs e) => DetachFromHost();
 
     private static void OnCarouselChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var nav = (CarouselNav)d;
-        nav.AttachToCarousel(nav.ResolveCarousel());
+        nav.AttachToHost(nav.ResolveHost());
         nav.RebuildButtons();
         nav.UpdateSelection();
     }
 
-    private Carousel? ResolveCarousel()
+    private ICarouselNavHost? ResolveHost()
     {
         if (Carousel != null) return Carousel;
-        return FindAncestorCarousel(this);
+        return FindAncestorHost(this);
     }
 
-    private static Carousel? FindAncestorCarousel(DependencyObject? start)
+    private static ICarouselNavHost? FindAncestorHost(DependencyObject? start)
     {
         DependencyObject? current = start;
         while (current != null)
         {
-            if (current is Carousel carousel)
-                return carousel;
+            if (current is ICarouselNavHost host)
+                return host;
 
-            if (current is FrameworkElement { TemplatedParent: Carousel templated })
+            if (current is FrameworkElement { TemplatedParent: ICarouselNavHost templated })
                 return templated;
 
             current = VisualTreeHelper.GetParent(current)
@@ -180,64 +181,64 @@ public class CarouselNav : Control
         return null;
     }
 
-    private void AttachToCarousel(Carousel? carousel)
+    private void AttachToHost(ICarouselNavHost? host)
     {
-        if (ReferenceEquals(_attachedCarousel, carousel))
+        if (ReferenceEquals(_attachedHost, host))
         {
-            SyncFromCarousel();
+            SyncFromHost();
             return;
         }
 
-        DetachFromCarousel();
-        _attachedCarousel = carousel;
-        if (_attachedCarousel == null) return;
+        DetachFromHost();
+        _attachedHost = host;
+        if (_attachedHost == null) return;
 
-        _attachedCarousel.ActiveIndexChanged += OnCarouselActiveIndexChanged;
-        _attachedCarousel.ItemContainerGenerator.ItemsChanged += OnCarouselItemsChanged;
-        SyncFromCarousel();
+        _attachedHost.ActiveIndexChanged += OnHostActiveIndexChanged;
+        _attachedHost.ItemContainerGenerator.ItemsChanged += OnHostItemsChanged;
+        SyncFromHost();
     }
 
-    private void DetachFromCarousel()
+    private void DetachFromHost()
     {
-        if (_attachedCarousel == null) return;
-        _attachedCarousel.ActiveIndexChanged -= OnCarouselActiveIndexChanged;
-        _attachedCarousel.ItemContainerGenerator.ItemsChanged -= OnCarouselItemsChanged;
-        _attachedCarousel = null;
+        if (_attachedHost == null) return;
+        _attachedHost.ActiveIndexChanged -= OnHostActiveIndexChanged;
+        _attachedHost.ItemContainerGenerator.ItemsChanged -= OnHostItemsChanged;
+        _attachedHost = null;
     }
 
-    private void SyncFromCarousel()
+    private void SyncFromHost()
     {
-        if (_attachedCarousel == null) return;
-        _syncingFromCarousel = true;
+        if (_attachedHost == null) return;
+        _syncingFromHost = true;
         try
         {
-            SetCurrentValue(TotalSlidesProperty, _attachedCarousel.Items.Count);
-            SetCurrentValue(SelectedIndexProperty, _attachedCarousel.ActiveIndex);
+            SetCurrentValue(TotalSlidesProperty, _attachedHost.TotalSlides);
+            SetCurrentValue(SelectedIndexProperty, _attachedHost.ActiveIndex);
         }
         finally
         {
-            _syncingFromCarousel = false;
+            _syncingFromHost = false;
         }
     }
 
-    private void OnCarouselItemsChanged(object sender, ItemsChangedEventArgs e)
+    private void OnHostItemsChanged(object sender, ItemsChangedEventArgs e)
     {
-        SyncFromCarousel();
+        SyncFromHost();
         RebuildButtons();
         UpdateSelection();
     }
 
-    private void OnCarouselActiveIndexChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
+    private void OnHostActiveIndexChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
     {
         if (SelectedIndex == e.NewValue) return;
-        _syncingFromCarousel = true;
+        _syncingFromHost = true;
         try
         {
             SetCurrentValue(SelectedIndexProperty, e.NewValue);
         }
         finally
         {
-            _syncingFromCarousel = false;
+            _syncingFromHost = false;
         }
         UpdateSelection();
     }
@@ -255,9 +256,9 @@ public class CarouselNav : Control
     {
         var nav = (CarouselNav)d;
         nav.UpdateSelection();
-        if (nav._syncingFromCarousel) return;
-        if (nav._attachedCarousel != null && nav._attachedCarousel.ActiveIndex != nav.SelectedIndex)
-            nav._attachedCarousel.SelectPageByIndex(nav.SelectedIndex);
+        if (nav._syncingFromHost) return;
+        if (nav._attachedHost != null && nav._attachedHost.ActiveIndex != nav.SelectedIndex)
+            nav._attachedHost.SelectPageByIndex(nav.SelectedIndex);
     }
 
     private static void OnAppearanceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -300,8 +301,8 @@ public class CarouselNav : Control
     {
         if (index < 0 || index >= TotalSlides) return;
         SelectedIndex = index;
-        _attachedCarousel?.SelectPageByIndex(index);
-        _attachedCarousel?.ResetAutoplay();
+        _attachedHost?.SelectPageByIndex(index);
+        _attachedHost?.ResetAutoplay();
     }
 
     private void UpdateSelection()

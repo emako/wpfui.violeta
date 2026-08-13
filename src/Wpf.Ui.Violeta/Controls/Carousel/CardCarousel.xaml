@@ -129,7 +129,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="ShowDots" Value="True" />
+        <Setter Property="ShowNav" Value="True" />
         <Setter Property="ShowArrows" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -190,23 +190,24 @@
                             </Button>
                         </Grid>
 
-                        <Border
-                            x:Name="DotsChrome"
+                        <ContentPresenter
+                            x:Name="PART_NavHost"
                             Grid.Row="1"
                             Margin="0,12,0,0"
-                            Padding="4,2"
                             HorizontalAlignment="Center"
-                            Background="{DynamicResource ControlFillColorSecondaryBrush}"
-                            CornerRadius="12"
-                            Visibility="{TemplateBinding ShowDots,
-                                                         Converter={StaticResource CardCarouselBooleanToVisibilityConverter}}">
-                            <StackPanel
-                                x:Name="PART_DotsHost"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal" />
-                        </Border>
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Nav}" />
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ShowNav" Value="False">
+                            <Setter TargetName="PART_NavHost" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_NavHost" Property="Margin" Value="0" />
+                        </Trigger>
+                        <Trigger Property="Nav" Value="{x:Null}">
+                            <Setter TargetName="PART_NavHost" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_NavHost" Property="Margin" Value="0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
