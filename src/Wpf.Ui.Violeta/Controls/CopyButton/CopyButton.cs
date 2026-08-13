@@ -9,6 +9,7 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// A button that plays a WinUI Gallery–style copy → checkmark success animation on click.
 /// Optionally copies <see cref="TextToCopy"/> to the clipboard before animating.
+/// Only the icon host animates; <see cref="System.Windows.Controls.ContentControl.Content"/> text stays still.
 /// </summary>
 /// <remarks>
 /// Icon appearance uses <see cref="ControlHelper.IconFontFamilyProperty"/> /
@@ -133,8 +134,8 @@ public class CopyButton : Wpf.Ui.Controls.Button
     }
 
     /// <summary>
-    /// Plays the copy-success animation (copy icon shrinks out, checkmark pops in, then restores).
-    /// If the animation is already running, this is a no-op so rapid clicks do not restart it.
+    /// Plays the copy-success animation (icon shrinks out, checkmark pops in, then restores).
+    /// Content text is not animated. If the animation is already running, this is a no-op.
     /// </summary>
     public void PlaySuccessAnimation()
     {

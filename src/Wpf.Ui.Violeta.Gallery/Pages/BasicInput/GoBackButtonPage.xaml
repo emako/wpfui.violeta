@@ -1,0 +1,116 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.BasicInput.GoBackButtonPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="GoBackButton"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="GoBackButton" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Basic" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Default ChromeBack glyph (E72B) with TitleBar RightToLeft press scale animation."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:GoBackButton Margin="0,0,8,0" Click="GoBackButton_Click" />
+                        <vio:GoBackButton
+                            Margin="0,0,8,0"
+                            Click="GoBackButton_Click"
+                            Content="Back" />
+                        <vio:GoBackButton
+                            Click="GoBackButton_Click"
+                            Content="Go back"
+                            Icon="{ui:SymbolIcon ArrowLeft24}" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="StatusText"
+                        Margin="0,12,0,0"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Click a button to see the press animation." />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Appearance" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Same Appearance options as other Wpf.Ui buttons."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:GoBackButton
+                            Margin="0,0,8,0"
+                            Appearance="Primary"
+                            Content="Primary" />
+                        <vio:GoBackButton
+                            Margin="0,0,8,0"
+                            Appearance="Secondary"
+                            Content="Secondary" />
+                        <vio:GoBackButton
+                            Margin="0,0,8,0"
+                            Appearance="Success"
+                            Content="Success" />
+                        <vio:GoBackButton Appearance="Danger" Content="Danger" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Disabled" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:GoBackButton Margin="0,0,8,0" IsEnabled="False" />
+                        <vio:GoBackButton
+                            Content="Back"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

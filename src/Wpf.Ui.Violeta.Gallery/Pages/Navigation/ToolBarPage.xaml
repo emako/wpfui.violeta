@@ -219,6 +219,15 @@
                                     </x:Array>
                                 </vio:ToggleComboBox.ItemsSource>
                             </vio:ToggleComboBox>
+                            <Separator />
+                            <vio:CopyButton
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarCopyButtonStyle}"
+                                TextToCopy="Hello from ToolBarCopyButton"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
+                            <vio:GoBackButton
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarGoBackButtonStyle}" />
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>

@@ -88,6 +88,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/slider"] = static () => new SliderPage(),
         ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
         ["basic-input/copy-button"] = static () => new CopyButtonPage(),
+        ["basic-input/go-back-button"] = static () => new GoBackButtonPage(),
         ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
         ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
         ["basic-input/button-spinner"] = static () => new ButtonSpinnerPage(),
