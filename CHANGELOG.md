@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.7] - 2026-08-14
+
+* Add Notification helper and gallery demo
+* Add CopyButton control and gallery sample
+* Add CardCarousel control with seamless circular wrapping
+* Add GoBackButton and AnimatedSymbolButton controls
+* Add Wpf.Ui.TextEditor library and CodeBox
+* Add WinUI-style GridView and gallery page
+* Add Pivot TabControl style and gallery sample
+* Add reusable Card and CardBorder styles
+* Replace SplitToggleButton with ToggleComboBox
+* Animate DropDownButton and SplitButton chevrons
+* Toggle DropDownButton flyout on click
+* Add ToolBarSplitButton and ToolBarDropDownButton styles
+* Add toolbar styles for CopyButton and GoBackButton
+* Fix toolbar overflow on initial layout
+* Add FontIcon markup extension with Width support
+* Support string glyph icons for MenuItem
+* Add icon font size styling via ControlHelper
+* Add drag-move attached property to ControlHelper
+* Add inactive appearance toggle for title bar
+* Fix custom footer hit testing in TitleBar
+* Fix dropdown flyout shadow text blurring
+* Fix menu popup blur and submenu layout
+* Align MenuItem submenu popup placement
+* Enhance SwatchPicker layout and selection UX
+* Add tray icon twinkle mode support
+* Add TabStrip separator visibility toggle
+* Hotfix ListViewItem, DataGrid, and TreeViewItem pill animations
+* Align tree and list view chrome with WPF-UI
+* Unify ControlHelper and use Border.CornerRadius across controls
+* Remove obsolete compat helpers and share Win32 interop
+
 ## [4.3.0.6] - 2026-08-10
 
 * Add ComboBox placeholder support and style fix
@@ -604,73 +637,3 @@ feature: FlyoutService
 ## [3.0.5] - 2024-08-14
 
 feature: Toast
-
----
-
-## Links
-
-[4.3.0.6]: https://github.com/emako/wpfui.violeta/compare/4.3.0.5...4.3.0.6
-[4.3.0.5]: https://github.com/emako/wpfui.violeta/compare/4.3.0.4...4.3.0.5
-[4.3.0.4]: https://github.com/emako/wpfui.violeta/compare/4.3.0.3...4.3.0.4
-[4.3.0.3]: https://github.com/emako/wpfui.violeta/compare/4.3.0.2...4.3.0.3
-[4.3.0.2]: https://github.com/emako/wpfui.violeta/compare/4.3.0.1...4.3.0.2
-[4.3.0.1]: https://github.com/emako/wpfui.violeta/compare/4.3.0...4.3.0.1
-[4.3.0]: https://github.com/emako/wpfui.violeta/compare/4.2.1...4.3.0
-[4.2.1]: https://github.com/emako/wpfui.violeta/compare/4.2.0.12...4.2.1
-[4.2.0.12]: https://github.com/emako/wpfui.violeta/compare/4.2.0.11...4.2.0.12
-[4.2.0.11]: https://github.com/emako/wpfui.violeta/compare/4.2.0.10...4.2.0.11
-[4.2.0.10]: https://github.com/emako/wpfui.violeta/compare/4.2.0.9...4.2.0.10
-[4.2.0.9]: https://github.com/emako/wpfui.violeta/compare/4.2.0.8...4.2.0.9
-[4.2.0.8]: https://github.com/emako/wpfui.violeta/compare/4.2.0.7...4.2.0.8
-[4.2.0.7]: https://github.com/emako/wpfui.violeta/compare/4.2.0.6...4.2.0.7
-[4.2.0.6]: https://github.com/emako/wpfui.violeta/compare/4.2.0.5...4.2.0.6
-[4.2.0.5]: https://github.com/emako/wpfui.violeta/compare/4.2.0.4...4.2.0.5
-[4.2.0.4]: https://github.com/emako/wpfui.violeta/compare/4.2.0.3...4.2.0.4
-[4.2.0.3]: https://github.com/emako/wpfui.violeta/compare/4.2.0.2...4.2.0.3
-[4.2.0.2]: https://github.com/emako/wpfui.violeta/compare/4.2.0.1...4.2.0.2
-[4.2.0.1]: https://github.com/emako/wpfui.violeta/compare/4.2.0...4.2.0.1
-[4.2.0]: https://github.com/emako/wpfui.violeta/compare/4.1.0...4.2.0
-[4.1.0]: https://github.com/emako/wpfui.violeta/compare/4.0.3.7...4.1.0
-[4.0.3.7]: https://github.com/emako/wpfui.violeta/compare/4.0.3.6...4.0.3.7
-[4.0.3.6]: https://github.com/emako/wpfui.violeta/compare/4.0.3.5...4.0.3.6
-[4.0.3.5]: https://github.com/emako/wpfui.violeta/compare/4.0.3.4...4.0.3.5
-[4.0.3.4]: https://github.com/emako/wpfui.violeta/compare/4.0.3.3...4.0.3.4
-[4.0.3.3]: https://github.com/emako/wpfui.violeta/compare/4.0.3.2...4.0.3.3
-[4.0.3.2]: https://github.com/emako/wpfui.violeta/compare/4.0.3.1...4.0.3.2
-[4.0.3.1]: https://github.com/emako/wpfui.violeta/compare/4.0.3...4.0.3.1
-[4.0.3]: https://github.com/emako/wpfui.violeta/compare/4.0.2.4...4.0.3
-[4.0.2.4]: https://github.com/emako/wpfui.violeta/compare/4.0.2.3...4.0.2.4
-[4.0.2.3]: https://github.com/emako/wpfui.violeta/compare/4.0.2.2...4.0.2.3
-[4.0.2.2]: https://github.com/emako/wpfui.violeta/compare/4.0.2.1...4.0.2.2
-[4.0.2.1]: https://github.com/emako/wpfui.violeta/compare/4.0.2...4.0.2.1
-[4.0.2]: https://github.com/emako/wpfui.violeta/compare/4.0.0...4.0.2
-[4.0.0]: https://github.com/emako/wpfui.violeta/compare/3.0.5.28...4.0.0
-[3.0.5.28]: https://github.com/emako/wpfui.violeta/compare/3.0.5.27...3.0.5.28
-[3.0.5.27]: https://github.com/emako/wpfui.violeta/compare/3.0.5.26...3.0.5.27
-[3.0.5.26]: https://github.com/emako/wpfui.violeta/compare/3.0.5.25...3.0.5.26
-[3.0.5.25]: https://github.com/emako/wpfui.violeta/compare/3.0.5.24...3.0.5.25
-[3.0.5.24]: https://github.com/emako/wpfui.violeta/compare/3.0.5.23...3.0.5.24
-[3.0.5.23]: https://github.com/emako/wpfui.violeta/compare/3.0.5.22...3.0.5.23
-[3.0.5.22]: https://github.com/emako/wpfui.violeta/compare/3.0.5.21...3.0.5.22
-[3.0.5.21]: https://github.com/emako/wpfui.violeta/compare/3.0.5.20...3.0.5.21
-[3.0.5.20]: https://github.com/emako/wpfui.violeta/compare/3.0.5.19...3.0.5.20
-[3.0.5.19]: https://github.com/emako/wpfui.violeta/compare/3.0.5.18...3.0.5.19
-[3.0.5.18]: https://github.com/emako/wpfui.violeta/compare/3.0.5.17...3.0.5.18
-[3.0.5.17]: https://github.com/emako/wpfui.violeta/compare/3.0.5.16...3.0.5.17
-[3.0.5.16]: https://github.com/emako/wpfui.violeta/compare/3.0.5.15...3.0.5.16
-[3.0.5.15]: https://github.com/emako/wpfui.violeta/compare/3.0.5.14...3.0.5.15
-[3.0.5.14]: https://github.com/emako/wpfui.violeta/compare/3.0.5.13...3.0.5.14
-[3.0.5.13]: https://github.com/emako/wpfui.violeta/compare/3.0.5.12...3.0.5.13
-[3.0.5.12]: https://github.com/emako/wpfui.violeta/compare/3.0.5.11...3.0.5.12
-[3.0.5.11]: https://github.com/emako/wpfui.violeta/compare/3.0.5.10...3.0.5.11
-[3.0.5.10]: https://github.com/emako/wpfui.violeta/compare/3.0.5.9...3.0.5.10
-[3.0.5.9]: https://github.com/emako/wpfui.violeta/compare/3.0.5.8...3.0.5.9
-[3.0.5.8]: https://github.com/emako/wpfui.violeta/compare/3.0.5.7...3.0.5.8
-[3.0.5.7]: https://github.com/emako/wpfui.violeta/compare/3.0.5.6...3.0.5.7
-[3.0.5.6]: https://github.com/emako/wpfui.violeta/compare/3.0.5.5...3.0.5.6
-[3.0.5.5]: https://github.com/emako/wpfui.violeta/compare/3.0.5.4...3.0.5.5
-[3.0.5.4]: https://github.com/emako/wpfui.violeta/compare/3.0.5.3...3.0.5.4
-[3.0.5.3]: https://github.com/emako/wpfui.violeta/compare/3.0.5.2...3.0.5.3
-[3.0.5.2]: https://github.com/emako/wpfui.violeta/compare/3.0.5.1...3.0.5.2
-[3.0.5.1]: https://github.com/emako/wpfui.violeta/compare/3.0.5...3.0.5.1
-[3.0.5]: https://github.com/emako/wpfui.violeta/releases/tag/3.0.5
