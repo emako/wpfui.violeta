@@ -322,4 +322,10 @@
     <m:StaticResource x:Key="GridViewHeaderItemBackground" ResourceKey="ControlFillColorTransparentBrush" />
     <m:StaticResource x:Key="GridViewHeaderItemDividerStroke" ResourceKey="ControlStrokeColorDefaultBrush" />
 
+    <!--  VolumeView  -->
+    <SolidColorBrush x:Key="VolumeViewInactiveFillBrush" Color="#6B6B6B" />
+    <SolidColorBrush x:Key="VolumeViewLevel1FillBrush" Color="#FF7B7B" />
+    <SolidColorBrush x:Key="VolumeViewLevel2FillBrush" Color="#FFC04D" />
+    <SolidColorBrush x:Key="VolumeViewLevel3FillBrush" Color="#3EE6D4" />
+
 </ResourceDictionary>

@@ -358,6 +358,7 @@
                         <vio:NavigationViewItem Content="ProgressBar" Tag="status/progress-bar" />
                         <vio:NavigationViewItem Content="ProgressRing" Tag="status/progress-ring" />
                         <vio:NavigationViewItem Content="Badge" Tag="status/badge" />
+                        <vio:NavigationViewItem Content="VolumeView" Tag="status/volume-view" />
                         <vio:NavigationViewItem Content="Skeleton" Tag="status/skeleton" />
                         <vio:NavigationViewItem Content="BusyMask" Tag="status/busy-mask" />
                         <vio:NavigationViewItem Content="BoolStateContentControl" Tag="status/bool-state-content-control" />

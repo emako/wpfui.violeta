@@ -1,0 +1,260 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Status.VolumeViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="VolumeView"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="VolumeView" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Volume levels" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Default is a 16×16 glyph (bars 3×5 / 8.5 / 12). 0 idle, 1 critical, 2 caution, 3 success."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView Volume="0" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="0" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView Volume="1" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="1" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView Volume="2" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="2" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <vio:VolumeView Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="3" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Size" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Width/Height scale the 16×16 design. Uniform keeps proportions; Fill stretches pill height independently."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="16×16" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="24"
+                                Height="24"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="24×24" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="32"
+                                Height="32"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="32×32" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="16"
+                                Height="28"
+                                Stretch="Fill"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="16×28 Fill" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Corner radius" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="CornerRadius is in design units. 1.5 is a pill on the 3px-wide bars; it scales with the control."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="32"
+                                Height="32"
+                                CornerRadius="0"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="0" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="32"
+                                Height="32"
+                                CornerRadius="0.75"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="0.75" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <vio:VolumeView
+                                Width="32"
+                                Height="32"
+                                CornerRadius="1.5"
+                                Volume="3" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="1.5 (pill)" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Interactive volume" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Bind Volume to a slider. Threshold mapping: ≤128 → 3 bars, ≤256 → 2 bars, otherwise 1 bar."
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <vio:VolumeView
+                            x:Name="InteractiveVolume"
+                            Width="32"
+                            Height="32"
+                            Volume="{Binding Value, ElementName=VolumeSlider}" />
+                        <Slider
+                            x:Name="VolumeSlider"
+                            Width="200"
+                            Margin="24,0,0,0"
+                            VerticalAlignment="Center"
+                            IsSnapToTickEnabled="True"
+                            Maximum="3"
+                            Minimum="0"
+                            TickFrequency="1"
+                            Value="3" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,20,0,0"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                        <vio:VolumeView
+                            x:Name="ThresholdVolume"
+                            Width="32"
+                            Height="32"
+                            VolumeThreshold="{Binding Value, ElementName=ThresholdSlider}" />
+                        <Slider
+                            x:Name="ThresholdSlider"
+                            Width="200"
+                            Margin="24,0,12,0"
+                            VerticalAlignment="Center"
+                            Maximum="400"
+                            Minimum="0"
+                            Value="80" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{Binding Value, ElementName=ThresholdSlider, StringFormat=Threshold: {0:0}}" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>
