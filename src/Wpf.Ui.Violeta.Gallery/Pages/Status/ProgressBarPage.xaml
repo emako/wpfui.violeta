@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ProgressBar"
@@ -25,19 +24,44 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="10">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,4"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="Indeterminate" />
-                    <TextBlock
-                        Margin="0,0,0,12"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_cae8c05701}}"
-                        TextWrapping="Wrap" />
-                    <ProgressBar IsIndeterminate="True" />
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Indeterminate" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_cae8c05701}}"
+                            TextWrapping="Wrap" />
+                        <ProgressBar
+                            IsIndeterminate="True"
+                            vio:ProgressBarHelper.ShowError="{Binding IsChecked, ElementName=IndeterminateErrorRB, FallbackValue=False, TargetNullValue=False}"
+                            vio:ProgressBarHelper.ShowPaused="{Binding IsChecked, ElementName=IndeterminatePausedRB, FallbackValue=False, TargetNullValue=False}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120">
+                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <RadioButton
+                            x:Name="IndeterminateRunningRB"
+                            Content="Running"
+                            GroupName="IndeterminateProgressState"
+                            IsChecked="True" />
+                        <RadioButton
+                            x:Name="IndeterminatePausedRB"
+                            Content="Paused"
+                            GroupName="IndeterminateProgressState" />
+                        <RadioButton
+                            x:Name="IndeterminateErrorRB"
+                            Content="Error"
+                            GroupName="IndeterminateProgressState" />
+                    </StackPanel>
+                </Grid>
             </Border>
 
             <Border
@@ -47,23 +71,51 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="10">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,4"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="Determinate" />
-                    <TextBlock
-                        Margin="0,0,0,12"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_b1a86a3a9f}}"
-                        TextWrapping="Wrap" />
-                    <ui:StackPanel Orientation="Vertical" Spacing="12">
-                        <ProgressBar Maximum="100" Value="25" />
-                        <ProgressBar Maximum="100" Value="60" />
-                        <ProgressBar Maximum="100" Value="100" />
-                    </ui:StackPanel>
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Determinate" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_b1a86a3a9f}}"
+                            TextWrapping="Wrap" />
+                        <ProgressBar
+                            x:Name="DeterminateBar"
+                            Maximum="100"
+                            Value="35"
+                            vio:ProgressBarHelper.ShowError="{Binding IsChecked, ElementName=DeterminateErrorRB, FallbackValue=False, TargetNullValue=False}"
+                            vio:ProgressBarHelper.ShowPaused="{Binding IsChecked, ElementName=DeterminatePausedRB, FallbackValue=False, TargetNullValue=False}" />
+                        <Slider
+                            Margin="0,12,0,0"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="{Binding Value, ElementName=DeterminateBar, Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120">
+                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <RadioButton
+                            x:Name="DeterminateRunningRB"
+                            Content="Running"
+                            GroupName="DeterminateProgressState"
+                            IsChecked="True" />
+                        <RadioButton
+                            x:Name="DeterminatePausedRB"
+                            Content="Paused"
+                            GroupName="DeterminateProgressState" />
+                        <RadioButton
+                            x:Name="DeterminateErrorRB"
+                            Content="Error"
+                            GroupName="DeterminateProgressState" />
+                    </StackPanel>
+                </Grid>
             </Border>
         </StackPanel>
     </ScrollViewer>
