@@ -1,0 +1,31 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--
+        NumberComboBox reuses ComboBox chrome (editable text + chevron).
+        IsEditable is coerced to True; item selection is optional and not required.
+    -->
+    <Style
+        x:Key="DefaultNumberComboBoxStyle"
+        BasedOn="{StaticResource DefaultComboBoxStyle}"
+        TargetType="{x:Type local:NumberComboBox}">
+        <Setter Property="IsEditable" Value="True" />
+        <Setter Property="IsTextSearchEnabled" Value="False" />
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberIntComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberUIntComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberDoubleComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberFloatComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberDecimalComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberLongComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberULongComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberShortComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberUShortComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberByteComboBox}" />
+    <Style BasedOn="{StaticResource DefaultNumberComboBoxStyle}" TargetType="{x:Type local:NumberSByteComboBox}" />
+
+</ResourceDictionary>

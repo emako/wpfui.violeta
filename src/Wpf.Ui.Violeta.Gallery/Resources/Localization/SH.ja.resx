@@ -154,7 +154,7 @@
     <value>Slider、RangeSlider</value>
   </data>
   <data name="Gallery_Home_NumberInput_Desc" xml:space="preserve">
-    <value>NumberBox、NumericUpDown、ButtonSpinner</value>
+    <value>NumberBox、NumericUpDown、NumberComboBox、ButtonSpinner</value>
   </data>
   <data name="Gallery_Home_TextInput_Desc" xml:space="preserve">
     <value>TextBox、PasswordBox、PinCode、TagInput</value>
@@ -163,7 +163,7 @@
     <value>Label、TextBlock、Hyperlink</value>
   </data>
   <data name="Gallery_Home_ComboBox_Desc" xml:space="preserve">
-    <value>ComboBox、ToggleComboBox、MultiComboBox、TreeComboBox</value>
+    <value>ComboBox、ToggleComboBox、NumberComboBox、MultiComboBox、TreeComboBox</value>
   </data>
   <data name="Gallery_Home_Pickers_Desc" xml:space="preserve">
     <value>DatePicker、ColorPicker、FilePicker</value>
@@ -3356,5 +3356,11 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_f6da31a4e5" xml:space="preserve">
     <value>ホバーで 1.04、押下で 0.96。短いイージング付き。</value>
+  </data>
+  <data name="Sample_a8b3c4d5e6" xml:space="preserve">
+    <value>数値コンボボックス入力</value>
+  </data>
+  <data name="Sample_b9c4d5e6f7" xml:space="preserve">
+    <value>NumberComboBox は抽象基底クラスです。NumberIntComboBox などの具象型を使用してください。</value>
   </data>
 </root>

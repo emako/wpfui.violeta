@@ -192,6 +192,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="NumberBox" Tag="text/number-box" />
                         <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
+                        <vio:NavigationViewItem Content="NumberComboBox" Tag="basic-input/number-combo-box" />
                         <vio:NavigationViewItem Content="ButtonSpinner" Tag="basic-input/button-spinner" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
@@ -234,6 +235,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
                         <vio:NavigationViewItem Content="ToggleComboBox" Tag="basic-input/toggle-combo-box" />
+                        <vio:NavigationViewItem Content="NumberComboBox" Tag="basic-input/number-combo-box" />
                         <vio:NavigationViewItem Content="MultiComboBox" Tag="selectors/multi-combo-box" />
                         <vio:NavigationViewItem Content="CascadingComboBox" Tag="selectors/cascading-combo-box" />
                         <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />

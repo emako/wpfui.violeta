@@ -448,7 +448,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ComboBox, ToggleComboBox, MultiComboBox, TreeComboBox.
+        ///   Looks up a localized string similar to ComboBox, ToggleComboBox, NumberComboBox, MultiComboBox, TreeComboBox.
         /// </summary>
         internal static string Gallery_Home_ComboBox_Desc {
             get {
@@ -529,7 +529,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NumberBox, NumericUpDown, ButtonSpinner.
+        ///   Looks up a localized string similar to NumberBox, NumericUpDown, NumberComboBox, ButtonSpinner.
         /// </summary>
         internal static string Gallery_Home_NumberInput_Desc {
             get {
@@ -10008,6 +10008,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_f6da31a4e5 {
             get {
                 return ResourceManager.GetString("Sample_f6da31a4e5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numeric ComboBox input.
+        /// </summary>
+        internal static string Sample_a8b3c4d5e6 {
+            get {
+                return ResourceManager.GetString("Sample_a8b3c4d5e6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NumberComboBox is an abstract base class; use a concrete type such as NumberIntComboBox.
+        /// </summary>
+        internal static string Sample_b9c4d5e6f7 {
+            get {
+                return ResourceManager.GetString("Sample_b9c4d5e6f7", resourceCulture);
             }
         }
     }

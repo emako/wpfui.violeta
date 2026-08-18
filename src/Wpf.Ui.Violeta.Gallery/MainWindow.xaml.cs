@@ -92,6 +92,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/animated-symbol-button"] = static () => new AnimatedSymbolButtonPage(),
         ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
         ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
+        ["basic-input/number-combo-box"] = static () => new NumberComboBoxPage(),
         ["basic-input/button-spinner"] = static () => new ButtonSpinnerPage(),
         ["basic-input/range-slider"] = static () => new RangeSliderPage(),
         ["basic-input/virtual-joystick"] = static () => new VirtualJoystickPage(),
