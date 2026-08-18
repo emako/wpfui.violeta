@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
@@ -46,7 +47,14 @@
                                 Width="200"
                                 Maximum="100"
                                 Minimum="-100"
-                                PlaceholderText="enter int…" />
+                                PlaceholderText="enter int…">
+                                <sys:Int32>-100</sys:Int32>
+                                <sys:Int32>-50</sys:Int32>
+                                <sys:Int32>0</sys:Int32>
+                                <sys:Int32>25</sys:Int32>
+                                <sys:Int32>50</sys:Int32>
+                                <sys:Int32>100</sys:Int32>
+                            </vio:NumberIntComboBox>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock
@@ -59,7 +67,13 @@
                                 FormatString="N2"
                                 Maximum="1"
                                 Minimum="0"
-                                PlaceholderText="0.00" />
+                                PlaceholderText="0.00">
+                                <sys:Double>0</sys:Double>
+                                <sys:Double>0.25</sys:Double>
+                                <sys:Double>0.5</sys:Double>
+                                <sys:Double>0.75</sys:Double>
+                                <sys:Double>1</sys:Double>
+                            </vio:NumberDoubleComboBox>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
                             <TextBlock
@@ -70,7 +84,13 @@
                             <vio:NumberDecimalComboBox
                                 Width="200"
                                 FormatString="N2"
-                                PlaceholderText="decimal…" />
+                                PlaceholderText="decimal…">
+                                <sys:Decimal>0.01</sys:Decimal>
+                                <sys:Decimal>0.1</sys:Decimal>
+                                <sys:Decimal>1</sys:Decimal>
+                                <sys:Decimal>10</sys:Decimal>
+                                <sys:Decimal>100</sys:Decimal>
+                            </vio:NumberDecimalComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
@@ -78,7 +98,76 @@
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
                                 Text="byte (0…255)" />
-                            <vio:NumberByteComboBox Width="200" PlaceholderText="0-255" />
+                            <vio:NumberByteComboBox Width="200" PlaceholderText="0-255">
+                                <sys:Byte>0</sys:Byte>
+                                <sys:Byte>32</sys:Byte>
+                                <sys:Byte>64</sys:Byte>
+                                <sys:Byte>128</sys:Byte>
+                                <sys:Byte>255</sys:Byte>
+                            </vio:NumberByteComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_61b1603587}}" />
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="prefix" />
+                            <vio:NumberDoubleComboBox
+                                Width="200"
+                                FormatString="N2"
+                                InnerLeftContent="$"
+                                Maximum="9999"
+                                Minimum="0"
+                                PlaceholderText="0.00"
+                                Value="12.5">
+                                <sys:Double>5</sys:Double>
+                                <sys:Double>10</sys:Double>
+                                <sys:Double>12.5</sys:Double>
+                                <sys:Double>20</sys:Double>
+                                <sys:Double>50</sys:Double>
+                                <sys:Double>100</sys:Double>
+                            </vio:NumberDoubleComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                MinWidth="180"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                Text="suffix" />
+                            <vio:NumberIntComboBox
+                                Width="200"
+                                InnerRightContent="px"
+                                Maximum="96"
+                                Minimum="8"
+                                PlaceholderText="size"
+                                Value="16">
+                                <sys:Int32>8</sys:Int32>
+                                <sys:Int32>12</sys:Int32>
+                                <sys:Int32>14</sys:Int32>
+                                <sys:Int32>16</sys:Int32>
+                                <sys:Int32>20</sys:Int32>
+                                <sys:Int32>24</sys:Int32>
+                                <sys:Int32>32</sys:Int32>
+                                <sys:Int32>48</sys:Int32>
+                            </vio:NumberIntComboBox>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -106,8 +195,13 @@
                                 Text="read-only" />
                             <vio:NumberIntComboBox
                                 Width="200"
+                                InnerRightContent="kg"
                                 IsReadOnly="True"
-                                Value="42" />
+                                Value="42">
+                                <sys:Int32>42</sys:Int32>
+                                <sys:Int32>50</sys:Int32>
+                                <sys:Int32>60</sys:Int32>
+                            </vio:NumberIntComboBox>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
@@ -117,8 +211,11 @@
                                 Text="disabled" />
                             <vio:NumberIntComboBox
                                 Width="200"
+                                InnerRightContent="%"
                                 IsEnabled="False"
-                                Value="99" />
+                                Value="99">
+                                <sys:Int32>99</sys:Int32>
+                            </vio:NumberIntComboBox>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>

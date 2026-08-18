@@ -14,14 +14,26 @@ namespace Wpf.Ui.Violeta.Controls;
 /// drop-down infrastructure is kept for appearance and optional custom items.
 /// </summary>
 [TemplatePart(Name = PART_EditableTextBox, Type = typeof(TextBox))]
+[TemplatePart(Name = PART_InnerLeftContent, Type = typeof(ContentPresenter))]
+[TemplatePart(Name = PART_InnerRightContent, Type = typeof(ContentPresenter))]
 public abstract class NumberComboBox : System.Windows.Controls.ComboBox
 {
     public const string PART_EditableTextBox = "PART_EditableTextBox";
+    public const string PART_InnerLeftContent = "PART_InnerLeftContent";
+    public const string PART_InnerRightContent = "PART_InnerRightContent";
 
     protected TextBox? _textBox;
+    private ContentPresenter? _innerLeftContent;
+    private ContentPresenter? _innerRightContent;
 
     /// <summary>Whether the current text update is from user typing (vs programmatic).</summary>
     protected internal bool _updateFromTextInput;
+
+    /// <summary>
+    /// When true, ignore TextBox.TextChanged caused by aligning SelectedItem
+    /// (editable ComboBox overwrites Text when selection changes).
+    /// </summary>
+    protected bool _suppressSelectionTextSync;
 
     private bool _isRestrictingInput;
 
@@ -173,6 +185,52 @@ public abstract class NumberComboBox : System.Windows.Controls.ComboBox
 
     #endregion TextConverter
 
+    #region InnerLeftContent / InnerRightContent
+
+    public static readonly DependencyProperty InnerLeftContentProperty =
+        DependencyProperty.Register(
+            nameof(InnerLeftContent),
+            typeof(object),
+            typeof(NumberComboBox),
+            new PropertyMetadata(null, OnInnerContentChanged));
+
+    public static readonly DependencyProperty InnerRightContentProperty =
+        DependencyProperty.Register(
+            nameof(InnerRightContent),
+            typeof(object),
+            typeof(NumberComboBox),
+            new PropertyMetadata(null, OnInnerContentChanged));
+
+    private static void OnInnerContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is NumberComboBox self)
+            self.UpdateInnerContentVisibility();
+    }
+
+    private void UpdateInnerContentVisibility()
+    {
+        if (_innerLeftContent != null)
+            _innerLeftContent.Visibility = InnerLeftContent != null ? Visibility.Visible : Visibility.Collapsed;
+        if (_innerRightContent != null)
+            _innerRightContent.Visibility = InnerRightContent != null ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    /// <summary>Optional content rendered to the left of the text input (e.g. currency symbol).</summary>
+    public object? InnerLeftContent
+    {
+        get => GetValue(InnerLeftContentProperty);
+        set => SetValue(InnerLeftContentProperty, value);
+    }
+
+    /// <summary>Optional content rendered to the right of the text input (e.g. unit suffix).</summary>
+    public object? InnerRightContent
+    {
+        get => GetValue(InnerRightContentProperty);
+        set => SetValue(InnerRightContentProperty, value);
+    }
+
+    #endregion InnerLeftContent / InnerRightContent
+
     public override void OnApplyTemplate()
     {
         if (_textBox != null)
@@ -185,6 +243,9 @@ public abstract class NumberComboBox : System.Windows.Controls.ComboBox
         base.OnApplyTemplate();
 
         _textBox = GetTemplateChild(PART_EditableTextBox) as TextBox;
+        _innerLeftContent = GetTemplateChild(PART_InnerLeftContent) as ContentPresenter;
+        _innerRightContent = GetTemplateChild(PART_InnerRightContent) as ContentPresenter;
+        UpdateInnerContentVisibility();
 
         if (_textBox != null)
         {
@@ -199,7 +260,7 @@ public abstract class NumberComboBox : System.Windows.Controls.ComboBox
 
     private void OnTextBoxTextChanged(object? sender, TextChangedEventArgs e)
     {
-        if (_textBox is null) return;
+        if (_textBox is null || _suppressSelectionTextSync) return;
 
         if (RestrictInput && !_isRestrictingInput)
         {
@@ -211,7 +272,8 @@ public abstract class NumberComboBox : System.Windows.Controls.ComboBox
         _updateFromTextInput = true;
         try
         {
-            SyncTextAndValue(false, _textBox.Text, false);
+            // Keep Value (and thus the dropdown pill) in sync while typing.
+            SyncTextAndValue(true, _textBox.Text, false);
         }
         finally
         {
@@ -311,12 +373,26 @@ public abstract class NumberComboBox : System.Windows.Controls.ComboBox
             CommitInput(true);
     }
 
+    protected override void OnDropDownOpened(EventArgs e)
+    {
+        // Opening the popup keeps keyboard focus within the control, so focus-lost
+        // commit never runs — sync from the visible text before items paint.
+        CommitInput(false);
+        base.OnDropDownOpened(e);
+    }
+
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
     {
         base.OnSelectionChanged(e);
         if (SelectedItem is not null && !_updateFromTextInput)
-            CommitInput(true);
+            ApplySelectedItem();
     }
+
+    /// <summary>
+    /// Applies the current <see cref="ComboBox.SelectedItem"/> to the numeric value.
+    /// Override in <see cref="NumberComboBoxBase{T}"/> to prefer typed items.
+    /// </summary>
+    protected virtual void ApplySelectedItem() => CommitInput(true);
 
     /// <summary>
     /// Returns <see langword="true"/> when the numeric type accepts a fractional part

@@ -15,6 +15,7 @@ public abstract class NumberComboBoxBase<T> : NumberComboBox
     where T : struct, IComparable<T>
 {
     private bool _isSyncingTextAndValue;
+    private bool _isSyncingSelectedItem;
 
     // --- Value ---------------------------------------------------------------
 
@@ -38,6 +39,10 @@ public abstract class NumberComboBoxBase<T> : NumberComboBox
 
             if (!self._isSyncingTextAndValue)
                 self.SyncTextAndValue(false, null, true);
+
+            // Keep the dropdown pill (IsSelected) aligned with Value.
+            if (!self._isSyncingSelectedItem)
+                self.SyncSelectedItemFromValue();
 
             self.ExecuteCommand();
         }
@@ -204,7 +209,83 @@ public abstract class NumberComboBoxBase<T> : NumberComboBox
 
     protected NumberComboBoxBase()
     {
-        Loaded += (_, _) => SyncTextAndValue(false, null, true);
+        Loaded += (_, _) =>
+        {
+            SyncTextAndValue(false, null, true);
+            SyncSelectedItemFromValue();
+        };
+    }
+
+    /// <inheritdoc/>
+    protected override void ApplySelectedItem()
+    {
+        if (_isSyncingSelectedItem)
+            return;
+
+        if (SelectedItem is T typed)
+            Value = typed;
+        else
+            CommitInput(true);
+    }
+
+    protected override void OnItemsChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        base.OnItemsChanged(e);
+        if (!_isSyncingSelectedItem)
+            SyncSelectedItemFromValue();
+    }
+
+    /// <summary>
+    /// Aligns <see cref="System.Windows.Controls.Primitives.Selector.SelectedItem"/> with <see cref="Value"/>
+    /// so the dropdown pill highlights the matching item (or none when the value is free-typed).
+    /// Editable ComboBox rewrites <see cref="System.Windows.Controls.ComboBox.Text"/> when selection
+    /// changes, so the current display text is preserved across the update.
+    /// </summary>
+    private void SyncSelectedItemFromValue()
+    {
+        if (_isSyncingSelectedItem)
+            return;
+
+        _isSyncingSelectedItem = true;
+        _suppressSelectionTextSync = true;
+        try
+        {
+            object? match = null;
+            if (Value is T value)
+            {
+                foreach (var item in Items)
+                {
+                    if (item is T typed && typed.CompareTo(value) == 0)
+                    {
+                        match = item;
+                        break;
+                    }
+                }
+            }
+
+            if (Equals(SelectedItem, match))
+                return;
+
+            var savedText = _textBox?.Text ?? Text;
+            var savedCaret = _textBox?.CaretIndex ?? -1;
+
+            SetCurrentValue(SelectedItemProperty, match);
+
+            // Editable ComboBox clears/replaces Text when SelectedItem changes.
+            SetCurrentValue(TextProperty, savedText);
+            if (_textBox != null)
+            {
+                if (_textBox.Text != savedText)
+                    _textBox.Text = savedText;
+                if (savedCaret >= 0)
+                    _textBox.CaretIndex = Math.Min(savedCaret, savedText.Length);
+            }
+        }
+        finally
+        {
+            _suppressSelectionTextSync = false;
+            _isSyncingSelectedItem = false;
+        }
     }
 
     // --- Core sync logic -----------------------------------------------------
