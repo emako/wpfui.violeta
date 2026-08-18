@@ -119,6 +119,20 @@
                     Height="80"
                     Margin="0,0,12,12"
                     Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
+                    CommandParameter="navigation/segmented">
+                    <ui:CardAction.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8F1;" />
+                    </ui:CardAction.Icon>
+                    <StackPanel>
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Segmented" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="WinUI-style view switcher" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </ui:CardAction>
+                <ui:CardAction
+                    Width="260"
+                    Height="80"
+                    Margin="0,0,12,12"
+                    Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
                     CommandParameter="navigation/pivot">
                     <ui:CardAction.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8AB;" />

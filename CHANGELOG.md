@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [Unreleased]
+
+* Add Segmented control and gallery sample
+
 ## [4.3.0.7] - 2026-08-14
 
 * Add Notification helper and gallery demo
