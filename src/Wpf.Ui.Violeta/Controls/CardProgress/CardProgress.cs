@@ -5,14 +5,16 @@ using System.Windows.Media;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// A content card with a <see cref="ProgressBar"/> along the bottom edge.
-/// The bar itself is a straight strip; the card's rounded clip trims it to the
-/// bottom corners so the indicator never grows hooks from the card radius.
+/// A content card with a ProgressBar-style indicator on the bottom chrome.
+/// The indicator is the same filled bottom accent as TextBox (follows both
+/// corner radii). Determinate progress clips that full path from the left,
+/// so the start hugs the card corner and the cut end stays square.
 /// </summary>
-[TemplatePart(Name = PART_ProgressBar, Type = typeof(ProgressBar))]
+[TemplatePart(Name = PART_Indicator, Type = typeof(CardProgressIndicator))]
 public class CardProgress : ContentControl
 {
-    public const string PART_ProgressBar = "PART_ProgressBar";
+    public const string PART_Indicator = "PART_Indicator";
+
     static CardProgress()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
@@ -224,7 +226,7 @@ public class CardProgress : ContentControl
             new PropertyMetadata(new CornerRadius(0)));
 
     /// <summary>
-    /// Gets or sets the card corner radius. The bottom indicator is clipped to this shape.
+    /// Gets or sets the card corner radius. The bottom indicator uses the same radii as TextBox accent.
     /// </summary>
     public CornerRadius CornerRadius
     {
