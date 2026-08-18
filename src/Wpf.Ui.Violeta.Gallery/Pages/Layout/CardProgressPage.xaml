@@ -1,0 +1,236 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Layout.CardProgressPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="CardProgress"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="CardProgress" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Determinate" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_d4e8f1a092}}"
+                            TextWrapping="Wrap" />
+                        <vio:CardProgress
+                            x:Name="DeterminateCard"
+                            MaxWidth="520"
+                            HorizontalAlignment="Left"
+                            Maximum="100"
+                            Value="35"
+                            ShowError="{Binding IsChecked, ElementName=DeterminateErrorRB, FallbackValue=False, TargetNullValue=False}"
+                            ShowPaused="{Binding IsChecked, ElementName=DeterminatePausedRB, FallbackValue=False, TargetNullValue=False}">
+                            <StackPanel>
+                                <ui:TextBlock
+                                    FontTypography="BodyStrong"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="Downloading package"
+                                    TextWrapping="WrapWithOverflow" />
+                                <ui:TextBlock
+                                    Appearance="Secondary"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="Progress sits on the card bottom indicator and follows the corner radius."
+                                    TextWrapping="WrapWithOverflow" />
+                            </StackPanel>
+                        </vio:CardProgress>
+                        <Slider
+                            MaxWidth="520"
+                            Margin="0,12,0,0"
+                            HorizontalAlignment="Left"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="{Binding Value, ElementName=DeterminateCard, Mode=TwoWay}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120">
+                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <RadioButton
+                            x:Name="DeterminateRunningRB"
+                            Content="Running"
+                            GroupName="DeterminateCardProgressState"
+                            IsChecked="True" />
+                        <RadioButton
+                            x:Name="DeterminatePausedRB"
+                            Content="Paused"
+                            GroupName="DeterminateCardProgressState" />
+                        <RadioButton
+                            x:Name="DeterminateErrorRB"
+                            Content="Error"
+                            GroupName="DeterminateCardProgressState" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Indeterminate" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_e5f9a2b103}}"
+                            TextWrapping="Wrap" />
+                        <vio:CardProgress
+                            MaxWidth="520"
+                            HorizontalAlignment="Left"
+                            IsIndeterminate="True"
+                            ShowError="{Binding IsChecked, ElementName=IndeterminateErrorRB, FallbackValue=False, TargetNullValue=False}"
+                            ShowPaused="{Binding IsChecked, ElementName=IndeterminatePausedRB, FallbackValue=False, TargetNullValue=False}">
+                            <StackPanel>
+                                <ui:TextBlock
+                                    FontTypography="BodyStrong"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="Preparing workspace"
+                                    TextWrapping="WrapWithOverflow" />
+                                <ui:TextBlock
+                                    Appearance="Secondary"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="Indeterminate indicator travels along the rounded bottom edge."
+                                    TextWrapping="WrapWithOverflow" />
+                            </StackPanel>
+                        </vio:CardProgress>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120">
+                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <RadioButton
+                            x:Name="IndeterminateRunningRB"
+                            Content="Running"
+                            GroupName="IndeterminateCardProgressState"
+                            IsChecked="True" />
+                        <RadioButton
+                            x:Name="IndeterminatePausedRB"
+                            Content="Paused"
+                            GroupName="IndeterminateCardProgressState" />
+                        <RadioButton
+                            x:Name="IndeterminateErrorRB"
+                            Content="Error"
+                            GroupName="IndeterminateCardProgressState" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon + larger corner radius" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f6a0b3c214}}"
+                        TextWrapping="Wrap" />
+                    <vio:CardProgress
+                        MaxWidth="520"
+                        HorizontalAlignment="Left"
+                        CornerRadius="12"
+                        Value="72">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ui:SymbolIcon
+                                Margin="0,0,12,0"
+                                VerticalAlignment="Top"
+                                FontSize="28"
+                                Symbol="ArrowDownload24" />
+                            <StackPanel Grid.Column="1">
+                                <ui:TextBlock
+                                    FontTypography="BodyStrong"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="Fluent package"
+                                    TextWrapping="WrapWithOverflow" />
+                                <ui:TextBlock
+                                    Appearance="Secondary"
+                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Text="72% · 86 MB of 120 MB"
+                                    TextWrapping="WrapWithOverflow" />
+                            </StackPanel>
+                        </Grid>
+                    </vio:CardProgress>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Secondary style" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c1a9e0b247}}"
+                        TextWrapping="Wrap" />
+                    <vio:CardProgress
+                        MaxWidth="520"
+                        HorizontalAlignment="Left"
+                        Style="{DynamicResource SecondaryCardProgressStyle}"
+                        Value="50">
+                        <ui:TextBlock
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                            Text="SecondaryCardProgressStyle"
+                            TextWrapping="WrapWithOverflow" />
+                    </vio:CardProgress>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

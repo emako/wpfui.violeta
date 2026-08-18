@@ -3363,4 +3363,16 @@
   <data name="Sample_b9c4d5e6f7" xml:space="preserve">
     <value>NumberComboBox 为抽象基类，请使用具体类型如 NumberIntComboBox。</value>
   </data>
+  <data name="Sample_c1a9e0b247" xml:space="preserve">
+    <value>带底部进度的卡片</value>
+  </data>
+  <data name="Sample_d4e8f1a092" xml:space="preserve">
+    <value>确定进度填充底部指示条，并贴合卡片圆角。</value>
+  </data>
+  <data name="Sample_e5f9a2b103" xml:space="preserve">
+    <value>不确定进度沿底部圆角边缘滑动。</value>
+  </data>
+  <data name="Sample_f6a0b3c214" xml:space="preserve">
+    <value>更大的 CornerRadius 时，指示条仍贴合底部圆角。</value>
+  </data>
 </root>

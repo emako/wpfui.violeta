@@ -3363,4 +3363,16 @@ Click OK to continue.</value>
   <data name="Sample_b9c4d5e6f7" xml:space="preserve">
     <value>NumberComboBox is an abstract base class; use a concrete type such as NumberIntComboBox.</value>
   </data>
+  <data name="Sample_c1a9e0b247" xml:space="preserve">
+    <value>Card with bottom progress</value>
+  </data>
+  <data name="Sample_d4e8f1a092" xml:space="preserve">
+    <value>Determinate progress fills the bottom indicator and follows the card corner radius.</value>
+  </data>
+  <data name="Sample_e5f9a2b103" xml:space="preserve">
+    <value>Indeterminate animation runs along the rounded bottom edge.</value>
+  </data>
+  <data name="Sample_f6a0b3c214" xml:space="preserve">
+    <value>Larger CornerRadius still keeps the indicator flush with the rounded bottom.</value>
+  </data>
 </root>

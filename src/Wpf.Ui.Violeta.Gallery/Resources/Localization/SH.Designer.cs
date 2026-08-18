@@ -10028,5 +10028,41 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9c4d5e6f7", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card with bottom progress.
+        /// </summary>
+        internal static string Sample_c1a9e0b247 {
+            get {
+                return ResourceManager.GetString("Sample_c1a9e0b247", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Determinate progress fills the bottom indicator and follows the card corner radius.
+        /// </summary>
+        internal static string Sample_d4e8f1a092 {
+            get {
+                return ResourceManager.GetString("Sample_d4e8f1a092", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indeterminate animation runs along the rounded bottom edge.
+        /// </summary>
+        internal static string Sample_e5f9a2b103 {
+            get {
+                return ResourceManager.GetString("Sample_e5f9a2b103", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Larger CornerRadius still keeps the indicator flush with the rounded bottom.
+        /// </summary>
+        internal static string Sample_f6a0b3c214 {
+            get {
+                return ResourceManager.GetString("Sample_f6a0b3c214", resourceCulture);
+            }
+        }
     }
 }

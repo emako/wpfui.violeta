@@ -3363,4 +3363,16 @@ OK をクリックして続行してください。</value>
   <data name="Sample_b9c4d5e6f7" xml:space="preserve">
     <value>NumberComboBox は抽象基底クラスです。NumberIntComboBox などの具象型を使用してください。</value>
   </data>
+  <data name="Sample_c1a9e0b247" xml:space="preserve">
+    <value>下部に進捗を持つカード</value>
+  </data>
+  <data name="Sample_d4e8f1a092" xml:space="preserve">
+    <value>確定進捗が下部インジケーターを塗り、カードの角丸に沿います。</value>
+  </data>
+  <data name="Sample_e5f9a2b103" xml:space="preserve">
+    <value>不確定アニメーションが丸い下端に沿って移動します。</value>
+  </data>
+  <data name="Sample_f6a0b3c214" xml:space="preserve">
+    <value>CornerRadius を大きくしても、インジケーターは下端の角丸に沿います。</value>
+  </data>
 </root>

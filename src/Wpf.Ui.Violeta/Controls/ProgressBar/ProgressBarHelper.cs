@@ -188,9 +188,9 @@ public static class ProgressBarHelper
         private readonly DependencyPropertyDescriptor _templateDescriptor;
 
         private Grid? _layoutRoot;
-        private Rectangle? _determinateProgressBarIndicator;
-        private Rectangle? _indeterminateProgressBarIndicator;
-        private Rectangle? _indeterminateProgressBarIndicator2;
+        private FrameworkElement? _determinateProgressBarIndicator;
+        private FrameworkElement? _indeterminateProgressBarIndicator;
+        private FrameworkElement? _indeterminateProgressBarIndicator2;
         private bool _attached;
 
         public ProgressBarController(ProgressBar owner)
@@ -295,9 +295,9 @@ public static class ProgressBarHelper
         {
             _owner.ApplyTemplate();
             _layoutRoot = FindName<Grid>(LayoutRootName);
-            _determinateProgressBarIndicator = FindName<Rectangle>(DeterminateProgressBarIndicatorName);
-            _indeterminateProgressBarIndicator = FindName<Rectangle>(IndeterminateProgressBarIndicatorName);
-            _indeterminateProgressBarIndicator2 = FindName<Rectangle>(IndeterminateProgressBarIndicator2Name);
+            _determinateProgressBarIndicator = FindName<FrameworkElement>(DeterminateProgressBarIndicatorName);
+            _indeterminateProgressBarIndicator = FindName<FrameworkElement>(IndeterminateProgressBarIndicatorName);
+            _indeterminateProgressBarIndicator2 = FindName<FrameworkElement>(IndeterminateProgressBarIndicator2Name);
             ApplyIndicatorBrushes();
             SetProgressBarIndicatorWidth();
             UpdateWidthBasedTemplateSettings();
@@ -327,14 +327,26 @@ public static class ProgressBarHelper
             ApplyBrush(_indeterminateProgressBarIndicator2, source);
         }
 
-        private static void ApplyBrush(Rectangle? rectangle, SolidColorBrush source)
+        private static void ApplyBrush(FrameworkElement? element, SolidColorBrush source)
         {
-            if (rectangle == null)
+            if (element == null)
             {
                 return;
             }
 
-            rectangle.Fill = source.CloneCurrentValue();
+            var brush = source.CloneCurrentValue();
+            switch (element)
+            {
+                case Rectangle rectangle:
+                    rectangle.Fill = brush;
+                    break;
+                case Shape shape:
+                    shape.Fill = brush;
+                    break;
+                case Border border:
+                    border.BorderBrush = brush;
+                    break;
+            }
         }
 
         private void UpdateStates(bool useTransitions = true)
@@ -462,11 +474,7 @@ public static class ProgressBarHelper
                     Math.Max(0, width - (padding.Right + padding.Left)),
                     Math.Max(0, height - (padding.Bottom + padding.Top))));
 
-            if (_indeterminateProgressBarIndicator != null)
-            {
-                rectangle.RadiusX = _indeterminateProgressBarIndicator.RadiusX;
-                rectangle.RadiusY = _indeterminateProgressBarIndicator.RadiusY;
-            }
+            ApplyClipRadius(rectangle, _indeterminateProgressBarIndicator);
 
             templateSettings.ClipRect = rectangle;
             templateSettings.EllipseAnimationEndPosition = (1.0 / 3.0) * width;
@@ -506,6 +514,21 @@ public static class ProgressBarHelper
                     }
                 }),
                 DispatcherPriority.Render);
+        }
+
+        private static void ApplyClipRadius(RectangleGeometry geometry, FrameworkElement? indicator)
+        {
+            switch (indicator)
+            {
+                case Rectangle rectangle:
+                    geometry.RadiusX = rectangle.RadiusX;
+                    geometry.RadiusY = rectangle.RadiusY;
+                    break;
+                case Border border:
+                    geometry.RadiusX = border.CornerRadius.TopLeft;
+                    geometry.RadiusY = border.CornerRadius.BottomRight;
+                    break;
+            }
         }
 
     }

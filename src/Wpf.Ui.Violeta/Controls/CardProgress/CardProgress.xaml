@@ -1,0 +1,91 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls">
+
+    <sys:Double x:Key="CardProgressIndicatorHeight">3</sys:Double>
+
+    <Style x:Key="DefaultCardProgressStyle" TargetType="{x:Type local:CardProgress}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource CardBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource CardForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource CardPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ProgressForeground" Value="{DynamicResource ProgressBarForeground}" />
+        <Setter Property="ProgressBackground" Value="{DynamicResource ProgressBarBackground}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CardProgress}">
+                    <!--
+                        ui:Border clips children to CornerRadius (WPF Border.ClipToBounds does not).
+                        The ProgressBar is a straight 3px strip; the card clip trims it to the bottom corners.
+                    -->
+                    <ui:Border
+                        x:Name="ContentBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ui:BorderContentAdapter>
+                            <Grid>
+                                <ContentPresenter
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <ProgressBar
+                                    x:Name="PART_ProgressBar"
+                                    Height="{StaticResource CardProgressIndicatorHeight}"
+                                    MinHeight="{StaticResource CardProgressIndicatorHeight}"
+                                    VerticalAlignment="Bottom"
+                                    Background="{TemplateBinding ProgressBackground}"
+                                    Foreground="{TemplateBinding ProgressForeground}"
+                                    IsHitTestVisible="False"
+                                    IsIndeterminate="{TemplateBinding IsIndeterminate}"
+                                    Maximum="{TemplateBinding Maximum}"
+                                    Minimum="{TemplateBinding Minimum}"
+                                    Value="{TemplateBinding Value}"
+                                    compat:ProgressBarHelper.ShowError="{TemplateBinding ShowError}"
+                                    compat:ProgressBarHelper.ShowPaused="{TemplateBinding ShowPaused}" />
+                            </Grid>
+                        </ui:BorderContentAdapter>
+                    </ui:Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource CardBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource CardBorderBrushDisabled}" />
+                            <Setter TargetName="PART_ProgressBar" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultCardProgressStyle}" TargetType="{x:Type local:CardProgress}" />
+
+    <Style
+        x:Key="SecondaryCardProgressStyle"
+        BasedOn="{StaticResource DefaultCardProgressStyle}"
+        TargetType="{x:Type local:CardProgress}">
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+    </Style>
+
+</ResourceDictionary>

@@ -3363,4 +3363,16 @@
   <data name="Sample_b9c4d5e6f7" xml:space="preserve">
     <value>NumberComboBox 為抽象基底類別，請使用具體類型如 NumberIntComboBox。</value>
   </data>
+  <data name="Sample_c1a9e0b247" xml:space="preserve">
+    <value>帶底部進度的卡片</value>
+  </data>
+  <data name="Sample_d4e8f1a092" xml:space="preserve">
+    <value>確定進度填滿底部指示條，並貼合卡片圓角。</value>
+  </data>
+  <data name="Sample_e5f9a2b103" xml:space="preserve">
+    <value>不確定進度沿底部圓角邊緣滑動。</value>
+  </data>
+  <data name="Sample_f6a0b3c214" xml:space="preserve">
+    <value>更大的 CornerRadius 時，指示條仍貼合底部圓角。</value>
+  </data>
 </root>
