@@ -14,6 +14,15 @@ namespace Wpf.Ui.Controls;
 [TemplatePart(Name = "PART_DrawerContainer", Type = typeof(Border))]
 public partial class Drawer : ContentControl
 {
+    /// <summary>
+    /// Fluent overlay pane curve used by NavigationView / SplitView
+    /// (KeySpline="0.1,0.9 0.2,1.0").
+    /// </summary>
+    private static readonly KeySpline OverlayKeySpline = CreateOverlayKeySpline();
+
+    private const int DefaultOpenDurationMs = 350;
+    private const int DefaultCloseDurationMs = 120;
+
     private Border? _container;
 
     public event EventHandler? Opened;
@@ -21,6 +30,13 @@ public partial class Drawer : ContentControl
     public event EventHandler? Closed;
 
     public TranslateTransform TranslateTransform => (TranslateTransform)RenderTransform;
+
+    private static KeySpline CreateOverlayKeySpline()
+    {
+        KeySpline spline = new(0.1, 0.9, 0.2, 1.0);
+        spline.Freeze();
+        return spline;
+    }
 
     static Drawer()
     {
@@ -70,13 +86,16 @@ public partial class Drawer : ContentControl
 
     /// <summary>
     /// Identifies the Duration dependency property.
-    /// Controls the animation duration (in milliseconds) for opening/closing the Drawer. Default is 300ms.
+    /// Controls the open animation duration (in milliseconds). Closing uses a shorter duration
+    /// proportional to this value, matching NavigationView overlay (350ms open / 120ms close).
+    /// Default is 350ms.
     /// </summary>
     public static readonly DependencyProperty DurationProperty =
-        DependencyProperty.Register(nameof(Duration), typeof(int), typeof(Drawer), new(300));
+        DependencyProperty.Register(nameof(Duration), typeof(int), typeof(Drawer), new(DefaultOpenDurationMs));
 
     /// <summary>
-    /// Gets or sets the animation duration (in milliseconds) for opening/closing the Drawer.
+    /// Gets or sets the open animation duration (in milliseconds) for the Drawer.
+    /// Closing is faster, scaled from NavigationView overlay timing.
     /// </summary>
     public int Duration
     {
@@ -156,23 +175,11 @@ public partial class Drawer : ContentControl
             Panel.SetZIndex(this, int.MaxValue);
         }
 
-        if (animated)
+        TimeSpan duration = animated ? GetAnimationDuration(isOpen) : TimeSpan.Zero;
+        if (duration > TimeSpan.Zero)
         {
-            TimeSpan duration = TimeSpan.FromMilliseconds(Duration);
-            DoubleAnimation animX = new()
-            {
-                To = target.X,
-                Duration = duration,
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-            DoubleAnimation animY = new()
-            {
-                To = target.Y,
-                Duration = duration,
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-            TranslateTransform.BeginAnimation(TranslateTransform.XProperty, animX);
-            TranslateTransform.BeginAnimation(TranslateTransform.YProperty, animY);
+            TranslateTransform.BeginAnimation(TranslateTransform.XProperty, CreateOverlayAnimation(target.X, duration));
+            TranslateTransform.BeginAnimation(TranslateTransform.YProperty, CreateOverlayAnimation(target.Y, duration));
         }
         else
         {
@@ -181,6 +188,31 @@ public partial class Drawer : ContentControl
             TranslateTransform.X = target.X;
             TranslateTransform.Y = target.Y;
         }
+    }
+
+    private TimeSpan GetAnimationDuration(bool isOpen)
+    {
+        int openMs = Math.Max(0, Duration);
+        if (openMs == 0)
+            return TimeSpan.Zero;
+
+        if (isOpen)
+            return TimeSpan.FromMilliseconds(openMs);
+
+        int closeMs = Math.Max(1, (int)Math.Round(openMs * (DefaultCloseDurationMs / (double)DefaultOpenDurationMs)));
+        return TimeSpan.FromMilliseconds(closeMs);
+    }
+
+    private static DoubleAnimationUsingKeyFrames CreateOverlayAnimation(double to, TimeSpan duration)
+    {
+        return new DoubleAnimationUsingKeyFrames
+        {
+            Duration = duration,
+            KeyFrames =
+            {
+                new SplineDoubleKeyFrame(to, KeyTime.FromTimeSpan(duration), OverlayKeySpline)
+            }
+        };
     }
 
     protected Point GetTargetPosition(bool isOpen)

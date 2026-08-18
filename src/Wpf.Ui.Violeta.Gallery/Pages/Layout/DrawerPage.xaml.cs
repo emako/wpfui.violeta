@@ -1,7 +1,5 @@
-using System;
 using System.Windows;
-using System.Windows.Controls;
-using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Layout;
 
@@ -14,28 +12,28 @@ public partial class DrawerPage : Wpf.Ui.Violeta.Controls.Page
 
     private void ShowDrawer_Click(object sender, RoutedEventArgs e)
     {
-        if (sender is not Button btn)
+        if (sender is not Wpf.Ui.Controls.Button btn)
         {
             return;
         }
 
-        CloseAll();
-
-        switch (btn.Tag?.ToString())
+        Drawer? target = btn.Tag?.ToString() switch
         {
-            case "Left":
-                LeftDrawer.IsOpen = true;
-                break;
-            case "Top":
-                TopDrawer.IsOpen = true;
-                break;
-            case "Right":
-                RightDrawer.IsOpen = true;
-                break;
-            case "Bottom":
-                BottomDrawer.IsOpen = true;
-                break;
+            "Left" => LeftDrawer,
+            "Top" => TopDrawer,
+            "Right" => RightDrawer,
+            "Bottom" => BottomDrawer,
+            _ => null
+        };
+
+        if (target is null)
+        {
+            return;
         }
+
+        bool shouldOpen = !target.IsOpen;
+        CloseAll();
+        target.IsOpen = shouldOpen;
     }
 
     private void CloseAll_Click(object sender, RoutedEventArgs e) => CloseAll();
