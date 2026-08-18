@@ -3339,4 +3339,22 @@ OK をクリックして続行してください。</value>
   <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
     <value>GridLinesVisibility="All" を設定し、必要に応じて HorizontalGridLinesBrush / VerticalGridLinesBrush で色を指定します。</value>
   </data>
+  <data name="Sample_a1f2c3d4e5" xml:space="preserve">
+    <value>WrapPanel で組んだ Tile スタイル展示（モーション付き）</value>
+  </data>
+  <data name="Sample_b8e4d12f90" xml:space="preserve">
+    <value>WrapPanel で組んだ Tile スタイル展示（モーション付き）</value>
+  </data>
+  <data name="Sample_c3a90e71b2" xml:space="preserve">
+    <value>即時プレス</value>
+  </data>
+  <data name="Sample_d4b81f82c3" xml:space="preserve">
+    <value>押下で即座に 0.98 へスケール。ホバー枠はトランジションなし。</value>
+  </data>
+  <data name="Sample_e5c92093d4" xml:space="preserve">
+    <value>イージング</value>
+  </data>
+  <data name="Sample_f6da31a4e5" xml:space="preserve">
+    <value>ホバーで 1.04、押下で 0.96。短いイージング付き。</value>
+  </data>
 </root>

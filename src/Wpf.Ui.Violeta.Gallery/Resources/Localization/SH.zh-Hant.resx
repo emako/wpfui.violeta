@@ -3339,4 +3339,22 @@
   <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
     <value>設定 GridLinesVisibility="All"，並可用 HorizontalGridLinesBrush / VerticalGridLinesBrush 自訂顏色。</value>
   </data>
+  <data name="Sample_a1f2c3d4e5" xml:space="preserve">
+    <value>用 WrapPanel 做成的 Tile 樣式展示，帶動效</value>
+  </data>
+  <data name="Sample_b8e4d12f90" xml:space="preserve">
+    <value>用 WrapPanel 做成的 Tile 樣式展示，帶動效</value>
+  </data>
+  <data name="Sample_c3a90e71b2" xml:space="preserve">
+    <value>即時按下</value>
+  </data>
+  <data name="Sample_d4b81f82c3" xml:space="preserve">
+    <value>按下瞬間縮放到 0.98；懸停邊框無過渡直接切換。</value>
+  </data>
+  <data name="Sample_e5c92093d4" xml:space="preserve">
+    <value>緩動</value>
+  </data>
+  <data name="Sample_f6da31a4e5" xml:space="preserve">
+    <value>懸停放大到 1.04，按下縮小到 0.96，帶短時緩動。</value>
+  </data>
 </root>

@@ -335,6 +335,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="CardControl" Tag="layout/card-control" />
                         <vio:NavigationViewItem Content="CardAction" Tag="layout/card-action" />
+                        <vio:NavigationViewItem Content="Tile" Tag="layout/tile-press-feedback" />
                         <vio:NavigationViewItem Content="AutoGrid" Tag="layout/auto-grid" />
                         <vio:NavigationViewItem Content="Border" Tag="layout/border" />
                         <vio:NavigationViewItem Content="DropShadowChrome" Tag="layout/drop-shadow-chrome" />

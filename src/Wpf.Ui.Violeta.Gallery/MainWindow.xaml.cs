@@ -178,6 +178,7 @@ public partial class MainWindow : ShellWindow
         ["layout"] = static () => new LayoutPage(),
         ["layout/card-control"] = static () => new CardControlPage(),
         ["layout/card-action"] = static () => new CardActionPage(),
+        ["layout/tile-press-feedback"] = static () => new TilePressFeedbackPage(),
         ["layout/auto-grid"] = static () => new AutoGridPage(),
         ["layout/border"] = static () => new BorderPage(),
         ["layout/drop-shadow-chrome"] = static () => new DropShadowChromePage(),

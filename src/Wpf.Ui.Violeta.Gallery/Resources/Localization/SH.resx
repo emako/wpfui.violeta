@@ -3339,4 +3339,22 @@ Click OK to continue.</value>
   <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
     <value>Set GridLinesVisibility="All" and optionally customize HorizontalGridLinesBrush / VerticalGridLinesBrush.</value>
   </data>
+  <data name="Sample_a1f2c3d4e5" xml:space="preserve">
+    <value>Tile layout with WrapPanel and motion</value>
+  </data>
+  <data name="Sample_b8e4d12f90" xml:space="preserve">
+    <value>Tile-style showcase built with WrapPanel, including hover and press motion.</value>
+  </data>
+  <data name="Sample_c3a90e71b2" xml:space="preserve">
+    <value>Instant press</value>
+  </data>
+  <data name="Sample_d4b81f82c3" xml:space="preserve">
+    <value>Press scales to 0.98 immediately. Hover border switches without transition.</value>
+  </data>
+  <data name="Sample_e5c92093d4" xml:space="preserve">
+    <value>Animated</value>
+  </data>
+  <data name="Sample_f6da31a4e5" xml:space="preserve">
+    <value>Hover grows to 1.04, press shrinks to 0.96, with short eased transitions.</value>
+  </data>
 </root>

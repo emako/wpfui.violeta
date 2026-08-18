@@ -9956,5 +9956,59 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_NativeAttentionBody", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tile layout with WrapPanel and motion.
+        /// </summary>
+        internal static string Sample_a1f2c3d4e5 {
+            get {
+                return ResourceManager.GetString("Sample_a1f2c3d4e5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tile-style showcase built with WrapPanel, including hover and press motion.
+        /// </summary>
+        internal static string Sample_b8e4d12f90 {
+            get {
+                return ResourceManager.GetString("Sample_b8e4d12f90", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instant press.
+        /// </summary>
+        internal static string Sample_c3a90e71b2 {
+            get {
+                return ResourceManager.GetString("Sample_c3a90e71b2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press scales to 0.98 immediately..
+        /// </summary>
+        internal static string Sample_d4b81f82c3 {
+            get {
+                return ResourceManager.GetString("Sample_d4b81f82c3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animated.
+        /// </summary>
+        internal static string Sample_e5c92093d4 {
+            get {
+                return ResourceManager.GetString("Sample_e5c92093d4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hover grows to 1.04, press shrinks to 0.96..
+        /// </summary>
+        internal static string Sample_f6da31a4e5 {
+            get {
+                return ResourceManager.GetString("Sample_f6da31a4e5", resourceCulture);
+            }
+        }
     }
 }
