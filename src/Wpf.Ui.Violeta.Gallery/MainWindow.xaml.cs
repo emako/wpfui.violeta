@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using LiteObservableLanguages;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Controls.Compat;
 using Wpf.Ui.Violeta.Gallery.Globalization;
@@ -436,11 +437,11 @@ public partial class MainWindow : ShellWindow
 
         if (theme == ApplicationTheme.Unknown)
         {
-            ApplicationThemeManager.ApplySystemTheme();
+            ThemeManager.ApplySystemTheme();
         }
         else
         {
-            ApplicationThemeManager.Apply(theme);
+            ThemeManager.Apply(theme);
         }
     }
 

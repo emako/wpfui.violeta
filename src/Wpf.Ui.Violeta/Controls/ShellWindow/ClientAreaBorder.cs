@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Win32;
 using Size = System.Windows.Size;
 
@@ -83,8 +84,8 @@ public class ClientAreaBorder : System.Windows.Controls.Border
 
     public ClientAreaBorder()
     {
-        ApplicationTheme = ApplicationThemeManager.GetAppTheme();
-        ApplicationThemeManager.Changed += OnThemeChanged;
+        ApplicationTheme = ThemeManager.GetAppTheme();
+        ThemeManager.Changed += OnThemeChanged;
     }
 
     private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
@@ -131,7 +132,7 @@ public class ClientAreaBorder : System.Windows.Controls.Border
 
     private void OnWindowClosing(object? sender, CancelEventArgs e)
     {
-        ApplicationThemeManager.Changed -= OnThemeChanged;
+        ThemeManager.Changed -= OnThemeChanged;
         _oldWindow?.Closing -= OnWindowClosing;
     }
 

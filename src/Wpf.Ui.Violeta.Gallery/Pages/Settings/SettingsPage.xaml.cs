@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Gallery.Globalization;
 using Wpf.Ui.Violeta.Win32;
@@ -38,7 +39,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        ApplicationThemeManager.Changed += OnApplicationThemeChanged;
+        ThemeManager.Changed += OnApplicationThemeChanged;
         _themeChangedHooked = true;
     }
 
@@ -50,7 +51,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         }
 
         var theme = currentApplicationTheme is ApplicationTheme.Unknown or ApplicationTheme.HighContrast
-            ? ApplicationThemeManager.GetAppTheme()
+            ? ThemeManager.GetAppTheme()
             : currentApplicationTheme;
 
         ApplicationAccentColorManager.Apply(color, theme, systemGlassColor: false, systemAccentColor: false);
@@ -194,7 +195,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         _customAccentColor = color;
         ApplicationAccentColorManager.Apply(
             color,
-            ApplicationThemeManager.GetAppTheme(),
+            ThemeManager.GetAppTheme(),
             systemGlassColor: false,
             systemAccentColor: false);
     }
@@ -357,11 +358,11 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
 
         if (theme == ApplicationTheme.Unknown)
         {
-            ApplicationThemeManager.ApplySystemTheme();
+            ThemeManager.ApplySystemTheme();
         }
         else
         {
-            ApplicationThemeManager.Apply(theme);
+            ThemeManager.Apply(theme);
         }
 
         if (!_followSystemAccent && _customAccentColor is { } color)

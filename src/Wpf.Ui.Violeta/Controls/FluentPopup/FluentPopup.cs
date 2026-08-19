@@ -5,6 +5,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -164,13 +165,13 @@ public class FluentPopup : Popup
     {
         _hwnd = GetNativeHwnd(this);
         ApplyCurrentThemeMaterial();
-        ApplicationThemeManager.Changed += OnApplicationThemeChanged;
+        ThemeManager.Changed += OnApplicationThemeChanged;
         Dispatcher.InvokeAsync(PlayEntranceAnimation);
     }
 
     private void OnPopupClosed(object? sender, EventArgs e)
     {
-        ApplicationThemeManager.Changed -= OnApplicationThemeChanged;
+        ThemeManager.Changed -= OnApplicationThemeChanged;
         ResetAnimation();
         _hwnd = 0;
     }
@@ -183,7 +184,7 @@ public class FluentPopup : Popup
 
     private void ApplyCurrentThemeMaterial()
     {
-        bool isDark = ApplicationThemeManager.GetAppTheme() == ApplicationTheme.Dark;
+        bool isDark = ThemeManager.GetAppTheme() == ApplicationTheme.Dark;
         DwmApi.ApplyPopupMaterial(_hwnd, Background.Color, WindowCorner, isDark);
     }
 

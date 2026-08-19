@@ -2,6 +2,10 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Threading;
+using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -69,6 +73,7 @@ public partial class ShellWindow : Window
     public ShellWindow()
     {
         SetResourceReference(StyleProperty, typeof(ShellWindow));
+        ThemeManager.Changed += OnApplicationThemeChanged;
     }
 
     static ShellWindow()
@@ -79,6 +84,12 @@ public partial class ShellWindow : Window
         );
     }
 
+    protected override void OnClosed(EventArgs e)
+    {
+        ThemeManager.Changed -= OnApplicationThemeChanged;
+        base.OnClosed(e);
+    }
+
     protected override void OnSourceInitialized(EventArgs e)
     {
         base.OnSourceInitialized(e);
@@ -86,6 +97,24 @@ public partial class ShellWindow : Window
         OnCornerPreferenceChanged(default, WindowCornerPreference);
         OnExtendsContentIntoTitleBarChanged(default, ExtendsContentIntoTitleBar);
         OnBackdropTypeChanged(default, WindowBackdropType);
+    }
+
+    private void OnApplicationThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
+    {
+        // Re-apply so immersive dark mode and Violeta backdrop brushes follow the new theme.
+        // Dispatcher: if an app still calls ApplicationThemeManager.Apply, WindowBackgroundManager
+        // would otherwise overwrite the backdrop with Mica after Changed returns.
+        _ = Dispatcher.InvokeAsync(ReapplyCurrentBackdrop, DispatcherPriority.Normal);
+    }
+
+    private void ReapplyCurrentBackdrop()
+    {
+        if (!IsLoaded || InteropHelper.Handle == IntPtr.Zero)
+        {
+            return;
+        }
+
+        OnBackdropTypeChanged(WindowBackdropType, WindowBackdropType);
     }
 
     /// <summary>

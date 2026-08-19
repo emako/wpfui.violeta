@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Wpf.Ui.Appearance;
+using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Controls.Primitives;
 
 namespace Wpf.Ui.Violeta.Controls.Compat;
@@ -228,7 +229,7 @@ public static class ProgressBarHelper
             _paddingDescriptor.AddValueChanged(_owner, _onPaddingChanged);
             _foregroundDescriptor.AddValueChanged(_owner, _onForegroundChanged);
             _templateDescriptor.AddValueChanged(_owner, _onTemplateChanged);
-            ApplicationThemeManager.Changed += OnApplicationThemeChanged;
+            ThemeManager.Changed += OnApplicationThemeChanged;
 
             if (_owner.IsLoaded)
             {
@@ -253,7 +254,7 @@ public static class ProgressBarHelper
             _paddingDescriptor.RemoveValueChanged(_owner, _onPaddingChanged);
             _foregroundDescriptor.RemoveValueChanged(_owner, _onForegroundChanged);
             _templateDescriptor.RemoveValueChanged(_owner, _onTemplateChanged);
-            ApplicationThemeManager.Changed -= OnApplicationThemeChanged;
+            ThemeManager.Changed -= OnApplicationThemeChanged;
             _layoutRoot = null;
             _determinateProgressBarIndicator = null;
             _indeterminateProgressBarIndicator = null;

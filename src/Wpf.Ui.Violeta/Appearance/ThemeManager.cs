@@ -1,19 +1,32 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Text;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Appearance;
-using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Appearance;
 
 public static class ThemeManager
 {
-    internal const string LibraryNamespace = "wpf.ui.violeta;";
+    internal const string VioletaLibraryNamespace = "wpf.ui.violeta;";
 
-    internal const string ThemesDictionaryPath = "pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Theme/";
+    internal const string VioletaThemesDictionaryPath = "pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Theme/";
+
+    internal const string LibraryNamespace = "wpf.ui;";
+
+    internal const string ThemesDictionaryPath = "pack://application:,,,/Wpf.Ui;component/Resources/Theme/";
+
+    private static ApplicationTheme _cachedApplicationTheme = ApplicationTheme.Unknown;
+
+    private static bool _applying;
+
+    /// <summary>
+    /// Raised after WPF UI and Violeta theme dictionaries have been swapped.
+    /// </summary>
+    public static event ThemeChangedEvent? Changed;
 
     public static void RegisterApplicationThemeChanged()
     {
@@ -23,53 +36,31 @@ public static class ThemeManager
 
     private static void OnApplicationThemeManagerChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
     {
-        ResourceDictionaryManager appDictionaries = new(LibraryNamespace);
-
-        string themeDictionaryName = "Light";
-
-        switch (currentApplicationTheme)
-        {
-            case ApplicationTheme.Dark:
-                themeDictionaryName = "Dark";
-                break;
-
-            case ApplicationTheme.HighContrast:
-                themeDictionaryName = ApplicationThemeManager.GetSystemTheme() switch
-                {
-                    SystemTheme.HC1 => "HC1",
-                    SystemTheme.HC2 => "HC2",
-                    SystemTheme.HCBlack => "HCBlack",
-                    SystemTheme.HCWhite => "HCWhite",
-                    _ => "HCWhite",
-                };
-                break;
-        }
-
-        // Only support light and dark themes, no more than that.
-        // So we need to fall back to either light or dark mode.
-        if (themeDictionaryName != "Light" && themeDictionaryName != "Dark")
-        {
-            if (themeDictionaryName == "HCBlack")
-            {
-                themeDictionaryName = "Dark";
-            }
-            else
-            {
-                themeDictionaryName = "Light";
-            }
-        }
-
-        bool isUpdated = appDictionaries.UpdateDictionary(
-            "theme",
-            new Uri(ThemesDictionaryPath + themeDictionaryName + ".xaml", UriKind.Absolute)
-        );
-
-        if (!isUpdated)
+        if (_applying)
         {
             return;
         }
 
-        return;
+        // Fallback when an app still calls ApplicationThemeManager.Apply.
+        UpdateDictionary(
+            VioletaLibraryNamespace,
+            VioletaThemesDictionaryPath,
+            GetThemeDictionaryName(currentApplicationTheme, violeta: true));
+        _cachedApplicationTheme = currentApplicationTheme;
+        Changed?.Invoke(currentApplicationTheme, systemAccent);
+    }
+
+    /// <summary>
+    /// Gets the currently applied application theme (light / dark / high contrast).
+    /// </summary>
+    public static ApplicationTheme GetAppTheme()
+    {
+        if (_cachedApplicationTheme == ApplicationTheme.Unknown)
+        {
+            FetchApplicationTheme();
+        }
+
+        return _cachedApplicationTheme;
     }
 
     /// <summary>
@@ -226,19 +217,46 @@ public static class ThemeManager
         return data == 0;
     }
 
-    public static void Apply(ApplicationTheme theme, WindowBackdropPreference backgroundEffect = WindowBackdropPreference.Mica, bool updateAccent = true)
+    /// <summary>
+    /// Applies light / dark / high contrast to both WPF UI and Violeta resource dictionaries.
+    /// Window backdrop is left to each <c>ShellWindow.WindowBackdropType</c>.
+    /// </summary>
+    public static void Apply(ApplicationTheme theme, bool updateAccent = true)
     {
         if (theme == ApplicationTheme.Unknown)
         {
-            // To change `Unknown` to `System` as default.
-            // If you want to follow the system theme, simply call `TrackSystemThemeChanges(isTracked: true);`.
             theme = GetApplicationTheme();
         }
 
-        if (ApplicationThemeManager.GetAppTheme() != theme)
+        if (GetAppTheme() == theme)
         {
-            ApplicationThemeManager.Apply(theme, (WindowBackdropType)backgroundEffect, updateAccent);
+            return;
         }
+
+        ApplyCore(theme, updateAccent);
+    }
+
+    /// <summary>
+    /// Applies the Windows system theme (including high contrast) without going through
+    /// <see cref="ApplicationThemeManager.Apply"/>.
+    /// </summary>
+    public static void ApplySystemTheme(bool updateAccent = true)
+    {
+        SystemThemeManager.UpdateSystemThemeCache();
+
+        SystemTheme systemTheme = SystemThemeManager.GetCachedSystemTheme();
+        ApplicationTheme themeToSet = ApplicationTheme.Light;
+
+        if (systemTheme is SystemTheme.Dark or SystemTheme.CapturedMotion or SystemTheme.Glow)
+        {
+            themeToSet = ApplicationTheme.Dark;
+        }
+        else if (systemTheme is SystemTheme.HC1 or SystemTheme.HC2 or SystemTheme.HCBlack or SystemTheme.HCWhite)
+        {
+            themeToSet = ApplicationTheme.HighContrast;
+        }
+
+        Apply(themeToSet, updateAccent);
     }
 
     public static void TrackSystemThemeChanges(bool isTracked = true)
@@ -255,7 +273,147 @@ public static class ThemeManager
 
         static void OnSystemThemeChanged(object? sender, UserPreferenceChangedEventArgs e)
         {
-            Dispatcher.CurrentDispatcher.Invoke(() => Apply(ApplicationTheme.Unknown));
+            Dispatcher.CurrentDispatcher.Invoke(() => ApplySystemTheme());
+        }
+    }
+
+    private static void ApplyCore(ApplicationTheme theme, bool updateAccent)
+    {
+        if (_applying)
+        {
+            return;
+        }
+
+        _applying = true;
+        try
+        {
+            if (updateAccent)
+            {
+                ApplicationAccentColorManager.Apply(
+                    ApplicationAccentColorManager.GetColorizationColor(),
+                    theme,
+                    systemGlassColor: false);
+            }
+
+            SystemThemeManager.UpdateSystemThemeCache();
+
+            UpdateDictionary(theme);
+
+            _cachedApplicationTheme = theme;
+
+            Color accent = ApplicationAccentColorManager.SystemAccent;
+            Changed?.Invoke(theme, accent);
+
+            // Keeps WPF UI's private theme cache and <see cref="ApplicationThemeManager.Changed"/> in sync
+            // so FluentWindow / accent manager / TextEditor still observe the new theme.
+#if false
+            try
+            {
+                typeof(ApplicationThemeManager)
+                    .GetField("_cachedApplicationTheme", BindingFlags.Static | BindingFlags.NonPublic)
+                    ?.SetValue(null, theme);
+            }
+            catch
+            {
+                // WPF UI internals may change; dictionaries are already swapped.
+            }
+
+            try
+            {
+                if (typeof(ApplicationThemeManager)
+                        .GetField(nameof(ApplicationThemeManager.Changed), BindingFlags.Static | BindingFlags.NonPublic)
+                        ?.GetValue(null) is ThemeChangedEvent handler)
+                {
+                    handler.Invoke(theme, accent);
+                }
+            }
+            catch
+            {
+                // WPF UI internals may change; Violeta listeners already received Changed.
+            }
+#endif
+        }
+        finally
+        {
+            _applying = false;
+        }
+    }
+
+    private static void UpdateDictionary(ApplicationTheme theme)
+    {
+        UpdateDictionary(LibraryNamespace, ThemesDictionaryPath, GetThemeDictionaryName(theme));
+        UpdateDictionary(VioletaLibraryNamespace, VioletaThemesDictionaryPath, GetThemeDictionaryName(theme, violeta: true));
+    }
+
+    private static void UpdateDictionary(string searchNamespace, string dictionaryPath, string themeName)
+    {
+        _ = new ResourceDictionaryManager(searchNamespace).UpdateDictionary(
+            "theme",
+            new Uri(dictionaryPath + themeName + ".xaml", UriKind.Absolute)
+        );
+    }
+
+    private static string GetThemeDictionaryName(ApplicationTheme theme, bool violeta = false)
+    {
+        if (theme == ApplicationTheme.Dark)
+        {
+            return "Dark";
+        }
+
+        if (theme != ApplicationTheme.HighContrast)
+        {
+            return "Light";
+        }
+
+        if (violeta)
+        {
+            return SystemThemeManager.GetCachedSystemTheme() is SystemTheme.HCBlack
+                ? "Dark"
+                : "Light";
+        }
+
+        return SystemThemeManager.GetCachedSystemTheme() switch
+        {
+            SystemTheme.HC1 => "HC1",
+            SystemTheme.HC2 => "HC2",
+            SystemTheme.HCBlack => "HCBlack",
+            SystemTheme.HCWhite => "HCWhite",
+            _ => "HCWhite",
+        };
+    }
+
+    private static void FetchApplicationTheme()
+    {
+        ResourceDictionary? themeDictionary =
+            new ResourceDictionaryManager(LibraryNamespace).GetDictionary("theme")
+            ?? new ResourceDictionaryManager(VioletaLibraryNamespace).GetDictionary("theme");
+
+        if (themeDictionary?.Source is null)
+        {
+            return;
+        }
+
+        string themeUri = themeDictionary.Source.ToString();
+
+        if (themeUri.Contains("dark", StringComparison.OrdinalIgnoreCase))
+        {
+            _cachedApplicationTheme = ApplicationTheme.Dark;
+            return;
+        }
+
+        if (themeUri.Contains("hc1", StringComparison.OrdinalIgnoreCase)
+            || themeUri.Contains("hc2", StringComparison.OrdinalIgnoreCase)
+            || themeUri.Contains("hcblack", StringComparison.OrdinalIgnoreCase)
+            || themeUri.Contains("hcwhite", StringComparison.OrdinalIgnoreCase)
+            || themeUri.Contains("highcontrast", StringComparison.OrdinalIgnoreCase))
+        {
+            _cachedApplicationTheme = ApplicationTheme.HighContrast;
+            return;
+        }
+
+        if (themeUri.Contains("light", StringComparison.OrdinalIgnoreCase))
+        {
+            _cachedApplicationTheme = ApplicationTheme.Light;
         }
     }
 }
