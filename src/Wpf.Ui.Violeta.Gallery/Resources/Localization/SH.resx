@@ -1639,7 +1639,7 @@ Click OK to continue.</value>
     <value>Hover me</value>
   </data>
   <data name="Sample_02d9509b9b" xml:space="preserve">
-    <value>Hover the button to see the tip. Violeta also provides a Callout-style ToolTip.</value>
+    <value>Hover the button to see the default tip.</value>
   </data>
   <data name="Sample_330363dfc5" xml:space="preserve">
     <value>Success</value>
@@ -3390,5 +3390,11 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_f6a0b3c214" xml:space="preserve">
     <value>Larger CornerRadius still keeps the indicator flush with the rounded bottom.</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutDesc" xml:space="preserve">
+    <value>Rounded bubble with a pointer at the bottom center. Shown above the trigger and horizontally centered.</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
+    <value>Set vio:CalloutToolTipHelper.ForceDark to keep the dark callout even in the light theme.</value>
   </data>
 </root>

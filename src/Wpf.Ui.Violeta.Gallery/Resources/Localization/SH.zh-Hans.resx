@@ -1639,7 +1639,7 @@
     <value>悬停我</value>
   </data>
   <data name="Sample_02d9509b9b" xml:space="preserve">
-    <value>悬停按钮查看提示。Violeta 还提供 Callout 风格 ToolTip 样式。</value>
+    <value>悬停按钮查看默认提示。</value>
   </data>
   <data name="Sample_330363dfc5" xml:space="preserve">
     <value>成功</value>
@@ -3390,5 +3390,11 @@
   </data>
   <data name="Sample_f6a0b3c214" xml:space="preserve">
     <value>更大的 CornerRadius 时，指示条仍贴合底部圆角。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutDesc" xml:space="preserve">
+    <value>圆角气泡，底部三角指向触发元素中心；默认显示在上方并水平居中。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
+    <value>设置 vio:CalloutToolTipHelper.ForceDark，浅色主题下仍使用深色气泡。</value>
   </data>
 </root>

@@ -98,8 +98,8 @@
     <SolidColorBrush x:Key="TitleBarButtonDisabledBackground" Color="Transparent" />
 
     <!--  CalloutToolTip  -->
-    <SolidColorBrush x:Key="CalloutToolTipForeground" Color="White" />
-    <SolidColorBrush x:Key="CalloutToolTipBackground" Color="#FF232323" />
+    <SolidColorBrush x:Key="CalloutToolTipForeground" Color="#FF232323" />
+    <SolidColorBrush x:Key="CalloutToolTipBackground" Color="White" />
 
     <!--  SelectableTextBlock  -->
     <SolidColorBrush x:Key="SelectableTextBlockMarkBackground" Color="#60FFD700" />

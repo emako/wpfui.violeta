@@ -34,7 +34,8 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_02d9509b9b}}" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_02d9509b9b}}"
+                        TextWrapping="Wrap" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
@@ -45,6 +46,68 @@
                             Content="{I18N {x:Static lang:LangKeys.Sample_d7362ceba9}}"
                             ToolTip="{I18N {x:Static lang:LangKeys.Sample_68c7b5f75f}}" />
                     </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="CalloutToolTipStyle" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ToolTip_CalloutDesc}}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <ui:Button Margin="0,0,8,8" Content="{I18N {x:Static lang:LangKeys.Sample_6ef838110b}}">
+                            <ui:Button.ToolTip>
+                                <ToolTip Content="{I18N {x:Static lang:LangKeys.Sample_977acbe88d}}" Style="{StaticResource CalloutToolTipStyle}" />
+                            </ui:Button.ToolTip>
+                        </ui:Button>
+                        <ui:Button Margin="0,0,8,8" Content="{I18N {x:Static lang:LangKeys.Sample_d7362ceba9}}">
+                            <ui:Button.ToolTip>
+                                <ToolTip Content="{I18N {x:Static lang:LangKeys.Sample_68c7b5f75f}}" Style="{StaticResource CalloutToolTipStyle}" />
+                            </ui:Button.ToolTip>
+                        </ui:Button>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="ForceDark" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ToolTip_CalloutForceDarkDesc}}"
+                        TextWrapping="Wrap" />
+                    <ui:Button Content="{I18N {x:Static lang:LangKeys.Sample_6ef838110b}}">
+                        <ui:Button.ToolTip>
+                            <ToolTip
+                                vio:CalloutToolTipHelper.ForceDark="True"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_977acbe88d}}"
+                                Style="{StaticResource CalloutToolTipStyle}" />
+                        </ui:Button.ToolTip>
+                    </ui:Button>
                 </StackPanel>
             </Border>
         </StackPanel>

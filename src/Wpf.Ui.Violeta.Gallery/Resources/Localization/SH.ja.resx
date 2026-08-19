@@ -1639,7 +1639,7 @@ OK をクリックして続行してください。</value>
     <value>ホバーしてください</value>
   </data>
   <data name="Sample_02d9509b9b" xml:space="preserve">
-    <value>ボタンにホバーするとヒントを表示。Violeta は Callout スタイルの ToolTip も提供します。</value>
+    <value>ボタンにホバーすると標準のヒントを表示します。</value>
   </data>
   <data name="Sample_330363dfc5" xml:space="preserve">
     <value>成功</value>
@@ -3390,5 +3390,11 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_f6a0b3c214" xml:space="preserve">
     <value>CornerRadius を大きくしても、インジケーターは下端の角丸に沿います。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutDesc" xml:space="preserve">
+    <value>角丸の吹き出しで、下部の三角が対象の中央を指します。対象の上に水平中央揃えで表示されます。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
+    <value>vio:CalloutToolTipHelper.ForceDark を設定すると、ライト テーマでもダークの吹き出しになります。</value>
   </data>
 </root>

@@ -1,8 +1,16 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
-    <!--  Rounded bubble and bottom centered triangle pointing to the anchor point (displayed above the triggering element with Placement=Top)  -->
+    <SolidColorBrush x:Key="CalloutToolTipDarkForeground" Color="White" />
+    <SolidColorBrush x:Key="CalloutToolTipDarkBackground" Color="#FF232323" />
+
+    <!--  Rounded bubble with a bottom-centered triangle; Placement=Custom centers it above the target  -->
     <Style x:Key="CalloutToolTipStyle" TargetType="ToolTip">
-        <Setter Property="Placement" Value="Top" />
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="Placement" Value="Custom" />
+        <Setter Property="CustomPopupPlacementCallback" Value="{x:Static local:CalloutToolTipHelper.TopCenterPlacementCallback}" />
         <Setter Property="HasDropShadow" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource CalloutToolTipForeground}" />
         <Setter Property="Background" Value="Transparent" />
@@ -43,6 +51,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="local:CalloutToolTipHelper.ForceDark" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource CalloutToolTipDarkForeground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource CalloutToolTipDarkBackground}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

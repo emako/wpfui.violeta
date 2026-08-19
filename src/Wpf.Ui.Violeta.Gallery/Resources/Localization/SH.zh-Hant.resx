@@ -1639,7 +1639,7 @@
     <value>暫留我</value>
   </data>
   <data name="Sample_02d9509b9b" xml:space="preserve">
-    <value>暫留按鈕以查看提示。Violeta 亦提供 Callout 風格 ToolTip 樣式。</value>
+    <value>暫留按鈕以查看預設提示。</value>
   </data>
   <data name="Sample_330363dfc5" xml:space="preserve">
     <value>成功</value>
@@ -3390,5 +3390,11 @@
   </data>
   <data name="Sample_f6a0b3c214" xml:space="preserve">
     <value>更大的 CornerRadius 時，指示條仍貼合底部圓角。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutDesc" xml:space="preserve">
+    <value>圓角氣泡，底部三角指向觸發元素中心；預設顯示在上方並水平置中。</value>
+  </data>
+  <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
+    <value>設定 vio:CalloutToolTipHelper.ForceDark，淺色主題下仍使用深色氣泡。</value>
   </data>
 </root>

@@ -303,6 +303,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Rounded bubble with a pointer at the bottom center. Shown above the trigger and horizontally centered.
+        /// </summary>
+        internal static string Sample_ToolTip_CalloutDesc {
+            get {
+                return ResourceManager.GetString("Sample_ToolTip_CalloutDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set vio:CalloutToolTipHelper.ForceDark to keep the dark callout even in the light theme.
+        /// </summary>
+        internal static string Sample_ToolTip_CalloutForceDarkDesc {
+            get {
+                return ResourceManager.GetString("Sample_ToolTip_CalloutForceDarkDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Primary click / Command - {0}.
         /// </summary>
         internal static string Format_SplitButtonPrimaryClick {
@@ -1186,7 +1204,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hover the button to see the tip. Violeta also provides a Callout-style ToolTip..
+        ///   Looks up a localized string similar to Hover the button to see the default tip..
         /// </summary>
         internal static string Sample_02d9509b9b {
             get {
