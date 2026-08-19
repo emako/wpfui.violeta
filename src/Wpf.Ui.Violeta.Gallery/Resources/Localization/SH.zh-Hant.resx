@@ -2725,7 +2725,23 @@
     <value>此視窗使用內建 TitleBar（標題與系統按鈕）。可點 OK / Cancel，或透過 TitleBar 關閉。</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
-    <value>這是 Gallery 示範例外：用於預覽 ExceptionReport 對話框。</value>
+    <value>這是 Gallery 示範例外：用於預覽 ExceptionReport 對話框。
+
+本範例訊息刻意寫得較長、且包含多行，方便驗證例外詳情超出可視區域時 ScrollViewer 的捲動效果。
+
+重現步驟：
+1. 開啟 Gallery 中的 ExceptionReport 頁面。
+2. 點擊用於顯示此對話框的按鈕。
+3. 如有需要，將視窗調小一點。
+4. 確認詳情區域可垂直捲動，且文字仍可選取複製。
+
+版面測試補充說明：
+- 卡片內文字換行後仍應保持可讀。
+- 上方粗體的例外類型應固定在捲動區域外。
+- 標題列、應用程式資訊與底部操作按鈕在內容捲動時仍應可見。
+- 出現捲軸時，複製 / 忽略 / 結束按鈕位置不應跳動。
+
+詳情卡片四周的邊距在捲動較長內容時也應保持一致。若仍未出現捲軸，請繼續縮小視窗高度，直到內容超出可視區域。</value>
   </data>
   <data name="Sample_f330915173" xml:space="preserve">
     <value>這是 Violeta 提供的 ContentDialog，支援主要按鈕、次要按鈕和關閉按鈕。</value>

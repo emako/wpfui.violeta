@@ -2725,7 +2725,23 @@
     <value>此窗口使用内置 TitleBar（标题与系统按钮）。可点 OK / Cancel，或通过 TitleBar 关闭。</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
-    <value>这是 Gallery 演示异常：用于预览 ExceptionReport 对话框。</value>
+    <value>这是 Gallery 演示异常：用于预览 ExceptionReport 对话框。
+
+本示例消息故意写得较长、且包含多行，方便验证异常详情超出可视区域时 ScrollViewer 的滚动效果。
+
+复现步骤：
+1. 打开 Gallery 中的 ExceptionReport 页面。
+2. 点击用于显示该对话框的按钮。
+3. 如有需要，将窗口调小一点。
+4. 确认详情区域可垂直滚动，且文本仍可选中复制。
+
+布局测试补充说明：
+- 卡片内文本换行后仍应保持可读。
+- 上方加粗的异常类型应固定在滚动区域外。
+- 标题栏、应用元信息与底部操作按钮在内容滚动时仍应可见。
+- 出现滚动条时，复制 / 忽略 / 退出按钮位置不应跳动。
+
+详情卡片四周的边距在滚动较长内容时也应保持一致。若仍未出现滚动条，请继续减小窗口高度，直到内容超出可视区域。</value>
   </data>
   <data name="Sample_f330915173" xml:space="preserve">
     <value>这是 Violeta 提供的 ContentDialog，支持主按钮、次按钮和关闭按钮。</value>

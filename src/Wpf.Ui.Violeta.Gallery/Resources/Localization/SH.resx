@@ -2725,7 +2725,23 @@ Click OK to continue.</value>
     <value>This window uses the built-in TitleBar (title + caption buttons). Press OK or Cancel, or close via the TitleBar.</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
-    <value>Gallery demo exception for previewing the ExceptionReport dialog.</value>
+    <value>Gallery demo exception for previewing the ExceptionReport dialog.
+
+This sample message is intentionally long and multi-line so you can verify ScrollViewer behavior when the exception details overflow the available area.
+
+Reproduction steps:
+1. Open the ExceptionReport page in Gallery.
+2. Click the button that shows this dialog.
+3. Resize the window smaller if needed.
+4. Confirm the details panel scrolls vertically and keeps text selectable.
+
+Additional context for layout testing:
+- Line wrapping should remain readable inside the card.
+- Bold exception type above should stay pinned outside the scroll region.
+- Title bar, app metadata, and action buttons should remain visible while content scrolls.
+- Copy / ignore / exit buttons should not jump when the scroll thumb appears.
+
+Padding and margin of the details card should stay consistent at the top, sides, and bottom while scrolling through this longer payload. If the scrollbar does not appear, shrink the window height until the content exceeds the viewport.</value>
   </data>
   <data name="Sample_f330915173" xml:space="preserve">
     <value>Violeta ContentDialog with primary, secondary, and close buttons.</value>
