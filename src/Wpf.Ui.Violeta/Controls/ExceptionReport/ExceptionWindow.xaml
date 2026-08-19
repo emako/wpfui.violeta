@@ -14,8 +14,8 @@
     d:Foreground="White"
     ExtendsContentIntoTitleBar="True"
     FontSize="13"
-    WindowStartupLocation="CenterScreen"
     WindowBackdropType="Mica"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <FontFamily x:Key="SymbolThemeFontFamily">pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
@@ -80,12 +80,12 @@
                             <Run Text="{Binding OSVersion, Mode=OneTime}" />
                         </TextBlock.Inlines>
                     </TextBlock>
-                    <TextBlock
+                    <local:SelectableTextBlock
                         Margin="0,12,0,0"
                         VerticalAlignment="Center"
                         FontWeight="Bold"
                         Foreground="#B83C4B"
-                        Text="{Binding ExceptionType}" />
+                        Text="{Binding ExceptionType, Mode=OneWay}" />
                 </StackPanel>
             </Grid>
             <Border
@@ -97,15 +97,15 @@
                 CornerRadius="3">
                 <ScrollViewer>
                     <StackPanel>
-                        <TextBlock
+                        <local:SelectableTextBlock
                             Margin="12"
                             Foreground="#FFAC58"
-                            Text="{Binding ExceptionObject.Message}"
+                            Text="{Binding ExceptionObject.Message, Mode=OneWay}"
                             TextWrapping="Wrap" />
-                        <TextBlock
+                        <local:SelectableTextBlock
                             Margin="12"
                             Foreground="#FFAC58"
-                            Text="{Binding ExceptionObject}"
+                            Text="{Binding ExceptionObject, Mode=OneWay}"
                             TextWrapping="Wrap" />
                     </StackPanel>
                 </ScrollViewer>
