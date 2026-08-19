@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="src/Wpf.Ui.DependencyPropertyGenerator/Wpf.Ui.DependencyPropertyGenerator.csproj" />
-  <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
+  <Project Path="src/Wpf.Ui.Emoji/Wpf.Ui.Emoji.csproj" />
   <Project Path="src/Wpf.Ui.Violeta.Gallery/Wpf.Ui.Violeta.Gallery.csproj" />
+  <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
 </Solution>

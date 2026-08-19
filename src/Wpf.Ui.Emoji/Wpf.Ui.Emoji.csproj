@@ -1,0 +1,95 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>WPF-UI.Emoji</PackageId>
+        <Product>WPF-UI.Emoji</Product>
+        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <LangVersion>latest</LangVersion>
+        <Nullable>disable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <Version>1.0.0</Version>
+        <Authors>ema</Authors>
+        <Company>ema</Company>
+        <Description>Emoji rendering for WPF (based on emoji.wpf). Color COLR/CPAL emoji via Segoe UI Emoji.</Description>
+        <PackageProjectUrl>https://github.com/emako/wpfui.violeta</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/emako/wpfui.violeta</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>WPF-UI .NET WPF Emoji</PackageTags>
+        <PackageLicenseExpression>WTFPL</PackageLicenseExpression>
+        <RootNamespace>Wpf.Ui.Emoji</RootNamespace>
+        <AssemblyName>Wpf.Ui.Emoji</AssemblyName>
+        <DefaultItemExcludes>$(DefaultItemExcludes);Resources\Text\UnicodeEmoji\**</DefaultItemExcludes>
+        <NoWarn>$(NoWarn);CS1591;CS0618;CS0162;CS0168;CS0219;CS0414;CS0649;CA1416</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <TargetFrameworks>net462;net10.0-windows</TargetFrameworks>
+    </PropertyGroup>
+
+    <UsingTask TaskName="GZipTask" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+        <ParameterGroup>
+            <InputFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+            <OutDir ParameterType="System.String" Required="true" />
+            <OutputFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Output="true" />
+        </ParameterGroup>
+        <Task>
+            <Using Namespace="System.IO.Compression" />
+            <Code Type="Fragment" Language="cs">
+                <![CDATA[
+          Directory.CreateDirectory(OutDir);
+          OutputFiles = new TaskItem[InputFiles.Length];
+          for (int i = 0; i < InputFiles.Length; ++i)
+          {
+              var input = InputFiles[i];
+              var outputName = Path.GetFileName(input.ItemSpec) + ".gz";
+              var output = new TaskItem(Path.Combine(OutDir, outputName));
+              Log.LogMessage(MessageImportance.High, $"{input.ItemSpec} -> {output.ItemSpec}");
+              string inputFile = input.GetMetadata("FullPath");
+              string outputFile = output.GetMetadata("FullPath");
+              var data = File.ReadAllBytes(inputFile);
+              using (var s = new FileStream(outputFile, FileMode.Create))
+                  using (var gs = new GZipStream(s, CompressionMode.Compress, false))
+                      gs.Write(data, 0, data.Length);
+              output.SetMetadata("LogicalName", outputName);
+              OutputFiles[i] = output;
+          }
+      ]]>
+            </Code>
+        </Task>
+    </UsingTask>
+
+    <Target Name="CompressResources" BeforeTargets="BeforeBuild">
+        <GZipTask InputFiles="@(LargeResources)" OutDir="$(OutputPath)">
+            <Output ItemName="CompressedLargeResources" TaskParameter="OutputFiles" />
+        </GZipTask>
+        <ItemGroup>
+            <EmbeddedResource Include="@(CompressedLargeResources)" />
+            <FileWrites Include="@(CompressedLargeResources)" />
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup>
+        <LargeResources Include="Resources\Text\UnicodeEmoji\emoji-test.txt" />
+        <None Include="@(LargeResources)" />
+        <None Include="COPYING" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\Text\WinFonts\webdings.txt" LogicalName="webdings.txt" />
+        <EmbeddedResource Include="Resources\Text\WinFonts\wingdings.txt" LogicalName="wingdings.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Resources\Shaders\TintEffect.ps" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    </ItemGroup>
+
+</Project>

@@ -114,6 +114,7 @@ public partial class MainWindow : ShellWindow
         ["text/selectable-text-block"] = static () => new SelectableTextBlockPage(),
         ["text/hyperlink"] = static () => new HyperlinkPage(),
         ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
+        ["text/emoji"] = static () => new EmojiPage(),
 
         ["selectors/multi-combo-box"] = static () => new MultiComboBoxPage(),
         ["selectors/cascading-combo-box"] = static () => new CascadingComboBoxPage(),

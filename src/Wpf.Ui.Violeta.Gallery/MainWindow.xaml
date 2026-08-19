@@ -225,6 +225,7 @@
                         <vio:NavigationViewItem Content="SelectableTextBlock" Tag="text/selectable-text-block" />
                         <vio:NavigationViewItem Content="Hyperlink" Tag="text/hyperlink" />
                         <vio:NavigationViewItem Content="BoolStateTextBlock" Tag="text/bool-state-text-block" />
+                        <vio:NavigationViewItem Content="Emoji" Tag="text/emoji" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

@@ -14,6 +14,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+        <ProjectReference Include="..\Wpf.Ui.Emoji\Wpf.Ui.Emoji.csproj" />
     </ItemGroup>
 
     <ItemGroup>
