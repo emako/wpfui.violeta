@@ -9,7 +9,20 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 
 ## [Unreleased]
 
+## [4.3.0.8] - 2026-08-19
+
+* Add Wpf.Ui.Emoji library and gallery sample
 * Add Segmented control and gallery sample
+* Add CardProgress control and gallery samples
+* Add NumberComboBox control and gallery samples
+* Enhance NumberComboBox item and unit UX
+* Add VolumeView control and gallery sample
+* Hotfix ProgressBar with WinUI state support
+* Unify Violeta theme handling and events
+* Align Drawer animation and toggle behavior
+* Make exception details selectable in ExceptionReport
+* Add Tile press feedback gallery sample
+* Remove obsolete Wpf.Ui test demo projects
 
 ## [4.3.0.7] - 2026-08-14
 
