@@ -88,7 +88,7 @@ public static class ThemeManager
     }
 
     /// <summary>
-    /// Get the theme of the system (<seealso cref="SystemThemeManager.GetCachedSystemTheme"/>).
+    /// Gets the Windows system theme, collapsed to light or dark.
     /// </summary>
     /// <returns>
     /// Only the following enum will be returned.
@@ -97,96 +97,97 @@ public static class ThemeManager
     /// </returns>
     public static SystemTheme GetSystemTheme()
     {
-        return Get() switch
+        return ReadSystemTheme() switch
         {
             SystemTheme.Dark or SystemTheme.HCBlack or SystemTheme.Glow or SystemTheme.CapturedMotion => SystemTheme.Dark,
             _ => SystemTheme.Light,
         };
+    }
 
-        static SystemTheme Get()
+    /// <summary>
+    /// Reads the raw Windows theme from the registry, including high contrast and packed themes.
+    /// </summary>
+    private static SystemTheme ReadSystemTheme()
+    {
+        StringBuilder themeBuilder = new(520);
+        uint themeDataSize = (uint)(themeBuilder.Capacity * sizeof(char));
+        int themeResult = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
+            @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes",
+            "CurrentTheme",
+            AdvApi32.RRF_RT_REG_SZ, IntPtr.Zero, themeBuilder, ref themeDataSize);
+
+        var currentTheme = themeResult == 0 ? themeBuilder.ToString() : "aero.theme";
+
+        if (!string.IsNullOrEmpty(currentTheme))
         {
-            StringBuilder themeBuilder = new(520);
-            uint themeDataSize = (uint)(themeBuilder.Capacity * sizeof(char));
-            int themeResult = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
-                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes",
-                "CurrentTheme",
-                AdvApi32.RRF_RT_REG_SZ, IntPtr.Zero, themeBuilder, ref themeDataSize);
+            currentTheme = currentTheme.ToLower().Trim();
 
-            var currentTheme = themeResult == 0 ? themeBuilder.ToString() : "aero.theme";
-
-            if (!string.IsNullOrEmpty(currentTheme))
+            // This may be changed in the next versions, check the Insider previews
+            if (currentTheme.Contains("basic.theme"))
             {
-                currentTheme = currentTheme.ToLower().Trim();
-
-                // This may be changed in the next versions, check the Insider previews
-                if (currentTheme.Contains("basic.theme"))
-                {
-                    return SystemTheme.Light;
-                }
-
-                if (currentTheme.Contains("aero.theme"))
-                {
-                    return SystemTheme.Light;
-                }
-
-                if (currentTheme.Contains("dark.theme"))
-                {
-                    return SystemTheme.Dark;
-                }
-
-                if (currentTheme.Contains("hcblack.theme"))
-                {
-                    return SystemTheme.HCBlack;
-                }
-
-                if (currentTheme.Contains("hcwhite.theme"))
-                {
-                    return SystemTheme.HCWhite;
-                }
-
-                if (currentTheme.Contains("hc1.theme"))
-                {
-                    return SystemTheme.HC1;
-                }
-
-                if (currentTheme.Contains("hc2.theme"))
-                {
-                    return SystemTheme.HC2;
-                }
-
-                if (currentTheme.Contains("themea.theme"))
-                {
-                    return SystemTheme.Glow;
-                }
-
-                if (currentTheme.Contains("themeb.theme"))
-                {
-                    return SystemTheme.CapturedMotion;
-                }
-
-                if (currentTheme.Contains("themec.theme"))
-                {
-                    return SystemTheme.Sunrise;
-                }
-
-                if (currentTheme.Contains("themed.theme"))
-                {
-                    return SystemTheme.Flow;
-                }
+                return SystemTheme.Light;
             }
 
-            /*if (currentTheme.Contains("custom.theme"))
-                return ; custom can be light or dark*/
-            uint dataSize = sizeof(uint);
-            int result = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
-                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize",
-                "SystemUsesLightTheme",
-                AdvApi32.RRF_RT_REG_DWORD, IntPtr.Zero, out uint data, ref dataSize);
+            if (currentTheme.Contains("aero.theme"))
+            {
+                return SystemTheme.Light;
+            }
 
-            var rawSystemUsesLightTheme = result == 0 ? data : 1u;
+            if (currentTheme.Contains("dark.theme"))
+            {
+                return SystemTheme.Dark;
+            }
 
-            return rawSystemUsesLightTheme is 0 ? SystemTheme.Dark : SystemTheme.Light;
+            if (currentTheme.Contains("hcblack.theme"))
+            {
+                return SystemTheme.HCBlack;
+            }
+
+            if (currentTheme.Contains("hcwhite.theme"))
+            {
+                return SystemTheme.HCWhite;
+            }
+
+            if (currentTheme.Contains("hc1.theme"))
+            {
+                return SystemTheme.HC1;
+            }
+
+            if (currentTheme.Contains("hc2.theme"))
+            {
+                return SystemTheme.HC2;
+            }
+
+            if (currentTheme.Contains("themea.theme"))
+            {
+                return SystemTheme.Glow;
+            }
+
+            if (currentTheme.Contains("themeb.theme"))
+            {
+                return SystemTheme.CapturedMotion;
+            }
+
+            if (currentTheme.Contains("themec.theme"))
+            {
+                return SystemTheme.Sunrise;
+            }
+
+            if (currentTheme.Contains("themed.theme"))
+            {
+                return SystemTheme.Flow;
+            }
         }
+
+        uint dataSize = sizeof(uint);
+        int result = AdvApi32.RegGetValue(AdvApi32.HKEY_CURRENT_USER,
+            @"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+            "SystemUsesLightTheme",
+            AdvApi32.RRF_RT_REG_DWORD, IntPtr.Zero, out uint data, ref dataSize);
+
+        var rawSystemUsesLightTheme = result == 0 ? data : 1u;
+
+        return rawSystemUsesLightTheme is 0 ? SystemTheme.Dark : SystemTheme.Light;
     }
 
     public static bool AppsUseDarkTheme()
@@ -237,14 +238,11 @@ public static class ThemeManager
     }
 
     /// <summary>
-    /// Applies the Windows system theme (including high contrast) without going through
-    /// <see cref="ApplicationThemeManager.Apply"/>.
+    /// Applies the Windows system theme (including high contrast).
     /// </summary>
     public static void ApplySystemTheme(bool updateAccent = true)
     {
-        SystemThemeManager.UpdateSystemThemeCache();
-
-        SystemTheme systemTheme = SystemThemeManager.GetCachedSystemTheme();
+        SystemTheme systemTheme = ReadSystemTheme();
         ApplicationTheme themeToSet = ApplicationTheme.Light;
 
         if (systemTheme is SystemTheme.Dark or SystemTheme.CapturedMotion or SystemTheme.Glow)
@@ -294,8 +292,6 @@ public static class ThemeManager
                     theme,
                     systemGlassColor: false);
             }
-
-            SystemThemeManager.UpdateSystemThemeCache();
 
             UpdateDictionary(theme);
 
@@ -365,14 +361,15 @@ public static class ThemeManager
             return "Light";
         }
 
+        SystemTheme systemTheme = ReadSystemTheme();
         if (violeta)
         {
-            return SystemThemeManager.GetCachedSystemTheme() is SystemTheme.HCBlack
+            return systemTheme is SystemTheme.HCBlack
                 ? "Dark"
                 : "Light";
         }
 
-        return SystemThemeManager.GetCachedSystemTheme() switch
+        return systemTheme switch
         {
             SystemTheme.HC1 => "HC1",
             SystemTheme.HC2 => "HC2",
