@@ -9,6 +9,10 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 
 ## [Unreleased]
 
+* Add StatusBar gallery sample
+* Use theme accent colors for BusyMask / Indicator
+* Improve callout tooltip style and samples
+
 ## [4.3.0.8] - 2026-08-19
 
 * Add Wpf.Ui.Emoji library and gallery sample

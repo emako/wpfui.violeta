@@ -16,7 +16,7 @@
                 <Ellipse
                     Width="80"
                     Height="80"
-                    Fill="White"
+                    Fill="{DynamicResource IndicatorForeground}"
                     Opacity="0.2"
                     Stroke="{DynamicResource IndicatorForeground}"
                     StrokeThickness="9" />

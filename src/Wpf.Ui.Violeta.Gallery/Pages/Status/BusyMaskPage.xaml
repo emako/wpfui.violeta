@@ -7,6 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    x:Name="Root"
     Title="BusyMask"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -27,11 +28,40 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_1895d84b8a}}" />
-                    <StackPanel Orientation="Horizontal">
-                        <vio:Indicator Width="40" Height="40" Margin="0,0,16,0" />
-                        <vio:Indicator Width="24" Height="24" Margin="0,0,16,0" IndicatorType="Ring" />
-                        <vio:Indicator Width="16" Height="16" IndicatorType="ThreeDots" />
-                    </StackPanel>
+                    <ItemsControl ItemsSource="{Binding IndicatorTypes, ElementName=Root}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                                    Width="100"
+                                    Margin="0,0,12,12"
+                                    HorizontalAlignment="Left">
+                                    <Viewbox
+                                        Width="72"
+                                        Height="56"
+                                        HorizontalAlignment="Center"
+                                        Stretch="Uniform">
+                                        <vio:Indicator
+                                            MinWidth="40"
+                                            MinHeight="40"
+                                            IndicatorType="{Binding}" />
+                                    </Viewbox>
+                                    <TextBlock
+                                        Margin="0,8,0,0"
+                                        HorizontalAlignment="Center"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="{Binding}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
             </Border>
 
@@ -49,68 +79,31 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_84acc30e7a}}"
                         TextWrapping="Wrap" />
-                    <WrapPanel>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="Twist"
-                            IndicatorType="Twist"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="Ring"
-                            IndicatorType="Ring"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="Cupertino"
-                            IndicatorType="Cupertino"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="ThreeDots"
-                            IndicatorType="ThreeDots"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="Pulse"
-                            IndicatorType="Pulse"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                        <vio:BusyMask
-                            Width="120"
-                            Height="100"
-                            Margin="0,0,12,12"
-                            Background="Transparent"
-                            BusyContent="Wave"
-                            IndicatorType="Wave"
-                            IsBusy="True">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}" />
-                        </vio:BusyMask>
-                    </WrapPanel>
+                    <ItemsControl ItemsSource="{Binding IndicatorTypes, ElementName=Root}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <vio:BusyMask
+                                    Width="240"
+                                    Height="150"
+                                    Margin="0,0,12,12"
+                                    Background="Transparent"
+                                    BusyContent="{Binding}"
+                                    IndicatorType="{Binding}"
+                                    IsBusy="True">
+                                    <Border
+                                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                        BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="6" />
+                                </vio:BusyMask>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
             </Border>
         </StackPanel>

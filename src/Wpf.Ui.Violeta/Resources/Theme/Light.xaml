@@ -198,14 +198,6 @@
         ShadowDepth="4" />
 
     <!--  ColorPicker  -->
-    <m:StaticResource x:Key="ColorViewRadioButtonForeground" ResourceKey="AccentFillColorDefaultBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonBackground" ResourceKey="SubtleFillColorTransparentBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonPointeroverBackground" ResourceKey="SubtleFillColorSecondaryBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonPressedBackground" ResourceKey="SubtleFillColorTertiaryBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonCheckedForeground" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonCheckedBackground" ResourceKey="AccentFillColorDefaultBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonCheckedPointeroverBackground" ResourceKey="AccentFillColorSecondaryBrush" />
-    <m:StaticResource x:Key="ColorViewRadioButtonCheckedPressedBackground" ResourceKey="AccentFillColorTertiaryBrush" />
     <m:StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="AccentFillColorDefaultBrush" />
     <SolidColorBrush x:Key="ColorSliderDefaultBorderBrush" Color="Black" />
     <SolidColorBrush x:Key="ColorSliderLightBorderBrush" Color="White" />

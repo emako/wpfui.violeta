@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
     <Style x:Key="TransparentTextBoxStyle" TargetType="{x:Type TextBox}">
@@ -129,4 +131,182 @@
         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
     </Style>
+
+    <!--
+        WinUI-style TextBox with optional prefix / suffix + vertical dividers (via InputAssist).
+        Example: local:InputAssist.Prefix="#" Style="{StaticResource PrefixTextBoxStyle}"
+    -->
+    <Thickness x:Key="PrefixTextBoxClearButtonMargin">0,0,4,0</Thickness>
+    <system:Double x:Key="PrefixTextBoxClearButtonSize">24</system:Double>
+
+    <Style x:Key="PrefixTextBoxStyle" TargetType="{x:Type ui:TextBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThemeThickness}" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Padding" Value="8,0,8,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ClearButtonEnabled" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ui:TextBox}">
+                    <Grid>
+                        <Border
+                            x:Name="ContentBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            SnapsToDevicePixels="True">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <ContentPresenter
+                                    x:Name="PART_PrefixContent"
+                                    Grid.Column="0"
+                                    Margin="12,0,8,0"
+                                    VerticalAlignment="Center"
+                                    Content="{Binding Path=(local:InputAssist.Prefix), RelativeSource={RelativeSource TemplatedParent}}"
+                                    TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+                                <Border
+                                    x:Name="PART_PrefixDivider"
+                                    Grid.Column="1"
+                                    Width="1"
+                                    Margin="0,8"
+                                    VerticalAlignment="Stretch"
+                                    Background="{DynamicResource ControlStrokeColorDefaultBrush}" />
+
+                                <Grid Grid.Column="2" Margin="{TemplateBinding Padding}">
+                                    <ScrollViewer
+                                        x:Name="PART_ContentHost"
+                                        VerticalAlignment="Center"
+                                        CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                        IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                        IsTabStop="{TemplateBinding ScrollViewer.IsTabStop}"
+                                        Style="{DynamicResource DefaultTextBoxScrollViewerStyle}"
+                                        TextElement.Foreground="{TemplateBinding Foreground}"
+                                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" />
+                                    <TextBlock
+                                        x:Name="PlaceholderTextBox"
+                                        Margin="0"
+                                        Padding="1,0"
+                                        VerticalAlignment="Center"
+                                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                        IsHitTestVisible="False"
+                                        Text="{TemplateBinding PlaceholderText}"
+                                        Visibility="Collapsed" />
+                                </Grid>
+
+                                <Border
+                                    x:Name="PART_SuffixDivider"
+                                    Grid.Column="3"
+                                    Width="1"
+                                    Margin="0,8"
+                                    VerticalAlignment="Stretch"
+                                    Background="{DynamicResource ControlStrokeColorDefaultBrush}" />
+
+                                <ContentPresenter
+                                    x:Name="PART_SuffixContent"
+                                    Grid.Column="4"
+                                    Margin="8,0,8,0"
+                                    VerticalAlignment="Center"
+                                    Content="{Binding Path=(local:InputAssist.Suffix), RelativeSource={RelativeSource TemplatedParent}}"
+                                    TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+                                <Button
+                                    x:Name="PART_ClearButton"
+                                    Grid.Column="5"
+                                    Width="{StaticResource PrefixTextBoxClearButtonSize}"
+                                    Height="{StaticResource PrefixTextBoxClearButtonSize}"
+                                    Margin="{StaticResource PrefixTextBoxClearButtonMargin}"
+                                    Padding="0"
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Focusable="False"
+                                    Foreground="{DynamicResource TextControlButtonForeground}"
+                                    IsTabStop="False">
+                                    <ui:SymbolIcon FontSize="14" Symbol="Dismiss24" />
+                                </Button>
+                            </Grid>
+                        </Border>
+
+                        <Border
+                            x:Name="AccentBorder"
+                            BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                            BorderThickness="{DynamicResource TextBoxAccentBorderThemeThickness}"
+                            CornerRadius="{TemplateBinding Border.CornerRadius}"
+                            IsHitTestVisible="False" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter TargetName="PlaceholderTextBox" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="PlaceholderTextBox" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="PlaceholderEnabled" Value="False">
+                            <Setter TargetName="PlaceholderTextBox" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ClearButtonEnabled" Value="False">
+                            <Setter TargetName="PART_ClearButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=(local:InputAssist.Prefix), RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                            <Setter TargetName="PART_PrefixContent" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_PrefixDivider" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=(local:InputAssist.Suffix), RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                            <Setter TargetName="PART_SuffixContent" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_SuffixDivider" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsKeyboardFocusWithin" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushDisabled}" />
+                            <Setter TargetName="PlaceholderTextBox" Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter Property="ClearButtonEnabled" Value="False" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter Property="Cursor" Value="IBeam" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -11,12 +11,10 @@
 
     <SolidColorBrush
         x:Key="IndicatorForeground"
-        fr:Freeze="True"
-        Color="#4EA2FF" />
+        Color="{DynamicResource SystemAccentColorPrimary}" />
     <SolidColorBrush
         x:Key="IndicatorBackground"
-        fr:Freeze="True"
-        Color="#DDDDDD" />
+        Color="{DynamicResource SystemAccentColorTertiary}" />
 
     <sys:Double x:Key="IndicatorScaleX" fr:Freeze="True">1</sys:Double>
     <sys:Double x:Key="IndicatorScaleY" fr:Freeze="True">1</sys:Double>

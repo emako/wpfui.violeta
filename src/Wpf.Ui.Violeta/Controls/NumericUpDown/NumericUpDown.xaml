@@ -89,6 +89,8 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <!--  InnerLeftContent  -->
+                                    <ColumnDefinition Width="Auto" />
+                                    <!--  Prefix divider  -->
                                     <ColumnDefinition Width="*" />
                                     <!--  TextBox / DragPanel  -->
                                     <ColumnDefinition Width="Auto" />
@@ -97,18 +99,29 @@
                                     <!--  SpinnerPanel  -->
                                 </Grid.ColumnDefinitions>
 
-                                <!--  InnerLeftContent  -->
+                                <!--  InnerLeftContent (WinUI-style prefix)  -->
                                 <ContentPresenter
                                     x:Name="PART_InnerLeftContent"
                                     Grid.Column="0"
-                                    Margin="8,0,0,0"
+                                    Margin="12,0,8,0"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Content="{TemplateBinding InnerLeftContent}"
+                                    TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                    Visibility="Collapsed" />
+
+                                <!--  Vertical divider between prefix and value  -->
+                                <Border
+                                    x:Name="PART_InnerLeftDivider"
+                                    Grid.Column="1"
+                                    Width="1"
+                                    Margin="0,8"
+                                    VerticalAlignment="Stretch"
+                                    Background="{DynamicResource ControlStrokeColorDefaultBrush}"
                                     Visibility="Collapsed" />
 
                                 <!--  Text area: stacks TextBox, placeholder and drag-panel overlay  -->
-                                <Grid Grid.Column="1">
+                                <Grid Grid.Column="2">
                                     <!--  Editable TextBox  -->
                                     <TextBox
                                         x:Name="PART_TextBox"
@@ -158,7 +171,7 @@
                                 <!--  InnerRightContent  -->
                                 <ContentPresenter
                                     x:Name="PART_InnerRightContent"
-                                    Grid.Column="2"
+                                    Grid.Column="3"
                                     Margin="0,0,8,0"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -168,7 +181,7 @@
                                 <!--  SpinnerPanel: vertical separator + up/down repeat buttons  -->
                                 <Grid
                                     x:Name="PART_SpinnerPanel"
-                                    Grid.Column="3"
+                                    Grid.Column="4"
                                     Margin="{StaticResource NumericUpDownSpinButtonMargin}">
 
                                     <StackPanel
@@ -276,5 +289,30 @@
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericUShortUpDown}" />
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericByteUpDown}" />
     <Style BasedOn="{StaticResource BaseNumericUpDownStyle}" TargetType="{x:Type local:NumericSByteUpDown}" />
+
+    <!--
+        WinUI ColorPicker-style channel editor: prefix (R/G/B/H…) + divider + value, no spin buttons.
+        Set InnerLeftContent for the prefix. Reusable outside ColorPicker.
+    -->
+    <Style
+        x:Key="PrefixNumericUpDownStyle"
+        BasedOn="{StaticResource BaseNumericUpDownStyle}"
+        TargetType="{x:Type local:NumericUpDown}">
+        <Setter Property="ShowButtonSpinner" Value="False" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Padding" Value="8,0,8,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="PrefixNumericDoubleUpDownStyle"
+        BasedOn="{StaticResource PrefixNumericUpDownStyle}"
+        TargetType="{x:Type local:NumericDoubleUpDown}" />
+
+    <Style
+        x:Key="PrefixNumericIntUpDownStyle"
+        BasedOn="{StaticResource PrefixNumericUpDownStyle}"
+        TargetType="{x:Type local:NumericIntUpDown}" />
 
 </ResourceDictionary>

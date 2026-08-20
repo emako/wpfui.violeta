@@ -30,6 +30,7 @@ public abstract class NumericUpDown : Control
     protected RepeatButton? _decreaseButton;
     protected UIElement? _dragPanel;
     private ContentPresenter? _innerLeftContent;
+    private UIElement? _innerLeftDivider;
     private ContentPresenter? _innerRightContent;
 
     // Whether the current text update is from user typing (vs programmatic)
@@ -152,7 +153,9 @@ public abstract class NumericUpDown : Control
 
     private void UpdateInnerContentVisibility()
     {
-        _innerLeftContent?.Visibility = InnerLeftContent != null ? Visibility.Visible : Visibility.Collapsed;
+        var leftVisible = InnerLeftContent != null ? Visibility.Visible : Visibility.Collapsed;
+        _innerLeftContent?.Visibility = leftVisible;
+        _innerLeftDivider?.Visibility = leftVisible;
         _innerRightContent?.Visibility = InnerRightContent != null ? Visibility.Visible : Visibility.Collapsed;
     }
 
@@ -373,6 +376,7 @@ public abstract class NumericUpDown : Control
         _decreaseButton = GetTemplateChild(PART_DecreaseButton) as RepeatButton;
         _dragPanel = GetTemplateChild(PART_DragPanel) as UIElement;
         _innerLeftContent = GetTemplateChild("PART_InnerLeftContent") as ContentPresenter;
+        _innerLeftDivider = GetTemplateChild("PART_InnerLeftDivider") as UIElement;
         _innerRightContent = GetTemplateChild("PART_InnerRightContent") as ContentPresenter;
 
         if (_textBox != null)
