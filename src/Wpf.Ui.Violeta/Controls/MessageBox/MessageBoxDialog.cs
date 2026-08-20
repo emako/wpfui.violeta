@@ -19,7 +19,7 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = "PART_YesButton", Type = typeof(Button))]
 [TemplatePart(Name = "PART_NoButton", Type = typeof(Button))]
 [TemplatePart(Name = "PART_CancelButton", Type = typeof(Button))]
-public partial class MessageBoxDialog : Window
+public partial class MessageBoxDialog : ShellWindow
 {
     private const string OKVisibleState = "OKVisible";
     private const string OKCancelVisibleState = "OKCancelVisible";
@@ -49,6 +49,7 @@ public partial class MessageBoxDialog : Window
 
     public MessageBoxDialog()
     {
+        SetResourceReference(StyleProperty, typeof(MessageBoxDialog));
         SetValue(TemplateSettingsPropertyKey, new MessageBoxTemplateSettings());
         Loaded += OnLoaded;
 

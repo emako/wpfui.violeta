@@ -96,7 +96,6 @@ public static partial class MessageBox
                 Caption = caption ?? string.Empty,
                 Title = caption ?? string.Empty,
                 ResizeMode = ResizeMode.NoResize,
-                WindowStyle = WindowStyle.SingleBorderWindow,
                 WindowStartupLocation = owner is null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner
             };
 
