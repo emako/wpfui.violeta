@@ -3397,4 +3397,40 @@ OK をクリックして続行してください。</value>
   <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
     <value>vio:CalloutToolTipHelper.ForceDark を設定すると、ライト テーマでもダークの吹き出しになります。</value>
   </data>
+  <data name="Sample_StatusBar_CardDesc" xml:space="preserve">
+    <value>テーマ対応のウィンドウ ステータス バー</value>
+  </data>
+  <data name="Sample_StatusBar_BasicTitle" xml:space="preserve">
+    <value>基本</value>
+  </data>
+  <data name="Sample_StatusBar_BasicDesc" xml:space="preserve">
+    <value>Wpf.Ui テーマでスタイルされた WPF StatusBar。項目は区切り線付きで横に並びます。</value>
+  </data>
+  <data name="Sample_StatusBar_Ready" xml:space="preserve">
+    <value>準備完了</value>
+  </data>
+  <data name="Sample_StatusBar_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock: オフ</value>
+  </data>
+  <data name="Sample_StatusBar_LnCol" xml:space="preserve">
+    <value>行 1、列 1</value>
+  </data>
+  <data name="Sample_StatusBar_GridTitle" xml:space="preserve">
+    <value>グリッド レイアウト</value>
+  </data>
+  <data name="Sample_StatusBar_GridDesc" xml:space="preserve">
+    <value>ItemsPanel に Grid を使い、左/中央/右を固定します（エディター風ステータス バー）。</value>
+  </data>
+  <data name="Sample_StatusBar_LineChar" xml:space="preserve">
+    <value>行: 42、文字: 8</value>
+  </data>
+  <data name="Sample_StatusBar_IconsTitle" xml:space="preserve">
+    <value>アイコン付き</value>
+  </data>
+  <data name="Sample_StatusBar_IconsDesc" xml:space="preserve">
+    <value>SymbolIcon とテキストを組み合わせたコンパクトな IDE 風フッター。</value>
+  </data>
+  <data name="Sample_StatusBar_ZeroErrors" xml:space="preserve">
+    <value>エラー 0 件</value>
+  </data>
 </root>

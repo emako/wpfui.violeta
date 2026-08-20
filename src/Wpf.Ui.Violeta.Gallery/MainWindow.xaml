@@ -369,6 +369,7 @@
                         <vio:NavigationViewItem Content="BusyMask" Tag="status/busy-mask" />
                         <vio:NavigationViewItem Content="BoolStateContentControl" Tag="status/bool-state-content-control" />
                         <vio:NavigationViewItem Content="ToolTip" Tag="status/tool-tip" />
+                        <vio:NavigationViewItem Content="StatusBar" Tag="status/status-bar" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

@@ -3397,4 +3397,40 @@ Click OK to continue.</value>
   <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
     <value>Set vio:CalloutToolTipHelper.ForceDark to keep the dark callout even in the light theme.</value>
   </data>
+  <data name="Sample_StatusBar_CardDesc" xml:space="preserve">
+    <value>Themed window status bar</value>
+  </data>
+  <data name="Sample_StatusBar_BasicTitle" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Sample_StatusBar_BasicDesc" xml:space="preserve">
+    <value>WPF StatusBar with Wpf.Ui theme styling. Items flow horizontally with separators.</value>
+  </data>
+  <data name="Sample_StatusBar_Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Sample_StatusBar_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock: Off</value>
+  </data>
+  <data name="Sample_StatusBar_LnCol" xml:space="preserve">
+    <value>Ln 1, Col 1</value>
+  </data>
+  <data name="Sample_StatusBar_GridTitle" xml:space="preserve">
+    <value>Grid layout</value>
+  </data>
+  <data name="Sample_StatusBar_GridDesc" xml:space="preserve">
+    <value>Use ItemsPanel with a Grid to pin left/center/right regions (editor-style status bar).</value>
+  </data>
+  <data name="Sample_StatusBar_LineChar" xml:space="preserve">
+    <value>Line: 42, Char: 8</value>
+  </data>
+  <data name="Sample_StatusBar_IconsTitle" xml:space="preserve">
+    <value>With icons</value>
+  </data>
+  <data name="Sample_StatusBar_IconsDesc" xml:space="preserve">
+    <value>Mix SymbolIcon and text for a compact IDE-style footer.</value>
+  </data>
+  <data name="Sample_StatusBar_ZeroErrors" xml:space="preserve">
+    <value>0 errors</value>
+  </data>
 </root>

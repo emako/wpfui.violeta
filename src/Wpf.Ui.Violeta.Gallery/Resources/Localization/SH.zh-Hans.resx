@@ -3397,4 +3397,40 @@
   <data name="Sample_ToolTip_CalloutForceDarkDesc" xml:space="preserve">
     <value>设置 vio:CalloutToolTipHelper.ForceDark，浅色主题下仍使用深色气泡。</value>
   </data>
+  <data name="Sample_StatusBar_CardDesc" xml:space="preserve">
+    <value>主题化的窗口状态栏</value>
+  </data>
+  <data name="Sample_StatusBar_BasicTitle" xml:space="preserve">
+    <value>基础</value>
+  </data>
+  <data name="Sample_StatusBar_BasicDesc" xml:space="preserve">
+    <value>使用 Wpf.Ui 主题样式的 WPF StatusBar。项目横向排列，并以分隔符分隔。</value>
+  </data>
+  <data name="Sample_StatusBar_Ready" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="Sample_StatusBar_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock：关</value>
+  </data>
+  <data name="Sample_StatusBar_LnCol" xml:space="preserve">
+    <value>行 1，列 1</value>
+  </data>
+  <data name="Sample_StatusBar_GridTitle" xml:space="preserve">
+    <value>网格布局</value>
+  </data>
+  <data name="Sample_StatusBar_GridDesc" xml:space="preserve">
+    <value>使用带 Grid 的 ItemsPanel 固定左/中/右区域（编辑器风格状态栏）。</value>
+  </data>
+  <data name="Sample_StatusBar_LineChar" xml:space="preserve">
+    <value>行：42，字符：8</value>
+  </data>
+  <data name="Sample_StatusBar_IconsTitle" xml:space="preserve">
+    <value>带图标</value>
+  </data>
+  <data name="Sample_StatusBar_IconsDesc" xml:space="preserve">
+    <value>混用 SymbolIcon 与文本，打造紧凑的 IDE 风格底栏。</value>
+  </data>
+  <data name="Sample_StatusBar_ZeroErrors" xml:space="preserve">
+    <value>0 个错误</value>
+  </data>
 </root>

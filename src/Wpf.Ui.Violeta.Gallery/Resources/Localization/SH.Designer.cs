@@ -321,6 +321,114 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Themed window status bar.
+        /// </summary>
+        internal static string Sample_StatusBar_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic.
+        /// </summary>
+        internal static string Sample_StatusBar_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_BasicTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to WPF StatusBar with Wpf.Ui theme styling. Items flow horizontally with separators.
+        /// </summary>
+        internal static string Sample_StatusBar_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_BasicDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string Sample_StatusBar_Ready {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_Ready", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Caps Lock: Off.
+        /// </summary>
+        internal static string Sample_StatusBar_CapsLockOff {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_CapsLockOff", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Ln 1, Col 1.
+        /// </summary>
+        internal static string Sample_StatusBar_LnCol {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_LnCol", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Grid layout.
+        /// </summary>
+        internal static string Sample_StatusBar_GridTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_GridTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use ItemsPanel with a Grid to pin left/center/right regions (editor-style status bar).
+        /// </summary>
+        internal static string Sample_StatusBar_GridDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_GridDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Line: 42, Char: 8.
+        /// </summary>
+        internal static string Sample_StatusBar_LineChar {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_LineChar", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With icons.
+        /// </summary>
+        internal static string Sample_StatusBar_IconsTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_IconsTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mix SymbolIcon and text for a compact IDE-style footer.
+        /// </summary>
+        internal static string Sample_StatusBar_IconsDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_IconsDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 0 errors.
+        /// </summary>
+        internal static string Sample_StatusBar_ZeroErrors {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_ZeroErrors", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Primary click / Command - {0}.
         /// </summary>
         internal static string Format_SplitButtonPrimaryClick {

@@ -207,6 +207,7 @@ public partial class MainWindow : ShellWindow
         ["status/busy-mask"] = static () => new BusyMaskPage(),
         ["status/bool-state-content-control"] = static () => new BoolStateContentControlPage(),
         ["status/tool-tip"] = static () => new ToolTipPage(),
+        ["status/status-bar"] = static () => new StatusBarPage(),
 
         ["media"] = static () => new MediaPage(),
         ["media/image"] = static () => new ImagePage(),
