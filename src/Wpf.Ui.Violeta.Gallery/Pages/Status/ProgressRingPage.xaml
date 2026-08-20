@@ -25,19 +25,34 @@
                 BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
                 CornerRadius="10">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,4"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="Indeterminate" />
-                    <TextBlock
-                        Margin="0,0,0,12"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_5d47c178f6}}"
-                        TextWrapping="Wrap" />
-                    <ui:ProgressRing HorizontalAlignment="Center" IsIndeterminate="True" />
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Indeterminate" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_5d47c178f6}}"
+                            TextWrapping="Wrap" />
+                        <ui:ProgressRing
+                            HorizontalAlignment="Left"
+                            IsIndeterminate="True"
+                            vio:ProgressRingHelper.IsActive="{Binding IsChecked, ElementName=IndeterminateActiveToggle, FallbackValue=True, TargetNullValue=True}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120" VerticalAlignment="Center">
+                        <ui:ToggleSwitch
+                            x:Name="IndeterminateActiveToggle"
+                            Content="IsActive"
+                            IsChecked="True" />
+                    </StackPanel>
+                </Grid>
             </Border>
 
             <Border
@@ -58,11 +73,26 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_ad4a69520c}}"
                         TextWrapping="Wrap" />
-                    <ui:StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="24">
-                        <ui:ProgressRing Progress="25" />
-                        <ui:ProgressRing Progress="60" />
-                        <ui:ProgressRing Progress="100" />
-                    </ui:StackPanel>
+                    <ui:ProgressRing
+                        x:Name="DeterminateRing"
+                        HorizontalAlignment="Left"
+                        IsIndeterminate="False"
+                        Progress="{Binding Value, ElementName=ProgressSlider}"
+                        vio:ProgressRingHelper.IsActive="{Binding IsChecked, ElementName=DeterminateActiveToggle, FallbackValue=True, TargetNullValue=True}" />
+                    <DockPanel Margin="0,16,0,0" LastChildFill="True">
+                        <ui:ToggleSwitch
+                            x:Name="DeterminateActiveToggle"
+                            Margin="16,0,0,0"
+                            VerticalAlignment="Center"
+                            Content="IsActive"
+                            DockPanel.Dock="Right"
+                            IsChecked="True" />
+                        <Slider
+                            x:Name="ProgressSlider"
+                            Maximum="100"
+                            Minimum="0"
+                            Value="40" />
+                    </DockPanel>
                 </StackPanel>
             </Border>
         </StackPanel>

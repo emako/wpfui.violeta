@@ -117,5 +117,6 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/DataGrid.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/TreeViewItem.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Hotfix/ProgressRing.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
