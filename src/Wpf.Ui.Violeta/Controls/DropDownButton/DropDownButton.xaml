@@ -4,7 +4,8 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
-    <Thickness x:Key="DropDownButtonChevronIconMargin">8,0,0,0</Thickness>
+    <!--  Chevron L/R inset; Padding.Right is 0 so this owns both sides.  -->
+    <Thickness x:Key="DropDownButtonChevronIconMargin">4,0,6,0</Thickness>
 
     <!--
         Flyout ContextMenu style (DefaultDropDownFlyoutContextMenuStyle) lives in
@@ -15,6 +16,8 @@
         x:Key="DefaultDropDownButtonStyle"
         BasedOn="{StaticResource DefaultUiButtonStyle}"
         TargetType="{x:Type local:DropDownButton}">
+        <!--  Match ButtonPadding but Right=0; chevron uses DropDownButtonChevronIconMargin.  -->
+        <Setter Property="Padding" Value="8,5,0,6" />
         <Setter Property="IsDropDownOpen" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
