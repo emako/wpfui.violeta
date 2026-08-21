@@ -7,11 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
-## [Unreleased]
+## [4.3.0.9] - 2026-08-21
 
 * Add StatusBar gallery sample
 * Use theme accent colors for BusyMask / Indicator
 * Improve callout tooltip style and samples
+* Refine ColorView input row layout
 
 ## [4.3.0.8] - 2026-08-19
 
