@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Controls">
 
     <!--  Content Border for directly imitating the card style  -->
     <Style x:Key="CardBorderStyle" TargetType="{x:Type Border}">
@@ -14,6 +17,24 @@
         <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+    </Style>
+
+    <!--  Content Border for directly imitating the card style  -->
+    <Style x:Key="CardUiBorderStyle" TargetType="{x:Type local:Border}">
+        <Setter Property="Background" Value="{DynamicResource CardBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource CardBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+
+    <!--  Content Border for directly imitating the secondary card style  -->
+    <Style x:Key="SecondaryUiBorderStyle" TargetType="{x:Type local:Border}">
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ClipToBounds" Value="True" />
     </Style>
 
 </ResourceDictionary>
