@@ -3328,6 +3328,9 @@
   <data name="Sample_SplitButton_DisabledDesc" xml:space="preserve">
     <value>停用後，主操作與箭頭下拉均不可用。</value>
   </data>
+  <data name="Sample_DropDownButton_DisabledDesc" xml:space="preserve">
+    <value>停用後，按鈕及其下拉功能表均不可用。</value>
+  </data>
   <data name="Format_SplitButtonPrimaryClick" xml:space="preserve">
     <value>主區域單擊 / Command - {0}</value>
   </data>

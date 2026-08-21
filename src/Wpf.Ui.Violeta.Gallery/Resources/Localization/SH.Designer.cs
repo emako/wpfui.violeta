@@ -249,6 +249,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to When disabled, the button and its flyout cannot be used..
+        /// </summary>
+        internal static string Sample_DropDownButton_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_DropDownButton_DisabledDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Horizontal grid lines.
         /// </summary>
         internal static string Sample_DataGrid_GridLinesHorizontalTitle {

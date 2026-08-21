@@ -3328,6 +3328,9 @@ OK をクリックして続行してください。</value>
   <data name="Sample_SplitButton_DisabledDesc" xml:space="preserve">
     <value>When disabled, neither the primary action nor the chevron flyout can be used.</value>
   </data>
+  <data name="Sample_DropDownButton_DisabledDesc" xml:space="preserve">
+    <value>無効時、ボタンとそのフライアウトは使用できません。</value>
+  </data>
   <data name="Format_SplitButtonPrimaryClick" xml:space="preserve">
     <value>Primary click / Command - {0}</value>
   </data>
