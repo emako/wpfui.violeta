@@ -539,27 +539,39 @@
                             TickFrequency="1"
                             Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                        <StackPanel
+                        <Grid
                             Grid.Row="3"
                             Margin="0,8,0,0"
-                            HorizontalAlignment="Stretch"
-                            Orientation="Horizontal">
+                            MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                            HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
                             <Border
+                                Grid.Column="0"
                                 Width="20"
                                 Height="20"
+                                Margin="0,0,8,0"
                                 VerticalAlignment="Center"
                                 Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorPickerToBrushConverter}}"
                                 CornerRadius="4" />
+
                             <Grid
                                 x:Name="PART_TextBoxPanel"
-                                Width="116"
-                                Margin="8,0,0,0"
-                                VerticalAlignment="Center">
+                                Grid.Column="1"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Stretch">
                                 <Grid
                                     x:Name="HexInputPanel"
                                     Visibility="Visible">
                                     <ui:TextBox
                                         x:Name="PART_HexTextBox"
+                                        MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                        VerticalAlignment="Stretch"
                                         MaxLength="8"
                                         ClearButtonEnabled="True"
                                         Style="{DynamicResource PrefixTextBoxStyle}"
@@ -568,6 +580,8 @@
                                 </Grid>
                                 <ui:TextBox
                                     x:Name="PART_RgbaTextBox"
+                                    MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                    VerticalAlignment="Stretch"
                                     VerticalContentAlignment="Center"
                                     Style="{DynamicResource PrefixTextBoxStyle}"
                                     ClearButtonEnabled="False"
@@ -575,6 +589,8 @@
                                     Visibility="Collapsed" />
                                 <ui:TextBox
                                     x:Name="PART_HsvaTextBox"
+                                    MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                    VerticalAlignment="Stretch"
                                     VerticalContentAlignment="Center"
                                     Style="{DynamicResource PrefixTextBoxStyle}"
                                     ClearButtonEnabled="False"
@@ -584,9 +600,11 @@
 
                             <local:NumericDoubleUpDown
                                 x:Name="AlphaComponentNumericUpDown"
+                                Grid.Column="2"
                                 Width="68"
-                                Margin="8,0,0,0"
-                                HorizontalAlignment="Right"
+                                MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Stretch"
                                 Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
                                 InnerRightContent="%"
                                 IsEnabled="{TemplateBinding IsAlphaEnabled}"
@@ -597,15 +615,16 @@
 
                             <ComboBox
                                 x:Name="ColorModelComboBox"
+                                Grid.Column="3"
                                 Width="88"
-                                Margin="8,0,0,0"
-                                VerticalAlignment="Center"
+                                MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                VerticalAlignment="Stretch"
                                 SelectedIndex="0">
                                 <ComboBoxItem Content="Hex" />
                                 <ComboBoxItem Content="Rgba" />
                                 <ComboBoxItem Content="Hsva" />
                             </ComboBox>
-                        </StackPanel>
+                        </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding SelectedIndex, ElementName=ColorModelComboBox}" Value="0">
@@ -623,9 +642,6 @@
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Visible" />
                         </DataTrigger>
-                        <Trigger Property="IsAlphaVisible" Value="False">
-                            <Setter TargetName="PART_TextBoxPanel" Property="Width" Value="200" />
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
