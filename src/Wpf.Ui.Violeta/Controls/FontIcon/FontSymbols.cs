@@ -152,8 +152,8 @@ public sealed class FontSymbols
     public const string Redo = "\xe7a6";
     public const string Undo = "\xe7a7";
     public const string Crop = "\xe7a8";
-    public const string PhotoCollection = "\xe7ac";
-    public const string OpenWith = "\xe7aa";
+    public const string PhotoCollection = "\xe7aa";
+    public const string OpenWith = "\xe7ac";
     public const string Rotate = "\xe7ad";
     public const string RedEye = "\xe7b3";
     public const string SetlockScreen = "\xe7b5";
