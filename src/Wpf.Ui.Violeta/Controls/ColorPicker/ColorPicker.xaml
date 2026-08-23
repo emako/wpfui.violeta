@@ -159,8 +159,8 @@
                             ShadowDepth="4" />
                     </Border.Effect>
                     <local:ColorView
-                        Width="300"
-                        Height="300"
+                        Width="320"
+                        Height="380"
                         Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorModel="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorSpectrumComponents="{Binding ColorSpectrumComponents, RelativeSource={RelativeSource TemplatedParent}}"
@@ -399,7 +399,7 @@
         <Setter Property="MinHeight" Value="{DynamicResource TextControlThemeMinHeight}" />
         <Setter Property="Padding" Value="{StaticResource ColorPickerPadding}" />
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
+        <Setter Property="Palette" Value="{DynamicResource FluentColorPalette}" />
         <Setter Property="Content" Value="{Binding HsvColor, RelativeSource={RelativeSource Self}}" />
         <Setter Property="ContentTemplate" Value="{StaticResource ColorPickerSwatchContentTemplate}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -430,7 +430,7 @@
         <Setter Property="Padding" Value="{StaticResource ColorPickerPadding}" />
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
         <Setter Property="ColorSpectrumComponents" Value="SaturationValue" />
-        <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
+        <Setter Property="Palette" Value="{DynamicResource FluentColorPalette}" />
         <Setter Property="Content" Value="{Binding HsvColor, RelativeSource={RelativeSource Self}}" />
         <Setter Property="ContentTemplate" Value="{StaticResource ColorPickerSwatchContentTemplate}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />

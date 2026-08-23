@@ -211,7 +211,7 @@
     <m:StaticResource x:Key="ColorSpectrumBorderBrush" ResourceKey="ControlStrokeColorDefaultBrush" />
     <SolidColorBrush x:Key="ColorViewContentBackgroundBrush" Color="Transparent" />
     <m:StaticResource x:Key="ColorViewContentBorderBrush" ResourceKey="ControlStrokeColorDefaultBrush" />
-    <controls:SemiColorDarkPalette x:Key="SemiColorPalette" />
+    <controls:FluentColorPalette x:Key="FluentColorPalette" />
 
     <!--  TeachingTip  -->
     <m:StaticResource x:Key="TeachingTipBorderBrush" ResourceKey="SurfaceStrokeColorDefaultBrush" />

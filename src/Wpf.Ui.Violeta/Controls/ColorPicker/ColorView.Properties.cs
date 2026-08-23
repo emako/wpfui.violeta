@@ -99,7 +99,10 @@ public partial class ColorView
         DependencyProperty.Register(nameof(PaletteColors), typeof(IEnumerable<Color>), typeof(ColorView), new PropertyMetadata(null));
 
     public static readonly DependencyProperty PaletteColumnCountProperty =
-        DependencyProperty.Register(nameof(PaletteColumnCount), typeof(int), typeof(ColorView), new PropertyMetadata(4));
+        DependencyProperty.Register(nameof(PaletteColumnCount), typeof(int), typeof(ColorView), new PropertyMetadata(6));
+
+    public static readonly DependencyProperty PaletteRowCountProperty =
+        DependencyProperty.Register(nameof(PaletteRowCount), typeof(int), typeof(ColorView), new PropertyMetadata(8));
 
     public static readonly DependencyProperty PaletteProperty =
         DependencyProperty.Register(nameof(Palette), typeof(IColorPalette), typeof(ColorView),
@@ -283,6 +286,13 @@ public partial class ColorView
     {
         get => (int)GetValue(PaletteColumnCountProperty);
         set => SetValue(PaletteColumnCountProperty, value);
+    }
+
+    /// <summary>Number of shade rows in the palette grid (WinUI: rows are shades, columns are hues).</summary>
+    public int PaletteRowCount
+    {
+        get => (int)GetValue(PaletteRowCountProperty);
+        set => SetValue(PaletteRowCountProperty, value);
     }
 
     public IColorPalette? Palette

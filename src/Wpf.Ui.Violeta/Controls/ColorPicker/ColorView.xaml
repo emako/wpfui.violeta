@@ -52,14 +52,17 @@
     <CornerRadius x:Key="ColorSpectrumCornerRadius">4</CornerRadius>
     <sys:Double x:Key="ColorPickerMinHeight">32</sys:Double>
     <CornerRadius x:Key="ColorPickerCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="ColorPaletteSwatchCornerRadius">4</CornerRadius>
+    <Thickness x:Key="ColorPaletteSwatchMargin">1</Thickness>
+    <Thickness x:Key="ColorPaletteSwatchSelectionBorderThickness">2</Thickness>
 
-    <!--  Default palette fallback (theme may override SemiColorPalette)  -->
-    <local:SemiColorLightPalette x:Key="SemiColorPalette" />
+    <local:FluentColorPalette x:Key="FluentColorPalette" />
 
     <Style x:Key="ColorViewPaletteListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="Margin" Value="0" />
+        <Setter Property="Margin" Value="{DynamicResource ColorPaletteSwatchMargin}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
@@ -73,23 +76,17 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        <Rectangle
-                            x:Name="BorderRectangle"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
+                        <Border
+                            x:Name="SelectionBorder"
+                            BorderBrush="{DynamicResource AccentFillColorDefaultBrush}"
+                            BorderThickness="{DynamicResource ColorPaletteSwatchSelectionBorderThickness}"
+                            CornerRadius="{DynamicResource ColorPaletteSwatchCornerRadius}"
                             IsHitTestVisible="False"
-                            Opacity="0"
-                            Stroke="Transparent"
-                            StrokeThickness="1" />
+                            Opacity="0" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="BorderRectangle" Property="Opacity" Value="0.5" />
-                            <Setter TargetName="BorderRectangle" Property="Stroke" Value="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ContrastBrushConverter}}" />
-                        </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="BorderRectangle" Property="Opacity" Value="1" />
-                            <Setter TargetName="BorderRectangle" Property="Stroke" Value="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ContrastBrushConverter}}" />
+                            <Setter TargetName="SelectionBorder" Property="Opacity" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -116,9 +113,9 @@
     <!--  Default ColorView  -->
     <Style TargetType="{x:Type local:ColorView}">
         <Setter Property="HexInputAlphaPosition" Value="Trailing" />
-        <Setter Property="Width" Value="300" />
-        <Setter Property="Height" Value="360" />
-        <Setter Property="Palette" Value="{DynamicResource SemiColorPalette}" />
+        <Setter Property="Width" Value="320" />
+        <Setter Property="Height" Value="380" />
+        <Setter Property="Palette" Value="{DynamicResource FluentColorPalette}" />
         <Setter Property="Background" Value="{DynamicResource ColorViewContentBackgroundBrush}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -132,13 +129,20 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
+
+                            <local:ColorPreviewer
+                                Grid.Row="0"
+                                Margin="12,12,12,8"
+                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
+                                Visibility="{Binding IsColorPreviewVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <local:TabStrip
                                 x:Name="PART_TabStrip"
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 HorizontalContentAlignment="Stretch"
                                 IndicatorAnimation="Fluent"
                                 ItemContainerStyle="{StaticResource ColorViewTabStripItemStyle}"
@@ -174,7 +178,7 @@
                                 </local:TabStripItem>
                             </local:TabStrip>
 
-                            <Grid Grid.Row="1">
+                            <Grid Grid.Row="2">
                                 <!--  Spectrum  -->
                                 <Grid
                                     x:Name="SpectrumPanel"
@@ -228,22 +232,23 @@
 
                                 <!--  Palette  -->
                                 <ListBox
-                                    x:Name="PalettePanel"
-                                    Margin="12"
+                                    x:Name="PART_PalettePanel"
+                                    Margin="12,4,12,12"
                                     VerticalAlignment="Stretch"
                                     Background="Transparent"
                                     BorderThickness="0"
                                     ItemContainerStyle="{StaticResource ColorViewPaletteListBoxItemStyle}"
                                     ItemsSource="{TemplateBinding PaletteColors}"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
                                     SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource DoNothingForNullConverter}}"
                                     SnapsToDevicePixels="False"
                                     Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=1}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate DataType="{x:Type media:Color}">
                                             <Border
-                                                MinHeight="28"
+                                                ClipToBounds="True"
+                                                CornerRadius="{DynamicResource ColorPaletteSwatchCornerRadius}"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
                                                 ToolTip="{Binding Converter={StaticResource ColorToDisplayNameConverter}}">
@@ -255,7 +260,9 @@
                                     </ListBox.ItemTemplate>
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <UniformGrid Columns="{Binding PaletteColumnCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}" />
+                                            <UniformGrid
+                                                Columns="{Binding PaletteColumnCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}"
+                                                Rows="{Binding PaletteRowCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}" />
                                         </ItemsPanelTemplate>
                                     </ListBox.ItemsPanel>
                                 </ListBox>
@@ -448,13 +455,6 @@
                                     </local:ColorSlider>
                                 </Grid>
                             </Grid>
-
-                            <local:ColorPreviewer
-                                Grid.Row="2"
-                                Margin="12,0,12,12"
-                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
-                                Visibility="{Binding IsColorPreviewVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

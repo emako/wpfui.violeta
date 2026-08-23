@@ -13,6 +13,7 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 [TemplatePart(Name = "PART_HexTextBox", Type = typeof(TextBox))]
 [TemplatePart(Name = "PART_TabStrip", Type = typeof(TabStrip))]
+[TemplatePart(Name = "PART_PalettePanel", Type = typeof(ListBox))]
 public partial class ColorView : Control
 {
     public event EventHandler<ColorChangedEventArgs>? ColorChanged;
@@ -74,6 +75,8 @@ public partial class ColorView : Control
         if (_tabStrip != null)
             _tabStrip.SelectionChanged += TabStrip_SelectionChanged;
 
+        HandlePaletteChanged();
+
         base.OnApplyTemplate();
     }
 
@@ -120,17 +123,21 @@ public partial class ColorView : Control
     internal void HandlePaletteChanged()
     {
         IColorPalette? palette = Palette;
-        if (palette != null)
+        if (palette == null)
+            return;
+
+        SetCurrentValue(PaletteColumnCountProperty, palette.ColorCount);
+        SetCurrentValue(PaletteRowCountProperty, palette.ShadeCount);
+
+        var newPaletteColors = new List<Color>(palette.ColorCount * palette.ShadeCount);
+        // WinUI / WCT order: each row is a shade, each column is a hue (left-to-right, top-to-bottom).
+        for (int shadeIndex = 0; shadeIndex < palette.ShadeCount; shadeIndex++)
         {
-            SetCurrentValue(PaletteColumnCountProperty, palette.ColorCount);
-            var newPaletteColors = new List<Color>();
-            for (int shadeIndex = 0; shadeIndex < palette.ShadeCount; shadeIndex++)
-            {
-                for (int colorIndex = 0; colorIndex < palette.ColorCount; colorIndex++)
-                    newPaletteColors.Add(palette.GetColor(colorIndex, shadeIndex));
-            }
-            SetCurrentValue(PaletteColorsProperty, newPaletteColors);
+            for (int colorIndex = 0; colorIndex < palette.ColorCount; colorIndex++)
+                newPaletteColors.Add(palette.GetColor(colorIndex, shadeIndex));
         }
+
+        SetCurrentValue(PaletteColorsProperty, newPaletteColors);
     }
 
     protected virtual void OnColorChanged(ColorChangedEventArgs e) => ColorChanged?.Invoke(this, e);
