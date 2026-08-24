@@ -32,7 +32,22 @@
                     <TextBlock
                         Margin="0,0,0,16"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Drag the knob, or select the joystick and use the arrow keys. The current eight-direction value and normalized vector are displayed below." />
+                        Text="Drag the knob, or select the joystick and use the arrow keys. The current eight-direction value and normalized vector are displayed below. The deadzone can be adjusted with the slider." />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0,0,12, 0">Deadzone:</TextBlock>
+                        <Slider
+                            x:Name="DeadzoneSlider"
+                            Width="260"
+                            Maximum="1.0"
+                            Minimum="0.0"
+                            SmallChange="0.1"
+                            TickFrequency="0.1"
+                            Value="0.15" />
+                        <TextBlock
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="{Binding ElementName=DeadzoneSlider, Path=Value, StringFormat={}{0:F2}}" />
+                    </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -43,7 +58,8 @@
                             x:Name="InteractiveJoystick"
                             Grid.Column="0"
                             Moved="OnJoystickMoved"
-                            PadDiameter="160" />
+                            PadDiameter="160"
+                            DeadZoneFactor="{Binding ElementName=DeadzoneSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
                             <TextBlock
                                 FontWeight="SemiBold"
