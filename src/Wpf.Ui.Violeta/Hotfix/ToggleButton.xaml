@@ -36,6 +36,12 @@
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <!--
+                          Set Foreground on the ToggleButton itself (not only ContentPresenter.TextElement.Foreground).
+                          String Content is generated under ContentPresenter and picks up TextElement.Foreground;
+                          element Content (e.g. StackPanel + SymbolIcon/TextBlock) lives in the logical tree and
+                          inherits ToggleButton.Foreground — same approach as ToolBarToggleButton.
+                        -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsEnabled" Value="False" />
@@ -43,6 +49,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundDisabled}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushDisabled}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundDisabled}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -52,6 +59,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedDisabled}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedDisabled}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedDisabled}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -61,6 +69,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -84,6 +93,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushPressed}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -93,6 +103,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPressed}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonBorderBrushCheckedPressed}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPressed}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>

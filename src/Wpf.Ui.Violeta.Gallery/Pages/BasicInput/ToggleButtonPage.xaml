@@ -214,7 +214,7 @@
                                     <TextBlock FontWeight="SemiBold" Text="Sync" />
                                     <TextBlock
                                         FontSize="12"
-                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Opacity="0.72"
                                         Text="Keep files up to date" />
                                 </StackPanel>
                             </ui:StackPanel>
@@ -229,7 +229,7 @@
                                     <TextBlock FontWeight="SemiBold" Text="Secure" />
                                     <TextBlock
                                         FontSize="12"
-                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Opacity="0.72"
                                         Text="Encrypt local data" />
                                 </StackPanel>
                             </ui:StackPanel>
