@@ -78,10 +78,8 @@ public class VirtualJoystick : Control
         new PropertyMetadata(JoyStickDirection.None));
 
     public static readonly DependencyProperty DeadZoneFactorProperty = DependencyProperty.Register(
-        nameof(DeadZoneFactor), typeof(double), typeof(VirtualJoystick), 
+        nameof(DeadZoneFactor), typeof(double), typeof(VirtualJoystick),
         new PropertyMetadata(0.15));
-
-
 
     public static readonly DependencyProperty CurrentDirectionProperty = CurrentDirectionPropertyKey.DependencyProperty;
 
@@ -167,14 +165,14 @@ public class VirtualJoystick : Control
         get => (JoyStickDirection)GetValue(CurrentDirectionProperty);
         private set => SetValue(CurrentDirectionPropertyKey, value);
     }
-    
+
     /// <summary>
     /// Sets the dead zone factor in percent for the joystick (default: 0.15)
     /// </summary>
     public double DeadZoneFactor
     {
-        get { return (double)GetValue(DeadZoneFactorProperty); }
-        set { SetValue(DeadZoneFactorProperty, value); }
+        get => (double)GetValue(DeadZoneFactorProperty);
+        set => SetValue(DeadZoneFactorProperty, value);
     }
 
     /// <summary>Occurs when the joystick position changes.</summary>
@@ -218,6 +216,7 @@ public class VirtualJoystick : Control
     }
 
     private static void OnPadDiameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((VirtualJoystick)d).RefreshLayout();
+
     private static void OnVisualPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((VirtualJoystick)d).UpdateVisualState(true);
 
     private static object CoercePadDiameter(DependencyObject d, object value)
@@ -330,6 +329,7 @@ public class VirtualJoystick : Control
     }
 
     private bool CanProcessKeyboardInput() => IsEnabled && IsKeyboardFocusWithin && Keyboard.FocusedElement is not System.Windows.Controls.Primitives.TextBoxBase and not PasswordBox;
+
     private static bool IsDirectionKey(Key key) => key is Key.Up or Key.Down or Key.Left or Key.Right;
 
     private void ApplyKeyboardState()
