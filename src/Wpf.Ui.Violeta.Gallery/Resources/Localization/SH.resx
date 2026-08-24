@@ -2925,6 +2925,18 @@ Visit &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Vi
   <data name="Sample_f8df5a8bca" xml:space="preserve">
     <value>Limit Filter to common image formats.</value>
   </data>
+  <data name="Sample_f8e7d6c5b4" xml:space="preserve">
+    <value>Recommended background</value>
+  </data>
+  <data name="Sample_f8e7d6c5b5" xml:space="preserve">
+    <value>NavigationView overlay (drawer) mode uses NavigationViewDefaultPaneBackground for the pane surface. Use the same brush on Drawer content panels for visual consistency.</value>
+  </data>
+  <data name="Sample_f8e7d6c5b6" xml:space="preserve">
+    <value>Resource key</value>
+  </data>
+  <data name="Sample_f8e7d6c5b7" xml:space="preserve">
+    <value>Usage</value>
+  </data>
   <data name="Sample_dce5379cb9" xml:space="preserve">
     <value>Hide</value>
   </data>

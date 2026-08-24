@@ -2925,6 +2925,18 @@
   <data name="Sample_f8df5a8bca" xml:space="preserve">
     <value>限定 Filter 為常見圖片格式。</value>
   </data>
+  <data name="Sample_f8e7d6c5b4" xml:space="preserve">
+    <value>推薦背景色</value>
+  </data>
+  <data name="Sample_f8e7d6c5b5" xml:space="preserve">
+    <value>NavigationView 抽屜（Overlay）模式的側欄背景使用 NavigationViewDefaultPaneBackground，Drawer 控件的內容面板建議採用相同畫刷以保持視覺一致。</value>
+  </data>
+  <data name="Sample_f8e7d6c5b6" xml:space="preserve">
+    <value>資源鍵</value>
+  </data>
+  <data name="Sample_f8e7d6c5b7" xml:space="preserve">
+    <value>用法</value>
+  </data>
   <data name="Sample_dce5379cb9" xml:space="preserve">
     <value>隱藏</value>
   </data>

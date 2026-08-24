@@ -35,7 +35,38 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_d994685ba5}}" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d994685ba5}}"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f8e7d6c5b4}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f8e7d6c5b5}}"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f8e7d6c5b6}}" />
+                    <vio:SelectableTextBlock
+                        Margin="0,0,0,8"
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="NavigationViewDefaultPaneBackground" />
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f8e7d6c5b7}}" />
+                    <vio:SelectableTextBlock
+                        Margin="0,0,0,12"
+                        FontSize="13"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text='Background="{DynamicResource NavigationViewDefaultPaneBackground}"' />
                     <WrapPanel Margin="0,0,0,12">
                         <ui:Button
                             Margin="0,0,8,8"
@@ -78,7 +109,7 @@
                             Width="180"
                             HorizontalAlignment="Left"
                             Placement="Left">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                            <Border Background="{DynamicResource NavigationViewDefaultPaneBackground}">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -91,7 +122,7 @@
                             Height="80"
                             VerticalAlignment="Top"
                             Placement="Top">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                            <Border Background="{DynamicResource NavigationViewDefaultPaneBackground}">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -104,7 +135,7 @@
                             Width="180"
                             HorizontalAlignment="Right"
                             Placement="Right">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                            <Border Background="{DynamicResource NavigationViewDefaultPaneBackground}">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -117,7 +148,7 @@
                             Height="80"
                             VerticalAlignment="Bottom"
                             Placement="Bottom">
-                            <Border Background="{DynamicResource ControlFillColorDefaultBrush}">
+                            <Border Background="{DynamicResource NavigationViewDefaultPaneBackground}">
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"

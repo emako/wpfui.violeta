@@ -2925,6 +2925,18 @@ OK をクリックして続行してください。</value>
   <data name="Sample_f8df5a8bca" xml:space="preserve">
     <value>Filter を一般的な画像形式に限定。</value>
   </data>
+  <data name="Sample_f8e7d6c5b4" xml:space="preserve">
+    <value>推奨背景色</value>
+  </data>
+  <data name="Sample_f8e7d6c5b5" xml:space="preserve">
+    <value>NavigationView のオーバーレイ（ドロワー）モードでは NavigationViewDefaultPaneBackground をペイン背景に使用します。Drawer のコンテンツパネルも同じブラシを使うと視覚的に統一されます。</value>
+  </data>
+  <data name="Sample_f8e7d6c5b6" xml:space="preserve">
+    <value>リソースキー</value>
+  </data>
+  <data name="Sample_f8e7d6c5b7" xml:space="preserve">
+    <value>使用例</value>
+  </data>
   <data name="Sample_dce5379cb9" xml:space="preserve">
     <value>非表示</value>
   </data>
