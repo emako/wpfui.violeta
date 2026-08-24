@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="ToggleButton"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -50,6 +50,191 @@
                             Content="Disable toggle button"
                             Unchecked="DisableToggleButton_Unchecked" />
                     </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon only" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Content can be a SymbolIcon (or any element) without text."
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ToggleButton ToolTip="Bold">
+                            <ui:SymbolIcon Symbol="TextBold24" />
+                        </ToggleButton>
+                        <ToggleButton IsChecked="True" ToolTip="Italic">
+                            <ui:SymbolIcon Symbol="TextItalic24" />
+                        </ToggleButton>
+                        <ToggleButton ToolTip="Underline">
+                            <ui:SymbolIcon Symbol="TextUnderline24" />
+                        </ToggleButton>
+                        <ToggleButton ToolTip="Pin">
+                            <ui:SymbolIcon Symbol="Pin24" />
+                        </ToggleButton>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon + text (horizontal)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Compose Content with a horizontal StackPanel: icon and label side by side."
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ToggleButton>
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Eye24" />
+                                <TextBlock VerticalAlignment="Center" Text="Preview" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton IsChecked="True">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Speaker224" />
+                                <TextBlock VerticalAlignment="Center" Text="Sound" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Wifi124" />
+                                <TextBlock VerticalAlignment="Center" Text="Wi-Fi" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton>
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Bluetooth24" />
+                                <TextBlock VerticalAlignment="Center" Text="Bluetooth" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon + text (vertical)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Vertical StackPanel: icon above label, useful for compact toolbar-like toggles."
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ToggleButton Padding="12,8">
+                            <ui:StackPanel
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical"
+                                Spacing="4">
+                                <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Home24" />
+                                <TextBlock HorizontalAlignment="Center" Text="Home" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton Padding="12,8" IsChecked="True">
+                            <ui:StackPanel
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical"
+                                Spacing="4">
+                                <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Search24" />
+                                <TextBlock HorizontalAlignment="Center" Text="Search" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton Padding="12,8">
+                            <ui:StackPanel
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical"
+                                Spacing="4">
+                                <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Settings24" />
+                                <TextBlock HorizontalAlignment="Center" Text="Settings" />
+                            </ui:StackPanel>
+                        </ToggleButton>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Rich content" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="StackPanel can hold more than one text line — title plus secondary description."
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ToggleButton Padding="12,8">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                <ui:SymbolIcon
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Symbol="Cloud24" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock FontWeight="SemiBold" Text="Sync" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Keep files up to date" />
+                                </StackPanel>
+                            </ui:StackPanel>
+                        </ToggleButton>
+                        <ToggleButton Padding="12,8" IsChecked="True">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                <ui:SymbolIcon
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Symbol="LockClosed24" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock FontWeight="SemiBold" Text="Secure" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="Encrypt local data" />
+                                </StackPanel>
+                            </ui:StackPanel>
+                        </ToggleButton>
+                    </ui:StackPanel>
                 </StackPanel>
             </Border>
         </StackPanel>
