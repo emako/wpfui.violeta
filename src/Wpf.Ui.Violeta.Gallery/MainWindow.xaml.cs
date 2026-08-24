@@ -113,6 +113,7 @@ public partial class MainWindow : ShellWindow
         ["text/label"] = static () => new LabelPage(),
         ["text/text-block"] = static () => new TextBlockPage(),
         ["text/selectable-text-block"] = static () => new SelectableTextBlockPage(),
+        ["text/number-displayer"] = static () => new NumberDisplayerPage(),
         ["text/hyperlink"] = static () => new HyperlinkPage(),
         ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
         ["text/emoji"] = static () => new EmojiPage(),
