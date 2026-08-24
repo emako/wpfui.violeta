@@ -213,6 +213,120 @@
                     </WrapPanel>
                 </StackPanel>
             </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Icon + text (StackPanel Content)" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Compose Content with a StackPanel instead of the Icon property. Foreground is inherited from the button — hold to verify pressed state."
+                        TextWrapping="Wrap" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ui:Button Appearance="Primary">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Save24" />
+                                <TextBlock VerticalAlignment="Center" Text="Save" />
+                            </ui:StackPanel>
+                        </ui:Button>
+                        <ui:Button Appearance="Primary">
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Share24" />
+                                <TextBlock VerticalAlignment="Center" Text="Share" />
+                            </ui:StackPanel>
+                        </ui:Button>
+                        <ui:Button>
+                            <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                                <ui:SymbolIcon Symbol="Copy24" />
+                                <TextBlock VerticalAlignment="Center" Text="Copy" />
+                            </ui:StackPanel>
+                        </ui:Button>
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Rich content" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="StackPanel with icon, title, and secondary description — all inherit button Foreground."
+                        TextWrapping="Wrap" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ui:StackPanel
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <ui:Button
+                                x:Name="RichContentPrimaryButton"
+                                Padding="12,8"
+                                Appearance="Primary">
+                                <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                    <ui:SymbolIcon
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Symbol="CloudArrowUp24" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock FontWeight="SemiBold" Text="Upload" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Opacity="0.72"
+                                            Text="Send files to cloud" />
+                                    </StackPanel>
+                                </ui:StackPanel>
+                            </ui:Button>
+                            <ui:Button
+                                x:Name="RichContentSuccessButton"
+                                Padding="12,8"
+                                Appearance="Success">
+                                <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                    <ui:SymbolIcon
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Symbol="Checkmark24" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock FontWeight="SemiBold" Text="Confirm" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Opacity="0.72"
+                                            Text="Apply changes" />
+                                    </StackPanel>
+                                </ui:StackPanel>
+                            </ui:Button>
+                        </ui:StackPanel>
+                        <CheckBox
+                            Grid.Column="1"
+                            Checked="DisableRichContentButton_Checked"
+                            Content="Disable"
+                            Unchecked="DisableRichContentButton_Unchecked" />
+                    </Grid>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

@@ -15,4 +15,16 @@ public partial class ToggleButtonPage : Wpf.Ui.Violeta.Controls.Page
 
     private void DisableToggleButton_Unchecked(object sender, RoutedEventArgs e) =>
         ToggleButtonControl.IsEnabled = true;
+
+    private void DisableRichContentToggle_Checked(object sender, RoutedEventArgs e)
+    {
+        RichContentToggle.IsEnabled = false;
+        RichContentCheckedToggle.IsEnabled = false;
+    }
+
+    private void DisableRichContentToggle_Unchecked(object sender, RoutedEventArgs e)
+    {
+        RichContentToggle.IsEnabled = true;
+        RichContentCheckedToggle.IsEnabled = true;
+    }
 }

@@ -17,4 +17,16 @@ public partial class ButtonPage : Wpf.Ui.Violeta.Controls.Page
     private void DisableUiButton_Checked(object sender, RoutedEventArgs e) => UiButton.IsEnabled = false;
 
     private void DisableUiButton_Unchecked(object sender, RoutedEventArgs e) => UiButton.IsEnabled = true;
+
+    private void DisableRichContentButton_Checked(object sender, RoutedEventArgs e)
+    {
+        RichContentPrimaryButton.IsEnabled = false;
+        RichContentSuccessButton.IsEnabled = false;
+    }
+
+    private void DisableRichContentButton_Unchecked(object sender, RoutedEventArgs e)
+    {
+        RichContentPrimaryButton.IsEnabled = true;
+        RichContentSuccessButton.IsEnabled = true;
+    }
 }

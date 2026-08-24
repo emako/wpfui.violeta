@@ -203,38 +203,55 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="StackPanel can hold more than one text line — title plus secondary description."
                         TextWrapping="Wrap" />
-                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
-                        <ToggleButton Padding="12,8">
-                            <ui:StackPanel Orientation="Horizontal" Spacing="10">
-                                <ui:SymbolIcon
-                                    VerticalAlignment="Center"
-                                    FontSize="20"
-                                    Symbol="Cloud24" />
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock FontWeight="SemiBold" Text="Sync" />
-                                    <TextBlock
-                                        FontSize="12"
-                                        Opacity="0.72"
-                                        Text="Keep files up to date" />
-                                </StackPanel>
-                            </ui:StackPanel>
-                        </ToggleButton>
-                        <ToggleButton Padding="12,8" IsChecked="True">
-                            <ui:StackPanel Orientation="Horizontal" Spacing="10">
-                                <ui:SymbolIcon
-                                    VerticalAlignment="Center"
-                                    FontSize="20"
-                                    Symbol="LockClosed24" />
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock FontWeight="SemiBold" Text="Secure" />
-                                    <TextBlock
-                                        FontSize="12"
-                                        Opacity="0.72"
-                                        Text="Encrypt local data" />
-                                </StackPanel>
-                            </ui:StackPanel>
-                        </ToggleButton>
-                    </ui:StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ui:StackPanel
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Spacing="8">
+                            <ToggleButton x:Name="RichContentToggle" Padding="12,8">
+                                <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                    <ui:SymbolIcon
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Symbol="Cloud24" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock FontWeight="SemiBold" Text="Sync" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Opacity="0.72"
+                                            Text="Keep files up to date" />
+                                    </StackPanel>
+                                </ui:StackPanel>
+                            </ToggleButton>
+                            <ToggleButton
+                                x:Name="RichContentCheckedToggle"
+                                Padding="12,8"
+                                IsChecked="True">
+                                <ui:StackPanel Orientation="Horizontal" Spacing="10">
+                                    <ui:SymbolIcon
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Symbol="LockClosed24" />
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock FontWeight="SemiBold" Text="Secure" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Opacity="0.72"
+                                            Text="Encrypt local data" />
+                                    </StackPanel>
+                                </ui:StackPanel>
+                            </ToggleButton>
+                        </ui:StackPanel>
+                        <CheckBox
+                            Grid.Column="1"
+                            Checked="DisableRichContentToggle_Checked"
+                            Content="Disable"
+                            Unchecked="DisableRichContentToggle_Unchecked" />
+                    </Grid>
                 </StackPanel>
             </Border>
         </StackPanel>
