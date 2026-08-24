@@ -34,7 +34,31 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(ToggleComboBox),
             new FrameworkPropertyMetadata(typeof(ToggleComboBox)));
+
+        BackgroundProperty.OverrideMetadata(
+            typeof(ToggleComboBox),
+            new FrameworkPropertyMetadata(OnChromeBackgroundChanged));
     }
+
+    private static void OnChromeBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var toggleComboBox = (ToggleComboBox)d;
+        toggleComboBox.CoerceValue(MouseOverSecondaryBackgroundProperty);
+        toggleComboBox.CoerceValue(PressedSecondaryBackgroundProperty);
+    }
+
+    private static void OnCheckedBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var toggleComboBox = (ToggleComboBox)d;
+        toggleComboBox.CoerceValue(CheckedSecondaryBackgroundProperty);
+        toggleComboBox.CoerceValue(CheckedSecondaryPressedBackgroundProperty);
+    }
+
+    private static object? CoerceSecondaryBackground(DependencyObject d, object? baseValue) =>
+        baseValue ?? ((ToggleComboBox)d).Background;
+
+    private static object? CoerceCheckedSecondaryBackground(DependencyObject d, object? baseValue) =>
+        baseValue ?? ((ToggleComboBox)d).CheckedBackground;
 
     public ToggleComboBox()
     {
@@ -117,6 +141,104 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
         typeof(ToggleComboBox),
         new PropertyMetadata(true));
 
+    public static readonly DependencyProperty MouseOverBackgroundProperty = DependencyProperty.Register(
+        nameof(MouseOverBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public static readonly DependencyProperty MouseOverBorderBrushProperty = DependencyProperty.Register(
+        nameof(MouseOverBorderBrush),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public static readonly DependencyProperty PressedBackgroundProperty = DependencyProperty.Register(
+        nameof(PressedBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public static readonly DependencyProperty PressedBorderBrushProperty = DependencyProperty.Register(
+        nameof(PressedBorderBrush),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    /// <summary>
+    /// Background for the non-hovered segment while the other segment is hovered (unchecked).
+    /// Falls back to <see cref="System.Windows.Controls.Control.Background"/> when unset.
+    /// </summary>
+    public static readonly DependencyProperty MouseOverSecondaryBackgroundProperty = DependencyProperty.Register(
+        nameof(MouseOverSecondaryBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceSecondaryBackground));
+
+    /// <summary>
+    /// Background for the non-pressed segment while the other segment is pressed (unchecked).
+    /// Falls back to <see cref="System.Windows.Controls.Control.Background"/> when unset.
+    /// </summary>
+    public static readonly DependencyProperty PressedSecondaryBackgroundProperty = DependencyProperty.Register(
+        nameof(PressedSecondaryBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceSecondaryBackground));
+
+    public static readonly DependencyProperty CheckedBackgroundProperty = DependencyProperty.Register(
+        nameof(CheckedBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, OnCheckedBackgroundChanged));
+
+    public static readonly DependencyProperty CheckedPointerOverBackgroundProperty = DependencyProperty.Register(
+        nameof(CheckedPointerOverBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    public static readonly DependencyProperty CheckedPressedBackgroundProperty = DependencyProperty.Register(
+        nameof(CheckedPressedBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender));
+
+    /// <summary>
+    /// Background for the non-hovered segment while the other segment is hovered (checked).
+    /// Falls back to <see cref="CheckedBackground"/> when unset.
+    /// </summary>
+    public static readonly DependencyProperty CheckedSecondaryBackgroundProperty = DependencyProperty.Register(
+        nameof(CheckedSecondaryBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceCheckedSecondaryBackground));
+
+    /// <summary>
+    /// Background for the non-pressed segment while the other segment is pressed (checked).
+    /// Falls back to <see cref="CheckedBackground"/> when unset.
+    /// </summary>
+    public static readonly DependencyProperty CheckedSecondaryPressedBackgroundProperty = DependencyProperty.Register(
+        nameof(CheckedSecondaryPressedBackground),
+        typeof(Brush),
+        typeof(ToggleComboBox),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceCheckedSecondaryBackground));
+
     [Bindable(true)]
     [Category("Appearance")]
     public CornerRadius CornerRadius
@@ -157,7 +279,7 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
         set => SetValue(IsCheckedProperty, value);
     }
 
-    /// <summary>True while the primary (left) area is pressed ù?for template chrome.</summary>
+    /// <summary>True while the primary (left) area is pressed ??for template chrome.</summary>
     [Browsable(false)]
     public bool IsPrimaryPressed => (bool)GetValue(IsPrimaryPressedProperty);
 
@@ -207,6 +329,94 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
     {
         get => (bool)GetValue(IsSelectionCancelableProperty);
         set => SetValue(IsSelectionCancelableProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? MouseOverBackground
+    {
+        get => (Brush?)GetValue(MouseOverBackgroundProperty);
+        set => SetValue(MouseOverBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? MouseOverBorderBrush
+    {
+        get => (Brush?)GetValue(MouseOverBorderBrushProperty);
+        set => SetValue(MouseOverBorderBrushProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? PressedBackground
+    {
+        get => (Brush?)GetValue(PressedBackgroundProperty);
+        set => SetValue(PressedBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? PressedBorderBrush
+    {
+        get => (Brush?)GetValue(PressedBorderBrushProperty);
+        set => SetValue(PressedBorderBrushProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? MouseOverSecondaryBackground
+    {
+        get => (Brush?)GetValue(MouseOverSecondaryBackgroundProperty);
+        set => SetValue(MouseOverSecondaryBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? PressedSecondaryBackground
+    {
+        get => (Brush?)GetValue(PressedSecondaryBackgroundProperty);
+        set => SetValue(PressedSecondaryBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? CheckedBackground
+    {
+        get => (Brush?)GetValue(CheckedBackgroundProperty);
+        set => SetValue(CheckedBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? CheckedPointerOverBackground
+    {
+        get => (Brush?)GetValue(CheckedPointerOverBackgroundProperty);
+        set => SetValue(CheckedPointerOverBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? CheckedPressedBackground
+    {
+        get => (Brush?)GetValue(CheckedPressedBackgroundProperty);
+        set => SetValue(CheckedPressedBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? CheckedSecondaryBackground
+    {
+        get => (Brush?)GetValue(CheckedSecondaryBackgroundProperty);
+        set => SetValue(CheckedSecondaryBackgroundProperty, value);
+    }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? CheckedSecondaryPressedBackground
+    {
+        get => (Brush?)GetValue(CheckedSecondaryPressedBackgroundProperty);
+        set => SetValue(CheckedSecondaryPressedBackgroundProperty, value);
     }
 
     #endregion Dependency properties
