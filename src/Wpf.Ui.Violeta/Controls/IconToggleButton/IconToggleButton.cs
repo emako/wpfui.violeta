@@ -24,6 +24,21 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </example>
 public class IconToggleButton : ToggleButton
 {
+    /// <summary>Identifies the <see cref="IsCheckedChanged"/> routed event.</summary>
+    public static readonly RoutedEvent IsCheckedChangedEvent =
+        EventManager.RegisterRoutedEvent(
+            nameof(IsCheckedChanged),
+            RoutingStrategy.Bubble,
+            typeof(RoutedEventHandler),
+            typeof(IconToggleButton));
+
+    /// <summary>Occurs when <see cref="ToggleButton.IsChecked"/> changes.</summary>
+    public event RoutedEventHandler IsCheckedChanged
+    {
+        add => AddHandler(IsCheckedChangedEvent, value);
+        remove => RemoveHandler(IsCheckedChangedEvent, value);
+    }
+
     /// <summary>Identifies the <see cref="CheckedIcon"/> dependency property.</summary>
     public static readonly DependencyProperty CheckedIconProperty =
         DependencyProperty.Register(
@@ -82,5 +97,16 @@ public class IconToggleButton : ToggleButton
         BackgroundProperty.OverrideMetadata(
             typeof(IconToggleButton),
             new FrameworkPropertyMetadata(Brushes.Transparent));
+    }
+
+    /// <inheritdoc />
+    protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+
+        if (e.Property == IsCheckedProperty)
+        {
+            RaiseEvent(new RoutedEventArgs(IsCheckedChangedEvent, this));
+        }
     }
 }
