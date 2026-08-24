@@ -50,7 +50,21 @@ public class SplitButton : Wpf.Ui.Controls.Button
         DefaultStyleKeyProperty.OverrideMetadata(
             typeof(SplitButton),
             new FrameworkPropertyMetadata(typeof(SplitButton)));
+
+        BackgroundProperty.OverrideMetadata(
+            typeof(SplitButton),
+            new FrameworkPropertyMetadata(OnChromeBackgroundChanged));
     }
+
+    private static void OnChromeBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var splitButton = (SplitButton)d;
+        splitButton.CoerceValue(MouseOverSecondaryBackgroundProperty);
+        splitButton.CoerceValue(PressedSecondaryBackgroundProperty);
+    }
+
+    private static object? CoerceSecondaryBackground(DependencyObject d, object? baseValue) =>
+        baseValue ?? ((SplitButton)d).Background;
 
     public SplitButton()
     {
@@ -93,6 +107,34 @@ public class SplitButton : Wpf.Ui.Controls.Button
         typeof(SplitButton),
         new PropertyMetadata(null));
 
+    /// <summary>
+    /// Identifies the <see cref="MouseOverSecondaryBackground"/> dependency property.
+    /// WinUI SplitButton unfocused segment fill during primary hover (e.g. SplitButtonInAppBarUnfocusedPointerOver).
+    /// </summary>
+    public static readonly DependencyProperty MouseOverSecondaryBackgroundProperty = DependencyProperty.Register(
+        nameof(MouseOverSecondaryBackground),
+        typeof(Brush),
+        typeof(SplitButton),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceSecondaryBackground));
+
+    /// <summary>
+    /// Identifies the <see cref="PressedSecondaryBackground"/> dependency property.
+    /// WinUI SplitButton unfocused segment fill during primary press.
+    /// </summary>
+    public static readonly DependencyProperty PressedSecondaryBackgroundProperty = DependencyProperty.Register(
+        nameof(PressedSecondaryBackground),
+        typeof(Brush),
+        typeof(SplitButton),
+        new FrameworkPropertyMetadata(
+            null,
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            null,
+            CoerceSecondaryBackground));
+
     /// <summary>Gets or sets the flyout associated with this button.</summary>
     [Bindable(true)]
     public object? Flyout
@@ -130,6 +172,30 @@ public class SplitButton : Wpf.Ui.Controls.Button
     {
         get => GetValue(DoubleCommandParameterProperty);
         set => SetValue(DoubleCommandParameterProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the background brush applied to the non-hovered segment while the other segment is hovered.
+    /// When unset, falls back to <see cref="System.Windows.Controls.Control.Background"/> so appearance variants keep their base color.
+    /// </summary>
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? MouseOverSecondaryBackground
+    {
+        get => (Brush?)GetValue(MouseOverSecondaryBackgroundProperty);
+        set => SetValue(MouseOverSecondaryBackgroundProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the background brush applied to the non-pressed segment while the other segment is pressed.
+    /// When unset, falls back to <see cref="System.Windows.Controls.Control.Background"/>.
+    /// </summary>
+    [Bindable(true)]
+    [Category("Appearance")]
+    public Brush? PressedSecondaryBackground
+    {
+        get => (Brush?)GetValue(PressedSecondaryBackgroundProperty);
+        set => SetValue(PressedSecondaryBackgroundProperty, value);
     }
 
     private static void OnFlyoutChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

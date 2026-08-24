@@ -142,14 +142,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
-                                <Condition Property="IsPressed" Value="False" />
-                            </MultiTrigger.Conditions>
-                            <Setter TargetName="PART_Toggle" Property="Background" Value="{Binding MouseOverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{Binding MouseOverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </MultiTrigger>
+                        <!--  Primary pointer over: primary = PointerOver, secondary = default Background (WinUI PrimaryPointerOver).  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Content" Property="IsMouseOver" Value="True" />
@@ -157,7 +150,20 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{Binding MouseOverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="PART_Content" Property="BorderBrush" Value="{Binding MouseOverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{Binding MouseOverSecondaryBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
+                        <!--  Secondary pointer over: secondary = PointerOver, primary = default Background (WinUI SecondaryPointerOver).  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
+                                <Condition SourceName="PART_ToggleButton" Property="IsPressed" Value="False" />
+                                <Condition Property="IsPressed" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{Binding MouseOverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{Binding MouseOverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{Binding MouseOverSecondaryBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </MultiTrigger>
+                        <!--  Secondary pressed (WinUI SecondaryPressed).  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="True" />
@@ -165,7 +171,9 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Toggle" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="PART_Toggle" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Content" Property="Background" Value="{Binding PressedSecondaryBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
+                        <!--  Primary pressed (WinUI PrimaryPressed).  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition SourceName="PART_Toggle" Property="IsMouseOver" Value="False" />
@@ -173,6 +181,7 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="PART_Content" Property="Background" Value="{Binding PressedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="PART_Content" Property="BorderBrush" Value="{Binding PressedBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Toggle" Property="Background" Value="{Binding PressedSecondaryBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
