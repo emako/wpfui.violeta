@@ -39,7 +39,6 @@
                             <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentPresenter" Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
                             <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -51,6 +50,10 @@
     <Style
         x:Key="ToolBarButtonStyle"
         BasedOn="{StaticResource SimpleButtonStyle}"
-        TargetType="{x:Type Button}" />
+        TargetType="{x:Type Button}">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False" />
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

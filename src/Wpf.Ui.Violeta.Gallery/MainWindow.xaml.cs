@@ -91,6 +91,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/copy-button"] = static () => new CopyButtonPage(),
         ["basic-input/go-back-button"] = static () => new GoBackButtonPage(),
         ["basic-input/animated-symbol-button"] = static () => new AnimatedSymbolButtonPage(),
+        ["basic-input/icon-toggle-button"] = static () => new IconToggleButtonPage(),
         ["basic-input/toggle-switch"] = static () => new ToggleSwitchPage(),
         ["basic-input/numeric-up-down"] = static () => new NumericUpDownPage(),
         ["basic-input/number-combo-box"] = static () => new NumberComboBoxPage(),

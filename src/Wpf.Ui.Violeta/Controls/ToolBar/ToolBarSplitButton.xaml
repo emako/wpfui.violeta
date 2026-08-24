@@ -1,37 +1,43 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
-
-    <!--  BasedOn StaticResource only resolves within this dictionary (and its merges), not sibling MergedDictionaries.  -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SplitButton/SplitButton.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
-    <!--
-        Toolbar SplitButton: transparent chrome by default; SubtleFill hover / press
-        (same visual language as ToolBarButtonStyle). Keeps DefaultSplitButtonStyle
-        template + chevron animation; only retargets fill / border brushes.
-    -->
-    <Style
-        x:Key="SimpleSplitButtonStyle"
-        BasedOn="{StaticResource DefaultSplitButtonStyle}"
-        TargetType="{x:Type local:SplitButton}">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
-        <Setter Property="BorderThickness" Value="0" />
-        <!--  Transparent toolbar chrome uses SubtleFill (not ControlFill/ButtonBackground*) so hover is visible on light surfaces.  -->
-        <Setter Property="MouseOverBackground" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-        <Setter Property="MouseOverBorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
-        <Setter Property="PressedBackground" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-        <Setter Property="PressedBorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
-        <Setter Property="PressedForeground" Value="{DynamicResource ButtonForegroundPressed}" />
-    </Style>
-
-    <Style
-        x:Key="ToolBarSplitButtonStyle"
-        BasedOn="{StaticResource SimpleSplitButtonStyle}"
-        TargetType="{x:Type local:SplitButton}" />
-
-</ResourceDictionary>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <!--  BasedOn StaticResource only resolves within this dictionary (and its merges), not sibling MergedDictionaries.  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/SplitButton/SplitButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--
+        Toolbar SplitButton: transparent chrome by default; SubtleFill hover / press
+        (same visual language as ToolBarButtonStyle). Keeps DefaultSplitButtonStyle
+        template + chevron animation; only retargets fill / border brushes.
+    -->
+    <Style
+        x:Key="SimpleSplitButtonStyle"
+        BasedOn="{StaticResource DefaultSplitButtonStyle}"
+        TargetType="{x:Type local:SplitButton}">
+        <Setter Property="Tag" Value="ToolBar" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <!--  Transparent toolbar chrome uses SubtleFill (not ControlFill/ButtonBackground*) so hover is visible on light surfaces.  -->
+        <Setter Property="MouseOverBackground" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+        <Setter Property="MouseOverBorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
+        <Setter Property="PressedBackground" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+        <Setter Property="PressedBorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
+        <Setter Property="PressedForeground" Value="{DynamicResource ButtonForegroundPressed}" />
+    </Style>
+
+    <Style
+        x:Key="ToolBarSplitButtonStyle"
+        BasedOn="{StaticResource SimpleSplitButtonStyle}"
+        TargetType="{x:Type local:SplitButton}">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False" />
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
+

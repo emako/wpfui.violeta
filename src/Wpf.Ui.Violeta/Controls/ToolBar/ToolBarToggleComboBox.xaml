@@ -313,6 +313,21 @@
     <Style
         x:Key="ToolBarToggleComboBoxStyle"
         BasedOn="{StaticResource SimpleToggleComboBoxStyle}"
-        TargetType="{x:Type local:ToggleComboBox}" />
+        TargetType="{x:Type local:ToggleComboBox}">
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="False" />
+                    <Condition Property="IsChecked" Value="False" />
+                </MultiTrigger.Conditions>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="False" />
+                    <Condition Property="IsChecked" Value="True" />
+                </MultiTrigger.Conditions>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

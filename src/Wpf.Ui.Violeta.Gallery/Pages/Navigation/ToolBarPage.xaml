@@ -31,6 +31,210 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="ToolBar* 样式" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="不依赖 vio:ToolBar，平铺展示各 ToolBar*Style 的默认与禁用外观（无需调宽度触发溢出）。"
+                        TextWrapping="Wrap" />
+                    <TextBlock Margin="0,0,0,8" Text="Enabled" />
+                    <Border
+                        Margin="0,0,0,12"
+                        Padding="4,6"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <WrapPanel Orientation="Horizontal">
+                            <Button
+                                Margin="2"
+                                Content="Button"
+                                Style="{StaticResource ToolBarButtonStyle}" />
+                            <ToggleButton
+                                Margin="2"
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="Toggle">
+                                <ui:SymbolIcon Symbol="TextBold24" />
+                            </ToggleButton>
+                            <ToggleButton
+                                Margin="2"
+                                Padding="8,4"
+                                IsChecked="True"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="Checked">
+                                <ui:SymbolIcon Symbol="TextItalic24" />
+                            </ToggleButton>
+                            <Separator
+                                Width="1"
+                                Height="24"
+                                Margin="6,0"
+                                VerticalAlignment="Center" />
+                            <vio:DropDownButton
+                                Margin="2"
+                                Padding="10,4"
+                                Content="DropDown"
+                                Icon="{ui:SymbolIcon ChevronDown24}"
+                                Style="{StaticResource ToolBarDropDownButtonStyle}">
+                                <vio:DropDownButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="Option A" />
+                                        <MenuItem Header="Option B" />
+                                    </ContextMenu>
+                                </vio:DropDownButton.Flyout>
+                            </vio:DropDownButton>
+                            <vio:SplitButton
+                                Margin="2"
+                                Padding="10,4"
+                                Content="Split"
+                                Style="{StaticResource ToolBarSplitButtonStyle}">
+                                <vio:SplitButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="Action 1" />
+                                        <MenuItem Header="Action 2" />
+                                    </ContextMenu>
+                                </vio:SplitButton.Flyout>
+                            </vio:SplitButton>
+                            <vio:ToggleComboBox
+                                Margin="2"
+                                Padding="10,4"
+                                Content="ToggleCombo"
+                                Icon="{ui:SymbolIcon TextBold24}"
+                                IsChecked="True"
+                                Style="{StaticResource ToolBarToggleComboBoxStyle}">
+                                <vio:ToggleComboBox.ItemsSource>
+                                    <x:Array Type="{x:Type sys:String}">
+                                        <sys:String>Bold</sys:String>
+                                        <sys:String>Italic</sys:String>
+                                    </x:Array>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
+                            <Separator
+                                Width="1"
+                                Height="24"
+                                Margin="6,0"
+                                VerticalAlignment="Center" />
+                            <vio:CopyButton
+                                Margin="2"
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarCopyButtonStyle}"
+                                TextToCopy="ToolBarCopyButton"
+                                ToolTip="Copy" />
+                            <vio:GoBackButton
+                                Margin="2"
+                                Padding="8,4"
+                                Style="{StaticResource ToolBarGoBackButtonStyle}" />
+                        </WrapPanel>
+                    </Border>
+                    <TextBlock Margin="0,0,0,8" Text="Disabled" />
+                    <Border
+                        Padding="4,6"
+                        Background="{DynamicResource ControlFillColorDefaultBrush}"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        CornerRadius="6">
+                        <WrapPanel Orientation="Horizontal">
+                            <Button
+                                Margin="2"
+                                Content="Button"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarButtonStyle}" />
+                            <ToggleButton
+                                Margin="2"
+                                Padding="8,4"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="Toggle">
+                                <ui:SymbolIcon Symbol="TextBold24" />
+                            </ToggleButton>
+                            <ToggleButton
+                                Margin="2"
+                                Padding="8,4"
+                                IsChecked="True"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarToggleButtonStyle}"
+                                ToolTip="Checked + disabled">
+                                <ui:SymbolIcon Symbol="TextItalic24" />
+                            </ToggleButton>
+                            <Separator
+                                Width="1"
+                                Height="24"
+                                Margin="6,0"
+                                VerticalAlignment="Center" />
+                            <vio:DropDownButton
+                                Margin="2"
+                                Padding="10,4"
+                                Content="DropDown"
+                                Icon="{ui:SymbolIcon LockClosed24}"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarDropDownButtonStyle}">
+                                <vio:DropDownButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="Option" />
+                                    </ContextMenu>
+                                </vio:DropDownButton.Flyout>
+                            </vio:DropDownButton>
+                            <vio:SplitButton
+                                Margin="2"
+                                Padding="10,4"
+                                Content="Split"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarSplitButtonStyle}">
+                                <vio:SplitButton.Flyout>
+                                    <ContextMenu>
+                                        <MenuItem Header="Action" />
+                                    </ContextMenu>
+                                </vio:SplitButton.Flyout>
+                            </vio:SplitButton>
+                            <vio:ToggleComboBox
+                                Margin="2"
+                                Padding="10,4"
+                                Content="ToggleCombo"
+                                Icon="{ui:SymbolIcon LockClosed24}"
+                                IsChecked="True"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarToggleComboBoxStyle}">
+                                <vio:ToggleComboBox.ItemsSource>
+                                    <x:Array Type="{x:Type sys:String}">
+                                        <sys:String>Bold</sys:String>
+                                        <sys:String>Italic</sys:String>
+                                    </x:Array>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
+                            <Separator
+                                Width="1"
+                                Height="24"
+                                Margin="6,0"
+                                VerticalAlignment="Center" />
+                            <vio:CopyButton
+                                Margin="2"
+                                Padding="8,4"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarCopyButtonStyle}"
+                                TextToCopy="ToolBarCopyButton"
+                                ToolTip="Copy" />
+                            <vio:GoBackButton
+                                Margin="2"
+                                Padding="8,4"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarGoBackButtonStyle}" />
+                        </WrapPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_b847ef8c6a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
