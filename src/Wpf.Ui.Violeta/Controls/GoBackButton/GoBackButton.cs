@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using Wpf.Ui.Controls;
+using static Wpf.Ui.Violeta.Controls.Compat.ResourceAccessor;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -25,6 +26,8 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </example>
 public class GoBackButton : Wpf.Ui.Controls.Button
 {
+    private static readonly Compat.ResourceAccessor LocalizedStrings = new(typeof(GoBackButton));
+
     private bool _iconAppearanceHooked;
 
     /// <summary>Identifies the <see cref="BackGlyph"/> dependency property.</summary>
@@ -58,6 +61,13 @@ public class GoBackButton : Wpf.Ui.Controls.Button
 
     public GoBackButton()
     {
+        if (ReadLocalValue(ToolTipProperty) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(
+                ToolTipProperty,
+                LocalizedStrings.GetLocalizedStringResource(SR_NavigationBackButtonToolTip));
+        }
+
         Loaded += OnLoaded;
     }
 

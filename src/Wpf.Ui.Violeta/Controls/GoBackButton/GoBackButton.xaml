@@ -17,7 +17,6 @@
         <Setter Property="Padding" Value="6" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="ToolTip" Value="Back" />
         <Setter Property="ui:ControlHelper.IconFontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
         <!--  Match CopyButton icon metrics so ToolBarGoBack / ToolBarCopy heights align.  -->
         <Setter Property="ui:ControlHelper.IconWidth" Value="18" />
