@@ -47,7 +47,16 @@ public class Border : System.Windows.Controls.Border
             return null;
         }
 
-        return CalculateLayoutClip(layoutSlotSize, BorderThickness, CornerRadius);
+        // Use RenderSize instead of layoutSlotSize: the parent slot can be narrower than
+        // the arranged element (e.g. fixed Width inside WrapPanel), which would clip away
+        // the right/bottom rounded corners while leaving the opposite side rounded.
+        var renderSize = RenderSize;
+        if (renderSize.Width <= 0 || renderSize.Height <= 0)
+        {
+            return null;
+        }
+
+        return CalculateLayoutClip(renderSize, BorderThickness, CornerRadius);
     }
 
     private static StreamGeometry? CalculateContentClip(System.Windows.Controls.Border border)
