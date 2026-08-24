@@ -50,6 +50,17 @@
                                 Margin="2"
                                 Content="Button"
                                 Style="{StaticResource ToolBarButtonStyle}" />
+                            <ui:Button
+                                Margin="2"
+                                Padding="8,4"
+                                Content="UiButton"
+                                Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button
+                                Margin="2"
+                                Padding="8,4"
+                                Content="Save"
+                                Icon="{ui:SymbolIcon Save24}"
+                                Style="{StaticResource ToolBarUiButtonStyle}" />
                             <ToggleButton
                                 Margin="2"
                                 Padding="8,4"
@@ -139,6 +150,19 @@
                                 Content="Button"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarButtonStyle}" />
+                            <ui:Button
+                                Margin="2"
+                                Padding="8,4"
+                                Content="UiButton"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button
+                                Margin="2"
+                                Padding="8,4"
+                                Content="Save"
+                                Icon="{ui:SymbolIcon LockClosed24}"
+                                IsEnabled="False"
+                                Style="{StaticResource ToolBarUiButtonStyle}" />
                             <ToggleButton
                                 Margin="2"
                                 Padding="8,4"
