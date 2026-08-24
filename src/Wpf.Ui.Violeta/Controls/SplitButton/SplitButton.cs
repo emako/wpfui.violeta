@@ -192,9 +192,16 @@ public class SplitButton : Wpf.Ui.Controls.Button
             ?? SplitButtonToggleButton.Content as FrameworkElement;
         _chevronTranslate = null;
 
-        var chevron =
-            GetTemplateChild(ChevronIconPart) as UIElement
-            ?? (_chevronHost as Decorator)?.Child;
+        UIElement? chevron = GetTemplateChild(ChevronIconPart) as UIElement;
+
+        if (chevron is null && _chevronHost is Border { Child: UIElement borderChild })
+        {
+            chevron = borderChild;
+        }
+        else if (chevron is null && _chevronHost is Decorator { Child: UIElement decoratorChild })
+        {
+            chevron = decoratorChild;
+        }
 
         if (chevron is not null)
         {
