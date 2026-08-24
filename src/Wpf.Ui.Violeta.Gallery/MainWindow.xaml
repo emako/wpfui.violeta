@@ -157,6 +157,7 @@
                         <vio:NavigationViewItem Content="CopyButton" Tag="basic-input/copy-button" />
                         <vio:NavigationViewItem Content="GoBackButton" Tag="basic-input/go-back-button" />
                         <vio:NavigationViewItem Content="AnimatedSymbolButton" Tag="basic-input/animated-symbol-button" />
+                        <vio:NavigationViewItem Content="IconToggleButton" Tag="basic-input/icon-toggle-button" />
                         <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>

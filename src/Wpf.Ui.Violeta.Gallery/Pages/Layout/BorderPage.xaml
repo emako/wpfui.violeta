@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="Border"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -37,26 +37,93 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_08a6bfd44e}}" />
                     <WrapPanel>
-                        <ui:Border
-                            Width="90"
-                            Height="90"
-                            Margin="0,0,16,16"
-                            ClipToBounds="True"
-                            CornerRadius="8">
-                            <Rectangle Fill="Red" />
-                        </ui:Border>
-                        <ui:Border
-                            Width="120"
-                            Height="90"
-                            Margin="0,0,16,16"
-                            Background="{DynamicResource ControlFillColorDefaultBrush}"
-                            ClipToBounds="True"
-                            CornerRadius="12,4,12,4">
-                            <Rectangle
-                                Width="140"
-                                Height="60"
-                                Fill="{DynamicResource AccentFillColorDefaultBrush}" />
-                        </ui:Border>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="120"
+                                Height="90"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                ClipToBounds="False"
+                                CornerRadius="12">
+                                <Rectangle
+                                    Width="140"
+                                    Height="60"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="ClipToBounds=False" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="120"
+                                Height="90"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                ClipToBounds="True"
+                                CornerRadius="12">
+                                <Rectangle
+                                    Width="140"
+                                    Height="60"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="ClipToBounds=True" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="90"
+                                Height="90"
+                                ClipToBounds="True"
+                                CornerRadius="8">
+                                <Rectangle Fill="Red" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="ClipToBounds=True" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="120"
+                                Height="90"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                ClipToBounds="True"
+                                CornerRadius="12,4,12,4">
+                                <Rectangle
+                                    Width="140"
+                                    Height="60"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="ClipToBounds=True" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="120"
+                                Height="120"
+                                ClipToBounds="True"
+                                CornerRadius="12">
+                                <vio:ImageView Source="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/wpfui.png" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="Image + ClipToBounds=True" />
+                        </StackPanel>
                     </WrapPanel>
                 </StackPanel>
             </Border>
