@@ -1114,6 +1114,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Grid.
+        /// </summary>
+        internal static string Gallery_Page_Grid {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Grid", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to GridSplitter.
         /// </summary>
         internal static string Gallery_Page_GridSplitter {
@@ -8690,6 +8698,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Shorthand definitions.
+        /// </summary>
+        internal static string Sample_7a1b2c3d4e {
+            get {
+                return ResourceManager.GetString("Sample_7a1b2c3d4e", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Password can be saved.
         /// </summary>
         internal static string Sample_7a1c9b5e2b {
@@ -9631,6 +9647,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_8b1a9953c4 {
             get {
                 return ResourceManager.GetString("Sample_8b1a9953c4", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Use comma-separated notation for ColumnDefinitions and RowDefinitions..
+        /// </summary>
+        internal static string Sample_8b2c3d4e5f {
+            get {
+                return ResourceManager.GetString("Sample_8b2c3d4e5f", resourceCulture);
             }
         }
         /// <summary>
@@ -10618,6 +10642,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Spacing.
+        /// </summary>
+        internal static string Sample_9c3d4e5f6a {
+            get {
+                return ResourceManager.GetString("Sample_9c3d4e5f6a", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Section 2 parent chapter with child sections below..
         /// </summary>
         internal static string Sample_9c64922ef8 {
@@ -11319,6 +11351,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_a47d284a58 {
             get {
                 return ResourceManager.GetString("Sample_a47d284a58", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to HorizontalSpacing and VerticalSpacing insert fixed gaps between cells..
+        /// </summary>
+        internal static string Sample_a4d5e6f7b8 {
+            get {
+                return ResourceManager.GetString("Sample_a4d5e6f7b8", resourceCulture);
             }
         }
         /// <summary>
@@ -13338,6 +13378,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Form-style layout (IsSharedSizeScope).
+        /// </summary>
+        internal static string Sample_c5e6f7d8a9 {
+            get {
+                return ResourceManager.GetString("Sample_c5e6f7d8a9", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Privacy.
         /// </summary>
         internal static string Sample_c5f29bb36f {
@@ -14311,6 +14359,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_d688c1ee0b {
             get {
                 return ResourceManager.GetString("Sample_d688c1ee0b", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap sibling ui:Grid rows in Grid.IsSharedSizeScope and assign SharedSizeGroup on label columns to align labels across rows — similar to vio:Form..
+        /// </summary>
+        internal static string Sample_d6f7a8b9c0 {
+            get {
+                return ResourceManager.GetString("Sample_d6f7a8b9c0", resourceCulture);
             }
         }
         /// <summary>

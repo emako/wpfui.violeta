@@ -279,6 +279,9 @@
   <data name="Sample_0144f29a17" xml:space="preserve">
     <value>AutoSuggestBox — 可选的导航搜索框</value>
   </data>
+  <data name="Sample_b5e6f7c8d9" xml:space="preserve">
+    <value>支持简写与间距的扩展网格</value>
+  </data>
   <data name="Sample_b462ab0695" xml:space="preserve">
     <value>Auto（悬停显示按钮）</value>
   </data>
@@ -332,6 +335,9 @@
   </data>
   <data name="Sample_1e4f285714" xml:space="preserve">
     <value>ContentWindow 继承自 ShellWindow，默认嵌入 TitleBar，通过 ContentWindowControl 承载自定义内容，并返回 ContentWindowResult（OK / Cancel 等）。需要独立窗口而非 ContentDialog 时使用。</value>
+  </data>
+  <data name="Sample_9c3d4e5f6a" xml:space="preserve">
+    <value>间距</value>
   </data>
   <data name="Sample_976db78a60" xml:space="preserve">
     <value>DataGrid — 数据表格</value>
@@ -804,6 +810,9 @@
   <data name="Sample_a1c76c6e1b" xml:space="preserve">
     <value>主题颜色</value>
   </data>
+  <data name="Sample_a4d5e6f7b8" xml:space="preserve">
+    <value>HorizontalSpacing 和 VerticalSpacing 在单元格之间插入固定间距。</value>
+  </data>
   <data name="Sample_a421a1bf6e" xml:space="preserve">
     <value>主题颜色资源</value>
   </data>
@@ -974,6 +983,9 @@
   </data>
   <data name="Sample_483b1a6a0b" xml:space="preserve">
     <value>凭据管理</value>
+  </data>
+  <data name="Sample_8b2c3d4e5f" xml:space="preserve">
+    <value>使用逗号分隔的 ColumnDefinitions 和 RowDefinitions 简写语法。</value>
   </data>
   <data name="Sample_8c47ecd40d" xml:space="preserve">
     <value>分割线</value>
@@ -1709,6 +1721,9 @@
   </data>
   <data name="Sample_375192376c" xml:space="preserve">
     <value>按子元素顺序自动填充行列。</value>
+  </data>
+  <data name="Sample_7a1b2c3d4e" xml:space="preserve">
+    <value>简写定义</value>
   </data>
   <data name="Sample_776feee78e" xml:space="preserve">
     <value>按宽高比切换布局项</value>
@@ -3796,6 +3811,9 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_Page_Form" xml:space="preserve">
     <value>Form</value>
+  </data>
+  <data name="Gallery_Page_Grid" xml:space="preserve">
+    <value>Grid</value>
   </data>
   <data name="Gallery_Page_GridSplitter" xml:space="preserve">
     <value>GridSplitter</value>
@@ -6295,5 +6313,11 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_c9d0e1f2a4" xml:space="preserve">
     <value>卡片内容区域</value>
+  </data>
+  <data name="Sample_c5e6f7d8a9" xml:space="preserve">
+    <value>表单式布局（IsSharedSizeScope）</value>
+  </data>
+  <data name="Sample_d6f7a8b9c0" xml:space="preserve">
+    <value>将多个 ui:Grid 行包裹在 Grid.IsSharedSizeScope 中，并在标签列使用 SharedSizeGroup 对齐各行标签——类似 vio:Form。</value>
   </data>
 </root>
