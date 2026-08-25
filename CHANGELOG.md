@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.11] - 2026-08-25
+
+* Revert Grid definition DP init for XAML shorthand syntax (fixes PendingBox dialog layout)
+* Fix Grid gallery form sample to use standard Grid.ColumnDefinitions syntax
+* Align gallery publish output directory
+
 ## [4.3.0.10] - 2026-08-25
 
 * Add animated NumberDisplayer control
@@ -20,7 +26,6 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Hotfix TabControl TabStripPlacement layouts
 * Hotfix PasswordBox width template binding
 * Fix disabled DataGrid header gripper artifacts
-* Fix Grid definition DP init for XAML shorthand syntax
 * Keep notification host alive until app exit
 * Fix SplitButton hover/press fills
 * Fix button and ToggleButton foreground for rich content states
