@@ -12298,6 +12298,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Extended grid with shorthand and spacing.
+        /// </summary>
+        internal static string Sample_b5e6f7c8d9 {
+            get {
+                return ResourceManager.GetString("Sample_b5e6f7c8d9", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Acrylic 11.
         /// </summary>
         internal static string Sample_b5ea8ebb08 {
