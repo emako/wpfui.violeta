@@ -3,8 +3,11 @@
     Overrides DefaultDataGridRowStyle; also redefines DefaultDataGridStyle / DefaultUiDataGridStyle
     because RowStyle is StaticResource in WPF-UI.
 
-    ColumnHeaderGripperStyle: keep resize thumbs invisible when the grid/header is disabled.
-    Without this, WPF-UI paints disabled grippers as visible vertical bars ("||") in column headers.
+    Disabled column-header grippers ("||"): WPF-UI 4.3 paints TextFillColorDisabledBrush in the
+    Thumb Disabled VisualState. Overriding ColumnHeaderGripperStyle alone does nothing — the
+    stock DefaultDataGridColumnHeaderStyle already StaticResource-baked the original gripper
+    style. Mirror the upstream fix: re-declare gripper + column header so IsEnabled=False
+    collapses PART_*HeaderGripper (and Disabled fill stays transparent).
 -->
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,7 +16,7 @@
     xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
-    <!--  Mirrors WPF-UI ColumnHeaderGripperStyle with Disabled state kept transparent.  -->
+    <!--  Same as WPF-UI ColumnHeaderGripperStyle, but Disabled stays transparent (not TextFillColorDisabledBrush).  -->
     <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="4,0" />
@@ -91,6 +94,128 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!--
+        Re-declare column header so StaticResource ColumnHeaderGripperStyle binds to THIS dictionary,
+        and IsEnabled=False collapses resize thumbs (upstream WPF-UI fix vs 4.3.0 NuGet).
+    -->
+    <Style x:Key="DefaultDataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="Margin" Value="0,0,0,4" />
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid>
+                        <Border
+                            x:Name="HeaderBorder"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{DynamicResource ControlCornerRadius}">
+                            <Grid
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                IsSharedSizeScope="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="FirstColumn" Width="*" />
+                                    <ColumnDefinition x:Name="SecondColumn" Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter
+                                    x:Name="ContentPresenter"
+                                    Grid.Column="0"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <controls:SymbolIcon
+                                    x:Name="SortIcon"
+                                    Grid.Column="1"
+                                    Margin="4,0,0,0"
+                                    RenderTransformOrigin="0.5, 0.5"
+                                    Symbol="ArrowSortUp24">
+                                    <controls:SymbolIcon.RenderTransform>
+                                        <RotateTransform Angle="0" />
+                                    </controls:SymbolIcon.RenderTransform>
+                                </controls:SymbolIcon>
+                            </Grid>
+                        </Border>
+
+                        <Thumb
+                            x:Name="PART_LeftHeaderGripper"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource ColumnHeaderGripperStyle}" />
+                        <Thumb
+                            x:Name="PART_RightHeaderGripper"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource ColumnHeaderGripperStyle}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HeaderBorder" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter TargetName="PART_LeftHeaderGripper" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_RightHeaderGripper" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="{x:Null}">
+                            <Setter TargetName="SortIcon" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="SortDirection" Value="Descending">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SortIcon"
+                                            Storyboard.TargetProperty="(controls:SymbolIcon.RenderTransform).(RotateTransform.Angle)"
+                                            From="0"
+                                            To="180"
+                                            Duration="00:00:00.333" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SortIcon"
+                                            Storyboard.TargetProperty="(controls:SymbolIcon.RenderTransform).(RotateTransform.Angle)"
+                                            From="180"
+                                            To="0"
+                                            Duration="00:00:00.333" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Right">
+                            <Setter TargetName="FirstColumn" Property="Width" Value="Auto" />
+                            <Setter TargetName="SecondColumn" Property="Width" Value="*" />
+                            <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="SortIcon" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="SortIcon" Property="Margin" Value="0,0,4,0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="DefaultUiDataGridColumnHeaderStyle"
+        BasedOn="{StaticResource DefaultDataGridColumnHeaderStyle}"
+        TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Padding" Value="13,0,12,0" />
     </Style>
 
     <Style x:Key="DefaultDataGridRowStyle" TargetType="{x:Type DataGridRow}">
@@ -252,7 +377,7 @@
     </Style>
 
     <!--
-        RowStyle on WPF-UI DefaultDataGridStyle is StaticResource — re-bind to our row style.
+        RowStyle / ColumnHeaderStyle on WPF-UI DefaultDataGridStyle are StaticResource — re-bind.
         BasedOn resolves to the previously merged WPF-UI DefaultDataGridStyle (same key not yet in this dict).
     -->
     <Style
@@ -260,6 +385,7 @@
         BasedOn="{StaticResource DefaultDataGridStyle}"
         TargetType="{x:Type DataGrid}">
         <Setter Property="RowStyle" Value="{StaticResource DefaultDataGridRowStyle}" />
+        <Setter Property="ColumnHeaderStyle" Value="{StaticResource DefaultDataGridColumnHeaderStyle}" />
     </Style>
 
     <Style
