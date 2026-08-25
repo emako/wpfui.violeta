@@ -17,12 +17,31 @@ Pop-Location
 
 $zipPath = Join-Path $PSScriptRoot "Wpf.Ui.Violeta.Gallery.zip"
 $galleryPath = Join-Path $PSScriptRoot "gallery"
+
+if (-not (Test-Path $galleryPath)) {
+    Write-Error "Gallery output directory not found: $galleryPath"
+    exit 1
+}
+
+Get-Process -Name "Wpf.Ui.Violeta.Gallery" -ErrorAction SilentlyContinue | Stop-Process -Force
+
 Write-Host "Packing gallery to $zipPath"
 if (Test-Path $zipPath) {
     Remove-Item $zipPath -Force
 }
-Compress-Archive -Path $galleryPath -DestinationPath $zipPath
+
+Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+[System.IO.Compression.ZipFile]::CreateFromDirectory(
+    $galleryPath,
+    $zipPath,
+    [System.IO.Compression.CompressionLevel]::Optimal,
+    $true)
 Write-Host "Created $zipPath"
 
 Write-Host "`nPress any key to exit..."
-[void][System.Console]::ReadKey($true)
+try {
+    [void][Console]::ReadKey($true)
+} catch {
+    # Ignore when console input is unavailable (e.g. CI or automated runs).
+}
