@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.10] - 2026-08-25
+
+* Add animated NumberDisplayer control
+* Add IconToggleButton control with IsCheckedChanged event
+* Add IsFocusOnLoaded attached property to ControlHelper
+* Add toolbar style for ui:Button
+* Add card styles for Wpf.Ui Border control
+* Enable bindable window and grid item titles
+* VirtualJoystick: Make dead zone adjustable ([#43](https://github.com/emako/wpfui.violeta/issues/43))
+* Switch ColorPicker to Fluent color palette
+* Hotfix TabControl TabStripPlacement layouts
+* Hotfix PasswordBox width template binding
+* Fix disabled DataGrid header gripper artifacts
+* Fix Grid definition DP init for XAML shorthand syntax
+* Keep notification host alive until app exit
+* Fix SplitButton hover/press fills
+* Fix button and ToggleButton foreground for rich content states
+* Fix Border corner clipping in narrow layout slots
+* Fix disabled DropDownButton styling and chevron spacing
+* Refactor ToggleComboBox state styling
+* Refine toolbar control disabled styling
+* Localize GoBackButton default tooltip
+* Add Grid layout, Banner color, and ToggleButton gallery samples
+* Document drawer background brush usage
+
 ## [4.3.0.9] - 2026-08-21
 
 * Add StatusBar gallery sample
