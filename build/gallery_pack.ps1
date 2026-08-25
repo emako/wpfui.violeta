@@ -16,7 +16,7 @@ dotnet publish Wpf.Ui.Violeta.Gallery.csproj -c Release -r win-x64 -p:PublishSin
 Pop-Location
 
 $zipPath = Join-Path $PSScriptRoot "Wpf.Ui.Violeta.Gallery.zip"
-$galleryPath = Join-Path $PSScriptRoot "gallery"
+$galleryPath = Join-Path $PSScriptRoot "Wpf.Ui.Violeta.Gallery"
 
 if (-not (Test-Path $galleryPath)) {
     Write-Error "Gallery output directory not found: $galleryPath"
@@ -25,7 +25,7 @@ if (-not (Test-Path $galleryPath)) {
 
 Get-Process -Name "Wpf.Ui.Violeta.Gallery" -ErrorAction SilentlyContinue | Stop-Process -Force
 
-Write-Host "Packing gallery to $zipPath"
+Write-Host "Packing Gallery to $zipPath"
 if (Test-Path $zipPath) {
     Remove-Item $zipPath -Force
 }
