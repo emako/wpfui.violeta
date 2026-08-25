@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -2036,6 +2036,18 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_9bc1cf07bb" xml:space="preserve">
     <value>Standard TabControl</value>
+  </data>
+  <data name="Sample_8e1eaa0d45" xml:space="preserve">
+    <value>Vertical TabControl</value>
+  </data>
+  <data name="Sample_c95804b6a7" xml:space="preserve">
+    <value>Place the tab strip on the left with TabStripPlacement="Left".</value>
+  </data>
+  <data name="Sample_d12796b557" xml:space="preserve">
+    <value>Appearance settings content.</value>
+  </data>
+  <data name="Sample_e25a537ce9" xml:space="preserve">
+    <value>About this app.</value>
   </data>
   <data name="Sample_30eed26e03" xml:space="preserve">
     <value>Standard WPF Button control.</value>
@@ -6319,5 +6331,29 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_d6f7a8b9c0" xml:space="preserve">
     <value>Wrap sibling ui:Grid rows in Grid.IsSharedSizeScope and assign SharedSizeGroup on label columns to align labels across rows — similar to vio:Form.</value>
+  </data>
+  <data name="Sample_f899dc5e5e" xml:space="preserve">
+    <value>TabStripPlacement = Top</value>
+  </data>
+  <data name="Sample_4a4d9a7050" xml:space="preserve">
+    <value>Tab strip at the top (default).</value>
+  </data>
+  <data name="Sample_f7710c4b52" xml:space="preserve">
+    <value>TabStripPlacement = Bottom</value>
+  </data>
+  <data name="Sample_ec42781195" xml:space="preserve">
+    <value>Tab strip at the bottom.</value>
+  </data>
+  <data name="Sample_4eba575ac6" xml:space="preserve">
+    <value>TabStripPlacement = Left</value>
+  </data>
+  <data name="Sample_c1142ce23d" xml:space="preserve">
+    <value>Tab strip vertically on the left.</value>
+  </data>
+  <data name="Sample_1fc2aee9b7" xml:space="preserve">
+    <value>TabStripPlacement = Right</value>
+  </data>
+  <data name="Sample_0e649cb62f" xml:space="preserve">
+    <value>Tab strip vertically on the right.</value>
   </data>
 </root>

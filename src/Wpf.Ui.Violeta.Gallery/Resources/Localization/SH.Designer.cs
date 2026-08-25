@@ -2914,6 +2914,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Tab strip vertically on the right..
+        /// </summary>
+        internal static string Sample_0e649cb62f {
+            get {
+                return ResourceManager.GetString("Sample_0e649cb62f", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to General settings content..
         /// </summary>
         internal static string Sample_0e9fcd6e70 {
@@ -3823,6 +3831,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_1fbb1e3943 {
             get {
                 return ResourceManager.GetString("Sample_1fbb1e3943", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to TabStripPlacement = Right.
+        /// </summary>
+        internal static string Sample_1fc2aee9b7 {
+            get {
+                return ResourceManager.GetString("Sample_1fc2aee9b7", resourceCulture);
             }
         }
         /// <summary>
@@ -6218,6 +6234,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Tab strip at the top (default)..
+        /// </summary>
+        internal static string Sample_4a4d9a7050 {
+            get {
+                return ResourceManager.GetString("Sample_4a4d9a7050", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Cancellable task.
         /// </summary>
         internal static string Sample_4a6adf2e3c {
@@ -6527,6 +6551,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_4ea7801f17 {
             get {
                 return ResourceManager.GetString("Sample_4ea7801f17", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to TabStripPlacement = Left.
+        /// </summary>
+        internal static string Sample_4eba575ac6 {
+            get {
+                return ResourceManager.GetString("Sample_4eba575ac6", resourceCulture);
             }
         }
         /// <summary>
@@ -9866,6 +9898,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Vertical TabControl.
+        /// </summary>
+        internal static string Sample_8e1eaa0d45 {
+            get {
+                return ResourceManager.GetString("Sample_8e1eaa0d45", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Tag input.
         /// </summary>
         internal static string Sample_8e3ac38ebb {
@@ -13050,6 +13090,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Tab strip vertically on the left..
+        /// </summary>
+        internal static string Sample_c1142ce23d {
+            get {
+                return ResourceManager.GetString("Sample_c1142ce23d", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Danger text colour..
         /// </summary>
         internal static string Sample_c1419da6c0 {
@@ -13586,6 +13634,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to Place the tab strip on the left with TabStripPlacement=&quot;Left&quot;.
+        /// </summary>
+        internal static string Sample_c95804b6a7 {
+            get {
+                return ResourceManager.GetString("Sample_c95804b6a7", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Mobile.
         /// </summary>
         internal static string Sample_c95e748d58 {
@@ -14007,6 +14063,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_d0dcd65d52 {
             get {
                 return ResourceManager.GetString("Sample_d0dcd65d52", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance settings content.
+        /// </summary>
+        internal static string Sample_d12796b557 {
+            get {
+                return ResourceManager.GetString("Sample_d12796b557", resourceCulture);
             }
         }
         /// <summary>
@@ -15066,6 +15130,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to About this app.
+        /// </summary>
+        internal static string Sample_e25a537ce9 {
+            get {
+                return ResourceManager.GetString("Sample_e25a537ce9", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to Rich text.
         /// </summary>
         internal static string Sample_e2591e971f {
@@ -15623,6 +15695,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_ec3f5ff99b {
             get {
                 return ResourceManager.GetString("Sample_ec3f5ff99b", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Tab strip at the bottom..
+        /// </summary>
+        internal static string Sample_ec42781195 {
+            get {
+                return ResourceManager.GetString("Sample_ec42781195", resourceCulture);
             }
         }
         /// <summary>
@@ -16234,6 +16314,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to TabStripPlacement = Bottom.
+        /// </summary>
+        internal static string Sample_f7710c4b52 {
+            get {
+                return ResourceManager.GetString("Sample_f7710c4b52", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to InfoBadge in NavigationView.
         /// </summary>
         internal static string Sample_f7bcc4e1df {
@@ -16287,6 +16375,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_f82b73359d {
             get {
                 return ResourceManager.GetString("Sample_f82b73359d", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to TabStripPlacement = Top.
+        /// </summary>
+        internal static string Sample_f899dc5e5e {
+            get {
+                return ResourceManager.GetString("Sample_f899dc5e5e", resourceCulture);
             }
         }
         /// <summary>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -2036,6 +2036,18 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_9bc1cf07bb" xml:space="preserve">
     <value>標準 TabControl</value>
+  </data>
+  <data name="Sample_8e1eaa0d45" xml:space="preserve">
+    <value>縦並び TabControl</value>
+  </data>
+  <data name="Sample_c95804b6a7" xml:space="preserve">
+    <value>TabStripPlacement="Left" でタブバーを左側に縦配置します。</value>
+  </data>
+  <data name="Sample_d12796b557" xml:space="preserve">
+    <value>外観設定の内容。</value>
+  </data>
+  <data name="Sample_e25a537ce9" xml:space="preserve">
+    <value>このアプリについて。</value>
   </data>
   <data name="Sample_30eed26e03" xml:space="preserve">
     <value>標準の WPF Button コントロール。</value>
@@ -6319,5 +6331,29 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_d6f7a8b9c0" xml:space="preserve">
     <value>複数の ui:Grid 行を Grid.IsSharedSizeScope で包み、ラベル列に SharedSizeGroup を指定して行ごとのラベルを揃えます — vio:Form と同様の手法です。</value>
+  </data>
+  <data name="Sample_f899dc5e5e" xml:space="preserve">
+    <value>TabStripPlacement = Top</value>
+  </data>
+  <data name="Sample_4a4d9a7050" xml:space="preserve">
+    <value>タブバーは上部（既定）。</value>
+  </data>
+  <data name="Sample_f7710c4b52" xml:space="preserve">
+    <value>TabStripPlacement = Bottom</value>
+  </data>
+  <data name="Sample_ec42781195" xml:space="preserve">
+    <value>タブバーは下部。</value>
+  </data>
+  <data name="Sample_4eba575ac6" xml:space="preserve">
+    <value>TabStripPlacement = Left</value>
+  </data>
+  <data name="Sample_c1142ce23d" xml:space="preserve">
+    <value>タブバーを左側に縦配置。</value>
+  </data>
+  <data name="Sample_1fc2aee9b7" xml:space="preserve">
+    <value>TabStripPlacement = Right</value>
+  </data>
+  <data name="Sample_0e649cb62f" xml:space="preserve">
+    <value>タブバーを右側に縦配置。</value>
   </data>
 </root>

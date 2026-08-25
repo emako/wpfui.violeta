@@ -62,6 +62,146 @@
                     </TabControl>
                 </StackPanel>
             </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f899dc5e5e}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4a4d9a7050}}"
+                        TextWrapping="Wrap" />
+                    <TabControl
+                        MinHeight="160"
+                        Margin="0,8,0,0"
+                        TabStripPlacement="Top">
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_0db377921f}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_0e9fcd6e70}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" IsSelected="True">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_d12796b557}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_e25a537ce9}}" />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f7710c4b52}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ec42781195}}"
+                        TextWrapping="Wrap" />
+                    <TabControl
+                        MinHeight="160"
+                        Margin="0,8,0,0"
+                        TabStripPlacement="Bottom">
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_0db377921f}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_0e9fcd6e70}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" IsSelected="True">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_d12796b557}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_e25a537ce9}}" />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4eba575ac6}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c1142ce23d}}"
+                        TextWrapping="Wrap" />
+                    <TabControl
+                        MinHeight="200"
+                        Margin="0,8,0,0"
+                        TabStripPlacement="Left">
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_0db377921f}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_0e9fcd6e70}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" IsSelected="True">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_d12796b557}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_e25a537ce9}}" />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1fc2aee9b7}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0e649cb62f}}"
+                        TextWrapping="Wrap" />
+                    <TabControl
+                        MinHeight="200"
+                        Margin="0,8,0,0"
+                        TabStripPlacement="Right">
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_0db377921f}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_0e9fcd6e70}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" IsSelected="True">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_d12796b557}}" />
+                        </TabItem>
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings_About}}">
+                            <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_e25a537ce9}}" />
+                        </TabItem>
+                    </TabControl>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

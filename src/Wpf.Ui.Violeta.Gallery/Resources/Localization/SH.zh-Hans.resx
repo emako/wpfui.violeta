@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -2036,6 +2036,18 @@
   </data>
   <data name="Sample_9bc1cf07bb" xml:space="preserve">
     <value>标准 TabControl</value>
+  </data>
+  <data name="Sample_8e1eaa0d45" xml:space="preserve">
+    <value>竖排 TabControl</value>
+  </data>
+  <data name="Sample_c95804b6a7" xml:space="preserve">
+    <value>使用 TabStripPlacement="Left" 将标签栏竖排在左侧。</value>
+  </data>
+  <data name="Sample_d12796b557" xml:space="preserve">
+    <value>外观设置内容。</value>
+  </data>
+  <data name="Sample_e25a537ce9" xml:space="preserve">
+    <value>关于本应用。</value>
   </data>
   <data name="Sample_30eed26e03" xml:space="preserve">
     <value>标准 WPF Button 控件。</value>
@@ -6319,5 +6331,29 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_d6f7a8b9c0" xml:space="preserve">
     <value>将多个 ui:Grid 行包裹在 Grid.IsSharedSizeScope 中，并在标签列使用 SharedSizeGroup 对齐各行标签——类似 vio:Form。</value>
+  </data>
+  <data name="Sample_f899dc5e5e" xml:space="preserve">
+    <value>TabStripPlacement = Top</value>
+  </data>
+  <data name="Sample_4a4d9a7050" xml:space="preserve">
+    <value>标签栏在顶部（默认）。</value>
+  </data>
+  <data name="Sample_f7710c4b52" xml:space="preserve">
+    <value>TabStripPlacement = Bottom</value>
+  </data>
+  <data name="Sample_ec42781195" xml:space="preserve">
+    <value>标签栏在底部。</value>
+  </data>
+  <data name="Sample_4eba575ac6" xml:space="preserve">
+    <value>TabStripPlacement = Left</value>
+  </data>
+  <data name="Sample_c1142ce23d" xml:space="preserve">
+    <value>标签栏在左侧竖排。</value>
+  </data>
+  <data name="Sample_1fc2aee9b7" xml:space="preserve">
+    <value>TabStripPlacement = Right</value>
+  </data>
+  <data name="Sample_0e649cb62f" xml:space="preserve">
+    <value>标签栏在右侧竖排。</value>
   </data>
 </root>
