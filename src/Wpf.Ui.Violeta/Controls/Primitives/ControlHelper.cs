@@ -36,6 +36,9 @@ namespace Wpf.Ui.Controls;
 /// <para />
 /// <see cref="IsDragMoveEnabledProperty"/> lets any element drag-move its host
 /// <see cref="Window"/> via left-button drag (calls <see cref="Window.DragMove"/>).
+/// <para />
+/// <see cref="IsFocusOnLoadedProperty"/> focuses a <see cref="FrameworkElement"/>
+/// when it is loaded (if <see cref="UIElement.Focusable"/>).
 /// </remarks>
 public static class ControlHelper
 {
@@ -1003,6 +1006,66 @@ public static class ControlHelper
         catch (InvalidOperationException)
         {
             // DragMove requires the left mouse button to remain pressed.
+        }
+    }
+
+    // -- IsFocusOnLoaded -----------------------------------------------------
+
+    /// <summary>
+    /// Identifies the IsFocusOnLoaded attached property.
+    /// </summary>
+    public static readonly DependencyProperty IsFocusOnLoadedProperty =
+        DependencyProperty.RegisterAttached(
+            "IsFocusOnLoaded",
+            typeof(bool),
+            typeof(ControlHelper),
+            new PropertyMetadata(false, OnIsFocusOnLoadedChanged));
+
+    /// <summary>
+    /// Gets a value indicating whether the element receives keyboard focus when it is loaded.
+    /// </summary>
+    public static bool GetIsFocusOnLoaded(DependencyObject element) =>
+        (bool)element.GetValue(IsFocusOnLoadedProperty);
+
+    /// <summary>
+    /// Sets a value indicating whether the element receives keyboard focus when it is loaded.
+    /// </summary>
+    public static void SetIsFocusOnLoaded(DependencyObject element, bool value) =>
+        element.SetValue(IsFocusOnLoadedProperty, value);
+
+    private static void OnIsFocusOnLoadedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not FrameworkElement element)
+        {
+            return;
+        }
+
+        element.Loaded -= OnFocusOnLoaded;
+
+        if ((bool)e.NewValue)
+        {
+            element.Loaded += OnFocusOnLoaded;
+
+            if (element.IsLoaded)
+            {
+                TryFocusOnLoaded(element);
+            }
+        }
+    }
+
+    private static void OnFocusOnLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement element)
+        {
+            TryFocusOnLoaded(element);
+        }
+    }
+
+    private static void TryFocusOnLoaded(UIElement element)
+    {
+        if (element.Focusable)
+        {
+            element.Focus();
         }
     }
 }
