@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="BoolStateTextBlock"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="BoolStateTextBlock" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -42,8 +42,8 @@
                             IsOn="True" />
                         <vio:BoolStateTextBlock
                             VerticalAlignment="Center"
-                            FalseText="Offline"
-                            TrueText="Online"
+                            FalseText="{I18N {x:Static lang:LangKeys.Sample_8d9da4bc0e}}"
+                            TrueText="{I18N {x:Static lang:LangKeys.Sample_54f664c70c}}"
                             Value="{Binding IsOn, ElementName=StateToggle}">
                             <vio:BoolStateTextBlock.TrueFontOptions>
                                 <vio:BoolStateTextBlockFontOptions

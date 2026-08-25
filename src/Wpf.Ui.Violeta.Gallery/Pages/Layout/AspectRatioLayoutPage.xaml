@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="AspectRatioLayout"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_AspectRatioLayout}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="AspectRatioLayout" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AspectRatioLayout}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -38,7 +38,7 @@
                         Text="{I18N {x:Static lang:LangKeys.Sample_47b666a05d}}" />
 
                     <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
-                        <TextBlock Width="56" VerticalAlignment="Center" Text="Width" />
+                        <TextBlock Width="56" VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_32954654ac}}" />
                         <Slider
                             x:Name="AspectRatioWidthSlider"
                             Width="180"
@@ -52,7 +52,7 @@
                             Text="{Binding ElementName=AspectRatioWidthSlider, Path=Value, StringFormat=F0}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
-                        <TextBlock Width="56" VerticalAlignment="Center" Text="Height" />
+                        <TextBlock Width="56" VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_eec6c4bdbd}}" />
                         <Slider
                             x:Name="AspectRatioHeightSlider"
                             Width="180"
@@ -78,11 +78,11 @@
                                         FontSize="18"
                                         FontWeight="Bold"
                                         Foreground="White"
-                                        Text="Horizontal Rectangle"
+                                        Text="{I18N {x:Static lang:LangKeys.Sample_df9ef05bc0}}"
                                         TextAlignment="Center" />
                                     <TextBlock
                                         Foreground="White"
-                                        Text="Width &gt; Height × 1.3"
+                                        Text="{I18N {x:Static lang:LangKeys.Sample_08a8d819d9}}"
                                         TextAlignment="Center" />
                                 </StackPanel>
                             </Border>
@@ -93,9 +93,9 @@
                                     <TextBlock
                                         FontSize="18"
                                         FontWeight="Bold"
-                                        Text="Square"
+                                        Text="{I18N {x:Static lang:LangKeys.Sample_ceb46ca115}}"
                                         TextAlignment="Center" />
-                                    <TextBlock Text="0.7 ≤ W/H &lt; 1.3" TextAlignment="Center" />
+                                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_c917aaa403}}" TextAlignment="Center" />
                                 </StackPanel>
                             </Border>
                         </vio:AspectRatioLayoutItem>
@@ -106,11 +106,11 @@
                                         FontSize="18"
                                         FontWeight="Bold"
                                         Foreground="White"
-                                        Text="Vertical Rectangle"
+                                        Text="{I18N {x:Static lang:LangKeys.Sample_35a7cc6b7a}}"
                                         TextAlignment="Center" />
                                     <TextBlock
                                         Foreground="White"
-                                        Text="Height &gt; Width × 1.3"
+                                        Text="{I18N {x:Static lang:LangKeys.Sample_f2ae179a7e}}"
                                         TextAlignment="Center" />
                                 </StackPanel>
                             </Border>

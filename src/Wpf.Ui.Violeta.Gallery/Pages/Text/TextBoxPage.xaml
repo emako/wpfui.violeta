@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TextBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Textbox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TextBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Textbox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -38,7 +38,7 @@
                     <TextBox
                         Width="320"
                         HorizontalAlignment="Left"
-                        Text="Hello, Wpf.Ui.Violeta" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c884cdba0a}}" />
                 </StackPanel>
             </Border>
 
@@ -54,7 +54,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ui:TextBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fec7f8fb9e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -72,13 +72,13 @@
                             HorizontalAlignment="Left"
                             ClearButtonEnabled="False"
                             PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_61b0c7c3e4}}"
-                            Text="ClearButtonEnabled=False" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_4089352c97}}" />
                         <ui:TextBox
                             Width="320"
                             HorizontalAlignment="Left"
                             IsEnabled="False"
                             PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_710ad08b11}}"
-                            Text="Disabled" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -107,14 +107,14 @@
                             HorizontalAlignment="Left"
                             AcceptsReturn="True"
                             Style="{DynamicResource TextBlockTextBoxStyle}"
-                            Text="TextBox with TextBlockTextBoxStyle&#x0a;More lines..."
+                            Text="{I18N {x:Static lang:LangKeys.Sample_7e51a09629}}"
                             TextWrapping="Wrap" />
                         <ui:TextBox
                             Width="320"
                             HorizontalAlignment="Left"
                             AcceptsReturn="True"
                             Style="{DynamicResource TextBlockUiTextBoxStyle}"
-                            Text="ui:TextBox with TextBlockUiTextBoxStyle&#x0a;More lines..."
+                            Text="{I18N {x:Static lang:LangKeys.Sample_d5ea1ead59}}"
                             TextWrapping="Wrap" />
                     </StackPanel>
                 </StackPanel>

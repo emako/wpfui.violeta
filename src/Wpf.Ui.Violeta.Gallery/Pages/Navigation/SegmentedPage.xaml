@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Segmented"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,11 +17,11 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Segmented" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="WinUI-style mutually exclusive selector. Selected segment uses a subtle fill and an accent underline."
+                Text="{I18N {x:Static lang:LangKeys.Sample_dbcfdf998d}}"
                 TextWrapping="Wrap" />
 
             <Border
@@ -35,14 +36,14 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="View mode" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dc685a0197}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Icon-only segments, matching UniGetUI's List / Grid / Icons switcher." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4d1b22903f}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:Segmented x:Name="ViewModeSegmented" SelectedIndex="2">
-                            <vio:SegmentedItem ToolTip="List">
+                            <vio:SegmentedItem ToolTip="{I18N {x:Static lang:LangKeys.Sample_4ee29ca12c}}">
                                 <Viewbox Width="18" Height="18">
                                     <Grid Width="16" Height="16">
                                         <Path
@@ -60,7 +61,7 @@
                                     </Grid>
                                 </Viewbox>
                             </vio:SegmentedItem>
-                            <vio:SegmentedItem ToolTip="Grid">
+                            <vio:SegmentedItem ToolTip="{I18N {x:Static lang:LangKeys.Sample_5174d1309f}}">
                                 <Viewbox Width="18" Height="18">
                                     <Path
                                         Width="16"
@@ -75,7 +76,7 @@
                                         StrokeThickness="1" />
                                 </Viewbox>
                             </vio:SegmentedItem>
-                            <vio:SegmentedItem ToolTip="Icons">
+                            <vio:SegmentedItem ToolTip="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}">
                                 <Viewbox Width="18" Height="18">
                                     <Path
                                         Width="16"
@@ -110,15 +111,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Text" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_97d0761438}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Plain labels. Keyboard: Tab into the control, then Left / Right." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_73653cbe50}}" />
                     <vio:Segmented>
-                        <vio:SegmentedItem Content="Day" IsSelected="True" />
-                        <vio:SegmentedItem Content="Week" />
-                        <vio:SegmentedItem Content="Month" />
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_03727ac485}}" IsSelected="True" />
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_d2ce009594}}" />
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_7cbb885aa1}}" />
                     </vio:Segmented>
                 </StackPanel>
             </Border>
@@ -135,23 +136,23 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + text" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_180f56f954}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="SegmentedItem.Icon before Content." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_bca533c537}}" />
                     <vio:Segmented>
-                        <vio:SegmentedItem Content="Home" IsSelected="True">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
                             <vio:SegmentedItem.Icon>
                                 <ui:SymbolIcon FontSize="16" Symbol="Home24" />
                             </vio:SegmentedItem.Icon>
                         </vio:SegmentedItem>
-                        <vio:SegmentedItem Content="Search">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
                             <vio:SegmentedItem.Icon>
                                 <ui:SymbolIcon FontSize="16" Symbol="Search24" />
                             </vio:SegmentedItem.Icon>
                         </vio:SegmentedItem>
-                        <vio:SegmentedItem Content="Settings">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
                             <vio:SegmentedItem.Icon>
                                 <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
                             </vio:SegmentedItem.Icon>
@@ -172,21 +173,21 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Disabled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Individual segments or the whole control can be disabled." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_64be2d2079}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:Segmented>
-                            <vio:SegmentedItem Content="Active" IsSelected="True" />
-                            <vio:SegmentedItem Content="Preview" />
-                            <vio:SegmentedItem Content="Unavailable" IsEnabled="False" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_4d3d769b81}}" IsSelected="True" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_31fde7b05a}}" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_453e6aa38d}}" IsEnabled="False" />
                         </vio:Segmented>
                         <vio:Segmented IsEnabled="False">
-                            <vio:SegmentedItem Content="One" IsSelected="True" />
-                            <vio:SegmentedItem Content="Two" />
-                            <vio:SegmentedItem Content="Three" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_06c2cea186}}" IsSelected="True" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_aada29daee}}" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_ca8a2087e5}}" />
                         </vio:Segmented>
                     </ui:StackPanel>
                 </StackPanel>

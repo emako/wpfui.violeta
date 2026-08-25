@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="CardAction"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CardAction}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CardAction" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardAction}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ImageIcon + Header" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_81b3ac017c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -41,7 +41,7 @@
                             <ui:TextBlock
                                 FontTypography="Body"
                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                Text="This is the header text"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_490309ef24}}"
                                 TextWrapping="WrapWithOverflow" />
                         </StackPanel>
                     </ui:CardAction>
@@ -60,7 +60,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="SymbolIcon + Header + Description" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_da98f58ef1}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -71,12 +71,12 @@
                             <ui:TextBlock
                                 FontTypography="BodyStrong"
                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                Text="This is the header text"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_490309ef24}}"
                                 TextWrapping="WrapWithOverflow" />
                             <ui:TextBlock
                                 Appearance="Secondary"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="This is a description text."
+                                Text="{I18N {x:Static lang:LangKeys.Sample_460daa68fb}}"
                                 TextWrapping="WrapWithOverflow" />
                         </StackPanel>
                     </ui:CardAction>

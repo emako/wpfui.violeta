@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Pivot"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Pivot}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Pivot" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Pivot}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,26 +31,26 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="A basic Pivot" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1bb02e9548}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="TabControl + TabControlPivotStyle + PivotHelper.Title" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_af8deffbfb}}" />
                     <TabControl
                         MinHeight="280"
                         Style="{StaticResource TabControlPivotStyle}"
-                        vio:PivotHelper.Title="EMAIL">
-                        <TabItem Header="All">
-                            <TextBlock Margin="0,12,0,0" Text="All emails go here." />
+                        vio:PivotHelper.Title="{I18N {x:Static lang:LangKeys.Sample_61a649a33f}}">
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_b1c94ca2fb}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_6861212c97}}" />
                         </TabItem>
-                        <TabItem Header="Unread">
-                            <TextBlock Margin="0,12,0,0" Text="Unread emails go here." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_53770fd374}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_5713128731}}" />
                         </TabItem>
-                        <TabItem Header="Flagged">
-                            <TextBlock Margin="0,12,0,0" Text="Flagged emails go here." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_72d68acd07}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_51995a4936}}" />
                         </TabItem>
-                        <TabItem Header="Urgent">
-                            <TextBlock Margin="0,12,0,0" Text="Urgent emails go here." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_2708565083}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_481fa5fc28}}" />
                         </TabItem>
                     </TabControl>
                 </StackPanel>
@@ -67,15 +68,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="With left / right headers" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_70a2a52eef}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="PivotHelper.LeftHeader / RightHeader" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0b8b1d3827}}" />
                     <TabControl
                         MinHeight="240"
                         Style="{StaticResource TabControlPivotStyle}"
-                        vio:PivotHelper.Title="SETTINGS">
+                        vio:PivotHelper.Title="{I18N {x:Static lang:LangKeys.Sample_ed6f7aca78}}">
                         <vio:PivotHelper.LeftHeader>
                             <ui:SymbolIcon
                                 Margin="8,0,0,0"
@@ -88,16 +89,16 @@
                                 Margin="0,6,8,0"
                                 Padding="8,4"
                                 Appearance="Transparent"
-                                Content="More" />
+                                Content="{I18N {x:Static lang:LangKeys.Sample_d3da97e2d9}}" />
                         </vio:PivotHelper.RightHeader>
-                        <TabItem Header="General">
-                            <TextBlock Margin="0,12,0,0" Text="General settings content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_0db377921f}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_0e9fcd6e70}}" />
                         </TabItem>
-                        <TabItem Header="Account">
-                            <TextBlock Margin="0,12,0,0" Text="Account settings content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_08bd40c754}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_5d293f9fe2}}" />
                         </TabItem>
-                        <TabItem Header="Privacy">
-                            <TextBlock Margin="0,12,0,0" Text="Privacy settings content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_c5f29bb36f}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_0013cac226}}" />
                         </TabItem>
                     </TabControl>
                 </StackPanel>
@@ -115,36 +116,36 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Overflow headers (scroll)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_aa8ed345de}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Hover the header strip to show prev/next when tabs overflow" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_22541beb0f}}" />
                     <TabControl
                         MinHeight="200"
                         MaxWidth="420"
                         HorizontalAlignment="Left"
                         Style="{StaticResource TabControlPivotStyle}">
-                        <TabItem Header="Monday">
-                            <TextBlock Margin="0,12,0,0" Text="Monday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_6f8522e061}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_dcf3e24e70}}" />
                         </TabItem>
-                        <TabItem Header="Tuesday">
-                            <TextBlock Margin="0,12,0,0" Text="Tuesday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_5792315f09}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_120f27d061}}" />
                         </TabItem>
-                        <TabItem Header="Wednesday">
-                            <TextBlock Margin="0,12,0,0" Text="Wednesday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_796c163589}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_11946646f5}}" />
                         </TabItem>
-                        <TabItem Header="Thursday">
-                            <TextBlock Margin="0,12,0,0" Text="Thursday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_78ae6f0cd1}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_a9fbab0ded}}" />
                         </TabItem>
-                        <TabItem Header="Friday">
-                            <TextBlock Margin="0,12,0,0" Text="Friday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_c33b138a16}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_7deb4fd1ea}}" />
                         </TabItem>
-                        <TabItem Header="Saturday">
-                            <TextBlock Margin="0,12,0,0" Text="Saturday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_8b7051187b}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_96c19f4a6b}}" />
                         </TabItem>
-                        <TabItem Header="Sunday">
-                            <TextBlock Margin="0,12,0,0" Text="Sunday content." />
+                        <TabItem Header="{I18N {x:Static lang:LangKeys.Sample_9d1a0949c3}}">
+                            <TextBlock Margin="0,12,0,0" Text="{I18N {x:Static lang:LangKeys.Sample_c80bbb2c45}}" />
                         </TabItem>
                     </TabControl>
                 </StackPanel>

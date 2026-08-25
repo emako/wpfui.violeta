@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="AutoGrid"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="AutoGrid" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -31,7 +31,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="AutoGrid — 2×2" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_eb9e9a900c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -40,10 +40,10 @@
                         ColumnCount="2"
                         RowCount="2"
                         RowHeight="40">
-                        <TextBlock VerticalAlignment="Center" Text="Title1" />
-                        <ui:Button Content="Button1" />
-                        <TextBlock VerticalAlignment="Center" Text="Title2" />
-                        <ui:Button Content="Button2" />
+                        <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_b4c0b4ef70}}" />
+                        <ui:Button Content="{I18N {x:Static lang:LangKeys.Sample_6475a37462}}" />
+                        <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_a7e0a4d8a3}}" />
+                        <ui:Button Content="{I18N {x:Static lang:LangKeys.Sample_e165925a7c}}" />
                     </ui:AutoGrid>
                 </StackPanel>
             </Border>

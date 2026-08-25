@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="GoBackButton"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_GoBackButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="GoBackButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GoBackButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -29,28 +30,28 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Basic" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_BasicTitle}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Default ChromeBack glyph (E72B) with TitleBar RightToLeft press scale animation."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8336f7665e}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:GoBackButton Margin="0,0,8,0" Click="GoBackButton_Click" />
                         <vio:GoBackButton
                             Margin="0,0,8,0"
                             Click="GoBackButton_Click"
-                            Content="Back" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0557fa923d}}" />
                         <vio:GoBackButton
                             Click="GoBackButton_Click"
-                            Content="Go back"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_22b653bd8d}}"
                             Icon="{ui:SymbolIcon ArrowLeft24}" />
                     </StackPanel>
                     <TextBlock
                         x:Name="StatusText"
                         Margin="0,12,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Click a button to see the press animation." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c7f5115e62}}" />
                 </StackPanel>
             </Border>
 
@@ -66,26 +67,26 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Appearance" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Same Appearance options as other Wpf.Ui buttons."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b47f14dce2}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:GoBackButton
                             Margin="0,0,8,0"
                             Appearance="Primary"
-                            Content="Primary" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}" />
                         <vio:GoBackButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            Content="Secondary" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
                         <vio:GoBackButton
                             Margin="0,0,8,0"
                             Appearance="Success"
-                            Content="Success" />
-                        <vio:GoBackButton Appearance="Danger" Content="Danger" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                        <vio:GoBackButton Appearance="Danger" Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -102,11 +103,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Disabled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:GoBackButton Margin="0,0,8,0" IsEnabled="False" />
                         <vio:GoBackButton
-                            Content="Back"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0557fa923d}}"
                             IsEnabled="False" />
                     </StackPanel>
                 </StackPanel>

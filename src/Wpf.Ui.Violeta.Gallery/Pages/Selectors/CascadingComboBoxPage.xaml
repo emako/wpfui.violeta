@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="CascadingComboBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CascadingComboBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CascadingComboBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CascadingComboBox}}" />
 
             <Border
                 Margin="0,0,0,16"

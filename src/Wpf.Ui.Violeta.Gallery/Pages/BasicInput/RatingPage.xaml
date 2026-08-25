@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Rating"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Rating}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Rating" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Rating}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="RatingControl" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a0dab29410}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -53,14 +53,14 @@
                             <TextBlock
                                 Margin="0,0,0,4"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Value:" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_acdb802bfc}}" />
                             <TextBlock Text="{Binding Value, ElementName=FirstRating}" />
                         </StackPanel>
                         <CheckBox
                             Grid.Column="2"
                             VerticalAlignment="Center"
                             Checked="DisableFirstRating_Checked"
-                            Content="Disable rating"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_dc7561744e}}"
                             Unchecked="DisableFirstRating_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -78,7 +78,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Full stars only" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_733ee7ce25}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -102,14 +102,14 @@
                             <TextBlock
                                 Margin="0,0,0,4"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Value:" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_acdb802bfc}}" />
                             <TextBlock Text="{Binding Value, ElementName=SecondRating}" />
                         </StackPanel>
                         <CheckBox
                             Grid.Column="2"
                             VerticalAlignment="Center"
                             Checked="DisableSecondRating_Checked"
-                            Content="Disable rating"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_dc7561744e}}"
                             Unchecked="DisableSecondRating_Unchecked" />
                     </Grid>
                 </StackPanel>

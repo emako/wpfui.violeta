@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="CardProgress"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CardProgress}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CardProgress" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardProgress}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -35,7 +35,7 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Determinate" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_9aa2f68b8e}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -53,12 +53,12 @@
                                 <ui:TextBlock
                                     FontTypography="BodyStrong"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                    Text="Downloading package"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_5a6393b771}}"
                                     TextWrapping="WrapWithOverflow" />
                                 <ui:TextBlock
                                     Appearance="Secondary"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="Progress sits on the card bottom indicator and follows the corner radius."
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_ccb1147c8d}}"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
                         </vio:CardProgress>
@@ -71,19 +71,19 @@
                             Value="{Binding Value, ElementName=DeterminateCard, Mode=TwoWay}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" MinWidth="120">
-                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_afb4119954}}" />
                         <RadioButton
                             x:Name="DeterminateRunningRB"
-                            Content="Running"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5bda814c4a}}"
                             GroupName="DeterminateCardProgressState"
                             IsChecked="True" />
                         <RadioButton
                             x:Name="DeterminatePausedRB"
-                            Content="Paused"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}"
                             GroupName="DeterminateCardProgressState" />
                         <RadioButton
                             x:Name="DeterminateErrorRB"
-                            Content="Error"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             GroupName="DeterminateCardProgressState" />
                     </StackPanel>
                 </Grid>
@@ -106,7 +106,7 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Indeterminate" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_a2d00c353d}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -122,30 +122,30 @@
                                 <ui:TextBlock
                                     FontTypography="BodyStrong"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                    Text="Preparing workspace"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_7fe8a3cd3f}}"
                                     TextWrapping="WrapWithOverflow" />
                                 <ui:TextBlock
                                     Appearance="Secondary"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="Indeterminate indicator travels along the rounded bottom edge."
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_3adadaeee0}}"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
                         </vio:CardProgress>
                     </StackPanel>
                     <StackPanel Grid.Column="1" MinWidth="120">
-                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_afb4119954}}" />
                         <RadioButton
                             x:Name="IndeterminateRunningRB"
-                            Content="Running"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5bda814c4a}}"
                             GroupName="IndeterminateCardProgressState"
                             IsChecked="True" />
                         <RadioButton
                             x:Name="IndeterminatePausedRB"
-                            Content="Paused"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}"
                             GroupName="IndeterminateCardProgressState" />
                         <RadioButton
                             x:Name="IndeterminateErrorRB"
-                            Content="Error"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             GroupName="IndeterminateCardProgressState" />
                     </StackPanel>
                 </Grid>
@@ -163,7 +163,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + larger corner radius" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_de214cf5f1}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -188,12 +188,12 @@
                                 <ui:TextBlock
                                     FontTypography="BodyStrong"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                    Text="Fluent package"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_7181c93786}}"
                                     TextWrapping="WrapWithOverflow" />
                                 <ui:TextBlock
                                     Appearance="Secondary"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="72% · 86 MB of 120 MB"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_24215f951b}}"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
                         </Grid>
@@ -213,7 +213,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Secondary style" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_49adc2661b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -226,7 +226,7 @@
                         Value="50">
                         <ui:TextBlock
                             Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                            Text="SecondaryCardProgressStyle"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_34b1abfa00}}"
                             TextWrapping="WrapWithOverflow" />
                     </vio:CardProgress>
                 </StackPanel>

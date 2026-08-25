@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="CardControl"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CardControl}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CardControl" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardControl}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Header + Content" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8f2ce987fd}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -38,10 +38,10 @@
                         TextWrapping="Wrap" />
                     <ui:CardControl>
                         <ui:CardControl.Header>
-                            <TextBlock Text="This is the header text." />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_ecd0b43233}}" />
                         </ui:CardControl.Header>
                         <ui:CardControl.Content>
-                            <ui:Button Content="Button" />
+                            <ui:Button Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}" />
                         </ui:CardControl.Content>
                     </ui:CardControl>
                 </StackPanel>
@@ -59,7 +59,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + ToggleSwitch" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_598e6bdee0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -74,18 +74,18 @@
                                 <ui:TextBlock
                                     FontTypography="BodyStrong"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                    Text="This is the header text"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_490309ef24}}"
                                     TextWrapping="WrapWithOverflow" />
                                 <ui:TextBlock
                                     Appearance="Secondary"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="This is a description text."
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_460daa68fb}}"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
                         </ui:CardControl.Header>
                         <ui:ToggleSwitch
                             HorizontalContentAlignment="Left"
-                            OffContent="Off"
+                            OffContent="{I18N {x:Static lang:LangKeys.Sample_d15305d7a4}}"
                             OnContent="On" />
                     </ui:CardControl>
                 </StackPanel>
@@ -103,7 +103,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ImageIcon + DropDownButton" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_478b28d0c0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -118,21 +118,21 @@
                                 <ui:TextBlock
                                     FontTypography="BodyStrong"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                    Text="This is the header text"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_490309ef24}}"
                                     TextWrapping="WrapWithOverflow" />
                                 <ui:TextBlock
                                     Appearance="Secondary"
                                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                    Text="This is a description text."
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_460daa68fb}}"
                                     TextWrapping="WrapWithOverflow" />
                             </StackPanel>
                         </ui:CardControl.Header>
-                        <vio:DropDownButton Content="Hello" Icon="{ui:SymbolIcon Fluent24}">
+                        <vio:DropDownButton Content="{I18N {x:Static lang:LangKeys.Sample_8b1a9953c4}}" Icon="{ui:SymbolIcon Fluent24}">
                             <vio:DropDownButton.Flyout>
                                 <ContextMenu>
-                                    <MenuItem Header="Add" />
-                                    <MenuItem Header="Remove" />
-                                    <MenuItem Header="Send" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1bb125b89c}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1063e38cb5}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_94966d9074}}" />
                                 </ContextMenu>
                             </vio:DropDownButton.Flyout>
                         </vio:DropDownButton>

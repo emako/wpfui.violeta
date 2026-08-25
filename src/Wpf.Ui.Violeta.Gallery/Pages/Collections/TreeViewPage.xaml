@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TreeView"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeView}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TreeView" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeView}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -37,18 +37,18 @@
                         Text="{I18N {x:Static lang:LangKeys.Sample_12dac3eb3d}}" />
                     <TreeView AllowDrop="True" ScrollViewer.CanContentScroll="False">
                         <TreeViewItem
-                            Header="Work Documents"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_12621df30f}}"
                             IsExpanded="True"
                             IsSelected="True">
-                            <TreeViewItem Header="Feature Schedule" />
-                            <TreeViewItem Header="Overall Project Plan" />
+                            <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_780977a9b7}}" />
+                            <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_3487e8efdf}}" />
                         </TreeViewItem>
-                        <TreeViewItem Header="Personal Documents">
-                            <TreeViewItem Header="Contractor contact info" />
-                            <TreeViewItem Header="Home Remodel">
-                                <TreeViewItem Header="Paint Color Scheme" />
-                                <TreeViewItem Header="Flooring Woodgrain Type" />
-                                <TreeViewItem Header="Kitchen Cabinet Style" />
+                        <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_a959d9be39}}">
+                            <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_df961a4b78}}" />
+                            <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_2175128e4c}}">
+                                <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_3a3c00f8ba}}" />
+                                <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_8c7c85847d}}" />
+                                <TreeViewItem Header="{I18N {x:Static lang:LangKeys.Sample_6923ddc026}}" />
                             </TreeViewItem>
                         </TreeViewItem>
                     </TreeView>

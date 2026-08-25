@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="VirtualJoystick"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_VirtualJoystick}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -14,7 +15,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="VirtualJoystick" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_VirtualJoystick}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -28,11 +29,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Interactive joystick" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_bfbd1f77f7}}" />
                     <TextBlock
                         Margin="0,0,0,16"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Drag the knob, or select the joystick and use the arrow keys. The current eight-direction value and normalized vector are displayed below. The deadzone can be adjusted with the slider." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_49834e2562}}" />
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Margin="0,0,12, 0">Deadzone:</TextBlock>
                         <Slider
@@ -63,7 +64,7 @@
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
                             <TextBlock
                                 FontWeight="SemiBold"
-                                Text="Current state" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_4835864833}}" />
                             <TextBlock
                                 Margin="0,8,0,0"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -72,7 +73,7 @@
                                 x:Name="VectorTextBlock"
                                 Margin="0,4,0,0"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="Vector: X 0.00, Y 0.00" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_2a0d4e15b7}}" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -90,11 +91,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Size" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6f6cb72d54}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Adjust the surface diameter to verify dynamic geometry and layout." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e775124bb9}}" />
                     <StackPanel Orientation="Horizontal">
                         <Slider
                             x:Name="DiameterSlider"
@@ -129,7 +130,7 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Disabled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <vio:VirtualJoystick
                         HorizontalAlignment="Left"
                         IsEnabled="False"

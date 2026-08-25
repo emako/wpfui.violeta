@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="QrCode"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="QrCode" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" />
             <Border
                 Margin="0,0,0,16"
                 Padding="20"
@@ -41,7 +41,7 @@
                             <TextBox
                                 x:Name="QrDataTextBox"
                                 Width="240"
-                                Text="https://github.com/emako/wpfui.violeta"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_bb76553442}}"
                                 TextChanged="QrDataTextBox_OnTextChanged" />
                             <TextBlock Margin="0,12,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_dd8f6a81a6}}" />
                             <Slider

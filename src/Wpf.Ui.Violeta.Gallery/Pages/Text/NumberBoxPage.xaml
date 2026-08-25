@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="NumberBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="NumberBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -38,7 +38,7 @@
                     <ui:NumberBox
                         Width="320"
                         HorizontalAlignment="Left"
-                        PlaceholderText="Enter your age" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_ab5c3857f6}}" />
                 </StackPanel>
             </Border>
 
@@ -65,14 +65,14 @@
                                 MinWidth="80"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Hidden" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_7acdf85c69}}" />
                             <ui:NumberBox
                                 Width="240"
                                 Icon="{ui:SymbolIcon NumberSymbolSquare24}"
                                 LargeChange="2.25"
                                 Maximum="10"
                                 Minimum="-10"
-                                PlaceholderText="Enter your age"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_ab5c3857f6}}"
                                 SmallChange="0.25"
                                 SpinButtonPlacementMode="Hidden"
                                 Value="1.50" />
@@ -82,14 +82,14 @@
                                 MinWidth="80"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Compact" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_b1fe2c2a59}}" />
                             <ui:NumberBox
                                 Width="240"
                                 Icon="{ui:SymbolIcon NumberSymbolSquare24}"
                                 LargeChange="2.25"
                                 Maximum="10"
                                 Minimum="-10"
-                                PlaceholderText="Enter your age"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_ab5c3857f6}}"
                                 SmallChange="0.25"
                                 SpinButtonPlacementMode="Compact"
                                 Value="1.50" />
@@ -99,14 +99,14 @@
                                 MinWidth="80"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Inline" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_0125cf5f3c}}" />
                             <ui:NumberBox
                                 Width="240"
                                 Icon="{ui:SymbolIcon NumberSymbolSquare24}"
                                 LargeChange="2.25"
                                 Maximum="10"
                                 Minimum="-10"
-                                PlaceholderText="Enter your age"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_ab5c3857f6}}"
                                 SmallChange="0.25"
                                 SpinButtonPlacementMode="Inline"
                                 Value="1.50" />
@@ -139,7 +139,7 @@
                         MaxDecimalPlaces="0"
                         Maximum="100"
                         Minimum="0"
-                        PlaceholderText="Enter your age"
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_ab5c3857f6}}"
                         SmallChange="1"
                         SpinButtonPlacementMode="Inline"
                         Value="12" />

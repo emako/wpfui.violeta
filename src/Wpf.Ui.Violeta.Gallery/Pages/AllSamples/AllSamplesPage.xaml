@@ -36,7 +36,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8D2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Typography" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Typography}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6106634d5b}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -50,7 +50,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE790;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Icons" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ef7fd6c161}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -64,7 +64,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE790;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Colors" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a1c76c6e1b}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -82,7 +82,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE768;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Button" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_Buttons}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -96,7 +96,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE768;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="RepeatButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RepeatButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6aa16c2381}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -110,7 +110,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE70D;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="DropDownButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_cc70a816b7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -124,7 +124,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE71B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="HyperlinkButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_HyperlinkButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_953ac8afe8}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -138,7 +138,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToggleButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ce00c5f605}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -152,7 +152,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE768;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="SplitButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SplitButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6bf9fcc2fc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -166,7 +166,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE768;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="LoadingButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_LoadingButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_e49cbd1a5f}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -180,8 +180,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8C8;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CopyButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Copy with checkmark animation" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CopyButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8c9a8d4918}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -194,8 +194,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE72B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="GoBackButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Back with TitleBar press animation" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GoBackButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4e50524970}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -208,8 +208,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE72B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="AnimatedSymbolButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="WinUI AnimatedVisuals-aligned kinds" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimatedSymbolButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d99f8a76a1}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -222,7 +222,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToggleButtonGroup" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_15d3c2873a}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -240,7 +240,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE739;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CheckBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CheckBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_db98f889ce}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -254,7 +254,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE738;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="RadioButton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RadioButton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f96dabbc50}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -268,7 +268,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9E9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToggleSwitch" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleSwitch}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a6beb974cc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -282,7 +282,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE734;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Rating" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Rating}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a297dda489}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -296,7 +296,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EC;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ThumbRate" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ThumbRate}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f1861aaa47}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -314,7 +314,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Slider" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_Sliders}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -328,7 +328,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9E9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="RangeSlider" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RangeSlider}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f4fbd6c803}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -346,7 +346,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EF;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NumberBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9597dcaf43}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -360,7 +360,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EF;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NumericUpDown" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumericUpDown}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ba2daa8218}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -374,7 +374,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NumberComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a8b3c4d5e6}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -388,7 +388,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE74A;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ButtonSpinner" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ButtonSpinner}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ecbc7f2bbd}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -406,7 +406,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8D2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TextBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Textbox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_5ac57ce6df}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -420,7 +420,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE72E;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="PasswordBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_PasswordBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2a3a9f88ca}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -434,7 +434,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8D2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="RichTextBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RichTextBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_e2591e971f}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -448,7 +448,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE721;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="AutoSuggestBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoSuggestBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_5ea2fa9344}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -462,7 +462,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE721;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="SearchBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SearchBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c3e817974d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -476,7 +476,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE979;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="PinCode" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_PinCode}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_241bd43b47}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -490,7 +490,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE765;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="KeyGestureInput" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_KeyGestureInput}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_3ec22d22be}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -504,7 +504,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE774;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="IPv4Box" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4Box}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ed50de239d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -518,7 +518,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE774;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="IPv4PortBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4PortBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1d8156ae0}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -532,7 +532,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EC;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TagInput" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TagInput}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8e3ac38ebb}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -550,7 +550,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8D2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Label" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Label}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_14d342362f}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -564,7 +564,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8C8;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TextBlock}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_fca196e010}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -578,7 +578,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8C8;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="SelectableTextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SelectableTextBlock}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b5a455b30d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -592,8 +592,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EF;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NumberDisplayer" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Animated number rolling" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberDisplayer}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_297dd00407}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -606,7 +606,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE71B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Hyperlink" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_7d7894175e}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -620,7 +620,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8D2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="BoolStateTextBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4a0c1908e4}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -634,13 +634,13 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76E;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Emoji" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Color emoji TextBlock / Picker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_21353e2aa9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
             </WrapPanel>
 
-            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="ComboBox" />
+            <TextBlock Margin="0,0,0,8" FontSize="16" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ComboBox}}" />
             <WrapPanel Margin="0,0,0,16">
                 <ui:CardAction
                     Width="240"
@@ -652,7 +652,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_006ded9fa2}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -666,7 +666,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToggleComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9f55b98ec}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -680,7 +680,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="MultiComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_MultiComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_22a638ef57}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -694,7 +694,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CascadingComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CascadingComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_cddce965d7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -708,7 +708,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8EC;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TagComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TagComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_7e979b664d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -722,7 +722,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TreeComboBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeComboBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2ce70ecb55}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -740,7 +740,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76C;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ValuePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ValuePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2de3f7a95f}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -754,8 +754,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE790;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="SwatchPicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Fluent-style palette picker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SwatchPicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_bc2364af77}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -768,7 +768,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE790;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ColorPicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ColorPicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a0e6ecd1eb}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -782,7 +782,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE787;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="DatePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DatePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_de1a35a24c}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -796,7 +796,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE823;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TimePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TimePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c2c8fb2356}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -810,7 +810,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE787;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CalendarDatePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDatePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_40fccfe532}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -824,7 +824,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE787;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CalendarDateTimePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDateTimePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b98a0966e3}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -838,7 +838,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE823;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TimeBoxPicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBoxPicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d23726dc34}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -852,7 +852,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE823;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TimeBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9ff42f75c8}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -866,7 +866,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE787;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Calendar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Calendar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f8c3feb48c}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -880,7 +880,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8E5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="FilePicker" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FilePicker}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_5e10b994c5}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -894,7 +894,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="OpenFolderDialog" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_OpenFolderDialog}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d5431c4c66}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -912,7 +912,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ContentDialog" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentDialog}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4bd533aa51}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -926,7 +926,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="MessageBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_MessageBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_758409e3ca}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -940,7 +940,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="PendingBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_PendingBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c4aa96fd4c}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -954,8 +954,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TaskDialog" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Win32 TaskDialog" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TaskDialog}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6c567e7af2}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -968,7 +968,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NativeMessageBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NativeMessageBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d688c1ee0b}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -982,7 +982,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE72E;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CredentialDialog" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CredentialDialog}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_556f104600}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -996,7 +996,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Flyout" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Flyout}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_42862a19bd}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1010,7 +1010,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="FluentPopup" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentPopup}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d75951dac0}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1024,7 +1024,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TeachingTip" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TeachingTip}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_7846de57e9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1042,7 +1042,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE7E7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Snackbar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Snackbar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_dcc6b91062}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1056,7 +1056,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xEA0C;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Toast" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Toast}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c5e3546024}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1070,7 +1070,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE789;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Banner" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Banner}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_89aeb41a27}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1084,7 +1084,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE7E7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TrayIcon" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TrayIcon}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_fecb037951}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1102,7 +1102,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9D9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="DataGrid" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DataGrid}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_01c85e4961}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1116,7 +1116,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ListBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ListBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_212779d466}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1130,7 +1130,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ListView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ListView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_829cb1dd97}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1144,8 +1144,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xF0E2;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="GridView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="WinUI-style wrapping item grid" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GridView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8d769f1a3a}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1158,7 +1158,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TreeView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_30d8aa704d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1172,7 +1172,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8F5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TreeListView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeListView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9604d1609b}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1186,7 +1186,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8F5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TreeModelListView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeModelListView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_bf8a0189e0}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1200,7 +1200,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="FlipView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FlipView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9f1891c848}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1214,7 +1214,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8AB;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Carousel" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Carousel}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c17befc4c1}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1228,8 +1228,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CardCarousel" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Cover-flow card carousel" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardCarousel}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_732c0b8417}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1242,7 +1242,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76C;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Pagination" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Pagination}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_3862626c13}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1256,7 +1256,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE787;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Timeline" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Timeline}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4404a8dacc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1274,7 +1274,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE700;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="NavigationView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NavigationView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4a39e6b7ae}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1288,7 +1288,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="BreadcrumbBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BreadcrumbBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_169b227aff}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1302,7 +1302,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE700;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Menu" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Menu}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4ccbdc5301}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1316,7 +1316,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE70F;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToolBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_012f602372}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1330,7 +1330,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TabControl" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TabControl}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9377e388f7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1344,7 +1344,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TabView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TabView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_41e5da80c7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1358,7 +1358,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TabStrip" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TabStrip}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ad506ef284}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1372,8 +1372,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8F1;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Segmented" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="WinUI-style view switcher" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a0a2c2b4a6}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1386,8 +1386,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8AB;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Pivot" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pivot-styled TabControl" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Pivot}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_0abe67e8c6}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1400,7 +1400,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE71B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Anchor" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Anchor}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_bede211909}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1418,8 +1418,22 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CardControl" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardControl}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d7d0cbd874}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </ui:CardAction>
+                <ui:CardAction
+                    Width="240"
+                    Height="80"
+                    Margin="0,0,12,12"
+                    Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
+                    CommandParameter="layout/card-border">
+                    <ui:CardAction.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
+                    </ui:CardAction.Icon>
+                    <StackPanel>
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardBorder}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_f2e8d1c4b7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1432,7 +1446,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CardAction" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardAction}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_44ae9d4db8}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1446,7 +1460,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9F5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CardProgress" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardProgress}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c1a9e0b247}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1460,7 +1474,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8FD;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Tile" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TilePressFeedback}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a1f2c3d4e5}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1474,7 +1488,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="AutoGrid" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c60adf04b2}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1488,7 +1502,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Border" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Border}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_961534b4ea}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1502,7 +1516,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="DropShadowChrome" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DropShadowChrome}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_877990def9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1516,7 +1530,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="AspectRatioLayout" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AspectRatioLayout}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a74d2b62c9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1530,7 +1544,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Form" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Form}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_eee1e2258d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1544,7 +1558,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="GridSplitter" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GridSplitter}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8dd38aaf75}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1558,7 +1572,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76C;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Divider" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Divider}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8c47ecd40d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1572,7 +1586,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE700;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Drawer" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_2575be67fc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1586,7 +1600,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE70D;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Expander" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Expander}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d09980a885}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1600,7 +1614,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76C;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="FluentScrollViewer" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentScrollViewer}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_da47feab65}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1618,7 +1632,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE7C3;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="InfoBadge" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBadge}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_27a4abbc1f}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1632,7 +1646,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE789;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="InfoBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_0665c67a72}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1646,7 +1660,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9F5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ProgressBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_e2e33e2c41}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1660,7 +1674,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ProgressRing" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressRing}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_28aa6906e9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1674,7 +1688,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE7C3;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Badge" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Badge}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b8c467fce0}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1688,8 +1702,8 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xEBC5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="VolumeView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Three-bar volume indicator" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_VolumeView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ca75adcb80}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction
@@ -1702,7 +1716,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE9F5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Skeleton" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Skeleton}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_20697811d9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1716,7 +1730,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="BusyMask" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BusyMask}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_dd938e9088}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1730,7 +1744,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE73E;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="BoolStateContentControl" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateContentControl}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4554fa92b7}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1744,7 +1758,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE897;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ToolTip" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolTip}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_02d9819dda}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1758,7 +1772,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE90E;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="StatusBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_StatusBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_CardDesc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1776,7 +1790,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE91B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Image" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Image}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_20def79426}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1790,7 +1804,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE91B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ImageView" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ImageView}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9cb7d6cf2a}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1804,7 +1818,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE790;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Canvas" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Canvas}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_4d7f930b07}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1818,7 +1832,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE774;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="WebBrowser" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_WebBrowser}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_912302cb02}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1832,7 +1846,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE774;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="WebView2" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_WebView2}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8998bc5220}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1846,7 +1860,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE77B;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="PersonPicture" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_PersonPicture}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b26a335cdb}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1860,7 +1874,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="BitmapIcon" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_BitmapIcon}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c2b1a13637}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1874,7 +1888,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xED14;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="QrCode" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_22b03c024d}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1888,7 +1902,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CachedImage" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CachedImage}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_5f5597503b}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1906,7 +1920,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8AB;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TransitioningContentControl" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TransitioningContentControl}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_34be9270ec}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1920,7 +1934,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8CB;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="RunningBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RunningBlock}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_cfeae99cc9}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1934,7 +1948,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE895;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="AsyncBox" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AsyncBox}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ecb6201948}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1948,7 +1962,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8B9;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Splash" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Splash}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_0954ff825c}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1962,7 +1976,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE783;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ExceptionReport" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ExceptionReport}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_9e8f93c666}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1980,7 +1994,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A7;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ShellWindow" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ShellWindow}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_20cc997916}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -1994,7 +2008,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8A5;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="ContentWindow" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentWindow}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_139a5b0200}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -2008,7 +2022,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE700;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="TitleBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TitleBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_391555a377}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -2022,7 +2036,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE8BB;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="CaptionButtonBar" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CaptionButtonBar}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_8cb861a1ec}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
@@ -2040,7 +2054,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE77F;" />
                     </ui:CardAction.Icon>
                     <StackPanel>
-                        <ui:TextBlock FontTypography="BodyStrong" Text="Clipboard" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Clipboard}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                         <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_061b40d699}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>

@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="AutoSuggestBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoSuggestBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="AutoSuggestBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoSuggestBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ui:AutoSuggestBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_39ff50b6cf}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -47,7 +47,7 @@
                             HorizontalAlignment="Left"
                             ClearButtonEnabled="False"
                             Icon="{ui:SymbolIcon Search24}"
-                            PlaceholderText="Search..." />
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Gallery_SearchPlaceholder}}" />
                         <CheckBox
                             Grid.Column="1"
                             Margin="16,0,0,0"

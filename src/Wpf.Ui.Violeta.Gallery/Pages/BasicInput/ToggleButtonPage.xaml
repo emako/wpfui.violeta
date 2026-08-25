@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="ToggleButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ToggleButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Standard toggle button" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_36de458418}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -43,11 +43,11 @@
                         <ToggleButton
                             x:Name="ToggleButtonControl"
                             Grid.Column="0"
-                            Content="Standard ToggleButton" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_af24df2e7d}}" />
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableToggleButton_Checked"
-                            Content="Disable toggle button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_6612a8bf8c}}"
                             Unchecked="DisableToggleButton_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -65,23 +65,23 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon only" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_cb392954a8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Content can be a SymbolIcon (or any element) without text."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_80267bf66c}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
-                        <ToggleButton ToolTip="Bold">
+                        <ToggleButton ToolTip="{I18N {x:Static lang:LangKeys.Sample_3b8a43acee}}">
                             <ui:SymbolIcon Symbol="TextBold24" />
                         </ToggleButton>
-                        <ToggleButton IsChecked="True" ToolTip="Italic">
+                        <ToggleButton IsChecked="True" ToolTip="{I18N {x:Static lang:LangKeys.Sample_81d6da77d6}}">
                             <ui:SymbolIcon Symbol="TextItalic24" />
                         </ToggleButton>
-                        <ToggleButton ToolTip="Underline">
+                        <ToggleButton ToolTip="{I18N {x:Static lang:LangKeys.Sample_f6f8ea0815}}">
                             <ui:SymbolIcon Symbol="TextUnderline24" />
                         </ToggleButton>
-                        <ToggleButton ToolTip="Pin">
+                        <ToggleButton ToolTip="{I18N {x:Static lang:LangKeys.Sample_e78e14c5f1}}">
                             <ui:SymbolIcon Symbol="Pin24" />
                         </ToggleButton>
                     </ui:StackPanel>
@@ -100,35 +100,35 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + text (horizontal)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_576e3a8b1c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Compose Content with a horizontal StackPanel: icon and label side by side."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4a4d0ffa97}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ToggleButton>
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Eye24" />
-                                <TextBlock VerticalAlignment="Center" Text="Preview" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_31fde7b05a}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                         <ToggleButton IsChecked="True">
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Speaker224" />
-                                <TextBlock VerticalAlignment="Center" Text="Sound" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_9d07e0e08a}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                         <ToggleButton>
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Wifi124" />
-                                <TextBlock VerticalAlignment="Center" Text="Wi-Fi" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_fa524b7254}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                         <ToggleButton>
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Bluetooth24" />
-                                <TextBlock VerticalAlignment="Center" Text="Bluetooth" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_0a4e486218}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                     </ui:StackPanel>
@@ -147,11 +147,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + text (vertical)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1fa42ff340}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Vertical StackPanel: icon above label, useful for compact toolbar-like toggles."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3f5d0ff650}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ToggleButton Padding="12,8">
@@ -160,7 +160,7 @@
                                 Orientation="Vertical"
                                 Spacing="4">
                                 <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Home24" />
-                                <TextBlock HorizontalAlignment="Center" Text="Home" />
+                                <TextBlock HorizontalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                         <ToggleButton Padding="12,8" IsChecked="True">
@@ -169,7 +169,7 @@
                                 Orientation="Vertical"
                                 Spacing="4">
                                 <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Search24" />
-                                <TextBlock HorizontalAlignment="Center" Text="Search" />
+                                <TextBlock HorizontalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                         <ToggleButton Padding="12,8">
@@ -178,7 +178,7 @@
                                 Orientation="Vertical"
                                 Spacing="4">
                                 <ui:SymbolIcon HorizontalAlignment="Center" Symbol="Settings24" />
-                                <TextBlock HorizontalAlignment="Center" Text="Settings" />
+                                <TextBlock HorizontalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
                             </ui:StackPanel>
                         </ToggleButton>
                     </ui:StackPanel>
@@ -197,11 +197,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Rich content" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0357705cc8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="StackPanel can hold more than one text line — title plus secondary description."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_68bd106b4f}}"
                         TextWrapping="Wrap" />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -219,11 +219,11 @@
                                         FontSize="20"
                                         Symbol="Cloud24" />
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock FontWeight="SemiBold" Text="Sync" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_d8e87c0927}}" />
                                         <TextBlock
                                             FontSize="12"
                                             Opacity="0.72"
-                                            Text="Keep files up to date" />
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_e3784ee777}}" />
                                     </StackPanel>
                                 </ui:StackPanel>
                             </ToggleButton>
@@ -237,11 +237,11 @@
                                         FontSize="20"
                                         Symbol="LockClosed24" />
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock FontWeight="SemiBold" Text="Secure" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_7a2ccf251e}}" />
                                         <TextBlock
                                             FontSize="12"
                                             Opacity="0.72"
-                                            Text="Encrypt local data" />
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_3a7c893a5d}}" />
                                     </StackPanel>
                                 </ui:StackPanel>
                             </ToggleButton>
@@ -249,7 +249,7 @@
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableRichContentToggle_Checked"
-                            Content="Disable"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_bcfaccebf7}}"
                             Unchecked="DisableRichContentToggle_Unchecked" />
                     </Grid>
                 </StackPanel>

@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="RangeSlider"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_RangeSlider}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="RangeSlider" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RangeSlider}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -41,7 +41,7 @@
                                 MinWidth="120"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Basic" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_BasicTitle}}" />
                             <vio:RangeSlider
                                 Width="320"
                                 LowerValue="20"
@@ -54,7 +54,7 @@
                                 MinWidth="120"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Ticks + Snap" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_8e07d79b58}}" />
                             <vio:RangeSlider
                                 Width="320"
                                 IsSnapToTickEnabled="True"
@@ -70,7 +70,7 @@
                                 MinWidth="120"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Disabled" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                             <vio:RangeSlider
                                 Width="320"
                                 IsEnabled="False"
@@ -84,7 +84,7 @@
                                 MinWidth="120"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="ReadOnly" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_131fb182a8}}" />
                             <vio:RangeSlider
                                 Width="320"
                                 IsReadOnly="True"
@@ -116,7 +116,7 @@
                                 MinWidth="80"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Vertical" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_75ac842f8e}}" />
                             <vio:RangeSlider
                                 Height="160"
                                 LowerValue="20"
@@ -130,7 +130,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Vertical + Ticks" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_c3939ff6d2}}" />
                             <vio:RangeSlider
                                 Height="160"
                                 LowerValue="30"

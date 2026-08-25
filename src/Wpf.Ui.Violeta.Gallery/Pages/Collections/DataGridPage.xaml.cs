@@ -32,6 +32,7 @@ public partial class DataGridPage : Wpf.Ui.Violeta.Controls.Page
             HorizontalGridLinesDataGrid.ItemsSource = items;
             VerticalGridLinesDataGrid.ItemsSource = items;
             AllGridLinesDataGrid.ItemsSource = items;
+            DisabledDataGrid.ItemsSource = items;
         };
     }
 }

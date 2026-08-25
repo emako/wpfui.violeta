@@ -25,7 +25,7 @@
                     <TextBlock
                         FontSize="32"
                         FontWeight="Bold"
-                        Text="Wpf.Ui.Violeta" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dfba37c389}}" />
                     <TextBlock
                         Margin="0,8,0,0"
                         FontSize="16"
@@ -321,7 +321,7 @@
                     </ui:CardAction.Icon>
                     <StackPanel>
                         <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Nav_OpSystem}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
-                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Clipboard" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Clipboard}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                     </StackPanel>
                 </ui:CardAction>
                 <ui:CardAction

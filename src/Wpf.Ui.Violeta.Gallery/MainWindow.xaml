@@ -60,12 +60,12 @@
                         Margin="8,0,12,0"
                         SelectionChanged="LanguageComboBox_OnSelectionChanged">
                         <ComboBoxItem
-                            Content="简体中文"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1e81fc32fe}}"
                             IsSelected="True"
                             Tag="zh-Hans" />
-                        <ComboBoxItem Content="繁體中文" Tag="zh-Hant" />
-                        <ComboBoxItem Content="English" Tag="en" />
-                        <ComboBoxItem Content="日本語" Tag="ja" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d0bb8c23f6}}" Tag="zh-Hant" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_78463a384a}}" Tag="en" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f32ced6a9b}}" Tag="ja" />
                     </ComboBox>
                     <TextBlock
                         VerticalAlignment="Center"
@@ -88,7 +88,7 @@
             x:Name="GalleryNav"
             Grid.Row="1"
             Margin="16,0,16,16"
-            AlwaysShowHeader="True"
+            AlwaysShowHeader="{I18N {x:Static lang:LangKeys.Sample_f827cf462f}}"
             BackRequested="GalleryNav_OnBackRequested"
             CompactPaneLength="52"
             Header="{I18N {x:Static lang:LangKeys.Gallery_Welcome}}"
@@ -128,9 +128,9 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Typography" Tag="design/typography" />
-                        <vio:NavigationViewItem Content="Icons" Tag="design/icons" />
-                        <vio:NavigationViewItem Content="Colors" Tag="design/colors" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Typography}}" Tag="design/typography" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}" Tag="design/icons" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}" Tag="design/colors" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -147,18 +147,18 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE73E;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Button" Tag="basic-input/button" />
-                        <vio:NavigationViewItem Content="RepeatButton" Tag="basic-input/repeat-button" />
-                        <vio:NavigationViewItem Content="DropDownButton" Tag="basic-input/drop-down-button" />
-                        <vio:NavigationViewItem Content="HyperlinkButton" Tag="basic-input/hyperlink-button" />
-                        <vio:NavigationViewItem Content="ToggleButton" Tag="basic-input/toggle-button" />
-                        <vio:NavigationViewItem Content="SplitButton" Tag="basic-input/split-button" />
-                        <vio:NavigationViewItem Content="LoadingButton" Tag="basic-input/loading-button" />
-                        <vio:NavigationViewItem Content="CopyButton" Tag="basic-input/copy-button" />
-                        <vio:NavigationViewItem Content="GoBackButton" Tag="basic-input/go-back-button" />
-                        <vio:NavigationViewItem Content="AnimatedSymbolButton" Tag="basic-input/animated-symbol-button" />
-                        <vio:NavigationViewItem Content="IconToggleButton" Tag="basic-input/icon-toggle-button" />
-                        <vio:NavigationViewItem Content="ToggleButtonGroup" Tag="basic-input/toggle-button-group" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}" Tag="basic-input/button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_RepeatButton}}" Tag="basic-input/repeat-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}" Tag="basic-input/drop-down-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_HyperlinkButton}}" Tag="basic-input/hyperlink-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButton}}" Tag="basic-input/toggle-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SplitButton}}" Tag="basic-input/split-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_LoadingButton}}" Tag="basic-input/loading-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CopyButton}}" Tag="basic-input/copy-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GoBackButton}}" Tag="basic-input/go-back-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimatedSymbolButton}}" Tag="basic-input/animated-symbol-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_IconToggleButton}}" Tag="basic-input/icon-toggle-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}" Tag="basic-input/toggle-button-group" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -167,11 +167,11 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE739;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="CheckBox" Tag="basic-input/check-box" />
-                        <vio:NavigationViewItem Content="RadioButton" Tag="basic-input/radio-button" />
-                        <vio:NavigationViewItem Content="ToggleSwitch" Tag="basic-input/toggle-switch" />
-                        <vio:NavigationViewItem Content="Rating" Tag="basic-input/rating" />
-                        <vio:NavigationViewItem Content="ThumbRate" Tag="basic-input/thumb-rate" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CheckBox}}" Tag="basic-input/check-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_RadioButton}}" Tag="basic-input/radio-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleSwitch}}" Tag="basic-input/toggle-switch" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Rating}}" Tag="basic-input/rating" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThumbRate}}" Tag="basic-input/thumb-rate" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -180,9 +180,9 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE76B;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Slider" Tag="basic-input/slider" />
-                        <vio:NavigationViewItem Content="RangeSlider" Tag="basic-input/range-slider" />
-                        <vio:NavigationViewItem Content="VirtualJoystick" Tag="basic-input/virtual-joystick" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}" Tag="basic-input/slider" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_RangeSlider}}" Tag="basic-input/range-slider" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_VirtualJoystick}}" Tag="basic-input/virtual-joystick" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -191,10 +191,10 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8EF;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="NumberBox" Tag="text/number-box" />
-                        <vio:NavigationViewItem Content="NumericUpDown" Tag="basic-input/numeric-up-down" />
-                        <vio:NavigationViewItem Content="NumberComboBox" Tag="basic-input/number-combo-box" />
-                        <vio:NavigationViewItem Content="ButtonSpinner" Tag="basic-input/button-spinner" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberBox}}" Tag="text/number-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumericUpDown}}" Tag="basic-input/numeric-up-down" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberComboBox}}" Tag="basic-input/number-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ButtonSpinner}}" Tag="basic-input/button-spinner" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -203,16 +203,16 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8D2;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="TextBox" Tag="text/textbox" />
-                        <vio:NavigationViewItem Content="PasswordBox" Tag="text/password-box" />
-                        <vio:NavigationViewItem Content="RichTextBox" Tag="text/rich-text-box" />
-                        <vio:NavigationViewItem Content="AutoSuggestBox" Tag="text/auto-suggest-box" />
-                        <vio:NavigationViewItem Content="SearchBox" Tag="text/search-box" />
-                        <vio:NavigationViewItem Content="PinCode" Tag="basic-input/pin-code" />
-                        <vio:NavigationViewItem Content="KeyGestureInput" Tag="basic-input/key-gesture-input" />
-                        <vio:NavigationViewItem Content="IPv4Box" Tag="basic-input/ipv4-box" />
-                        <vio:NavigationViewItem Content="IPv4PortBox" Tag="basic-input/ipv4-port-box" />
-                        <vio:NavigationViewItem Content="TagInput" Tag="tag-input" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Textbox}}" Tag="text/textbox" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PasswordBox}}" Tag="text/password-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_RichTextBox}}" Tag="text/rich-text-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoSuggestBox}}" Tag="text/auto-suggest-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SearchBox}}" Tag="text/search-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PinCode}}" Tag="basic-input/pin-code" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_KeyGestureInput}}" Tag="basic-input/key-gesture-input" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4Box}}" Tag="basic-input/ipv4-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4PortBox}}" Tag="basic-input/ipv4-port-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TagInput}}" Tag="tag-input" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -221,13 +221,13 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8C8;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Label" Tag="text/label" />
-                        <vio:NavigationViewItem Content="TextBlock" Tag="text/text-block" />
-                        <vio:NavigationViewItem Content="SelectableTextBlock" Tag="text/selectable-text-block" />
-                        <vio:NavigationViewItem Content="NumberDisplayer" Tag="text/number-displayer" />
-                        <vio:NavigationViewItem Content="Hyperlink" Tag="text/hyperlink" />
-                        <vio:NavigationViewItem Content="BoolStateTextBlock" Tag="text/bool-state-text-block" />
-                        <vio:NavigationViewItem Content="Emoji" Tag="text/emoji" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Label}}" Tag="text/label" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TextBlock}}" Tag="text/text-block" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SelectableTextBlock}}" Tag="text/selectable-text-block" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberDisplayer}}" Tag="text/number-displayer" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" Tag="text/hyperlink" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}" Tag="text/bool-state-text-block" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}" Tag="text/emoji" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -236,13 +236,13 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE70D;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="ComboBox" Tag="basic-input/combo-box" />
-                        <vio:NavigationViewItem Content="ToggleComboBox" Tag="basic-input/toggle-combo-box" />
-                        <vio:NavigationViewItem Content="NumberComboBox" Tag="basic-input/number-combo-box" />
-                        <vio:NavigationViewItem Content="MultiComboBox" Tag="selectors/multi-combo-box" />
-                        <vio:NavigationViewItem Content="CascadingComboBox" Tag="selectors/cascading-combo-box" />
-                        <vio:NavigationViewItem Content="TagComboBox" Tag="selectors/tag-combo-box" />
-                        <vio:NavigationViewItem Content="TreeComboBox" Tag="selectors/tree-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ComboBox}}" Tag="basic-input/combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleComboBox}}" Tag="basic-input/toggle-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberComboBox}}" Tag="basic-input/number-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_MultiComboBox}}" Tag="selectors/multi-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CascadingComboBox}}" Tag="selectors/cascading-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TagComboBox}}" Tag="selectors/tag-combo-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeComboBox}}" Tag="selectors/tree-combo-box" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -251,18 +251,18 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="ValuePicker" Tag="selectors/value-picker" />
-                        <vio:NavigationViewItem Content="ColorPicker" Tag="selectors/color-picker" />
-                        <vio:NavigationViewItem Content="SwatchPicker" Tag="selectors/swatch-picker" />
-                        <vio:NavigationViewItem Content="DatePicker" Tag="date-time/date-picker" />
-                        <vio:NavigationViewItem Content="TimePicker" Tag="date-time/time-picker" />
-                        <vio:NavigationViewItem Content="CalendarDatePicker" Tag="date-time/calendar-date-picker" />
-                        <vio:NavigationViewItem Content="CalendarDateTimePicker" Tag="date-time/calendar-date-time-picker" />
-                        <vio:NavigationViewItem Content="TimeBoxPicker" Tag="date-time/time-box-picker" />
-                        <vio:NavigationViewItem Content="TimeBox" Tag="date-time/time-box" />
-                        <vio:NavigationViewItem Content="Calendar" Tag="date-time/calendar" />
-                        <vio:NavigationViewItem Content="FilePicker" Tag="op-system/file-picker" />
-                        <vio:NavigationViewItem Content="OpenFolderDialog" Tag="dialogs/open-folder-dialog" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ValuePicker}}" Tag="selectors/value-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ColorPicker}}" Tag="selectors/color-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SwatchPicker}}" Tag="selectors/swatch-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DatePicker}}" Tag="date-time/date-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimePicker}}" Tag="date-time/time-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDatePicker}}" Tag="date-time/calendar-date-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDateTimePicker}}" Tag="date-time/calendar-date-time-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBoxPicker}}" Tag="date-time/time-box-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBox}}" Tag="date-time/time-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Calendar}}" Tag="date-time/calendar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FilePicker}}" Tag="op-system/file-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_OpenFolderDialog}}" Tag="dialogs/open-folder-dialog" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -271,15 +271,15 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8BD;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="ContentDialog" Tag="dialogs/content-dialog" />
-                        <vio:NavigationViewItem Content="MessageBox" Tag="dialogs/message-box" />
-                        <vio:NavigationViewItem Content="PendingBox" Tag="dialogs/pending-box" />
-                        <vio:NavigationViewItem Content="TaskDialog" Tag="dialogs/task-dialog" />
-                        <vio:NavigationViewItem Content="NativeMessageBox" Tag="dialogs/native-message-box" />
-                        <vio:NavigationViewItem Content="CredentialDialog" Tag="dialogs/credential-dialog" />
-                        <vio:NavigationViewItem Content="Flyout" Tag="dialogs/flyout" />
-                        <vio:NavigationViewItem Content="FluentPopup" Tag="dialogs/fluent-popup" />
-                        <vio:NavigationViewItem Content="TeachingTip" Tag="dialogs/teaching-tip" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentDialog}}" Tag="dialogs/content-dialog" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_MessageBox}}" Tag="dialogs/message-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PendingBox}}" Tag="dialogs/pending-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TaskDialog}}" Tag="dialogs/task-dialog" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NativeMessageBox}}" Tag="dialogs/native-message-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CredentialDialog}}" Tag="dialogs/credential-dialog" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Flyout}}" Tag="dialogs/flyout" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentPopup}}" Tag="dialogs/fluent-popup" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TeachingTip}}" Tag="dialogs/teaching-tip" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -288,11 +288,11 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE789;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Snackbar" Tag="notifications/snackbar" />
-                        <vio:NavigationViewItem Content="Toast" Tag="notifications/toast" />
-                        <vio:NavigationViewItem Content="Banner" Tag="notifications/banner" />
-                        <vio:NavigationViewItem Content="Notification" Tag="notifications/notification" />
-                        <vio:NavigationViewItem Content="TrayIcon" Tag="notifications/tray-icon" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Snackbar}}" Tag="notifications/snackbar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Toast}}" Tag="notifications/toast" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Banner}}" Tag="notifications/banner" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Notification}}" Tag="notifications/notification" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TrayIcon}}" Tag="notifications/tray-icon" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -301,18 +301,18 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE9D9;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="DataGrid" Tag="collections/data-grid" />
-                        <vio:NavigationViewItem Content="ListBox" Tag="collections/list-box" />
-                        <vio:NavigationViewItem Content="ListView" Tag="collections/list-view" />
-                        <vio:NavigationViewItem Content="GridView" Tag="collections/grid-view" />
-                        <vio:NavigationViewItem Content="TreeView" Tag="collections/tree-view" />
-                        <vio:NavigationViewItem Content="TreeListView" Tag="collections/tree-list-view" />
-                        <vio:NavigationViewItem Content="TreeModelListView" Tag="collections/tree-model-list-view" />
-                        <vio:NavigationViewItem Content="FlipView" Tag="collections/flip-view" />
-                        <vio:NavigationViewItem Content="Carousel" Tag="collections/carousel" />
-                        <vio:NavigationViewItem Content="CardCarousel" Tag="collections/card-carousel" />
-                        <vio:NavigationViewItem Content="Pagination" Tag="collections/pagination" />
-                        <vio:NavigationViewItem Content="Timeline" Tag="collections/timeline" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DataGrid}}" Tag="collections/data-grid" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ListBox}}" Tag="collections/list-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ListView}}" Tag="collections/list-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GridView}}" Tag="collections/grid-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeView}}" Tag="collections/tree-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeListView}}" Tag="collections/tree-list-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeModelListView}}" Tag="collections/tree-model-list-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FlipView}}" Tag="collections/flip-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Carousel}}" Tag="collections/carousel" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardCarousel}}" Tag="collections/card-carousel" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Pagination}}" Tag="collections/pagination" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Timeline}}" Tag="collections/timeline" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -321,16 +321,16 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE700;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="NavigationView" Tag="navigation/navigation-view" />
-                        <vio:NavigationViewItem Content="BreadcrumbBar" Tag="navigation/breadcrumb-bar" />
-                        <vio:NavigationViewItem Content="Menu" Tag="navigation/menu" />
-                        <vio:NavigationViewItem Content="ToolBar" Tag="navigation/tool-bar" />
-                        <vio:NavigationViewItem Content="TabControl" Tag="navigation/tab-control" />
-                        <vio:NavigationViewItem Content="TabView" Tag="navigation/tab-view" />
-                        <vio:NavigationViewItem Content="TabStrip" Tag="navigation/tab-strip" />
-                        <vio:NavigationViewItem Content="Segmented" Tag="navigation/segmented" />
-                        <vio:NavigationViewItem Content="Pivot" Tag="navigation/pivot" />
-                        <vio:NavigationViewItem Content="Anchor" Tag="navigation/anchor" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NavigationView}}" Tag="navigation/navigation-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BreadcrumbBar}}" Tag="navigation/breadcrumb-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Menu}}" Tag="navigation/menu" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolBar}}" Tag="navigation/tool-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabControl}}" Tag="navigation/tab-control" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabView}}" Tag="navigation/tab-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabStrip}}" Tag="navigation/tab-strip" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}" Tag="navigation/segmented" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Pivot}}" Tag="navigation/pivot" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Anchor}}" Tag="navigation/anchor" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -339,20 +339,20 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8A5;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="CardControl" Tag="layout/card-control" />
-                        <vio:NavigationViewItem Content="CardAction" Tag="layout/card-action" />
-                        <vio:NavigationViewItem Content="CardProgress" Tag="layout/card-progress" />
-                        <vio:NavigationViewItem Content="Tile" Tag="layout/tile-press-feedback" />
-                        <vio:NavigationViewItem Content="AutoGrid" Tag="layout/auto-grid" />
-                        <vio:NavigationViewItem Content="Border" Tag="layout/border" />
-                        <vio:NavigationViewItem Content="DropShadowChrome" Tag="layout/drop-shadow-chrome" />
-                        <vio:NavigationViewItem Content="AspectRatioLayout" Tag="layout/aspect-ratio-layout" />
-                        <vio:NavigationViewItem Content="Form" Tag="layout/form" />
-                        <vio:NavigationViewItem Content="GridSplitter" Tag="layout/grid-splitter" />
-                        <vio:NavigationViewItem Content="Divider" Tag="layout/divider" />
-                        <vio:NavigationViewItem Content="Drawer" Tag="layout/drawer" />
-                        <vio:NavigationViewItem Content="Expander" Tag="layout/expander" />
-                        <vio:NavigationViewItem Content="FluentScrollViewer" Tag="layout/fluent-scroll-viewer" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardControl}}" Tag="layout/card-control" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardAction}}" Tag="layout/card-action" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardProgress}}" Tag="layout/card-progress" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TilePressFeedback}}" Tag="layout/tile-press-feedback" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}" Tag="layout/auto-grid" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Border}}" Tag="layout/border" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DropShadowChrome}}" Tag="layout/drop-shadow-chrome" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AspectRatioLayout}}" Tag="layout/aspect-ratio-layout" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Form}}" Tag="layout/form" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GridSplitter}}" Tag="layout/grid-splitter" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Divider}}" Tag="layout/divider" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}" Tag="layout/drawer" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Expander}}" Tag="layout/expander" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentScrollViewer}}" Tag="layout/fluent-scroll-viewer" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -361,17 +361,17 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="InfoBadge" Tag="status/info-badge" />
-                        <vio:NavigationViewItem Content="InfoBar" Tag="status/info-bar" />
-                        <vio:NavigationViewItem Content="ProgressBar" Tag="status/progress-bar" />
-                        <vio:NavigationViewItem Content="ProgressRing" Tag="status/progress-ring" />
-                        <vio:NavigationViewItem Content="Badge" Tag="status/badge" />
-                        <vio:NavigationViewItem Content="VolumeView" Tag="status/volume-view" />
-                        <vio:NavigationViewItem Content="Skeleton" Tag="status/skeleton" />
-                        <vio:NavigationViewItem Content="BusyMask" Tag="status/busy-mask" />
-                        <vio:NavigationViewItem Content="BoolStateContentControl" Tag="status/bool-state-content-control" />
-                        <vio:NavigationViewItem Content="ToolTip" Tag="status/tool-tip" />
-                        <vio:NavigationViewItem Content="StatusBar" Tag="status/status-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBadge}}" Tag="status/info-badge" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBar}}" Tag="status/info-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}" Tag="status/progress-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressRing}}" Tag="status/progress-ring" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Badge}}" Tag="status/badge" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_VolumeView}}" Tag="status/volume-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Skeleton}}" Tag="status/skeleton" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BusyMask}}" Tag="status/busy-mask" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateContentControl}}" Tag="status/bool-state-content-control" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolTip}}" Tag="status/tool-tip" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_StatusBar}}" Tag="status/status-bar" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -380,15 +380,15 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE8B9;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Image" Tag="media/image" />
-                        <vio:NavigationViewItem Content="ImageView" Tag="media/image-view" />
-                        <vio:NavigationViewItem Content="Canvas" Tag="media/canvas" />
-                        <vio:NavigationViewItem Content="WebBrowser" Tag="media/web-browser" />
-                        <vio:NavigationViewItem Content="WebView2" Tag="media/web-view2" />
-                        <vio:NavigationViewItem Content="PersonPicture" Tag="media/person-picture" />
-                        <vio:NavigationViewItem Content="BitmapIcon" Tag="media/bitmap-icon" />
-                        <vio:NavigationViewItem Content="QrCode" Tag="media/qr-code" />
-                        <vio:NavigationViewItem Content="CachedImage" Tag="media/cached-image" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Image}}" Tag="media/image" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ImageView}}" Tag="media/image-view" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Canvas}}" Tag="media/canvas" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_WebBrowser}}" Tag="media/web-browser" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_WebView2}}" Tag="media/web-view2" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PersonPicture}}" Tag="media/person-picture" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BitmapIcon}}" Tag="media/bitmap-icon" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" Tag="media/qr-code" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CachedImage}}" Tag="media/cached-image" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -397,11 +397,11 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE895;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="TransitioningContentControl" Tag="feedback/transitioning-content-control" />
-                        <vio:NavigationViewItem Content="RunningBlock" Tag="feedback/running-block" />
-                        <vio:NavigationViewItem Content="AsyncBox" Tag="feedback/async-box" />
-                        <vio:NavigationViewItem Content="Splash" Tag="feedback/splash" />
-                        <vio:NavigationViewItem Content="ExceptionReport" Tag="feedback/exception-report" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TransitioningContentControl}}" Tag="feedback/transitioning-content-control" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_RunningBlock}}" Tag="feedback/running-block" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AsyncBox}}" Tag="feedback/async-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Splash}}" Tag="feedback/splash" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ExceptionReport}}" Tag="feedback/exception-report" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -410,10 +410,10 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE737;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="ShellWindow" Tag="windows/shell-window" />
-                        <vio:NavigationViewItem Content="ContentWindow" Tag="windows/content-window" />
-                        <vio:NavigationViewItem Content="TitleBar" Tag="windows/title-bar" />
-                        <vio:NavigationViewItem Content="CaptionButtonBar" Tag="windows/caption-button-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ShellWindow}}" Tag="windows/shell-window" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentWindow}}" Tag="windows/content-window" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TitleBar}}" Tag="windows/title-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CaptionButtonBar}}" Tag="windows/caption-button-bar" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -422,7 +422,7 @@
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="&#xE770;" />
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
-                        <vio:NavigationViewItem Content="Clipboard" Tag="op-system/clipboard" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Clipboard}}" Tag="op-system/clipboard" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
             </vio:NavigationView.MenuItems>

@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Drawer"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Drawer" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -56,7 +56,7 @@
                         Margin="0,0,0,8"
                         FontSize="13"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="NavigationViewDefaultPaneBackground" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f8029247b6}}" />
                     <TextBlock
                         Margin="0,0,0,4"
                         FontSize="12"
@@ -71,22 +71,22 @@
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowDrawer_Click"
-                            Content="Left"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_583e7924e9}}"
                             Tag="Left" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowDrawer_Click"
-                            Content="Top"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_a4ffdcf0dc}}"
                             Tag="Top" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowDrawer_Click"
-                            Content="Right"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_92b09c7c48}}"
                             Tag="Right" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowDrawer_Click"
-                            Content="Bottom"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_2ad9d63b69}}"
                             Tag="Bottom" />
                         <ui:Button
                             Margin="0,0,8,8"
@@ -102,7 +102,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Drawer Container" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_c31cea010f}}" />
 
                         <ui:Drawer
                             x:Name="LeftDrawer"
@@ -113,7 +113,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Text="Drawer - Left" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_714d778cc5}}" />
                             </Border>
                         </ui:Drawer>
 
@@ -126,7 +126,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Text="Drawer - Top" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e36ce07bd9}}" />
                             </Border>
                         </ui:Drawer>
 
@@ -139,7 +139,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Text="Drawer - Right" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_4345445667}}" />
                             </Border>
                         </ui:Drawer>
 
@@ -152,7 +152,7 @@
                                 <TextBlock
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Text="Drawer - Bottom" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_9fbff36808}}" />
                             </Border>
                         </ui:Drawer>
                     </Grid>

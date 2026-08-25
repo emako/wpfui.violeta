@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Flyout"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Flyout}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="Flyout" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Flyout}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -26,25 +26,25 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ui:Flyout" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2d90f155d8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_7a37cf1b92}}" />
                     <StackPanel Orientation="Horizontal">
-                        <ui:Button Margin="0,0,16,0" Content="Button">
+                        <ui:Button Margin="0,0,16,0" Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}">
                             <ui:FlyoutService.Flyout>
                                 <ui:Flyout Placement="Bottom">
                                     <StackPanel>
                                         <TextBlock
                                             Width="280"
                                             HorizontalAlignment="Left"
-                                            Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_b8e5adbbb4}}"
                                             TextWrapping="WrapWithOverflow" />
                                         <Button
                                             Margin="0,8,0,0"
                                             Click="ShowFlyoutInline_Click"
-                                            Content="The cake is a lie!" />
+                                            Content="{I18N {x:Static lang:LangKeys.Sample_47635cbe1a}}" />
                                     </StackPanel>
                                 </ui:Flyout>
                             </ui:FlyoutService.Flyout>
@@ -56,16 +56,16 @@
                                         <TextBlock
                                             Width="280"
                                             HorizontalAlignment="Left"
-                                            Text="Replicants like any other machine are either a benefit or a hazard. If they're a benefit it's not my problem."
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_b8e5adbbb4}}"
                                             TextWrapping="WrapWithOverflow" />
                                         <Button
                                             Margin="0,8,0,0"
                                             Click="ShowFlyoutInline_Click"
-                                            Content="The cake is a lie!" />
+                                            Content="{I18N {x:Static lang:LangKeys.Sample_47635cbe1a}}" />
                                     </StackPanel>
                                 </ui:Flyout>
                             </ui:FlyoutService.Flyout>
-                            <TextBlock Text="Card" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_1d565b9e53}}" />
                         </ui:Card>
                     </StackPanel>
                 </StackPanel>

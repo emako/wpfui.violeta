@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="RunningBlock"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_RunningBlock}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="RunningBlock" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RunningBlock}}" />
             <Border
                 Margin="0,0,0,16"
                 Padding="20"
@@ -41,7 +41,7 @@
                         Padding="10,0"
                         HorizontalAlignment="Left"
                         AutoRun="True"
-                        Content="This is a RunningBlock demo (AutoRun: true)"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_884cf29a24}}"
                         FontSize="16"
                         Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
                         Runaway="True"
@@ -54,7 +54,7 @@
                         Padding="10,0"
                         HorizontalAlignment="Left"
                         AutoRun="False"
-                        Content="This is a RunningBlock demo (AutoRun: false, Runaway: false)"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_ef63950d96}}"
                         FontSize="16"
                         Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
                         Runaway="False"
@@ -66,7 +66,7 @@
                         Padding="10,0"
                         HorizontalAlignment="Left"
                         AutoRun="False"
-                        Content="This is a RunningBlock demo (AutoRun: false, Runaway: true)"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_c59432a4e9}}"
                         FontSize="16"
                         Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
                         Runaway="True"

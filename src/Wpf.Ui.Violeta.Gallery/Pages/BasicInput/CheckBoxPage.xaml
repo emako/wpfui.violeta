@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="CheckBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CheckBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CheckBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CheckBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,12 +30,12 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Two-state CheckBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9c1ee7f207}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_f1add48d43}}" />
-                    <CheckBox Content="Two-state CheckBox" />
+                    <CheckBox Content="{I18N {x:Static lang:LangKeys.Sample_9c1ee7f207}}" />
                 </StackPanel>
             </Border>
 
@@ -51,13 +51,13 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Three-state CheckBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e90ddbc56a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_c757dd6e88}}" />
                     <CheckBox
-                        Content="Three-state CheckBox"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_e90ddbc56a}}"
                         IsChecked="{x:Null}"
                         IsThreeState="True" />
                 </StackPanel>
@@ -75,7 +75,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Select all" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4c41e0bd95}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -83,7 +83,7 @@
                     <CheckBox
                         x:Name="SelectAllCheckBox"
                         Checked="SelectAll_Checked"
-                        Content="Select all"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_4c41e0bd95}}"
                         Indeterminate="SelectAll_Indeterminate"
                         IsThreeState="True"
                         Unchecked="SelectAll_Unchecked" />
@@ -91,19 +91,19 @@
                         x:Name="Option1CheckBox"
                         Margin="24,8,0,0"
                         Checked="Option_CheckedChanged"
-                        Content="Option 1"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_fd577a8bfd}}"
                         Unchecked="Option_CheckedChanged" />
                     <CheckBox
                         x:Name="Option2CheckBox"
                         Margin="24,0,0,0"
                         Checked="Option_CheckedChanged"
-                        Content="Option 2"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_e24963e407}}"
                         Unchecked="Option_CheckedChanged" />
                     <CheckBox
                         x:Name="Option3CheckBox"
                         Margin="24,0,0,0"
                         Checked="Option_CheckedChanged"
-                        Content="Option 3"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_fbeee6bcd1}}"
                         Unchecked="Option_CheckedChanged" />
                 </StackPanel>
             </Border>

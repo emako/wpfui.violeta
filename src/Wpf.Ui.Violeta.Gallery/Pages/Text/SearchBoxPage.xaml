@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="SearchBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_SearchBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="SearchBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SearchBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="vio:SearchBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_73b3d93de0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -45,7 +45,7 @@
                             Grid.Column="0"
                             Width="320"
                             HorizontalAlignment="Left"
-                            PlaceholderText="Search..."
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Gallery_SearchPlaceholder}}"
                             QueryChanged="OnQueryChanged"
                             QuerySubmitted="OnQuerySubmitted" />
                         <CheckBox
@@ -59,12 +59,12 @@
                         x:Name="QueryChangedResult"
                         Margin="0,12,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="QueryChanged：—" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_940f45db02}}" />
                     <TextBlock
                         x:Name="QuerySubmittedResult"
                         Margin="0,4,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="QuerySubmitted：—" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9cabd9e8dc}}" />
                 </StackPanel>
             </Border>
 
@@ -88,7 +88,7 @@
                     <vio:SearchBox
                         Width="320"
                         HorizontalAlignment="Left"
-                        PlaceholderText="Filter files...">
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_c499ef0ff8}}">
                         <vio:SearchBox.Icon>
                             <ui:SymbolIcon Symbol="Filter24" />
                         </vio:SearchBox.Icon>
@@ -113,8 +113,8 @@
                         Width="320"
                         HorizontalAlignment="Left"
                         IsEnabled="False"
-                        PlaceholderText="Disabled"
-                        Text="Cannot edit" />
+                        PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4c141901e2}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

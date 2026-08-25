@@ -8,7 +8,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="NumberComboBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberComboBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="NumberComboBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberComboBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -42,12 +42,12 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="int (−100…100)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_302efd43e9}}" />
                             <vio:NumberIntComboBox
                                 Width="200"
                                 Maximum="100"
                                 Minimum="-100"
-                                PlaceholderText="enter int…">
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_88787e0a8d}}">
                                 <sys:Int32>-100</sys:Int32>
                                 <sys:Int32>-50</sys:Int32>
                                 <sys:Int32>0</sys:Int32>
@@ -61,7 +61,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="double (0…1)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_2ca4618120}}" />
                             <vio:NumberDoubleComboBox
                                 Width="200"
                                 FormatString="N2"
@@ -80,11 +80,11 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="decimal" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_bdaa3c20a3}}" />
                             <vio:NumberDecimalComboBox
                                 Width="200"
                                 FormatString="N2"
-                                PlaceholderText="decimal…">
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_6e5cae44cd}}">
                                 <sys:Decimal>0.01</sys:Decimal>
                                 <sys:Decimal>0.1</sys:Decimal>
                                 <sys:Decimal>1</sys:Decimal>
@@ -97,8 +97,8 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="byte (0…255)" />
-                            <vio:NumberByteComboBox Width="200" PlaceholderText="0-255">
+                                Text="{I18N {x:Static lang:LangKeys.Sample_aaf18794ce}}" />
+                            <vio:NumberByteComboBox Width="200" PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_04a9acc623}}">
                                 <sys:Byte>0</sys:Byte>
                                 <sys:Byte>32</sys:Byte>
                                 <sys:Byte>64</sys:Byte>
@@ -129,7 +129,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="prefix" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_851f5ac994}}" />
                             <vio:NumberDoubleComboBox
                                 Width="200"
                                 FormatString="N2"
@@ -151,13 +151,13 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="suffix" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_4ec1b477cd}}" />
                             <vio:NumberIntComboBox
                                 Width="200"
                                 InnerRightContent="px"
                                 Maximum="96"
                                 Minimum="8"
-                                PlaceholderText="size"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_f7bd60b75b}}"
                                 Value="16">
                                 <sys:Int32>8</sys:Int32>
                                 <sys:Int32>12</sys:Int32>
@@ -192,7 +192,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="read-only" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_7233b8e3ea}}" />
                             <vio:NumberIntComboBox
                                 Width="200"
                                 InnerRightContent="kg"
@@ -208,7 +208,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="disabled" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_075ae3d2fc}}" />
                             <vio:NumberIntComboBox
                                 Width="200"
                                 InnerRightContent="%"

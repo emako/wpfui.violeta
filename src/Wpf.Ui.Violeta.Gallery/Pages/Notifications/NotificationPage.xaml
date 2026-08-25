@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Notification"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Notification}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Notification" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Notification}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,30 +31,30 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="BalloonTip" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8b46c3bc9e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         TextWrapping="Wrap"
-                        Text="Static helpers similar to Toast. Uses a hidden tray icon internally, so apps do not need to host TrayIconHost." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_758ba147c8}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Appearance="Primary"
                             Click="ShowInformation_Click"
-                            Content="Information" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_a82be0f551}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowWarning_Click"
-                            Content="Warning" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowError_Click"
-                            Content="Error" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowNone_Click"
-                            Content="None" />
+                            Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_None}}" />
                     </WrapPanel>
                 </StackPanel>
             </Border>

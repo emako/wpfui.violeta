@@ -63,22 +63,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="None|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="None|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="None|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="None|Center" />
                         </WrapPanel>
 
@@ -92,22 +92,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="Information|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="Information|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="Information|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="Information|Center" />
                         </WrapPanel>
 
@@ -121,22 +121,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="Success|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="Success|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="Success|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="Success|Center" />
                         </WrapPanel>
 
@@ -150,22 +150,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="Error|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="Error|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="Error|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="Error|Center" />
                         </WrapPanel>
 
@@ -179,22 +179,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="Warning|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="Warning|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="Warning|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="Warning|Center" />
                         </WrapPanel>
 
@@ -208,22 +208,22 @@
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_91b8ede24b}}"
                                 Tag="Question|TopCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="TopRight"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_1d85a55789}}"
                                 Tag="Question|TopRight" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="BottomCenter"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bf7d9c8ad2}}"
                                 Tag="Question|BottomCenter" />
                             <ui:Button
                                 Margin="0,0,8,4"
                                 Click="ShowToast_Click"
-                                Content="Center"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0bbc2ea4e1}}"
                                 Tag="Question|Center" />
                         </WrapPanel>
 

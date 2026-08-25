@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Menu"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Menu}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Menu" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Menu}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -34,65 +34,65 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Menu uses ui:ControlHelper.IconFontSize=18 and IconWidth=20 so top-level / submenu icons share a uniform slot (default IconWidth=NaN is auto)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3d38c23243}}"
                         TextWrapping="Wrap" />
                     <Menu
                         FontSize="14"
                         ui:ControlHelper.IconFontSize="18"
                         ui:ControlHelper.IconWidth="20">
-                        <ui:MenuItem Header="File" Icon="{ui:SymbolIcon Document24}">
-                            <ui:MenuItem Header="New" InputGestureText="CTRL+N" />
-                            <ui:MenuItem Header="Open..." InputGestureText="CTRL+O" />
-                            <ui:MenuItem Header="Save" InputGestureText="CTRL+S" />
-                            <ui:MenuItem Header="Save As..." InputGestureText="CTRL+SHIFT+S" />
+                        <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_0b27918290}}" Icon="{ui:SymbolIcon Document24}">
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_26bb841878}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_b114e3cd30}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_ba66f68099}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_f53168ebeb}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_be753f71e3}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_61ac98f5cc}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_eaafe93ae6}}" />
                             <Separator />
-                            <ui:MenuItem Header="Recent">
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_dae52b8071}}">
                                 <!-- string Icon → FontIcon (Glyph), FontFamily=SymbolThemeFontFamily, size from IconFontSize -->
-                                <ui:MenuItem Header="Project A.sln" Icon="&#xE8A5;" />
-                                <ui:MenuItem Header="Project B.sln" Icon="&#xE8A5;" />
-                                <ui:MenuItem Header="More">
-                                    <ui:MenuItem Header="Archive 2024" />
-                                    <ui:MenuItem Header="Archive 2025" />
-                                    <ui:MenuItem Header="Archive 2026" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_fddd82fee0}}" Icon="&#xE8A5;" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_967d1bf3a1}}" Icon="&#xE8A5;" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_d3da97e2d9}}">
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_fac5cc4b04}}" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_ae654acc99}}" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_3943241bd1}}" />
                                 </ui:MenuItem>
                             </ui:MenuItem>
                             <Separator />
-                            <ui:MenuItem Header="Exit" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_c3992269b4}}" />
                         </ui:MenuItem>
-                        <ui:MenuItem Header="Edit" Icon="{ui:SymbolIcon DocumentEdit20}">
-                            <ui:MenuItem Header="Undo" InputGestureText="CTRL+Z" />
+                        <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_7dce122004}}" Icon="{ui:SymbolIcon DocumentEdit20}">
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_bd9fcf46b4}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_e5639828ae}}" />
                             <Separator />
-                            <ui:MenuItem Header="Cut" InputGestureText="CTRL+X" />
-                            <ui:MenuItem Header="Copy" InputGestureText="CTRL+C" />
-                            <ui:MenuItem Header="Paste" InputGestureText="CTRL+V" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_43fc77886b}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_7fcde52c9b}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_628c4615e1}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_eafbece101}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_be2fa6a418}}" />
                             <ui:MenuItem IsEnabled="False" />
                             <Separator />
                             <ui:MenuItem
-                                Header="Word wrap"
-                                InputGestureText="CTRL+SHIFT+W"
+                                Header="{I18N {x:Static lang:LangKeys.Sample_1cc5c88b14}}"
+                                InputGestureText="{I18N {x:Static lang:LangKeys.Sample_d9bc7d0e89}}"
                                 IsCheckable="True"
                                 IsChecked="True" />
-                            <ui:MenuItem Header="Find..." InputGestureText="CTRL+F" />
-                            <ui:MenuItem Header="Find next" InputGestureText="F3" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_fe77d5fbcd}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_db9079247e}}" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_322b95851a}}" InputGestureText="F3" />
                             <Separator />
-                            <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_45e96c0a42}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_0fcdcf23e5}}" />
                         </ui:MenuItem>
-                        <ui:MenuItem Header="View" Icon="{ui:SymbolIcon Eye24}">
-                            <ui:MenuItem Header="Zoom">
-                                <ui:MenuItem Header="Zoom In" InputGestureText="CTRL++" />
-                                <ui:MenuItem Header="Zoom Out" InputGestureText="CTRL+-" />
-                                <ui:MenuItem Header="Reset" InputGestureText="CTRL+0" />
+                        <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_4351cfebe4}}" Icon="{ui:SymbolIcon Eye24}">
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_4252b72e6e}}">
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_f5ca4abce8}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_401ee19efd}}" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_30850b501f}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_4e664e5784}}" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_4b9c3271dc}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_bd0ae58d0c}}" />
                             </ui:MenuItem>
-                            <ui:MenuItem Header="Layout">
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Gallery_Nav_Layout}}">
                                 <ui:MenuItem
-                                    Header="Single column"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_c69320e289}}"
                                     IsCheckable="True"
                                     IsChecked="True" />
-                                <ui:MenuItem Header="Two columns" IsCheckable="True" />
-                                <ui:MenuItem Header="Three columns" IsCheckable="True" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_53f90459ac}}" IsCheckable="True" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_63bd7d20cb}}" IsCheckable="True" />
                             </ui:MenuItem>
                             <Separator />
-                            <ui:MenuItem Header="Full screen" InputGestureText="F11" />
+                            <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_764ff8d94d}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_643b066242}}" />
                         </ui:MenuItem>
                         <Separator />
                         <ui:MenuItem Icon="{ui:SymbolIcon TextBold20}" />
@@ -114,25 +114,25 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ContextMenu (Placement=Bottom)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9f1662c76b}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Left: ContextMenu IconFontSize=20 + IconWidth=22 (all icons). Middle item FontSize=12 wins size; Share item overrides IconFontSize/IconWidth. Right DropDown unchanged."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_aad972b95a}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <ui:Button
                             Margin="0,0,12,0"
                             Click="OnOpenContextMenuClick"
-                            Content="IconFontSize / IconWidth on menu"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d5f5e93fca}}"
                             Icon="{ui:SymbolIcon ChevronDown24}">
                             <ui:Button.ContextMenu>
                                 <ContextMenu
                                     ui:ControlHelper.IconFontSize="20"
                                     ui:ControlHelper.IconWidth="22">
-                                    <ui:MenuItem Header="New" Icon="&#xE8A5;" />
-                                    <ui:MenuItem Header="Open..." Icon="&#xE838;" />
-                                    <ui:MenuItem Header="Save (Icon FontSize=12 wins)">
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_26bb841878}}" Icon="&#xE8A5;" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_ba66f68099}}" Icon="&#xE838;" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_dbcff88eda}}">
                                         <ui:MenuItem.Icon>
                                             <ui:SymbolIcon FontSize="12" Symbol="Save24" />
                                         </ui:MenuItem.Icon>
@@ -140,31 +140,31 @@
                                     <ui:MenuItem
                                         ui:ControlHelper.IconFontSize="28"
                                         ui:ControlHelper.IconWidth="32"
-                                        Header="Share (item = 28 / 32)"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_f93ee83a87}}"
                                         Icon="&#xE72D;">
-                                        <ui:MenuItem Header="Copy link" Icon="&#xE8C8;" />
-                                        <ui:MenuItem Header="Email" Icon="&#xE715;" />
+                                        <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_b758336699}}" Icon="&#xE8C8;" />
+                                        <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_ce8ae9da5b}}" Icon="&#xE715;" />
                                     </ui:MenuItem>
                                     <Separator />
-                                    <ui:MenuItem Header="Exit" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_c3992269b4}}" />
                                 </ContextMenu>
                             </ui:Button.ContextMenu>
                         </ui:Button>
-                        <vio:DropDownButton Content="DropDownButton" Icon="{ui:SymbolIcon Fluent24}">
+                        <vio:DropDownButton Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}" Icon="{ui:SymbolIcon Fluent24}">
                             <vio:DropDownButton.Flyout>
                                 <ContextMenu>
-                                    <MenuItem Header="Add" />
-                                    <MenuItem Header="Remove" />
-                                    <MenuItem Header="Send">
-                                        <MenuItem Header="As email" />
-                                        <MenuItem Header="As file" />
-                                        <MenuItem Header="To device">
-                                            <MenuItem Header="Phone" />
-                                            <MenuItem Header="Tablet" />
-                                            <MenuItem Header="Desktop" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1bb125b89c}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1063e38cb5}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_94966d9074}}">
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_5f07e1c9a6}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_cd3668b9d5}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_0b05d4ec1b}}">
+                                            <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_bcc254b55c}}" />
+                                            <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_36384a9ea3}}" />
+                                            <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_2310408a63}}" />
                                         </MenuItem>
                                     </MenuItem>
-                                    <MenuItem Header="Hello" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_8b1a9953c4}}" />
                                 </ContextMenu>
                             </vio:DropDownButton.Flyout>
                         </vio:DropDownButton>
@@ -184,11 +184,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ContextMenu (right-click)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5b3ebc4802}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Right-click below. ContextMenu sets IconFontSize=22 and IconWidth=24 for all item icons (submenu items inherit)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6c847fa7a3}}"
                         TextWrapping="Wrap" />
                     <Border
                         Height="96"
@@ -201,31 +201,31 @@
                                 ui:ControlHelper.IconFontSize="22"
                                 ui:ControlHelper.IconWidth="24">
                                 <ui:MenuItem
-                                    Header="Cut"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_43fc77886b}}"
                                     Icon="{ui:SymbolIcon Cut24}"
-                                    InputGestureText="CTRL+X" />
+                                    InputGestureText="{I18N {x:Static lang:LangKeys.Sample_7fcde52c9b}}" />
                                 <ui:MenuItem
-                                    Header="Copy"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}"
                                     Icon="{ui:SymbolIcon Copy24}"
-                                    InputGestureText="CTRL+C" />
+                                    InputGestureText="{I18N {x:Static lang:LangKeys.Sample_628c4615e1}}" />
                                 <ui:MenuItem
-                                    Header="Paste"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_eafbece101}}"
                                     Icon="{ui:SymbolIcon ClipboardPaste24}"
-                                    InputGestureText="CTRL+V" />
-                                <ui:MenuItem Header="Paste special" Icon="{ui:SymbolIcon ClipboardPaste24}">
-                                    <ui:MenuItem Header="Keep text only" Icon="&#xE8C8;" />
-                                    <ui:MenuItem Header="Merge formatting" Icon="&#xE8AB;" />
-                                    <ui:MenuItem Header="Keep source formatting" Icon="&#xE8A5;" />
+                                    InputGestureText="{I18N {x:Static lang:LangKeys.Sample_be2fa6a418}}" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_a248c2206b}}" Icon="{ui:SymbolIcon ClipboardPaste24}">
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_bfa69a826f}}" Icon="&#xE8C8;" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_38ac16ad51}}" Icon="&#xE8AB;" />
+                                    <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_f3e545b191}}" Icon="&#xE8A5;" />
                                 </ui:MenuItem>
                                 <Separator />
-                                <ui:MenuItem Header="Select All" InputGestureText="CTRL+A" />
+                                <ui:MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_45e96c0a42}}" InputGestureText="{I18N {x:Static lang:LangKeys.Sample_0fcdcf23e5}}" />
                             </ContextMenu>
                         </Border.ContextMenu>
                         <TextBlock
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Right-click here" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_6ea355f5eb}}" />
                     </Border>
                 </StackPanel>
             </Border>

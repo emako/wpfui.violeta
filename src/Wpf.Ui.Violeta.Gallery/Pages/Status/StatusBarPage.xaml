@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="StatusBar"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_StatusBar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="StatusBar" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_StatusBar}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -89,7 +89,7 @@
                         </StatusBarItem>
                         <Separator Grid.Column="1" />
                         <StatusBarItem Grid.Column="2">
-                            <TextBlock Text="Document.xaml" />
+                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_01fc2bea89}}" />
                         </StatusBarItem>
                         <Separator Grid.Column="3" />
                         <StatusBarItem Grid.Column="4">
@@ -140,7 +140,7 @@
                             <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="BranchFork24" />
                         </StatusBarItem>
                         <StatusBarItem Grid.Column="1" Margin="0,0,8,0">
-                            <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="main *" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_11f5071b0e}}" />
                         </StatusBarItem>
                         <StatusBarItem Grid.Column="2" Margin="0,0,8,0">
                             <ui:SymbolIcon Foreground="{DynamicResource TextFillColorSecondaryBrush}" Symbol="ErrorCircle24" />
@@ -149,7 +149,7 @@
                             <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_ZeroErrors}}" />
                         </StatusBarItem>
                         <StatusBarItem Grid.Column="5">
-                            <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="UTF-8  CRLF  C#" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a36a5013ca}}" />
                         </StatusBarItem>
                     </StatusBar>
                 </StackPanel>

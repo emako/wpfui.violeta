@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="NumberDisplayer"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberDisplayer}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="NumberDisplayer" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberDisplayer}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -29,36 +30,36 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Animated value transition" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b8de573c27}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="NumberDisplayer interpolates between old and new values with a smooth rolling effect."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_474a772600}}"
                         TextWrapping="Wrap" />
                     <Button
                         Margin="0,0,0,16"
                         HorizontalAlignment="Left"
                         Click="Change_Click"
-                        Content="Change" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_f4ec5f57bd}}" />
                     <StackPanel Margin="0,0,0,8">
                         <TextBlock
                             Margin="0,0,0,4"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Int32Displayer" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_05c14b8832}}" />
                         <vio:Int32Displayer FontSize="24" Value="{Binding IntValue}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,8">
                         <TextBlock
                             Margin="0,0,0,4"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Int64Displayer" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_6c5b0d98b5}}" />
                         <vio:Int64Displayer FontSize="24" Value="{Binding LongValue}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,8">
                         <TextBlock
                             Margin="0,0,0,4"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="DoubleDisplayer (N2)" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_582ec0c988}}" />
                         <vio:DoubleDisplayer
                             FontSize="24"
                             StringFormat="N2"
@@ -68,7 +69,7 @@
                         <TextBlock
                             Margin="0,0,0,4"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="DateDisplay (yyyy-MM-dd)" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_420090ffd5}}" />
                         <vio:DateDisplay
                             FontSize="24"
                             StringFormat="yyyy-MM-dd"
@@ -88,11 +89,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Selectable" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8318ce1c96}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Set IsSelectable=&quot;True&quot; to allow selecting and copying the displayed text."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_86fc741fb1}}"
                         TextWrapping="Wrap" />
                     <StackPanel Margin="0,0,0,8">
                         <vio:Int32Displayer

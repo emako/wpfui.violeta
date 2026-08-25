@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TabStrip"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TabStrip}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TabStrip" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TabStrip}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -35,12 +35,12 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IndicatorAnimation=Fluent" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_319fe31ff0}}" />
                     <vio:TabStrip IndicatorAnimation="Fluent">
-                        <vio:TabStripItem Content="Overview" IsSelected="True" />
-                        <vio:TabStripItem Content="Details" />
-                        <vio:TabStripItem Content="Settings" />
-                        <vio:TabStripItem Content="History" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3b878279a0}}" IsSelected="True" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3ec365dd53}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_16d2b386b2}}" />
                     </vio:TabStrip>
                 </StackPanel>
             </Border>
@@ -59,10 +59,10 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_c09d2052d1}}" />
                     <vio:TabStrip Margin="0,8,0,0" IndicatorAnimation="Lengthening">
-                        <vio:TabStripItem Content="Overview" IsSelected="True" />
-                        <vio:TabStripItem Content="Details" />
-                        <vio:TabStripItem Content="Settings" />
-                        <vio:TabStripItem Content="History" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3b878279a0}}" IsSelected="True" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3ec365dd53}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_16d2b386b2}}" />
                     </vio:TabStrip>
                 </StackPanel>
             </Border>
@@ -81,16 +81,16 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_a5e9b0abe6}}" />
                     <vio:TabStrip Margin="0,8,0,12" Style="{DynamicResource CardTabStripStyle}">
-                        <vio:TabStripItem Content="Overview" IsSelected="True" />
-                        <vio:TabStripItem Content="Details" />
-                        <vio:TabStripItem Content="Settings" />
-                        <vio:TabStripItem Content="History" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3b878279a0}}" IsSelected="True" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3ec365dd53}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_16d2b386b2}}" />
                     </vio:TabStrip>
                     <vio:TabStrip Style="{DynamicResource ButtonTabStripStyle}">
-                        <vio:TabStripItem Content="All" IsSelected="True" />
-                        <vio:TabStripItem Content="Active" />
-                        <vio:TabStripItem Content="Paused" />
-                        <vio:TabStripItem Content="Archived" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_b1c94ca2fb}}" IsSelected="True" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_4d3d769b81}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_7d69b3cb4c}}" />
                     </vio:TabStrip>
                 </StackPanel>
             </Border>
@@ -109,9 +109,9 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_4402da40de}}" />
                     <vio:TabStrip Margin="0,8,0,0">
-                        <vio:TabStripItem Content="Active" IsSelected="True" />
-                        <vio:TabStripItem Content="Preview" />
-                        <vio:TabStripItem Content="Unavailable" IsEnabled="False" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_4d3d769b81}}" IsSelected="True" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_31fde7b05a}}" />
+                        <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_453e6aa38d}}" IsEnabled="False" />
                     </vio:TabStrip>
                 </StackPanel>
             </Border>

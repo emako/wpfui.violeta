@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="PinCode"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_PinCode}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="PinCode" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_PinCode}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -36,15 +36,15 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_cae0504af9}}" />
                     <StackPanel>
-                        <TextBlock Margin="0,0,0,4" Text="Digit + Letter (default, Count=4)" />
+                        <TextBlock Margin="0,0,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_5c9e0cd91b}}" />
                         <vio:PinCode Margin="0,0,0,16" HorizontalAlignment="Left" Count="4" />
-                        <TextBlock Margin="0,0,0,4" Text="Digit only (Count=6)" />
+                        <TextBlock Margin="0,0,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_615e30201a}}" />
                         <vio:PinCode
                             Margin="0,0,0,16"
                             HorizontalAlignment="Left"
                             Count="6"
                             Mode="Digit" />
-                        <TextBlock Margin="0,0,0,4" Text="Password mask" />
+                        <TextBlock Margin="0,0,0,4" Text="{I18N {x:Static lang:LangKeys.Sample_eea8b0d77a}}" />
                         <vio:PinCode
                             HorizontalAlignment="Left"
                             Count="6"

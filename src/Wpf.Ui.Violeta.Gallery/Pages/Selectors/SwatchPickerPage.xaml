@@ -2,18 +2,19 @@
     x:Class="Wpf.Ui.Violeta.Gallery.Pages.Selectors.SwatchPickerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta">
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
             <TextBlock
                 Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="SwatchPicker" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SwatchPicker}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="即时提交的 Fluent 风格色块选择器，支持行、网格、尺寸、圆角、禁用和键盘选择。"
+                Text="{I18N {x:Static lang:LangKeys.Sample_64d984a4b3}}"
                 TextWrapping="Wrap" />
             <Border
                 Padding="16"
@@ -25,11 +26,11 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="SemiBold"
-                        Text="Popup picker" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3157b6de96}}" />
                     <TextBlock
                         Margin="0,4,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="默认 HorizontalAlignment=Left，宽度随内容收缩，不会拉满父容器。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a3d4b2e49b}}"
                         TextWrapping="Wrap" />
                     <vio:SwatchPicker
                         x:Name="PopupPicker"
@@ -66,7 +67,7 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="SemiBold"
-                        Text="Grid layout" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_GridTitle}}" />
                     <vio:SwatchPicker
                         x:Name="GridPicker"
                         Margin="0,12,0,0"
@@ -102,17 +103,17 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="SemiBold"
-                        Text="Selection shapes" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0daf56c1c8}}" />
                     <TextBlock
                         Margin="0,4,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="选中态在色块内部绘制强调色描边，中间留出背景色间隙，配合悬停放大、按下回弹与描边收束动效。点击色块试试。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_13a67d4cc8}}"
                         TextWrapping="Wrap" />
 
                     <TextBlock
                         Margin="0,16,0,0"
                         FontWeight="SemiBold"
-                        Text="Square" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ceb46ca115}}" />
                     <WrapPanel x:Name="SquareRow" Margin="0,8,0,0">
                         <vio:Swatch
                             Width="36"
@@ -182,7 +183,7 @@
                     <TextBlock
                         Margin="0,16,0,0"
                         FontWeight="SemiBold"
-                        Text="Circular" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ae2fd93db7}}" />
                     <WrapPanel x:Name="CircularRow" Margin="0,8,0,0">
                         <vio:Swatch
                             Width="36"
@@ -253,7 +254,7 @@
                     <TextBlock
                         Margin="0,16,0,0"
                         FontWeight="SemiBold"
-                        Text="Rounded" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_bef2481eda}}" />
                     <WrapPanel x:Name="RoundedRow" Margin="0,8,0,0">
                         <vio:Swatch
                             Width="36"
@@ -332,7 +333,7 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="SemiBold"
-                        Text="Standalone swatches" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3dd55e39f8}}" />
                     <WrapPanel Margin="0,12,0,0">
                         <vio:Swatch
                             Width="20"

@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="IPv4PortBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4PortBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="IPv4PortBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Ipv4PortBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -48,7 +48,7 @@
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="(Disabled)" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_1f698ebf83}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

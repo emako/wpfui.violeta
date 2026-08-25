@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Snackbar"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Snackbar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <Grid>
@@ -17,7 +17,7 @@
                     Margin="0,0,0,16"
                     FontSize="20"
                     FontWeight="SemiBold"
-                    Text="Snackbar" />
+                    Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Snackbar}}" />
 
                 <Border
                     Margin="0,0,0,16"
@@ -31,33 +31,33 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="SnackbarPresenter" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_c1cff8854d}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{I18N {x:Static lang:LangKeys.Sample_c0280b33ba}}"
                             TextWrapping="Wrap" />
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
-                            <ui:Button Click="ShowSnackbar_Click" Content="Show snackbar" />
+                            <ui:Button Click="ShowSnackbar_Click" Content="{I18N {x:Static lang:LangKeys.Sample_727f3b0153}}" />
                             <ComboBox
                                 x:Name="AppearanceComboBox"
                                 MinWidth="140"
                                 SelectedIndex="1">
-                                <ComboBoxItem Content="Primary" />
-                                <ComboBoxItem Content="Secondary" />
-                                <ComboBoxItem Content="Info" />
-                                <ComboBoxItem Content="Success" />
-                                <ComboBoxItem Content="Caution" />
-                                <ComboBoxItem Content="Danger" />
-                                <ComboBoxItem Content="Light" />
-                                <ComboBoxItem Content="Dark" />
-                                <ComboBoxItem Content="Transparent" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_764a2caff0}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Light}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_3d97194308}}" />
                             </ComboBox>
                         </ui:StackPanel>
                         <TextBlock
                             Margin="0,12,0,4"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Timeout (seconds):" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_961787b91f}}" />
                         <Slider
                             x:Name="TimeoutSlider"
                             AutoToolTipPlacement="BottomRight"

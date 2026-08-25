@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Slider"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Slider" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Simple slider" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_97aa23f96a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -49,7 +49,7 @@
                             Minimum="0"
                             Value="50" />
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Output:" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
                             <TextBlock Text="{Binding Value, ElementName=SimpleSlider}" />
                         </StackPanel>
                     </Grid>
@@ -68,7 +68,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Range and steps" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c9df53a9f7}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -89,7 +89,7 @@
                             TickFrequency="20"
                             Value="600" />
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Output:" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
                             <TextBlock Text="{Binding Value, ElementName=RangeSlider}" />
                         </StackPanel>
                     </Grid>
@@ -108,7 +108,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Tick marks" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5276ece0c0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -130,7 +130,7 @@
                             TickPlacement="Both"
                             Value="40" />
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Output:" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
                             <TextBlock Text="{Binding Value, ElementName=MarksSlider}" />
                         </StackPanel>
                     </Grid>
@@ -149,7 +149,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Vertical slider" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1678c12dfc}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -172,7 +172,7 @@
                             TickPlacement="Both"
                             Value="60" />
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Output:" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
                             <TextBlock Text="{Binding Value, ElementName=VerticalSlider}" />
                         </StackPanel>
                     </Grid>

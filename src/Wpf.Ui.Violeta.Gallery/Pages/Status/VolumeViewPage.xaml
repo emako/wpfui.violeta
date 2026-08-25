@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="VolumeView"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_VolumeView}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="VolumeView" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_VolumeView}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -29,11 +30,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Volume levels" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_85b1524436}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Default is a 16×16 glyph (bars 3×5 / 8.5 / 12). 0 idle, 1 critical, 2 caution, 3 success."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b1108dabc7}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
@@ -84,11 +85,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Size" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_6f6cb72d54}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Width/Height scale the 16×16 design. Uniform keeps proportions; Fill stretches pill height independently."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_87dbb69f19}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
@@ -149,11 +150,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Corner radius" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_158b3b19e8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="CornerRadius is in design units. 1.5 is a pill on the 3px-wide bars; it scales with the control."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7a6ef4aa34}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,24,0" HorizontalAlignment="Center">
@@ -190,7 +191,7 @@
                                 Margin="0,8,0,0"
                                 HorizontalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="1.5 (pill)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_090e90f3d1}}" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -208,11 +209,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Interactive volume" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_97b423f318}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Bind Volume to a slider. Threshold mapping: ≤128 → 3 bars, ≤256 → 2 bars, otherwise 1 bar."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0220e2ecca}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <vio:VolumeView

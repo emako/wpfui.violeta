@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Clipboard"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Clipboard}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Clipboard" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Clipboard}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -51,7 +51,7 @@
                         x:Name="TextToCopyTextBox"
                         Margin="0,12,0,0"
                         MinLines="4"
-                        Text="This text will be copied to the clipboard." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_45c2c3e135}}" />
                 </StackPanel>
             </Border>
 

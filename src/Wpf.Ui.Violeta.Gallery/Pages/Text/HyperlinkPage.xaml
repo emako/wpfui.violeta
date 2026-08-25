@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Hyperlink"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Hyperlink" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Fluent Hyperlink" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dc033e3fae}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -51,7 +51,7 @@
                             Style="{DynamicResource FluentHyperlinkStyle}">
                             example.com
                         </Hyperlink>
-                        <Run Text="。" />
+                        <Run Text="{I18N {x:Static lang:LangKeys.Sample_81197c2d02}}" />
                     </TextBlock>
                 </StackPanel>
             </Border>

@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="InfoBadge"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBadge}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="InfoBadge" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBadge}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -43,15 +43,15 @@
                         IsPaneToggleVisible="True"
                         PaneDisplayMode="Left">
                         <ui:NavigationView.MenuItems>
-                            <ui:NavigationViewItem Content="Dashboard" Icon="{ui:SymbolIcon Home24}" />
-                            <ui:NavigationViewItem Content="Items" Icon="{ui:SymbolIcon Library24}">
+                            <ui:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Sample_2938c7f7e5}}" Icon="{ui:SymbolIcon Home24}" />
+                            <ui:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Sample_9dea4016db}}" Icon="{ui:SymbolIcon Library24}">
                                 <ui:NavigationViewItem.InfoBadge>
                                     <ui:InfoBadge Severity="Attention" Value="3" />
                                 </ui:NavigationViewItem.InfoBadge>
                             </ui:NavigationViewItem>
                         </ui:NavigationView.MenuItems>
                         <ui:NavigationView.FooterMenuItems>
-                            <ui:NavigationViewItem Content="Settings" Icon="{ui:SymbolIcon Settings24}" />
+                            <ui:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" Icon="{ui:SymbolIcon Settings24}" />
                         </ui:NavigationView.FooterMenuItems>
                     </ui:NavigationView>
                 </StackPanel>
@@ -129,7 +129,7 @@
                         Padding="0"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Stretch"
-                        ToolTip="Refresh required">
+                        ToolTip="{I18N {x:Static lang:LangKeys.Sample_157a149cee}}">
                         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <ui:SymbolIcon
                                 HorizontalAlignment="Center"

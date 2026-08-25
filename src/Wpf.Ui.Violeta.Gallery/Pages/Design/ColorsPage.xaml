@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Colors"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +15,7 @@
                 Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Colors" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}" />
             <TextBlock
                 Margin="0,0,0,8"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -24,7 +24,7 @@
             <TextBlock
                 Margin="0,0,0,24"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="The colors below are provided as part of WPF UI. Reference them with DynamicResource bindings."
+                Text="{I18N {x:Static lang:LangKeys.Sample_0c4c999025}}"
                 TextWrapping="Wrap" />
 
             <!-- Text -->
@@ -32,7 +32,7 @@
                 Margin="0,0,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Text" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_97d0761438}}" />
             <Border
                 Margin="0,12,0,0"
                 Padding="12"
@@ -41,7 +41,7 @@
                 BorderThickness="1"
                 CornerRadius="8">
                 <StackPanel>
-                    <TextBlock Text="For UI labels and static text" />
+                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_c88ee6eed4}}" />
                     <TextBlock
                         Margin="0,12,0,12"
                         HorizontalAlignment="Center"
@@ -69,8 +69,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Primary" />
-                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_6ee5b69fdd}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_9c16bff34c}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
@@ -84,8 +84,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Secondary" />
-                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_c3f9eb1102}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_9c16bff34c}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -99,8 +99,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Tertiary" />
-                        <TextBlock Grid.Row="1" Text="Pressed only" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_7ae8d126e7}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_2e7d397705}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -115,8 +115,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Text / Disabled" />
-                        <TextBlock Grid.Row="1" Text="Disabled only" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_bd57cc7ddd}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_e553145336}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextFillColorDisabledBrush" />
                     </Grid>
                 </Border>
@@ -127,7 +127,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Accent Text" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_5096bb1a69}}" />
             <Border
                 Margin="0,12,0,0"
                 Padding="12"
@@ -136,7 +136,7 @@
                 BorderThickness="1"
                 CornerRadius="8">
                 <StackPanel>
-                    <TextBlock Text="Recommended for links" />
+                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_837eda7c21}}" />
                     <TextBlock
                         Margin="0,12,0,12"
                         HorizontalAlignment="Center"
@@ -164,8 +164,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Primary" />
-                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_440e704448}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_9c16bff34c}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
@@ -179,8 +179,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Secondary" />
-                        <TextBlock Grid.Row="1" Text="Rest or hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_d9edb0fd16}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_9c16bff34c}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -194,8 +194,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Tertiary" />
-                        <TextBlock Grid.Row="1" Text="Pressed only" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_709ef8c1cf}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_2e7d397705}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -210,8 +210,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent Text / Disabled" />
-                        <TextBlock Grid.Row="1" Text="Disabled only" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_c867f3e817}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_e553145336}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentTextFillColorDisabledBrush" />
                     </Grid>
                 </Border>
@@ -222,14 +222,14 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Text on Accent" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_14fc481d26}}" />
             <Border
                 Margin="0,12,0,0"
                 Padding="12"
                 Background="{DynamicResource AccentFillColorDefaultBrush}"
                 CornerRadius="8">
                 <StackPanel>
-                    <TextBlock Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}" Text="Used on accent-colored surfaces" />
+                    <TextBlock Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_48b803e623}}" />
                     <TextBlock
                         Margin="0,12,0,12"
                         HorizontalAlignment="Center"
@@ -256,8 +256,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Primary" />
-                        <TextBlock Grid.Row="1" Text="Rest" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_6dc30af2dc}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_55276c10d8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorPrimaryBrush" />
                     </Grid>
                 </Border>
@@ -268,8 +268,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Secondary" />
-                        <TextBlock Grid.Row="1" Text="Secondary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_66d2862820}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -280,8 +280,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Disabled" />
-                        <TextBlock Grid.Row="1" Text="Disabled" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_3fd8e47968}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorDisabledBrush" />
                     </Grid>
                 </Border>
@@ -295,8 +295,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="On Accent / Selected" />
-                        <TextBlock Grid.Row="1" Text="Selected text" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_c44d155523}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_c639614d74}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="TextOnAccentFillColorSelectedTextBrush" />
                     </Grid>
                 </Border>
@@ -307,7 +307,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Accent Fill" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_2b3bc77b9e}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -326,8 +326,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Default" />
-                        <TextBlock Grid.Row="1" Text="Rest" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_35f6a2f764}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_55276c10d8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -341,8 +341,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Secondary" />
-                        <TextBlock Grid.Row="1" Text="Hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_2e83cfcd29}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_eee0168be6}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -356,8 +356,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Tertiary" />
-                        <TextBlock Grid.Row="1" Text="Pressed" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_32f9b3efb5}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_d78a68f6a8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -372,8 +372,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Accent / Disabled" />
-                        <TextBlock Grid.Row="1" Text="Disabled" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_6d78326cb4}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="AccentFillColorDisabledBrush" />
                     </Grid>
                 </Border>
@@ -384,7 +384,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="System Accent" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_4995c7c87e}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -403,8 +403,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="System Accent" />
-                        <TextBlock Grid.Row="1" Text="Base" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_4995c7c87e}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_095a1b43ef}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentBrush" />
                     </Grid>
                 </Border>
@@ -420,9 +420,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Primary" />
-                        <TextBlock Grid.Row="1" Text="Color key" />
-                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorPrimary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_794e93be0b}}" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_0986005c67}}" />
                     </Grid>
                 </Border>
                 <Border
@@ -437,9 +437,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
-                        <TextBlock Grid.Row="1" Text="Color key" />
-                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorSecondary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_794e93be0b}}" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_bc699e2875}}" />
                     </Grid>
                 </Border>
                 <Border
@@ -455,9 +455,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
-                        <TextBlock Grid.Row="1" Text="Color key" />
-                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemAccentColorTertiary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0521727bc2}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_794e93be0b}}" />
+                        <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="{I18N {x:Static lang:LangKeys.Sample_ab0b2d55f2}}" />
                     </Grid>
                 </Border>
             </Grid>
@@ -467,7 +467,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Control Fill" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_b84ef27085}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -488,8 +488,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Default" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Rest" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_55276c10d8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -504,8 +504,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_eee0168be6}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -520,8 +520,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0521727bc2}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d78a68f6a8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -536,8 +536,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Disabled" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Disabled" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorDisabledBrush" />
                     </Grid>
                 </Border>
@@ -553,8 +553,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Input Active" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Focused input" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_2d6c0e1f5e}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_57f460dd93}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlFillColorInputActiveBrush" />
                     </Grid>
                 </Border>
@@ -565,7 +565,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Control Strong / Solid / Subtle" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_ac5ca43671}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -584,8 +584,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Strong / Default" />
-                        <TextBlock Grid.Row="1" Text="Strong fill" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_25aed2eb4b}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_4f23daf5ee}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlStrongFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -599,8 +599,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Solid / Default" />
-                        <TextBlock Grid.Row="1" Text="Solid fill" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_559d7989bb}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_2907f5e4aa}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ControlSolidFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -615,8 +615,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Secondary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Hover" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_a95e4e5b3e}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_eee0168be6}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SubtleFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -632,8 +632,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Subtle / Tertiary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Pressed" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_b9ec31d860}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d78a68f6a8}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SubtleFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -644,7 +644,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Card / Layer / Smoke" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_3e8abac942}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -664,8 +664,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Default" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Card surface" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_f82b73359d}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_efecd66351}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="CardBackgroundFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -680,8 +680,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Card / Secondary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Secondary card" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_3cdd410bf1}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_e6c190b35f}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="CardBackgroundFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -696,8 +696,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Layer / Default" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Layer fill" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_578e852ac5}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_97ad4fc117}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="LayerFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -712,8 +712,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Smoke" />
-                        <TextBlock Grid.Row="1" Text="Overlay smoke" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_bc93fd0fa1}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_298c402ad9}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SmokeFillColorDefaultBrush" />
                     </Grid>
                 </Border>
@@ -724,7 +724,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Solid Background" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_695ff47157}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -745,8 +745,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Base" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Window" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_095a1b43ef}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_5e68f5916f}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorBaseBrush" />
                     </Grid>
                 </Border>
@@ -761,8 +761,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Secondary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Alt surface" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_84d46a96ae}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorSecondaryBrush" />
                     </Grid>
                 </Border>
@@ -777,8 +777,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Tertiary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Tertiary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_0521727bc2}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_0521727bc2}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorTertiaryBrush" />
                     </Grid>
                 </Border>
@@ -793,8 +793,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Quaternary" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Quaternary" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_c217982fe6}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_c217982fe6}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SolidBackgroundFillColorQuarternaryBrush" />
                     </Grid>
                 </Border>
@@ -810,8 +810,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Application" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="App bg" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e498749f3c}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_d33b310664}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="ApplicationBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -822,7 +822,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="System Fill" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_0f0941da7e}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -842,8 +842,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success" />
-                        <TextBlock Grid.Row="1" Text="Positive" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_3289297424}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorSuccessBrush" />
                     </Grid>
                 </Border>
@@ -857,8 +857,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution" />
-                        <TextBlock Grid.Row="1" Text="Warning" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_764a2caff0}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCautionBrush" />
                     </Grid>
                 </Border>
@@ -872,8 +872,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical" />
-                        <TextBlock Grid.Row="1" Text="Error" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_278d01e5af}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCriticalBrush" />
                     </Grid>
                 </Border>
@@ -887,8 +887,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral" />
-                        <TextBlock Grid.Row="1" Text="Neutral" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e9bb5320b3}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_e9bb5320b3}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorNeutralBrush" />
                     </Grid>
                 </Border>
@@ -903,8 +903,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention" />
-                        <TextBlock Grid.Row="1" Text="Info" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_2aa97e44ca}}" />
+                        <TextBlock Grid.Row="1" Text="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorAttentionBrush" />
                     </Grid>
                 </Border>
@@ -915,7 +915,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="System Fill Background" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_207dca511e}}" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -936,8 +936,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success BG" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_07de3c627e}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9ded1e5ce}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorSuccessBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -952,8 +952,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Caution BG" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_52c1b590de}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9ded1e5ce}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCautionBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -968,8 +968,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Critical BG" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_8d0fb6f99b}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9ded1e5ce}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorCriticalBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -984,8 +984,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Attention BG" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_415c1ed2d4}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9ded1e5ce}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorAttentionBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -1001,8 +1001,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Neutral BG" />
-                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="Background" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_320d99b367}}" />
+                        <TextBlock Grid.Row="1" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_a9ded1e5ce}}" />
                         <vio:SelectableTextBlock Grid.Row="2" FontSize="11" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Grid}}" TextWrapping="Wrap" Text="SystemFillColorNeutralBackgroundBrush" />
                     </Grid>
                 </Border>
@@ -1013,11 +1013,11 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Banner" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Banner}}" />
             <TextBlock
                 Margin="0,8,0,0"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Border and background pairs used by the Banner control for status notifications."
+                Text="{I18N {x:Static lang:LangKeys.Sample_bb310b1305}}"
                 TextWrapping="Wrap" />
             <Grid MinHeight="120" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
@@ -1040,12 +1040,12 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Information" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_a82be0f551}}" />
                         <TextBlock
                             Grid.Row="1"
                             Margin="0,4,0,8"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Info banner" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_0a1e9274a0}}" />
                         <StackPanel Grid.Row="2">
                             <vio:SelectableTextBlock
                                 FontSize="11"
@@ -1074,12 +1074,12 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
                         <TextBlock
                             Grid.Row="1"
                             Margin="0,4,0,8"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Success banner" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_9c3880d870}}" />
                         <StackPanel Grid.Row="2">
                             <vio:SelectableTextBlock
                                 FontSize="11"
@@ -1108,12 +1108,12 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Warning" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                         <TextBlock
                             Grid.Row="1"
                             Margin="0,4,0,8"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Warning banner" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_893ebd84f5}}" />
                         <StackPanel Grid.Row="2">
                             <vio:SelectableTextBlock
                                 FontSize="11"
@@ -1141,12 +1141,12 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Error" />
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
                         <TextBlock
                             Grid.Row="1"
                             Margin="0,4,0,8"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Error banner" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_66bd923ca5}}" />
                         <StackPanel Grid.Row="2">
                             <vio:SelectableTextBlock
                                 FontSize="11"
@@ -1168,7 +1168,7 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Stroke" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_8e763d9065}}" />
             <Grid MinHeight="100" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -1185,7 +1185,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Control Stroke" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_7c716b3b01}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1203,7 +1203,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Strong Stroke" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_1fb35dc13b}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1221,7 +1221,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Card Stroke" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_c18058c77b}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1238,7 +1238,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Divider Stroke" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_f063e6ce32}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1254,11 +1254,11 @@
                 Margin="0,48,0,0"
                 FontSize="16"
                 FontWeight="SemiBold"
-                Text="Utility / Patterns" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_9aef26e2ef}}" />
             <TextBlock
                 Margin="0,8,0,0"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Special brushes and common sample-card combinations used across the Gallery."
+                Text="{I18N {x:Static lang:LangKeys.Sample_066ad0d0c1}}"
                 TextWrapping="Wrap" />
 
             <Grid Margin="0,12,0,0">
@@ -1277,11 +1277,11 @@
                     BorderThickness="1"
                     CornerRadius="8">
                     <StackPanel VerticalAlignment="Bottom">
-                        <TextBlock FontWeight="SemiBold" Text="Striped Background" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_9b744948cf}}" />
                         <TextBlock
                             Margin="0,4,0,0"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Placeholder / demo surface" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_71b4869e11}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1301,11 +1301,11 @@
                     BorderThickness="1"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Left Navigation Separator" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_79251b34ac}}" />
                         <TextBlock
                             Margin="0,4,0,8"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="1px gradient divider used by NavigationView" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_409b0ce34f}}" />
                         <Border
                             Height="1"
                             Margin="0,4,0,4"
@@ -1329,11 +1329,11 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
-                    <TextBlock FontWeight="SemiBold" Text="Sample Card" />
+                    <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_3d8a4674c4}}" />
                     <TextBlock
                         Margin="0,4,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Common Gallery sample container: secondary fill + card stroke."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_daa24eccc7}}"
                         TextWrapping="Wrap" />
                     <vio:SelectableTextBlock
                         FontSize="11"
@@ -1347,11 +1347,11 @@
                 Margin="0,24,0,0"
                 FontSize="14"
                 FontWeight="SemiBold"
-                Text="Elevation Borders" />
+                Text="{I18N {x:Static lang:LangKeys.Sample_a96ad752e1}}" />
             <TextBlock
                 Margin="0,4,0,0"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="LinearGradientBrush borders from Wpf.Ui theme (button / text / accent / circle controls)."
+                Text="{I18N {x:Static lang:LangKeys.Sample_0cd2b0ca2a}}"
                 TextWrapping="Wrap" />
             <Grid MinHeight="100" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
@@ -1369,7 +1369,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Control" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_a1595abbb4}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1387,7 +1387,7 @@
                     BorderThickness="3"
                     CornerRadius="8">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Text Control" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_64a2cf1dce}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1406,7 +1406,7 @@
                     CornerRadius="8"
                     TextElement.Foreground="{DynamicResource TextOnAccentFillColorPrimaryBrush}">
                     <StackPanel>
-                        <TextBlock FontWeight="SemiBold" Text="Accent Control" />
+                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_8b36379b47}}" />
                         <vio:SelectableTextBlock
                             Margin="0,8,0,0"
                             FontSize="11"
@@ -1431,7 +1431,7 @@
                         <TextBlock
                             HorizontalAlignment="Center"
                             FontWeight="SemiBold"
-                            Text="Circle" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_30954d9008}}" />
                         <vio:SelectableTextBlock
                             Margin="0,4,0,0"
                             FontSize="10"

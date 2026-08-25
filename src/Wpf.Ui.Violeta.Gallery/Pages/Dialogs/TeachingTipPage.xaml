@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TeachingTip"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TeachingTip}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TeachingTip" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TeachingTip}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -36,7 +36,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Targeted TeachingTip" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_97b0645e3d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -46,12 +46,12 @@
                         x:Name="TargetedTipButton"
                         HorizontalAlignment="Left"
                         Click="ShowTargetedTip_Click"
-                        Content="Show targeted tip" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_81bb2fcc61}}" />
                     <vio:TeachingTip
                         x:Name="TargetedTeachingTip"
-                        Title="Change themes without hassle"
-                        ActionButtonContent="Toggle theme"
-                        CloseButtonContent="Got it!"
+                        Title="{I18N {x:Static lang:LangKeys.Sample_4a2e02c6c4}}"
+                        ActionButtonContent="{I18N {x:Static lang:LangKeys.Sample_5a9663b095}}"
+                        CloseButtonContent="{I18N {x:Static lang:LangKeys.Sample_6a03d07c60}}"
                         PreferredPlacement="Bottom"
                         Subtitle="You can switch Light / Dark themes anytime from the title bar."
                         Target="{Binding ElementName=TargetedTipButton}">
@@ -75,7 +75,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Untargeted + Light Dismiss" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3c1f4d95f5}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -84,12 +84,12 @@
                     <Button
                         HorizontalAlignment="Left"
                         Click="ShowUntargetedTip_Click"
-                        Content="Show untargeted tip" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_e0370534a1}}" />
                     <vio:TeachingTip
                         x:Name="UntargetedTeachingTip"
-                        Title="Welcome to TeachingTip"
-                        ActionButtonContent="Learn more"
-                        CloseButtonContent="Dismiss"
+                        Title="{I18N {x:Static lang:LangKeys.Sample_675801d96a}}"
+                        ActionButtonContent="{I18N {x:Static lang:LangKeys.Sample_d59048f21f}}"
+                        CloseButtonContent="{I18N {x:Static lang:LangKeys.Sample_c8a59e7135}}"
                         IsLightDismissEnabled="True"
                         PlacementMargin="20"
                         PreferredPlacement="Auto"
@@ -110,7 +110,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Hero content" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ba968ba1aa}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -120,11 +120,11 @@
                         x:Name="HeroTipButton"
                         HorizontalAlignment="Left"
                         Click="ShowHeroTip_Click"
-                        Content="Show hero tip" />
+                        Content="{I18N {x:Static lang:LangKeys.Sample_f8eeba813d}}" />
                     <vio:TeachingTip
                         x:Name="HeroTeachingTip"
-                        Title="Feature highlight"
-                        CloseButtonContent="Got it!"
+                        Title="{I18N {x:Static lang:LangKeys.Sample_4c13e4f695}}"
+                        CloseButtonContent="{I18N {x:Static lang:LangKeys.Sample_6a03d07c60}}"
                         PreferredPlacement="Right"
                         Target="{Binding ElementName=HeroTipButton}">
                         <vio:TeachingTip.HeroContent>
@@ -136,12 +136,12 @@
                                     VerticalAlignment="Center"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Hero" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e0a67c8c63}}" />
                             </Border>
                         </vio:TeachingTip.HeroContent>
                         <vio:TeachingTip.Content>
                             <TextBlock
-                                Text="Hero content sits above the title and body. Use it for illustrations or media."
+                                Text="{I18N {x:Static lang:LangKeys.Sample_89ff0e22aa}}"
                                 TextWrapping="Wrap" />
                         </vio:TeachingTip.Content>
                     </vio:TeachingTip>

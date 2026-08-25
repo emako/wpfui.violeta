@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TextBlock"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TextBlock}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TextBlock" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TextBlock}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -35,7 +35,7 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_1e5753e63a}}" />
-                    <TextBlock Text="I am a text block." />
+                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_4ae4e1907f}}" />
                 </StackPanel>
             </Border>
 
@@ -59,7 +59,7 @@
                     <TextBlock
                         FontFamily="Comic Sans MS"
                         FontStyle="Italic"
-                        Text="I am a styled TextBlock." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a6cabcfdee}}" />
                 </StackPanel>
             </Border>
 

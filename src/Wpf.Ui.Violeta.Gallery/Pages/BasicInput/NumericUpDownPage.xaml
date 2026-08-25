@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="NumericUpDown"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_NumericUpDown}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="NumericUpDown" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_NumericUpDown}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -41,12 +41,12 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="int (−100…100, step 5)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1cb6b64981}}" />
                             <vio:NumericIntUpDown
                                 Width="200"
                                 Maximum="100"
                                 Minimum="-100"
-                                PlaceholderText="enter int…"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_88787e0a8d}}"
                                 Step="5" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -54,7 +54,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="double (0…1, step 0.1)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_31f73e0ba4}}" />
                             <vio:NumericDoubleUpDown
                                 Width="200"
                                 FormatString="N2"
@@ -68,11 +68,11 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="decimal (step 0.01)" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_86fc4ae7d8}}" />
                             <vio:NumericDecimalUpDown
                                 Width="200"
                                 FormatString="N2"
-                                PlaceholderText="decimal…"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_6e5cae44cd}}"
                                 Step="0.01" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -80,8 +80,8 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="byte (0…255)" />
-                            <vio:NumericByteUpDown Width="200" PlaceholderText="0-255" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_aaf18794ce}}" />
+                            <vio:NumericByteUpDown Width="200" PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_04a9acc623}}" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -106,7 +106,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="prefix" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_851f5ac994}}" />
                             <vio:NumericDoubleUpDown
                                 Width="200"
                                 FormatString="N2"
@@ -120,14 +120,14 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="suffix" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_4ec1b477cd}}" />
                             <vio:NumericDoubleUpDown
                                 Width="200"
                                 FormatString="N1"
                                 InnerRightContent="kg"
                                 Maximum="9999"
                                 Minimum="0"
-                                PlaceholderText="weight" />
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_7edabf994b}}" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -152,10 +152,10 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="no spinner" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_13cef07bc8}}" />
                             <vio:NumericIntUpDown
                                 Width="200"
-                                PlaceholderText="no buttons"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_925dfa591d}}"
                                 ShowButtonSpinner="False" />
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -163,7 +163,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="read-only" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_7233b8e3ea}}" />
                             <vio:NumericIntUpDown
                                 Width="200"
                                 IsReadOnly="True"
@@ -174,7 +174,7 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="disabled" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_075ae3d2fc}}" />
                             <vio:NumericIntUpDown
                                 Width="200"
                                 IsEnabled="False"
@@ -185,13 +185,13 @@
                                 MinWidth="180"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="AllowDrag" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_d530a2e8e8}}" />
                             <vio:NumericIntUpDown
                                 Width="200"
                                 AllowDrag="True"
                                 Maximum="1000"
                                 Minimum="-1000"
-                                PlaceholderText="drag or dbl-click"
+                                PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_0929724039}}"
                                 Step="10"
                                 Value="0" />
                         </StackPanel>

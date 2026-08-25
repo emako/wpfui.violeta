@@ -2,6 +2,9 @@
     Hotfix: DataGridRow selection pill ScaleY animation (same as ListViewItem / UI.WPF.Modern).
     Overrides DefaultDataGridRowStyle; also redefines DefaultDataGridStyle / DefaultUiDataGridStyle
     because RowStyle is StaticResource in WPF-UI.
+
+    ColumnHeaderGripperStyle: keep resize thumbs invisible when the grid/header is disabled.
+    Without this, WPF-UI paints disabled grippers as visible vertical bars ("||") in column headers.
 -->
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,6 +12,86 @@
     xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:controls="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+
+    <!--  Mirrors WPF-UI ColumnHeaderGripperStyle with Disabled state kept transparent.  -->
+    <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="SizeWE" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border
+                        x:Name="Border"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Rectangle
+                            x:Name="Thumb"
+                            Width="4"
+                            Height="16"
+                            Margin="{TemplateBinding Padding}"
+                            RadiusX="2"
+                            RadiusY="2" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource TextFillColorTertiaryBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HorizontalAlignment" Value="Left">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="4,0,0,4" />
+                        </Trigger>
+                        <Trigger Property="HorizontalAlignment" Value="Right">
+                            <Setter TargetName="Border" Property="CornerRadius" Value="0,4,4,0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="DefaultDataGridRowStyle" TargetType="{x:Type DataGridRow}">
         <Setter Property="Margin" Value="0,2" />

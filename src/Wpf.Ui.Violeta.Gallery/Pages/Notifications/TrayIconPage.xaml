@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TrayIcon"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TrayIcon}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TrayIcon" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TrayIcon}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -61,7 +61,7 @@
                         x:Name="TwinkToggle"
                         Margin="0,8,0,0"
                         HorizontalAlignment="Left"
-                        Content="Twink"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_6757783329}}"
                         Checked="TwinkToggle_OnChanged"
                         Unchecked="TwinkToggle_OnChanged" />
                 </StackPanel>

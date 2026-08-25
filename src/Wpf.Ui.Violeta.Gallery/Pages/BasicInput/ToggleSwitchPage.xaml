@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ToggleSwitch"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleSwitch}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ToggleSwitch" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleSwitch}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ToggleSwitch" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleSwitch}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -41,7 +41,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Wpf.Ui" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_d6fa5df418}}" />
                             <ui:ToggleSwitch />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
@@ -49,7 +49,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Basic" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_BasicTitle}}" />
                             <vio:ToggleSwitch />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
@@ -57,7 +57,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="IsOn" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_ec3f5ff99b}}" />
                             <vio:ToggleSwitch IsOn="True" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
@@ -65,15 +65,15 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Header" />
-                            <vio:ToggleSwitch Header="Wi-Fi" IsOn="True" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_bf50d5e661}}" />
+                            <vio:ToggleSwitch Header="{I18N {x:Static lang:LangKeys.Sample_fa524b7254}}" IsOn="True" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
                             <TextBlock
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="OnOffContent" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_fabd943254}}" />
                             <vio:ToggleSwitch OffContent="{I18N {x:Static lang:LangKeys.Sample_dce5379cb9}}" OnContent="{I18N {x:Static lang:LangKeys.Sample_4d775d4cd7}}" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
@@ -81,7 +81,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Disabled" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                             <vio:ToggleSwitch IsEnabled="False" />
                         </ui:StackPanel>
                         <ui:StackPanel Orientation="Horizontal" Spacing="16">
@@ -89,7 +89,7 @@
                                 MinWidth="100"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Compact Right" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_f944265643}}" />
                             <vio:ToggleSwitch
                                 Header="{I18N {x:Static lang:LangKeys.Sample_0a4e486218}}"
                                 IsOn="True"

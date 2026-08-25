@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TagInput"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TagInput}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="TagInput" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TagInput}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -26,7 +26,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Basic" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_BasicTitle}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -56,7 +56,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Separator (,)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8f7a9c4b01}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -82,7 +82,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="MaxCount = 3" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_035d76dcf0}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -108,7 +108,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Prefilled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_04d78f91fd}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"

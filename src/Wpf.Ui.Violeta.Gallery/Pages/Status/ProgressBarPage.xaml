@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ProgressBar"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +15,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ProgressBar" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -34,7 +34,7 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Indeterminate" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_a2d00c353d}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -46,19 +46,19 @@
                             vio:ProgressBarHelper.ShowPaused="{Binding IsChecked, ElementName=IndeterminatePausedRB, FallbackValue=False, TargetNullValue=False}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" MinWidth="120">
-                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_afb4119954}}" />
                         <RadioButton
                             x:Name="IndeterminateRunningRB"
-                            Content="Running"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5bda814c4a}}"
                             GroupName="IndeterminateProgressState"
                             IsChecked="True" />
                         <RadioButton
                             x:Name="IndeterminatePausedRB"
-                            Content="Paused"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}"
                             GroupName="IndeterminateProgressState" />
                         <RadioButton
                             x:Name="IndeterminateErrorRB"
-                            Content="Error"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             GroupName="IndeterminateProgressState" />
                     </StackPanel>
                 </Grid>
@@ -81,7 +81,7 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Determinate" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_9aa2f68b8e}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -100,19 +100,19 @@
                             Value="{Binding Value, ElementName=DeterminateBar, Mode=TwoWay}" />
                     </StackPanel>
                     <StackPanel Grid.Column="1" MinWidth="120">
-                        <TextBlock Margin="0,0,0,8" Text="Progress state" />
+                        <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_afb4119954}}" />
                         <RadioButton
                             x:Name="DeterminateRunningRB"
-                            Content="Running"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5bda814c4a}}"
                             GroupName="DeterminateProgressState"
                             IsChecked="True" />
                         <RadioButton
                             x:Name="DeterminatePausedRB"
-                            Content="Paused"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}"
                             GroupName="DeterminateProgressState" />
                         <RadioButton
                             x:Name="DeterminateErrorRB"
-                            Content="Error"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             GroupName="DeterminateProgressState" />
                     </StackPanel>
                 </Grid>

@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="AnimatedSymbolButton"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimatedSymbolButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -14,11 +15,11 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="AnimatedSymbolButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimatedSymbolButton}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Kind mirrors AnimatedVisuals. Override icons via IconFontFamily / IconFontSize / IconGlyph and SecondaryIcon* (two-glyph kinds)."
+                Text="{I18N {x:Static lang:LangKeys.Sample_d7dc507bbe}}"
                 TextWrapping="Wrap" />
 
             <Border
@@ -33,15 +34,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Back" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0557fa923d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedBackVisualSource — RightToLeft ScaleX (TitleBar / GoBackButton)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ed90a66da7}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="Back" />
-                        <vio:AnimatedSymbolButton Content="Back" Kind="Back" />
+                        <vio:AnimatedSymbolButton Content="{I18N {x:Static lang:LangKeys.Sample_0557fa923d}}" Kind="Back" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -58,15 +59,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Settings" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedSettingsVisualSource — wind back + full turn (NavigationView settings)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7bbfd27656}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="Settings" />
-                        <vio:AnimatedSymbolButton Content="Settings" Kind="Settings" />
+                        <vio:AnimatedSymbolButton Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" Kind="Settings" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -83,16 +84,16 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ChevronDownSmall" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_08f8181dce}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedChevronDownSmallVisualSource — clipped translate (DropDownButton). Trailing chevron after Content."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ee2844ed89}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="ChevronDownSmall" />
                         <vio:AnimatedSymbolButton
-                            Content="More"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d3da97e2d9}}"
                             Kind="ChevronDownSmall" />
                     </StackPanel>
                 </StackPanel>
@@ -110,16 +111,16 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ChevronUpDownSmall" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f6d33340fa}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedChevronUpDownSmallVisualSource — click toggles IsExpanded (ComboBox chevron)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c195abee02}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="ChevronUpDownSmall" />
                         <vio:AnimatedSymbolButton
-                            Content="Open"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d7098f5050}}"
                             Kind="ChevronUpDownSmall" />
                     </StackPanel>
                 </StackPanel>
@@ -137,15 +138,15 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="GlobalNavigationButton" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_83a0311541}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="AnimatedGlobalNavigationButtonVisualSource — Segoe GlobalNavButton E700 (not Fluent F4E1)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8c07d7e61c}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton Margin="0,0,8,0" Kind="GlobalNavigationButton" />
-                        <vio:AnimatedSymbolButton Content="Menu" Kind="GlobalNavigationButton" />
+                        <vio:AnimatedSymbolButton Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Menu}}" Kind="GlobalNavigationButton" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -162,11 +163,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="CopyToClipboard" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_742ff989bd}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WinUI Gallery CopyToClipboardSuccessAnimation — copy → Accept (CopyButton)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d80641522c}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:AnimatedSymbolButton
@@ -174,7 +175,7 @@
                             Kind="CopyToClipboard"
                             TextToCopy="Hello from AnimatedSymbolButton" />
                         <vio:AnimatedSymbolButton
-                            Content="Copy"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}"
                             Kind="CopyToClipboard"
                             TextToCopy="Hello from AnimatedSymbolButton" />
                     </StackPanel>

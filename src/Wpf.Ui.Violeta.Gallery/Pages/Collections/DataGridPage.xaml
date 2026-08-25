@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="DataGrid"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_DataGrid}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="DataGrid" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DataGrid}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -201,6 +201,57 @@
                                 Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
                         </ui:DataGrid.Columns>
                     </ui:DataGrid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_DataGrid_DisabledDesc}}"
+                        TextWrapping="Wrap" />
+                    <vio:BusyMask
+                        Background="Transparent"
+                        BusyContent="{I18N {x:Static lang:LangKeys.Sample_0ac491da7b}}"
+                        IsBusy="True">
+                        <ui:DataGrid
+                            x:Name="DisabledDataGrid"
+                            MaxHeight="280"
+                            AutoGenerateColumns="False"
+                            CanUserAddRows="False"
+                            IsReadOnly="True">
+                            <ui:DataGrid.Columns>
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Name}"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_60d0458ac6}}" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Department}"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_1e1459eeed}}" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Score}"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_b34422e637}}" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Status}"
+                                    Header="{I18N {x:Static lang:LangKeys.Sample_3fea7ca76c}}" />
+                            </ui:DataGrid.Columns>
+                        </ui:DataGrid>
+                    </vio:BusyMask>
                 </StackPanel>
             </Border>
 

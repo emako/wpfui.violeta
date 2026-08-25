@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="WebBrowser"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_WebBrowser}}"
     d:Background="#1C1C1C"
     Loaded="WebBrowserPage_Loaded"
     mc:Ignorable="d">
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="WebBrowser" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_WebBrowser}}" />
 
             <Border
                 Margin="0,0,0,16"

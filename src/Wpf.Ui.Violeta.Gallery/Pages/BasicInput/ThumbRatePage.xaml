@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ThumbRate"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ThumbRate}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ThumbRate" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ThumbRate}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ThumbRate" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ThumbRate}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -52,7 +52,7 @@
                             <TextBlock
                                 Margin="0,0,0,4"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="State:" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_18325105de}}" />
                             <TextBlock Text="{Binding State, ElementName=ThumbRateControl}" />
                         </StackPanel>
                     </Grid>

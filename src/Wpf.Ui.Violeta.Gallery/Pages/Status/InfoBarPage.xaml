@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="InfoBar"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="InfoBar" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBar}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Informational" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5391f9a882}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -40,7 +40,7 @@
                         IsOpen="True"
                         Message="Essential app message."
                         Severity="Informational"
-                        Title="Title" />
+                        Title="{I18N {x:Static lang:LangKeys.Sample_b652de80d6}}" />
                 </StackPanel>
             </Border>
 
@@ -56,12 +56,12 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Success" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
                     <ui:InfoBar
                         IsOpen="True"
                         Message="Background task completed successfully."
                         Severity="Success"
-                        Title="Success" />
+                        Title="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
                 </StackPanel>
             </Border>
 
@@ -77,12 +77,12 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Warning" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                     <ui:InfoBar
                         IsOpen="True"
                         Message="This condition might cause a problem in the future."
                         Severity="Warning"
-                        Title="Warning" />
+                        Title="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
                 </StackPanel>
             </Border>
 
@@ -108,7 +108,7 @@
                         IsOpen="True"
                         Message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                         Severity="Error"
-                        Title="Error" />
+                        Title="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
                 </StackPanel>
             </Border>
         </StackPanel>

@@ -52,10 +52,10 @@
                             MinWidth="180"
                             HorizontalAlignment="Left"
                             SelectionChanged="LanguageComboBox_OnSelectionChanged">
-                            <ComboBoxItem Content="简体中文" Tag="zh-Hans" />
-                            <ComboBoxItem Content="繁體中文" Tag="zh-Hant" />
-                            <ComboBoxItem Content="English" Tag="en" />
-                            <ComboBoxItem Content="日本語" Tag="ja" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_1e81fc32fe}}" Tag="zh-Hans" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d0bb8c23f6}}" Tag="zh-Hant" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_78463a384a}}" Tag="en" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f32ced6a9b}}" Tag="ja" />
                         </ComboBox>
                     </Grid>
                 </StackPanel>
@@ -123,13 +123,13 @@
                                 <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_None}}" Tag="None" />
                                 <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_Auto}}" Tag="Auto" />
                                 <ComboBoxItem
-                                    Content="Mica"
+                                    Content="{I18N {x:Static lang:LangKeys.Sample_097ea7163a}}"
                                     IsSelected="True"
                                     Tag="Mica" />
-                                <ComboBoxItem Content="Acrylic" Tag="Acrylic" />
-                                <ComboBoxItem Content="Tabbed" Tag="Tabbed" />
-                                <ComboBoxItem Content="Acrylic 10" Tag="Acrylic10" />
-                                <ComboBoxItem Content="Acrylic 11" Tag="Acrylic11" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_920809ad6f}}" Tag="Acrylic" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_5a9bcd254e}}" Tag="Tabbed" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_78a7ffd4c6}}" Tag="Acrylic10" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_b5ea8ebb08}}" Tag="Acrylic11" />
                             </ComboBox>
                             <TextBlock
                                 Margin="12,0,0,0"
@@ -181,7 +181,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Blue"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_9c9aabab3f}}"
                                 Color="#0078D4"
                                 Value="#0078D4" />
                             <vio:Swatch
@@ -190,7 +190,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Purple"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_b9ba865fec}}"
                                 Color="#8764B8"
                                 Value="#8764B8" />
                             <vio:Swatch
@@ -199,7 +199,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Teal"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_e20385a2b4}}"
                                 Color="#00B7C3"
                                 Value="#00B7C3" />
                             <vio:Swatch
@@ -208,7 +208,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Green"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}"
                                 Color="#107C10"
                                 Value="#107C10" />
                             <vio:Swatch
@@ -217,7 +217,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Yellow"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_51e6cd92b6}}"
                                 Color="#FFB900"
                                 Value="#FFB900" />
                             <vio:Swatch
@@ -226,7 +226,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Red"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_ee38e4d5dd}}"
                                 Color="#D13438"
                                 Value="#D13438" />
                             <vio:Swatch
@@ -235,7 +235,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Orange"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_909cea0c97}}"
                                 Color="#FF8C00"
                                 Value="#FF8C00" />
                             <vio:Swatch
@@ -244,7 +244,7 @@
                                 Margin="0,4,8,4"
                                 Click="AccentSwatch_OnClick"
                                 CornerRadius="6"
-                                ToolTip="Magenta"
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_b91cc2c141}}"
                                 Color="#E3008C"
                                 Value="#E3008C" />
                         </WrapPanel>
@@ -312,7 +312,7 @@
                         <TextBlock
                             x:Name="LibraryVersionText"
                             Grid.Column="1"
-                            Text="Wpf.Ui.Violeta" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_dfba37c389}}" />
                     </Grid>
                     <Grid Margin="0,0,0,8">
                         <Grid.ColumnDefinitions>

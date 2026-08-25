@@ -8,7 +8,7 @@
     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="ToolBar"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolBar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ToolBar" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolBar}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -31,13 +31,13 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ToolBar* 样式" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_de12187d6c}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="不依赖 vio:ToolBar，平铺展示各 ToolBar*Style 的默认与禁用外观（无需调宽度触发溢出）。"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_962ec420d4}}"
                         TextWrapping="Wrap" />
-                    <TextBlock Margin="0,0,0,8" Text="Enabled" />
+                    <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_00d23a76e4}}" />
                     <Border
                         Margin="0,0,0,12"
                         Padding="4,6"
@@ -48,24 +48,24 @@
                         <WrapPanel Orientation="Horizontal">
                             <Button
                                 Margin="2"
-                                Content="Button"
+                                Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}"
                                 Style="{StaticResource ToolBarButtonStyle}" />
                             <ui:Button
                                 Margin="2"
                                 Padding="8,4"
-                                Content="UiButton"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0dfe59e591}}"
                                 Style="{StaticResource ToolBarUiButtonStyle}" />
                             <ui:Button
                                 Margin="2"
                                 Padding="8,4"
-                                Content="Save"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                                 Icon="{ui:SymbolIcon Save24}"
                                 Style="{StaticResource ToolBarUiButtonStyle}" />
                             <ToggleButton
                                 Margin="2"
                                 Padding="8,4"
                                 Style="{StaticResource ToolBarToggleButtonStyle}"
-                                ToolTip="Toggle">
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_a6beb974cc}}">
                                 <ui:SymbolIcon Symbol="TextBold24" />
                             </ToggleButton>
                             <ToggleButton
@@ -73,7 +73,7 @@
                                 Padding="8,4"
                                 IsChecked="True"
                                 Style="{StaticResource ToolBarToggleButtonStyle}"
-                                ToolTip="Checked">
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_2627637e26}}">
                                 <ui:SymbolIcon Symbol="TextItalic24" />
                             </ToggleButton>
                             <Separator
@@ -84,32 +84,32 @@
                             <vio:DropDownButton
                                 Margin="2"
                                 Padding="10,4"
-                                Content="DropDown"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_30fb85cbfc}}"
                                 Icon="{ui:SymbolIcon ChevronDown24}"
                                 Style="{StaticResource ToolBarDropDownButtonStyle}">
                                 <vio:DropDownButton.Flyout>
                                     <ContextMenu>
-                                        <MenuItem Header="Option A" />
-                                        <MenuItem Header="Option B" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_e04cead454}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_d581ed5da9}}" />
                                     </ContextMenu>
                                 </vio:DropDownButton.Flyout>
                             </vio:DropDownButton>
                             <vio:SplitButton
                                 Margin="2"
                                 Padding="10,4"
-                                Content="Split"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_8a9e64d86e}}"
                                 Style="{StaticResource ToolBarSplitButtonStyle}">
                                 <vio:SplitButton.Flyout>
                                     <ContextMenu>
-                                        <MenuItem Header="Action 1" />
-                                        <MenuItem Header="Action 2" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_12a7ee47f3}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_b9130c08f3}}" />
                                     </ContextMenu>
                                 </vio:SplitButton.Flyout>
                             </vio:SplitButton>
                             <vio:ToggleComboBox
                                 Margin="2"
                                 Padding="10,4"
-                                Content="ToggleCombo"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_331b534c4f}}"
                                 Icon="{ui:SymbolIcon TextBold24}"
                                 IsChecked="True"
                                 Style="{StaticResource ToolBarToggleComboBoxStyle}">
@@ -130,14 +130,14 @@
                                 Padding="8,4"
                                 Style="{StaticResource ToolBarCopyButtonStyle}"
                                 TextToCopy="ToolBarCopyButton"
-                                ToolTip="Copy" />
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
                             <vio:GoBackButton
                                 Margin="2"
                                 Padding="8,4"
                                 Style="{StaticResource ToolBarGoBackButtonStyle}" />
                         </WrapPanel>
                     </Border>
-                    <TextBlock Margin="0,0,0,8" Text="Disabled" />
+                    <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <Border
                         Padding="4,6"
                         Background="{DynamicResource ControlFillColorDefaultBrush}"
@@ -147,19 +147,19 @@
                         <WrapPanel Orientation="Horizontal">
                             <Button
                                 Margin="2"
-                                Content="Button"
+                                Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarButtonStyle}" />
                             <ui:Button
                                 Margin="2"
                                 Padding="8,4"
-                                Content="UiButton"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_0dfe59e591}}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarUiButtonStyle}" />
                             <ui:Button
                                 Margin="2"
                                 Padding="8,4"
-                                Content="Save"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                                 Icon="{ui:SymbolIcon LockClosed24}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarUiButtonStyle}" />
@@ -168,7 +168,7 @@
                                 Padding="8,4"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarToggleButtonStyle}"
-                                ToolTip="Toggle">
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_a6beb974cc}}">
                                 <ui:SymbolIcon Symbol="TextBold24" />
                             </ToggleButton>
                             <ToggleButton
@@ -177,7 +177,7 @@
                                 IsChecked="True"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarToggleButtonStyle}"
-                                ToolTip="Checked + disabled">
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_9509169bb1}}">
                                 <ui:SymbolIcon Symbol="TextItalic24" />
                             </ToggleButton>
                             <Separator
@@ -188,32 +188,32 @@
                             <vio:DropDownButton
                                 Margin="2"
                                 Padding="10,4"
-                                Content="DropDown"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_30fb85cbfc}}"
                                 Icon="{ui:SymbolIcon LockClosed24}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarDropDownButtonStyle}">
                                 <vio:DropDownButton.Flyout>
                                     <ContextMenu>
-                                        <MenuItem Header="Option" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_054b4f3ea5}}" />
                                     </ContextMenu>
                                 </vio:DropDownButton.Flyout>
                             </vio:DropDownButton>
                             <vio:SplitButton
                                 Margin="2"
                                 Padding="10,4"
-                                Content="Split"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_8a9e64d86e}}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarSplitButtonStyle}">
                                 <vio:SplitButton.Flyout>
                                     <ContextMenu>
-                                        <MenuItem Header="Action" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_004bf6c9a4}}" />
                                     </ContextMenu>
                                 </vio:SplitButton.Flyout>
                             </vio:SplitButton>
                             <vio:ToggleComboBox
                                 Margin="2"
                                 Padding="10,4"
-                                Content="ToggleCombo"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_331b534c4f}}"
                                 Icon="{ui:SymbolIcon LockClosed24}"
                                 IsChecked="True"
                                 IsEnabled="False"
@@ -236,7 +236,7 @@
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarCopyButtonStyle}"
                                 TextToCopy="ToolBarCopyButton"
-                                ToolTip="Copy" />
+                                ToolTip="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
                             <vio:GoBackButton
                                 Margin="2"
                                 Padding="8,4"
@@ -280,36 +280,36 @@
                         CornerRadius="6">
                         <vio:ToolBar>
                             <Button
-                                Content="New"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_26bb841878}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_26bb841878}}" />
                             <Button
-                                Content="Open"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_d7098f5050}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_d7098f5050}}" />
                             <Button
-                                Content="Save"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}" />
                             <Separator />
                             <Button
-                                Content="Cut"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_43fc77886b}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_43fc77886b}}" />
                             <Button
-                                Content="Copy"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
                             <Button
-                                Content="Paste"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_eafbece101}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_eafbece101}}" />
                             <Button
-                                Content="Undo"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_bd9fcf46b4}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_bd9fcf46b4}}" />
                             <Button
-                                Content="Redo"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_c3c873d33f}}"
                                 Style="{StaticResource ToolBarButtonStyle}"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_c3c873d33f}}" />
                         </vio:ToolBar>
@@ -385,9 +385,9 @@
                                 Margin="4,0"
                                 SelectedIndex="0"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_8456bc40d4}}">
-                                <ComboBoxItem Content="Segoe UI" />
-                                <ComboBoxItem Content="Consolas" />
-                                <ComboBoxItem Content="Cascadia Code" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_5664e732f8}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_16507cdd5b}}" />
+                                <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_70705ec213}}" />
                             </ComboBox>
                             <Separator />
                             <CheckBox
@@ -436,7 +436,7 @@
                             </vio:SplitButton>
                             <vio:ToggleComboBox
                                 Padding="10,4"
-                                Content="Bold"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_3b8a43acee}}"
                                 Icon="{ui:SymbolIcon TextBold24}"
                                 Style="{StaticResource ToolBarToggleComboBoxStyle}">
                                 <vio:ToggleComboBox.ItemsSource>
@@ -533,7 +533,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="OverflowFlyoutAutoCloseMode" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2b530675b6}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -541,7 +541,7 @@
                         TextWrapping="Wrap" />
                     <UniformGrid Margin="0,0,0,0" Columns="3">
                         <StackPanel Margin="0,0,8,0">
-                            <TextBlock Margin="0,0,0,6" Text="Default" />
+                            <TextBlock Margin="0,0,0,6" Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                             <Border
                                 Width="180"
                                 HorizontalAlignment="Left"
@@ -556,19 +556,19 @@
                                         Width="90"
                                         Margin="4,0"
                                         SelectedIndex="0">
-                                        <ComboBoxItem Content="Item 1" />
-                                        <ComboBoxItem Content="Item 2" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f59e6f3afd}}" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9eda28f018}}" />
                                     </ComboBox>
                                     <CheckBox
                                         Margin="6,0"
                                         VerticalAlignment="Center"
-                                        Content="Opt" />
+                                        Content="{I18N {x:Static lang:LangKeys.Sample_903a033e59}}" />
                                     <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
                                 </vio:ToolBar>
                             </Border>
                         </StackPanel>
                         <StackPanel Margin="0,0,8,0">
-                            <TextBlock Margin="0,0,0,6" Text="Always" />
+                            <TextBlock Margin="0,0,0,6" Text="{I18N {x:Static lang:LangKeys.Sample_68eec46437}}" />
                             <Border
                                 Width="180"
                                 HorizontalAlignment="Left"
@@ -583,19 +583,19 @@
                                         Width="90"
                                         Margin="4,0"
                                         SelectedIndex="0">
-                                        <ComboBoxItem Content="Item 1" />
-                                        <ComboBoxItem Content="Item 2" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f59e6f3afd}}" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9eda28f018}}" />
                                     </ComboBox>
                                     <CheckBox
                                         Margin="6,0"
                                         VerticalAlignment="Center"
-                                        Content="Opt" />
+                                        Content="{I18N {x:Static lang:LangKeys.Sample_903a033e59}}" />
                                     <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
                                 </vio:ToolBar>
                             </Border>
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Margin="0,0,0,6" Text="Never" />
+                            <TextBlock Margin="0,0,0,6" Text="{I18N {x:Static lang:LangKeys.Sample_6e7b34fa59}}" />
                             <Border
                                 Width="180"
                                 HorizontalAlignment="Left"
@@ -610,13 +610,13 @@
                                         Width="90"
                                         Margin="4,0"
                                         SelectedIndex="0">
-                                        <ComboBoxItem Content="Item 1" />
-                                        <ComboBoxItem Content="Item 2" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f59e6f3afd}}" />
+                                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9eda28f018}}" />
                                     </ComboBox>
                                     <CheckBox
                                         Margin="6,0"
                                         VerticalAlignment="Center"
-                                        Content="Opt" />
+                                        Content="{I18N {x:Static lang:LangKeys.Sample_903a033e59}}" />
                                     <Button Content="C" Style="{StaticResource ToolBarButtonStyle}" />
                                 </vio:ToolBar>
                             </Border>
@@ -637,7 +637,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="OverflowMode：Always / Never / AsNeeded" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fcf877bc83}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -653,15 +653,15 @@
                         <vio:ToolBar>
                             <Button
                                 vio:ToolBar.OverflowMode="Never"
-                                Content="Save"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                                 Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Open" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Cut" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Copy" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Paste" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_d7098f5050}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_43fc77886b}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_eafbece101}}" Style="{StaticResource ToolBarButtonStyle}" />
                             <Button
                                 vio:ToolBar.OverflowMode="Always"
-                                Content="Help"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_6a26f54883}}"
                                 Style="{StaticResource ToolBarButtonStyle}" />
                         </vio:ToolBar>
                     </Border>
@@ -680,7 +680,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ShowOverflowMenu = False" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d40cb6e5b9}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -694,11 +694,11 @@
                         BorderThickness="1"
                         CornerRadius="6">
                         <vio:ToolBar ShowOverflowMenu="False">
-                            <Button Content="One" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Two" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Three" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Four" Style="{StaticResource ToolBarButtonStyle}" />
-                            <Button Content="Five" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_06c2cea186}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_aada29daee}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_ca8a2087e5}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_981b8fcee4}}" Style="{StaticResource ToolBarButtonStyle}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_e5d9de39f7}}" Style="{StaticResource ToolBarButtonStyle}" />
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>
@@ -780,14 +780,14 @@
                         TextWrapping="Wrap" />
                     <ToolBarTray IsLocked="True">
                         <ToolBar Width="280">
-                            <Button Content="One" />
-                            <Button Content="Two" />
-                            <Button Content="Three" />
-                            <Button Content="Four" />
-                            <Button Content="Five" />
-                            <Button Content="Six" />
-                            <Button Content="Seven" />
-                            <Button Content="Eight" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_06c2cea186}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_aada29daee}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_ca8a2087e5}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_981b8fcee4}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_e5d9de39f7}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_e6fbc0b967}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_12e67aac3e}}" />
+                            <Button Content="{I18N {x:Static lang:LangKeys.Sample_baca0ca672}}" />
                         </ToolBar>
                     </ToolBarTray>
                 </StackPanel>

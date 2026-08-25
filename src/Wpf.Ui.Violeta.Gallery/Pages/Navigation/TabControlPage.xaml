@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="TabControl"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TabControl}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="TabControl" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TabControl}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -41,22 +41,22 @@
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <ui:SymbolIcon Margin="0,0,6,0" Symbol="XboxConsole24" />
-                                    <TextBlock Text="Hello" />
+                                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_8b1a9953c4}}" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <TextBlock Margin="12" Text="World" />
+                                <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_f5a7924e62}}" />
                             </Grid>
                         </TabItem>
                         <TabItem IsSelected="True">
                             <TabItem.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <ui:SymbolIcon Margin="0,0,6,0" Symbol="StoreMicrosoft16" />
-                                    <TextBlock Text="The cake" />
+                                    <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_4b111b983d}}" />
                                 </StackPanel>
                             </TabItem.Header>
                             <Grid>
-                                <TextBlock Margin="12" Text="Is a lie." />
+                                <TextBlock Margin="12" Text="{I18N {x:Static lang:LangKeys.Sample_5c4f2fcaf6}}" />
                             </Grid>
                         </TabItem>
                     </TabControl>

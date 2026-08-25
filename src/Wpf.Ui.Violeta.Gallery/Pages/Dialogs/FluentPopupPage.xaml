@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="FluentPopup"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentPopup}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="FluentPopup" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentPopup}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -26,18 +26,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="FluentPopup" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentPopup}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_8187a6e35a}}" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <StackPanel>
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Slide" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_6160a53ece}}" />
                             <ToggleButton
                                 x:Name="PopupSlideToggle"
                                 Margin="0,4,0,0"
-                                Content="Open Slide Popup" />
+                                Content="{I18N {x:Static lang:LangKeys.Sample_5eab39ac7f}}" />
                             <vio:FluentPopup
                                 ExtPopupAnimation="Slide"
                                 IsOpen="{Binding IsChecked, ElementName=PopupSlideToggle, Mode=TwoWay}"
@@ -50,22 +50,22 @@
                                     Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
                                     CornerRadius="8">
                                     <StackPanel>
-                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e74a0d0f02}}" />
                                         <TextBlock
                                             Margin="0,4,0,0"
                                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                            Text="Acrylic · Slide animation · Rounded corners"
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_53fe1601e3}}"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                 </Border>
                             </vio:FluentPopup>
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Fade" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_04e0385c10}}" />
                             <ToggleButton
                                 x:Name="PopupFadeToggle"
                                 Margin="0,4,0,0"
-                                Content="Open Fade Popup" />
+                                Content="{I18N {x:Static lang:LangKeys.Sample_eb71826e17}}" />
                             <vio:FluentPopup
                                 ExtPopupAnimation="Fade"
                                 IsOpen="{Binding IsChecked, ElementName=PopupFadeToggle, Mode=TwoWay}"
@@ -78,22 +78,22 @@
                                     Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
                                     CornerRadius="8">
                                     <StackPanel>
-                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e74a0d0f02}}" />
                                         <TextBlock
                                             Margin="0,4,0,0"
                                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                            Text="Acrylic · Fade animation · Rounded corners"
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_2d81d2656d}}"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                 </Border>
                             </vio:FluentPopup>
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="No animation + tint" />
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_7dcc93b8e7}}" />
                             <ToggleButton
                                 x:Name="PopupNoneToggle"
                                 Margin="0,4,0,0"
-                                Content="Open Tinted Popup" />
+                                Content="{I18N {x:Static lang:LangKeys.Sample_02922129e5}}" />
                             <vio:FluentPopup
                                 Background="#3300AAFF"
                                 ExtPopupAnimation="None"
@@ -103,11 +103,11 @@
                                 StaysOpen="False">
                                 <Border Width="220" Padding="16,12" CornerRadius="8">
                                     <StackPanel>
-                                        <TextBlock FontWeight="SemiBold" Text="Fluent Popup" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e74a0d0f02}}" />
                                         <TextBlock
                                             Margin="0,4,0,0"
                                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                            Text="Acrylic + blue tint · No animation"
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_b98b98380c}}"
                                             TextWrapping="Wrap" />
                                     </StackPanel>
                                 </Border>

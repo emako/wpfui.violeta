@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ColorPicker"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ColorPicker}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <Grid>
@@ -24,7 +24,7 @@
                     Margin="0,0,0,16"
                     FontSize="20"
                     FontWeight="SemiBold"
-                    Text="ColorPicker" />
+                    Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ColorPicker}}" />
                 <TextBlock
                     Margin="0,0,0,12"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -47,7 +47,7 @@
                                 Margin="0,0,0,12"
                                 FontSize="16"
                                 FontWeight="SemiBold"
-                                Text="Default" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                             <vio:ColorView
                                 x:Name="DefaultColorView"
                                 Color="#39C5BB"
@@ -102,7 +102,7 @@
                                 Margin="0,0,0,12"
                                 FontSize="16"
                                 FontWeight="SemiBold"
-                                Text="Simple" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1fbb1e3943}}" />
                             <vio:ColorView
                                 x:Name="SimpleColorView"
                                 Color="{Binding Color, ElementName=DefaultColorView, Mode=TwoWay}"
@@ -149,84 +149,84 @@
                     <vio:ToggleSwitch
                         x:Name="ToggleAccentColors"
                         Margin="0,0,0,8"
-                        Header="IsAccentColorsVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_e1715873b6}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleAlphaEnabled"
                         Margin="0,0,0,8"
-                        Header="IsAlphaEnabled"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_d4a3649959}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleAlphaVisible"
                         Margin="0,0,0,8"
-                        Header="IsAlphaVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_3ef12e7ae5}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorComponents"
                         Margin="0,0,0,8"
-                        Header="IsColorComponentsVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_364c264fb7}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorModel"
                         Margin="0,0,0,8"
-                        Header="IsColorModelVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_e4ca56bee4}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorPalette"
                         Margin="0,0,0,8"
-                        Header="IsColorPaletteVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_197139f5c5}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorPreview"
                         Margin="0,0,0,8"
-                        Header="IsColorPreviewVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_f2579cf82c}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorSpectrum"
                         Margin="0,0,0,8"
-                        Header="IsColorSpectrumVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_0f273844b1}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleColorSpectrumSlider"
                         Margin="0,0,0,8"
-                        Header="IsColorSpectrumSliderVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_83f3616584}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleComponentSlider"
                         Margin="0,0,0,8"
-                        Header="IsComponentSliderVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_2d66358181}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleComponentTextInput"
                         Margin="0,0,0,8"
-                        Header="IsComponentTextInputVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_7e3f81feac}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />
                     <vio:ToggleSwitch
                         x:Name="ToggleHexInput"
                         Margin="0,0,0,16"
-                        Header="IsHexInputVisible"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_6159b1d323}}"
                         IsOn="True"
                         OffContent="{x:Null}"
                         OnContent="{x:Null}" />

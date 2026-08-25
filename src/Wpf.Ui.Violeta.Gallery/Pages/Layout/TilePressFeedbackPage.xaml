@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Tile"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_TilePressFeedback}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <vio:Page.Resources>
@@ -194,7 +194,7 @@
                 Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Tile" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_TilePressFeedback}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -236,7 +236,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Mail" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_4dfbb099ea}}" />
                                 <TextBlock
                                     Margin="0,4,0,0"
                                     HorizontalAlignment="Right"
@@ -266,7 +266,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Desktop" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_2310408a63}}" />
                             </Grid>
                         </Button>
                         <Button Background="#515C6B" Style="{StaticResource InstantTileStyle}">
@@ -285,7 +285,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Finance" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c482980d38}}" />
                                 <TextBlock
                                     Margin="0,4,0,0"
                                     HorizontalAlignment="Right"
@@ -316,7 +316,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="People" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_78386ec8f2}}" />
                                 <TextBlock
                                     Margin="0,4,0,0"
                                     HorizontalAlignment="Right"
@@ -367,7 +367,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Alerts" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_df583ae7ba}}" />
                                 <TextBlock
                                     Margin="0,4,0,0"
                                     HorizontalAlignment="Right"
@@ -395,7 +395,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Music" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_47dcbd834e}}" />
                             </Grid>
                         </Button>
                         <Button Background="#107C10" Style="{StaticResource AnimatedTileStyle}">
@@ -414,7 +414,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Chat" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_55dcdf017b}}" />
                                 <TextBlock
                                     Margin="0,4,0,0"
                                     HorizontalAlignment="Right"
@@ -423,7 +423,7 @@
                                     FontWeight="Light"
                                     Foreground="White"
                                     Opacity="0.9"
-                                    Text="99+" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_efe52ee303}}" />
                             </Grid>
                         </Button>
                         <Button
@@ -445,7 +445,7 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Calendar" />
+                                    Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Calendar}}" />
                             </Grid>
                         </Button>
                     </WrapPanel>

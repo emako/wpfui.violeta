@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="RepeatButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_RepeatButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="RepeatButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RepeatButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -56,7 +56,7 @@
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableRepeatButton_Checked"
-                            Content="Disable button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_97c56016ab}}"
                             Unchecked="DisableRepeatButton_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -74,7 +74,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Delay / Interval" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2f44e60b38}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -123,7 +123,7 @@
                         <RepeatButton
                             Width="40"
                             Click="DecrementButton_OnClick"
-                            Content="−"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5499493768}}"
                             Delay="400"
                             Interval="80" />
                         <TextBlock

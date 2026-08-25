@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Anchor"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Anchor}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <Grid Margin="24,16,24,24">
@@ -21,7 +21,7 @@
             Margin="0,0,0,16"
             FontSize="20"
             FontWeight="SemiBold"
-            Text="Anchor" />
+            Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Anchor}}" />
 
         <Border
             Grid.Row="1"
@@ -41,13 +41,13 @@
                     VerticalAlignment="Top"
                     TargetContainer="{Binding ElementName=AnchorScrollViewer}"
                     TopOffset="12">
-                    <vio:AnchorItem AnchorId="sec1" Header="Section 1" />
-                    <vio:AnchorItem AnchorId="sec2" Header="Section 2">
-                        <vio:AnchorItem AnchorId="sec2-1" Header="Sub 2.1" />
-                        <vio:AnchorItem AnchorId="sec2-2" Header="Sub 2.2" />
+                    <vio:AnchorItem AnchorId="sec1" Header="{I18N {x:Static lang:LangKeys.Sample_82a0805a73}}" />
+                    <vio:AnchorItem AnchorId="sec2" Header="{I18N {x:Static lang:LangKeys.Sample_f2d02e9add}}">
+                        <vio:AnchorItem AnchorId="sec2-1" Header="{I18N {x:Static lang:LangKeys.Sample_1542a2d801}}" />
+                        <vio:AnchorItem AnchorId="sec2-2" Header="{I18N {x:Static lang:LangKeys.Sample_606cf8d121}}" />
                     </vio:AnchorItem>
-                    <vio:AnchorItem AnchorId="sec3" Header="Section 3" />
-                    <vio:AnchorItem AnchorId="sec4" Header="Section 4" />
+                    <vio:AnchorItem AnchorId="sec3" Header="{I18N {x:Static lang:LangKeys.Sample_49fbc11c73}}" />
+                    <vio:AnchorItem AnchorId="sec4" Header="{I18N {x:Static lang:LangKeys.Sample_7a26d26ce2}}" />
                 </vio:Anchor>
 
                 <ScrollViewer
@@ -60,7 +60,7 @@
                             vio:Anchor.Id="sec1"
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="Section 1" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_82a0805a73}}" />
                         <TextBlock
                             Margin="0,4,0,32"
                             Text="{I18N {x:Static lang:LangKeys.Sample_86a1afd027}}"
@@ -70,7 +70,7 @@
                             vio:Anchor.Id="sec2"
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="Section 2" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_f2d02e9add}}" />
                         <TextBlock
                             Margin="0,4,0,16"
                             Text="{I18N {x:Static lang:LangKeys.Sample_9c64922ef8}}"
@@ -81,7 +81,7 @@
                             Margin="12,0,0,0"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Sub-section 2.1" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_faf9006158}}" />
                         <TextBlock
                             Margin="12,4,0,16"
                             Text="{I18N {x:Static lang:LangKeys.Sample_4473a9e79b}}"
@@ -92,7 +92,7 @@
                             Margin="12,0,0,0"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Sub-section 2.2" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_37eed58825}}" />
                         <TextBlock
                             Margin="12,4,0,32"
                             Text="{I18N {x:Static lang:LangKeys.Sample_26ae404d23}}"
@@ -102,7 +102,7 @@
                             vio:Anchor.Id="sec3"
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="Section 3" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_49fbc11c73}}" />
                         <TextBlock
                             Margin="0,4,0,32"
                             Text="{I18N {x:Static lang:LangKeys.Sample_8e1dd99c8c}}"
@@ -112,7 +112,7 @@
                             vio:Anchor.Id="sec4"
                             FontSize="16"
                             FontWeight="SemiBold"
-                            Text="Section 4" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_7a26d26ce2}}" />
                         <TextBlock
                             Margin="0,4,0,48"
                             Text="{I18N {x:Static lang:LangKeys.Sample_1de8eaa668}}"

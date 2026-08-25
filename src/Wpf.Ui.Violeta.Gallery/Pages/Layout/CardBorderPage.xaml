@@ -1,0 +1,144 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Layout.CardBorderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CardBorder}}"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardBorder}}" />
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a1b2c3d4e6}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b2c3d4e5f7}}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <Border
+                                Width="200"
+                                MinHeight="96"
+                                Padding="16"
+                                Style="{StaticResource CardBorderStyle}">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c9d0e1f2a4}}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_c3d4e5f6a8}}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <Border
+                                Width="200"
+                                MinHeight="96"
+                                Padding="16"
+                                Style="{StaticResource SecondaryBorderStyle}">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c9d0e1f2a4}}"
+                                    TextWrapping="Wrap" />
+                            </Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_d4e5f6a7b9}}" />
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e5f6a7b8c0}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f6a7b8c9d1}}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="200"
+                                MinHeight="96"
+                                Padding="16"
+                                Style="{StaticResource CardUiBorderStyle}">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c9d0e1f2a4}}"
+                                    TextWrapping="Wrap" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_a7b8c9d0e2}}" />
+                        </StackPanel>
+                        <StackPanel Margin="0,0,16,16">
+                            <ui:Border
+                                Width="200"
+                                MinHeight="96"
+                                Padding="16"
+                                Style="{StaticResource SecondaryUiBorderStyle}">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_c9d0e1f2a4}}"
+                                    TextWrapping="Wrap" />
+                            </ui:Border>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_b8c9d0e1f3}}" />
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

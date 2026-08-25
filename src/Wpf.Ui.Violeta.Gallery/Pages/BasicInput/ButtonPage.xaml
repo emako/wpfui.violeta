@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Button"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Button" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Button}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Standard button" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_14edd6a459}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -43,11 +43,11 @@
                         <Button
                             x:Name="StandardButton"
                             Grid.Column="0"
-                            Content="Standard WPF button" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ff4d6ca0ce}}" />
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableButton_Checked"
-                            Content="Disable button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_97c56016ab}}"
                             Unchecked="DisableButton_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -65,7 +65,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="WPF UI button" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_459fe7634f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -78,12 +78,12 @@
                         <ui:Button
                             x:Name="UiButton"
                             Grid.Column="0"
-                            Content="WPF UI button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_459fe7634f}}"
                             Icon="{ui:SymbolIcon Fluent24}" />
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableUiButton_Checked"
-                            Content="Disable button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_97c56016ab}}"
                             Unchecked="DisableUiButton_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -101,14 +101,14 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Primary button" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7c81d84b14}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_c71e9d5bfa}}" />
                     <ui:Button
                         Appearance="Primary"
-                        Content="WPF UI button"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_459fe7634f}}"
                         Icon="{ui:SymbolIcon Fluent24}" />
                 </StackPanel>
             </Border>
@@ -125,7 +125,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icons" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -133,11 +133,11 @@
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ui:Button
                             Appearance="Primary"
-                            Content="FontIcon"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7e64d5c452}}"
                             Icon="{ui:FontIcon '&#x1F308;'}" />
                         <ui:Button
                             Appearance="Primary"
-                            Content="ImageIcon"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d17a461c54}}"
                             Icon="{ui:ImageIcon 'pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/wpfui.png'}" />
                     </ui:StackPanel>
                 </StackPanel>
@@ -155,60 +155,60 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Appearance variants" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8a60003101}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_c1dde7ca84}}" />
-                    <TextBlock Margin="0,0,0,8" Text="Enabled" />
+                    <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_00d23a76e4}}" />
                     <WrapPanel Margin="0,0,0,12">
                         <ui:Button
                             Margin="4"
                             Appearance="Primary"
-                            Content="Primary" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}" />
                         <ui:Button
                             Margin="4"
                             Appearance="Secondary"
-                            Content="Secondary" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}" />
                         <ui:Button
                             Margin="4"
                             Appearance="Success"
-                            Content="Success" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
                         <ui:Button
                             Margin="4"
                             Appearance="Caution"
-                            Content="Caution" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_764a2caff0}}" />
                         <ui:Button
                             Margin="4"
                             Appearance="Danger"
-                            Content="Danger" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}" />
                     </WrapPanel>
-                    <TextBlock Margin="0,0,0,8" Text="Disabled" />
+                    <TextBlock Margin="0,0,0,8" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="4"
                             Appearance="Primary"
-                            Content="Primary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}"
                             IsEnabled="False" />
                         <ui:Button
                             Margin="4"
                             Appearance="Secondary"
-                            Content="Secondary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}"
                             IsEnabled="False" />
                         <ui:Button
                             Margin="4"
                             Appearance="Success"
-                            Content="Success"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}"
                             IsEnabled="False" />
                         <ui:Button
                             Margin="4"
                             Appearance="Caution"
-                            Content="Caution"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_764a2caff0}}"
                             IsEnabled="False" />
                         <ui:Button
                             Margin="4"
                             Appearance="Danger"
-                            Content="Danger"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}"
                             IsEnabled="False" />
                     </WrapPanel>
                 </StackPanel>
@@ -226,29 +226,29 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon + text (StackPanel Content)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3a573f184a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Compose Content with a StackPanel instead of the Icon property. Foreground is inherited from the button — hold to verify pressed state."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0f00121336}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="8">
                         <ui:Button Appearance="Primary">
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Save24" />
-                                <TextBlock VerticalAlignment="Center" Text="Save" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}" />
                             </ui:StackPanel>
                         </ui:Button>
                         <ui:Button Appearance="Primary">
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Share24" />
-                                <TextBlock VerticalAlignment="Center" Text="Share" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_5a95a425f7}}" />
                             </ui:StackPanel>
                         </ui:Button>
                         <ui:Button>
                             <ui:StackPanel Orientation="Horizontal" Spacing="8">
                                 <ui:SymbolIcon Symbol="Copy24" />
-                                <TextBlock VerticalAlignment="Center" Text="Copy" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
                             </ui:StackPanel>
                         </ui:Button>
                     </ui:StackPanel>
@@ -267,11 +267,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Rich content" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0357705cc8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="StackPanel with icon, title, and secondary description — all inherit button Foreground."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3ddf6f22b0}}"
                         TextWrapping="Wrap" />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -292,11 +292,11 @@
                                         FontSize="20"
                                         Symbol="CloudArrowUp24" />
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock FontWeight="SemiBold" Text="Upload" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_91412465ea}}" />
                                         <TextBlock
                                             FontSize="12"
                                             Opacity="0.72"
-                                            Text="Send files to cloud" />
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_bd5d5dfbba}}" />
                                     </StackPanel>
                                 </ui:StackPanel>
                             </ui:Button>
@@ -310,11 +310,11 @@
                                         FontSize="20"
                                         Symbol="Checkmark24" />
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock FontWeight="SemiBold" Text="Confirm" />
+                                        <TextBlock FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Sample_e83a256e4f}}" />
                                         <TextBlock
                                             FontSize="12"
                                             Opacity="0.72"
-                                            Text="Apply changes" />
+                                            Text="{I18N {x:Static lang:LangKeys.Sample_3d6aea7f98}}" />
                                     </StackPanel>
                                 </ui:StackPanel>
                             </ui:Button>
@@ -322,7 +322,7 @@
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableRichContentButton_Checked"
-                            Content="Disable"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_bcfaccebf7}}"
                             Unchecked="DisableRichContentButton_Unchecked" />
                     </Grid>
                 </StackPanel>

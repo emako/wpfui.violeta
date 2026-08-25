@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="GridSplitter"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_GridSplitter}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="GridSplitter" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GridSplitter}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -52,7 +52,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Top Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_e984017186}}" />
                         </Border>
                         <GridSplitter
                             Grid.Row="1"
@@ -66,7 +66,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Bottom Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_53f204dfc4}}" />
                         </Border>
                     </Grid>
                 </StackPanel>
@@ -102,7 +102,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Left Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_fb51cbb272}}" />
                         </Border>
                         <GridSplitter
                             Grid.Column="1"
@@ -116,7 +116,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Right Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1752a53603}}" />
                         </Border>
                     </Grid>
                 </StackPanel>
@@ -155,7 +155,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Left Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_fb51cbb272}}" />
                         </Border>
                         <GridSplitter
                             Grid.Column="1"
@@ -170,7 +170,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Text="Right Panel" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1752a53603}}" />
                         </Border>
                     </Grid>
                 </StackPanel>

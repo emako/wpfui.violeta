@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Splash"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Splash}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="Splash" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Splash}}" />
             <Border
                 Margin="0,0,0,16"
                 Padding="20"
@@ -31,8 +31,8 @@
                         <ui:Button
                             Margin="0,0,8,0"
                             Click="ShowSplash_Click"
-                            Content="ShowAsync" />
-                        <ui:Button Click="CloseSplash_Click" Content="CloseAsync" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_72c5f3496c}}" />
+                        <ui:Button Click="CloseSplash_Click" Content="{I18N {x:Static lang:LangKeys.Sample_8c72a0d0cf}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

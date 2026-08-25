@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Image"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Image}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Image" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Image}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -55,7 +55,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ui:Image" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_91d33f49b1}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"

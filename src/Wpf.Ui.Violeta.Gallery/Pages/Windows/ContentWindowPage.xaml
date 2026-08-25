@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ContentWindow"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentWindow}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ContentWindow" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentWindow}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -50,34 +50,34 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Configure &amp; open" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_900750dec1}}" />
 
                     <vio:Form LabelPosition="Left" LabelWidth="220">
-                        <vio:FormGroup Header="Window">
+                        <vio:FormGroup Header="{I18N {x:Static lang:LangKeys.Sample_5e68f5916f}}">
                             <vio:FormItem Label="Title">
-                                <ui:TextBox x:Name="TitleTextBox" Text="ContentWindow Demo" />
+                                <ui:TextBox x:Name="TitleTextBox" Text="{I18N {x:Static lang:LangKeys.Sample_deb91a5c97}}" />
                             </vio:FormItem>
                             <vio:FormItem Label="WindowStartupLocation">
                                 <ComboBox x:Name="StartupLocationComboBox" SelectedIndex="2">
-                                    <ComboBoxItem Content="Manual" Tag="Manual" />
-                                    <ComboBoxItem Content="CenterScreen" Tag="CenterScreen" />
-                                    <ComboBoxItem Content="CenterOwner" Tag="CenterOwner" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_e1ba155a9f}}" Tag="Manual" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_febca04d55}}" Tag="CenterScreen" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d76f53ff82}}" Tag="CenterOwner" />
                                 </ComboBox>
                             </vio:FormItem>
                             <vio:FormItem Label="WindowBackdropType">
                                 <ComboBox x:Name="BackdropTypeComboBox" SelectedIndex="1">
-                                    <ComboBoxItem Content="None" Tag="None" />
-                                    <ComboBoxItem Content="Mica" Tag="Mica" />
-                                    <ComboBoxItem Content="Acrylic" Tag="Acrylic" />
-                                    <ComboBoxItem Content="Tabbed" Tag="Tabbed" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_None}}" Tag="None" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_097ea7163a}}" Tag="Mica" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_920809ad6f}}" Tag="Acrylic" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_5a9bcd254e}}" Tag="Tabbed" />
                                 </ComboBox>
                             </vio:FormItem>
                             <vio:FormItem Label="ResizeMode">
                                 <ComboBox x:Name="ResizeModeComboBox" SelectedIndex="2">
-                                    <ComboBoxItem Content="NoResize" Tag="NoResize" />
-                                    <ComboBoxItem Content="CanMinimize" Tag="CanMinimize" />
-                                    <ComboBoxItem Content="CanResize" Tag="CanResize" />
-                                    <ComboBoxItem Content="CanResizeWithGrip" Tag="CanResizeWithGrip" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_137e49a657}}" Tag="NoResize" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_b942642e42}}" Tag="CanMinimize" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_6437422900}}" Tag="CanResize" />
+                                    <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_fc6d8b49ec}}" Tag="CanResizeWithGrip" />
                                 </ComboBox>
                             </vio:FormItem>
                             <vio:FormItem Label="ShowInTaskbar">
@@ -97,7 +97,7 @@
                             </vio:FormItem>
                         </vio:FormGroup>
 
-                        <vio:FormGroup Header="TitleBar">
+                        <vio:FormGroup Header="{I18N {x:Static lang:LangKeys.Gallery_Page_TitleBar}}">
                             <vio:FormItem Label="TitleBarVisibility">
                                 <ui:ToggleSwitch x:Name="TitleBarVisibleToggle" IsChecked="True" />
                             </vio:FormItem>
@@ -160,42 +160,42 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Presets" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_eb81441fe2}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Quick-open with common TitleBar / chrome combinations."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d3ca4cba5b}}"
                         TextWrapping="Wrap" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="Dialog (close only)"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e1e1b18487}}"
                             Tag="Dialog" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="Tool (min / max / close)"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_cd980f82dd}}"
                             Tag="Tool" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="Help button"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_2649e6600b}}"
                             Tag="Help" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="No TitleBar"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_fc2738e683}}"
                             Tag="NoTitleBar" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="CenterScreen"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_febca04d55}}"
                             Tag="CenterScreen" />
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="OpenPreset_Click"
-                            Content="Custom Header / Footer"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_f3d813c9a3}}"
                             Tag="CustomChrome" />
                     </WrapPanel>
                 </StackPanel>

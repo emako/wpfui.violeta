@@ -7,12 +7,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Skeleton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Skeleton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
-            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="Skeleton" />
+            <TextBlock Margin="0,0,0,16" FontSize="20" FontWeight="SemiBold" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Skeleton}}" />
             <Border
                 Margin="0,0,0,16"
                 Padding="20"
@@ -31,7 +31,7 @@
                         <CheckBox
                             x:Name="LoadingCheckBox"
                             VerticalAlignment="Center"
-                            Content="IsLoading"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_88d35241c6}}"
                             IsChecked="True"
                             Checked="LoadingState_Changed"
                             Unchecked="LoadingState_Changed" />
@@ -39,7 +39,7 @@
                             x:Name="ActiveCheckBox"
                             Margin="16,0,0,0"
                             VerticalAlignment="Center"
-                            Content="IsActive"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0205bd4439}}"
                             IsChecked="True"
                             Checked="LoadingState_Changed"
                             Unchecked="LoadingState_Changed" />

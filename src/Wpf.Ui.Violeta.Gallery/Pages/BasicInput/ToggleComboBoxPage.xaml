@@ -8,7 +8,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ToggleComboBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleComboBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ToggleComboBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleComboBox}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -45,7 +45,7 @@
                     <StackPanel Orientation="Horizontal">
                         <vio:ToggleComboBox
                             x:Name="BasicToggleComboBox"
-                            Content="Bold"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_3b8a43acee}}"
                             Icon="{ui:SymbolIcon TextBold24}"
                             SelectionChanged="BasicToggleComboBox_OnSelectionChanged">
                             <vio:ToggleComboBox.ItemsSource>
@@ -110,7 +110,7 @@
                             </vio:ToggleComboBox.ItemsSource>
                         </vio:ToggleComboBox>
                         <vio:ToggleComboBox
-                            Content="Times New Roman"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_8900726a3d}}"
                             SyncContentWithSelection="True">
                             <vio:ToggleComboBox.ItemsSource>
                                 <x:Array Type="{x:Type sys:String}">
@@ -125,10 +125,10 @@
                     <TextBlock
                         Margin="0,12,0,8"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Fixed MinWidth (left-aligned content)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_af83bee9a0}}" />
                     <vio:ToggleComboBox
                         MinWidth="220"
-                        Content="Green"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}"
                         SyncContentWithSelection="True">
                         <vio:ToggleComboBox.ItemsSource>
                             <x:Array Type="{x:Type sys:String}">

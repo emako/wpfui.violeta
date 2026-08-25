@@ -7,8 +7,9 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:emoji="http://schemas.lepo.co/wpfui/2022/xaml/emoji"
-    Title="Emoji"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <vio:Page.Resources>
@@ -23,11 +24,11 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Emoji" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Color emoji rendering based on emoji.wpf (COLR/CPAL via Segoe UI Emoji)."
+                Text="{I18N {x:Static lang:LangKeys.Sample_e4eae01063}}"
                 TextWrapping="Wrap" />
 
             <Border
@@ -42,11 +43,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="EmojiedTextBlock vs TextBlock" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_619bec7d3f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Native TextBlock may show monochrome glyphs; EmojiedTextBlock renders color emoji."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1f337ec787}}"
                         TextWrapping="Wrap" />
                     <Border
                         Margin="0,0,0,8"
@@ -85,11 +86,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="EmojiImage" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d0115c6563}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Attach EmojiImage.Source to Image, or build a DrawingImage."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b33b46f030}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <Image
@@ -117,11 +118,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="EmojiPicker" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8fe2f0e456}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Pick an emoji and insert it into the text box."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b419386415}}"
                         TextWrapping="Wrap" />
                     <DockPanel LastChildFill="True">
                         <emoji:EmojiPicker
@@ -157,11 +158,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Flags" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4ea7801f17}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Windows-style flag glyphs (when available)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8d800a5eb8}}"
                         TextWrapping="Wrap" />
                     <emoji:EmojiedTextBlock
                         FontSize="28"

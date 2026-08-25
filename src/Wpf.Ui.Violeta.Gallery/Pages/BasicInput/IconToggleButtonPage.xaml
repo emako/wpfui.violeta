@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="IconToggleButton"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_IconToggleButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,11 +16,11 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="IconToggleButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_IconToggleButton}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Default style shows hover / selected borders. Sample style is flat icon-only. Supports IsThreeState with IndeterminateIcon."
+                Text="{I18N {x:Static lang:LangKeys.Sample_4b919c21a8}}"
                 TextWrapping="Wrap" />
 
             <Border
@@ -34,25 +35,25 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Default" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Hover and checked show outer border + fill. Icons: UncheckedIcon / CheckedIcon."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_99d9bd7a3c}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon EyeOff24}"
-                            ToolTip="Toggle visibility"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_f579716646}}"
                             UncheckedIcon="{ui:SymbolIcon Eye24}" />
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon SpeakerMute24}"
                             IsChecked="True"
-                            ToolTip="Mute"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_00cd7be4cb}}"
                             UncheckedIcon="{ui:SymbolIcon Speaker224}" />
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon Pin24}"
-                            ToolTip="Pin"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_e78e14c5f1}}"
                             UncheckedIcon="{ui:SymbolIcon PinOff24}" />
                     </ui:StackPanel>
                 </StackPanel>
@@ -70,28 +71,28 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Sample (flat)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_800a91550a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="SampleIconToggleButtonStyle — icon swap only, no hover / selected chrome."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b29235652a}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon EyeOff24}"
                             Style="{StaticResource SampleIconToggleButtonStyle}"
-                            ToolTip="Toggle visibility"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_f579716646}}"
                             UncheckedIcon="{ui:SymbolIcon Eye24}" />
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon SpeakerMute24}"
                             IsChecked="True"
                             Style="{StaticResource SampleIconToggleButtonStyle}"
-                            ToolTip="Mute"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_00cd7be4cb}}"
                             UncheckedIcon="{ui:SymbolIcon Speaker224}" />
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon Pin24}"
                             Style="{StaticResource SampleIconToggleButtonStyle}"
-                            ToolTip="Pin"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_e78e14c5f1}}"
                             UncheckedIcon="{ui:SymbolIcon PinOff24}" />
                     </ui:StackPanel>
                 </StackPanel>
@@ -109,18 +110,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Three-state" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9908fbe791}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IsThreeState=True cycles unchecked → checked → indeterminate. Uses IndeterminateIcon when IsChecked is null."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_090c2ca242}}"
                         TextWrapping="Wrap" />
                     <ui:StackPanel Orientation="Horizontal" Spacing="16">
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon CheckboxChecked24}"
                             IndeterminateIcon="{ui:SymbolIcon CheckboxIndeterminate24}"
                             IsThreeState="True"
-                            ToolTip="Three-state checkbox icons"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_28b51970d7}}"
                             UncheckedIcon="{ui:SymbolIcon CheckboxUnchecked24}" />
                         <vio:IconToggleButton
                             CheckedIcon="{ui:SymbolIcon Heart24}"
@@ -128,7 +129,7 @@
                             IsChecked="{x:Null}"
                             IsThreeState="True"
                             Style="{StaticResource SampleIconToggleButtonStyle}"
-                            ToolTip="Sample three-state"
+                            ToolTip="{I18N {x:Static lang:LangKeys.Sample_2f74655b4c}}"
                             UncheckedIcon="{ui:SymbolIcon Heart24}" />
                     </ui:StackPanel>
                 </StackPanel>
@@ -146,11 +147,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Disabled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Disabled uses ToggleButton disabled brushes (default) or opacity (sample)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_cffe839e03}}"
                         TextWrapping="Wrap" />
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -174,7 +175,7 @@
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableIconToggle_Checked"
-                            Content="Disable"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_bcfaccebf7}}"
                             Unchecked="DisableIconToggle_Unchecked" />
                     </Grid>
                 </StackPanel>

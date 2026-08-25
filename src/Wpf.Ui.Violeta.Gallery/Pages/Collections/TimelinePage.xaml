@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Timeline"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Timeline}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Timeline" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Timeline}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -96,28 +96,28 @@
                         Text="{I18N {x:Static lang:LangKeys.Sample_f699b2bc6e}}" />
                     <vio:Timeline Mode="Alternate">
                         <vio:TimelineItem
-                            Content="First item"
-                            Header="Step One"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_f1ef59ee34}}"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_11f72c4bf8}}"
                             Position="Left"
                             Type="Default" />
                         <vio:TimelineItem
-                            Content="Second item"
-                            Header="Step Two"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_4e864ad0c1}}"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_9b1fadbb59}}"
                             Position="Right"
                             Type="Success" />
                         <vio:TimelineItem
-                            Content="Third item"
-                            Header="Step Three"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1267f9f89a}}"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_a090487d1b}}"
                             Position="Separate"
                             Type="Warning" />
                         <vio:TimelineItem
-                            Content="Fourth item"
-                            Header="Step Four"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_1496f606a5}}"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_c6fbaf949d}}"
                             Position="Separate"
                             Type="Ongoing" />
                         <vio:TimelineItem
-                            Content="Fifth item"
-                            Header="Step Five"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_c2229f2c51}}"
+                            Header="{I18N {x:Static lang:LangKeys.Sample_3c297634b8}}"
                             Position="Separate"
                             Type="Error" />
                     </vio:Timeline>

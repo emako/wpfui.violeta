@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="CardCarousel"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CardCarousel}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,11 +17,11 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CardCarousel" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CardCarousel}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Cover-flow card carousel with left / center / right slots. Chrome uses WPF UI Card brushes." />
+                Text="{I18N {x:Static lang:LangKeys.Sample_d5be96d71e}}" />
 
             <!--  Default + arrows + dots  -->
             <Border
@@ -35,11 +36,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Default" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_18c63459a2}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Click a side card, dots, or arrows to rotate. Keyboard Left / Right also works." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9d8875cae7}}" />
                     <vio:CardCarousel
                         Height="280"
                         MaxWidth="720"
@@ -52,7 +53,7 @@
                                     FontSize="28"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Card 1" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_742c77afec}}" />
                             </Border>
                         </vio:CardCarouselItem>
                         <vio:CardCarouselItem>
@@ -63,7 +64,7 @@
                                     FontSize="28"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Card 2" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_6fa1262c62}}" />
                             </Border>
                         </vio:CardCarouselItem>
                         <vio:CardCarouselItem>
@@ -74,7 +75,7 @@
                                     FontSize="28"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Card 3" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_5aa55d6b93}}" />
                             </Border>
                         </vio:CardCarouselItem>
                         <vio:CardCarouselItem>
@@ -85,7 +86,7 @@
                                     FontSize="28"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Card 4" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_0d631fde3b}}" />
                             </Border>
                         </vio:CardCarouselItem>
                         <vio:CardCarouselItem>
@@ -96,7 +97,7 @@
                                     FontSize="28"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="Card 5" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_aec2b16989}}" />
                             </Border>
                         </vio:CardCarouselItem>
                     </vio:CardCarousel>
@@ -116,11 +117,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Autoplay" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_05b1dc7759}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="CarouselNav Appearance=Brand, IsAutoplayEnabled, 2s interval. Hover pauses autoplay." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_eabd09afef}}" />
                     <vio:CardCarousel
                         Height="280"
                         MaxWidth="720"

@@ -184,6 +184,7 @@ public partial class MainWindow : ShellWindow
 
         ["layout"] = static () => new LayoutPage(),
         ["layout/card-control"] = static () => new CardControlPage(),
+        ["layout/card-border"] = static () => new CardBorderPage(),
         ["layout/card-action"] = static () => new CardActionPage(),
         ["layout/card-progress"] = static () => new CardProgressPage(),
         ["layout/tile-press-feedback"] = static () => new TilePressFeedbackPage(),

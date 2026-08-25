@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="CopyButton"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_CopyButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -15,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="CopyButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_CopyButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -29,18 +30,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Basic" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_StatusBar_BasicTitle}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Click to copy TextToCopy and play the WinUI-style checkmark animation."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3098f1d77b}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton Margin="0,0,8,0" TextToCopy="Hello from CopyButton" />
                         <TextBlock
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="← click me" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_8329093ddf}}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -57,11 +58,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Appearance" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Inherits WPF UI Button appearances."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_058f4b0139}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
@@ -93,11 +94,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ControlHelper.IconFontSize (default glyph)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_fbf399e379}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="No Icon — built-in glyph binds IconFontSize directly (12 / 16 default / 28)."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_0083ea3fa5}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
@@ -129,11 +130,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon inherits ControlHelper" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1a93b64678}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Icon has no local FontSize — ControlHelper.IconFontSize is applied via SetCurrentValue."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8f97956fd7}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
@@ -178,11 +179,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icon.FontSize wins over ControlHelper" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_8dae381aff}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="All buttons set ControlHelper.IconFontSize=28. Left/middle Icon sets FontSize=12 / 16 locally and stays small; right has no local FontSize and becomes 28."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_405bca6066}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,16,0">
@@ -200,7 +201,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="11"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="Icon FontSize=12" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_5804482520}}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,16,0">
                             <vio:CopyButton
@@ -217,7 +218,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="11"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="Icon FontSize=16" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_0ba128aeb4}}" />
                         </StackPanel>
                         <StackPanel>
                             <vio:CopyButton
@@ -234,7 +235,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="11"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="no local → 28" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_2a309c7843}}" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
@@ -252,17 +253,17 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Content FontSize vs IconFontSize" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_dc0a3d4565}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Button FontSize styles the label; ControlHelper.IconFontSize styles the icon independently."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_af320f2b89}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
                             Margin="0,0,8,0"
                             Appearance="Primary"
-                            Content="Copy"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}"
                             FontSize="11"
                             ui:ControlHelper.IconFontSize="22"
                             TextToCopy="small text large icon">
@@ -273,7 +274,7 @@
                         <vio:CopyButton
                             Margin="0,0,8,0"
                             Appearance="Primary"
-                            Content="Copy"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}"
                             FontSize="18"
                             ui:ControlHelper.IconFontSize="12"
                             TextToCopy="large text small icon">
@@ -283,7 +284,7 @@
                         </vio:CopyButton>
                         <vio:CopyButton
                             Appearance="Secondary"
-                            Content="Copy link"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_b758336699}}"
                             FontSize="13"
                             ui:ControlHelper.IconFontSize="16"
                             TextToCopy="balanced">
@@ -307,11 +308,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="IconFontFamily + SuccessGlyph" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_15c61d5baf}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Override icon font family / success glyph. Success animation uses the same IconFontSize."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_77146a4531}}"
                         TextWrapping="Wrap" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
@@ -345,21 +346,21 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Custom click / Command" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_eab08f976e}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Leave TextToCopy empty and handle clipboard in Click (or bind Command). Animation still plays; rapid clicks are throttled."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d04ee88f76}}"
                         TextWrapping="Wrap" />
                     <ui:TextBox
                         x:Name="CustomTextBox"
                         Margin="0,0,0,12"
-                        Text="Custom clipboard payload" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_aaaaf95453}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:CopyButton
                             Margin="0,0,8,0"
                             Click="CustomCopyButton_Click"
-                            Content="Copy text"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_b603b043e8}}"
                             FontSize="12"
                             ui:ControlHelper.IconFontSize="16">
                             <vio:CopyButton.Icon>
@@ -383,11 +384,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Beside text" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_be085e490f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Typical code / color tile layout."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_22b093f15e}}"
                         TextWrapping="Wrap" />
                     <Border
                         Padding="12,8"

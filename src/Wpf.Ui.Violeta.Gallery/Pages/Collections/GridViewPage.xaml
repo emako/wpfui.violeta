@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="GridView"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_GridView}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
 
@@ -42,7 +43,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="GridView" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_GridView}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -56,11 +57,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Basic GridView with ItemClick" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_4c08ca81b2}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="WinUI-style wrapping grid. Distinct from ui:GridView (ListView column view)." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c36426c170}}" />
                     <vio:GridView
                         x:Name="BasicGridView"
                         MaxHeight="280"
@@ -88,11 +89,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="UniformGrid + ui:Card" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a5df907a38}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Custom ItemsPanel with UniformGrid; each item is a ui:Card." />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5ba98ec5f0}}" />
                     <vio:GridView
                         MaxHeight="320"
                         ItemsSource="{Binding Items}"
@@ -132,11 +133,11 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Selection modes &amp; multi-select checkbox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_561b956e78}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IsSelectionEnabled / SelectionMode / IsMultiSelectCheckBoxEnabled / Header / Footer" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c70fed3fea}}" />
 
                     <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
                         <CheckBox
@@ -144,34 +145,34 @@
                             Margin="0,0,16,0"
                             VerticalAlignment="Center"
                             Checked="ItemClickCheckBox_Click"
-                            Content="IsItemClickEnabled"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_744f02e5bf}}"
                             IsChecked="{Binding ElementName=ContentGridView, Path=IsItemClickEnabled, Mode=TwoWay}"
                             Unchecked="ItemClickCheckBox_Click" />
                         <CheckBox
                             Margin="0,0,16,0"
                             VerticalAlignment="Center"
-                            Content="IsMultiSelectCheckBoxEnabled"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_9a9a956b04}}"
                             IsChecked="{Binding ElementName=ContentGridView, Path=IsMultiSelectCheckBoxEnabled, Mode=TwoWay}" />
                         <TextBlock
                             Margin="0,0,8,0"
                             VerticalAlignment="Center"
-                            Text="SelectionMode" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_6299674ebe}}" />
                         <ComboBox
                             x:Name="SelectionModeComboBox"
                             Width="120"
                             SelectedIndex="1"
                             SelectionChanged="SelectionModeComboBox_SelectionChanged">
-                            <ComboBoxItem Content="None" />
-                            <ComboBoxItem Content="Single" />
-                            <ComboBoxItem Content="Multiple" />
-                            <ComboBoxItem Content="Extended" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings_Backdrop_None}}" Tag="None" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_66ba162102}}" Tag="Single" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_a0bf169f25}}" Tag="Multiple" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_f23578fcd2}}" Tag="Extended" />
                         </ComboBox>
                     </StackPanel>
 
                     <vio:GridView
                         x:Name="ContentGridView"
                         MaxHeight="300"
-                        Header="Sample header"
+                        Header="{I18N {x:Static lang:LangKeys.Sample_a2b099aca0}}"
                         IsItemClickEnabled="True"
                         ItemClick="BasicGridView_ItemClick"
                         ItemTemplate="{StaticResource CardTemplate}"
@@ -190,7 +191,7 @@
                             <TextBlock
                                 Margin="0,8,0,0"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Sample footer" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1ba1994a8f}}" />
                         </vio:GridView.Footer>
                     </vio:GridView>
                     <TextBlock

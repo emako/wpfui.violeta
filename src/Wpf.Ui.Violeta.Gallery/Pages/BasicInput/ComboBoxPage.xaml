@@ -8,7 +8,7 @@
     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="ComboBox"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ComboBox}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ComboBox" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ComboBox}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -31,7 +31,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Inline items" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c9db38cf9a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -40,10 +40,10 @@
                         MinWidth="200"
                         HorizontalAlignment="Left"
                         SelectedIndex="0">
-                        <ComboBoxItem Content="Blue" />
-                        <ComboBoxItem Content="Green" />
-                        <ComboBoxItem Content="Red" />
-                        <ComboBoxItem Content="Yellow" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9c9aabab3f}}" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_ee38e4d5dd}}" />
+                        <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_51e6cd92b6}}" />
                     </ComboBox>
                 </StackPanel>
             </Border>
@@ -60,7 +60,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ItemsSource" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_635c77a7e7}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -98,7 +98,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Editable ComboBox" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_1f93fed7e8}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -135,7 +135,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Placeholder" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_68753d36ec}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -145,10 +145,10 @@
                             MinWidth="200"
                             HorizontalAlignment="Left"
                             ui:ControlHelper.PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
-                            <ComboBoxItem Content="Blue" />
-                            <ComboBoxItem Content="Green" />
-                            <ComboBoxItem Content="Red" />
-                            <ComboBoxItem Content="Yellow" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9c9aabab3f}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_ee38e4d5dd}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_51e6cd92b6}}" />
                         </ComboBox>
                         <ComboBox
                             MinWidth="200"
@@ -177,7 +177,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Grouped items" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9983599025}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"

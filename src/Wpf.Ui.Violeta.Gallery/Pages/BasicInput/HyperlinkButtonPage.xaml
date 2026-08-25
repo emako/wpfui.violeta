@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="HyperlinkButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_HyperlinkButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="HyperlinkButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_HyperlinkButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Hyperlink" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -43,13 +43,13 @@
                         <ui:HyperlinkButton
                             x:Name="Hyperlink"
                             Grid.Column="0"
-                            Content="WPF UI hyperlink"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d372cf2ca1}}"
                             Icon="{ui:SymbolIcon Link24}"
                             NavigateUri="https://lepo.co/" />
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableHyperlink_Checked"
-                            Content="Disable hyperlink"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d2608a7e92}}"
                             Unchecked="DisableHyperlink_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -67,18 +67,18 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Icons" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_ff8807ee6c}}" />
                     <ui:StackPanel Orientation="Vertical" Spacing="8">
                         <ui:HyperlinkButton
-                            Content="FontIcon hyperlink"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_478f41fe45}}"
                             Icon="{ui:FontIcon '&#x1F308;'}"
                             NavigateUri="https://lepo.co/" />
                         <ui:HyperlinkButton
-                            Content="ImageIcon hyperlink"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_a1a9418daa}}"
                             Icon="{ui:ImageIcon 'pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/wpfui.png'}"
                             NavigateUri="https://lepo.co/" />
                     </ui:StackPanel>

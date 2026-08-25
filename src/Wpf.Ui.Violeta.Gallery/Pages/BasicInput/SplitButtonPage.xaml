@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="SplitButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_SplitButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,4"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="SplitButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_SplitButton}}" />
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -36,7 +36,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Primary action + flyout" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_866c8bd883}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -45,26 +45,26 @@
                         <vio:SplitButton
                             x:Name="SaveSplitButton"
                             Click="SaveSplitButton_OnClick"
-                            Content="Save"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                             Icon="{ui:SymbolIcon Save24}">
                             <vio:SplitButton.Flyout>
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Save"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_be5fbbe34c}}"
                                         Tag="Save" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Save As…"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_b857d6cf4f}}"
                                         Tag="Save As…" />
                                     <Separator />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Export PDF"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_af80706065}}"
                                         Tag="Export PDF" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Export Image"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_5a78b83e98}}"
                                         Tag="Export Image" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -108,15 +108,15 @@
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Apply"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_9639e32cab}}"
                                         Tag="Apply" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Preview"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_31fde7b05a}}"
                                         Tag="Preview" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Reset"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_4b9c3271dc}}"
                                         Tag="Reset" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -144,7 +144,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Nested flyout" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ea43fd3483}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -152,42 +152,42 @@
                     <StackPanel Orientation="Horizontal">
                         <vio:SplitButton
                             Click="ShareSplitButton_OnClick"
-                            Content="Share"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5a95a425f7}}"
                             Icon="{ui:SymbolIcon Share24}">
                             <vio:SplitButton.Flyout>
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Copy link"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_b758336699}}"
                                         Tag="Copy link" />
-                                    <MenuItem Header="Send">
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_94966d9074}}">
                                         <MenuItem
                                             Click="FlyoutMenuItem_OnClick"
-                                            Header="As email"
+                                            Header="{I18N {x:Static lang:LangKeys.Sample_5f07e1c9a6}}"
                                             Tag="Send as email" />
                                         <MenuItem
                                             Click="FlyoutMenuItem_OnClick"
-                                            Header="As file"
+                                            Header="{I18N {x:Static lang:LangKeys.Sample_cd3668b9d5}}"
                                             Tag="Send as file" />
-                                        <MenuItem Header="To device">
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_0b05d4ec1b}}">
                                             <MenuItem
                                                 Click="FlyoutMenuItem_OnClick"
-                                                Header="Phone"
+                                                Header="{I18N {x:Static lang:LangKeys.Sample_bcc254b55c}}"
                                                 Tag="Send to Phone" />
                                             <MenuItem
                                                 Click="FlyoutMenuItem_OnClick"
-                                                Header="Tablet"
+                                                Header="{I18N {x:Static lang:LangKeys.Sample_36384a9ea3}}"
                                                 Tag="Send to Tablet" />
                                             <MenuItem
                                                 Click="FlyoutMenuItem_OnClick"
-                                                Header="Desktop"
+                                                Header="{I18N {x:Static lang:LangKeys.Sample_2310408a63}}"
                                                 Tag="Send to Desktop" />
                                         </MenuItem>
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Publish"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_83611abd5f}}"
                                         Tag="Publish" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -215,7 +215,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Appearance" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -225,17 +225,17 @@
                             Margin="0,0,12,8"
                             Appearance="Primary"
                             Click="AppearanceSplitButton_OnClick"
-                            Content="Primary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}"
                             Tag="Primary">
                             <vio:SplitButton.Flyout>
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Option A"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_e04cead454}}"
                                         Tag="Primary · Option A" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Option B"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_d581ed5da9}}"
                                         Tag="Primary · Option B" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -244,17 +244,17 @@
                             Margin="0,0,12,8"
                             Appearance="Secondary"
                             Click="AppearanceSplitButton_OnClick"
-                            Content="Secondary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}"
                             Tag="Secondary">
                             <vio:SplitButton.Flyout>
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Option A"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_e04cead454}}"
                                         Tag="Secondary · Option A" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Option B"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_d581ed5da9}}"
                                         Tag="Secondary · Option B" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -263,17 +263,17 @@
                             Margin="0,0,12,8"
                             Appearance="Danger"
                             Click="AppearanceSplitButton_OnClick"
-                            Content="Danger"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}"
                             Tag="Danger">
                             <vio:SplitButton.Flyout>
                                 <ContextMenu>
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Delete"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_f2a6c498fb}}"
                                         Tag="Danger · Delete" />
                                     <MenuItem
                                         Click="FlyoutMenuItem_OnClick"
-                                        Header="Archive"
+                                        Header="{I18N {x:Static lang:LangKeys.Sample_e727b00944}}"
                                         Tag="Danger · Archive" />
                                 </ContextMenu>
                             </vio:SplitButton.Flyout>
@@ -300,7 +300,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Color swatch" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d4f7b9383f}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -329,7 +329,7 @@
                                                 <TextBlock
                                                     Margin="8,0,0,0"
                                                     VerticalAlignment="Center"
-                                                    Text="Red" />
+                                                    Text="{I18N {x:Static lang:LangKeys.Sample_ee38e4d5dd}}" />
                                             </StackPanel>
                                         </MenuItem.Header>
                                     </MenuItem>
@@ -344,7 +344,7 @@
                                                 <TextBlock
                                                     Margin="8,0,0,0"
                                                     VerticalAlignment="Center"
-                                                    Text="Green" />
+                                                    Text="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}" />
                                             </StackPanel>
                                         </MenuItem.Header>
                                     </MenuItem>
@@ -359,7 +359,7 @@
                                                 <TextBlock
                                                     Margin="8,0,0,0"
                                                     VerticalAlignment="Center"
-                                                    Text="Blue" />
+                                                    Text="{I18N {x:Static lang:LangKeys.Sample_9c9aabab3f}}" />
                                             </StackPanel>
                                         </MenuItem.Header>
                                     </MenuItem>
@@ -376,7 +376,7 @@
                                                 <TextBlock
                                                     Margin="8,0,0,0"
                                                     VerticalAlignment="Center"
-                                                    Text="White" />
+                                                    Text="{I18N {x:Static lang:LangKeys.Sample_2fc96b2704}}" />
                                             </StackPanel>
                                         </MenuItem.Header>
                                     </MenuItem>
@@ -406,7 +406,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Custom padding" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5bbbdab07a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -474,12 +474,12 @@
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_SplitButton_DisabledDesc}}" />
                     <vio:SplitButton
-                        Content="Unavailable"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_453e6aa38d}}"
                         Icon="{ui:SymbolIcon LockClosed24}"
                         IsEnabled="False">
                         <vio:SplitButton.Flyout>
                             <ContextMenu>
-                                <MenuItem Header="Option" />
+                                <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_054b4f3ea5}}" />
                             </ContextMenu>
                         </vio:SplitButton.Flyout>
                     </vio:SplitButton>

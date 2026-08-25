@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="LoadingButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_LoadingButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="LoadingButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_LoadingButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Placement" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_ae13e51f99}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -38,21 +38,21 @@
                     <StackPanel Orientation="Horizontal">
                         <vio:LoadingButton
                             Margin="0,0,8,0"
-                            Content="Left"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_583e7924e9}}"
                             IsLoading="True"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Margin="0,0,8,0"
-                            Content="Right"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_92b09c7c48}}"
                             IsLoading="True"
                             LoadingPlacement="Right" />
                         <vio:LoadingButton
                             Margin="0,0,8,0"
-                            Content="Top"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_a4ffdcf0dc}}"
                             IsLoading="True"
                             LoadingPlacement="Top" />
                         <vio:LoadingButton
-                            Content="Bottom"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_2ad9d63b69}}"
                             IsLoading="True"
                             LoadingPlacement="Bottom" />
                     </StackPanel>
@@ -71,7 +71,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Appearance" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Settings_Appearance}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -80,24 +80,24 @@
                         <vio:LoadingButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            Content="Secondary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_0c7d6cf194}}"
                             IsLoading="True"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Margin="0,0,8,0"
                             Appearance="Primary"
-                            Content="Primary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_074de7e7c2}}"
                             IsLoading="True"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Margin="0,0,8,0"
                             Appearance="Danger"
-                            Content="Danger"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_990816b607}}"
                             IsLoading="True"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Appearance="Success"
-                            Content="Success"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}"
                             IsLoading="True"
                             LoadingPlacement="Left" />
                     </StackPanel>
@@ -116,7 +116,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Click to load" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2d7f6c045a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -126,18 +126,18 @@
                             Margin="0,0,8,0"
                             Appearance="Secondary"
                             Click="LoadingButton_Click"
-                            Content="Submit"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Margin="0,0,8,0"
                             Appearance="Primary"
                             Click="LoadingButton_Click"
-                            Content="Submit"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
                             LoadingPlacement="Left" />
                         <vio:LoadingButton
                             Appearance="Danger"
                             Click="LoadingButton_Click"
-                            Content="Submit"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
                             LoadingPlacement="Left" />
                     </StackPanel>
                 </StackPanel>
@@ -155,16 +155,16 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Disabled" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <StackPanel Orientation="Horizontal">
                         <vio:LoadingButton
                             Margin="0,0,8,0"
-                            Content="Not Loading"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d26fbd7e76}}"
                             IsEnabled="False"
                             IsLoading="False" />
                         <vio:LoadingButton
                             Appearance="Primary"
-                            Content="Loading + Disabled"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_2a342abec2}}"
                             IsEnabled="False"
                             IsLoading="True"
                             LoadingPlacement="Left" />

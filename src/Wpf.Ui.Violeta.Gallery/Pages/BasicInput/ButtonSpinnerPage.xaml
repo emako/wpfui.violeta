@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ButtonSpinner"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ButtonSpinner}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ButtonSpinner" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ButtonSpinner}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -41,12 +41,12 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Default — buttons right" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_c5e82a2b10}}" />
                             <vio:ButtonSpinner Width="200" Spin="ButtonSpinner_OnSpin">
                                 <TextBlock
                                     x:Name="ButtonSpinnerDefaultValueText"
                                     VerticalAlignment="Center"
-                                    Text="Apple" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e6803e21b9}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -54,7 +54,7 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="ButtonSpinnerLocation=Left" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_2b948774a3}}" />
                             <vio:ButtonSpinner
                                 Width="200"
                                 ButtonSpinnerLocation="Left"
@@ -62,7 +62,7 @@
                                 <TextBlock
                                     x:Name="ButtonSpinnerLeftValueText"
                                     VerticalAlignment="Center"
-                                    Text="Apple" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e6803e21b9}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -70,9 +70,9 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="ShowButtonSpinner=False" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_c5c130941d}}" />
                             <vio:ButtonSpinner Width="200" ShowButtonSpinner="False">
-                                <TextBlock VerticalAlignment="Center" Text="No buttons" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_13e47b9559}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -80,7 +80,7 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="SplitButtonSpinnerStyle" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_bf17e9c380}}" />
                             <vio:ButtonSpinner
                                 Width="200"
                                 Spin="ButtonSpinner_OnSpin"
@@ -88,7 +88,7 @@
                                 <TextBlock
                                     x:Name="ButtonSpinnerSplitRightValueText"
                                     VerticalAlignment="Center"
-                                    Text="Apple" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e6803e21b9}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                         <StackPanel Margin="0,0,0,8" Orientation="Horizontal">
@@ -96,7 +96,7 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Split + Location=Left" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_fcba73761d}}" />
                             <vio:ButtonSpinner
                                 Width="200"
                                 ButtonSpinnerLocation="Left"
@@ -105,7 +105,7 @@
                                 <TextBlock
                                     x:Name="ButtonSpinnerSplitLeftValueText"
                                     VerticalAlignment="Center"
-                                    Text="Apple" />
+                                    Text="{I18N {x:Static lang:LangKeys.Sample_e6803e21b9}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -113,9 +113,9 @@
                                 MinWidth="220"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                                Text="Disabled" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                             <vio:ButtonSpinner Width="200" IsEnabled="False">
-                                <TextBlock VerticalAlignment="Center" Text="Disabled" />
+                                <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                             </vio:ButtonSpinner>
                         </StackPanel>
                     </StackPanel>

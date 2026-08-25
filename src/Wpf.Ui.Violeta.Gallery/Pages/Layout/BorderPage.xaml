@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    Title="Border"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Border}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Border" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Border}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -31,7 +31,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ClipToBounds + CornerRadius" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_41b99ea80d}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -54,7 +54,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="ClipToBounds=False" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_266e706278}}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,16,16">
                             <ui:Border
@@ -73,7 +73,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="ClipToBounds=True" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_cac73d13f9}}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,16,16">
                             <ui:Border
@@ -88,7 +88,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="ClipToBounds=True" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_cac73d13f9}}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,16,16">
                             <ui:Border
@@ -107,7 +107,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="ClipToBounds=True" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_cac73d13f9}}" />
                         </StackPanel>
                         <StackPanel Margin="0,0,16,16">
                             <ui:Border
@@ -122,7 +122,7 @@
                                 HorizontalAlignment="Center"
                                 FontSize="12"
                                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                Text="Image + ClipToBounds=True" />
+                                Text="{I18N {x:Static lang:LangKeys.Sample_e0315bedad}}" />
                         </StackPanel>
                     </WrapPanel>
                 </StackPanel>
@@ -140,7 +140,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="BorderThickness / BorderContentAdapter" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e825afc6a6}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"

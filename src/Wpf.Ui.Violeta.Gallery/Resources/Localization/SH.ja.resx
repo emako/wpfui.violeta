@@ -133,13 +133,13 @@
     <value>WPF-UI を基盤とする拡張コントロールライブラリ。Fluent Design 風の高度な UI コンポーネントを提供します。</value>
   </data>
   <data name="Gallery_Home_Hint" xml:space="preserve">
-    <value>.NET Framework 4.6.2 から .NET 10 まで対応。ダーク / ライトテーマ。左側でコントロール種別ごとにサンプルを閲覧できます。</value>
+    <value>.NET Framework 4.6.2 から .NET 10 まで対応。ダーク/ライトテーマ。左側でコントロール種別ごとにサンプルを閲覧できます。</value>
   </data>
   <data name="Gallery_Home_Categories" xml:space="preserve">
     <value>コントロール分類</value>
   </data>
   <data name="Gallery_Home_Design_Desc" xml:space="preserve">
-    <value>Typography、Icons、Colors</value>
+    <value>Typography, Icons, Colors</value>
   </data>
   <data name="Gallery_Home_AllSamples_Desc" xml:space="preserve">
     <value>グループ別にすべてのコントロールを閲覧</value>
@@ -151,7 +151,7 @@
     <value>CheckBox、RadioButton、ToggleSwitch、Rating</value>
   </data>
   <data name="Gallery_Home_Sliders_Desc" xml:space="preserve">
-    <value>Slider、RangeSlider</value>
+    <value>Slider, RangeSlider</value>
   </data>
   <data name="Gallery_Home_NumberInput_Desc" xml:space="preserve">
     <value>NumberBox、NumericUpDown、NumberComboBox、ButtonSpinner</value>
@@ -172,7 +172,7 @@
     <value>ContentDialog、MessageBox、Flyout</value>
   </data>
   <data name="Gallery_Home_Notifications_Desc" xml:space="preserve">
-    <value>Toast、Banner、TrayIcon</value>
+    <value>Toast, Banner, TrayIcon</value>
   </data>
   <data name="Gallery_Home_Collections_Desc" xml:space="preserve">
     <value>DataGrid、TreeListView、FlipView、Carousel、Timeline</value>
@@ -184,7 +184,7 @@
     <value>AutoGrid、Form、Drawer、Divider</value>
   </data>
   <data name="Gallery_Home_Status_Desc" xml:space="preserve">
-    <value>Badge、Skeleton、BusyMask</value>
+    <value>Badge, Skeleton, BusyMask</value>
   </data>
   <data name="Gallery_Home_Media_Desc" xml:space="preserve">
     <value>ImageView、PersonPicture、QrCode</value>
@@ -223,7 +223,7 @@
     <value>実験的機能（WPF-UI への完全対応は未完了）</value>
   </data>
   <data name="Gallery_Settings_About" xml:space="preserve">
-    <value>情報</value>
+    <value>について</value>
   </data>
   <data name="Gallery_Settings_About_Desc" xml:space="preserve">
     <value>Wpf.Ui.Violeta Gallery — コントロールデモと操作検証用アプリ。</value>
@@ -238,7 +238,7 @@
     <value>NavigationView 設定項目</value>
   </data>
   <data name="Gallery_Settings_NavItem_Desc" xml:space="preserve">
-    <value>このページは NavigationView 下部の設定ボタン（IsSettingsVisible）から開き、SettingsItem の選択とページ遷移の連動を示します。</value>
+    <value>NavigationView 下部の設定ボタン（IsSettingsVisible）からこのページを開き、SettingsItem の選択とページナビゲーションを示します。</value>
   </data>
   <data name="Gallery_Settings_Language" xml:space="preserve">
     <value>言語</value>
@@ -271,7 +271,7 @@
     <value>Alternate モードと異なるノード種類。</value>
   </data>
   <data name="Sample_c71e9d5bfa" xml:space="preserve">
-    <value>Appearance=&quot;Primary&quot; の強調スタイル。</value>
+    <value>Appearance=&amp;quot;Primary&amp;quot; emphasis style.</value>
   </data>
   <data name="Sample_236dc48e3d" xml:space="preserve">
     <value>AsyncBox — 非同期コンテンツ</value>
@@ -319,7 +319,7 @@
     <value>ChildMargin のサンプル</value>
   </data>
   <data name="Sample_ebf3722f8d" xml:space="preserve">
-    <value>ClockIdentifier=12HourClock（AM/PM 付き）。</value>
+    <value>ClockIdentifier=12HourClock、AM/PM 付き。</value>
   </data>
   <data name="Sample_aabb3f6de1" xml:space="preserve">
     <value>CompactPaneLength — 折りたたみ時のアイコンバー幅</value>
@@ -331,13 +331,13 @@
     <value>ContentWindow — コンテンツウィンドウ</value>
   </data>
   <data name="Sample_1e4f285714" xml:space="preserve">
-    <value>ContentWindow は ShellWindow を継承し、TitleBar を標準で内蔵し、ContentWindowControl でカスタム内容をホストし、ContentWindowResult（OK / Cancel など）を返します。ContentDialog ではなく独立ウィンドウが必要な場合に適します。</value>
+    <value>ContentWindow は ShellWindow を継承し、デフォルトで TitleBar を埋め込み、ContentWindowControl でカスタムコンテンツをホストし、ContentWindowResult（OK / Cancel など）を返します。ContentDialog の代わりに別ウィンドウが必要な場合に使用。</value>
   </data>
   <data name="Sample_976db78a60" xml:space="preserve">
     <value>DataGrid — データグリッド</value>
   </data>
   <data name="Sample_c425587ac1" xml:space="preserve">
-    <value>Default / Always：外側クリックで閉じます（ComboBox と同様）。Default は ButtonBase 項目のみ再クリックで閉じ、Always は任意項目でも閉じ、Never は … を再度クリックしたときのみ閉じます。</value>
+    <value>Default / Always：外側クリックで閉じる（ComboBox と同様）。Default は ButtonBase 項目のみ再クリックで閉じる。Always は任意項目でも閉じる。Never は … を再度クリックしたときのみ閉じる。</value>
   </data>
   <data name="Sample_aa2fa8a46b" xml:space="preserve">
     <value>Delay は最初の繰り返しまでの待ち時間（ミリ秒）、Interval は以降の繰り返し間隔を制御します。</value>
@@ -391,7 +391,7 @@
     <value>Fluent スタイルのフライアウト</value>
   </data>
   <data name="Sample_8187a6e35a" xml:space="preserve">
-    <value>Fluent スタイルのフライアウト。Slide / Fade / None アニメーションに対応。</value>
+    <value>Fluent スタイルのフライアウト。Slide / Fade / None アニメーション。</value>
   </data>
   <data name="Sample_3dafb55bfe" xml:space="preserve">
     <value>Fluent スタイルのハイパーリンク</value>
@@ -400,16 +400,16 @@
     <value>FontIcon と ImageIcon のサンプル。</value>
   </data>
   <data name="Sample_5d2567470b" xml:space="preserve">
-    <value>Gallery 起動時に TrayIconHost で実際のトレイアイコンを作成します。設定で「閉じるときにトレイへ最小化」を有効にすると、メインウィンドウを閉じたときにトレイに最小化され、トレイアイコンのダブルクリックまたは右クリックメニューで表示/非表示を切り替えられます。</value>
+    <value>Gallery 起動時に TrayIconHost が実トレイアイコンを作成します。設定で「トレイに閉じる」を有効にすると、メインウィンドウを閉じるとトレイに最小化されます。トレイアイコンをダブルクリックするか、コンテキストメニューで表示/非表示を切り替えます。</value>
   </data>
   <data name="Sample_b313aff943" xml:space="preserve">
-    <value>HalfStarEnabled=False では整数星のみ評価できます。</value>
+    <value>HalfStarEnabled=False で整数星のみ評価可能。</value>
   </data>
   <data name="Sample_2fb1383e61" xml:space="preserve">
     <value>Help は常にオーバーフローへ。Save はオーバーフローしません。その他は必要に応じて押し出されます。</value>
   </data>
   <data name="Sample_a72cc659bc" xml:space="preserve">
-    <value>Hidden / Compact / Inline の 3 種類のスピンボタン配置。</value>
+    <value>Hidden / Compact / Inline スピンボタンレイアウト。</value>
   </data>
   <data name="Sample_ed50de239d" xml:space="preserve">
     <value>IP アドレス入力</value>
@@ -430,7 +430,7 @@
     <value>IPv4 アドレス入力</value>
   </data>
   <data name="Sample_1b3d9c6919" xml:space="preserve">
-    <value>Icon / Value / Dot の 3 スタイル。Severity の色と組み合わせます。</value>
+    <value>Icon / Value / Dot スタイル。Severity ごとに色が異なります。</value>
   </data>
   <data name="Sample_4b3ae6ebbf" xml:space="preserve">
     <value>Icon、Header、説明文と右側のコントロール。</value>
@@ -445,10 +445,10 @@
     <value>Indicator — インジケーター</value>
   </data>
   <data name="Sample_02ec1fa593" xml:space="preserve">
-    <value>IsEditable=True の編集可能なコンボボックス。</value>
+    <value>IsEditable=True の編集可能コンボボックス。</value>
   </data>
   <data name="Sample_d229e6f892" xml:space="preserve">
-    <value>IsSettingsVisible — 設定エントリの表示</value>
+    <value>IsSettingsVisible — 設定項目を表示</value>
   </data>
   <data name="Sample_ac68bbca75" xml:space="preserve">
     <value>ItemsSource バインディング</value>
@@ -466,7 +466,7 @@
     <value>ListView — リストビュー</value>
   </data>
   <data name="Sample_4d02e8c8cc" xml:space="preserve">
-    <value>MaxDecimalPlaces=0 では整数入力のみ許可します。</value>
+    <value>MaxDecimalPlaces=0 allows integers only.</value>
   </data>
   <data name="Sample_1cf96448cf" xml:space="preserve">
     <value>Microsoft Edge (Chromium) 埋め込みブラウザーで Fluent UI Storybook を開きます。</value>
@@ -481,16 +481,16 @@
     <value>Multiselect = true で複数ファイルを同時に選択できます。</value>
   </data>
   <data name="Sample_3a4efdbeba" xml:space="preserve">
-    <value>NativeMessageBox — はい/いいえ</value>
+    <value>NativeMessageBox — Yes/No</value>
   </data>
   <data name="Sample_dc94b4096c" xml:space="preserve">
-    <value>NativeMessageBox — はい/いいえ/キャンセル</value>
+    <value>NativeMessageBox — Yes/No/Cancel</value>
   </data>
   <data name="Sample_5bd8feb5d7" xml:space="preserve">
     <value>NativeMessageBox — OK</value>
   </data>
   <data name="Sample_6f0a3ce47c" xml:space="preserve">
-    <value>NativeMessageBox — OK/キャンセル</value>
+    <value>NativeMessageBox — OK/Cancel</value>
   </data>
   <data name="Sample_f7bcc4e1df" xml:space="preserve">
     <value>NavigationView 内の InfoBadge</value>
@@ -502,7 +502,7 @@
     <value>OpenPaneLength — 展開時のペイン幅</value>
   </data>
   <data name="Sample_d0dcd65d52" xml:space="preserve">
-    <value>Padding=0、CornerRadius=4 で余白と角丸をカスタマイズします。</value>
+    <value>Padding=0 と CornerRadius=4 でパディングと角丸をカスタマイズ。</value>
   </data>
   <data name="Sample_1567bdcc25" xml:space="preserve">
     <value>Pagination — ページネーションコントロール</value>
@@ -514,7 +514,7 @@
     <value>PersonPicture — 人物画像</value>
   </data>
   <data name="Sample_c1dde7ca84" xml:space="preserve">
-    <value>Primary / Secondary / Success / Caution / Danger の外観。有効・無効状態を含みます。</value>
+    <value>Primary / Secondary / Success / Caution / Danger の外観。有効/無効状態を含みます。</value>
   </data>
   <data name="Sample_ad4a69520c" xml:space="preserve">
     <value>Progress プロパティ（0–100）で確定進捗を表示します。</value>
@@ -541,13 +541,13 @@
     <value>Segoe Fluent Icons のよく使う記号のサンプル。</value>
   </data>
   <data name="Sample_91ae62d859" xml:space="preserve">
-    <value>Semi.Avalonia.ColorPicker 風のスペクトル / パレット / 成分エディターとドロップダウン ColorPicker。</value>
+    <value>Semi.Avalonia.ColorPicker スタイルのスペクトル / パレット / チャンネルエディターとドロップダウン ColorPicker。</value>
   </data>
   <data name="Sample_ff7cc5837d" xml:space="preserve">
     <value>ShellWindow — シェルウィンドウ</value>
   </data>
   <data name="Sample_38b33a8af5" xml:space="preserve">
-    <value>ShowsPreview=True（既定）— マウスを離したあとにサイズを確定します。</value>
+    <value>ShowsPreview=True（デフォルト）— マウスを離した後にサイズを確定。</value>
   </data>
   <data name="Sample_2ad0b1dc17" xml:space="preserve">
     <value>Skeleton — スケルトン画面</value>
@@ -574,7 +574,7 @@
     <value>System.Windows.Controls.Image。ローカルリソースから画像を読み込みます。</value>
   </data>
   <data name="Sample_bdc314fd5e" xml:space="preserve">
-    <value>System.Windows.Controls.WebBrowser。IE ActiveX コントロールベースで、Windows 上ではまだ利用できます。ページ読み込み後に https://example.com へ移動します。</value>
+    <value>System.Windows.Controls.WebBrowser。IE ActiveX コントロールベースで Windows 上で利用可能。ページ読み込み後に https://example.com へ移動。</value>
   </data>
   <data name="Sample_845f2f73d6" xml:space="preserve">
     <value>Tab タイトルは Header テンプレートをカスタムでき、例えば SymbolIcon を付けられます。</value>
@@ -610,10 +610,10 @@
     <value>TextBlock の外観スタイル</value>
   </data>
   <data name="Sample_768a5d8f40" xml:space="preserve">
-    <value>TickPlacement=Both で上下の目盛りを表示します。</value>
+    <value>TickPlacement=Both で上下に目盛りを表示。</value>
   </data>
   <data name="Sample_9de44749b0" xml:space="preserve">
-    <value>Timeline — Mode / Type（Test デモ）</value>
+    <value>Timeline — Mode / Type（テストデモ）</value>
   </data>
   <data name="Sample_e4f76ad96c" xml:space="preserve">
     <value>Timeline — データバインディング</value>
@@ -628,7 +628,7 @@
     <value>Toast 通知</value>
   </data>
   <data name="Sample_8069009e76" xml:space="preserve">
-    <value>ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton などは直接配置できます。押し出されたあとも元のコントロールインスタンスのままです。</value>
+    <value>ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton などを直接配置可能。溢れた項目も同じコントロールインスタンスです。</value>
   </data>
   <data name="Sample_ed093b889a" xml:space="preserve">
     <value>TransitioningContentControl — 遷移コンテンツ</value>
@@ -649,7 +649,7 @@
     <value>UI レビュー通過</value>
   </data>
   <data name="Sample_b1a86a3a9f" xml:space="preserve">
-    <value>Value / Maximum で完了比率を制御します。</value>
+    <value>Value / Maximum で完了率を制御。</value>
   </data>
   <data name="Sample_de3e76e86b" xml:space="preserve">
     <value>Viewbox 内の Canvas</value>
@@ -658,7 +658,7 @@
     <value>Violeta は Fluent スタイルの Expander スタイル強化を提供します。</value>
   </data>
   <data name="Sample_7e4681144d" xml:space="preserve">
-    <value>Violeta 版 ContentDialog。非同期表示と主/副/閉じるボタンに対応します。</value>
+    <value>Violeta ContentDialog。非同期表示、プライマリ/セカンダリ/閉じるボタン付き。</value>
   </data>
   <data name="Sample_31cf6f2636" xml:space="preserve">
     <value>WPF Menu に ui:MenuItem を組み合わせて Fluent アイコンとスタイルを適用します。</value>
@@ -673,7 +673,7 @@
     <value>WPF UI のリング進捗インジケーター。</value>
   </data>
   <data name="Sample_b2ce6a667b" xml:space="preserve">
-    <value>WPF 組み込みの ToolBar + ToolBarTray（オーバーフローはシステムの Popup パネルのまま。Violeta Flyout ではありません）。</value>
+    <value>内蔵 WPF ToolBar + ToolBarTray（溢れはシステム Popup パネルを使用。Violeta Flyout ではありません）。</value>
   </data>
   <data name="Sample_947e334a08" xml:space="preserve">
     <value>WPF-UI スタイルのデータグリッド。並べ替え、選択、仮想化に対応します。</value>
@@ -715,19 +715,19 @@
     <value>vio:ToolBar オーバーフロー（Flyout）</value>
   </data>
   <data name="Sample_d359e84325" xml:space="preserve">
-    <value>• Frame / Content：ページナビゲーションをホスト。Gallery は Tag と GalleryNavigator で連動切替します。</value>
+    <value>• Frame / Content：ページナビゲーションをホスト。Gallery は Tag と GalleryNavigator でページを切り替え。</value>
   </data>
   <data name="Sample_f07479f3ac" xml:space="preserve">
-    <value>• Header / TitleBar：ウィンドウタイトルバーやパンくずと組み合わせて使えます。</value>
+    <value>• Header / TitleBar：ウィンドウタイトルバーとパンくずリストと組み合わせ可能。</value>
   </data>
   <data name="Sample_222c7173fa" xml:space="preserve">
-    <value>• IsPaneOpen / IsBackEnabled：ペインの開閉と戻るボタンを制御します。</value>
+    <value>• IsPaneOpen / IsBackEnabled：パネルの開閉状態と戻るボタンを制御。</value>
   </data>
   <data name="Sample_e080e01adc" xml:space="preserve">
-    <value>• MenuItems / FooterMenuItems：メインとフッターのナビ項目を定義。各項目に TargetPageType または Tag をバインドできます。</value>
+    <value>• MenuItems / FooterMenuItems：主要/フッターナビ項目を定義。各項目は TargetPageType または Tag をバインド可能。</value>
   </data>
   <data name="Sample_0674868522" xml:space="preserve">
-    <value>• PaneDisplayMode：Left / LeftMinimal / Top などでペインの展開形態を制御します。</value>
+    <value>• PaneDisplayMode：Left / LeftMinimal / Top など。パネルの展開方法を制御。</value>
   </data>
   <data name="Sample_608443e0b4" xml:space="preserve">
     <value>◀ 前へ</value>
@@ -742,7 +742,7 @@
     <value>三態の「すべて選択」チェックボックスが子オプションと連携します。</value>
   </data>
   <data name="Sample_c757dd6e88" xml:space="preserve">
-    <value>三態チェックボックス：オン / オフ / 不確定。</value>
+    <value>3 状態チェックボックス：オン / オフ / 不確定。</value>
   </data>
   <data name="Sample_7d817bc13f" xml:space="preserve">
     <value>次へ ▶</value>
@@ -844,7 +844,7 @@
     <value>最初からやり直す</value>
   </data>
   <data name="Sample_d994685ba5" xml:space="preserve">
-    <value>コンテナの四辺からパネルをスライド表示します。ボタンで方向を切り替えます。</value>
+    <value>パネルがコンテナの四辺からスライドします。ボタンをクリックして方向を切り替え。</value>
   </data>
   <data name="Sample_ca624f0706" xml:space="preserve">
     <value>トレイからウィンドウを表示</value>
@@ -883,7 +883,7 @@
     <value>Path で Canvas 上にベクター図形を描画し、Viewbox で拡大縮小して表示します。</value>
   </data>
   <data name="Sample_d5e7922721" xml:space="preserve">
-    <value>TextBlockTextBoxStyle / TextBlockUiTextBoxStyle でテキストブロック外観にします。</value>
+    <value>TextBlockTextBoxStyle / TextBlockUiTextBoxStyle でテキストブロックとして描画。</value>
   </data>
   <data name="Sample_6822dc757e" xml:space="preserve">
     <value>ビットマップをアイコン内容に使用し、単色レンダリングを切替可能。名前空間は ui:BitmapIcon。</value>
@@ -913,7 +913,7 @@
     <value>ノードを編集</value>
   </data>
   <data name="Sample_7978070c09" xml:space="preserve">
-    <value>スペクトル / パレット色選択</value>
+    <value>スペクトル / パレット カラーピッカー</value>
   </data>
   <data name="Sample_e125221047" xml:space="preserve">
     <value>すべて閉じる</value>
@@ -928,7 +928,7 @@
     <value>標準インストール</value>
   </data>
   <data name="Sample_6ef42093fc" xml:space="preserve">
-    <value>典型的な用法：NumericUpDown / ScrollBar 内ボタンのように数値を段階調整。</value>
+    <value>典型的な用途：ステップ値。NumericUpDown / ScrollBar の内部ボタンに相当。</value>
   </data>
   <data name="Sample_2d711b09bd" xml:space="preserve">
     <value>コンテンツ</value>
@@ -1003,7 +1003,7 @@
     <value>ページネーションコントロール</value>
   </data>
   <data name="Sample_85ed85c69f" xml:space="preserve">
-    <value>テーマ切替：&lt;A HREF=&quot;dark&quot;&gt;ダーク&lt;/A&gt;  |  &lt;A HREF=&quot;light&quot;&gt;ライト&lt;/A&gt;</value>
+    <value>Switch theme: &lt;A HREF=&amp;quot;dark&amp;quot;&gt;Dark&lt;/A&gt;  |  &lt;A HREF=&amp;quot;light&amp;quot;&gt;Light&lt;/A&gt;</value>
   </data>
   <data name="Sample_ce00c5f605" xml:space="preserve">
     <value>トグルボタン</value>
@@ -1042,7 +1042,7 @@
     <value>フロントエンド</value>
   </data>
   <data name="Sample_61b1603587" xml:space="preserve">
-    <value>接頭辞 / 接尾辞</value>
+    <value>Prefix / suffix</value>
   </data>
   <data name="Sample_061b40d699" xml:space="preserve">
     <value>クリップボード</value>
@@ -1081,13 +1081,13 @@
     <value>ネイティブ Win32 TaskDialog</value>
   </data>
   <data name="Sample_ba854efc10" xml:space="preserve">
-    <value>ネイティブ Windows フォルダー選択ダイアログ。単一・複数選択とオーナーウィンドウに対応。</value>
+    <value>ネイティブ Windows フォルダーピッカー。単一/複数選択と所有者ウィンドウをサポート。</value>
   </data>
   <data name="Sample_d688c1ee0b" xml:space="preserve">
     <value>ネイティブメッセージボックス</value>
   </data>
   <data name="Sample_f1add48d43" xml:space="preserve">
-    <value>二状態チェックボックス：オン / オフ。</value>
+    <value>2 状態チェックボックス：オン / オフ。</value>
   </data>
   <data name="Sample_feab68ba18" xml:space="preserve">
     <value>デュアルサム範囲スライダー</value>
@@ -1129,7 +1129,7 @@
     <value>パスワードを保存可能</value>
   </data>
   <data name="Sample_725ba369df" xml:space="preserve">
-    <value>閉じられるインフォバー。表示は IsOpen で制御。</value>
+    <value>閉じられる情報バー。IsOpen で表示を制御。</value>
   </data>
   <data name="Sample_1895d84b8a" xml:space="preserve">
     <value>単体で使えるビジーインジケーターアニメーション。</value>
@@ -1187,7 +1187,7 @@ OK をクリックして続行してください。</value>
     <value>右揃え</value>
   </data>
   <data name="Sample_cfd0ca6826" xml:space="preserve">
-    <value>右クリックメニュー：表示/非表示、通知表示、再起動、終了。完全終了はトレイの「終了」を使用。</value>
+    <value>コンテキストメニュー：表示/非表示、通知表示、再起動、終了。完全に終了するにはトレイメニューの Exit を使用。</value>
   </data>
   <data name="Sample_452a4d35f3" xml:space="preserve">
     <value>同一 GroupName の RadioButton をアイコンツールバーと併用可。幅を狭めてオーバーフローを確認。</value>
@@ -1253,7 +1253,7 @@ OK をクリックして続行してください。</value>
     <value>XAML で ListBoxItem を直接定義します。</value>
   </data>
   <data name="Sample_12dac3eb3d" xml:space="preserve">
-    <value>XAML で階層ノードを静的定義。展開/折りたたみとドラッグ＆ドロップに対応。</value>
+    <value>XAML で階層ノードを静的に定義。展開/折りたたみとドラッグ&amp;ドロップをサポート。</value>
   </data>
   <data name="Sample_84acc30e7a" xml:space="preserve">
     <value>コンテンツ上にビジー状態を重ね表示。複数の IndicatorType に対応。</value>
@@ -1277,7 +1277,7 @@ OK をクリックして続行してください。</value>
     <value>イベント順を示す垂直タイムラインレイアウト。</value>
   </data>
   <data name="Sample_1766a8666a" xml:space="preserve">
-    <value>CredUIPromptForWindowsCredentials に基づく Windows 資格情報ダイアログ。パスワード保存、キャッシュ、資格情報マネージャーの読み書きに対応。</value>
+    <value>CredUIPromptForWindowsCredentials ベースの Windows 資格情報ダイアログ。パスワード保存、キャッシュ、Credential Manager I/O をサポート。</value>
   </data>
   <data name="Sample_5a6728a2a6" xml:space="preserve">
     <value>ITreeModel インターフェースに基づくツリーリスト。動的読み込みとカスタムデータモデルに対応。</value>
@@ -1406,7 +1406,7 @@ OK をクリックして続行してください。</value>
     <value>ダイアログ</value>
   </data>
   <data name="Sample_7711ba96c2" xml:space="preserve">
-    <value>WinUI SearchBox に準拠：QueryChanged（入力/クリア）、QuerySubmitted（Enter で送信）。</value>
+    <value>WinUI SearchBox に準拠：QueryChanged（入力/クリア）、QuerySubmitted（Enter）。</value>
   </data>
   <data name="Sample_55405ea6ff" xml:space="preserve">
     <value>エクスポート</value>
@@ -1528,7 +1528,7 @@ OK をクリックして続行してください。</value>
     <value>クリアボタン付き</value>
   </data>
   <data name="Sample_3d4319582e" xml:space="preserve">
-    <value>スライドアニメーション付きトグル。ドラッグ、タイトル、On/Off カスタム内容に対応。</value>
+    <value>スライドアニメーション付きトグル。ドラッグ、タイトル、カスタム On/Off コンテンツをサポート。</value>
   </data>
   <data name="Sample_19cec4bfa6" xml:space="preserve">
     <value>キャッシュ付きネットワーク画像</value>
@@ -1558,7 +1558,7 @@ OK をクリックして続行してください。</value>
     <value>下部通知</value>
   </data>
   <data name="Sample_a6beb974cc" xml:space="preserve">
-    <value>トグル</value>
+    <value>切り替え</value>
   </data>
   <data name="Sample_f7fad24da1" xml:space="preserve">
     <value>トグルスイッチコントロール</value>
@@ -1603,7 +1603,7 @@ OK をクリックして続行してください。</value>
     <value>ポップアップ軽量通知</value>
   </data>
   <data name="Sample_9fb6b4af29" xml:space="preserve">
-    <value>ポップアップカレンダーで日付を選択。IsTodayHighlighted で今日を強調表示。</value>
+    <value>ポップアップカレンダーで日付を選択。IsTodayHighlighted で今日を強調。</value>
   </data>
   <data name="Sample_fb6e46429f" xml:space="preserve">
     <value>ポップアップカレンダーパネルで日付を選択。</value>
@@ -1624,7 +1624,7 @@ OK をクリックして続行してください。</value>
     <value>ホットキーキャプチャ</value>
   </data>
   <data name="Sample_1e4fcf41ba" xml:space="preserve">
-    <value>高速（Delay=200, Interval=50）</value>
+    <value>高速（Delay=200、Interval=50）</value>
   </data>
   <data name="Sample_1b92ef7c71" xml:space="preserve">
     <value>高速：0　低速：0</value>
@@ -1693,7 +1693,7 @@ OK をクリックして続行してください。</value>
     <value>下のスライダーで利用可能幅を縮小。スペース不足時は項目が Compat Flyout に移動します（MenuItem ではなく、コントロールをそのまま移します）。</value>
   </data>
   <data name="Sample_36780b94c2" xml:space="preserve">
-    <value>範囲 500–1000、TickFrequency=20 でステップ吸着。</value>
+    <value>範囲 500–1000、TickFrequency=20 のスナップステップ。</value>
   </data>
   <data name="Sample_2c06ec4e6e" xml:space="preserve">
     <value>ホットキーを押してください...</value>
@@ -1726,7 +1726,7 @@ OK をクリックして続行してください。</value>
     <value>送信</value>
   </data>
   <data name="Sample_029dbfb305" xml:space="preserve">
-    <value>最小化、最大化／復元、閉じる、および任意のヘルプボタンを提供。ホストウィンドウのアクティブ状態に応じてスタイルを切替え、ウィンドウ状態を操作します。通常は TitleBar 内で使用し、カスタムタイトル領域に単独配置も可能。</value>
+    <value>最小化、最大化/復元、閉じる、オプションのヘルプボタンを提供。スタイルはホストウィンドウのアクティブ状態に従い、ウィンドウ chrome を制御。通常 TitleBar 内、またはカスタムタイトル領域に単独配置。</value>
   </data>
   <data name="Sample_02d9819dda" xml:space="preserve">
     <value>ヒント</value>
@@ -1756,7 +1756,7 @@ OK をクリックして続行してください。</value>
     <value>サポート</value>
   </data>
   <data name="Sample_d20fff90d9" xml:space="preserve">
-    <value>Secondary / Primary / Danger / Success の外観に対応。</value>
+    <value>Secondary / Primary / Danger / Success の外観をサポート。</value>
   </data>
   <data name="Sample_d1f2679e83" xml:space="preserve">
     <value>複数選択、タグ表示、検索フィルターに対応。</value>
@@ -1783,7 +1783,7 @@ OK をクリックして続行してください。</value>
     <value>マウスホイール、トラックパッド、タッチ向けの滑らかな物理スクロールに対応。</value>
   </data>
   <data name="Sample_8b93b1d357" xml:space="preserve">
-    <value>収まらない項目はメインバーから外れますが、オーバーフローボタン／Flyout は表示されません。</value>
+    <value>溢れた項目はメインバーから外れますが、溢出ボタン / Flyout は表示されません。</value>
   </data>
   <data name="Sample_7846de57e9" xml:space="preserve">
     <value>ティーチングヒント</value>
@@ -1918,7 +1918,7 @@ OK をクリックして続行してください。</value>
     <value>時刻選択</value>
   </data>
   <data name="Sample_3439dc393f" xml:space="preserve">
-    <value>時刻ピッカー（12/24 時間）</value>
+    <value>Time picker (12/24-hour)</value>
   </data>
   <data name="Sample_a297dda489" xml:space="preserve">
     <value>星評価</value>
@@ -1927,10 +1927,10 @@ OK をクリックして続行してください。</value>
     <value>半星対応の星評価コントロール。</value>
   </data>
   <data name="Sample_8fccf382e7" xml:space="preserve">
-    <value>はい／いいえ</value>
+    <value>Yes/No</value>
   </data>
   <data name="Sample_97d3036ee7" xml:space="preserve">
-    <value>はい／いいえ／キャンセル</value>
+    <value>Yes/No/Cancel</value>
   </data>
   <data name="Sample_2a13a32110" xml:space="preserve">
     <value>操作を続行しますか？（{location}）</value>
@@ -1942,7 +1942,7 @@ OK をクリックして続行してください。</value>
     <value>表示</value>
   </data>
   <data name="Sample_655a0e3730" xml:space="preserve">
-    <value>表示／非表示</value>
+    <value>Show / Hide</value>
   </data>
   <data name="Sample_c5704fa616" xml:space="preserve">
     <value>スタック通知を 5 件表示</value>
@@ -1981,13 +1981,13 @@ OK をクリックして続行してください。</value>
     <value>最大 3 タグまで。</value>
   </data>
   <data name="Sample_2e010513c1" xml:space="preserve">
-    <value>最小化／最大化／閉じるバー</value>
+    <value>最小化 / 最大化 / 閉じるバー</value>
   </data>
   <data name="Sample_80755e085c" xml:space="preserve">
     <value>この Gallery のメインウィンドウは ShellWindow を継承しています。ボタンで簡単なデモウィンドウを開きます。</value>
   </data>
   <data name="Sample_bb061144dc" xml:space="preserve">
-    <value>この Gallery メインウィンドウは vio:TitleBar を使用。CustomHeader / CustomFooter、戻るボタン、ウィンドウ切替ボタン、埋め込み CaptionButtonBar に対応。一般的な用法：ExtendsContentIntoTitleBar=&quot;True&quot; のとき TitleBar をウィンドウ上部に配置。</value>
+    <value>This Gallery main window uses vio:TitleBar with CustomHeader / CustomFooter, back and pane-toggle buttons, and an embedded CaptionButtonBar. Typical usage: place TitleBar at the top when ExtendsContentIntoTitleBar=&amp;quot;True&amp;quot;.</value>
   </data>
   <data name="Sample_064a169925" xml:space="preserve">
     <value>この Gallery は NavigationView を使用しています</value>
@@ -2029,7 +2029,7 @@ OK をクリックして続行してください。</value>
     <value>標準の WPF TextBox。</value>
   </data>
   <data name="Sample_ee5b0776e9" xml:space="preserve">
-    <value>標準の WPF ToggleButton。押下/解放を切り替えます。</value>
+    <value>標準 WPF ToggleButton。押下/解放状態を切り替えます。</value>
   </data>
   <data name="Sample_1cf6f5930e" xml:space="preserve">
     <value>標準の WPF パスワード入力。</value>
@@ -2041,7 +2041,7 @@ OK をクリックして続行してください。</value>
     <value>標準のページネーション。現在ページと総ページ数をバインドできます。</value>
   </data>
   <data name="Sample_de28d2720d" xml:space="preserve">
-    <value>標準版</value>
+    <value>標準</value>
   </data>
   <data name="Sample_14d342362f" xml:space="preserve">
     <value>タグ</value>
@@ -2107,7 +2107,7 @@ OK をクリックして続行してください。</value>
     <value>コア機能の開発が完了し、テスト段階に入ります。</value>
   </data>
   <data name="Sample_c891afad73" xml:space="preserve">
-    <value>Value に応じて TrueText / FalseText を切り替え、フォントスタイルも個別設定できます。</value>
+    <value>Value に応じて TrueText / FalseText を切り替え。スタイルは異なっても可。</value>
   </data>
   <data name="Sample_f4cd310f32" xml:space="preserve">
     <value>真偽値に応じて内容を表示。クリックで切り替え。</value>
@@ -2233,7 +2233,7 @@ OK をクリックして続行してください。</value>
     <value>スクロール内容 行 9</value>
   </data>
   <data name="Sample_c8a01628d6" xml:space="preserve">
-    <value>エラーアイコンと再試行 / キャンセルボタンを示します。</value>
+    <value>Retry / Cancel ボタン付きエラーアイコンのデモ。</value>
   </data>
   <data name="Sample_ffecc9f0be" xml:space="preserve">
     <value>アクティブ状態</value>
@@ -2260,7 +2260,7 @@ OK をクリックして続行してください。</value>
     <value>クリック回数：{_clickCount}</value>
   </data>
   <data name="Sample_71716d9ceb" xml:space="preserve">
-    <value>いいね/よくないコントロール。選択中を再クリックで解除。</value>
+    <value>いいね/よくないねコントロール。選択状態を再度クリックでクリア。</value>
   </data>
   <data name="Sample_ee2358e53a" xml:space="preserve">
     <value>親子カスケードコンボボックス</value>
@@ -2284,7 +2284,7 @@ OK をクリックして続行してください。</value>
     <value>進捗リング</value>
   </data>
   <data name="Sample_3444fcb679" xml:space="preserve">
-    <value>コンテンツ読み込み前のプレースホルダー。IsLoading / IsActive を切り替え可能。</value>
+    <value>コンテンツ読み込み前のプレースホルダー。IsLoading / IsActive を切り替え。</value>
   </data>
   <data name="Sample_1e5753e63a" xml:space="preserve">
     <value>読み取り専用テキスト用の基本コントロール。</value>
@@ -2314,7 +2314,7 @@ OK をクリックして続行してください。</value>
     <value>XAML で MultiComboBoxItem を直接宣言します。</value>
   </data>
   <data name="Sample_251591221d" xml:space="preserve">
-    <value>省 / 市のカスケード</value>
+    <value>Province / city cascade</value>
   </data>
   <data name="Sample_9176a628cc" xml:space="preserve">
     <value>研究開発部</value>
@@ -2323,7 +2323,7 @@ OK をクリックして続行してください。</value>
     <value>OK</value>
   </data>
   <data name="Sample_299344c484" xml:space="preserve">
-    <value>OK / キャンセル</value>
+    <value>OK / Cancel</value>
   </data>
   <data name="Sample_12cd9a94dc" xml:space="preserve">
     <value>OK して閉じる</value>
@@ -2335,7 +2335,7 @@ OK をクリックして続行してください。</value>
     <value>ディスク容量が不足しています。空き容量を確保してください。</value>
   </data>
   <data name="Sample_ae05e054a4" xml:space="preserve">
-    <value>サンプル ContentDialog</value>
+    <value>ContentDialog サンプル</value>
   </data>
   <data name="Sample_710ad08b11" xml:space="preserve">
     <value>無効</value>
@@ -2407,7 +2407,7 @@ OK をクリックして続行してください。</value>
     <value>待機ダイアログ</value>
   </data>
   <data name="Sample_90ea8506b4" xml:space="preserve">
-    <value>カルーセル風の FlipView。左右で内容を切り替えます。</value>
+    <value>カルーセル風のフリップビューコントロール。左右スワイプ。</value>
   </data>
   <data name="Sample_226b091218" xml:space="preserve">
     <value>種類</value>
@@ -2428,13 +2428,13 @@ OK をクリックして続行してください。</value>
     <value>カスケードコンボ</value>
   </data>
   <data name="Sample_0d838a9c7d" xml:space="preserve">
-    <value>ツリー構造とリストビューを組み合わせ。展開/折りたたみと複数列表示に対応。</value>
+    <value>ツリー構造とリストビューを組み合わせ。展開/折りたたみと複数列をサポート。</value>
   </data>
   <data name="Sample_e35e9417ad" xml:space="preserve">
     <value>結果：（待機中）</value>
   </data>
   <data name="Sample_0909d6d4dd" xml:space="preserve">
-    <value>結果：{clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $</value>
+    <value>Result: {clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $</value>
   </data>
   <data name="Sample_11528c4f6c" xml:space="preserve">
     <value>結果：{dialog.SelectedPath}</value>
@@ -2473,7 +2473,7 @@ OK をクリックして続行してください。</value>
     <value>結果：ユーザーがダイアログをキャンセルしました。</value>
   </data>
   <data name="Sample_42d379fc40" xml:space="preserve">
-    <value>結果：ユーザー：{dialog.UserName}、保存チェック：{dialog.IsSaveChecked}</value>
+    <value>結果：user: {dialog.UserName}、save checked: {dialog.IsSaveChecked}</value>
   </data>
   <data name="Sample_27ca568be2" xml:space="preserve">
     <value>続行</value>
@@ -2485,7 +2485,7 @@ OK をクリックして続行してください。</value>
     <value>キャッシュ画像</value>
   </data>
   <data name="Sample_1efa490383" xml:space="preserve">
-    <value>低速（Delay=1000, Interval=400）</value>
+    <value>低速（Delay=1000、Interval=400）</value>
   </data>
   <data name="Sample_8dd38aaf75" xml:space="preserve">
     <value>グリッド分割</value>
@@ -2497,7 +2497,7 @@ OK をクリックして続行してください。</value>
     <value>ページフリップビュー</value>
   </data>
   <data name="Sample_b652de80d6" xml:space="preserve">
-    <value>役職</value>
+    <value>タイトル</value>
   </data>
   <data name="Sample_5ea2fa9344" xml:space="preserve">
     <value>オートサジェスト</value>
@@ -2512,7 +2512,7 @@ OK をクリックして続行してください。</value>
     <value>オートグリッド</value>
   </data>
   <data name="Sample_43a6fef122" xml:space="preserve">
-    <value>自動行列グリッド</value>
+    <value>Auto row/column grid</value>
   </data>
   <data name="Sample_c0a63f52dd" xml:space="preserve">
     <value>カスタム ItemTemplate</value>
@@ -2644,7 +2644,7 @@ OK をクリックして続行してください。</value>
     <value>使用するインストールオプションを選択してください。</value>
   </data>
   <data name="Sample_04a8c85aef" xml:space="preserve">
-    <value>省 / 都市を選択</value>
+    <value>省/市を選択</value>
   </data>
   <data name="Sample_c4e39190f1" xml:space="preserve">
     <value>システムのクリップボードテキストを読み書き</value>
@@ -2656,13 +2656,13 @@ OK をクリックして続行してください。</value>
     <value>現在のクリップボードのテキストを読み取ります。</value>
   </data>
   <data name="Sample_47b666a05d" xml:space="preserve">
-    <value>幅と高さを調整し、AspectRatioMode の切替を確認（tolerance=0.3）。</value>
+    <value>幅/高さを変更して AspectRatioMode の変化を確認（tolerance=0.3）。</value>
   </data>
   <data name="Sample_a3448ab5ed" xml:space="preserve">
     <value>アカウント設定</value>
   </data>
   <data name="Sample_f1861aaa47" xml:space="preserve">
-    <value>いいね / 低評価</value>
+    <value>Like / dislike rating</value>
   </data>
   <data name="Sample_b43536d046" xml:space="preserve">
     <value>趙六</value>
@@ -2710,7 +2710,7 @@ OK をクリックして続行してください。</value>
     <value>文字を入力して Enter でタグを追加。</value>
   </data>
   <data name="Sample_961534b4ea" xml:space="preserve">
-    <value>枠線</value>
+    <value>境界線</value>
   </data>
   <data name="Sample_34be9270ec" xml:space="preserve">
     <value>トランジション内容</value>
@@ -2725,23 +2725,23 @@ OK をクリックして続行してください。</value>
     <value>このウィンドウは内蔵 TitleBar（タイトルとキャプションボタン）を使用します。OK / Cancel、または TitleBar から閉じられます。</value>
   </data>
   <data name="Sample_280b260594" xml:space="preserve">
-    <value>ExceptionReport ダイアログをプレビューするための Gallery デモ例外です。
+    <value>Gallery デモ例外。ExceptionReport ダイアログのプレビュー用。
 
-このサンプルメッセージは意図的に長く、複数行にしてあります。例外詳細が領域を超えたときの ScrollViewer のスクロール動作を確認するためです。
+このサンプルメッセージは意図的に長く複数行です。例外詳細が利用可能領域を溢れたときの ScrollViewer の動作を確認できます。
 
 再現手順：
-1. Gallery の ExceptionReport ページを開く。
-2. このダイアログを表示するボタンをクリックする。
-3. 必要ならウィンドウを少し小さくする。
-4. 詳細パネルが縦スクロールでき、テキストを選択できることを確認する。
+1. Gallery で ExceptionReport ページを開く。
+2. このダイアログを表示するボタンをクリック。
+3. 必要に応じてウィンドウを小さくする。
+4. 詳細パネルが垂直にスクロールし、テキストが選択可能であることを確認。
 
-レイアウト確認用の補足：
-- カード内の折り返し後も読みやすさを保つこと。
-- 上の太字の例外型名はスクロール領域の外に固定されること。
-- タイトルバー、アプリ情報、下部ボタンはコンテンツをスクロールしても表示されたままであること。
-- スクロールバー表示時に、コピー / 無視 / 終了ボタンの位置がずれないこと。
+レイアウトテストの追加コンテキスト：
+- カード内の折り返しは読みやすく保つ。
+- 上の太字例外タイプはスクロール領域外に固定。
+- タイトルバー、アプリメタデータ、アクションボタンはコンテンツスクロール中も表示。
+- スクロールバー表示時にコピー/無視/終了ボタンがジャンプしない。
 
-長い内容をスクロールしても、詳細カード周囲の余白は一定である必要があります。スクロールバーが出ない場合は、内容がビューポートを超えるまでウィンドウ高さをさらに小さくしてください。</value>
+この長いコンテンツをスクロール中、詳細カードのパディングとマージンは上下左右で一貫。スクロールバーが出ない場合は、コンテンツがビューポートを超えるまでウィンドウ高さを縮小。</value>
   </data>
   <data name="Sample_f330915173" xml:space="preserve">
     <value>Violeta の ContentDialog。プライマリ、セカンダリ、閉じるボタンに対応。</value>
@@ -2753,9 +2753,9 @@ OK をクリックして続行してください。</value>
     <value>これはネイティブ Win32 MessageBox です。</value>
   </data>
   <data name="Sample_4ed22fb344" xml:space="preserve">
-    <value>フッターアイコンとハイパーリンク付きの警告ダイアログです。
+    <value>A warning dialog with a footer icon and hyperlink.
 
-詳しくは &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Violeta&lt;/A&gt; をご覧ください。</value>
+Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;WPF UI Violeta&lt;/A&gt; to learn more.</value>
   </data>
   <data name="Sample_b51bf913f5" xml:space="preserve">
     <value>シンプルな ShellWindow デモウィンドウです。</value>
@@ -2854,7 +2854,7 @@ OK をクリックして続行してください。</value>
     <value>Target プロパティで入力コントロールを関連付け、アクセシビリティに対応。</value>
   </data>
   <data name="Sample_5454e81038" xml:space="preserve">
-    <value>上下矢印で値を切替。Default / Left / Split レイアウト対応。</value>
+    <value>上下矢印で値を変更。Default / Left / Split レイアウトをサポート。</value>
   </data>
   <data name="Sample_1e1459eeed" xml:space="preserve">
     <value>部署</value>
@@ -2965,13 +2965,13 @@ OK をクリックして続行してください。</value>
     <value>パンくずナビゲーション</value>
   </data>
   <data name="Sample_78636353a3" xml:space="preserve">
-    <value>ターゲット向けティーチングヒント。Title / Subtitle / Hero / Action / Close と Light Dismiss 対応。</value>
+    <value>ターゲット TeachingTip。Title / Subtitle / Hero / Action / Close と Light Dismiss。</value>
   </data>
   <data name="Sample_0b66910aa9" xml:space="preserve">
     <value>タブインジケーター</value>
   </data>
   <data name="Sample_c0280b33ba" xml:space="preserve">
-    <value>ページ内に SnackbarPresenter を置き、コードで Snackbar を作成・表示。DI / SnackbarService 不要。</value>
+    <value>ページに SnackbarPresenter を配置し、コードで Snackbar を作成/表示。DI / SnackbarService 不要。</value>
   </data>
   <data name="Sample_6452538f67" xml:space="preserve">
     <value>ページ内アンカーナビゲーション</value>
@@ -3184,7 +3184,7 @@ OK をクリックして続行してください。</value>
     <value>列区切り（ShowsPreview=False）</value>
   </data>
   <data name="Sample_8224c38e00" xml:space="preserve">
-    <value>ShowsPreview=False — ドラッグ中に即座にサイズを変更します。</value>
+    <value>ShowsPreview=False — ドラッグ中に即座にサイズ変更。</value>
   </data>
   <data name="Sample_c17befc4c1" xml:space="preserve">
     <value>Fluent スタイルのカルーセルとナビ点</value>
@@ -3202,13 +3202,13 @@ OK をクリックして続行してください。</value>
     <value>Brand ナビ + 自動再生</value>
   </data>
   <data name="Sample_e2eab3c10c" xml:space="preserve">
-    <value>Appearance=Brand、IsAutoplayEnabled、間隔 3 秒</value>
+    <value>Appearance=Brand, IsAutoplayEnabled, 3s interval</value>
   </data>
   <data name="Sample_ea9c482c64" xml:space="preserve">
     <value>フェード + ドラッグ</value>
   </data>
   <data name="Sample_7261a4dcf2" xml:space="preserve">
-    <value>Motion=Fade；ドラッグは Slide モードで利用可能</value>
+    <value>Motion=Fade。Slide モードでドラッグ可能</value>
   </data>
   <data name="Sample_c3e94a2a4d" xml:space="preserve">
     <value>スライド 1</value>
@@ -3232,13 +3232,13 @@ OK をクリックして続行してください。</value>
     <value>フェード C</value>
   </data>
   <data name="Sample_ca5e75861e" xml:space="preserve">
-    <value>左側は ToggleButton（Command / DoubleCommand）、右側は ComboBox 風の一覧。枠線色は Button に準拠。</value>
+    <value>左側は ToggleButton（Command / DoubleCommand）。右側は ComboBox 風リストを開く。境界線色は Button に従う。</value>
   </data>
   <data name="Sample_9cd21c0453" xml:space="preserve">
     <value>基本トグル</value>
   </data>
   <data name="Sample_30d371c179" xml:space="preserve">
-    <value>左側クリックで IsChecked を切替、シェブロンで項目を開きます。Content 同期は既定でオフです。</value>
+    <value>左側をクリックして IsChecked を切り替え。chevron でオプションを開く。Content 同期はデフォルトで無効。</value>
   </data>
   <data name="Sample_31c6a2bd46" xml:space="preserve">
     <value>SyncContentWithSelection = True</value>
@@ -3265,7 +3265,7 @@ OK をクリックして続行してください。</value>
     <value>左側のシングルクリックで Command、ダブルクリックで DoubleCommand（シェブロン以外）。</value>
   </data>
   <data name="Sample_136e16706d" xml:space="preserve">
-    <value>クリック / ダブルクリック待ち…</value>
+    <value>クリック/ダブルクリック待ち…</value>
   </data>
   <data name="Sample_3dc7af023d" xml:space="preserve">
     <value>DisplayMemberPath + ItemsSource バインド</value>
@@ -3286,7 +3286,7 @@ OK をクリックして続行してください。</value>
     <value>パレット</value>
   </data>
   <data name="Sample_090903ad32" xml:space="preserve">
-    <value>チェック / 無効</value>
+    <value>Checked / Disabled</value>
   </data>
   <data name="Sample_7e2b4a08c3" xml:space="preserve">
     <value>事前チェックと無効状態。枠線は引き続き Button リソース。</value>
@@ -3304,7 +3304,7 @@ OK をクリックして続行してください。</value>
     <value>適用</value>
   </data>
   <data name="Sample_2627637e26" xml:space="preserve">
-    <value>チェック済み</value>
+    <value>選択済み</value>
   </data>
   <data name="Sample_b9f5c797eb" xml:space="preserve">
     <value>無効</value>
@@ -3313,7 +3313,7 @@ OK をクリックして続行してください。</value>
     <value>（なし）</value>
   </data>
   <data name="Format_ToggleComboBoxBasicStatus" xml:space="preserve">
-    <value>IsChecked={0}、Selected={1}</value>
+    <value>IsChecked={0}, Selected={1}</value>
   </data>
   <data name="Format_ToggleComboBoxCommandClick" xml:space="preserve">
     <value>Command（クリック）— IsChecked={0}</value>
@@ -3326,25 +3326,25 @@ OK をクリックして続行してください。</value>
     <value>未選択時にプレースホルダーを表示します。編集可能な ComboBox は ui:TextBox のプレースホルダーを再利用します。</value>
   </data>
   <data name="Sample_SplitButton_PrimaryFlyoutDesc" xml:space="preserve">
-    <value>Primary click runs Save; open the chevron for Save As / Export.</value>
+    <value>プライマリクリックで Save を実行。chevron で Save As / Export を開く。</value>
   </data>
   <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
-    <value>Primary click shares; the flyout can nest Send and device targets.</value>
+    <value>プライマリ click shares; the flyout can nest Send and device targets.</value>
   </data>
   <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
-    <value>Appearance styles the whole split control; each still has its own flyout commands.</value>
+    <value>Appearance は分割コントロール全体をスタイル設定。各部分は独自の flyout コマンドを持つ。</value>
   </data>
   <data name="Sample_SplitButton_ColorSwatchDesc" xml:space="preserve">
-    <value>Primary click reports the current color; flyout items update the swatch.</value>
+    <value>プライマリ click reports the current color; flyout items update the swatch.</value>
   </data>
   <data name="Sample_SplitButton_DisabledDesc" xml:space="preserve">
-    <value>When disabled, neither the primary action nor the chevron flyout can be used.</value>
+    <value>無効時はプライマリアクションと chevron flyout の両方が使用不可。</value>
   </data>
   <data name="Sample_DropDownButton_DisabledDesc" xml:space="preserve">
     <value>無効時、ボタンとそのフライアウトは使用できません。</value>
   </data>
   <data name="Format_SplitButtonPrimaryClick" xml:space="preserve">
-    <value>Primary click / Command - {0}</value>
+    <value>プライマリクリック / Command - {0}</value>
   </data>
   <data name="Format_SplitButtonDoubleCommand" xml:space="preserve">
     <value>DoubleCommand - {0}</value>
@@ -3356,19 +3356,22 @@ OK をクリックして続行してください。</value>
     <value>水平グリッド線</value>
   </data>
   <data name="Sample_DataGrid_GridLinesHorizontalDesc" xml:space="preserve">
-    <value>GridLinesVisibility="Horizontal" を設定します。既定のブラシは ControlElevationBorderBrush です。</value>
+    <value>GridLinesVisibility="Horizontal" を設定。デフォルトブラシは ControlElevationBorderBrush を使用。</value>
   </data>
   <data name="Sample_DataGrid_GridLinesVerticalTitle" xml:space="preserve">
     <value>垂直グリッド線</value>
   </data>
   <data name="Sample_DataGrid_GridLinesVerticalDesc" xml:space="preserve">
-    <value>GridLinesVisibility="Vertical" を設定し、列の区切り線のみ表示します。</value>
+    <value>GridLinesVisibility="Vertical" で列区切りのみ表示。</value>
   </data>
   <data name="Sample_DataGrid_GridLinesAllTitle" xml:space="preserve">
     <value>すべてのグリッド線</value>
   </data>
   <data name="Sample_DataGrid_GridLinesAllDesc" xml:space="preserve">
-    <value>GridLinesVisibility="All" を設定し、必要に応じて HorizontalGridLinesBrush / VerticalGridLinesBrush で色を指定します。</value>
+    <value>GridLinesVisibility="All" を設定。HorizontalGridLinesBrush / VerticalGridLinesBrush をカスタマイズ可能。</value>
+  </data>
+  <data name="Sample_DataGrid_DisabledDesc" xml:space="preserve">
+    <value>IsEnabled が false のとき（例：BusyMask 有効中）、列ヘッダーのテキスト前にリサイズグリッパーを表示しない。</value>
   </data>
   <data name="Sample_a1f2c3d4e5" xml:space="preserve">
     <value>WrapPanel で組んだ Tile スタイル展示（モーション付き）</value>
@@ -3431,10 +3434,10 @@ OK をクリックして続行してください。</value>
     <value>行 1、列 1</value>
   </data>
   <data name="Sample_StatusBar_GridTitle" xml:space="preserve">
-    <value>グリッド レイアウト</value>
+    <value>グリッドレイアウト</value>
   </data>
   <data name="Sample_StatusBar_GridDesc" xml:space="preserve">
-    <value>ItemsPanel に Grid を使い、左/中央/右を固定します（エディター風ステータス バー）。</value>
+    <value>ItemsPanel と Grid で左/中央/右領域を固定（エディター風ステータスバー）。</value>
   </data>
   <data name="Sample_StatusBar_LineChar" xml:space="preserve">
     <value>行: 42、文字: 8</value>
@@ -3447,5 +3450,2850 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_StatusBar_ZeroErrors" xml:space="preserve">
     <value>エラー 0 件</value>
+  </data>
+
+  <data name="Gallery_Page_Typography" xml:space="preserve">
+    <value>Typography</value>
+  </data>
+  <data name="Gallery_Page_Icons" xml:space="preserve">
+    <value>Icons</value>
+  </data>
+  <data name="Gallery_Page_Colors" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="Gallery_Page_Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="Gallery_Page_RepeatButton" xml:space="preserve">
+    <value>RepeatButton</value>
+  </data>
+  <data name="Gallery_Page_DropDownButton" xml:space="preserve">
+    <value>DropDownButton</value>
+  </data>
+  <data name="Gallery_Page_HyperlinkButton" xml:space="preserve">
+    <value>HyperlinkButton</value>
+  </data>
+  <data name="Gallery_Page_ToggleButton" xml:space="preserve">
+    <value>ToggleButton</value>
+  </data>
+  <data name="Gallery_Page_SplitButton" xml:space="preserve">
+    <value>SplitButton</value>
+  </data>
+  <data name="Gallery_Page_LoadingButton" xml:space="preserve">
+    <value>LoadingButton</value>
+  </data>
+  <data name="Gallery_Page_CopyButton" xml:space="preserve">
+    <value>CopyButton</value>
+  </data>
+  <data name="Sample_8c9a8d4918" xml:space="preserve">
+    <value>チェックマークアニメーション付きコピー</value>
+  </data>
+  <data name="Gallery_Page_GoBackButton" xml:space="preserve">
+    <value>GoBackButton</value>
+  </data>
+  <data name="Sample_4e50524970" xml:space="preserve">
+    <value>タイトルバー押下アニメーション付き戻る</value>
+  </data>
+  <data name="Gallery_Page_AnimatedSymbolButton" xml:space="preserve">
+    <value>AnimatedSymbolButton</value>
+  </data>
+  <data name="Sample_d99f8a76a1" xml:space="preserve">
+    <value>WinUI AnimatedVisuals に合わせた種類</value>
+  </data>
+  <data name="Gallery_Page_ToggleButtonGroup" xml:space="preserve">
+    <value>ToggleButtonGroup</value>
+  </data>
+  <data name="Gallery_Page_CheckBox" xml:space="preserve">
+    <value>CheckBox</value>
+  </data>
+  <data name="Gallery_Page_RadioButton" xml:space="preserve">
+    <value>RadioButton</value>
+  </data>
+  <data name="Gallery_Page_ToggleSwitch" xml:space="preserve">
+    <value>ToggleSwitch</value>
+  </data>
+  <data name="Gallery_Page_Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="Gallery_Page_ThumbRate" xml:space="preserve">
+    <value>ThumbRate</value>
+  </data>
+  <data name="Gallery_Page_Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="Gallery_Page_RangeSlider" xml:space="preserve">
+    <value>RangeSlider</value>
+  </data>
+  <data name="Gallery_Page_NumberBox" xml:space="preserve">
+    <value>NumberBox</value>
+  </data>
+  <data name="Gallery_Page_NumericUpDown" xml:space="preserve">
+    <value>NumericUpDown</value>
+  </data>
+  <data name="Gallery_Page_NumberComboBox" xml:space="preserve">
+    <value>NumberComboBox</value>
+  </data>
+  <data name="Gallery_Page_ButtonSpinner" xml:space="preserve">
+    <value>ButtonSpinner</value>
+  </data>
+  <data name="Gallery_Page_Textbox" xml:space="preserve">
+    <value>TextBox</value>
+  </data>
+  <data name="Gallery_Page_PasswordBox" xml:space="preserve">
+    <value>PasswordBox</value>
+  </data>
+  <data name="Gallery_Page_RichTextBox" xml:space="preserve">
+    <value>RichTextBox</value>
+  </data>
+  <data name="Gallery_Page_AutoSuggestBox" xml:space="preserve">
+    <value>AutoSuggestBox</value>
+  </data>
+  <data name="Gallery_Page_SearchBox" xml:space="preserve">
+    <value>SearchBox</value>
+  </data>
+  <data name="Gallery_Page_PinCode" xml:space="preserve">
+    <value>PinCode</value>
+  </data>
+  <data name="Gallery_Page_KeyGestureInput" xml:space="preserve">
+    <value>KeyGestureInput</value>
+  </data>
+  <data name="Gallery_Page_Ipv4Box" xml:space="preserve">
+    <value>IPv4Box</value>
+  </data>
+  <data name="Gallery_Page_Ipv4PortBox" xml:space="preserve">
+    <value>IPv4PortBox</value>
+  </data>
+  <data name="Gallery_Page_TagInput" xml:space="preserve">
+    <value>TagInput</value>
+  </data>
+  <data name="Gallery_Page_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Gallery_Page_TextBlock" xml:space="preserve">
+    <value>TextBlock</value>
+  </data>
+  <data name="Gallery_Page_SelectableTextBlock" xml:space="preserve">
+    <value>SelectableTextBlock</value>
+  </data>
+  <data name="Gallery_Page_NumberDisplayer" xml:space="preserve">
+    <value>NumberDisplayer</value>
+  </data>
+  <data name="Sample_297dd00407" xml:space="preserve">
+    <value>アニメーション数値スクロール</value>
+  </data>
+  <data name="Gallery_Page_Hyperlink" xml:space="preserve">
+    <value>Hyperlink</value>
+  </data>
+  <data name="Gallery_Page_BoolStateTextBlock" xml:space="preserve">
+    <value>BoolStateTextBlock</value>
+  </data>
+  <data name="Gallery_Page_Emoji" xml:space="preserve">
+    <value>Emoji</value>
+  </data>
+  <data name="Sample_21353e2aa9" xml:space="preserve">
+    <value>カラー絵文字 TextBlock / ピッカー</value>
+  </data>
+  <data name="Gallery_Page_ComboBox" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="Gallery_Page_ToggleComboBox" xml:space="preserve">
+    <value>ToggleComboBox</value>
+  </data>
+  <data name="Gallery_Page_MultiComboBox" xml:space="preserve">
+    <value>MultiComboBox</value>
+  </data>
+  <data name="Gallery_Page_CascadingComboBox" xml:space="preserve">
+    <value>CascadingComboBox</value>
+  </data>
+  <data name="Gallery_Page_TagComboBox" xml:space="preserve">
+    <value>TagComboBox</value>
+  </data>
+  <data name="Gallery_Page_TreeComboBox" xml:space="preserve">
+    <value>TreeComboBox</value>
+  </data>
+  <data name="Gallery_Page_ValuePicker" xml:space="preserve">
+    <value>ValuePicker</value>
+  </data>
+  <data name="Gallery_Page_SwatchPicker" xml:space="preserve">
+    <value>SwatchPicker</value>
+  </data>
+  <data name="Sample_bc2364af77" xml:space="preserve">
+    <value>Fluent スタイルパレットピッカー</value>
+  </data>
+  <data name="Gallery_Page_ColorPicker" xml:space="preserve">
+    <value>ColorPicker</value>
+  </data>
+  <data name="Gallery_Page_DatePicker" xml:space="preserve">
+    <value>DatePicker</value>
+  </data>
+  <data name="Gallery_Page_TimePicker" xml:space="preserve">
+    <value>TimePicker</value>
+  </data>
+  <data name="Gallery_Page_CalendarDatePicker" xml:space="preserve">
+    <value>CalendarDatePicker</value>
+  </data>
+  <data name="Gallery_Page_CalendarDateTimePicker" xml:space="preserve">
+    <value>CalendarDateTimePicker</value>
+  </data>
+  <data name="Gallery_Page_TimeBoxPicker" xml:space="preserve">
+    <value>TimeBoxPicker</value>
+  </data>
+  <data name="Gallery_Page_TimeBox" xml:space="preserve">
+    <value>TimeBox</value>
+  </data>
+  <data name="Gallery_Page_Calendar" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="Gallery_Page_FilePicker" xml:space="preserve">
+    <value>FilePicker</value>
+  </data>
+  <data name="Gallery_Page_OpenFolderDialog" xml:space="preserve">
+    <value>OpenFolderDialog</value>
+  </data>
+  <data name="Gallery_Page_ContentDialog" xml:space="preserve">
+    <value>ContentDialog</value>
+  </data>
+  <data name="Gallery_Page_MessageBox" xml:space="preserve">
+    <value>MessageBox</value>
+  </data>
+  <data name="Gallery_Page_PendingBox" xml:space="preserve">
+    <value>PendingBox</value>
+  </data>
+  <data name="Gallery_Page_TaskDialog" xml:space="preserve">
+    <value>TaskDialog</value>
+  </data>
+  <data name="Sample_6c567e7af2" xml:space="preserve">
+    <value>Win32 TaskDialog</value>
+  </data>
+  <data name="Gallery_Page_NativeMessageBox" xml:space="preserve">
+    <value>NativeMessageBox</value>
+  </data>
+  <data name="Gallery_Page_CredentialDialog" xml:space="preserve">
+    <value>CredentialDialog</value>
+  </data>
+  <data name="Gallery_Page_Flyout" xml:space="preserve">
+    <value>Flyout</value>
+  </data>
+  <data name="Gallery_Page_FluentPopup" xml:space="preserve">
+    <value>FluentPopup</value>
+  </data>
+  <data name="Gallery_Page_TeachingTip" xml:space="preserve">
+    <value>TeachingTip</value>
+  </data>
+  <data name="Gallery_Page_Snackbar" xml:space="preserve">
+    <value>Snackbar</value>
+  </data>
+  <data name="Gallery_Page_Toast" xml:space="preserve">
+    <value>Toast</value>
+  </data>
+  <data name="Gallery_Page_Banner" xml:space="preserve">
+    <value>Banner</value>
+  </data>
+  <data name="Gallery_Page_TrayIcon" xml:space="preserve">
+    <value>TrayIcon</value>
+  </data>
+  <data name="Gallery_Page_DataGrid" xml:space="preserve">
+    <value>DataGrid</value>
+  </data>
+  <data name="Gallery_Page_ListBox" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="Gallery_Page_ListView" xml:space="preserve">
+    <value>ListView</value>
+  </data>
+  <data name="Gallery_Page_GridView" xml:space="preserve">
+    <value>GridView</value>
+  </data>
+  <data name="Sample_8d769f1a3a" xml:space="preserve">
+    <value>WinUI スタイル折り返しアイテムグリッド</value>
+  </data>
+  <data name="Gallery_Page_TreeView" xml:space="preserve">
+    <value>TreeView</value>
+  </data>
+  <data name="Gallery_Page_TreeListView" xml:space="preserve">
+    <value>TreeListView</value>
+  </data>
+  <data name="Gallery_Page_TreeModelListView" xml:space="preserve">
+    <value>TreeModelListView</value>
+  </data>
+  <data name="Gallery_Page_FlipView" xml:space="preserve">
+    <value>FlipView</value>
+  </data>
+  <data name="Gallery_Page_Carousel" xml:space="preserve">
+    <value>Carousel</value>
+  </data>
+  <data name="Gallery_Page_CardCarousel" xml:space="preserve">
+    <value>CardCarousel</value>
+  </data>
+  <data name="Sample_732c0b8417" xml:space="preserve">
+    <value>Cover-flow カードカルーセル</value>
+  </data>
+  <data name="Gallery_Page_Pagination" xml:space="preserve">
+    <value>Pagination</value>
+  </data>
+  <data name="Gallery_Page_Timeline" xml:space="preserve">
+    <value>Timeline</value>
+  </data>
+  <data name="Gallery_Page_NavigationView" xml:space="preserve">
+    <value>NavigationView</value>
+  </data>
+  <data name="Gallery_Page_BreadcrumbBar" xml:space="preserve">
+    <value>BreadcrumbBar</value>
+  </data>
+  <data name="Gallery_Page_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Gallery_Page_ToolBar" xml:space="preserve">
+    <value>ToolBar</value>
+  </data>
+  <data name="Gallery_Page_TabControl" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="Gallery_Page_TabView" xml:space="preserve">
+    <value>TabView</value>
+  </data>
+  <data name="Gallery_Page_TabStrip" xml:space="preserve">
+    <value>TabStrip</value>
+  </data>
+  <data name="Gallery_Page_Segmented" xml:space="preserve">
+    <value>Segmented</value>
+  </data>
+  <data name="Sample_a0a2c2b4a6" xml:space="preserve">
+    <value>WinUI スタイルビュースイッチャー</value>
+  </data>
+  <data name="Gallery_Page_Pivot" xml:space="preserve">
+    <value>Pivot</value>
+  </data>
+  <data name="Sample_0abe67e8c6" xml:space="preserve">
+    <value>Pivot スタイル TabControl</value>
+  </data>
+  <data name="Gallery_Page_Anchor" xml:space="preserve">
+    <value>Anchor</value>
+  </data>
+  <data name="Gallery_Page_CardControl" xml:space="preserve">
+    <value>CardControl</value>
+  </data>
+  <data name="Gallery_Page_CardAction" xml:space="preserve">
+    <value>CardAction</value>
+  </data>
+  <data name="Gallery_Page_CardProgress" xml:space="preserve">
+    <value>CardProgress</value>
+  </data>
+  <data name="Gallery_Page_TilePressFeedback" xml:space="preserve">
+    <value>Tile</value>
+  </data>
+  <data name="Gallery_Page_AutoGrid" xml:space="preserve">
+    <value>AutoGrid</value>
+  </data>
+  <data name="Gallery_Page_Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Gallery_Page_DropShadowChrome" xml:space="preserve">
+    <value>DropShadowChrome</value>
+  </data>
+  <data name="Gallery_Page_AspectRatioLayout" xml:space="preserve">
+    <value>AspectRatioLayout</value>
+  </data>
+  <data name="Gallery_Page_Form" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="Gallery_Page_GridSplitter" xml:space="preserve">
+    <value>GridSplitter</value>
+  </data>
+  <data name="Gallery_Page_Divider" xml:space="preserve">
+    <value>Divider</value>
+  </data>
+  <data name="Gallery_Page_Drawer" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="Gallery_Page_Expander" xml:space="preserve">
+    <value>Expander</value>
+  </data>
+  <data name="Gallery_Page_FluentScrollViewer" xml:space="preserve">
+    <value>FluentScrollViewer</value>
+  </data>
+  <data name="Gallery_Page_InfoBadge" xml:space="preserve">
+    <value>InfoBadge</value>
+  </data>
+  <data name="Gallery_Page_InfoBar" xml:space="preserve">
+    <value>InfoBar</value>
+  </data>
+  <data name="Gallery_Page_ProgressBar" xml:space="preserve">
+    <value>ProgressBar</value>
+  </data>
+  <data name="Gallery_Page_ProgressRing" xml:space="preserve">
+    <value>ProgressRing</value>
+  </data>
+  <data name="Gallery_Page_Badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Gallery_Page_VolumeView" xml:space="preserve">
+    <value>VolumeView</value>
+  </data>
+  <data name="Sample_ca75adcb80" xml:space="preserve">
+    <value>三本バー音量インジケーター</value>
+  </data>
+  <data name="Gallery_Page_Skeleton" xml:space="preserve">
+    <value>Skeleton</value>
+  </data>
+  <data name="Gallery_Page_BusyMask" xml:space="preserve">
+    <value>BusyMask</value>
+  </data>
+  <data name="Gallery_Page_BoolStateContentControl" xml:space="preserve">
+    <value>BoolStateContentControl</value>
+  </data>
+  <data name="Gallery_Page_ToolTip" xml:space="preserve">
+    <value>ToolTip</value>
+  </data>
+  <data name="Gallery_Page_StatusBar" xml:space="preserve">
+    <value>StatusBar</value>
+  </data>
+  <data name="Gallery_Page_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Gallery_Page_ImageView" xml:space="preserve">
+    <value>ImageView</value>
+  </data>
+  <data name="Gallery_Page_Canvas" xml:space="preserve">
+    <value>Canvas</value>
+  </data>
+  <data name="Gallery_Page_WebBrowser" xml:space="preserve">
+    <value>WebBrowser</value>
+  </data>
+  <data name="Gallery_Page_WebView2" xml:space="preserve">
+    <value>WebView2</value>
+  </data>
+  <data name="Gallery_Page_PersonPicture" xml:space="preserve">
+    <value>PersonPicture</value>
+  </data>
+  <data name="Gallery_Page_BitmapIcon" xml:space="preserve">
+    <value>BitmapIcon</value>
+  </data>
+  <data name="Gallery_Page_QrCode" xml:space="preserve">
+    <value>QrCode</value>
+  </data>
+  <data name="Gallery_Page_CachedImage" xml:space="preserve">
+    <value>CachedImage</value>
+  </data>
+  <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
+    <value>TransitioningContentControl</value>
+  </data>
+  <data name="Gallery_Page_RunningBlock" xml:space="preserve">
+    <value>RunningBlock</value>
+  </data>
+  <data name="Gallery_Page_AsyncBox" xml:space="preserve">
+    <value>AsyncBox</value>
+  </data>
+  <data name="Gallery_Page_Splash" xml:space="preserve">
+    <value>Splash</value>
+  </data>
+  <data name="Gallery_Page_ExceptionReport" xml:space="preserve">
+    <value>ExceptionReport</value>
+  </data>
+  <data name="Gallery_Page_ShellWindow" xml:space="preserve">
+    <value>ShellWindow</value>
+  </data>
+  <data name="Gallery_Page_ContentWindow" xml:space="preserve">
+    <value>ContentWindow</value>
+  </data>
+  <data name="Gallery_Page_TitleBar" xml:space="preserve">
+    <value>TitleBar</value>
+  </data>
+  <data name="Gallery_Page_CaptionButtonBar" xml:space="preserve">
+    <value>CaptionButtonBar</value>
+  </data>
+  <data name="Gallery_Page_Clipboard" xml:space="preserve">
+    <value>Clipboard</value>
+  </data>
+  <data name="Sample_d7dc507bbe" xml:space="preserve">
+    <value>Kind は AnimatedVisuals に合わせます。IconFontFamily / IconFontSize / IconGlyph と SecondaryIcon*（2 グリフ種類）でアイコンを上書きできます。</value>
+  </data>
+  <data name="Sample_0557fa923d" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="Sample_ed90a66da7" xml:space="preserve">
+    <value>AnimatedBackVisualSource — RightToLeft ScaleX（TitleBar / GoBackButton）。</value>
+  </data>
+  <data name="Sample_7bbfd27656" xml:space="preserve">
+    <value>AnimatedSettingsVisualSource — 巻き戻し + 全回転（NavigationView 設定）。</value>
+  </data>
+  <data name="Sample_08f8181dce" xml:space="preserve">
+    <value>ChevronDownSmall</value>
+  </data>
+  <data name="Sample_ee2844ed89" xml:space="preserve">
+    <value>AnimatedChevronDownSmallVisualSource — クリップ付き移動（DropDownButton）。Content の後に chevron。</value>
+  </data>
+  <data name="Sample_d3da97e2d9" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="Sample_f6d33340fa" xml:space="preserve">
+    <value>ChevronUpDownSmall</value>
+  </data>
+  <data name="Sample_c195abee02" xml:space="preserve">
+    <value>AnimatedChevronUpDownSmallVisualSource — クリックで IsExpanded を切り替え（ComboBox chevron）。</value>
+  </data>
+  <data name="Sample_83a0311541" xml:space="preserve">
+    <value>GlobalNavigationButton</value>
+  </data>
+  <data name="Sample_8c07d7e61c" xml:space="preserve">
+    <value>AnimatedGlobalNavigationButtonVisualSource — Segoe GlobalNavButton E700（Fluent F4E1 ではない）。</value>
+  </data>
+  <data name="Sample_742ff989bd" xml:space="preserve">
+    <value>CopyToClipboard</value>
+  </data>
+  <data name="Sample_d80641522c" xml:space="preserve">
+    <value>WinUI Gallery CopyToClipboardSuccessAnimation — コピー → Accept（CopyButton）。</value>
+  </data>
+  <data name="Sample_14edd6a459" xml:space="preserve">
+    <value>標準ボタン</value>
+  </data>
+  <data name="Sample_ff4d6ca0ce" xml:space="preserve">
+    <value>標準 WPF ボタン</value>
+  </data>
+  <data name="Sample_97c56016ab" xml:space="preserve">
+    <value>ボタンを無効化</value>
+  </data>
+  <data name="Sample_459fe7634f" xml:space="preserve">
+    <value>WPF UI ボタン</value>
+  </data>
+  <data name="Sample_7c81d84b14" xml:space="preserve">
+    <value>プライマリ ボタン</value>
+  </data>
+  <data name="Sample_7e64d5c452" xml:space="preserve">
+    <value>FontIcon</value>
+  </data>
+  <data name="Sample_d17a461c54" xml:space="preserve">
+    <value>ImageIcon</value>
+  </data>
+  <data name="Sample_8a60003101" xml:space="preserve">
+    <value>外観バリエーション</value>
+  </data>
+  <data name="Sample_00d23a76e4" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="Sample_074de7e7c2" xml:space="preserve">
+    <value>プライマリ</value>
+  </data>
+  <data name="Sample_0c7d6cf194" xml:space="preserve">
+    <value>セカンダリ</value>
+  </data>
+  <data name="Sample_764a2caff0" xml:space="preserve">
+    <value>Caution</value>
+  </data>
+  <data name="Sample_990816b607" xml:space="preserve">
+    <value>Danger</value>
+  </data>
+  <data name="Sample_3a573f184a" xml:space="preserve">
+    <value>アイコン + テキスト（StackPanel Content）</value>
+  </data>
+  <data name="Sample_0f00121336" xml:space="preserve">
+    <value>Icon プロパティの代わりに StackPanel で Content を構成。Foreground はボタンから継承 — 押下状態を確認するにはホールド。</value>
+  </data>
+  <data name="Sample_5a95a425f7" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="Sample_0357705cc8" xml:space="preserve">
+    <value>Rich content</value>
+  </data>
+  <data name="Sample_3ddf6f22b0" xml:space="preserve">
+    <value>アイコン、タイトル、副説明を含む StackPanel — すべてボタンの Foreground を継承。</value>
+  </data>
+  <data name="Sample_91412465ea" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Sample_bd5d5dfbba" xml:space="preserve">
+    <value>ファイルをクラウドに送信</value>
+  </data>
+  <data name="Sample_3d6aea7f98" xml:space="preserve">
+    <value>変更を適用</value>
+  </data>
+  <data name="Sample_bcfaccebf7" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Sample_c5e82a2b10" xml:space="preserve">
+    <value>デフォルト — ボタン右側</value>
+  </data>
+  <data name="Sample_2b948774a3" xml:space="preserve">
+    <value>ButtonSpinnerLocation=Left</value>
+  </data>
+  <data name="Sample_c5c130941d" xml:space="preserve">
+    <value>ShowButtonSpinner=False</value>
+  </data>
+  <data name="Sample_13e47b9559" xml:space="preserve">
+    <value>No buttons</value>
+  </data>
+  <data name="Sample_bf17e9c380" xml:space="preserve">
+    <value>SplitButtonSpinnerStyle</value>
+  </data>
+  <data name="Sample_fcba73761d" xml:space="preserve">
+    <value>Split + Location=Left</value>
+  </data>
+  <data name="Sample_9c1ee7f207" xml:space="preserve">
+    <value>二状態 CheckBox</value>
+  </data>
+  <data name="Sample_e90ddbc56a" xml:space="preserve">
+    <value>三状態 CheckBox</value>
+  </data>
+  <data name="Sample_4c41e0bd95" xml:space="preserve">
+    <value>選択 all</value>
+  </data>
+  <data name="Sample_fd577a8bfd" xml:space="preserve">
+    <value>Option 1</value>
+  </data>
+  <data name="Sample_e24963e407" xml:space="preserve">
+    <value>Option 2</value>
+  </data>
+  <data name="Sample_fbeee6bcd1" xml:space="preserve">
+    <value>Option 3</value>
+  </data>
+  <data name="Sample_c9db38cf9a" xml:space="preserve">
+    <value>Inline items</value>
+  </data>
+  <data name="Sample_d382816a3c" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Sample_ee38e4d5dd" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Sample_51e6cd92b6" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Sample_635c77a7e7" xml:space="preserve">
+    <value>ItemsSource</value>
+  </data>
+  <data name="Sample_1f93fed7e8" xml:space="preserve">
+    <value>編集可能 ComboBox</value>
+  </data>
+  <data name="Sample_68753d36ec" xml:space="preserve">
+    <value>プレースホルダー</value>
+  </data>
+  <data name="Sample_9983599025" xml:space="preserve">
+    <value>Grouped items</value>
+  </data>
+  <data name="Sample_3098f1d77b" xml:space="preserve">
+    <value>クリックして TextToCopy をコピーし、WinUI スタイルのチェックマークアニメーションを再生。</value>
+  </data>
+  <data name="Sample_8329093ddf" xml:space="preserve">
+    <value>← click me</value>
+  </data>
+  <data name="Sample_058f4b0139" xml:space="preserve">
+    <value>WPF UI Button の外観を継承。</value>
+  </data>
+  <data name="Sample_fbf399e379" xml:space="preserve">
+    <value>ControlHelper.IconFontSize（デフォルトグリフ）</value>
+  </data>
+  <data name="Sample_0083ea3fa5" xml:space="preserve">
+    <value>Icon なし — 内蔵グリフが IconFontSize に直接バインド（12 / 16 デフォルト / 28）。</value>
+  </data>
+  <data name="Sample_1a93b64678" xml:space="preserve">
+    <value>Icon は ControlHelper を継承</value>
+  </data>
+  <data name="Sample_8f97956fd7" xml:space="preserve">
+    <value>Icon にローカル FontSize なし — SetCurrentValue で ControlHelper.IconFontSize を適用。</value>
+  </data>
+  <data name="Sample_8dae381aff" xml:space="preserve">
+    <value>Icon.FontSize が ControlHelper より優先</value>
+  </data>
+  <data name="Sample_405bca6066" xml:space="preserve">
+    <value>すべてのボタンで ControlHelper.IconFontSize=28。左/中央の Icon はローカルで FontSize=12 / 16 を設定して小さく保つ。右はローカル FontSize なしで 28。</value>
+  </data>
+  <data name="Sample_5804482520" xml:space="preserve">
+    <value>Icon FontSize=12</value>
+  </data>
+  <data name="Sample_0ba128aeb4" xml:space="preserve">
+    <value>Icon FontSize=16</value>
+  </data>
+  <data name="Sample_2a309c7843" xml:space="preserve">
+    <value>no local → 28</value>
+  </data>
+  <data name="Sample_dc0a3d4565" xml:space="preserve">
+    <value>Content FontSize と IconFontSize</value>
+  </data>
+  <data name="Sample_af320f2b89" xml:space="preserve">
+    <value>Button FontSize はラベルを、ControlHelper.IconFontSize はアイコンを個別にスタイル設定。</value>
+  </data>
+  <data name="Sample_b758336699" xml:space="preserve">
+    <value>コピー link</value>
+  </data>
+  <data name="Sample_15c61d5baf" xml:space="preserve">
+    <value>IconFontFamily + SuccessGlyph</value>
+  </data>
+  <data name="Sample_77146a4531" xml:space="preserve">
+    <value>アイコンフォントファミリー / 成功グリフを上書き。成功アニメーションは同じ IconFontSize を使用。</value>
+  </data>
+  <data name="Sample_eab08f976e" xml:space="preserve">
+    <value>カスタムクリック / Command</value>
+  </data>
+  <data name="Sample_d04ee88f76" xml:space="preserve">
+    <value>TextToCopy を空にし、Click（または Command バインド）でクリップボードを処理。アニメーションは再生されます。連続クリックはスロットルされます。</value>
+  </data>
+  <data name="Sample_aaaaf95453" xml:space="preserve">
+    <value>カスタム clipboard payload</value>
+  </data>
+  <data name="Sample_b603b043e8" xml:space="preserve">
+    <value>コピー text</value>
+  </data>
+  <data name="Sample_be085e490f" xml:space="preserve">
+    <value>テキストの横</value>
+  </data>
+  <data name="Sample_22b093f15e" xml:space="preserve">
+    <value>典型的なコード / カラータイルレイアウト。</value>
+  </data>
+  <data name="Sample_8b1a9953c4" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Sample_1063e38cb5" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Sample_94966d9074" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="Sample_5f07e1c9a6" xml:space="preserve">
+    <value>As email</value>
+  </data>
+  <data name="Sample_cd3668b9d5" xml:space="preserve">
+    <value>As file</value>
+  </data>
+  <data name="Sample_0b05d4ec1b" xml:space="preserve">
+    <value>To device</value>
+  </data>
+  <data name="Sample_bcc254b55c" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Sample_36384a9ea3" xml:space="preserve">
+    <value>Tablet</value>
+  </data>
+  <data name="Sample_2310408a63" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="Sample_453e6aa38d" xml:space="preserve">
+    <value>Unavailable</value>
+  </data>
+  <data name="Sample_054b4f3ea5" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="Sample_8336f7665e" xml:space="preserve">
+    <value>デフォルト ChromeBack グリフ（E72B）、TitleBar RightToLeft 押下スケールアニメーション付き。</value>
+  </data>
+  <data name="Sample_22b653bd8d" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="Sample_c7f5115e62" xml:space="preserve">
+    <value>ボタンをクリックして押下アニメーションを確認。</value>
+  </data>
+  <data name="Sample_b47f14dce2" xml:space="preserve">
+    <value>他の Wpf.Ui ボタンと同じ外観オプション。</value>
+  </data>
+  <data name="Sample_d372cf2ca1" xml:space="preserve">
+    <value>WPF UI ハイパーリンク</value>
+  </data>
+  <data name="Sample_d2608a7e92" xml:space="preserve">
+    <value>ハイパーリンクを無効化</value>
+  </data>
+  <data name="Sample_478f41fe45" xml:space="preserve">
+    <value>FontIcon ハイパーリンク</value>
+  </data>
+  <data name="Sample_a1a9418daa" xml:space="preserve">
+    <value>画像アイコン hyperlink</value>
+  </data>
+  <data name="Gallery_Page_IconToggleButton" xml:space="preserve">
+    <value>IconToggleButton</value>
+  </data>
+  <data name="Sample_4b919c21a8" xml:space="preserve">
+    <value>デフォルトスタイルはホバー / 選択境界線を表示。サンプルスタイルはアイコンのみ。IsThreeState と IndeterminateIcon をサポート。</value>
+  </data>
+  <data name="Sample_99d9bd7a3c" xml:space="preserve">
+    <value>ホバーと選択時に外枠 + 塗りつぶしを表示。アイコン：UncheckedIcon / CheckedIcon。</value>
+  </data>
+  <data name="Sample_f579716646" xml:space="preserve">
+    <value>切り替え visibility</value>
+  </data>
+  <data name="Sample_00cd7be4cb" xml:space="preserve">
+    <value>Mute</value>
+  </data>
+  <data name="Sample_e78e14c5f1" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="Sample_800a91550a" xml:space="preserve">
+    <value>サンプル（フラット）</value>
+  </data>
+  <data name="Sample_b29235652a" xml:space="preserve">
+    <value>SampleIconToggleButtonStyle — アイコン交換のみ。ホバー/選択装飾なし。</value>
+  </data>
+  <data name="Sample_9908fbe791" xml:space="preserve">
+    <value>Three-state</value>
+  </data>
+  <data name="Sample_090c2ca242" xml:space="preserve">
+    <value>IsThreeState=True で unchecked → checked → indeterminate を循環。IsChecked が null のとき IndeterminateIcon を使用。</value>
+  </data>
+  <data name="Sample_28b51970d7" xml:space="preserve">
+    <value>三状態チェックボックスアイコン</value>
+  </data>
+  <data name="Sample_2f74655b4c" xml:space="preserve">
+    <value>3 状態サンプル</value>
+  </data>
+  <data name="Sample_cffe839e03" xml:space="preserve">
+    <value>無効時は ToggleButton の無効ブラシ（デフォルト）または不透明度（サンプル）を使用。</value>
+  </data>
+  <data name="Sample_1f698ebf83" xml:space="preserve">
+    <value>(無効)</value>
+  </data>
+  <data name="Sample_bf8e4d847c" xml:space="preserve">
+    <value>押す any single key...</value>
+  </data>
+  <data name="Sample_c64d2d3a86" xml:space="preserve">
+    <value>押す shortcut, then clear...</value>
+  </data>
+  <data name="Sample_ae13e51f99" xml:space="preserve">
+    <value>Placement</value>
+  </data>
+  <data name="Sample_92b09c7c48" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Sample_a4ffdcf0dc" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Sample_2ad9d63b69" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Sample_2d7f6c045a" xml:space="preserve">
+    <value>クリックして読み込み</value>
+  </data>
+  <data name="Sample_d26fbd7e76" xml:space="preserve">
+    <value>Not 読み込み中</value>
+  </data>
+  <data name="Sample_2a342abec2" xml:space="preserve">
+    <value>読み込み中 + 無効</value>
+  </data>
+  <data name="Sample_302efd43e9" xml:space="preserve">
+    <value>int (−100…100)</value>
+  </data>
+  <data name="Sample_88787e0a8d" xml:space="preserve">
+    <value>enter int…</value>
+  </data>
+  <data name="Sample_2ca4618120" xml:space="preserve">
+    <value>double (0…1)</value>
+  </data>
+  <data name="Sample_bdaa3c20a3" xml:space="preserve">
+    <value>decimal</value>
+  </data>
+  <data name="Sample_6e5cae44cd" xml:space="preserve">
+    <value>decimal…</value>
+  </data>
+  <data name="Sample_aaf18794ce" xml:space="preserve">
+    <value>byte (0…255)</value>
+  </data>
+  <data name="Sample_04a9acc623" xml:space="preserve">
+    <value>0-255</value>
+  </data>
+  <data name="Sample_851f5ac994" xml:space="preserve">
+    <value>prefix</value>
+  </data>
+  <data name="Sample_4ec1b477cd" xml:space="preserve">
+    <value>suffix</value>
+  </data>
+  <data name="Sample_f7bd60b75b" xml:space="preserve">
+    <value>size</value>
+  </data>
+  <data name="Sample_7233b8e3ea" xml:space="preserve">
+    <value>read-only</value>
+  </data>
+  <data name="Sample_075ae3d2fc" xml:space="preserve">
+    <value>disabled</value>
+  </data>
+  <data name="Sample_1cb6b64981" xml:space="preserve">
+    <value>int（−100…100、ステップ 5）</value>
+  </data>
+  <data name="Sample_31f73e0ba4" xml:space="preserve">
+    <value>double（0…1、ステップ 0.1）</value>
+  </data>
+  <data name="Sample_86fc4ae7d8" xml:space="preserve">
+    <value>decimal（ステップ 0.01）</value>
+  </data>
+  <data name="Sample_7edabf994b" xml:space="preserve">
+    <value>weight</value>
+  </data>
+  <data name="Sample_13cef07bc8" xml:space="preserve">
+    <value>no spinner</value>
+  </data>
+  <data name="Sample_925dfa591d" xml:space="preserve">
+    <value>no buttons</value>
+  </data>
+  <data name="Sample_d530a2e8e8" xml:space="preserve">
+    <value>AllowDrag</value>
+  </data>
+  <data name="Sample_0929724039" xml:space="preserve">
+    <value>ドラッグまたはダブルクリック</value>
+  </data>
+  <data name="Sample_5c9e0cd91b" xml:space="preserve">
+    <value>数字 + 文字（デフォルト、Count=4）</value>
+  </data>
+  <data name="Sample_615e30201a" xml:space="preserve">
+    <value>数字のみ（Count=6）</value>
+  </data>
+  <data name="Sample_eea8b0d77a" xml:space="preserve">
+    <value>Password mask</value>
+  </data>
+  <data name="Sample_7c245edeb1" xml:space="preserve">
+    <value>標準 RadioButton</value>
+  </data>
+  <data name="Sample_7f917a32f0" xml:space="preserve">
+    <value>ラジオボタンを無効化</value>
+  </data>
+  <data name="Sample_9f94e42711" xml:space="preserve">
+    <value>Right-to-left</value>
+  </data>
+  <data name="Sample_8e07d79b58" xml:space="preserve">
+    <value>Ticks + Snap</value>
+  </data>
+  <data name="Sample_131fb182a8" xml:space="preserve">
+    <value>ReadOnly</value>
+  </data>
+  <data name="Sample_c3939ff6d2" xml:space="preserve">
+    <value>垂直 + 目盛り</value>
+  </data>
+  <data name="Sample_a0dab29410" xml:space="preserve">
+    <value>RatingControl</value>
+  </data>
+  <data name="Sample_acdb802bfc" xml:space="preserve">
+    <value>Value:</value>
+  </data>
+  <data name="Sample_dc7561744e" xml:space="preserve">
+    <value>Disable rating</value>
+  </data>
+  <data name="Sample_733ee7ce25" xml:space="preserve">
+    <value>Full stars only</value>
+  </data>
+  <data name="Sample_2f44e60b38" xml:space="preserve">
+    <value>遅延 / 間隔</value>
+  </data>
+  <data name="Sample_5499493768" xml:space="preserve">
+    <value>−</value>
+  </data>
+  <data name="Sample_97aa23f96a" xml:space="preserve">
+    <value>シンプル slider</value>
+  </data>
+  <data name="Sample_b1282d58a4" xml:space="preserve">
+    <value>出力:</value>
+  </data>
+  <data name="Sample_c9df53a9f7" xml:space="preserve">
+    <value>Range and steps</value>
+  </data>
+  <data name="Sample_5276ece0c0" xml:space="preserve">
+    <value>Tick marks</value>
+  </data>
+  <data name="Sample_1678c12dfc" xml:space="preserve">
+    <value>Vertical slider</value>
+  </data>
+  <data name="Sample_866c8bd883" xml:space="preserve">
+    <value>プライマリ action + flyout</value>
+  </data>
+  <data name="Sample_b857d6cf4f" xml:space="preserve">
+    <value>保存 As…</value>
+  </data>
+  <data name="Sample_af80706065" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="Sample_5a78b83e98" xml:space="preserve">
+    <value>Export 画像</value>
+  </data>
+  <data name="Sample_31fde7b05a" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="Sample_ea43fd3483" xml:space="preserve">
+    <value>Nested flyout</value>
+  </data>
+  <data name="Sample_f2a6c498fb" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Sample_e727b00944" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="Sample_d4f7b9383f" xml:space="preserve">
+    <value>色 swatch</value>
+  </data>
+  <data name="Sample_5bbbdab07a" xml:space="preserve">
+    <value>カスタム padding</value>
+  </data>
+  <data name="Sample_18325105de" xml:space="preserve">
+    <value>State:</value>
+  </data>
+  <data name="Sample_ec31383cc7" xml:space="preserve">
+    <value>1st</value>
+  </data>
+  <data name="Sample_9d5f1209e8" xml:space="preserve">
+    <value>2nd</value>
+  </data>
+  <data name="Sample_b7b655045b" xml:space="preserve">
+    <value>3rd</value>
+  </data>
+  <data name="Sample_d4e90d2491" xml:space="preserve">
+    <value>RadioButtonGroup</value>
+  </data>
+  <data name="Sample_36de458418" xml:space="preserve">
+    <value>標準 toggle button</value>
+  </data>
+  <data name="Sample_af24df2e7d" xml:space="preserve">
+    <value>標準 ToggleButton</value>
+  </data>
+  <data name="Sample_6612a8bf8c" xml:space="preserve">
+    <value>トグルボタンを無効化</value>
+  </data>
+  <data name="Sample_cb392954a8" xml:space="preserve">
+    <value>アイコン only</value>
+  </data>
+  <data name="Sample_80267bf66c" xml:space="preserve">
+    <value>Content は SymbolIcon（または任意の要素）で、テキスト不要。</value>
+  </data>
+  <data name="Sample_576e3a8b1c" xml:space="preserve">
+    <value>アイコン + text (horizontal)</value>
+  </data>
+  <data name="Sample_4a4d0ffa97" xml:space="preserve">
+    <value>水平 StackPanel で Content を構成：アイコンとラベルを横並び。</value>
+  </data>
+  <data name="Sample_9d07e0e08a" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="Sample_fa524b7254" xml:space="preserve">
+    <value>Wi-Fi</value>
+  </data>
+  <data name="Sample_1fa42ff340" xml:space="preserve">
+    <value>アイコン + text (vertical)</value>
+  </data>
+  <data name="Sample_3f5d0ff650" xml:space="preserve">
+    <value>垂直 StackPanel：アイコンが上、ラベルが下。コンパクトなツールバー風トグル向け。</value>
+  </data>
+  <data name="Sample_68bd106b4f" xml:space="preserve">
+    <value>StackPanel は複数行テキストを保持可能 — タイトルと副説明。</value>
+  </data>
+  <data name="Sample_d8e87c0927" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Sample_e3784ee777" xml:space="preserve">
+    <value>ファイルを最新に保つ</value>
+  </data>
+  <data name="Sample_7a2ccf251e" xml:space="preserve">
+    <value>Secure</value>
+  </data>
+  <data name="Sample_3a7c893a5d" xml:space="preserve">
+    <value>ローカルデータを暗号化</value>
+  </data>
+  <data name="Sample_8900726a3d" xml:space="preserve">
+    <value>Times New Roman</value>
+  </data>
+  <data name="Sample_af83bee9a0" xml:space="preserve">
+    <value>固定 MinWidth（コンテンツ左揃え）</value>
+  </data>
+  <data name="Sample_d6fa5df418" xml:space="preserve">
+    <value>Wpf.Ui</value>
+  </data>
+  <data name="Sample_ec3f5ff99b" xml:space="preserve">
+    <value>IsOn</value>
+  </data>
+  <data name="Sample_bf50d5e661" xml:space="preserve">
+    <value>ヘッダー</value>
+  </data>
+  <data name="Sample_fabd943254" xml:space="preserve">
+    <value>OnOffContent</value>
+  </data>
+  <data name="Sample_f944265643" xml:space="preserve">
+    <value>Compact Right</value>
+  </data>
+  <data name="Gallery_Page_VirtualJoystick" xml:space="preserve">
+    <value>VirtualJoystick</value>
+  </data>
+  <data name="Sample_bfbd1f77f7" xml:space="preserve">
+    <value>インタラクティブジョイスティック</value>
+  </data>
+  <data name="Sample_49834e2562" xml:space="preserve">
+    <value>ノブをドラッグするか、ジョイスティックを選択して矢印キーを使用してください。現在の八方向値と正規化ベクトルが下に表示されます。デッドゾーンはスライダーで調整できます。</value>
+  </data>
+  <data name="Sample_4835864833" xml:space="preserve">
+    <value>Current state</value>
+  </data>
+  <data name="Sample_2a0d4e15b7" xml:space="preserve">
+    <value>ベクトル：X 0.00, Y 0.00</value>
+  </data>
+  <data name="Sample_e775124bb9" xml:space="preserve">
+    <value>表面の直径を調整して、動的ジオメトリとレイアウトを確認します。</value>
+  </data>
+  <data name="Sample_6f2ce3ffe9" xml:space="preserve">
+    <value>アイコンのみのトグル。ホバー/選択時の装飾なし。</value>
+  </data>
+  <data name="Sample_d5be96d71e" xml:space="preserve">
+    <value>Cover-flow カードカルーセル。左/中央/右スロット。Chrome は WPF UI Card ブラシを使用。</value>
+  </data>
+  <data name="Sample_9d8875cae7" xml:space="preserve">
+    <value>側カード、ドット、矢印をクリックして回転。キーボード Left / Right も使用可能。</value>
+  </data>
+  <data name="Sample_742c77afec" xml:space="preserve">
+    <value>カード 1</value>
+  </data>
+  <data name="Sample_6fa1262c62" xml:space="preserve">
+    <value>カード 2</value>
+  </data>
+  <data name="Sample_5aa55d6b93" xml:space="preserve">
+    <value>カード 3</value>
+  </data>
+  <data name="Sample_0d631fde3b" xml:space="preserve">
+    <value>カード 4</value>
+  </data>
+  <data name="Sample_aec2b16989" xml:space="preserve">
+    <value>カード 5</value>
+  </data>
+  <data name="Sample_05b1dc7759" xml:space="preserve">
+    <value>Autoplay</value>
+  </data>
+  <data name="Sample_eabd09afef" xml:space="preserve">
+    <value>CarouselNav Appearance=Brand、IsAutoplayEnabled、2 秒間隔。ホバーで自動再生を一時停止。</value>
+  </data>
+  <data name="Sample_ff41915aab" xml:space="preserve">
+    <value>NavigationButtonsVisibility=Visible</value>
+  </data>
+  <data name="Sample_4c08ca81b2" xml:space="preserve">
+    <value>ItemClick 付き基本 GridView</value>
+  </data>
+  <data name="Sample_c36426c170" xml:space="preserve">
+    <value>WinUI スタイルの折り返しグリッド。ui:GridView（ListView 列ビュー）とは異なります。</value>
+  </data>
+  <data name="Sample_a5df907a38" xml:space="preserve">
+    <value>UniformGrid + ui:Card</value>
+  </data>
+  <data name="Sample_5ba98ec5f0" xml:space="preserve">
+    <value>カスタム ItemsPanel と UniformGrid。各項目は ui:Card。</value>
+  </data>
+  <data name="Sample_561b956e78" xml:space="preserve">
+    <value>選択モードと複数選択チェックボックス</value>
+  </data>
+  <data name="Sample_c70fed3fea" xml:space="preserve">
+    <value>IsSelectionEnabled / SelectionMode / IsMultiSelectCheckBoxEnabled / Header / Footer</value>
+  </data>
+  <data name="Sample_744f02e5bf" xml:space="preserve">
+    <value>IsItemClickEnabled</value>
+  </data>
+  <data name="Sample_9a9a956b04" xml:space="preserve">
+    <value>IsMultiSelectCheckBoxEnabled</value>
+  </data>
+  <data name="Sample_6299674ebe" xml:space="preserve">
+    <value>SelectionMode</value>
+  </data>
+  <data name="Sample_66ba162102" xml:space="preserve">
+    <value>Single</value>
+  </data>
+  <data name="Sample_a0bf169f25" xml:space="preserve">
+    <value>Multiple</value>
+  </data>
+  <data name="Sample_f23578fcd2" xml:space="preserve">
+    <value>Extended</value>
+  </data>
+  <data name="Sample_a2b099aca0" xml:space="preserve">
+    <value>サンプル ヘッダー</value>
+  </data>
+  <data name="Sample_1ba1994a8f" xml:space="preserve">
+    <value>サンプル フッター</value>
+  </data>
+  <data name="Sample_32e7c869df" xml:space="preserve">
+    <value>基本 (5 pages)</value>
+  </data>
+  <data name="Sample_1a62484fd6" xml:space="preserve">
+    <value>Many pages</value>
+  </data>
+  <data name="Sample_0216bfd322" xml:space="preserve">
+    <value>With QuickJump</value>
+  </data>
+  <data name="Sample_383c05bda6" xml:space="preserve">
+    <value>Tiny</value>
+  </data>
+  <data name="Sample_c86b15ef69" xml:space="preserve">
+    <value>ページサイズセレクター</value>
+  </data>
+  <data name="Sample_f1ef59ee34" xml:space="preserve">
+    <value>First item</value>
+  </data>
+  <data name="Sample_11f72c4bf8" xml:space="preserve">
+    <value>Step One</value>
+  </data>
+  <data name="Sample_4e864ad0c1" xml:space="preserve">
+    <value>Second item</value>
+  </data>
+  <data name="Sample_9b1fadbb59" xml:space="preserve">
+    <value>Step Two</value>
+  </data>
+  <data name="Sample_1267f9f89a" xml:space="preserve">
+    <value>Third item</value>
+  </data>
+  <data name="Sample_a090487d1b" xml:space="preserve">
+    <value>Step Three</value>
+  </data>
+  <data name="Sample_1496f606a5" xml:space="preserve">
+    <value>Fourth item</value>
+  </data>
+  <data name="Sample_c6fbaf949d" xml:space="preserve">
+    <value>Step Four</value>
+  </data>
+  <data name="Sample_c2229f2c51" xml:space="preserve">
+    <value>Fifth item</value>
+  </data>
+  <data name="Sample_3c297634b8" xml:space="preserve">
+    <value>Step Five</value>
+  </data>
+  <data name="Sample_12621df30f" xml:space="preserve">
+    <value>Work Documents</value>
+  </data>
+  <data name="Sample_780977a9b7" xml:space="preserve">
+    <value>機能スケジュール</value>
+  </data>
+  <data name="Sample_3487e8efdf" xml:space="preserve">
+    <value>全体プロジェクト計画</value>
+  </data>
+  <data name="Sample_a959d9be39" xml:space="preserve">
+    <value>個人文書</value>
+  </data>
+  <data name="Sample_df961a4b78" xml:space="preserve">
+    <value>請負業者の連絡先情報</value>
+  </data>
+  <data name="Sample_2175128e4c" xml:space="preserve">
+    <value>ホーム Remodel</value>
+  </data>
+  <data name="Sample_3a3c00f8ba" xml:space="preserve">
+    <value>Paint 色 Scheme</value>
+  </data>
+  <data name="Sample_8c7c85847d" xml:space="preserve">
+    <value>フローリング木目タイプ</value>
+  </data>
+  <data name="Sample_6923ddc026" xml:space="preserve">
+    <value>キッチンキャビネットスタイル</value>
+  </data>
+  <data name="Sample_3f084e5813" xml:space="preserve">
+    <value>ui:CalendarDatePicker</value>
+  </data>
+  <data name="Sample_2badfa8fae" xml:space="preserve">
+    <value>Pick a date</value>
+  </data>
+  <data name="Sample_18c4c020a6" xml:space="preserve">
+    <value>Calendar / CalendarDatePicker</value>
+  </data>
+  <data name="Sample_0c4c999025" xml:space="preserve">
+    <value>以下の色は WPF UI の一部として提供されています。DynamicResource バインディングで参照してください。</value>
+  </data>
+  <data name="Sample_c88ee6eed4" xml:space="preserve">
+    <value>UI ラベルと静的テキスト用</value>
+  </data>
+  <data name="Sample_6ee5b69fdd" xml:space="preserve">
+    <value>Text / Primary</value>
+  </data>
+  <data name="Sample_9c16bff34c" xml:space="preserve">
+    <value>静止またはホバー</value>
+  </data>
+  <data name="Sample_c3f9eb1102" xml:space="preserve">
+    <value>Text / Secondary</value>
+  </data>
+  <data name="Sample_7ae8d126e7" xml:space="preserve">
+    <value>Text / Tertiary</value>
+  </data>
+  <data name="Sample_2e7d397705" xml:space="preserve">
+    <value>押下のみ</value>
+  </data>
+  <data name="Sample_bd57cc7ddd" xml:space="preserve">
+    <value>テキスト / 無効</value>
+  </data>
+  <data name="Sample_e553145336" xml:space="preserve">
+    <value>無効 only</value>
+  </data>
+  <data name="Sample_5096bb1a69" xml:space="preserve">
+    <value>Accent テキスト</value>
+  </data>
+  <data name="Sample_837eda7c21" xml:space="preserve">
+    <value>リンクに推奨</value>
+  </data>
+  <data name="Sample_440e704448" xml:space="preserve">
+    <value>Accent テキスト / プライマリ</value>
+  </data>
+  <data name="Sample_d9edb0fd16" xml:space="preserve">
+    <value>Accent テキスト / セカンダリ</value>
+  </data>
+  <data name="Sample_709ef8c1cf" xml:space="preserve">
+    <value>Accent テキスト / 第三</value>
+  </data>
+  <data name="Sample_c867f3e817" xml:space="preserve">
+    <value>Accent テキスト / 無効</value>
+  </data>
+  <data name="Sample_14fc481d26" xml:space="preserve">
+    <value>テキスト on Accent</value>
+  </data>
+  <data name="Sample_48b803e623" xml:space="preserve">
+    <value>アクセント色のサーフェスで使用</value>
+  </data>
+  <data name="Sample_6dc30af2dc" xml:space="preserve">
+    <value>On Accent / プライマリ</value>
+  </data>
+  <data name="Sample_55276c10d8" xml:space="preserve">
+    <value>静止</value>
+  </data>
+  <data name="Sample_66d2862820" xml:space="preserve">
+    <value>On Accent / セカンダリ</value>
+  </data>
+  <data name="Sample_3fd8e47968" xml:space="preserve">
+    <value>On Accent / 無効</value>
+  </data>
+  <data name="Sample_c44d155523" xml:space="preserve">
+    <value>On Accent / 選択済み</value>
+  </data>
+  <data name="Sample_c639614d74" xml:space="preserve">
+    <value>選択済み text</value>
+  </data>
+  <data name="Sample_2b3bc77b9e" xml:space="preserve">
+    <value>Accent Fill</value>
+  </data>
+  <data name="Sample_35f6a2f764" xml:space="preserve">
+    <value>Accent / デフォルト</value>
+  </data>
+  <data name="Sample_2e83cfcd29" xml:space="preserve">
+    <value>Accent / セカンダリ</value>
+  </data>
+  <data name="Sample_eee0168be6" xml:space="preserve">
+    <value>ホバー</value>
+  </data>
+  <data name="Sample_32f9b3efb5" xml:space="preserve">
+    <value>Accent / 第三</value>
+  </data>
+  <data name="Sample_d78a68f6a8" xml:space="preserve">
+    <value>Pressed</value>
+  </data>
+  <data name="Sample_6d78326cb4" xml:space="preserve">
+    <value>Accent / 無効</value>
+  </data>
+  <data name="Sample_4995c7c87e" xml:space="preserve">
+    <value>System Accent</value>
+  </data>
+  <data name="Sample_095a1b43ef" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="Sample_794e93be0b" xml:space="preserve">
+    <value>色 key</value>
+  </data>
+  <data name="Sample_0986005c67" xml:space="preserve">
+    <value>SystemAccentColorPrimary</value>
+  </data>
+  <data name="Sample_bc699e2875" xml:space="preserve">
+    <value>SystemAccentColorSecondary</value>
+  </data>
+  <data name="Sample_0521727bc2" xml:space="preserve">
+    <value>第三</value>
+  </data>
+  <data name="Sample_ab0b2d55f2" xml:space="preserve">
+    <value>SystemAccentColorTertiary</value>
+  </data>
+  <data name="Sample_b84ef27085" xml:space="preserve">
+    <value>Control Fill</value>
+  </data>
+  <data name="Sample_2d6c0e1f5e" xml:space="preserve">
+    <value>入力 アクティブ</value>
+  </data>
+  <data name="Sample_57f460dd93" xml:space="preserve">
+    <value>Focused input</value>
+  </data>
+  <data name="Sample_ac5ca43671" xml:space="preserve">
+    <value>Control Strong / Solid / Subtle</value>
+  </data>
+  <data name="Sample_25aed2eb4b" xml:space="preserve">
+    <value>Strong / デフォルト</value>
+  </data>
+  <data name="Sample_4f23daf5ee" xml:space="preserve">
+    <value>Strong fill</value>
+  </data>
+  <data name="Sample_559d7989bb" xml:space="preserve">
+    <value>Solid / デフォルト</value>
+  </data>
+  <data name="Sample_2907f5e4aa" xml:space="preserve">
+    <value>Solid fill</value>
+  </data>
+  <data name="Sample_a95e4e5b3e" xml:space="preserve">
+    <value>Subtle / セカンダリ</value>
+  </data>
+  <data name="Sample_b9ec31d860" xml:space="preserve">
+    <value>Subtle / 第三</value>
+  </data>
+  <data name="Sample_3e8abac942" xml:space="preserve">
+    <value>カード / Layer / Smoke</value>
+  </data>
+  <data name="Sample_f82b73359d" xml:space="preserve">
+    <value>カード / デフォルト</value>
+  </data>
+  <data name="Sample_efecd66351" xml:space="preserve">
+    <value>カード surface</value>
+  </data>
+  <data name="Sample_3cdd410bf1" xml:space="preserve">
+    <value>カード / セカンダリ</value>
+  </data>
+  <data name="Sample_e6c190b35f" xml:space="preserve">
+    <value>セカンダリ card</value>
+  </data>
+  <data name="Sample_578e852ac5" xml:space="preserve">
+    <value>Layer / デフォルト</value>
+  </data>
+  <data name="Sample_97ad4fc117" xml:space="preserve">
+    <value>Layer fill</value>
+  </data>
+  <data name="Sample_bc93fd0fa1" xml:space="preserve">
+    <value>Smoke</value>
+  </data>
+  <data name="Sample_298c402ad9" xml:space="preserve">
+    <value>Overlay smoke</value>
+  </data>
+  <data name="Sample_695ff47157" xml:space="preserve">
+    <value>Solid 背景</value>
+  </data>
+  <data name="Sample_84d46a96ae" xml:space="preserve">
+    <value>Alt surface</value>
+  </data>
+  <data name="Sample_c217982fe6" xml:space="preserve">
+    <value>Quaternary</value>
+  </data>
+  <data name="Sample_e498749f3c" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="Sample_d33b310664" xml:space="preserve">
+    <value>App bg</value>
+  </data>
+  <data name="Sample_0f0941da7e" xml:space="preserve">
+    <value>System Fill</value>
+  </data>
+  <data name="Sample_3289297424" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="Sample_278d01e5af" xml:space="preserve">
+    <value>Critical</value>
+  </data>
+  <data name="Sample_e9bb5320b3" xml:space="preserve">
+    <value>Neutral</value>
+  </data>
+  <data name="Sample_2aa97e44ca" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="Sample_207dca511e" xml:space="preserve">
+    <value>System Fill 背景</value>
+  </data>
+  <data name="Sample_07de3c627e" xml:space="preserve">
+    <value>成功 BG</value>
+  </data>
+  <data name="Sample_a9ded1e5ce" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="Sample_52c1b590de" xml:space="preserve">
+    <value>Caution BG</value>
+  </data>
+  <data name="Sample_8d0fb6f99b" xml:space="preserve">
+    <value>Critical BG</value>
+  </data>
+  <data name="Sample_415c1ed2d4" xml:space="preserve">
+    <value>Attention BG</value>
+  </data>
+  <data name="Sample_320d99b367" xml:space="preserve">
+    <value>Neutral BG</value>
+  </data>
+  <data name="Sample_bb310b1305" xml:space="preserve">
+    <value>境界線 and background pairs used by the Banner control for status notifications.</value>
+  </data>
+  <data name="Sample_a82be0f551" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="Sample_0a1e9274a0" xml:space="preserve">
+    <value>Info banner</value>
+  </data>
+  <data name="Sample_9c3880d870" xml:space="preserve">
+    <value>成功 banner</value>
+  </data>
+  <data name="Sample_893ebd84f5" xml:space="preserve">
+    <value>警告 banner</value>
+  </data>
+  <data name="Sample_66bd923ca5" xml:space="preserve">
+    <value>エラー banner</value>
+  </data>
+  <data name="Sample_8e763d9065" xml:space="preserve">
+    <value>Stroke</value>
+  </data>
+  <data name="Sample_7c716b3b01" xml:space="preserve">
+    <value>Control Stroke</value>
+  </data>
+  <data name="Sample_1fb35dc13b" xml:space="preserve">
+    <value>Strong Stroke</value>
+  </data>
+  <data name="Sample_c18058c77b" xml:space="preserve">
+    <value>カード Stroke</value>
+  </data>
+  <data name="Sample_f063e6ce32" xml:space="preserve">
+    <value>Divider Stroke</value>
+  </data>
+  <data name="Sample_9aef26e2ef" xml:space="preserve">
+    <value>ユーティリティ / パターン</value>
+  </data>
+  <data name="Sample_066ad0d0c1" xml:space="preserve">
+    <value>Gallery 全体で使用される特殊ブラシと一般的なサンプルカードの組み合わせ。</value>
+  </data>
+  <data name="Sample_9b744948cf" xml:space="preserve">
+    <value>Striped 背景</value>
+  </data>
+  <data name="Sample_71b4869e11" xml:space="preserve">
+    <value>プレースホルダー / demo surface</value>
+  </data>
+  <data name="Sample_79251b34ac" xml:space="preserve">
+    <value>左ナビゲーション区切り</value>
+  </data>
+  <data name="Sample_409b0ce34f" xml:space="preserve">
+    <value>NavigationView で使用される 1px グラデーション区切り</value>
+  </data>
+  <data name="Sample_3d8a4674c4" xml:space="preserve">
+    <value>サンプル カード</value>
+  </data>
+  <data name="Sample_daa24eccc7" xml:space="preserve">
+    <value>Gallery 共通サンプルコンテナ：セカンダリフィル + カードストローク。</value>
+  </data>
+  <data name="Sample_a96ad752e1" xml:space="preserve">
+    <value>Elevation 境界線</value>
+  </data>
+  <data name="Sample_0cd2b0ca2a" xml:space="preserve">
+    <value>Wpf.Ui テーマの LinearGradientBrush 境界線（ボタン / テキスト / アクセント / 円形コントロール）。</value>
+  </data>
+  <data name="Sample_a1595abbb4" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="Sample_64a2cf1dce" xml:space="preserve">
+    <value>テキスト Control</value>
+  </data>
+  <data name="Sample_8b36379b47" xml:space="preserve">
+    <value>Accent Control</value>
+  </data>
+  <data name="Sample_30954d9008" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="Sample_9c9ce2c5f7" xml:space="preserve">
+    <value>FontFamily リソース</value>
+  </data>
+  <data name="Sample_6e61328dc2" xml:space="preserve">
+    <value>Reference these keys with DynamicResource. 選択 and copy the resource name below.</value>
+  </data>
+  <data name="Sample_f1c6de1310" xml:space="preserve">
+    <value>SymbolThemeFontFamily</value>
+  </data>
+  <data name="Sample_38f82ccc91" xml:space="preserve">
+    <value>Segoe Fluent Icons — ほとんどのコントロールのデフォルトアイコンフォント。</value>
+  </data>
+  <data name="Sample_75b788004e" xml:space="preserve">
+    <value>CustomSymbolThemeFontFamily</value>
+  </data>
+  <data name="Sample_cfefa51adc" xml:space="preserve">
+    <value>Violeta Fluent Icons — CustomFontSymbols で追加グリフを提供。</value>
+  </data>
+  <data name="Sample_b42a53dd9c" xml:space="preserve">
+    <value>ContentControlThemeFontFamily</value>
+  </data>
+  <data name="Sample_00e365b379" xml:space="preserve">
+    <value>テキストコントロールで使用されるテーマコンテンツフォント。</value>
+  </data>
+  <data name="Sample_30abc0f44c" xml:space="preserve">
+    <value>Aa Bb Cc テキスト</value>
+  </data>
+  <data name="Sample_4a03e9f103" xml:space="preserve">
+    <value>FluentSystemIcons</value>
+  </data>
+  <data name="Sample_4dce51f171" xml:space="preserve">
+    <value>Fluent System Icons Regular — WPF UI SymbolIcon で使用。</value>
+  </data>
+  <data name="Sample_a9235fc91a" xml:space="preserve">
+    <value>FluentSystemIconsFilled</value>
+  </data>
+  <data name="Sample_ffc6b21acd" xml:space="preserve">
+    <value>Fluent System Icons Filled — SymbolIcon で Filled=True。</value>
+  </data>
+  <data name="Sample_714d8a9e2c" xml:space="preserve">
+    <value>SegoeFluentIcons</value>
+  </data>
+  <data name="Sample_f43c1d474a" xml:space="preserve">
+    <value>System Segoe Fluent Icons フォントファミリー名（WPF UI Fonts.xaml から）。</value>
+  </data>
+  <data name="Sample_b9987a246a" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Sample_34657fd293" xml:space="preserve">
+    <value>タイトル 大</value>
+  </data>
+  <data name="Sample_035f4e29da" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="Sample_df66e389cb" xml:space="preserve">
+    <value>Windows Security CredentialDialog</value>
+  </data>
+  <data name="Sample_adfad5098d" xml:space="preserve">
+    <value>Wpf.Ui.Violeta.Gallery.サンプル</value>
+  </data>
+  <data name="Sample_6160a53ece" xml:space="preserve">
+    <value>Slide</value>
+  </data>
+  <data name="Sample_5eab39ac7f" xml:space="preserve">
+    <value>スライドポップアップを開く</value>
+  </data>
+  <data name="Sample_e74a0d0f02" xml:space="preserve">
+    <value>Fluent Popup</value>
+  </data>
+  <data name="Sample_53fe1601e3" xml:space="preserve">
+    <value>Acrylic · Slide animation · 角丸 corners</value>
+  </data>
+  <data name="Sample_04e0385c10" xml:space="preserve">
+    <value>Fade</value>
+  </data>
+  <data name="Sample_eb71826e17" xml:space="preserve">
+    <value>Open Fade Popup</value>
+  </data>
+  <data name="Sample_2d81d2656d" xml:space="preserve">
+    <value>Acrylic · Fade animation · 角丸 corners</value>
+  </data>
+  <data name="Sample_7dcc93b8e7" xml:space="preserve">
+    <value>アニメーションなし + ティント</value>
+  </data>
+  <data name="Sample_02922129e5" xml:space="preserve">
+    <value>ティント付きポップアップを開く</value>
+  </data>
+  <data name="Sample_b98b98380c" xml:space="preserve">
+    <value>Acrylic + 青いティント · アニメーションなし</value>
+  </data>
+  <data name="Sample_2d90f155d8" xml:space="preserve">
+    <value>ui:Flyout</value>
+  </data>
+  <data name="Sample_b8e5adbbb4" xml:space="preserve">
+    <value>レプリカントも他の機械と同様、利益か危険かのどちらかです。利益なら私の問題ではありません。</value>
+  </data>
+  <data name="Sample_47635cbe1a" xml:space="preserve">
+    <value>ケーキは嘘だ！</value>
+  </data>
+  <data name="Sample_1d565b9e53" xml:space="preserve">
+    <value>カード</value>
+  </data>
+  <data name="Sample_24991b0349" xml:space="preserve">
+    <value>ネイティブ TaskDialog</value>
+  </data>
+  <data name="Sample_97b0645e3d" xml:space="preserve">
+    <value>ターゲット付き TeachingTip</value>
+  </data>
+  <data name="Sample_81bb2fcc61" xml:space="preserve">
+    <value>ターゲット付きヒントを表示</value>
+  </data>
+  <data name="Sample_4a2e02c6c4" xml:space="preserve">
+    <value>テーマを簡単に切り替え</value>
+  </data>
+  <data name="Sample_5a9663b095" xml:space="preserve">
+    <value>切り替え theme</value>
+  </data>
+  <data name="Sample_6a03d07c60" xml:space="preserve">
+    <value>Got it!</value>
+  </data>
+  <data name="Sample_3c1f4d95f5" xml:space="preserve">
+    <value>非ターゲット + ライトディスミス</value>
+  </data>
+  <data name="Sample_e0370534a1" xml:space="preserve">
+    <value>非ターゲットヒントを表示</value>
+  </data>
+  <data name="Sample_675801d96a" xml:space="preserve">
+    <value>TeachingTip へようこそ</value>
+  </data>
+  <data name="Sample_d59048f21f" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="Sample_c8a59e7135" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="Sample_ba968ba1aa" xml:space="preserve">
+    <value>Hero content</value>
+  </data>
+  <data name="Sample_f8eeba813d" xml:space="preserve">
+    <value>Show hero tip</value>
+  </data>
+  <data name="Sample_4c13e4f695" xml:space="preserve">
+    <value>機能ハイライト</value>
+  </data>
+  <data name="Sample_e0a67c8c63" xml:space="preserve">
+    <value>Hero</value>
+  </data>
+  <data name="Sample_89ff0e22aa" xml:space="preserve">
+    <value>Hero コンテンツはタイトルと本文の上に配置されます。イラストやメディアに使用します。</value>
+  </data>
+  <data name="Sample_6d1946725f" xml:space="preserve">
+    <value>ExceptionReport.Show(...)</value>
+  </data>
+  <data name="Sample_884cf29a24" xml:space="preserve">
+    <value>RunningBlock デモ（AutoRun: true）</value>
+  </data>
+  <data name="Sample_ef63950d96" xml:space="preserve">
+    <value>RunningBlock デモ（AutoRun: false, Runaway: false）</value>
+  </data>
+  <data name="Sample_c59432a4e9" xml:space="preserve">
+    <value>RunningBlock デモ（AutoRun: false, Runaway: true）</value>
+  </data>
+  <data name="Sample_72c5f3496c" xml:space="preserve">
+    <value>ShowAsync</value>
+  </data>
+  <data name="Sample_8c72a0d0cf" xml:space="preserve">
+    <value>CloseAsync</value>
+  </data>
+  <data name="Sample_08a38277b0" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Sample_960b44c579" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Sample_bec1248c09" xml:space="preserve">
+    <value>スライド 1/4 | 右</value>
+  </data>
+  <data name="Sample_dfba37c389" xml:space="preserve">
+    <value>Wpf.Ui.Violeta</value>
+  </data>
+  <data name="Sample_32954654ac" xml:space="preserve">
+    <value>幅</value>
+  </data>
+  <data name="Sample_eec6c4bdbd" xml:space="preserve">
+    <value>高さ</value>
+  </data>
+  <data name="Sample_df9ef05bc0" xml:space="preserve">
+    <value>水平矩形</value>
+  </data>
+  <data name="Sample_08a8d819d9" xml:space="preserve">
+    <value>幅 &amp;gt; 高さ × 1.3</value>
+  </data>
+  <data name="Sample_ceb46ca115" xml:space="preserve">
+    <value>四角</value>
+  </data>
+  <data name="Sample_c917aaa403" xml:space="preserve">
+    <value>0.7 ≤ W/H &amp;lt; 1.3</value>
+  </data>
+  <data name="Sample_35a7cc6b7a" xml:space="preserve">
+    <value>垂直矩形</value>
+  </data>
+  <data name="Sample_f2ae179a7e" xml:space="preserve">
+    <value>高さ &amp;gt; 幅 × 1.3</value>
+  </data>
+  <data name="Sample_eb9e9a900c" xml:space="preserve">
+    <value>自動グリッド — 2×2</value>
+  </data>
+  <data name="Sample_b4c0b4ef70" xml:space="preserve">
+    <value>Title1</value>
+  </data>
+  <data name="Sample_6475a37462" xml:space="preserve">
+    <value>Button1</value>
+  </data>
+  <data name="Sample_a7e0a4d8a3" xml:space="preserve">
+    <value>Title2</value>
+  </data>
+  <data name="Sample_e165925a7c" xml:space="preserve">
+    <value>Button2</value>
+  </data>
+  <data name="Sample_41b99ea80d" xml:space="preserve">
+    <value>ClipToBounds + CornerRadius</value>
+  </data>
+  <data name="Sample_266e706278" xml:space="preserve">
+    <value>ClipToBounds=False</value>
+  </data>
+  <data name="Sample_cac73d13f9" xml:space="preserve">
+    <value>ClipToBounds=True</value>
+  </data>
+  <data name="Sample_e0315bedad" xml:space="preserve">
+    <value>画像 + ClipToBounds=True</value>
+  </data>
+  <data name="Sample_e825afc6a6" xml:space="preserve">
+    <value>BorderThickness / BorderContentAdapter</value>
+  </data>
+  <data name="Sample_81b3ac017c" xml:space="preserve">
+    <value>画像アイコン + ヘッダー</value>
+  </data>
+  <data name="Sample_490309ef24" xml:space="preserve">
+    <value>これはヘッダーテキストです</value>
+  </data>
+  <data name="Sample_da98f58ef1" xml:space="preserve">
+    <value>SymbolIcon + Header + Description</value>
+  </data>
+  <data name="Sample_460daa68fb" xml:space="preserve">
+    <value>これは説明テキストです。</value>
+  </data>
+  <data name="Sample_8f2ce987fd" xml:space="preserve">
+    <value>ヘッダー + コンテンツ</value>
+  </data>
+  <data name="Sample_ecd0b43233" xml:space="preserve">
+    <value>これはヘッダーテキストです。</value>
+  </data>
+  <data name="Sample_598e6bdee0" xml:space="preserve">
+    <value>Icon + ToggleSwitch</value>
+  </data>
+  <data name="Sample_d15305d7a4" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Sample_478b28d0c0" xml:space="preserve">
+    <value>画像アイコン + DropDownButton</value>
+  </data>
+  <data name="Sample_9aa2f68b8e" xml:space="preserve">
+    <value>Determinate</value>
+  </data>
+  <data name="Sample_5a6393b771" xml:space="preserve">
+    <value>パッケージをダウンロード中</value>
+  </data>
+  <data name="Sample_ccb1147c8d" xml:space="preserve">
+    <value>進行状況はカード下部インジケーター上にあり、角丸半径に従います。</value>
+  </data>
+  <data name="Sample_afb4119954" xml:space="preserve">
+    <value>Progress state</value>
+  </data>
+  <data name="Sample_5bda814c4a" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Sample_e99180abf4" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="Sample_a2d00c353d" xml:space="preserve">
+    <value>Indeterminate</value>
+  </data>
+  <data name="Sample_7fe8a3cd3f" xml:space="preserve">
+    <value>ワークスペースを準備中</value>
+  </data>
+  <data name="Sample_3adadaeee0" xml:space="preserve">
+    <value>不確定インジケーターは角丸の底辺に沿って移動します。</value>
+  </data>
+  <data name="Sample_de214cf5f1" xml:space="preserve">
+    <value>アイコン + larger corner radius</value>
+  </data>
+  <data name="Sample_7181c93786" xml:space="preserve">
+    <value>Fluent package</value>
+  </data>
+  <data name="Sample_24215f951b" xml:space="preserve">
+    <value>72% · 120 MB のうち 86 MB</value>
+  </data>
+  <data name="Sample_49adc2661b" xml:space="preserve">
+    <value>セカンダリ style</value>
+  </data>
+  <data name="Sample_34b1abfa00" xml:space="preserve">
+    <value>SecondaryCardProgressStyle</value>
+  </data>
+  <data name="Sample_f8029247b6" xml:space="preserve">
+    <value>NavigationViewDefaultPaneBackground</value>
+  </data>
+  <data name="Sample_c31cea010f" xml:space="preserve">
+    <value>Drawer コンテナ</value>
+  </data>
+  <data name="Sample_714d778cc5" xml:space="preserve">
+    <value>Drawer - Left</value>
+  </data>
+  <data name="Sample_e36ce07bd9" xml:space="preserve">
+    <value>Drawer - Top</value>
+  </data>
+  <data name="Sample_4345445667" xml:space="preserve">
+    <value>Drawer - Right</value>
+  </data>
+  <data name="Sample_9fbff36808" xml:space="preserve">
+    <value>Drawer - Bottom</value>
+  </data>
+  <data name="Sample_b52e498964" xml:space="preserve">
+    <value>LabelPosition = Top</value>
+  </data>
+  <data name="Sample_8455938a1d" xml:space="preserve">
+    <value>example@email.com</value>
+  </data>
+  <data name="Sample_abdce9dc53" xml:space="preserve">
+    <value>LabelPosition = Left + FormGroup</value>
+  </data>
+  <data name="Sample_e984017186" xml:space="preserve">
+    <value>上部パネル</value>
+  </data>
+  <data name="Sample_53f204dfc4" xml:space="preserve">
+    <value>下部パネル</value>
+  </data>
+  <data name="Sample_fb51cbb272" xml:space="preserve">
+    <value>左パネル</value>
+  </data>
+  <data name="Sample_1752a53603" xml:space="preserve">
+    <value>右パネル</value>
+  </data>
+  <data name="Sample_4dfbb099ea" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="Sample_c482980d38" xml:space="preserve">
+    <value>Finance</value>
+  </data>
+  <data name="Sample_78386ec8f2" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="Sample_df583ae7ba" xml:space="preserve">
+    <value>Alerts</value>
+  </data>
+  <data name="Sample_47dcbd834e" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="Sample_55dcdf017b" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="Sample_efe52ee303" xml:space="preserve">
+    <value>99+</value>
+  </data>
+  <data name="Sample_91d33f49b1" xml:space="preserve">
+    <value>ui:Image</value>
+  </data>
+  <data name="Sample_bb76553442" xml:space="preserve">
+    <value>https://github.com/emako/wpfui.violeta</value>
+  </data>
+  <data name="Sample_82a0805a73" xml:space="preserve">
+    <value>Section 1</value>
+  </data>
+  <data name="Sample_f2d02e9add" xml:space="preserve">
+    <value>Section 2</value>
+  </data>
+  <data name="Sample_1542a2d801" xml:space="preserve">
+    <value>Sub 2.1</value>
+  </data>
+  <data name="Sample_606cf8d121" xml:space="preserve">
+    <value>Sub 2.2</value>
+  </data>
+  <data name="Sample_49fbc11c73" xml:space="preserve">
+    <value>Section 3</value>
+  </data>
+  <data name="Sample_7a26d26ce2" xml:space="preserve">
+    <value>Section 4</value>
+  </data>
+  <data name="Sample_faf9006158" xml:space="preserve">
+    <value>Sub-section 2.1</value>
+  </data>
+  <data name="Sample_37eed58825" xml:space="preserve">
+    <value>Sub-section 2.2</value>
+  </data>
+  <data name="Sample_3d38c23243" xml:space="preserve">
+    <value>Menu は ui:ControlHelper.IconFontSize=18 と IconWidth=20 を使用し、トップレベル / サブメニューのアイコンが均一スロットを共有（デフォルト IconWidth=NaN は自動）。</value>
+  </data>
+  <data name="Sample_0b27918290" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Sample_b114e3cd30" xml:space="preserve">
+    <value>CTRL+N</value>
+  </data>
+  <data name="Sample_ba66f68099" xml:space="preserve">
+    <value>Open...</value>
+  </data>
+  <data name="Sample_f53168ebeb" xml:space="preserve">
+    <value>CTRL+O</value>
+  </data>
+  <data name="Sample_be753f71e3" xml:space="preserve">
+    <value>CTRL+S</value>
+  </data>
+  <data name="Sample_61ac98f5cc" xml:space="preserve">
+    <value>保存 As...</value>
+  </data>
+  <data name="Sample_eaafe93ae6" xml:space="preserve">
+    <value>CTRL+SHIFT+S</value>
+  </data>
+  <data name="Sample_dae52b8071" xml:space="preserve">
+    <value>Recent</value>
+  </data>
+  <data name="Sample_fddd82fee0" xml:space="preserve">
+    <value>Project A.sln</value>
+  </data>
+  <data name="Sample_967d1bf3a1" xml:space="preserve">
+    <value>Project B.sln</value>
+  </data>
+  <data name="Sample_fac5cc4b04" xml:space="preserve">
+    <value>Archive 2024</value>
+  </data>
+  <data name="Sample_ae654acc99" xml:space="preserve">
+    <value>Archive 2025</value>
+  </data>
+  <data name="Sample_3943241bd1" xml:space="preserve">
+    <value>Archive 2026</value>
+  </data>
+  <data name="Sample_7dce122004" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Sample_e5639828ae" xml:space="preserve">
+    <value>CTRL+Z</value>
+  </data>
+  <data name="Sample_7fcde52c9b" xml:space="preserve">
+    <value>CTRL+X</value>
+  </data>
+  <data name="Sample_628c4615e1" xml:space="preserve">
+    <value>CTRL+C</value>
+  </data>
+  <data name="Sample_be2fa6a418" xml:space="preserve">
+    <value>CTRL+V</value>
+  </data>
+  <data name="Sample_1cc5c88b14" xml:space="preserve">
+    <value>Word wrap</value>
+  </data>
+  <data name="Sample_d9bc7d0e89" xml:space="preserve">
+    <value>CTRL+SHIFT+W</value>
+  </data>
+  <data name="Sample_fe77d5fbcd" xml:space="preserve">
+    <value>Find...</value>
+  </data>
+  <data name="Sample_db9079247e" xml:space="preserve">
+    <value>CTRL+F</value>
+  </data>
+  <data name="Sample_45e96c0a42" xml:space="preserve">
+    <value>選択 すべて</value>
+  </data>
+  <data name="Sample_0fcdcf23e5" xml:space="preserve">
+    <value>CTRL+A</value>
+  </data>
+  <data name="Sample_4351cfebe4" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Sample_4252b72e6e" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="Sample_f5ca4abce8" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="Sample_401ee19efd" xml:space="preserve">
+    <value>CTRL++</value>
+  </data>
+  <data name="Sample_30850b501f" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="Sample_4e664e5784" xml:space="preserve">
+    <value>CTRL+-</value>
+  </data>
+  <data name="Sample_bd0ae58d0c" xml:space="preserve">
+    <value>CTRL+0</value>
+  </data>
+  <data name="Sample_c69320e289" xml:space="preserve">
+    <value>Single column</value>
+  </data>
+  <data name="Sample_53f90459ac" xml:space="preserve">
+    <value>Two columns</value>
+  </data>
+  <data name="Sample_63bd7d20cb" xml:space="preserve">
+    <value>Three columns</value>
+  </data>
+  <data name="Sample_764ff8d94d" xml:space="preserve">
+    <value>Full screen</value>
+  </data>
+  <data name="Sample_643b066242" xml:space="preserve">
+    <value>F11</value>
+  </data>
+  <data name="Sample_9f1662c76b" xml:space="preserve">
+    <value>ContextMenu（Placement=Bottom）</value>
+  </data>
+  <data name="Sample_aad972b95a" xml:space="preserve">
+    <value>左：ContextMenu IconFontSize=20 + IconWidth=22（全アイコン）。中央項目は FontSize=12 が優先。Share は IconFontSize/IconWidth を上書き。右 DropDown は変更なし。</value>
+  </data>
+  <data name="Sample_d5f5e93fca" xml:space="preserve">
+    <value>メニューの IconFontSize / IconWidth</value>
+  </data>
+  <data name="Sample_dbcff88eda" xml:space="preserve">
+    <value>保存（Icon FontSize=12 が優先）</value>
+  </data>
+  <data name="Sample_f93ee83a87" xml:space="preserve">
+    <value>Share（item = 28 / 32）</value>
+  </data>
+  <data name="Sample_ce8ae9da5b" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Sample_5b3ebc4802" xml:space="preserve">
+    <value>ContextMenu（右クリック）</value>
+  </data>
+  <data name="Sample_6c847fa7a3" xml:space="preserve">
+    <value>下を右クリック。ContextMenu は IconFontSize=22 と IconWidth=24 を設定（全項目アイコン。サブメニュー項目は継承）。</value>
+  </data>
+  <data name="Sample_a248c2206b" xml:space="preserve">
+    <value>貼り付け special</value>
+  </data>
+  <data name="Sample_bfa69a826f" xml:space="preserve">
+    <value>Keep text only</value>
+  </data>
+  <data name="Sample_38ac16ad51" xml:space="preserve">
+    <value>書式を結合</value>
+  </data>
+  <data name="Sample_f3e545b191" xml:space="preserve">
+    <value>ソースの書式を保持</value>
+  </data>
+  <data name="Sample_6ea355f5eb" xml:space="preserve">
+    <value>ここを右クリック</value>
+  </data>
+  <data name="Sample_1bb02e9548" xml:space="preserve">
+    <value>基本的な Pivot</value>
+  </data>
+  <data name="Sample_af8deffbfb" xml:space="preserve">
+    <value>TabControl + TabControlPivotStyle + PivotHelper.Title</value>
+  </data>
+  <data name="Sample_61a649a33f" xml:space="preserve">
+    <value>EMAIL</value>
+  </data>
+  <data name="Sample_b1c94ca2fb" xml:space="preserve">
+    <value>すべて</value>
+  </data>
+  <data name="Sample_6861212c97" xml:space="preserve">
+    <value>すべてのメールはここに表示されます。</value>
+  </data>
+  <data name="Sample_53770fd374" xml:space="preserve">
+    <value>Unread</value>
+  </data>
+  <data name="Sample_5713128731" xml:space="preserve">
+    <value>未読メールはここに表示されます。</value>
+  </data>
+  <data name="Sample_72d68acd07" xml:space="preserve">
+    <value>Flagged</value>
+  </data>
+  <data name="Sample_51995a4936" xml:space="preserve">
+    <value>フラグ付きメールはここに表示されます。</value>
+  </data>
+  <data name="Sample_2708565083" xml:space="preserve">
+    <value>Urgent</value>
+  </data>
+  <data name="Sample_481fa5fc28" xml:space="preserve">
+    <value>緊急メールはここに表示されます。</value>
+  </data>
+  <data name="Sample_70a2a52eef" xml:space="preserve">
+    <value>左 / 右ヘッダー付き</value>
+  </data>
+  <data name="Sample_0b8b1d3827" xml:space="preserve">
+    <value>PivotHelper.LeftHeader / RightHeader</value>
+  </data>
+  <data name="Sample_ed6f7aca78" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="Sample_0db377921f" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Sample_0e9fcd6e70" xml:space="preserve">
+    <value>一般設定のコンテンツ。</value>
+  </data>
+  <data name="Sample_08bd40c754" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Sample_5d293f9fe2" xml:space="preserve">
+    <value>アカウント設定のコンテンツ。</value>
+  </data>
+  <data name="Sample_c5f29bb36f" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Sample_0013cac226" xml:space="preserve">
+    <value>プライバシー設定のコンテンツ。</value>
+  </data>
+  <data name="Sample_aa8ed345de" xml:space="preserve">
+    <value>オーバーフローヘッダー（スクロール）</value>
+  </data>
+  <data name="Sample_22541beb0f" xml:space="preserve">
+    <value>タブが溢れたとき、ヘッダー帯にホバーすると前/次ボタンが表示されます。</value>
+  </data>
+  <data name="Sample_6f8522e061" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Sample_dcf3e24e70" xml:space="preserve">
+    <value>Monday content.</value>
+  </data>
+  <data name="Sample_5792315f09" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Sample_120f27d061" xml:space="preserve">
+    <value>火曜日のコンテンツ。</value>
+  </data>
+  <data name="Sample_796c163589" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Sample_11946646f5" xml:space="preserve">
+    <value>水曜日のコンテンツ。</value>
+  </data>
+  <data name="Sample_78ae6f0cd1" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Sample_a9fbab0ded" xml:space="preserve">
+    <value>木曜日のコンテンツ。</value>
+  </data>
+  <data name="Sample_c33b138a16" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Sample_7deb4fd1ea" xml:space="preserve">
+    <value>Friday content.</value>
+  </data>
+  <data name="Sample_8b7051187b" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sample_96c19f4a6b" xml:space="preserve">
+    <value>土曜日のコンテンツ。</value>
+  </data>
+  <data name="Sample_9d1a0949c3" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Sample_c80bbb2c45" xml:space="preserve">
+    <value>Sunday content.</value>
+  </data>
+  <data name="Sample_dbcfdf998d" xml:space="preserve">
+    <value>WinUI-style mutually exclusive selector. 選択済み segment uses a subtle fill and an accent underline.</value>
+  </data>
+  <data name="Sample_dc685a0197" xml:space="preserve">
+    <value>View mode</value>
+  </data>
+  <data name="Sample_4d1b22903f" xml:space="preserve">
+    <value>アイコンのみのセグメント。UniGetUI のリスト / グリッド / アイコン切り替えに相当。</value>
+  </data>
+  <data name="Sample_4ee29ca12c" xml:space="preserve">
+    <value>リスト</value>
+  </data>
+  <data name="Sample_5174d1309f" xml:space="preserve">
+    <value>グリッド</value>
+  </data>
+  <data name="Sample_b66a71b92f" xml:space="preserve">
+    <value>SelectedIndex:</value>
+  </data>
+  <data name="Sample_73653cbe50" xml:space="preserve">
+    <value>プレーンラベル。キーボード：Tab でコントロールに入り、Left / Right。</value>
+  </data>
+  <data name="Sample_03727ac485" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Sample_d2ce009594" xml:space="preserve">
+    <value>Week</value>
+  </data>
+  <data name="Sample_7cbb885aa1" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Sample_180f56f954" xml:space="preserve">
+    <value>アイコン + text</value>
+  </data>
+  <data name="Sample_bca533c537" xml:space="preserve">
+    <value>SegmentedItem.アイコン before コンテンツ.</value>
+  </data>
+  <data name="Sample_64be2d2079" xml:space="preserve">
+    <value>個々のセグメントまたはコントロール全体を無効にできます。</value>
+  </data>
+  <data name="Sample_4d3d769b81" xml:space="preserve">
+    <value>アクティブ</value>
+  </data>
+  <data name="Sample_06c2cea186" xml:space="preserve">
+    <value>One</value>
+  </data>
+  <data name="Sample_aada29daee" xml:space="preserve">
+    <value>Two</value>
+  </data>
+  <data name="Sample_ca8a2087e5" xml:space="preserve">
+    <value>Three</value>
+  </data>
+  <data name="Sample_f5a7924e62" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="Sample_4b111b983d" xml:space="preserve">
+    <value>The cake</value>
+  </data>
+  <data name="Sample_5c4f2fcaf6" xml:space="preserve">
+    <value>Is a lie.</value>
+  </data>
+  <data name="Sample_319fe31ff0" xml:space="preserve">
+    <value>IndicatorAnimation=Fluent</value>
+  </data>
+  <data name="Sample_3b878279a0" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Sample_3ec365dd53" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Sample_16d2b386b2" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Sample_7d69b3cb4c" xml:space="preserve">
+    <value>Archived</value>
+  </data>
+  <data name="Sample_56b9e13d5e" xml:space="preserve">
+    <value>ui:TabView</value>
+  </data>
+  <data name="Sample_de12187d6c" xml:space="preserve">
+    <value>ToolBar* スタイル</value>
+  </data>
+  <data name="Sample_962ec420d4" xml:space="preserve">
+    <value>vio:ToolBar に依存せず、各 ToolBar*Style のデフォルトと無効時の外観をフラットに表示（幅調整によるオーバーフロー不要）。</value>
+  </data>
+  <data name="Sample_0dfe59e591" xml:space="preserve">
+    <value>UiButton</value>
+  </data>
+  <data name="Sample_30fb85cbfc" xml:space="preserve">
+    <value>DropDown</value>
+  </data>
+  <data name="Sample_8a9e64d86e" xml:space="preserve">
+    <value>Split</value>
+  </data>
+  <data name="Sample_12a7ee47f3" xml:space="preserve">
+    <value>Action 1</value>
+  </data>
+  <data name="Sample_b9130c08f3" xml:space="preserve">
+    <value>Action 2</value>
+  </data>
+  <data name="Sample_331b534c4f" xml:space="preserve">
+    <value>ToggleCombo</value>
+  </data>
+  <data name="Sample_9509169bb1" xml:space="preserve">
+    <value>選択済み + disabled</value>
+  </data>
+  <data name="Sample_004bf6c9a4" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Sample_5664e732f8" xml:space="preserve">
+    <value>Segoe UI</value>
+  </data>
+  <data name="Sample_16507cdd5b" xml:space="preserve">
+    <value>Consolas</value>
+  </data>
+  <data name="Sample_70705ec213" xml:space="preserve">
+    <value>Cascadia Code</value>
+  </data>
+  <data name="Sample_2b530675b6" xml:space="preserve">
+    <value>OverflowFlyoutAutoCloseMode</value>
+  </data>
+  <data name="Sample_f59e6f3afd" xml:space="preserve">
+    <value>Item 1</value>
+  </data>
+  <data name="Sample_9eda28f018" xml:space="preserve">
+    <value>Item 2</value>
+  </data>
+  <data name="Sample_903a033e59" xml:space="preserve">
+    <value>Opt</value>
+  </data>
+  <data name="Sample_68eec46437" xml:space="preserve">
+    <value>常に</value>
+  </data>
+  <data name="Sample_6e7b34fa59" xml:space="preserve">
+    <value>しない</value>
+  </data>
+  <data name="Sample_fcf877bc83" xml:space="preserve">
+    <value>OverflowMode：常に / しない / AsNeeded</value>
+  </data>
+  <data name="Sample_6a26f54883" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="Sample_d40cb6e5b9" xml:space="preserve">
+    <value>ShowOverflowMenu = False</value>
+  </data>
+  <data name="Sample_981b8fcee4" xml:space="preserve">
+    <value>Four</value>
+  </data>
+  <data name="Sample_e5d9de39f7" xml:space="preserve">
+    <value>Five</value>
+  </data>
+  <data name="Sample_e6fbc0b967" xml:space="preserve">
+    <value>Six</value>
+  </data>
+  <data name="Sample_12e67aac3e" xml:space="preserve">
+    <value>Seven</value>
+  </data>
+  <data name="Sample_baca0ca672" xml:space="preserve">
+    <value>Eight</value>
+  </data>
+  <data name="Gallery_Page_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Sample_8b46c3bc9e" xml:space="preserve">
+    <value>BalloonTip</value>
+  </data>
+  <data name="Sample_758ba147c8" xml:space="preserve">
+    <value>Toast に似た静的ヘルパー。内部で非表示トレイアイコンを使用するため、アプリは TrayIconHost をホスト不要。</value>
+  </data>
+  <data name="Sample_bc7e77fed5" xml:space="preserve">
+    <value>アプリトレイアイコンなしのバルーンチップ</value>
+  </data>
+  <data name="Sample_c1cff8854d" xml:space="preserve">
+    <value>SnackbarPresenter</value>
+  </data>
+  <data name="Sample_727f3b0153" xml:space="preserve">
+    <value>Show snackbar</value>
+  </data>
+  <data name="Sample_3d97194308" xml:space="preserve">
+    <value>Transparent</value>
+  </data>
+  <data name="Sample_961787b91f" xml:space="preserve">
+    <value>タイムアウト（秒）：</value>
+  </data>
+  <data name="Sample_91b8ede24b" xml:space="preserve">
+    <value>TopCenter</value>
+  </data>
+  <data name="Sample_1d85a55789" xml:space="preserve">
+    <value>TopRight</value>
+  </data>
+  <data name="Sample_bf7d9c8ad2" xml:space="preserve">
+    <value>BottomCenter</value>
+  </data>
+  <data name="Sample_6757783329" xml:space="preserve">
+    <value>Twink</value>
+  </data>
+  <data name="Sample_45c2c3e135" xml:space="preserve">
+    <value>このテキストはクリップボードにコピーされます。</value>
+  </data>
+  <data name="Sample_8950f24d7f" xml:space="preserve">
+    <value>Microsoft.Win32.OpenFolderDialog（.NET 8+）。</value>
+  </data>
+  <data name="Sample_c91ab18949" xml:space="preserve">
+    <value>OpenFileDialog / SaveFileDialog</value>
+  </data>
+  <data name="Sample_1fbb1e3943" xml:space="preserve">
+    <value>シンプル</value>
+  </data>
+  <data name="Sample_e1715873b6" xml:space="preserve">
+    <value>IsAccentColorsVisible</value>
+  </data>
+  <data name="Sample_d4a3649959" xml:space="preserve">
+    <value>IsAlphaEnabled</value>
+  </data>
+  <data name="Sample_3ef12e7ae5" xml:space="preserve">
+    <value>IsAlphaVisible</value>
+  </data>
+  <data name="Sample_364c264fb7" xml:space="preserve">
+    <value>IsColorComponentsVisible</value>
+  </data>
+  <data name="Sample_e4ca56bee4" xml:space="preserve">
+    <value>IsColorModelVisible</value>
+  </data>
+  <data name="Sample_197139f5c5" xml:space="preserve">
+    <value>IsColorPaletteVisible</value>
+  </data>
+  <data name="Sample_f2579cf82c" xml:space="preserve">
+    <value>IsColorPreviewVisible</value>
+  </data>
+  <data name="Sample_0f273844b1" xml:space="preserve">
+    <value>IsColorSpectrumVisible</value>
+  </data>
+  <data name="Sample_83f3616584" xml:space="preserve">
+    <value>IsColorSpectrumSliderVisible</value>
+  </data>
+  <data name="Sample_2d66358181" xml:space="preserve">
+    <value>IsComponentSliderVisible</value>
+  </data>
+  <data name="Sample_7e3f81feac" xml:space="preserve">
+    <value>IsComponentTextInputVisible</value>
+  </data>
+  <data name="Sample_6159b1d323" xml:space="preserve">
+    <value>IsHexInputVisible</value>
+  </data>
+  <data name="Sample_fb5a0e846f" xml:space="preserve">
+    <value>色:</value>
+  </data>
+  <data name="Sample_f3c7f21d05" xml:space="preserve">
+    <value>HsvColor:</value>
+  </data>
+  <data name="Sample_31b3adc7df" xml:space="preserve">
+    <value>Option D</value>
+  </data>
+  <data name="Sample_b3f046ddef" xml:space="preserve">
+    <value>Option E</value>
+  </data>
+  <data name="Sample_64d984a4b3" xml:space="preserve">
+    <value>即時コミットの Fluent スタイルスウォッチピッカー。行、グリッド、サイズ、角丸、無効状態、キーボード選択をサポート。</value>
+  </data>
+  <data name="Sample_3157b6de96" xml:space="preserve">
+    <value>ポップアップピッカー</value>
+  </data>
+  <data name="Sample_a3d4b2e49b" xml:space="preserve">
+    <value>デフォルト HorizontalAlignment=Left。幅はコンテンツに合わせて縮み、親を埋めません。</value>
+  </data>
+  <data name="Sample_0daf56c1c8" xml:space="preserve">
+    <value>選択形状</value>
+  </data>
+  <data name="Sample_13a67d4cc8" xml:space="preserve">
+    <value>選択状態はスウォッチ内にアクセント境界線を描画し、背景色の隙間を残します。ホバー拡大、押下バウンス、境界線アニメーション付き。スウォッチをクリックして試してください。</value>
+  </data>
+  <data name="Sample_ae2fd93db7" xml:space="preserve">
+    <value>円形</value>
+  </data>
+  <data name="Sample_bef2481eda" xml:space="preserve">
+    <value>角丸</value>
+  </data>
+  <data name="Sample_3dd55e39f8" xml:space="preserve">
+    <value>スタンドアロンスウォッチ</value>
+  </data>
+  <data name="Sample_50ce2da63b" xml:space="preserve">
+    <value>React</value>
+  </data>
+  <data name="Sample_2d8ec58bab" xml:space="preserve">
+    <value>Vue</value>
+  </data>
+  <data name="Sample_c31c335ef3" xml:space="preserve">
+    <value>Angular</value>
+  </data>
+  <data name="Sample_3b2819dd4c" xml:space="preserve">
+    <value>Node.js</value>
+  </data>
+  <data name="Sample_d52387880e" xml:space="preserve">
+    <value>Java</value>
+  </data>
+  <data name="Sample_9778840a01" xml:space="preserve">
+    <value>SQL</value>
+  </data>
+  <data name="Sample_62a004b959" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="Sample_399bd1ee58" xml:space="preserve">
+    <value>PostgreSQL</value>
+  </data>
+  <data name="Sample_801d32a0f0" xml:space="preserve">
+    <value>NoSQL</value>
+  </data>
+  <data name="Sample_206e3718af" xml:space="preserve">
+    <value>MongoDB</value>
+  </data>
+  <data name="Sample_e111446745" xml:space="preserve">
+    <value>Redis</value>
+  </data>
+  <data name="Sample_1e81fc32fe" xml:space="preserve">
+    <value>簡体中国語</value>
+  </data>
+  <data name="Sample_d0bb8c23f6" xml:space="preserve">
+    <value>繁体中国語</value>
+  </data>
+  <data name="Sample_78463a384a" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Sample_f32ced6a9b" xml:space="preserve">
+    <value>日本語</value>
+  </data>
+  <data name="Sample_097ea7163a" xml:space="preserve">
+    <value>Mica</value>
+  </data>
+  <data name="Sample_920809ad6f" xml:space="preserve">
+    <value>Acrylic</value>
+  </data>
+  <data name="Sample_5a9bcd254e" xml:space="preserve">
+    <value>Tabbed</value>
+  </data>
+  <data name="Sample_78a7ffd4c6" xml:space="preserve">
+    <value>Acrylic 10</value>
+  </data>
+  <data name="Sample_b5ea8ebb08" xml:space="preserve">
+    <value>Acrylic 11</value>
+  </data>
+  <data name="Sample_b9ba865fec" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="Sample_e20385a2b4" xml:space="preserve">
+    <value>Teal</value>
+  </data>
+  <data name="Sample_909cea0c97" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Sample_b91cc2c141" xml:space="preserve">
+    <value>Magenta</value>
+  </data>
+  <data name="Sample_24d459a814" xml:space="preserve">
+    <value>NEW</value>
+  </data>
+  <data name="Sample_41de6d6cfb" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Sample_2938c7f7e5" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Sample_9dea4016db" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="Sample_157a149cee" xml:space="preserve">
+    <value>更新が必要</value>
+  </data>
+  <data name="Sample_5391f9a882" xml:space="preserve">
+    <value>Informational</value>
+  </data>
+  <data name="Sample_0205bd4439" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="Sample_88d35241c6" xml:space="preserve">
+    <value>IsLoading</value>
+  </data>
+  <data name="Sample_01fc2bea89" xml:space="preserve">
+    <value>Document.xaml</value>
+  </data>
+  <data name="Sample_11f5071b0e" xml:space="preserve">
+    <value>main *</value>
+  </data>
+  <data name="Sample_a36a5013ca" xml:space="preserve">
+    <value>UTF-8  CRLF  C#</value>
+  </data>
+  <data name="Sample_feae7cef26" xml:space="preserve">
+    <value>CalloutToolTipStyle</value>
+  </data>
+  <data name="Sample_dac46d6c30" xml:space="preserve">
+    <value>ForceDark</value>
+  </data>
+  <data name="Sample_85b1524436" xml:space="preserve">
+    <value>Volume levels</value>
+  </data>
+  <data name="Sample_b1108dabc7" xml:space="preserve">
+    <value>デフォルトは 16×16 グリフ（バー 3×5 / 8.5 / 12）。0 待機、1 重大、2 注意、3 成功。</value>
+  </data>
+  <data name="Sample_87dbb69f19" xml:space="preserve">
+    <value>幅/高さ scale the 16×16 design. Uniform keeps proportions; Fill stretches pill height independently.</value>
+  </data>
+  <data name="Sample_158b3b19e8" xml:space="preserve">
+    <value>Corner radius</value>
+  </data>
+  <data name="Sample_7a6ef4aa34" xml:space="preserve">
+    <value>CornerRadius はデザイン単位です。1.5 は 3px 幅のバーでピル形状になり、コントロールに合わせてスケールします。</value>
+  </data>
+  <data name="Sample_090e90f3d1" xml:space="preserve">
+    <value>1.5 (pill)</value>
+  </data>
+  <data name="Sample_97b423f318" xml:space="preserve">
+    <value>インタラクティブ音量</value>
+  </data>
+  <data name="Sample_0220e2ecca" xml:space="preserve">
+    <value>Volume をスライダーにバインド。閾値マッピング：≤128 → 3 本、≤256 → 2 本、それ以外 1 本。</value>
+  </data>
+  <data name="Sample_8f7a9c4b01" xml:space="preserve">
+    <value>Separator (,)</value>
+  </data>
+  <data name="Sample_035d76dcf0" xml:space="preserve">
+    <value>MaxCount = 3</value>
+  </data>
+  <data name="Sample_04d78f91fd" xml:space="preserve">
+    <value>Prefilled</value>
+  </data>
+  <data name="Sample_39ff50b6cf" xml:space="preserve">
+    <value>ui:AutoSuggestBox</value>
+  </data>
+  <data name="Sample_8d9da4bc0e" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Sample_54f664c70c" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Sample_e4eae01063" xml:space="preserve">
+    <value>色 emoji rendering based on emoji.wpf (COLR/CPAL via Segoe UI Emoji).</value>
+  </data>
+  <data name="Sample_619bec7d3f" xml:space="preserve">
+    <value>EmojiedTextBlock と TextBlock</value>
+  </data>
+  <data name="Sample_1f337ec787" xml:space="preserve">
+    <value>ネイティブ TextBlock はモノクログリフになる場合があります。EmojiedTextBlock はカラー絵文字を描画。</value>
+  </data>
+  <data name="Sample_d0115c6563" xml:space="preserve">
+    <value>EmojiImage</value>
+  </data>
+  <data name="Sample_b33b46f030" xml:space="preserve">
+    <value>EmojiImage.Source を Image に付けるか、DrawingImage を構築。</value>
+  </data>
+  <data name="Sample_8fe2f0e456" xml:space="preserve">
+    <value>EmojiPicker</value>
+  </data>
+  <data name="Sample_b419386415" xml:space="preserve">
+    <value>絵文字を選んでテキストボックスに挿入します。</value>
+  </data>
+  <data name="Sample_4ea7801f17" xml:space="preserve">
+    <value>Flags</value>
+  </data>
+  <data name="Sample_8d800a5eb8" xml:space="preserve">
+    <value>Windows スタイルの旗グリフ（利用可能な場合）。</value>
+  </data>
+  <data name="Sample_dc033e3fae" xml:space="preserve">
+    <value>Fluent ハイパーリンク</value>
+  </data>
+  <data name="Sample_81197c2d02" xml:space="preserve">
+    <value>。</value>
+  </data>
+  <data name="Sample_7665fd0969" xml:space="preserve">
+    <value>私は Label です。</value>
+  </data>
+  <data name="Sample_f7cfa1a0e7" xml:space="preserve">
+    <value>下の TextBox の Label です。</value>
+  </data>
+  <data name="Sample_ab5c3857f6" xml:space="preserve">
+    <value>Enter your age</value>
+  </data>
+  <data name="Sample_7acdf85c69" xml:space="preserve">
+    <value>非表示</value>
+  </data>
+  <data name="Sample_b1fe2c2a59" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="Sample_0125cf5f3c" xml:space="preserve">
+    <value>Inline</value>
+  </data>
+  <data name="Sample_b8de573c27" xml:space="preserve">
+    <value>アニメーション値トランジション</value>
+  </data>
+  <data name="Sample_474a772600" xml:space="preserve">
+    <value>NumberDisplayer は古い値と新しい値の間をスムーズなスクロール効果で補間します。</value>
+  </data>
+  <data name="Sample_f4ec5f57bd" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="Sample_05c14b8832" xml:space="preserve">
+    <value>Int32Displayer</value>
+  </data>
+  <data name="Sample_6c5b0d98b5" xml:space="preserve">
+    <value>Int64Displayer</value>
+  </data>
+  <data name="Sample_582ec0c988" xml:space="preserve">
+    <value>DoubleDisplayer (N2)</value>
+  </data>
+  <data name="Sample_420090ffd5" xml:space="preserve">
+    <value>DateDisplay (yyyy-MM-dd)</value>
+  </data>
+  <data name="Sample_8318ce1c96" xml:space="preserve">
+    <value>Selectable</value>
+  </data>
+  <data name="Sample_86fc741fb1" xml:space="preserve">
+    <value>IsSelectable=&amp;quot;True&amp;quot; を設定して、表示テキストの選択とコピーを許可。</value>
+  </data>
+  <data name="Sample_a8251dc84e" xml:space="preserve">
+    <value>ui:PasswordBox</value>
+  </data>
+  <data name="Sample_1eb559ddc0" xml:space="preserve">
+    <value>Password...</value>
+  </data>
+  <data name="Sample_e2a85bb79c" xml:space="preserve">
+    <value>ui:RichTextBox</value>
+  </data>
+  <data name="Sample_73b3d93de0" xml:space="preserve">
+    <value>vio:SearchBox</value>
+  </data>
+  <data name="Sample_940f45db02" xml:space="preserve">
+    <value>QueryChanged：—</value>
+  </data>
+  <data name="Sample_9cabd9e8dc" xml:space="preserve">
+    <value>QuerySubmitted：—</value>
+  </data>
+  <data name="Sample_c499ef0ff8" xml:space="preserve">
+    <value>Filter files...</value>
+  </data>
+  <data name="Sample_4c141901e2" xml:space="preserve">
+    <value>Cannot edit</value>
+  </data>
+  <data name="Sample_6ef7ba9b1e" xml:space="preserve">
+    <value>デフォルト — ドラッグで選択、右クリックでコピー。</value>
+  </data>
+  <data name="Sample_67d9132baf" xml:space="preserve">
+    <value>セカンダリ text colour.</value>
+  </data>
+  <data name="Sample_eac15be139" xml:space="preserve">
+    <value>第三 text colour.</value>
+  </data>
+  <data name="Sample_5c60581cc9" xml:space="preserve">
+    <value>成功 text colour.</value>
+  </data>
+  <data name="Sample_8643d5cf7d" xml:space="preserve">
+    <value>警告 text colour.</value>
+  </data>
+  <data name="Sample_c1419da6c0" xml:space="preserve">
+    <value>危険テキスト色。</value>
+  </data>
+  <data name="Sample_b82a9a13f4" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="Sample_8291020758" xml:space="preserve">
+    <value>ハイライト背景をマーク。</value>
+  </data>
+  <data name="Sample_c22d9854ac" xml:space="preserve">
+    <value>下線装飾。</value>
+  </data>
+  <data name="Sample_4ae4e1907f" xml:space="preserve">
+    <value>私はテキストブロックです。</value>
+  </data>
+  <data name="Sample_a6cabcfdee" xml:space="preserve">
+    <value>スタイル付き TextBlock です。</value>
+  </data>
+  <data name="Sample_c884cdba0a" xml:space="preserve">
+    <value>こんにちは、Wpf.Ui.Violeta</value>
+  </data>
+  <data name="Sample_fec7f8fb9e" xml:space="preserve">
+    <value>ui:TextBox</value>
+  </data>
+  <data name="Sample_4089352c97" xml:space="preserve">
+    <value>ClearButtonEnabled=False</value>
+  </data>
+  <data name="Sample_7e51a09629" xml:space="preserve">
+    <value>TextBox with TextBlockTextBoxStyle&amp;#x0a;さらに行…</value>
+  </data>
+  <data name="Sample_d5ea1ead59" xml:space="preserve">
+    <value>ui:TextBox with TextBlockUiTextBoxStyle&amp;#x0a;さらに行…</value>
+  </data>
+  <data name="Sample_900750dec1" xml:space="preserve">
+    <value>設定して開く</value>
+  </data>
+  <data name="Sample_deb91a5c97" xml:space="preserve">
+    <value>コンテンツウィンドウ デモ</value>
+  </data>
+  <data name="Sample_e1ba155a9f" xml:space="preserve">
+    <value>手動</value>
+  </data>
+  <data name="Sample_febca04d55" xml:space="preserve">
+    <value>CenterScreen</value>
+  </data>
+  <data name="Sample_d76f53ff82" xml:space="preserve">
+    <value>CenterOwner</value>
+  </data>
+  <data name="Sample_137e49a657" xml:space="preserve">
+    <value>NoResize</value>
+  </data>
+  <data name="Sample_b942642e42" xml:space="preserve">
+    <value>CanMinimize</value>
+  </data>
+  <data name="Sample_6437422900" xml:space="preserve">
+    <value>CanResize</value>
+  </data>
+  <data name="Sample_fc6d8b49ec" xml:space="preserve">
+    <value>CanResizeWithGrip</value>
+  </data>
+  <data name="Sample_eb81441fe2" xml:space="preserve">
+    <value>Presets</value>
+  </data>
+  <data name="Sample_d3ca4cba5b" xml:space="preserve">
+    <value>一般的な TitleBar / chrome の組み合わせをクイックオープン。</value>
+  </data>
+  <data name="Sample_e1e1b18487" xml:space="preserve">
+    <value>ダイアログ（閉じるのみ）</value>
+  </data>
+  <data name="Sample_cd980f82dd" xml:space="preserve">
+    <value>Tool（最小 / 最大 / 閉じる）</value>
+  </data>
+  <data name="Sample_2649e6600b" xml:space="preserve">
+    <value>ヘルプ ボタン</value>
+  </data>
+  <data name="Sample_fc2738e683" xml:space="preserve">
+    <value>TitleBar なし</value>
+  </data>
+  <data name="Sample_f3d813c9a3" xml:space="preserve">
+    <value>カスタム ヘッダー / フッター</value>
+  </data>
+  <data name="Sample_f827cf462f" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="Format_Item" xml:space="preserve">
+    <value>アイテム {0}</value>
+  </data>
+  <data name="Format_SampleCard" xml:space="preserve">
+    <value>サンプルカード #{0}</value>
+  </data>
+  <data name="Format_Clicked" xml:space="preserve">
+    <value>クリック：{0}</value>
+  </data>
+  <data name="Format_SelectedItemCount" xml:space="preserve">
+    <value>{0} 件選択済み。</value>
+  </data>
+  <data name="Gallery_Page_CardBorder" xml:space="preserve">
+    <value>CardBorder</value>
+  </data>
+  <data name="Sample_f2e8d1c4b7" xml:space="preserve">
+    <value>カード風ボーダー</value>
+  </data>
+  <data name="Sample_a1b2c3d4e6" xml:space="preserve">
+    <value>システム Border</value>
+  </data>
+  <data name="Sample_b2c3d4e5f7" xml:space="preserve">
+    <value>標準の WPF Border コントロールに CardBorderStyle と SecondaryBorderStyle を適用します。</value>
+  </data>
+  <data name="Sample_c3d4e5f6a8" xml:space="preserve">
+    <value>CardBorderStyle</value>
+  </data>
+  <data name="Sample_d4e5f6a7b9" xml:space="preserve">
+    <value>SecondaryBorderStyle</value>
+  </data>
+  <data name="Sample_e5f6a7b8c0" xml:space="preserve">
+    <value>Ui Border</value>
+  </data>
+  <data name="Sample_f6a7b8c9d1" xml:space="preserve">
+    <value>拡張 ui:Border コントロールに CardUiBorderStyle と SecondaryUiBorderStyle を適用し、ClipToBounds を有効にします。</value>
+  </data>
+  <data name="Sample_a7b8c9d0e2" xml:space="preserve">
+    <value>CardUiBorderStyle</value>
+  </data>
+  <data name="Sample_b8c9d0e1f3" xml:space="preserve">
+    <value>SecondaryUiBorderStyle</value>
+  </data>
+  <data name="Sample_c9d0e1f2a4" xml:space="preserve">
+    <value>カードのコンテンツ領域</value>
   </data>
 </root>

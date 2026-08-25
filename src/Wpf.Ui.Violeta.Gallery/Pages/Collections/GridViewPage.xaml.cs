@@ -1,9 +1,11 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using LiteObservableLanguages;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Wpf.Ui.Violeta.Controls;
+using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;
 
@@ -26,8 +28,8 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
         {
             Items.Add(new GridViewSampleItem
             {
-                Title = $"Item {i + 1}",
-                Description = $"Sample card #{i + 1}",
+                Title = LangKeys.Format_Item.Tr(i + 1),
+                Description = LangKeys.Format_SampleCard.Tr(i + 1),
                 Accent = (Brush)new BrushConverter().ConvertFromString(colors[i])!,
             });
         }
@@ -37,7 +39,7 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
     {
         if (e.ClickedItem is GridViewSampleItem item)
         {
-            ClickOutput.Text = $"Clicked: {item.Title}";
+            ClickOutput.Text = LangKeys.Format_Clicked.Tr(item.Title);
         }
     }
 
@@ -48,7 +50,7 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        switch (selected.Content?.ToString())
+        switch (selected.Tag?.ToString())
         {
             case "None":
                 ContentGridView.IsSelectionEnabled = false;
@@ -70,7 +72,7 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
 
     private void ContentGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        SelectionOutput.Text = $"Selected {ContentGridView.SelectedItems.Count} item(s).";
+        SelectionOutput.Text = LangKeys.Format_SelectedItemCount.Tr(ContentGridView.SelectedItems.Count);
     }
 
     private void ItemClickCheckBox_Click(object sender, RoutedEventArgs e)

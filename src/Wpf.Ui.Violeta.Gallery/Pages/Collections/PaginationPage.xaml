@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="Pagination"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Pagination}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -17,7 +17,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="Pagination" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Pagination}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -42,7 +42,7 @@
                             MinWidth="140"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Basic (5 pages)" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_32e7c869df}}" />
                         <vio:Pagination
                             PageSize="10"
                             TotalCount="50" />
@@ -52,7 +52,7 @@
                             MinWidth="140"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Many pages" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_1a62484fd6}}" />
                         <vio:Pagination
                             CurrentPage="3"
                             PageSize="10"
@@ -63,7 +63,7 @@
                             MinWidth="140"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="With QuickJump" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_0216bfd322}}" />
                         <vio:Pagination
                             PageSize="10"
                             ShowQuickJump="True"
@@ -74,7 +74,7 @@
                             MinWidth="140"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Tiny" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_383c05bda6}}" />
                         <vio:Pagination
                             PageSize="10"
                             Style="{DynamicResource DefaultTinyPaginationStyle}"
@@ -85,7 +85,7 @@
                             MinWidth="140"
                             VerticalAlignment="Center"
                             Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                            Text="Page Size Selector" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_c86b15ef69}}" />
                         <vio:Pagination
                             PageSize="10"
                             ShowPageSizeSelector="True"

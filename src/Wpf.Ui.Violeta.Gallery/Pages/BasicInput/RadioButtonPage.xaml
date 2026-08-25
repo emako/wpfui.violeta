@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="RadioButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_RadioButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="RadioButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_RadioButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Standard RadioButton" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_7c245edeb1}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -42,16 +42,16 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel x:Name="RadioGroup" Grid.Column="0">
                             <RadioButton
-                                Content="Option 1"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_fd577a8bfd}}"
                                 GroupName="radio_group_one"
                                 IsChecked="True" />
-                            <RadioButton Content="Option 2" GroupName="radio_group_one" />
-                            <RadioButton Content="Option 3" GroupName="radio_group_one" />
+                            <RadioButton Content="{I18N {x:Static lang:LangKeys.Sample_e24963e407}}" GroupName="radio_group_one" />
+                            <RadioButton Content="{I18N {x:Static lang:LangKeys.Sample_fbeee6bcd1}}" GroupName="radio_group_one" />
                         </StackPanel>
                         <CheckBox
                             Grid.Column="1"
                             Checked="DisableRadioButtons_Checked"
-                            Content="Disable radio buttons"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7f917a32f0}}"
                             Unchecked="DisableRadioButtons_Unchecked" />
                     </Grid>
                 </StackPanel>
@@ -69,23 +69,23 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Right-to-left" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9f94e42711}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_feefa735f7}}" />
                     <StackPanel>
                         <RadioButton
-                            Content="Option 1"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_fd577a8bfd}}"
                             FlowDirection="RightToLeft"
                             GroupName="radio_group_two"
                             IsChecked="True" />
                         <RadioButton
-                            Content="Option 2"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_e24963e407}}"
                             FlowDirection="RightToLeft"
                             GroupName="radio_group_two" />
                         <RadioButton
-                            Content="Option 3"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_fbeee6bcd1}}"
                             FlowDirection="RightToLeft"
                             GroupName="radio_group_two" />
                     </StackPanel>

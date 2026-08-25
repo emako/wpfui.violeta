@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="ToggleButtonGroup"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="ToggleButtonGroup" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,7 +30,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="ToggleButtonGroup" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -41,10 +41,10 @@
                         </ui:StackPanel.Resources>
                         <ToggleButton
                             vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}"
-                            Content="1st"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ec31383cc7}}"
                             IsChecked="True" />
-                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="2nd" />
-                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="3rd" />
+                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="{I18N {x:Static lang:LangKeys.Sample_9d5f1209e8}}" />
+                        <ToggleButton vio:ToggleButtonGroup.Group="{DynamicResource ToggleButtonGroup}" Content="{I18N {x:Static lang:LangKeys.Sample_b7b655045b}}" />
                     </ui:StackPanel>
                 </StackPanel>
             </Border>
@@ -61,7 +61,7 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="RadioButtonGroup" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d4e90d2491}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
@@ -73,16 +73,16 @@
                         <RadioButton
                             MinWidth="0"
                             vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
-                            Content="1st"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ec31383cc7}}"
                             IsChecked="True" />
                         <RadioButton
                             MinWidth="0"
                             vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
-                            Content="2nd" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_9d5f1209e8}}" />
                         <RadioButton
                             MinWidth="0"
                             vio:RadioButtonGroup.Group="{DynamicResource RadioButtonGroup}"
-                            Content="3rd" />
+                            Content="{I18N {x:Static lang:LangKeys.Sample_b7b655045b}}" />
                     </ui:StackPanel>
                 </StackPanel>
             </Border>

@@ -8,7 +8,7 @@
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
-    Title="WebView2"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_WebView2}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <Grid Margin="24,16,24,24">
@@ -22,7 +22,7 @@
                 Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="WebView2" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_WebView2}}" />
             <TextBlock
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 Text="{I18N {x:Static lang:LangKeys.Sample_1cf96448cf}}"

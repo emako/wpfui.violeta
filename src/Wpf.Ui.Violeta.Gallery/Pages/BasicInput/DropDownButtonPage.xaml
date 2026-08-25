@@ -7,7 +7,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
-    Title="DropDownButton"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <ScrollViewer>
@@ -16,7 +16,7 @@
                 Margin="0,0,0,16"
                 FontSize="20"
                 FontWeight="SemiBold"
-                Text="DropDownButton" />
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,26 +30,26 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="DropDownButton" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_DropDownButton}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_e44ca4d5c0}}" />
-                    <vio:DropDownButton Content="Hello" Icon="{ui:SymbolIcon Fluent24}">
+                    <vio:DropDownButton Content="{I18N {x:Static lang:LangKeys.Sample_8b1a9953c4}}" Icon="{ui:SymbolIcon Fluent24}">
                         <vio:DropDownButton.Flyout>
                             <ContextMenu>
-                                <MenuItem Header="Add" />
-                                <MenuItem Header="Remove" />
-                                <MenuItem Header="Send">
-                                    <MenuItem Header="As email" />
-                                    <MenuItem Header="As file" />
-                                    <MenuItem Header="To device">
-                                        <MenuItem Header="Phone" />
-                                        <MenuItem Header="Tablet" />
-                                        <MenuItem Header="Desktop" />
+                                <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1bb125b89c}}" />
+                                <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_1063e38cb5}}" />
+                                <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_94966d9074}}">
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_5f07e1c9a6}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_cd3668b9d5}}" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_0b05d4ec1b}}">
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_bcc254b55c}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_36384a9ea3}}" />
+                                        <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_2310408a63}}" />
                                     </MenuItem>
                                 </MenuItem>
-                                <MenuItem Header="Hello" />
+                                <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_8b1a9953c4}}" />
                             </ContextMenu>
                         </vio:DropDownButton.Flyout>
                     </vio:DropDownButton>
@@ -77,23 +77,23 @@
                     <StackPanel Orientation="Horizontal">
                         <vio:DropDownButton
                             Margin="0,0,12,0"
-                            Content="Unavailable"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_453e6aa38d}}"
                             Icon="{ui:SymbolIcon LockClosed24}"
                             IsEnabled="False">
                             <vio:DropDownButton.Flyout>
                                 <ContextMenu>
-                                    <MenuItem Header="Option" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_054b4f3ea5}}" />
                                 </ContextMenu>
                             </vio:DropDownButton.Flyout>
                         </vio:DropDownButton>
                         <vio:DropDownButton
-                            Content="Toolbar"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_012f602372}}"
                             Icon="{ui:SymbolIcon LockClosed24}"
                             IsEnabled="False"
                             Style="{StaticResource ToolBarDropDownButtonStyle}">
                             <vio:DropDownButton.Flyout>
                                 <ContextMenu>
-                                    <MenuItem Header="Option" />
+                                    <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_054b4f3ea5}}" />
                                 </ContextMenu>
                             </vio:DropDownButton.Flyout>
                         </vio:DropDownButton>
