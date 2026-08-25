@@ -27,6 +27,14 @@ namespace Wpf.Ui.Controls;
 [ContentProperty(nameof(Children))]
 public class Grid : System.Windows.Controls.Grid
 {
+    public Grid()
+    {
+        // XAML element syntax (<ui:Grid.ColumnDefinitions>) reads the DP via GetValue,
+        // not the CLR getter. Point the DP at the base collections so they are never null.
+        SetValue(ColumnDefinitionsProperty, base.ColumnDefinitions);
+        SetValue(RowDefinitionsProperty, base.RowDefinitions);
+    }
+
     /// <summary>User-specified column widths, in logical order (no spacers).</summary>
     private readonly List<GridLength> _logicalColumns = [];
 
@@ -61,7 +69,7 @@ public class Grid : System.Windows.Controls.Grid
     [TypeConverter(typeof(ColumnDefinitionsConverter))]
     public new ColumnDefinitionCollection ColumnDefinitions
     {
-        get => base.ColumnDefinitions;
+        get => (ColumnDefinitionCollection?)GetValue(ColumnDefinitionsProperty) ?? base.ColumnDefinitions;
         set => SetValue(ColumnDefinitionsProperty, value);
     }
 
@@ -71,13 +79,17 @@ public class Grid : System.Windows.Controls.Grid
     /// </summary>
     private static void OnColumnDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is Grid grid && e.NewValue is ColumnDefinitionCollection columnDefinitions)
-        {
-            grid._logicalColumns.Clear();
-            foreach (ColumnDefinition col in columnDefinitions)
-                grid._logicalColumns.Add(col.Width);
+        if (d is not Grid grid || e.NewValue is not ColumnDefinitionCollection columnDefinitions)
+            return;
+
+        grid._logicalColumns.Clear();
+        foreach (ColumnDefinition col in columnDefinitions)
+            grid._logicalColumns.Add(col.Width);
+
+        // Initial constructor binding points the DP at the base collection; element syntax
+        // adds definitions there directly and must not be cleared by a rebuild pass.
+        if (e.OldValue is ColumnDefinitionCollection)
             grid.RebuildColumnDefinitions();
-        }
     }
 
     /// <summary>Backing dependency property for <see cref="RowDefinitions"/>.</summary>
@@ -93,7 +105,7 @@ public class Grid : System.Windows.Controls.Grid
     [TypeConverter(typeof(RowDefinitionsConverter))]
     public new RowDefinitionCollection RowDefinitions
     {
-        get => base.RowDefinitions;
+        get => (RowDefinitionCollection?)GetValue(RowDefinitionsProperty) ?? base.RowDefinitions;
         set => SetValue(RowDefinitionsProperty, value);
     }
 
@@ -103,13 +115,15 @@ public class Grid : System.Windows.Controls.Grid
     /// </summary>
     private static void OnRowDefinitionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is Grid grid && e.NewValue is RowDefinitionCollection rowDefinitions)
-        {
-            grid._logicalRows.Clear();
-            foreach (RowDefinition row in rowDefinitions)
-                grid._logicalRows.Add(row.Height);
+        if (d is not Grid grid || e.NewValue is not RowDefinitionCollection rowDefinitions)
+            return;
+
+        grid._logicalRows.Clear();
+        foreach (RowDefinition row in rowDefinitions)
+            grid._logicalRows.Add(row.Height);
+
+        if (e.OldValue is RowDefinitionCollection)
             grid.RebuildRowDefinitions();
-        }
     }
 
     /// <summary>Backing dependency property for <see cref="HorizontalSpacing"/>.</summary>
