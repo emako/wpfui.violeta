@@ -1008,6 +1008,161 @@
                 </Border>
             </Grid>
 
+            <!-- Banner -->
+            <TextBlock
+                Margin="0,48,0,0"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Banner" />
+            <TextBlock
+                Margin="0,8,0,0"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="Border and background pairs used by the Banner control for status notifications."
+                TextWrapping="Wrap" />
+            <Grid MinHeight="120" Margin="0,12,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource SystemFillColorAttentionBackgroundBrush}"
+                    BorderBrush="{DynamicResource SystemFillColorAttentionBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Information" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,4,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Info banner" />
+                        <StackPanel Grid.Row="2">
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorAttentionBackgroundBrush" />
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorAttentionBrush" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource SystemFillColorSuccessBackgroundBrush}"
+                    BorderBrush="{DynamicResource SystemFillColorSuccessBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Success" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,4,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Success banner" />
+                        <StackPanel Grid.Row="2">
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorSuccessBackgroundBrush" />
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorSuccessBrush" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Margin="0,0,8,0"
+                    Padding="12"
+                    Background="{DynamicResource SystemFillColorCautionBackgroundBrush}"
+                    BorderBrush="{DynamicResource SystemFillColorCautionBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Warning" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,4,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Warning banner" />
+                        <StackPanel Grid.Row="2">
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorCautionBackgroundBrush" />
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorCautionBrush" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Padding="12"
+                    Background="{DynamicResource SystemFillColorCriticalBackgroundBrush}"
+                    BorderBrush="{DynamicResource SystemFillColorCriticalBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" FontWeight="SemiBold" Text="Error" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,4,0,8"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="Error banner" />
+                        <StackPanel Grid.Row="2">
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorCriticalBackgroundBrush" />
+                            <vio:SelectableTextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                TextWrapping="Wrap"
+                                Text="SystemFillColorCriticalBrush" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
             <!-- Stroke -->
             <TextBlock
                 Margin="0,48,0,0"
