@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -78,9 +79,14 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
     }
 }
 
-public sealed class GridViewSampleItem
+public partial class GridViewSampleItem : ObservableObject
 {
-    public string Title { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public Brush Accent { get; set; } = Brushes.SteelBlue;
+    [ObservableProperty]
+    public partial string Title { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial string Description { get; set; } = string.Empty;
+
+    [ObservableProperty]
+    public partial Brush Accent { get; set; } = Brushes.SteelBlue;
 }

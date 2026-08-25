@@ -1,9 +1,31 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 public class ContentWindowControl : UserControl, IContentWindowControl
 {
+    public static readonly DependencyProperty TitleProperty =
+        DependencyProperty.Register(
+            nameof(Title),
+            typeof(string),
+            typeof(ContentWindowControl),
+            new PropertyMetadata(string.Empty, OnTitleChanged));
+
+    public string Title
+    {
+        get => (string)GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
+    }
+
+    private static void OnTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is ContentWindowControl { Owner: { } window })
+        {
+            window.Title = (string)e.NewValue;
+        }
+    }
+
     public ContentWindow Owner
     {
         get;
@@ -17,8 +39,6 @@ public class ContentWindowControl : UserControl, IContentWindowControl
             }
         }
     } = null!;
-
-    public string Title { get; set; } = string.Empty;
 
     public ContentWindowControl()
     {
