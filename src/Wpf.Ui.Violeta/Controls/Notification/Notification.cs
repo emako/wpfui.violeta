@@ -2,25 +2,21 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Threading;
 using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Static balloon-tip helper similar to <see cref="Toast"/>, backed by a transient
-/// hidden <see cref="TrayIconHost"/> so callers do not need an application tray icon.
-/// The host is created on demand and released after the tip ends.
+/// Static balloon-tip helper similar to <see cref="Toast"/>, backed by a hidden
+/// <see cref="TrayIconHost"/> so callers do not need an application tray icon.
+/// The internal host is created on first use and kept alive until application exit.
 /// </summary>
 public static class Notification
 {
     public const int DefaultTimeout = 5000;
 
-    private const int DisposeGraceMilliseconds = 1000;
-
     private static readonly object _sync = new();
     private static TrayIconHost? _host;
-    private static DispatcherTimer? _disposeTimer;
     private static bool _exitHooked;
 
     /// <summary>
@@ -59,7 +55,6 @@ public static class Notification
     {
         TrayIconHost host = EnsureHost();
         host.ShowBalloonTip(timeout, title ?? string.Empty, content, icon);
-        ScheduleRelease(timeout);
     }
 
     private static TrayIconHost EnsureHost()
@@ -85,7 +80,6 @@ public static class Notification
             }
 
             host.IsVisible = false;
-            host.BalloonTipClosed += OnBalloonTipClosed;
 
             if (!_exitHooked && Application.Current is { } app)
             {
@@ -98,22 +92,6 @@ public static class Notification
         }
     }
 
-    private static void ScheduleRelease(int timeout)
-    {
-        _disposeTimer ??= new DispatcherTimer(DispatcherPriority.Background);
-        _disposeTimer.Tick -= OnDisposeTimerTick;
-        _disposeTimer.Tick += OnDisposeTimerTick;
-        _disposeTimer.Interval = TimeSpan.FromMilliseconds(timeout + DisposeGraceMilliseconds);
-        _disposeTimer.Stop();
-        _disposeTimer.Start();
-    }
-
-    private static void OnDisposeTimerTick(object? sender, EventArgs e)
-        => ReleaseHost();
-
-    private static void OnBalloonTipClosed(object? sender, EventArgs e)
-        => ScheduleRelease(0);
-
     private static void OnApplicationExit(object sender, ExitEventArgs e)
         => ReleaseHost();
 
@@ -121,17 +99,9 @@ public static class Notification
     {
         lock (_sync)
         {
-            if (_disposeTimer is not null)
-            {
-                _disposeTimer.Stop();
-                _disposeTimer.Tick -= OnDisposeTimerTick;
-                _disposeTimer = null;
-            }
-
             if (_host is null)
                 return;
 
-            _host.BalloonTipClosed -= OnBalloonTipClosed;
             _host.Dispose();
             _host = null;
         }
