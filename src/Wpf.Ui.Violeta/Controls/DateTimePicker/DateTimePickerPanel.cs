@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -397,11 +396,6 @@ public class DateTimePickerPanel : Control
                 _itemElements[i].SetResourceReference(TextBlock.ForegroundProperty, "TextOnAccentFillColorPrimaryBrush");
             else
                 _itemElements[i].SetResourceReference(TextBlock.ForegroundProperty, "DateTimePickerItemDimmedForeground");
-
-            // Scale effect: items further from center are slightly smaller
-            double scale = distance == 0 ? 1.0 : distance == 1 ? 0.92 : 0.82;
-            _itemElements[i].RenderTransformOrigin = new Point(0.5, 0.5);
-            _itemElements[i].RenderTransform = new ScaleTransform(scale, scale);
         }
     }
 

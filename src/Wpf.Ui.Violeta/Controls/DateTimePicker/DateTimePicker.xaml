@@ -15,7 +15,6 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerItemForeground}" />
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
     </Style>
 
     <!--
