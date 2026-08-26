@@ -28,13 +28,8 @@ public class ThemesDictionary : ResourceDictionary
 
     private void SetSourceBasedOnSelectedTheme(ApplicationTheme? selectedApplicationTheme)
     {
-        var themeName = selectedApplicationTheme switch
-        {
-            ApplicationTheme.Dark => "Dark",
-            //ApplicationTheme.HighContrast => "HighContrast",
-            _ => "Light"
-        };
-
-        Source = new Uri($"pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Theme/{themeName}.xaml", UriKind.Absolute);
+        Source = ThemeDictionaryRegistration.DefaultVioleta.GetThemeUri(
+            selectedApplicationTheme ?? ApplicationTheme.Light,
+            ThemeManager.GetSystemTheme());
     }
 }

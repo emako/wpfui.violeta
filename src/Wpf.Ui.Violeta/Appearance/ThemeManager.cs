@@ -1,5 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
@@ -11,22 +14,85 @@ namespace Wpf.Ui.Violeta.Appearance;
 
 public static class ThemeManager
 {
-    internal const string VioletaLibraryNamespace = "wpf.ui.violeta;";
+    private static readonly List<ThemeDictionaryRegistration> RegistrationsInternal = [];
 
-    internal const string VioletaThemesDictionaryPath = "pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Theme/";
-
-    internal const string LibraryNamespace = "wpf.ui;";
-
-    internal const string ThemesDictionaryPath = "pack://application:,,,/Wpf.Ui;component/Resources/Theme/";
+    private static ReadOnlyCollection<ThemeDictionaryRegistration>? _registrations;
 
     private static ApplicationTheme _cachedApplicationTheme = ApplicationTheme.Unknown;
 
     private static bool _applying;
 
+    static ThemeManager()
+    {
+        Register(ThemeDictionaryRegistration.DefaultWpfUi);
+        Register(ThemeDictionaryRegistration.DefaultVioleta);
+    }
+
     /// <summary>
-    /// Raised after WPF UI and Violeta theme dictionaries have been swapped.
+    /// Gets the currently registered theme dictionary sources.
+    /// </summary>
+    public static ReadOnlyCollection<ThemeDictionaryRegistration> Registrations =>
+        _registrations ??= new ReadOnlyCollection<ThemeDictionaryRegistration>(RegistrationsInternal);
+
+    /// <summary>
+    /// Raised after registered theme dictionaries have been swapped.
     /// </summary>
     public static event ThemeChangedEvent? Changed;
+
+    /// <summary>
+    /// Registers a theme dictionary source that <see cref="Apply"/> will update.
+    /// </summary>
+    public static void Register(ThemeDictionaryRegistration registration)
+    {
+        if (registration is null)
+        {
+            throw new ArgumentNullException(nameof(registration));
+        }
+
+        lock (RegistrationsInternal)
+        {
+            if (!RegistrationsInternal.Contains(registration))
+            {
+                RegistrationsInternal.Add(registration);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Removes a previously registered theme dictionary source.
+    /// </summary>
+    public static bool Unregister(ThemeDictionaryRegistration registration)
+    {
+        if (registration is null)
+        {
+            throw new ArgumentNullException(nameof(registration));
+        }
+
+        lock (RegistrationsInternal)
+        {
+            return RegistrationsInternal.Remove(registration);
+        }
+    }
+
+    /// <summary>
+    /// Removes all registrations that match <paramref name="searchNamespace"/>.
+    /// </summary>
+    public static int Unregister(string searchNamespace)
+    {
+        if (string.IsNullOrWhiteSpace(searchNamespace))
+        {
+            throw new ArgumentException("Value cannot be null or whitespace.", nameof(searchNamespace));
+        }
+
+        lock (RegistrationsInternal)
+        {
+            return RegistrationsInternal.RemoveAll(
+                registration => string.Equals(
+                    registration.SearchNamespace,
+                    searchNamespace,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+    }
 
     public static void RegisterApplicationThemeChanged()
     {
@@ -42,10 +108,7 @@ public static class ThemeManager
         }
 
         // Fallback when an app still calls ApplicationThemeManager.Apply.
-        UpdateDictionary(
-            VioletaLibraryNamespace,
-            VioletaThemesDictionaryPath,
-            GetThemeDictionaryName(currentApplicationTheme, violeta: true));
+        UpdateDictionary(currentApplicationTheme);
         _cachedApplicationTheme = currentApplicationTheme;
         Changed?.Invoke(currentApplicationTheme, systemAccent);
     }
@@ -219,7 +282,7 @@ public static class ThemeManager
     }
 
     /// <summary>
-    /// Applies light / dark / high contrast to both WPF UI and Violeta resource dictionaries.
+    /// Applies light / dark / high contrast to all registered theme resource dictionaries.
     /// Window backdrop is left to each <c>ShellWindow.WindowBackdropType</c>.
     /// </summary>
     public static void Apply(ApplicationTheme theme, bool updateAccent = true)
@@ -337,65 +400,64 @@ public static class ThemeManager
 
     private static void UpdateDictionary(ApplicationTheme theme)
     {
-        UpdateDictionary(LibraryNamespace, ThemesDictionaryPath, GetThemeDictionaryName(theme));
-        UpdateDictionary(VioletaLibraryNamespace, VioletaThemesDictionaryPath, GetThemeDictionaryName(theme, violeta: true));
-    }
-
-    private static void UpdateDictionary(string searchNamespace, string dictionaryPath, string themeName)
-    {
-        _ = new ResourceDictionaryManager(searchNamespace).UpdateDictionary(
-            "theme",
-            new Uri(dictionaryPath + themeName + ".xaml", UriKind.Absolute)
-        );
-    }
-
-    private static string GetThemeDictionaryName(ApplicationTheme theme, bool violeta = false)
-    {
-        if (theme == ApplicationTheme.Dark)
-        {
-            return "Dark";
-        }
-
-        if (theme != ApplicationTheme.HighContrast)
-        {
-            return "Light";
-        }
-
         SystemTheme systemTheme = ReadSystemTheme();
-        if (violeta)
+
+        ThemeDictionaryRegistration[] registrations;
+        lock (RegistrationsInternal)
         {
-            return systemTheme is SystemTheme.HCBlack
-                ? "Dark"
-                : "Light";
+            registrations = RegistrationsInternal.ToArray();
         }
 
-        return systemTheme switch
+        foreach (ThemeDictionaryRegistration registration in registrations)
         {
-            SystemTheme.HC1 => "HC1",
-            SystemTheme.HC2 => "HC2",
-            SystemTheme.HCBlack => "HCBlack",
-            SystemTheme.HCWhite => "HCWhite",
-            _ => "HCWhite",
-        };
+            UpdateDictionary(registration, theme, systemTheme);
+        }
+    }
+
+    private static void UpdateDictionary(
+        ThemeDictionaryRegistration registration,
+        ApplicationTheme theme,
+        SystemTheme systemTheme)
+    {
+        _ = new ResourceDictionaryManager(registration.SearchNamespace).UpdateDictionary(
+            registration.DictionaryLookup,
+            registration.GetThemeUri(theme, systemTheme));
     }
 
     private static void FetchApplicationTheme()
     {
-        ResourceDictionary? themeDictionary =
-            new ResourceDictionaryManager(LibraryNamespace).GetDictionary("theme")
-            ?? new ResourceDictionaryManager(VioletaLibraryNamespace).GetDictionary("theme");
-
-        if (themeDictionary?.Source is null)
+        ThemeDictionaryRegistration[] registrations;
+        lock (RegistrationsInternal)
         {
-            return;
+            registrations = RegistrationsInternal.ToArray();
         }
 
-        string themeUri = themeDictionary.Source.ToString();
+        foreach (ThemeDictionaryRegistration registration in registrations)
+        {
+            ResourceDictionary? themeDictionary =
+                new ResourceDictionaryManager(registration.SearchNamespace).GetDictionary(registration.DictionaryLookup);
+
+            if (themeDictionary?.Source is null)
+            {
+                continue;
+            }
+
+            if (TryInferApplicationTheme(themeDictionary.Source.ToString(), out ApplicationTheme inferredTheme))
+            {
+                _cachedApplicationTheme = inferredTheme;
+                return;
+            }
+        }
+    }
+
+    private static bool TryInferApplicationTheme(string themeUri, out ApplicationTheme theme)
+    {
+        theme = ApplicationTheme.Unknown;
 
         if (themeUri.Contains("dark", StringComparison.OrdinalIgnoreCase))
         {
-            _cachedApplicationTheme = ApplicationTheme.Dark;
-            return;
+            theme = ApplicationTheme.Dark;
+            return true;
         }
 
         if (themeUri.Contains("hc1", StringComparison.OrdinalIgnoreCase)
@@ -404,13 +466,16 @@ public static class ThemeManager
             || themeUri.Contains("hcwhite", StringComparison.OrdinalIgnoreCase)
             || themeUri.Contains("highcontrast", StringComparison.OrdinalIgnoreCase))
         {
-            _cachedApplicationTheme = ApplicationTheme.HighContrast;
-            return;
+            theme = ApplicationTheme.HighContrast;
+            return true;
         }
 
         if (themeUri.Contains("light", StringComparison.OrdinalIgnoreCase))
         {
-            _cachedApplicationTheme = ApplicationTheme.Light;
+            theme = ApplicationTheme.Light;
+            return true;
         }
+
+        return false;
     }
 }
