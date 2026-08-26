@@ -79,8 +79,8 @@
         ╔══════════════════════════════════════════════════════════════╗
         ║               LINE (default) – TabStrip container            ║
         ║                                                              ║
-        ║  • Horizontal items panel                                    ║
-        ║  • 1 px separator line at the bottom                         ║
+        ║  • Horizontal: items row + bottom separator                  ║
+        ║  • Vertical: items column + right separator                  ║
         ╚══════════════════════════════════════════════════════════════╝
     -->
     <Style TargetType="{x:Type local:TabStrip}">
@@ -96,7 +96,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
+                    <StackPanel Orientation="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -109,12 +109,16 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="True">
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="Col0" Width="*" />
+                                <ColumnDefinition x:Name="Col1" Width="0" />
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition x:Name="Row0" Height="*" />
                                 <!--  1 px separator (collapsed via IsSeparatorVisible)  -->
                                 <RowDefinition x:Name="SeparatorRow" Height="1" />
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
+                            <Grid Grid.Row="0" Grid.Column="0">
                                 <ItemsPresenter />
                                 <Rectangle
                                     x:Name="PART_Indicator"
@@ -135,13 +139,25 @@
                             <Rectangle
                                 x:Name="PART_Separator"
                                 Grid.Row="1"
+                                Grid.Column="0"
                                 Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
                                 SnapsToDevicePixels="True" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <Setter TargetName="Col1" Property="Width" Value="1" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="2" />
+                            <Setter TargetName="PART_Indicator" Property="Height" Value="0" />
+                            <Setter TargetName="PART_Indicator" Property="HorizontalAlignment" Value="Left" />
+                            <Setter TargetName="PART_Indicator" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
                         <Trigger Property="IsSeparatorVisible" Value="False">
                             <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <Setter TargetName="Col1" Property="Width" Value="0" />
                             <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -154,9 +170,8 @@
         ╔══════════════════════════════════════════════════════════════╗
         ║                    CARD – TabStripItem                       ║
         ║                                                              ║
-        ║  • Rounded top corners, flat bottom                          ║
-        ║  • Selected: top/left/right border, no bottom border         ║
-        ║    Extends 1 px down to cover the separator                  ║
+        ║  • Rounded top corners (horizontal) or left corners (vertical) ║
+        ║  • Selected: border minus bottom/right to overlap separator  ║
         ╚══════════════════════════════════════════════════════════════╝
     -->
     <Style x:Key="CardTabStripItemStyle" TargetType="{x:Type local:TabStripItem}">
@@ -201,9 +216,14 @@
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
                             <Setter TargetName="Root" Property="Background" Value="{DynamicResource LayerFillColorDefaultBrush}" />
-                            <!--  Extend 1 px below to cover the separator line  -->
-                            <Setter TargetName="Root" Property="Margin" Value="0,0,0,-1" />
                         </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="Horizontal" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="Root" Property="Margin" Value="0,0,0,-1" />
+                        </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
@@ -225,6 +245,20 @@
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
                             <Setter Property="Cursor" Value="Arrow" />
                         </Trigger>
+                        <!--  Vertical layout  -->
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="Vertical">
+                            <Setter Property="BorderThickness" Value="1,1,0,1" />
+                            <Setter Property="Margin" Value="0,0,0,4" />
+                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                            <Setter TargetName="Root" Property="CornerRadius" Value="4,0,0,4" />
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" Value="Vertical" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="Root" Property="Margin" Value="0,0,-1,0" />
+                        </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -326,7 +360,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
+                    <StackPanel Orientation="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:TabStrip}}}" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>

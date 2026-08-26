@@ -40,6 +40,8 @@ public enum TabStripIndicatorAnimation
 ///   <item><description>Card: <c>Style="{DynamicResource CardTabStripStyle}"</c></description></item>
 ///   <item><description>Button (filled pill): <c>Style="{DynamicResource ButtonTabStripStyle}"</c></description></item>
 /// </list>
+/// Set <see cref="Orientation"/> to <see cref="Orientation.Vertical"/> for a side tab strip
+/// (left accent line and right separator in the default/Card styles).
 /// All variants support <see cref="System.Windows.Controls.ItemsControl.ItemsSource"/> and data binding.
 /// </remarks>
 [TemplatePart(Name = PartIndicator, Type = typeof(FrameworkElement))]
@@ -69,7 +71,7 @@ public class TabStrip : ListBox
         new FrameworkPropertyMetadata(true));
 
     /// <summary>
-    /// Gets or sets whether the 1 px horizontal separator line under the tab strip is shown.
+    /// Gets or sets whether the 1 px separator line under the tab strip is shown.
     /// Defaults to <see langword="true"/>. Applies to the default and Card styles; the Button
     /// style has no separator.
     /// </summary>
@@ -95,12 +97,31 @@ public class TabStrip : ListBox
         set => SetValue(IndicatorAnimationProperty, value);
     }
 
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+        nameof(Orientation),
+        typeof(Orientation),
+        typeof(TabStrip),
+        new FrameworkPropertyMetadata(
+            Orientation.Horizontal,
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange,
+            OnOrientationChanged));
+
     /// <summary>
-    /// Button-style pill sits with <see cref="VerticalAlignment.Top"/> and matches
-    /// the selected item's bounds. Line/Card keep a 2 px bar aligned to the bottom.
+    /// Arranges tab items horizontally (default) or vertically. Vertical mode places the line
+    /// indicator on the left and the separator on the right in the default and Card styles.
     /// </summary>
-    private bool IsFillIndicator =>
-        _indicator is not null && _indicator.VerticalAlignment != VerticalAlignment.Bottom;
+    public Orientation Orientation
+    {
+        get => (Orientation)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
+
+    /// <summary>
+    /// Button style uses a <see cref="Border"/> indicator; line styles use a <see cref="Rectangle"/>.
+    /// </summary>
+    private bool IsFillIndicator => _indicator is Border;
+
+    private bool IsVerticalOrientation => Orientation == Orientation.Vertical;
 
     static TabStrip()
     {
@@ -147,6 +168,14 @@ public class TabStrip : ListBox
         ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
         SizeChanged += OnTabStripSizeChanged;
         UpdateIndicatorPosition(animate: false);
+    }
+
+    private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is TabStrip tabStrip)
+        {
+            tabStrip.Dispatcher.BeginInvoke(() => tabStrip.UpdateIndicatorPosition(animate: false));
+        }
     }
 
     private void OnTabStripSizeChanged(object sender, SizeChangedEventArgs e)
@@ -210,7 +239,15 @@ public class TabStrip : ListBox
         if (selectedItem is null)
         {
             StopIndicatorAnimation(applyCurrent: false);
-            _indicator.Width = 0;
+            if (IsVerticalOrientation)
+            {
+                _indicator.Height = 0;
+            }
+            else
+            {
+                _indicator.Width = 0;
+            }
+
             return;
         }
 
@@ -220,7 +257,7 @@ public class TabStrip : ListBox
             return;
         }
 
-        if (!container.IsLoaded || container.ActualWidth <= 0)
+        if (!container.IsLoaded || !HasValidContainerSize(container))
         {
             container.Loaded -= OnContainerLoaded;
             container.Loaded += OnContainerLoaded;
@@ -242,9 +279,7 @@ public class TabStrip : ListBox
 
         var itemWidth = container.ActualWidth;
         var itemHeight = container.ActualHeight;
-        var targetMargin = IsFillIndicator
-            ? new Thickness(origin.X, origin.Y, 0, 0)
-            : new Thickness(origin.X, 0, 0, 0);
+        var targetMargin = BuildTargetMargin(origin);
 
         if (!animate)
         {
@@ -265,6 +300,28 @@ public class TabStrip : ListBox
         }
     }
 
+    private bool HasValidContainerSize(FrameworkElement container)
+    {
+        if (IsFillIndicator)
+        {
+            return container.ActualWidth > 0 && container.ActualHeight > 0;
+        }
+
+        return IsVerticalOrientation
+            ? container.ActualHeight > 0
+            : container.ActualWidth > 0;
+    }
+
+    private Thickness BuildTargetMargin(Point origin)
+    {
+        if (IsFillIndicator || IsVerticalOrientation)
+        {
+            return new Thickness(origin.X, origin.Y, 0, 0);
+        }
+
+        return new Thickness(origin.X, 0, 0, 0);
+    }
+
     private void ApplyIndicatorBounds(Thickness margin, double width, double height)
     {
         if (_indicator is null)
@@ -274,16 +331,25 @@ public class TabStrip : ListBox
 
         StopIndicatorAnimation(applyCurrent: false);
         _indicator.Margin = margin;
-        _indicator.Width = width;
 
         if (IsFillIndicator)
         {
+            _indicator.Width = width;
             _indicator.Height = height;
+        }
+        else if (IsVerticalOrientation)
+        {
+            _indicator.Height = height;
+        }
+        else
+        {
+            _indicator.Width = width;
         }
 
         if (_indicator.RenderTransform is ScaleTransform resetScale)
         {
             resetScale.ScaleX = 1;
+            resetScale.ScaleY = 1;
         }
     }
 
@@ -302,9 +368,8 @@ public class TabStrip : ListBox
 
         StopIndicatorAnimation(applyCurrent: true);
 
-        var delta = Math.Abs(targetMargin.Left - _indicator.Margin.Left)
-            + Math.Abs(itemWidth - _indicator.Width);
-        if (delta < 0.5 && (!IsFillIndicator || Math.Abs(itemHeight - _indicator.Height) < 0.5))
+        var delta = GetFluentAnimationDelta(targetMargin, itemWidth, itemHeight);
+        if (delta < 0.5)
         {
             ApplyIndicatorBounds(targetMargin, itemWidth, itemHeight);
             return;
@@ -314,27 +379,20 @@ public class TabStrip : ListBox
         var duration = TimeSpan.FromMilliseconds(300);
         var storyboard = CreateIndicatorStoryboard();
 
-        var widthAnim = new DoubleAnimation
+        if (IsFillIndicator || !IsVerticalOrientation)
         {
-            To = itemWidth,
-            Duration = duration,
-            EasingFunction = easing,
-        };
-        Storyboard.SetTarget(widthAnim, _indicator);
-        Storyboard.SetTargetProperty(widthAnim, new PropertyPath(WidthProperty));
-        storyboard.Children.Add(widthAnim);
+            var widthAnim = new DoubleAnimation
+            {
+                To = itemWidth,
+                Duration = duration,
+                EasingFunction = easing,
+            };
+            Storyboard.SetTarget(widthAnim, _indicator);
+            Storyboard.SetTargetProperty(widthAnim, new PropertyPath(WidthProperty));
+            storyboard.Children.Add(widthAnim);
+        }
 
-        var marginAnim = new ThicknessAnimation
-        {
-            To = targetMargin,
-            Duration = duration,
-            EasingFunction = easing,
-        };
-        Storyboard.SetTarget(marginAnim, _indicator);
-        Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
-        storyboard.Children.Add(marginAnim);
-
-        if (IsFillIndicator)
+        if (IsFillIndicator || IsVerticalOrientation)
         {
             var heightAnim = new DoubleAnimation
             {
@@ -347,8 +405,43 @@ public class TabStrip : ListBox
             storyboard.Children.Add(heightAnim);
         }
 
+        var marginAnim = new ThicknessAnimation
+        {
+            To = targetMargin,
+            Duration = duration,
+            EasingFunction = easing,
+        };
+        Storyboard.SetTarget(marginAnim, _indicator);
+        Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
+        storyboard.Children.Add(marginAnim);
+
         _indicatorStoryboard = storyboard;
         storyboard.Begin();
+    }
+
+    private double GetFluentAnimationDelta(Thickness targetMargin, double itemWidth, double itemHeight)
+    {
+        if (_indicator is null)
+        {
+            return 0;
+        }
+
+        if (IsFillIndicator)
+        {
+            return Math.Abs(targetMargin.Left - _indicator.Margin.Left)
+                + Math.Abs(targetMargin.Top - _indicator.Margin.Top)
+                + Math.Abs(itemWidth - _indicator.Width)
+                + Math.Abs(itemHeight - _indicator.Height);
+        }
+
+        if (IsVerticalOrientation)
+        {
+            return Math.Abs(targetMargin.Top - _indicator.Margin.Top)
+                + Math.Abs(itemHeight - _indicator.Height);
+        }
+
+        return Math.Abs(targetMargin.Left - _indicator.Margin.Left)
+            + Math.Abs(itemWidth - _indicator.Width);
     }
 
     /// <summary>
@@ -376,7 +469,9 @@ public class TabStrip : ListBox
         };
 
         Storyboard.SetTarget(scaleAnim, _indicator);
-        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
+        Storyboard.SetTargetProperty(
+            scaleAnim,
+            new PropertyPath(IsVerticalOrientation ? "RenderTransform.ScaleY" : "RenderTransform.ScaleX"));
         storyboard.Children.Add(scaleAnim);
 
         _indicatorStoryboard = storyboard;
@@ -408,9 +503,13 @@ public class TabStrip : ListBox
             var currentMargin = (Thickness)_indicator.GetValue(MarginProperty);
             var currentWidth = (double)_indicator.GetValue(WidthProperty);
             var currentHeight = (double)_indicator.GetValue(HeightProperty);
-            var currentScale = _indicator.RenderTransform is ScaleTransform scale
-                ? scale.ScaleX
-                : 1;
+            var currentScaleX = 1.0;
+            var currentScaleY = 1.0;
+            if (_indicator.RenderTransform is ScaleTransform scale)
+            {
+                currentScaleX = scale.ScaleX;
+                currentScaleY = scale.ScaleY;
+            }
 
             _indicatorStoryboard?.Stop();
             _indicatorStoryboard = null;
@@ -424,11 +523,21 @@ public class TabStrip : ListBox
             {
                 _indicator.Height = currentHeight;
             }
+            else if (IsVerticalOrientation && !double.IsNaN(currentHeight))
+            {
+                _indicator.Height = currentHeight;
+            }
+            else if (!IsVerticalOrientation && !double.IsNaN(currentWidth))
+            {
+                _indicator.Width = currentWidth;
+            }
 
             if (_indicator.RenderTransform is ScaleTransform liveScale)
             {
                 liveScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
-                liveScale.ScaleX = currentScale;
+                liveScale.BeginAnimation(ScaleTransform.ScaleYProperty, null);
+                liveScale.ScaleX = currentScaleX;
+                liveScale.ScaleY = currentScaleY;
             }
 
             return;
@@ -442,7 +551,9 @@ public class TabStrip : ListBox
         if (_indicator.RenderTransform is ScaleTransform resetScale)
         {
             resetScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+            resetScale.BeginAnimation(ScaleTransform.ScaleYProperty, null);
             resetScale.ScaleX = 1;
+            resetScale.ScaleY = 1;
         }
     }
 }

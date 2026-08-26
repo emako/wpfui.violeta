@@ -116,6 +116,60 @@
                 </StackPanel>
             </Border>
 
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Orientation = Vertical" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Vertical tab strip with left accent line and right separator." />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <vio:TabStrip
+                            Grid.Column="0"
+                            Margin="0,0,16,0"
+                            Orientation="Vertical">
+                            <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3b878279a0}}" IsSelected="True" />
+                            <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3ec365dd53}}" />
+                            <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
+                            <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_16d2b386b2}}" />
+                        </vio:TabStrip>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                FontWeight="SemiBold"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_a5e9b0abe6}}" />
+                            <vio:TabStrip
+                                Margin="0,0,0,12"
+                                Orientation="Vertical"
+                                Style="{DynamicResource CardTabStripStyle}">
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3b878279a0}}" IsSelected="True" />
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_3ec365dd53}}" />
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}" />
+                            </vio:TabStrip>
+                            <vio:TabStrip Orientation="Vertical" Style="{DynamicResource ButtonTabStripStyle}">
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_b1c94ca2fb}}" IsSelected="True" />
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_4d3d769b81}}" />
+                                <vio:TabStripItem Content="{I18N {x:Static lang:LangKeys.Sample_e99180abf4}}" />
+                            </vio:TabStrip>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
