@@ -297,8 +297,8 @@
                         </SelectiveScrollingGrid>
                         <!--
                             DataGridRow drives CommonStates (Normal / MouseOver / *_Selected / …).
-                            Pill press/select animations use Trigger EnterActions instead of VSM
-                            so they do not fight those states.
+                            Pill press uses a separate PillPressStates group (ListViewItem pattern)
+                            so it does not fight row selection states.
                         -->
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -313,6 +313,22 @@
                                 <VisualState x:Name="MouseOver" />
                                 <VisualState x:Name="MouseOver_Selected" />
                                 <VisualState x:Name="MouseOver_Unfocused_Selected" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="PillPressStates">
+                                <VisualState x:Name="PillNormal">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
+                                            <SplineDoubleKeyFrame KeySpline="1,0,0,0" KeyTime="0:0:0.167" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PillPressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
+                                            <SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="0:0:0.167" Value="0.625" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                     </Border>
@@ -331,31 +347,21 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="DGR_Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
                         </MultiTrigger>
-                        <!--
-                            Trigger action Storyboards are frozen when the template seals.
-                            DynamicResource cannot freeze; StaticResource cannot see Variables.xaml
-                            from this merged dictionary — use literals matching Variables.xaml.
-                        -->
-                        <Trigger SourceName="DGR_Border" Property="compat:PressHelper.IsPressed" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
-                                            <SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="0:0:0.167" Value="0.625" />
-                                        </DoubleAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
-                                            <SplineDoubleKeyFrame KeySpline="1,0,0,0" KeyTime="0:0:0.167" Value="1" />
-                                        </DoubleAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition SourceName="DGR_Border" Property="compat:PressHelper.IsPressed" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="DGR_Border" Property="ui:ControlHelper.VisualState" Value="PillPressed" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition SourceName="DGR_Border" Property="compat:PressHelper.IsPressed" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="DGR_Border" Property="ui:ControlHelper.VisualState" Value="PillNormal" />
+                        </MultiTrigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="ActiveRectangle" Property="Opacity" Value="1" />
                             <Setter TargetName="DGR_Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
