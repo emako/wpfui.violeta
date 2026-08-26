@@ -12,14 +12,14 @@ namespace Wpf.Ui.Violeta.Controls;
 /// Presents a color for user editing using a spectrum, palette and component sliders.
 /// </summary>
 [TemplatePart(Name = "PART_HexTextBox", Type = typeof(TextBox))]
-[TemplatePart(Name = "PART_TabStrip", Type = typeof(TabStrip))]
+[TemplatePart(Name = "PART_Segmented", Type = typeof(Segmented))]
 [TemplatePart(Name = "PART_PalettePanel", Type = typeof(ListBox))]
 public partial class ColorView : Control
 {
     public event EventHandler<ColorChangedEventArgs>? ColorChanged;
 
     private TextBox? _hexTextBox;
-    private TabStrip? _tabStrip;
+    private Segmented? _segmented;
     protected bool _ignorePropertyChanged;
 
     static ColorView()
@@ -58,13 +58,13 @@ public partial class ColorView : Control
             _hexTextBox.LostFocus -= HexTextBox_LostFocus;
         }
 
-        if (_tabStrip != null)
-            _tabStrip.SelectionChanged -= TabStrip_SelectionChanged;
+        if (_segmented != null)
+            _segmented.SelectionChanged -= Segmented_SelectionChanged;
 
         _hexTextBox = GetTemplateChild("PART_HexTextBox") as TextBox;
-        _tabStrip = GetTemplateChild("PART_TabStrip") as TabStrip;
+        _segmented = GetTemplateChild("PART_Segmented") as Segmented;
         SetColorToHexTextBox();
-        SyncTabStripSelection();
+        SyncSegmentedSelection();
 
         if (_hexTextBox != null)
         {
@@ -72,28 +72,28 @@ public partial class ColorView : Control
             _hexTextBox.LostFocus += HexTextBox_LostFocus;
         }
 
-        if (_tabStrip != null)
-            _tabStrip.SelectionChanged += TabStrip_SelectionChanged;
+        if (_segmented != null)
+            _segmented.SelectionChanged += Segmented_SelectionChanged;
 
         HandlePaletteChanged();
 
         base.OnApplyTemplate();
     }
 
-    private void TabStrip_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void Segmented_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_tabStrip == null || _tabStrip.SelectedIndex < 0)
+        if (_segmented == null || _segmented.SelectedIndex < 0)
             return;
 
-        SetCurrentValue(SelectedIndexProperty, _tabStrip.SelectedIndex);
+        SetCurrentValue(SelectedIndexProperty, _segmented.SelectedIndex);
     }
 
-    private void SyncTabStripSelection()
+    private void SyncSegmentedSelection()
     {
-        if (_tabStrip == null || _tabStrip.SelectedIndex == SelectedIndex)
+        if (_segmented == null || _segmented.SelectedIndex == SelectedIndex)
             return;
 
-        _tabStrip.SelectedIndex = SelectedIndex;
+        _segmented.SelectedIndex = SelectedIndex;
     }
 
     internal void HandleColorChanged(Color oldColor, Color newColor)

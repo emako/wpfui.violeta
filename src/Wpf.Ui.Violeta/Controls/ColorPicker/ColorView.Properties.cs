@@ -129,7 +129,7 @@ public partial class ColorView
     private static void OnSelectedIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is ColorView view)
-            view.SyncTabStripSelection();
+            view.SyncSegmentedSelection();
     }
 
     public Color Color

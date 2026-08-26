@@ -94,20 +94,15 @@
         </Setter>
     </Style>
 
-    <!--  ColorView tab headers: TabStripItem with accent selected color for icon Path Fill  -->
+    <!--  ColorView mode switcher: icon-only SegmentedItem segments  -->
     <Style
-        x:Key="ColorViewTabStripItemStyle"
-        BasedOn="{StaticResource DefaultTabStripItemStyle}"
-        TargetType="{x:Type local:TabStripItem}">
+        x:Key="ColorViewSegmentedItemStyle"
+        BasedOn="{StaticResource DefaultSegmentedItemStyle}"
+        TargetType="{x:Type local:SegmentedItem}">
         <Setter Property="MinHeight" Value="32" />
-        <Setter Property="Padding" Value="8,6" />
+        <Setter Property="Padding" Value="8,4,8,8" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Style.Triggers>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ColorViewTabItemSelectedForeground}" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <!--  Default ColorView  -->
@@ -140,43 +135,40 @@
                                 IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
                                 Visibility="{Binding IsColorPreviewVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                            <local:TabStrip
-                                x:Name="PART_TabStrip"
+                            <local:Segmented
+                                x:Name="PART_Segmented"
                                 Grid.Row="1"
-                                HorizontalContentAlignment="Stretch"
-                                IndicatorAnimation="Fluent"
-                                ItemContainerStyle="{StaticResource ColorViewTabStripItemStyle}"
+                                Margin="12,0,12,8"
+                                HorizontalAlignment="Stretch"
+                                ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
                                 SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}">
-                                <local:TabStrip.ItemsPanel>
+                                <local:Segmented.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <UniformGrid Rows="1" />
                                     </ItemsPanelTemplate>
-                                </local:TabStrip.ItemsPanel>
-                                <local:TabStripItem Visibility="{Binding IsColorSpectrumVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Path
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource ColorViewSpectrumIconGlyph}"
-                                        Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:TabStripItem}}}"
-                                        Stretch="Uniform" />
-                                </local:TabStripItem>
-                                <local:TabStripItem Visibility="{Binding IsColorPaletteVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Path
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource ColorViewPaletteIconGlyph}"
-                                        Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:TabStripItem}}}"
-                                        Stretch="Uniform" />
-                                </local:TabStripItem>
-                                <local:TabStripItem Visibility="{Binding IsColorComponentsVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Path
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource ColorViewComponentsIconGlyph}"
-                                        Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:TabStripItem}}}"
-                                        Stretch="Uniform" />
-                                </local:TabStripItem>
-                            </local:TabStrip>
+                                </local:Segmented.ItemsPanel>
+                                <local:SegmentedItem Visibility="{Binding IsColorSpectrumVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <Viewbox Width="16" Height="16">
+                                        <Path
+                                            Data="{StaticResource ColorViewSpectrumIconGlyph}"
+                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                    </Viewbox>
+                                </local:SegmentedItem>
+                                <local:SegmentedItem Visibility="{Binding IsColorPaletteVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <Viewbox Width="16" Height="16">
+                                        <Path
+                                            Data="{StaticResource ColorViewPaletteIconGlyph}"
+                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                    </Viewbox>
+                                </local:SegmentedItem>
+                                <local:SegmentedItem Visibility="{Binding IsColorComponentsVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <Viewbox Width="16" Height="16">
+                                        <Path
+                                            Data="{StaticResource ColorViewComponentsIconGlyph}"
+                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                    </Viewbox>
+                                </local:SegmentedItem>
+                            </local:Segmented>
 
                             <Grid Grid.Row="2">
                                 <!--  Spectrum  -->
