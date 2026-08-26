@@ -8,8 +8,9 @@ using System.Windows.Media.Animation;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Selects how the <see cref="TabStrip"/> selection indicator (the underline
-/// bar in the default/Card styles) transitions between tabs.
+/// Selects how the <see cref="TabStrip"/> selection indicator transitions
+/// between tabs — the underline in the default/Card styles, or the filled
+/// pill in the Button style.
 /// </summary>
 public enum TabStripIndicatorAnimation
 {
@@ -41,11 +42,13 @@ public enum TabStripIndicatorAnimation
 /// </list>
 /// All variants support <see cref="System.Windows.Controls.ItemsControl.ItemsSource"/> and data binding.
 /// </remarks>
+[TemplatePart(Name = PartIndicator, Type = typeof(FrameworkElement))]
 public class TabStrip : ListBox
 {
     private const string PartIndicator = "PART_Indicator";
 
     private FrameworkElement? _indicator;
+    private Storyboard? _indicatorStoryboard;
 
     public static readonly DependencyProperty IsSelectedItemBoldProperty = DependencyProperty.Register(
         nameof(IsSelectedItemBold),
@@ -92,6 +95,13 @@ public class TabStrip : ListBox
         set => SetValue(IndicatorAnimationProperty, value);
     }
 
+    /// <summary>
+    /// Button-style pill sits with <see cref="VerticalAlignment.Top"/> and matches
+    /// the selected item's bounds. Line/Card keep a 2 px bar aligned to the bottom.
+    /// </summary>
+    private bool IsFillIndicator =>
+        _indicator is not null && _indicator.VerticalAlignment != VerticalAlignment.Bottom;
+
     static TabStrip()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
@@ -112,33 +122,68 @@ public class TabStrip : ListBox
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
+
+        _indicatorStoryboard?.Stop();
+        _indicatorStoryboard = null;
         _indicator = GetTemplateChild(PartIndicator) as FrameworkElement;
 
-        if (_indicator is not null)
-        {
-            // The ScaleTransform declared inline in the template has no bindings,
-            // so WPF freezes it for perf — a frozen Freezable can't be animated or
-            // have its properties set. Replace it with a fresh, unfrozen instance
-            // (used by the Lengthening animation).
-            _indicator.RenderTransform = new ScaleTransform(1, 1);
+        SizeChanged -= OnTabStripSizeChanged;
+        ItemContainerGenerator.StatusChanged -= OnItemContainerGeneratorStatusChanged;
 
-            // Containers may not exist yet at this point (they're generated
-            // asynchronously), so an immediate attempt often no-ops. Re-run
-            // once the generator reports containers are ready.
-            ItemContainerGenerator.StatusChanged -= OnItemContainerGeneratorStatusChanged;
-            ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
-            UpdateIndicatorPosition(animate: false);
+        if (_indicator is null)
+        {
+            return;
         }
+
+        // The ScaleTransform declared inline in the template has no bindings,
+        // so WPF freezes it for perf — a frozen Freezable can't be animated or
+        // have its properties set. Replace it with a fresh, unfrozen instance
+        // (used by the Lengthening animation).
+        _indicator.RenderTransform = new ScaleTransform(1, 1);
+
+        // Containers may not exist yet at this point (they're generated
+        // asynchronously), so an immediate attempt often no-ops. Re-run
+        // once the generator reports containers are ready.
+        ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
+        SizeChanged += OnTabStripSizeChanged;
+        UpdateIndicatorPosition(animate: false);
+    }
+
+    private void OnTabStripSizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (!e.WidthChanged && !e.HeightChanged)
+        {
+            return;
+        }
+
+        if (_indicatorStoryboard is not null)
+        {
+            return;
+        }
+
+        UpdateIndicatorPosition(animate: false);
     }
 
     private void OnItemContainerGeneratorStatusChanged(object? sender, EventArgs e)
     {
         if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
+        {
             return;
+        }
 
         // Defer again so the newly generated containers have gone through a
         // layout pass and report their real ActualWidth.
         Dispatcher.BeginInvoke(() => UpdateIndicatorPosition(animate: false));
+    }
+
+    private void OnContainerLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement element)
+        {
+            element.Loaded -= OnContainerLoaded;
+        }
+
+        UpdateIndicatorPosition(animate: false);
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
@@ -146,7 +191,9 @@ public class TabStrip : ListBox
         base.OnSelectionChanged(e);
 
         if (_indicator is null)
+        {
             return;
+        }
 
         // Defer to let the layout update so containers have their final sizes
         Dispatcher.BeginInvoke(() => UpdateIndicatorPosition(animate: true));
@@ -155,45 +202,88 @@ public class TabStrip : ListBox
     private void UpdateIndicatorPosition(bool animate)
     {
         if (_indicator is null)
+        {
             return;
+        }
 
         var selectedItem = SelectedItem;
         if (selectedItem is null)
         {
+            StopIndicatorAnimation(applyCurrent: false);
             _indicator.Width = 0;
             return;
         }
 
         var container = ItemContainerGenerator.ContainerFromItem(selectedItem) as FrameworkElement;
-
-        if (container?.IsLoaded != true)
+        if (container is null)
+        {
             return;
+        }
+
+        if (!container.IsLoaded || container.ActualWidth <= 0)
+        {
+            container.Loaded -= OnContainerLoaded;
+            container.Loaded += OnContainerLoaded;
+            return;
+        }
+
+        // Indicator lives in a padded host for the Button style — measure
+        // against its parent, not the TabStrip itself, or the pill sits offset.
+        var host = _indicator.Parent as Visual ?? this;
+        Point origin;
+        try
+        {
+            origin = container.TransformToVisual(host).Transform(new Point(0, 0));
+        }
+        catch (InvalidOperationException)
+        {
+            return;
+        }
 
         var itemWidth = container.ActualWidth;
-        var transform = container.TransformToVisual(this);
-        var itemLeft = transform.Transform(default).X;
+        var itemHeight = container.ActualHeight;
+        var targetMargin = IsFillIndicator
+            ? new Thickness(origin.X, origin.Y, 0, 0)
+            : new Thickness(origin.X, 0, 0, 0);
 
         if (!animate)
         {
-            _indicator.Margin = new Thickness(itemLeft, 0, 0, 0);
-            _indicator.Width = itemWidth;
-
-            if (_indicator.RenderTransform is ScaleTransform resetScale)
-                resetScale.ScaleX = 1;
-
+            ApplyIndicatorBounds(targetMargin, itemWidth, itemHeight);
             return;
         }
 
         switch (IndicatorAnimation)
         {
             case TabStripIndicatorAnimation.Lengthening:
-                AnimateLengthening(itemLeft, itemWidth);
+                AnimateLengthening(targetMargin, itemWidth, itemHeight);
                 break;
 
             case TabStripIndicatorAnimation.Fluent:
             default:
-                AnimateFluent(itemLeft, itemWidth);
+                AnimateFluent(targetMargin, itemWidth, itemHeight);
                 break;
+        }
+    }
+
+    private void ApplyIndicatorBounds(Thickness margin, double width, double height)
+    {
+        if (_indicator is null)
+        {
+            return;
+        }
+
+        StopIndicatorAnimation(applyCurrent: false);
+        _indicator.Margin = margin;
+        _indicator.Width = width;
+
+        if (IsFillIndicator)
+        {
+            _indicator.Height = height;
+        }
+
+        if (_indicator.RenderTransform is ScaleTransform resetScale)
+        {
+            resetScale.ScaleX = 1;
         }
     }
 
@@ -203,22 +293,32 @@ public class TabStrip : ListBox
     /// immediately and only the tail eases out, reading as quick rather than
     /// sluggish.
     /// </summary>
-    private void AnimateFluent(double itemLeft, double itemWidth)
+    private void AnimateFluent(Thickness targetMargin, double itemWidth, double itemHeight)
     {
         if (_indicator is null)
+        {
             return;
+        }
+
+        StopIndicatorAnimation(applyCurrent: true);
+
+        var delta = Math.Abs(targetMargin.Left - _indicator.Margin.Left)
+            + Math.Abs(itemWidth - _indicator.Width);
+        if (delta < 0.5 && (!IsFillIndicator || Math.Abs(itemHeight - _indicator.Height) < 0.5))
+        {
+            ApplyIndicatorBounds(targetMargin, itemWidth, itemHeight);
+            return;
+        }
 
         var easing = new PowerEase { Power = 8, EasingMode = EasingMode.EaseOut };
         var duration = TimeSpan.FromMilliseconds(300);
-
-        var storyboard = new Storyboard();
+        var storyboard = CreateIndicatorStoryboard();
 
         var widthAnim = new DoubleAnimation
         {
-            From = _indicator.ActualWidth,
             To = itemWidth,
             Duration = duration,
-            EasingFunction = easing
+            EasingFunction = easing,
         };
         Storyboard.SetTarget(widthAnim, _indicator);
         Storyboard.SetTargetProperty(widthAnim, new PropertyPath(WidthProperty));
@@ -226,15 +326,28 @@ public class TabStrip : ListBox
 
         var marginAnim = new ThicknessAnimation
         {
-            From = _indicator.Margin,
-            To = new Thickness(itemLeft, 0, 0, 0),
+            To = targetMargin,
             Duration = duration,
-            EasingFunction = easing
+            EasingFunction = easing,
         };
         Storyboard.SetTarget(marginAnim, _indicator);
         Storyboard.SetTargetProperty(marginAnim, new PropertyPath(MarginProperty));
         storyboard.Children.Add(marginAnim);
 
+        if (IsFillIndicator)
+        {
+            var heightAnim = new DoubleAnimation
+            {
+                To = itemHeight,
+                Duration = duration,
+                EasingFunction = easing,
+            };
+            Storyboard.SetTarget(heightAnim, _indicator);
+            Storyboard.SetTargetProperty(heightAnim, new PropertyPath(HeightProperty));
+            storyboard.Children.Add(heightAnim);
+        }
+
+        _indicatorStoryboard = storyboard;
         storyboard.Begin();
     }
 
@@ -244,27 +357,92 @@ public class TabStrip : ListBox
     /// with a steep ease-out: fast at the start, slowing into place, rather
     /// than building up speed toward the end.
     /// </summary>
-    private void AnimateLengthening(double itemLeft, double itemWidth)
+    private void AnimateLengthening(Thickness targetMargin, double itemWidth, double itemHeight)
     {
         if (_indicator is null)
+        {
             return;
+        }
 
-        _indicator.Margin = new Thickness(itemLeft, 0, 0, 0);
-        _indicator.Width = itemWidth;
+        ApplyIndicatorBounds(targetMargin, itemWidth, itemHeight);
 
-        var storyboard = new Storyboard();
-
+        var storyboard = CreateIndicatorStoryboard();
         var scaleAnim = new DoubleAnimation
         {
             From = 0,
             To = 1,
             Duration = TimeSpan.FromMilliseconds(180),
-            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
         };
 
         Storyboard.SetTarget(scaleAnim, _indicator);
         Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
         storyboard.Children.Add(scaleAnim);
+
+        _indicatorStoryboard = storyboard;
         storyboard.Begin();
+    }
+
+    private Storyboard CreateIndicatorStoryboard()
+    {
+        var storyboard = new Storyboard();
+        storyboard.Completed += (_, _) =>
+        {
+            if (ReferenceEquals(_indicatorStoryboard, storyboard))
+            {
+                _indicatorStoryboard = null;
+            }
+        };
+        return storyboard;
+    }
+
+    private void StopIndicatorAnimation(bool applyCurrent)
+    {
+        if (_indicator is null)
+        {
+            return;
+        }
+
+        if (applyCurrent)
+        {
+            var currentMargin = (Thickness)_indicator.GetValue(MarginProperty);
+            var currentWidth = (double)_indicator.GetValue(WidthProperty);
+            var currentHeight = (double)_indicator.GetValue(HeightProperty);
+            var currentScale = _indicator.RenderTransform is ScaleTransform scale
+                ? scale.ScaleX
+                : 1;
+
+            _indicatorStoryboard?.Stop();
+            _indicatorStoryboard = null;
+            _indicator.BeginAnimation(MarginProperty, null);
+            _indicator.BeginAnimation(WidthProperty, null);
+            _indicator.BeginAnimation(HeightProperty, null);
+            _indicator.Margin = currentMargin;
+            _indicator.Width = currentWidth;
+
+            if (IsFillIndicator && !double.IsNaN(currentHeight))
+            {
+                _indicator.Height = currentHeight;
+            }
+
+            if (_indicator.RenderTransform is ScaleTransform liveScale)
+            {
+                liveScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+                liveScale.ScaleX = currentScale;
+            }
+
+            return;
+        }
+
+        _indicatorStoryboard?.Stop();
+        _indicatorStoryboard = null;
+        _indicator.BeginAnimation(MarginProperty, null);
+        _indicator.BeginAnimation(WidthProperty, null);
+        _indicator.BeginAnimation(HeightProperty, null);
+        if (_indicator.RenderTransform is ScaleTransform resetScale)
+        {
+            resetScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+            resetScale.ScaleX = 1;
+        }
     }
 }

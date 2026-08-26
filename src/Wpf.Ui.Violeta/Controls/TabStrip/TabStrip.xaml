@@ -244,7 +244,7 @@
         ║                   BUTTON – TabStripItem                      ║
         ║                                                              ║
         ║  • Pill-shaped items (ControlCornerRadius)                   ║
-        ║  • Selected: solid accent background + white text            ║
+        ║  • Selected: sliding accent pill + on-accent text            ║
         ║  • No separator line                                         ║
         ╚══════════════════════════════════════════════════════════════╝
     -->
@@ -279,9 +279,8 @@
                             RecognizesAccessKey="True" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!--  Selected: accent highlight inside the card shell  -->
+                        <!--  Selected: on-accent text; fill comes from the sliding PART_Indicator  -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
                             <Setter Property="Foreground" Value="{DynamicResource TextOnAccentFillColorPrimaryBrush}" />
                         </Trigger>
                         <MultiDataTrigger>
@@ -334,15 +333,34 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TabStrip}">
-                    <!--  Single card, no separator  -->
+                    <!--  Single card, no separator; pill indicator slides behind items  -->
                     <Border
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        ClipToBounds="True"
                         CornerRadius="6"
                         SnapsToDevicePixels="True">
-                        <ItemsPresenter />
+                        <Grid>
+                            <Border
+                                x:Name="PART_Indicator"
+                                Width="0"
+                                Height="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource AccentFillColorDefaultBrush}"
+                                CornerRadius="{DynamicResource ControlCornerRadius}"
+                                IsHitTestVisible="False"
+                                RenderTransformOrigin="0.5,0.5"
+                                SnapsToDevicePixels="False">
+                                <!--  Replaced with a fresh, unfrozen ScaleTransform in code-behind — see TabStrip.OnApplyTemplate  -->
+                                <Border.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </Border.RenderTransform>
+                            </Border>
+                            <ItemsPresenter />
+                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
