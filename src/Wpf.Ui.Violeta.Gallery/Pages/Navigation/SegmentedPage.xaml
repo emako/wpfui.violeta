@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -46,11 +46,7 @@
                             <vio:SegmentedItem ToolTip="{I18N {x:Static lang:LangKeys.Sample_4ee29ca12c}}">
                                 <Viewbox Width="18" Height="18">
                                     <Grid Width="16" Height="16">
-                                        <Path
-                                            Data="M 3,3 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0
-                                                  M 3,8 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0
-                                                  M 3,13 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0"
-                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=vio:SegmentedItem}}" />
+                                        <Path Data="M 3,3 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0                                                   M 3,8 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0                                                   M 3,13 m -1.2,0 a 1.2,1.2 0 1,0 2.4,0 a 1.2,1.2 0 1,0 -2.4,0" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=vio:SegmentedItem}}" />
                                         <Path
                                             Data="M 6,3 H 14 M 6,8 H 14 M 6,13 H 14"
                                             Fill="Transparent"
@@ -66,8 +62,7 @@
                                     <Path
                                         Width="16"
                                         Height="16"
-                                        Data="M 4,2 H 2 V 6 H 4   M 6,3 H 14   M 6,5 H 14
-                                              M 4,10 H 2 V 14 H 4 M 6,11 H 14  M 6,13 H 14"
+                                        Data="M 4,2 H 2 V 6 H 4   M 6,3 H 14   M 6,5 H 14                                               M 4,10 H 2 V 14 H 4 M 6,11 H 14  M 6,13 H 14"
                                         Fill="Transparent"
                                         Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=vio:SegmentedItem}}"
                                         StrokeEndLineCap="Round"
@@ -177,7 +172,7 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="IndicatorAnimation=Lengthening (default)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Segmented_IndicatorLengtheningDefault}}" />
                     <vio:Segmented IndicatorAnimation="Lengthening">
                         <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
                             <vio:SegmentedItem.Icon>
@@ -248,6 +243,92 @@
                             <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_ca8a2087e5}}" />
                         </vio:Segmented>
                     </ui:StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Segmented_VerticalTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Segmented_VerticalDesc}}" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="24">
+                        <vio:Segmented Orientation="Vertical" SelectedIndex="0">
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}">
+                                <vio:SegmentedItem.Icon>
+                                    <ui:SymbolIcon FontSize="16" Symbol="Home24" />
+                                </vio:SegmentedItem.Icon>
+                            </vio:SegmentedItem>
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
+                                <vio:SegmentedItem.Icon>
+                                    <ui:SymbolIcon FontSize="16" Symbol="Search24" />
+                                </vio:SegmentedItem.Icon>
+                            </vio:SegmentedItem>
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                                <vio:SegmentedItem.Icon>
+                                    <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
+                                </vio:SegmentedItem.Icon>
+                            </vio:SegmentedItem>
+                        </vio:Segmented>
+                        <vio:Segmented Orientation="Vertical" SelectedIndex="1">
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_03727ac485}}" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_d2ce009594}}" />
+                            <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_7cbb885aa1}}" />
+                        </vio:Segmented>
+                    </ui:StackPanel>
+                    <TextBlock
+                        Margin="0,16,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Segmented_IndicatorLengtheningDefault}}" />
+                    <vio:Segmented IndicatorAnimation="Lengthening" Orientation="Vertical">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Home24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Search24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                    </vio:Segmented>
+                    <TextBlock
+                        Margin="0,12,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_319fe31ff0}}" />
+                    <vio:Segmented IndicatorAnimation="Fluent" Orientation="Vertical">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Home24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Search24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                    </vio:Segmented>
                 </StackPanel>
             </Border>
 

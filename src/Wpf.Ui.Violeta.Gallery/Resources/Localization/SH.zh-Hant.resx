@@ -3358,6 +3358,15 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
     <value>主區域單擊分享；下拉可巢狀 Send 及裝置目標。</value>
   </data>
+  <data name="Sample_Segmented_IndicatorLengtheningDefault" xml:space="preserve">
+    <value>IndicatorAnimation=Lengthening（預設）</value>
+  </data>
+  <data name="Sample_Segmented_VerticalDesc" xml:space="preserve">
+    <value>Orientation=Vertical — 強調色指示器顯示在選取項目左側邊緣。</value>
+  </data>
+  <data name="Sample_Segmented_VerticalTitle" xml:space="preserve">
+    <value>直向方向</value>
+  </data>
   <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
     <value>Appearance 設定整個拆分控制項樣式；各部分仍有各自的 flyout 命令。</value>
   </data>

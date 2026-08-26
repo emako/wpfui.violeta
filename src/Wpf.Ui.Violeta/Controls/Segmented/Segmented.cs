@@ -41,7 +41,11 @@ public enum SegmentedIndicatorAnimation
 public class Segmented : ListBox
 {
     private const string PartIndicator = "PART_Indicator";
-    private const double IndicatorBottomMargin = 3;
+    private const double IndicatorEdgeMargin = 3;
+    private const double IndicatorLength = 16;
+    private const double IndicatorThickness = 3;
+    private static readonly Thickness HorizontalItemPadding = new(10, 5, 10, 7);
+    private static readonly Thickness VerticalItemPadding = new(12, 5, 10, 5);
     private const double ShellPadding = 0;
     private const double ItemInnerCornerRadius = 4;
     private const double IndicatorPressedMinScale = 0.625;
@@ -82,6 +86,28 @@ public class Segmented : ListBox
         set => SetValue(IndicatorAnimationProperty, value);
     }
 
+    /// <summary>Identifies the <see cref="Orientation"/> dependency property.</summary>
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+        nameof(Orientation),
+        typeof(Orientation),
+        typeof(Segmented),
+        new FrameworkPropertyMetadata(
+            Orientation.Horizontal,
+            FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange,
+            OnOrientationChanged));
+
+    /// <summary>
+    /// Gets or sets whether segments are arranged horizontally (default) or vertically.
+    /// Vertical layout places the accent indicator on the left edge of the selected segment.
+    /// </summary>
+    public Orientation Orientation
+    {
+        get => (Orientation)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
+
+    private bool IsVertical => Orientation == Orientation.Vertical;
+
     static Segmented()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
@@ -110,9 +136,9 @@ public class Segmented : ListBox
             return;
         }
 
-        // Template Freezables are immutable — install a fresh transform for ScaleX stretch.
+        // Template Freezables are immutable — install a fresh transform for axis stretch.
         _indicator.RenderTransform = new ScaleTransform(1, 1);
-        _indicator.RenderTransformOrigin = new Point(0.5, 1);
+        ApplyIndicatorOrientation();
 
         ItemContainerGenerator.StatusChanged -= OnItemContainerGeneratorStatusChanged;
         ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
@@ -132,7 +158,8 @@ public class Segmented : ListBox
             return;
         }
 
-        scale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+        var scaleProperty = GetIndicatorScaleProperty();
+        scale.BeginAnimation(scaleProperty, null);
 
         var scaleAnim = new DoubleAnimation
         {
@@ -140,7 +167,7 @@ public class Segmented : ListBox
             Duration = TimeSpan.FromMilliseconds(167),
             EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
         };
-        scale.BeginAnimation(ScaleTransform.ScaleXProperty, scaleAnim);
+        scale.BeginAnimation(scaleProperty, scaleAnim);
     }
 
     protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
@@ -155,6 +182,18 @@ public class Segmented : ListBox
         {
             segmented.UpdateItemVisuals();
         }
+    }
+
+    private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not Segmented segmented)
+        {
+            return;
+        }
+
+        segmented.ApplyIndicatorOrientation();
+        segmented.UpdateItemVisuals();
+        segmented.UpdateIndicatorPosition(animate: false);
     }
 
     private void UpdateItemVisuals()
@@ -179,7 +218,8 @@ public class Segmented : ListBox
                 continue;
             }
 
-            item.SelectionCornerRadius = GetSelectionCornerRadius(index, count, outerRadius);
+            item.Padding = IsVertical ? VerticalItemPadding : HorizontalItemPadding;
+            item.SelectionCornerRadius = GetSelectionCornerRadius(index, count, outerRadius, IsVertical);
         }
     }
 
@@ -204,11 +244,26 @@ public class Segmented : ListBox
         return Math.Max(0, shellRadius - ShellPadding);
     }
 
-    private static CornerRadius GetSelectionCornerRadius(int index, int count, double outerRadius)
+    private static CornerRadius GetSelectionCornerRadius(int index, int count, double outerRadius, bool isVertical)
     {
         if (count == 1)
         {
             return new CornerRadius(outerRadius);
+        }
+
+        if (isVertical)
+        {
+            if (index == 0)
+            {
+                return new CornerRadius(outerRadius, outerRadius, ItemInnerCornerRadius, ItemInnerCornerRadius);
+            }
+
+            if (index == count - 1)
+            {
+                return new CornerRadius(ItemInnerCornerRadius, ItemInnerCornerRadius, outerRadius, outerRadius);
+            }
+
+            return new CornerRadius(ItemInnerCornerRadius);
         }
 
         if (index == 0)
@@ -226,12 +281,15 @@ public class Segmented : ListBox
 
     private void OnSegmentedSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if (!e.WidthChanged || _indicatorStoryboard is not null)
+        if (_indicatorStoryboard is not null)
         {
             return;
         }
 
-        UpdateIndicatorPosition(animate: false);
+        if (IsVertical ? e.HeightChanged : e.WidthChanged)
+        {
+            UpdateIndicatorPosition(animate: false);
+        }
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
@@ -310,7 +368,7 @@ public class Segmented : ListBox
             return;
         }
 
-        if (!container.IsLoaded || container.ActualWidth <= 0)
+        if (!container.IsLoaded || !HasValidContainerSize(container))
         {
             container.Loaded -= OnContainerLoaded;
             container.Loaded += OnContainerLoaded;
@@ -328,9 +386,7 @@ public class Segmented : ListBox
             return;
         }
 
-        var pillWidth = GetPillWidth();
-        var left = origin.X + ((container.ActualWidth - pillWidth) / 2);
-        var targetMargin = new Thickness(left, 0, 0, IndicatorBottomMargin);
+        var targetMargin = CreateIndicatorMargin(origin, container);
 
         _indicator.Opacity = 1;
 
@@ -370,11 +426,75 @@ public class Segmented : ListBox
         }
     }
 
-    private double GetPillWidth()
+    private void ResetIndicatorScale(ScaleTransform scale, double value)
+    {
+        scale.BeginAnimation(GetIndicatorScaleProperty(), null);
+        SetIndicatorScale(scale, value);
+    }
+
+    private void ApplyIndicatorOrientation()
     {
         if (_indicator is null)
         {
-            return 16;
+            return;
+        }
+
+        if (IsVertical)
+        {
+            _indicator.Width = IndicatorThickness;
+            _indicator.Height = IndicatorLength;
+            _indicator.HorizontalAlignment = HorizontalAlignment.Left;
+            _indicator.VerticalAlignment = VerticalAlignment.Top;
+            _indicator.RenderTransformOrigin = new Point(0, 0.5);
+        }
+        else
+        {
+            _indicator.Width = IndicatorLength;
+            _indicator.Height = IndicatorThickness;
+            _indicator.HorizontalAlignment = HorizontalAlignment.Left;
+            _indicator.VerticalAlignment = VerticalAlignment.Bottom;
+            _indicator.RenderTransformOrigin = new Point(0.5, 1);
+        }
+
+        if (_indicator.RenderTransform is ScaleTransform scale)
+        {
+            scale.ScaleX = 1;
+            scale.ScaleY = 1;
+        }
+    }
+
+    private bool HasValidContainerSize(FrameworkElement container) =>
+        IsVertical ? container.ActualHeight > 0 : container.ActualWidth > 0;
+
+    private Thickness CreateIndicatorMargin(Point origin, FrameworkElement container)
+    {
+        var pillLength = GetPillLength();
+
+        if (IsVertical)
+        {
+            var top = origin.Y + ((container.ActualHeight - pillLength) / 2);
+            return new Thickness(IndicatorEdgeMargin, top, 0, 0);
+        }
+
+        var left = origin.X + ((container.ActualWidth - pillLength) / 2);
+        return new Thickness(left, 0, 0, IndicatorEdgeMargin);
+    }
+
+    private double GetPillLength()
+    {
+        if (_indicator is null)
+        {
+            return IndicatorLength;
+        }
+
+        if (IsVertical)
+        {
+            if (!double.IsNaN(_indicator.Height) && _indicator.Height > 0)
+            {
+                return _indicator.Height;
+            }
+
+            return _indicator.ActualHeight > 0 ? _indicator.ActualHeight : IndicatorLength;
         }
 
         if (!double.IsNaN(_indicator.Width) && _indicator.Width > 0)
@@ -382,7 +502,31 @@ public class Segmented : ListBox
             return _indicator.Width;
         }
 
-        return _indicator.ActualWidth > 0 ? _indicator.ActualWidth : 16;
+        return _indicator.ActualWidth > 0 ? _indicator.ActualWidth : IndicatorLength;
+    }
+
+    private static double GetIndicatorPrimaryMargin(Thickness margin, bool isVertical) =>
+        isVertical ? margin.Top : margin.Left;
+
+    private DependencyProperty GetIndicatorScaleProperty() =>
+        IsVertical ? ScaleTransform.ScaleYProperty : ScaleTransform.ScaleXProperty;
+
+    private string GetIndicatorScalePath() =>
+        IsVertical ? "RenderTransform.ScaleY" : "RenderTransform.ScaleX";
+
+    private double GetIndicatorScale(ScaleTransform scale) =>
+        IsVertical ? scale.ScaleY : scale.ScaleX;
+
+    private void SetIndicatorScale(ScaleTransform scale, double value)
+    {
+        if (IsVertical)
+        {
+            scale.ScaleY = value;
+        }
+        else
+        {
+            scale.ScaleX = value;
+        }
     }
 
     private void AnimateFluent(Thickness targetMargin)
@@ -394,8 +538,9 @@ public class Segmented : ListBox
 
         StopIndicatorAnimation(applyCurrent: true);
 
-        var fromLeft = _indicator.Margin.Left;
-        var delta = Math.Abs(targetMargin.Left - fromLeft);
+        var fromPrimary = GetIndicatorPrimaryMargin(_indicator.Margin, IsVertical);
+        var targetPrimary = GetIndicatorPrimaryMargin(targetMargin, IsVertical);
+        var delta = Math.Abs(targetPrimary - fromPrimary);
         if (delta < 0.5)
         {
             ApplyIndicatorBounds(targetMargin);
@@ -405,7 +550,7 @@ public class Segmented : ListBox
         var duration = TimeSpan.FromMilliseconds(280);
         var stretch = 1.0 + Math.Min(0.75, Math.Max(0.22, delta / 56.0));
         var fromScale = _indicator.RenderTransform is ScaleTransform scale
-            ? scale.ScaleX
+            ? GetIndicatorScale(scale)
             : 1;
 
         var storyboard = CreateIndicatorStoryboard();
@@ -434,7 +579,7 @@ public class Segmented : ListBox
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut },
             });
         Storyboard.SetTarget(scaleAnim, _indicator);
-        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
+        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath(GetIndicatorScalePath()));
         storyboard.Children.Add(scaleAnim);
 
         _indicatorStoryboard = storyboard;
@@ -460,7 +605,7 @@ public class Segmented : ListBox
         };
 
         Storyboard.SetTarget(scaleAnim, _indicator);
-        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
+        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath(GetIndicatorScalePath()));
         storyboard.Children.Add(scaleAnim);
 
         _indicatorStoryboard = storyboard;
@@ -492,7 +637,7 @@ public class Segmented : ListBox
         {
             var currentMargin = (Thickness)_indicator.GetValue(MarginProperty);
             var currentScale = _indicator.RenderTransform is ScaleTransform scale
-                ? scale.ScaleX
+                ? GetIndicatorScale(scale)
                 : 1;
 
             _indicatorStoryboard?.Stop();
@@ -501,8 +646,7 @@ public class Segmented : ListBox
             _indicator.Margin = currentMargin;
             if (_indicator.RenderTransform is ScaleTransform liveScale)
             {
-                liveScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
-                liveScale.ScaleX = currentScale;
+                ResetIndicatorScale(liveScale, currentScale);
             }
 
             return;
@@ -513,11 +657,7 @@ public class Segmented : ListBox
         _indicator.BeginAnimation(MarginProperty, null);
         if (_indicator.RenderTransform is ScaleTransform resetScale)
         {
-            resetScale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
-            if (!applyCurrent)
-            {
-                resetScale.ScaleX = 1;
-            }
+            ResetIndicatorScale(resetScale, applyCurrent ? GetIndicatorScale(resetScale) : 1);
         }
     }
 }

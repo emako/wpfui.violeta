@@ -3358,6 +3358,15 @@ Click OK to continue.</value>
   <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
     <value>Primary click shares; the flyout can nest Send and device targets.</value>
   </data>
+  <data name="Sample_Segmented_IndicatorLengtheningDefault" xml:space="preserve">
+    <value>IndicatorAnimation=Lengthening (default)</value>
+  </data>
+  <data name="Sample_Segmented_VerticalDesc" xml:space="preserve">
+    <value>Orientation=Vertical — accent indicator on the left edge.</value>
+  </data>
+  <data name="Sample_Segmented_VerticalTitle" xml:space="preserve">
+    <value>Vertical orientation</value>
+  </data>
   <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
     <value>Appearance styles the whole split control; each still has its own flyout commands.</value>
   </data>

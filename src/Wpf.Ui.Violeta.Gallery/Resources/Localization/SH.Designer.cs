@@ -19175,6 +19175,33 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IndicatorAnimation=Lengthening (default).
+        /// </summary>
+        internal static string Sample_Segmented_IndicatorLengtheningDefault {
+            get {
+                return ResourceManager.GetString("Sample_Segmented_IndicatorLengtheningDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orientation=Vertical — accent indicator on the left edge..
+        /// </summary>
+        internal static string Sample_Segmented_VerticalDesc {
+            get {
+                return ResourceManager.GetString("Sample_Segmented_VerticalDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical orientation.
+        /// </summary>
+        internal static string Sample_Segmented_VerticalTitle {
+            get {
+                return ResourceManager.GetString("Sample_Segmented_VerticalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Appearance styles the whole split control; each still has its own flyout commands..
         /// </summary>
         internal static string Sample_SplitButton_AppearanceDesc {

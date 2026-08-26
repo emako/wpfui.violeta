@@ -3358,6 +3358,15 @@ OK をクリックして続行してください。</value>
   <data name="Sample_SplitButton_NestedFlyoutDesc" xml:space="preserve">
     <value>プライマリ click shares; the flyout can nest Send and device targets.</value>
   </data>
+  <data name="Sample_Segmented_IndicatorLengtheningDefault" xml:space="preserve">
+    <value>IndicatorAnimation=Lengthening（既定）</value>
+  </data>
+  <data name="Sample_Segmented_VerticalDesc" xml:space="preserve">
+    <value>Orientation=Vertical — アクセント インジケーターは選択項目の左端に表示されます。</value>
+  </data>
+  <data name="Sample_Segmented_VerticalTitle" xml:space="preserve">
+    <value>縦方向</value>
+  </data>
   <data name="Sample_SplitButton_AppearanceDesc" xml:space="preserve">
     <value>Appearance は分割コントロール全体をスタイル設定。各部分は独自の flyout コマンドを持つ。</value>
   </data>
