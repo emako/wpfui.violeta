@@ -9,6 +9,24 @@ using System.Windows.Media.Animation;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
+/// Selects how the <see cref="Segmented"/> accent underline transitions between segments.
+/// </summary>
+public enum SegmentedIndicatorAnimation
+{
+    /// <summary>
+    /// Windows Fluent Design follow transition: the indicator slides toward the new segment
+    /// while stretching horizontally, then settles back to its resting width.
+    /// </summary>
+    Fluent,
+
+    /// <summary>
+    /// The indicator jumps to the new segment's position immediately, then grows into view
+    /// via a horizontal scale animation (0 → 1) with an ease-out deceleration.
+    /// </summary>
+    Lengthening,
+}
+
+/// <summary>
 /// A compact mutually exclusive selector styled after WinUI <c>Segmented</c>
 /// (subtle selected fill plus an accent underline), as used by UniGetUI's view-mode switcher.
 /// </summary>
@@ -17,7 +35,7 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <see cref="System.Windows.Controls.Primitives.Selector.SelectedItem"/>, and
 /// <see cref="System.Windows.Controls.Primitives.Selector.SelectionChanged"/> work as usual.
 /// Selection is always single; clearing the current segment is not allowed.
-/// The selection pill slides between segments with a Fluent follow animation.
+/// The accent underline uses <see cref="IndicatorAnimation"/> (default: lengthening).
 /// </remarks>
 [TemplatePart(Name = PartIndicator, Type = typeof(FrameworkElement))]
 public class Segmented : ListBox
@@ -45,6 +63,22 @@ public class Segmented : ListBox
     {
         get => (CornerRadius)GetValue(CornerRadiusProperty);
         set => SetValue(CornerRadiusProperty, value);
+    }
+
+    public static readonly DependencyProperty IndicatorAnimationProperty = DependencyProperty.Register(
+        nameof(IndicatorAnimation),
+        typeof(SegmentedIndicatorAnimation),
+        typeof(Segmented),
+        new FrameworkPropertyMetadata(SegmentedIndicatorAnimation.Lengthening));
+
+    /// <summary>
+    /// Controls how the accent underline transitions between segments.
+    /// Defaults to <see cref="SegmentedIndicatorAnimation.Lengthening"/>.
+    /// </summary>
+    public SegmentedIndicatorAnimation IndicatorAnimation
+    {
+        get => (SegmentedIndicatorAnimation)GetValue(IndicatorAnimationProperty);
+        set => SetValue(IndicatorAnimationProperty, value);
     }
 
     static Segmented()
@@ -280,17 +314,38 @@ public class Segmented : ListBox
 
         if (!animate)
         {
-            StopIndicatorAnimation(applyCurrent: false);
-            _indicator.Margin = targetMargin;
-            if (_indicator.RenderTransform is ScaleTransform scale)
-            {
-                scale.ScaleX = 1;
-            }
-
+            ApplyIndicatorBounds(targetMargin);
             return;
         }
 
-        AnimateIndicator(targetMargin);
+        switch (IndicatorAnimation)
+        {
+            case SegmentedIndicatorAnimation.Fluent:
+                AnimateFluent(targetMargin);
+                break;
+
+            case SegmentedIndicatorAnimation.Lengthening:
+            default:
+                AnimateLengthening(targetMargin);
+                break;
+        }
+    }
+
+    private void ApplyIndicatorBounds(Thickness margin)
+    {
+        if (_indicator is null)
+        {
+            return;
+        }
+
+        StopIndicatorAnimation(applyCurrent: false);
+        _indicator.Margin = margin;
+
+        if (_indicator.RenderTransform is ScaleTransform resetScale)
+        {
+            resetScale.ScaleX = 1;
+            resetScale.ScaleY = 1;
+        }
     }
 
     private double GetPillWidth()
@@ -308,7 +363,7 @@ public class Segmented : ListBox
         return _indicator.ActualWidth > 0 ? _indicator.ActualWidth : 16;
     }
 
-    private void AnimateIndicator(Thickness targetMargin)
+    private void AnimateFluent(Thickness targetMargin)
     {
         if (_indicator is null)
         {
@@ -321,7 +376,7 @@ public class Segmented : ListBox
         var delta = Math.Abs(targetMargin.Left - fromLeft);
         if (delta < 0.5)
         {
-            _indicator.Margin = targetMargin;
+            ApplyIndicatorBounds(targetMargin);
             return;
         }
 
@@ -331,14 +386,7 @@ public class Segmented : ListBox
             ? scale.ScaleX
             : 1;
 
-        var storyboard = new Storyboard();
-        storyboard.Completed += (_, _) =>
-        {
-            if (ReferenceEquals(_indicatorStoryboard, storyboard))
-            {
-                _indicatorStoryboard = null;
-            }
-        };
+        var storyboard = CreateIndicatorStoryboard();
 
         var marginAnim = new ThicknessAnimation
         {
@@ -369,6 +417,46 @@ public class Segmented : ListBox
 
         _indicatorStoryboard = storyboard;
         storyboard.Begin();
+    }
+
+    private void AnimateLengthening(Thickness targetMargin)
+    {
+        if (_indicator is null)
+        {
+            return;
+        }
+
+        ApplyIndicatorBounds(targetMargin);
+
+        var storyboard = CreateIndicatorStoryboard();
+        var scaleAnim = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromMilliseconds(180),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+        };
+
+        Storyboard.SetTarget(scaleAnim, _indicator);
+        Storyboard.SetTargetProperty(scaleAnim, new PropertyPath("RenderTransform.ScaleX"));
+        storyboard.Children.Add(scaleAnim);
+
+        _indicatorStoryboard = storyboard;
+        storyboard.Begin();
+    }
+
+    private Storyboard CreateIndicatorStoryboard()
+    {
+        var storyboard = new Storyboard();
+        storyboard.Completed += (_, _) =>
+        {
+            if (ReferenceEquals(_indicatorStoryboard, storyboard))
+            {
+                _indicatorStoryboard = null;
+            }
+        };
+
+        return storyboard;
     }
 
     private void StopIndicatorAnimation(bool applyCurrent)

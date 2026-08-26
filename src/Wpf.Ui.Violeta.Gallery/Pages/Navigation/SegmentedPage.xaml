@@ -173,6 +173,64 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c09d2052d1}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="IndicatorAnimation=Lengthening (default)" />
+                    <vio:Segmented IndicatorAnimation="Lengthening">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Home24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Search24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                    </vio:Segmented>
+                    <TextBlock
+                        Margin="0,12,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_319fe31ff0}}" />
+                    <vio:Segmented IndicatorAnimation="Fluent">
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}" IsSelected="True">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Home24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Sample_e5f71fc31e}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Search24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                        <vio:SegmentedItem Content="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                            <vio:SegmentedItem.Icon>
+                                <ui:SymbolIcon FontSize="16" Symbol="Settings24" />
+                            </vio:SegmentedItem.Icon>
+                        </vio:SegmentedItem>
+                    </vio:Segmented>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
                     <TextBlock
                         Margin="0,0,0,12"
