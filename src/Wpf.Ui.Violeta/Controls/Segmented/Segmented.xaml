@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--
-        WinUI Segmented: hover uses an inset pill (Margin=3); selected fill spans the segment
+        WinUI Segmented: hover uses an inset pill (Margin=2.5); selected fill spans the segment
         with no margin and position-aware outer corner radii.
     -->
     <Style x:Key="DefaultSegmentedItemStyle" TargetType="{x:Type local:SegmentedItem}">
@@ -29,7 +29,7 @@
                     <Grid SnapsToDevicePixels="True">
                         <Border
                             x:Name="SelectionBackground"
-                            Margin="3"
+                            Margin="2.5"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="Transparent"
@@ -37,7 +37,7 @@
                             SnapsToDevicePixels="True" />
                         <Border
                             x:Name="HoverBackground"
-                            Margin="3"
+                            Margin="2.5"
                             Background="Transparent"
                             CornerRadius="4"
                             SnapsToDevicePixels="True" />

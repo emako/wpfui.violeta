@@ -1,5 +1,9 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -11,7 +15,15 @@ public class SegmentedItem : ListBoxItem
 {
     private const string PartSelectionBackground = "SelectionBackground";
 
+    /// <summary>Inset shared by hover chrome and the selected-state animation origin.</summary>
+    internal const double ChromeInset = 2.5;
+
+    private static readonly TimeSpan SelectionChromeAnimationDuration = TimeSpan.FromMilliseconds(167);
+    private static readonly IEasingFunction SelectionChromeEasing = new CubicEase { EasingMode = EasingMode.EaseOut };
+
     private Border? _selectionBackground;
+    private ThicknessAnimation? _selectionChromeAnimation;
+    private bool _isSelectionChromeAnimating;
 
     static SegmentedItem()
     {
@@ -48,8 +60,8 @@ public class SegmentedItem : ListBoxItem
             OnSelectionCornerRadiusChanged));
 
     /// <summary>
-    /// Corner radius for the selected-state pill. Edge segments use larger radii on
-    /// shell-facing corners; middle segments stay uniformly rounded.
+    /// Corner radius for the selected-state fill at rest (margin 0). Edge segments use larger
+    /// radii on shell-facing corners; middle segments stay uniformly rounded.
     /// </summary>
     public CornerRadius SelectionCornerRadius
     {
@@ -62,7 +74,17 @@ public class SegmentedItem : ListBoxItem
         base.OnApplyTemplate();
 
         _selectionBackground = GetTemplateChild(PartSelectionBackground) as Border;
-        UpdateSelectionCornerRadius();
+        ApplySelectionChrome(IsSelected, animate: false);
+    }
+
+    protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+
+        if (e.Property == Selector.IsSelectedProperty)
+        {
+            ApplySelectionChrome(IsSelected, animate: IsLoaded);
+        }
     }
 
     private static void OnSelectionCornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -73,11 +95,100 @@ public class SegmentedItem : ListBoxItem
         }
     }
 
+    private void ApplySelectionChrome(bool selected, bool animate)
+    {
+        if (_selectionBackground is null)
+        {
+            return;
+        }
+
+        var targetMargin = selected ? new Thickness(0) : new Thickness(ChromeInset);
+
+        if (!animate || !IsVisible)
+        {
+            StopSelectionChromeAnimation(applyCurrent: false);
+            _selectionBackground.Margin = targetMargin;
+            UpdateSelectionCornerRadius();
+            return;
+        }
+
+        StopSelectionChromeAnimation(applyCurrent: true);
+
+        if (selected)
+        {
+            _selectionBackground.CornerRadius = new CornerRadius(4);
+        }
+
+        _isSelectionChromeAnimating = true;
+
+        _selectionChromeAnimation = new ThicknessAnimation
+        {
+            From = _selectionBackground.Margin,
+            To = targetMargin,
+            Duration = new Duration(SelectionChromeAnimationDuration),
+            EasingFunction = SelectionChromeEasing,
+            FillBehavior = FillBehavior.Stop,
+        };
+
+        _selectionChromeAnimation.Completed += OnSelectionChromeAnimationCompleted;
+        _selectionBackground.BeginAnimation(MarginProperty, _selectionChromeAnimation);
+    }
+
+    private void OnSelectionChromeAnimationCompleted(object? sender, EventArgs e)
+    {
+        if (_selectionChromeAnimation is not null)
+        {
+            _selectionChromeAnimation.Completed -= OnSelectionChromeAnimationCompleted;
+            _selectionChromeAnimation = null;
+        }
+
+        _isSelectionChromeAnimating = false;
+
+        if (_selectionBackground is null)
+        {
+            return;
+        }
+
+        var targetMargin = IsSelected ? new Thickness(0) : new Thickness(ChromeInset);
+        _selectionBackground.BeginAnimation(MarginProperty, null);
+        _selectionBackground.Margin = targetMargin;
+        UpdateSelectionCornerRadius();
+    }
+
+    private void StopSelectionChromeAnimation(bool applyCurrent)
+    {
+        if (_selectionBackground is null)
+        {
+            return;
+        }
+
+        if (_isSelectionChromeAnimating)
+        {
+            _isSelectionChromeAnimating = false;
+            if (_selectionChromeAnimation is not null)
+            {
+                _selectionChromeAnimation.Completed -= OnSelectionChromeAnimationCompleted;
+                _selectionChromeAnimation = null;
+            }
+
+            var currentMargin = _selectionBackground.Margin;
+            _selectionBackground.BeginAnimation(MarginProperty, null);
+            if (applyCurrent)
+            {
+                _selectionBackground.Margin = currentMargin;
+            }
+        }
+    }
+
     private void UpdateSelectionCornerRadius()
     {
-        if (_selectionBackground is not null)
+        if (_selectionBackground is null || _isSelectionChromeAnimating)
         {
-            _selectionBackground.CornerRadius = SelectionCornerRadius;
+            return;
         }
+
+        _selectionBackground.CornerRadius = IsSelected
+            ? SelectionCornerRadius
+            : new CornerRadius(4);
     }
 }
