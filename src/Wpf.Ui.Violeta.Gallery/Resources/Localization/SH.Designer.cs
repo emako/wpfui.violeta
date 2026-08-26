@@ -5832,7 +5832,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto-fills rows and columns in child order..
+        ///   Looks up a localized string similar to Automatically fills rows and columns in child order. Resize the window to see star-sized columns adapt..
         /// </summary>
         internal static string Sample_375192376c {
             get {
@@ -13414,6 +13414,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Label column stays auto-sized; buttons stretch when the window is resized..
+        /// </summary>
+        internal static string Sample_b1c2d3e4f5 {
+            get {
+                return ResourceManager.GetString("Sample_b1c2d3e4f5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         internal static string Sample_b1c94ca2fb {
@@ -14710,6 +14719,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Equal columns — *,*,*.
+        /// </summary>
+        internal static string Sample_c2d3e4f5a6 {
+            get {
+                return ResourceManager.GetString("Sample_c2d3e4f5a6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Angular.
         /// </summary>
         internal static string Sample_c31c335ef3 {
@@ -15876,6 +15894,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_d3e2cd292d {
             get {
                 return ResourceManager.GetString("Sample_d3e2cd292d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Three equal star columns that expand and shrink with the available width..
+        /// </summary>
+        internal static string Sample_d3e4f5a6b7 {
+            get {
+                return ResourceManager.GetString("Sample_d3e4f5a6b7", resourceCulture);
             }
         }
         
@@ -17095,11 +17122,20 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ChildMargin sample.
+        ///   Looks up a localized string similar to Weighted columns — 2*,*,*.
         /// </summary>
         internal static string Sample_e3e9da1f11 {
             get {
                 return ResourceManager.GetString("Sample_e3e9da1f11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChildMargin adds uniform spacing. The first column is twice as wide as the others..
+        /// </summary>
+        internal static string Sample_e4f5a6b7c8 {
+            get {
+                return ResourceManager.GetString("Sample_e4f5a6b7c8", resourceCulture);
             }
         }
         
@@ -17563,7 +17599,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AutoGrid — 2×2.
+        ///   Looks up a localized string similar to Form layout — auto,*.
         /// </summary>
         internal static string Sample_eb9e9a900c {
             get {

@@ -10,14 +10,34 @@
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
-    <ScrollViewer>
+    <vio:Page.Resources>
+        <Style x:Key="DemoSurface" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="6" />
+        </Style>
+        <Style x:Key="DemoCell" TargetType="{x:Type Border}">
+            <Setter Property="MinHeight" Value="40" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+    </vio:Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="24,16,24,24">
 
             <TextBlock
-                Margin="0,0,0,16"
+                Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
                 Text="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}" />
+            <TextBlock
+                Margin="0,0,0,16"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Sample_375192376c}}"
+                TextWrapping="Wrap" />
 
             <Border
                 Margin="0,0,0,16"
@@ -35,15 +55,17 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_375192376c}}" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b1c2d3e4f5}}"
+                        TextWrapping="Wrap" />
                     <ui:AutoGrid
-                        ColumnCount="2"
+                        HorizontalAlignment="Stretch"
+                        Columns="auto,*"
                         RowCount="2"
-                        RowHeight="40">
+                        RowHeight="Auto">
                         <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_b4c0b4ef70}}" />
-                        <ui:Button Content="{I18N {x:Static lang:LangKeys.Sample_6475a37462}}" />
+                        <ui:Button HorizontalAlignment="Stretch" Content="{I18N {x:Static lang:LangKeys.Sample_6475a37462}}" />
                         <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_a7e0a4d8a3}}" />
-                        <ui:Button Content="{I18N {x:Static lang:LangKeys.Sample_e165925a7c}}" />
+                        <ui:Button HorizontalAlignment="Stretch" Content="{I18N {x:Static lang:LangKeys.Sample_e165925a7c}}" />
                     </ui:AutoGrid>
                 </StackPanel>
             </Border>
@@ -60,19 +82,59 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c2d3e4f5a6}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d3e4f5a6b7}}"
+                        TextWrapping="Wrap" />
+                    <Border MinHeight="120" Style="{StaticResource DemoSurface}">
+                        <ui:AutoGrid
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            Columns="*,*,*"
+                            RowCount="2">
+                            <Border Style="{StaticResource DemoCell}" Background="#E74856" />
+                            <Border Style="{StaticResource DemoCell}" Background="#10893E" />
+                            <Border Style="{StaticResource DemoCell}" Background="#0078D4" />
+                            <Border Style="{StaticResource DemoCell}" Background="#FFB900" />
+                            <Border Style="{StaticResource DemoCell}" Background="#8764B8" />
+                            <Border Style="{StaticResource DemoCell}" Background="#00B7C3" />
+                        </ui:AutoGrid>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_e3e9da1f11}}" />
-                    <ui:AutoGrid
-                        Margin="0,8,0,0"
-                        ChildMargin="9"
-                        ColumnCount="3"
-                        RowCount="2">
-                        <Border Width="30" Height="30" Background="Red" />
-                        <Border Width="30" Height="30" Background="Green" />
-                        <Border Width="30" Height="30" Background="Red" />
-                        <Border Width="30" Height="30" Background="Green" />
-                        <Border Width="30" Height="30" Background="Red" />
-                        <Border Width="30" Height="30" Background="Green" />
-                    </ui:AutoGrid>
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e4f5a6b7c8}}"
+                        TextWrapping="Wrap" />
+                    <Border MinHeight="72" Style="{StaticResource DemoSurface}">
+                        <ui:AutoGrid
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            ChildMargin="8"
+                            Columns="2*,*,*"
+                            RowCount="1">
+                            <Border Style="{StaticResource DemoCell}" Background="#3B82F6" />
+                            <Border Style="{StaticResource DemoCell}" Background="#22C55E" />
+                            <Border Style="{StaticResource DemoCell}" Background="#A855F7" />
+                        </ui:AutoGrid>
+                    </Border>
                 </StackPanel>
             </Border>
 

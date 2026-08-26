@@ -319,7 +319,7 @@
     <value>CardControl 将标题与内容区域组合为卡片布局。</value>
   </data>
   <data name="Sample_e3e9da1f11" xml:space="preserve">
-    <value>ChildMargin 示例</value>
+    <value>加权列 — 2*,*,*</value>
   </data>
   <data name="Sample_ebf3722f8d" xml:space="preserve">
     <value>ClockIdentifier=12HourClock，带 AM/PM。</value>
@@ -1720,7 +1720,7 @@
     <value>按住累加</value>
   </data>
   <data name="Sample_375192376c" xml:space="preserve">
-    <value>按子元素顺序自动填充行列。</value>
+    <value>按子元素顺序自动填充行列。调整窗口大小可观察星号列宽随可用空间变化。</value>
   </data>
   <data name="Sample_7a1b2c3d4e" xml:space="preserve">
     <value>简写定义</value>
@@ -5202,7 +5202,19 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>高度 &amp;gt; 宽度 × 1.3</value>
   </data>
   <data name="Sample_eb9e9a900c" xml:space="preserve">
-    <value>自动网格 — 2×2</value>
+    <value>表单布局 — auto,*</value>
+  </data>
+  <data name="Sample_b1c2d3e4f5" xml:space="preserve">
+    <value>标签列保持自动宽度；调整窗口大小时按钮列会随之拉伸。</value>
+  </data>
+  <data name="Sample_c2d3e4f5a6" xml:space="preserve">
+    <value>等宽列 — *,*,*</value>
+  </data>
+  <data name="Sample_d3e4f5a6b7" xml:space="preserve">
+    <value>三列等比星号列，会随可用宽度同步放大或缩小。</value>
+  </data>
+  <data name="Sample_e4f5a6b7c8" xml:space="preserve">
+    <value>ChildMargin 为子元素设置统一间距。第一列宽度是其余列的两倍。</value>
   </data>
   <data name="Sample_b4c0b4ef70" xml:space="preserve">
     <value>Title1</value>

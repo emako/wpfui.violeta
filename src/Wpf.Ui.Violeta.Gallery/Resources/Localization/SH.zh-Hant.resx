@@ -319,7 +319,7 @@
     <value>CardControl 將標題與內容區域組合為卡片版面配置。</value>
   </data>
   <data name="Sample_e3e9da1f11" xml:space="preserve">
-    <value>ChildMargin 範例</value>
+    <value>加權欄 — 2*,*,*</value>
   </data>
   <data name="Sample_ebf3722f8d" xml:space="preserve">
     <value>ClockIdentifier=12HourClock，帶 AM/PM。</value>
@@ -1720,7 +1720,7 @@
     <value>按住累加</value>
   </data>
   <data name="Sample_375192376c" xml:space="preserve">
-    <value>依子元素順序自動填滿列與欄。</value>
+    <value>依子元素順序自動填滿列與欄。調整視窗大小可觀察星號欄寬隨可用空間變化。</value>
   </data>
   <data name="Sample_7a1b2c3d4e" xml:space="preserve">
     <value>簡寫定義</value>
@@ -5202,7 +5202,19 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>高度 &amp;gt; 寬度 × 1.3</value>
   </data>
   <data name="Sample_eb9e9a900c" xml:space="preserve">
-    <value>自動網格 — 2×2</value>
+    <value>表單版面 — auto,*</value>
+  </data>
+  <data name="Sample_b1c2d3e4f5" xml:space="preserve">
+    <value>標籤欄保持自動寬度；調整視窗大小時按鈕欄會隨之拉伸。</value>
+  </data>
+  <data name="Sample_c2d3e4f5a6" xml:space="preserve">
+    <value>等寬欄 — *,*,*</value>
+  </data>
+  <data name="Sample_d3e4f5a6b7" xml:space="preserve">
+    <value>三欄等比星號欄，會隨可用寬度同步放大或縮小。</value>
+  </data>
+  <data name="Sample_e4f5a6b7c8" xml:space="preserve">
+    <value>ChildMargin 為子元素設定統一間距。第一欄寬度是其餘欄的兩倍。</value>
   </data>
   <data name="Sample_b4c0b4ef70" xml:space="preserve">
     <value>Title1</value>
