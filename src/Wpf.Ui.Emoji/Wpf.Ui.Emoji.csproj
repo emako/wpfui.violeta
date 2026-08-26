@@ -3,16 +3,16 @@
     <PropertyGroup>
         <PackageId>WPF-UI.Emoji</PackageId>
         <Product>WPF-UI.Emoji</Product>
-        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
         <UseWPF>true</UseWPF>
         <LangVersion>latest</LangVersion>
         <Nullable>disable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        <FileVersion>1.0.0.0</FileVersion>
-        <Version>1.0.0</Version>
+        <AssemblyVersion>4.3.0.11</AssemblyVersion>
+        <FileVersion>4.3.0.11</FileVersion>
+        <Version>4.3.0.11</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
         <Description>Emoji rendering for WPF (based on emoji.wpf). Color COLR/CPAL emoji via Segoe UI Emoji.</Description>

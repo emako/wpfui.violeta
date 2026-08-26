@@ -7,7 +7,7 @@
         <UseWPF>true</UseWPF>
         <LangVersion>preview</LangVersion>
         <AssemblyTitle>Wpf.Ui.Violeta Gallery</AssemblyTitle>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyVersion>4.3.0.11</AssemblyVersion>
         <ApplicationIcon>Resources\Images\wpfui.ico</ApplicationIcon>
         <NoWarn>$(NoWarn);CS2002</NoWarn>
     </PropertyGroup>
@@ -31,14 +31,6 @@
         <Resource Include="$(NuGetPackageRoot)\FluentUI.HarmonyOS.Assets\1.0.0\assets\HarmonyOS_Sans_SC\HarmonyOS_Sans_SC_Regular.ttf">
             <Link>Resources\Fonts\HarmonyOS_Sans_SC_Regular.ttf</Link>
         </Resource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Resources\Localization\SH.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>SH.resx</DependentUpon>
-      </Compile>
     </ItemGroup>
 
     <ItemGroup>

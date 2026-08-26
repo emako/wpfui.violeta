@@ -66,8 +66,8 @@
             \b0[xX][0-9a-fA-F]+|(\b\d+(\.[0-9]+)?|\.[0-9]+)([eE][+-]?[0-9]+)?
         </Rule>
     </RuleSet>
-	
-	<RuleSet>
+    
+    <RuleSet>
         <Import ruleSet="Expression"/>
     </RuleSet>
 </SyntaxDefinition>
