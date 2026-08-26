@@ -6356,4 +6356,118 @@ Click OK to continue.</value>
   <data name="Sample_0e649cb62f" xml:space="preserve">
     <value>Tab strip vertically on the right.</value>
   </data>
+  <data name="Gallery_Page_FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="Sample_f7a3b2c1d0" xml:space="preserve">
+    <value>A CSS Flexbox-inspired layout panel supporting direction, justify-content, align-items, wrap, gap, and per-child grow/shrink/basis.</value>
+  </data>
+  <data name="Sample_e6b2a1c0d9" xml:space="preserve">
+    <value>CSS Flexbox layout</value>
+  </data>
+  <data name="Sample_c4d0b9a8f7" xml:space="preserve">
+    <value>Interactive demo</value>
+  </data>
+  <data name="Sample_b3e9a8f7c6" xml:space="preserve">
+    <value>Grow (1:2:1 ratio)</value>
+  </data>
+  <data name="Sample_a2f8e7d6b5" xml:space="preserve">
+    <value>Wrap</value>
+  </data>
+  <data name="Sample_91e7d6c5b4" xml:space="preserve">
+    <value>AlignSelf (within AlignItems=Stretch)</value>
+  </data>
+  <data name="Sample_80d6c5b4a3" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="Sample_79c5b4a392" xml:space="preserve">
+    <value>Justify content</value>
+  </data>
+  <data name="Sample_68b4a39281" xml:space="preserve">
+    <value>Align items</value>
+  </data>
+  <data name="Sample_57a3928170" xml:space="preserve">
+    <value>Wrap</value>
+  </data>
+  <data name="Sample_469281706f" xml:space="preserve">
+    <value>Gap</value>
+  </data>
+  <data name="Sample_3581706f5e" xml:space="preserve">
+    <value>Grow = 1</value>
+  </data>
+  <data name="Sample_24706f5e4d" xml:space="preserve">
+    <value>Grow = 2</value>
+  </data>
+  <data name="Sample_flex01" xml:space="preserve">
+    <value>Row</value>
+  </data>
+  <data name="Sample_flex02" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="Sample_flex03" xml:space="preserve">
+    <value>Row reverse</value>
+  </data>
+  <data name="Sample_flex04" xml:space="preserve">
+    <value>Column reverse</value>
+  </data>
+  <data name="Sample_flex05" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Sample_flex06" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="Sample_flex07" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Sample_flex08" xml:space="preserve">
+    <value>Space between</value>
+  </data>
+  <data name="Sample_flex09" xml:space="preserve">
+    <value>Space around</value>
+  </data>
+  <data name="Sample_flex10" xml:space="preserve">
+    <value>Space evenly</value>
+  </data>
+  <data name="Sample_flex11" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Sample_flex12" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="Sample_flex13" xml:space="preserve">
+    <value>Baseline</value>
+  </data>
+  <data name="Sample_flex14" xml:space="preserve">
+    <value>No wrap</value>
+  </data>
+  <data name="Sample_flex15" xml:space="preserve">
+    <value>Wrap</value>
+  </data>
+  <data name="Sample_flex16" xml:space="preserve">
+    <value>Wrap reverse</value>
+  </data>
+  <data name="Sample_flex_item01" xml:space="preserve">
+    <value>Item 1</value>
+  </data>
+  <data name="Sample_flex_item02" xml:space="preserve">
+    <value>Item 2</value>
+  </data>
+  <data name="Sample_flex_item03" xml:space="preserve">
+    <value>Item 3</value>
+  </data>
+  <data name="Sample_flex_item04" xml:space="preserve">
+    <value>Item 4</value>
+  </data>
+  <data name="Sample_flex_item05" xml:space="preserve">
+    <value>Item 5</value>
+  </data>
+  <data name="Sample_flex_item06" xml:space="preserve">
+    <value>Item 6</value>
+  </data>
+  <data name="Sample_flex_item07" xml:space="preserve">
+    <value>Item 7</value>
+  </data>
+  <data name="Sample_flex_item08" xml:space="preserve">
+    <value>Item 8</value>
+  </data>
 </root>

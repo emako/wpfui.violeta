@@ -190,6 +190,7 @@ public partial class MainWindow : ShellWindow
         ["layout/tile-press-feedback"] = static () => new TilePressFeedbackPage(),
         ["layout/grid"] = static () => new GridPage(),
         ["layout/auto-grid"] = static () => new AutoGridPage(),
+        ["layout/flex-panel"] = static () => new FlexPanelPage(),
         ["layout/border"] = static () => new BorderPage(),
         ["layout/drop-shadow-chrome"] = static () => new DropShadowChromePage(),
         ["layout/aspect-ratio-layout"] = static () => new AspectRatioLayoutPage(),

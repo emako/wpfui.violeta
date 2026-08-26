@@ -65,6 +65,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_CachedCredential", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click count: {0}.
         /// </summary>
@@ -73,6 +74,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ClickCount", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clicked: {0}.
         /// </summary>
@@ -81,6 +83,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Clicked", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to  — {0}.
         /// </summary>
@@ -89,6 +92,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_DashDetail", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: exception — {0}.
         /// </summary>
@@ -97,6 +101,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Exception", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fast: {0}  Slow: {1}.
         /// </summary>
@@ -105,6 +110,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_FastSlowClicks", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Item {0}.
         /// </summary>
@@ -113,6 +119,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Item", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: {0}.
         /// </summary>
@@ -121,6 +128,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Result", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: {0}{1}.
         /// </summary>
@@ -129,6 +137,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ResultDetail", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample card #{0}.
         /// </summary>
@@ -137,6 +146,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SampleCard", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Saved: {0}.
         /// </summary>
@@ -145,6 +155,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Saved", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: saved credential — user: {0}.
         /// </summary>
@@ -153,6 +164,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SavedCredential", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected: {0}.
         /// </summary>
@@ -161,14 +173,17 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_Selected", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Selected {0} files:.
+        ///   Looks up a localized string similar to Selected {0} files:
+        ///{1}.
         /// </summary>
         internal static string Format_SelectedFiles {
             get {
                 return ResourceManager.GetString("Format_SelectedFiles", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: selected {0} folders — {1}.
         /// </summary>
@@ -177,6 +192,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SelectedFolders", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected {0} item(s)..
         /// </summary>
@@ -185,14 +201,17 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SelectedItemCount", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Selected:.
+        ///   Looks up a localized string similar to Selected:
+        ///{0}.
         /// </summary>
         internal static string Format_SelectedMultiline {
             get {
                 return ResourceManager.GetString("Format_SelectedMultiline", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DoubleCommand - {0}.
         /// </summary>
@@ -201,6 +220,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SplitButtonDoubleCommand", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Menu command - {0}.
         /// </summary>
@@ -209,6 +229,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SplitButtonMenuCommand", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Primary click / Command - {0}.
         /// </summary>
@@ -217,6 +238,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_SplitButtonPrimaryClick", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme switched: {0}.
         /// </summary>
@@ -225,6 +247,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ThemeSwitched", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default toast ({0}).
         /// </summary>
@@ -233,6 +256,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastDefault", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to An error occurred ({0}).
         /// </summary>
@@ -241,6 +265,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastError", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Information toast ({0}).
         /// </summary>
@@ -249,6 +274,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastInfo", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Continue the operation? ({0}).
         /// </summary>
@@ -257,6 +283,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastQuestion", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success ({0}).
         /// </summary>
@@ -265,6 +292,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastSuccess", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please note ({0}).
         /// </summary>
@@ -273,6 +301,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToastWarning", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsChecked={0}, Selected={1}.
         /// </summary>
@@ -281,6 +310,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToggleComboBoxBasicStatus", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Command (click) — IsChecked={0}.
         /// </summary>
@@ -289,6 +319,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToggleComboBoxCommandClick", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DoubleCommand — IsChecked={0}.
         /// </summary>
@@ -297,6 +328,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_ToggleComboBoxDoubleCommand", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: user: {0}, save checked: {1}.
         /// </summary>
@@ -305,6 +337,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Format_UserSave", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.Violeta Gallery.
         /// </summary>
@@ -313,6 +346,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_AppTitle", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Browse all controls by group.
         /// </summary>
@@ -321,6 +355,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_AllSamples_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Button, SplitButton, LoadingButton, and more.
         /// </summary>
@@ -329,6 +364,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Buttons_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Control categories.
         /// </summary>
@@ -337,6 +373,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Categories", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DataGrid, TreeListView, FlipView, Carousel, Timeline.
         /// </summary>
@@ -345,6 +382,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Collections_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ComboBox, ToggleComboBox, NumberComboBox, MultiComboBox, TreeComboBox.
         /// </summary>
@@ -353,6 +391,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_ComboBox_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Typography, Icons, Colors.
         /// </summary>
@@ -361,6 +400,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Design_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentDialog, MessageBox, Flyout.
         /// </summary>
@@ -369,6 +409,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Dialogs_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RunningBlock, AsyncBox, Splash.
         /// </summary>
@@ -377,14 +418,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Feedback_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Supports .NET Framework 4.6.2 through .NET 10, dark / light themes. Browse al....
+        ///   Looks up a localized string similar to Supports .NET Framework 4.6.2 through .NET 10, dark / light themes. Browse all samples by control type on the left..
         /// </summary>
         internal static string Gallery_Home_Hint {
             get {
                 return ResourceManager.GetString("Gallery_Home_Hint", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AutoGrid, Form, Drawer, Divider.
         /// </summary>
@@ -393,6 +436,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Layout_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageView, PersonPicture, QrCode.
         /// </summary>
@@ -401,6 +445,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Media_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NavigationView, TabStrip, Anchor.
         /// </summary>
@@ -409,6 +454,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Navigation_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toast, Banner, TrayIcon.
         /// </summary>
@@ -417,6 +463,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Notifications_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NumberBox, NumericUpDown, NumberComboBox, ButtonSpinner.
         /// </summary>
@@ -425,6 +472,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_NumberInput_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clipboard.
         /// </summary>
@@ -433,6 +481,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_OpSystem_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DatePicker, ColorPicker, FilePicker.
         /// </summary>
@@ -441,6 +490,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Pickers_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CheckBox, RadioButton, ToggleSwitch, Rating.
         /// </summary>
@@ -449,6 +499,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Selection_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme switching and about.
         /// </summary>
@@ -457,6 +508,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Settings_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slider, RangeSlider.
         /// </summary>
@@ -465,6 +517,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Sliders_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Badge, Skeleton, BusyMask.
         /// </summary>
@@ -473,14 +526,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Status_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to An extended control library based on WPF-UI, providing Fluent Design advanced....
+        ///   Looks up a localized string similar to An extended control library based on WPF-UI, providing Fluent Design advanced UI components..
         /// </summary>
         internal static string Gallery_Home_Subtitle {
             get {
                 return ResourceManager.GetString("Gallery_Home_Subtitle", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Label, TextBlock, Hyperlink.
         /// </summary>
@@ -489,6 +544,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_TextDisplay_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBox, PasswordBox, PinCode, TagInput.
         /// </summary>
@@ -497,6 +553,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_TextInput_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShellWindow, TitleBar, Caption.
         /// </summary>
@@ -505,6 +562,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Home_Windows_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
@@ -513,6 +571,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Language", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to All samples.
         /// </summary>
@@ -521,6 +580,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_AllSamples", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Buttons.
         /// </summary>
@@ -529,6 +589,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Buttons", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Collections.
         /// </summary>
@@ -537,6 +598,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Collections", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Combo boxes.
         /// </summary>
@@ -545,6 +607,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_ComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Design guidelines.
         /// </summary>
@@ -553,6 +616,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Design", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dialogs &amp; flyouts.
         /// </summary>
@@ -561,6 +625,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Dialogs", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Feedback &amp; animation.
         /// </summary>
@@ -569,6 +634,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Feedback", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
@@ -577,6 +643,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Home", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Layout.
         /// </summary>
@@ -585,6 +652,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Layout", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Media.
         /// </summary>
@@ -593,6 +661,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Media", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Navigation.
         /// </summary>
@@ -601,6 +670,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Navigation", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notifications &amp; banners.
         /// </summary>
@@ -609,6 +679,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Notifications", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Number input.
         /// </summary>
@@ -617,6 +688,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_NumberInput", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Operating system.
         /// </summary>
@@ -625,6 +697,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_OpSystem", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pickers.
         /// </summary>
@@ -633,6 +706,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Pickers", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selection.
         /// </summary>
@@ -641,6 +715,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Selection", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sliders.
         /// </summary>
@@ -649,6 +724,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Sliders", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Status &amp; info.
         /// </summary>
@@ -657,6 +733,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Status", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text display.
         /// </summary>
@@ -665,6 +742,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_TextDisplay", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text input.
         /// </summary>
@@ -673,6 +751,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_TextInput", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Windows &amp; shell.
         /// </summary>
@@ -681,6 +760,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Nav_Windows", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Anchor.
         /// </summary>
@@ -689,6 +769,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Anchor", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AnimatedSymbolButton.
         /// </summary>
@@ -697,6 +778,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_AnimatedSymbolButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AspectRatioLayout.
         /// </summary>
@@ -705,6 +787,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_AspectRatioLayout", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AsyncBox.
         /// </summary>
@@ -713,6 +796,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_AsyncBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AutoGrid.
         /// </summary>
@@ -721,6 +805,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_AutoGrid", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AutoSuggestBox.
         /// </summary>
@@ -729,6 +814,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_AutoSuggestBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Badge.
         /// </summary>
@@ -737,6 +823,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Badge", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Banner.
         /// </summary>
@@ -745,6 +832,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Banner", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BitmapIcon.
         /// </summary>
@@ -753,6 +841,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_BitmapIcon", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BoolStateContentControl.
         /// </summary>
@@ -761,6 +850,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_BoolStateContentControl", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BoolStateTextBlock.
         /// </summary>
@@ -769,6 +859,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_BoolStateTextBlock", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Border.
         /// </summary>
@@ -777,6 +868,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Border", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BreadcrumbBar.
         /// </summary>
@@ -785,6 +877,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_BreadcrumbBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BusyMask.
         /// </summary>
@@ -793,6 +886,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_BusyMask", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Button.
         /// </summary>
@@ -801,6 +895,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Button", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ButtonSpinner.
         /// </summary>
@@ -809,6 +904,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ButtonSpinner", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CachedImage.
         /// </summary>
@@ -817,6 +913,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CachedImage", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar.
         /// </summary>
@@ -825,6 +922,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Calendar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CalendarDatePicker.
         /// </summary>
@@ -833,6 +931,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CalendarDatePicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CalendarDateTimePicker.
         /// </summary>
@@ -841,6 +940,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CalendarDateTimePicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Canvas.
         /// </summary>
@@ -849,6 +949,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Canvas", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CaptionButtonBar.
         /// </summary>
@@ -857,6 +958,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CaptionButtonBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardAction.
         /// </summary>
@@ -865,6 +967,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CardAction", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardBorder.
         /// </summary>
@@ -873,6 +976,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CardBorder", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardCarousel.
         /// </summary>
@@ -881,6 +985,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CardCarousel", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardControl.
         /// </summary>
@@ -889,6 +994,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CardControl", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardProgress.
         /// </summary>
@@ -897,6 +1003,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CardProgress", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Carousel.
         /// </summary>
@@ -905,6 +1012,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Carousel", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CascadingComboBox.
         /// </summary>
@@ -913,6 +1021,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CascadingComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CheckBox.
         /// </summary>
@@ -921,6 +1030,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CheckBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clipboard.
         /// </summary>
@@ -929,6 +1039,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Clipboard", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ColorPicker.
         /// </summary>
@@ -937,6 +1048,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ColorPicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Colors.
         /// </summary>
@@ -945,6 +1057,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Colors", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ComboBox.
         /// </summary>
@@ -953,6 +1066,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentDialog.
         /// </summary>
@@ -961,6 +1075,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ContentDialog", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentWindow.
         /// </summary>
@@ -969,6 +1084,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ContentWindow", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CopyButton.
         /// </summary>
@@ -977,6 +1093,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CopyButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CredentialDialog.
         /// </summary>
@@ -985,6 +1102,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_CredentialDialog", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DataGrid.
         /// </summary>
@@ -993,6 +1111,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_DataGrid", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DatePicker.
         /// </summary>
@@ -1001,6 +1120,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_DatePicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Divider.
         /// </summary>
@@ -1009,6 +1129,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Divider", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer.
         /// </summary>
@@ -1017,6 +1138,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Drawer", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DropDownButton.
         /// </summary>
@@ -1025,6 +1147,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_DropDownButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DropShadowChrome.
         /// </summary>
@@ -1033,6 +1156,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_DropShadowChrome", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Emoji.
         /// </summary>
@@ -1041,6 +1165,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Emoji", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ExceptionReport.
         /// </summary>
@@ -1049,6 +1174,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ExceptionReport", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expander.
         /// </summary>
@@ -1057,6 +1183,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Expander", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FilePicker.
         /// </summary>
@@ -1065,6 +1192,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FilePicker", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlexPanel.
+        /// </summary>
+        internal static string Gallery_Page_FlexPanel {
+            get {
+                return ResourceManager.GetString("Gallery_Page_FlexPanel", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to FlipView.
         /// </summary>
@@ -1073,6 +1210,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FlipView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FluentPopup.
         /// </summary>
@@ -1081,6 +1219,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FluentPopup", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FluentScrollViewer.
         /// </summary>
@@ -1089,6 +1228,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FluentScrollViewer", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flyout.
         /// </summary>
@@ -1097,6 +1237,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Flyout", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Form.
         /// </summary>
@@ -1105,6 +1246,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Form", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to GoBackButton.
         /// </summary>
@@ -1113,6 +1255,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_GoBackButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Grid.
         /// </summary>
@@ -1121,6 +1264,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Grid", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to GridSplitter.
         /// </summary>
@@ -1129,6 +1273,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_GridSplitter", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to GridView.
         /// </summary>
@@ -1137,6 +1282,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_GridView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hyperlink.
         /// </summary>
@@ -1145,6 +1291,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Hyperlink", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to HyperlinkButton.
         /// </summary>
@@ -1153,14 +1300,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_HyperlinkButton", resourceCulture);
             }
         }
-        /// <summary>
-        ///   Looks up a localized string similar to IconToggleButton.
-        /// </summary>
-        internal static string Gallery_Page_IconToggleButton {
-            get {
-                return ResourceManager.GetString("Gallery_Page_IconToggleButton", resourceCulture);
-            }
-        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icons.
         /// </summary>
@@ -1169,6 +1309,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Icons", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconToggleButton.
+        /// </summary>
+        internal static string Gallery_Page_IconToggleButton {
+            get {
+                return ResourceManager.GetString("Gallery_Page_IconToggleButton", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
@@ -1177,6 +1327,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Image", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageView.
         /// </summary>
@@ -1185,6 +1336,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ImageView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to InfoBadge.
         /// </summary>
@@ -1193,6 +1345,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_InfoBadge", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to InfoBar.
         /// </summary>
@@ -1201,6 +1354,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_InfoBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IPv4Box.
         /// </summary>
@@ -1209,6 +1363,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Ipv4Box", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IPv4PortBox.
         /// </summary>
@@ -1217,6 +1372,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Ipv4PortBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to KeyGestureInput.
         /// </summary>
@@ -1225,6 +1381,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_KeyGestureInput", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Label.
         /// </summary>
@@ -1233,6 +1390,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Label", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ListBox.
         /// </summary>
@@ -1241,6 +1399,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ListBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ListView.
         /// </summary>
@@ -1249,6 +1408,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ListView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to LoadingButton.
         /// </summary>
@@ -1257,6 +1417,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_LoadingButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
@@ -1265,6 +1426,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Menu", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MessageBox.
         /// </summary>
@@ -1273,6 +1435,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_MessageBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MultiComboBox.
         /// </summary>
@@ -1281,6 +1444,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_MultiComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NativeMessageBox.
         /// </summary>
@@ -1289,6 +1453,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NativeMessageBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NavigationView.
         /// </summary>
@@ -1297,6 +1462,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NavigationView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification.
         /// </summary>
@@ -1305,6 +1471,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Notification", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NumberBox.
         /// </summary>
@@ -1313,6 +1480,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NumberBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NumberComboBox.
         /// </summary>
@@ -1321,6 +1489,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NumberComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NumberDisplayer.
         /// </summary>
@@ -1329,6 +1498,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NumberDisplayer", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NumericUpDown.
         /// </summary>
@@ -1337,6 +1507,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_NumericUpDown", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OpenFolderDialog.
         /// </summary>
@@ -1345,6 +1516,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_OpenFolderDialog", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pagination.
         /// </summary>
@@ -1353,6 +1525,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Pagination", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PasswordBox.
         /// </summary>
@@ -1361,6 +1534,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_PasswordBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PendingBox.
         /// </summary>
@@ -1369,6 +1543,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_PendingBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PersonPicture.
         /// </summary>
@@ -1377,6 +1552,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_PersonPicture", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PinCode.
         /// </summary>
@@ -1385,6 +1561,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_PinCode", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pivot.
         /// </summary>
@@ -1393,6 +1570,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Pivot", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ProgressBar.
         /// </summary>
@@ -1401,6 +1579,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ProgressBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ProgressRing.
         /// </summary>
@@ -1409,6 +1588,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ProgressRing", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QrCode.
         /// </summary>
@@ -1417,6 +1597,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_QrCode", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RadioButton.
         /// </summary>
@@ -1425,6 +1606,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_RadioButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RangeSlider.
         /// </summary>
@@ -1433,6 +1615,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_RangeSlider", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rating.
         /// </summary>
@@ -1441,6 +1624,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Rating", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RepeatButton.
         /// </summary>
@@ -1449,6 +1633,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_RepeatButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RichTextBox.
         /// </summary>
@@ -1457,6 +1642,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_RichTextBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RunningBlock.
         /// </summary>
@@ -1465,6 +1651,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_RunningBlock", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SearchBox.
         /// </summary>
@@ -1473,6 +1660,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_SearchBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segmented.
         /// </summary>
@@ -1481,6 +1669,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Segmented", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SelectableTextBlock.
         /// </summary>
@@ -1489,6 +1678,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_SelectableTextBlock", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShellWindow.
         /// </summary>
@@ -1497,6 +1687,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ShellWindow", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Skeleton.
         /// </summary>
@@ -1505,6 +1696,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Skeleton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slider.
         /// </summary>
@@ -1513,6 +1705,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Slider", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Snackbar.
         /// </summary>
@@ -1521,6 +1714,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Snackbar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Splash.
         /// </summary>
@@ -1529,6 +1723,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Splash", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SplitButton.
         /// </summary>
@@ -1537,6 +1732,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_SplitButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to StatusBar.
         /// </summary>
@@ -1545,6 +1741,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_StatusBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SwatchPicker.
         /// </summary>
@@ -1553,6 +1750,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_SwatchPicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabControl.
         /// </summary>
@@ -1561,6 +1759,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TabControl", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabStrip.
         /// </summary>
@@ -1569,6 +1768,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TabStrip", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabView.
         /// </summary>
@@ -1577,6 +1777,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TabView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TagComboBox.
         /// </summary>
@@ -1585,6 +1786,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TagComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TagInput.
         /// </summary>
@@ -1593,6 +1795,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TagInput", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog.
         /// </summary>
@@ -1601,6 +1804,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TaskDialog", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TeachingTip.
         /// </summary>
@@ -1609,6 +1813,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TeachingTip", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBlock.
         /// </summary>
@@ -1617,6 +1822,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TextBlock", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBox.
         /// </summary>
@@ -1625,6 +1831,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Textbox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ThumbRate.
         /// </summary>
@@ -1633,6 +1840,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ThumbRate", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tile.
         /// </summary>
@@ -1641,6 +1849,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TilePressFeedback", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TimeBox.
         /// </summary>
@@ -1649,6 +1858,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TimeBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TimeBoxPicker.
         /// </summary>
@@ -1657,14 +1867,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TimeBoxPicker", resourceCulture);
             }
         }
-        /// <summary>
-        ///   Looks up a localized string similar to TimePicker.
-        /// </summary>
-        internal static string Gallery_Page_TimePicker {
-            get {
-                return ResourceManager.GetString("Gallery_Page_TimePicker", resourceCulture);
-            }
-        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeline.
         /// </summary>
@@ -1673,6 +1876,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Timeline", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TimePicker.
+        /// </summary>
+        internal static string Gallery_Page_TimePicker {
+            get {
+                return ResourceManager.GetString("Gallery_Page_TimePicker", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to TitleBar.
         /// </summary>
@@ -1681,6 +1894,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TitleBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toast.
         /// </summary>
@@ -1689,6 +1903,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Toast", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToggleButton.
         /// </summary>
@@ -1697,6 +1912,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToggleButton", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToggleButtonGroup.
         /// </summary>
@@ -1705,6 +1921,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToggleButtonGroup", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToggleComboBox.
         /// </summary>
@@ -1713,6 +1930,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToggleComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToggleSwitch.
         /// </summary>
@@ -1721,6 +1939,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToggleSwitch", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToolBar.
         /// </summary>
@@ -1729,6 +1948,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToolBar", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToolTip.
         /// </summary>
@@ -1737,6 +1957,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ToolTip", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TransitioningContentControl.
         /// </summary>
@@ -1745,6 +1966,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TransitioningContentControl", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TrayIcon.
         /// </summary>
@@ -1753,6 +1975,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TrayIcon", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeComboBox.
         /// </summary>
@@ -1761,6 +1984,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TreeComboBox", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeListView.
         /// </summary>
@@ -1769,6 +1993,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TreeListView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeModelListView.
         /// </summary>
@@ -1777,6 +2002,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TreeModelListView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeView.
         /// </summary>
@@ -1785,6 +2011,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_TreeView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Typography.
         /// </summary>
@@ -1793,6 +2020,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_Typography", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ValuePicker.
         /// </summary>
@@ -1801,6 +2029,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ValuePicker", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to VirtualJoystick.
         /// </summary>
@@ -1809,6 +2038,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_VirtualJoystick", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to VolumeView.
         /// </summary>
@@ -1817,6 +2047,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_VolumeView", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WebBrowser.
         /// </summary>
@@ -1825,6 +2056,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_WebBrowser", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WebView2.
         /// </summary>
@@ -1833,6 +2065,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_WebView2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Violeta Gallery.
         /// </summary>
@@ -1841,6 +2074,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_PaneTitle", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Search....
         /// </summary>
@@ -1849,6 +2083,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_SearchPlaceholder", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
@@ -1857,6 +2092,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
@@ -1865,6 +2101,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_About", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.Violeta Gallery — a control demo and interaction verification app..
         /// </summary>
@@ -1873,6 +2110,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_About_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent color.
         /// </summary>
@@ -1881,6 +2119,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_AccentColor", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Appearance.
         /// </summary>
@@ -1889,14 +2128,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Appearance", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Switch app theme, accent color, and window backdrop. Theme can be changed qui....
+        ///   Looks up a localized string similar to Switch app theme, accent color, and window backdrop. Theme can be changed quickly from the title bar; accent follows the system by default. Backdrop depends on the OS version—unsupported options are disabled automatically..
         /// </summary>
         internal static string Gallery_Settings_Appearance_Desc {
             get {
                 return ResourceManager.GetString("Gallery_Settings_Appearance_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Window backdrop.
         /// </summary>
@@ -1905,6 +2146,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Backdrop", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto.
         /// </summary>
@@ -1913,6 +2155,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Backdrop_Auto", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Experimental (not fully adapted to WPF-UI yet).
         /// </summary>
@@ -1921,6 +2164,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Backdrop_Experimental", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
@@ -1929,6 +2173,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Backdrop_None", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Close to tray.
         /// </summary>
@@ -1937,14 +2182,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_CloseToTray", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to When enabled, closing the main window minimizes the app to the system tray in....
+        ///   Looks up a localized string similar to When enabled, closing the main window minimizes the app to the system tray instead of exiting. Use Exit in the tray menu to quit completely. Off by default..
         /// </summary>
         internal static string Gallery_Settings_CloseToTray_Desc {
             get {
                 return ResourceManager.GetString("Gallery_Settings_CloseToTray_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Follow system accent.
         /// </summary>
@@ -1953,6 +2200,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_FollowSystemAccent", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
@@ -1961,6 +2209,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Language", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Switch the gallery UI language. Changes apply immediately..
         /// </summary>
@@ -1969,6 +2218,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Language_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Library version.
         /// </summary>
@@ -1977,6 +2227,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_LibraryVersion", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NavigationView settings item.
         /// </summary>
@@ -1985,14 +2236,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_NavItem", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to This page is opened via the NavigationView bottom settings button (IsSettings....
+        ///   Looks up a localized string similar to This page is opened via the NavigationView bottom settings button (IsSettingsVisible), demonstrating SettingsItem selection and page navigation..
         /// </summary>
         internal static string Gallery_Settings_NavItem_Desc {
             get {
                 return ResourceManager.GetString("Gallery_Settings_NavItem_Desc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Runtime.
         /// </summary>
@@ -2001,6 +2254,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Runtime", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to App settings.
         /// </summary>
@@ -2009,6 +2263,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Settings_Title", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme.
         /// </summary>
@@ -2017,6 +2272,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Theme", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
@@ -2025,6 +2281,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Theme_Dark", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Light.
         /// </summary>
@@ -2033,6 +2290,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Theme_Light", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System.
         /// </summary>
@@ -2041,6 +2299,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Theme_System", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to The app was minimized to the system tray. Double-click the icon to reopen..
         /// </summary>
@@ -2049,6 +2308,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Tray_MinimizedMessage", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Welcome.
         /// </summary>
@@ -2057,6 +2317,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Welcome", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Privacy settings content..
         /// </summary>
@@ -2065,6 +2326,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0013cac226", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
@@ -2073,6 +2335,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_004bf6c9a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Combo box.
         /// </summary>
@@ -2081,6 +2344,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_006ded9fa2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to No Icon — built-in glyph binds IconFontSize directly (12 / 16 default / 28)..
         /// </summary>
@@ -2089,6 +2353,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0083ea3fa5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mute.
         /// </summary>
@@ -2097,6 +2362,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_00cd7be4cb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enabled.
         /// </summary>
@@ -2105,6 +2371,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_00d23a76e4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme content font used by text controls..
         /// </summary>
@@ -2113,6 +2380,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_00e365b379", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline.
         /// </summary>
@@ -2121,6 +2389,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0125cf5f3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toolbar.
         /// </summary>
@@ -2129,6 +2398,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_012f602372", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AutoSuggestBox — optional navigation search box.
         /// </summary>
@@ -2137,6 +2407,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0144f29a17", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: no saved credential found..
         /// </summary>
@@ -2145,6 +2416,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_015d3e62d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text input with clear button.
         /// </summary>
@@ -2153,6 +2425,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_018fe5a138", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tech stack.
         /// </summary>
@@ -2161,6 +2434,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_01a0213336", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Restart.
         /// </summary>
@@ -2169,6 +2443,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_01b4e06f39", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Data grid.
         /// </summary>
@@ -2177,6 +2452,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_01c85e4961", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Document.xaml.
         /// </summary>
@@ -2185,6 +2461,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_01fc2bea89", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsActive.
         /// </summary>
@@ -2193,6 +2470,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0205bd4439", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to With QuickJump.
         /// </summary>
@@ -2201,14 +2479,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0216bfd322", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Bind Volume to a slider. Threshold mapping: ≤128 → 3 bars, ≤256 → 2 bars, oth....
+        ///   Looks up a localized string similar to Bind Volume to a slider. Threshold mapping: ≤128 → 3 bars, ≤256 → 2 bars, otherwise 1 bar..
         /// </summary>
         internal static string Sample_0220e2ecca {
             get {
                 return ResourceManager.GetString("Sample_0220e2ecca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dongguan.
         /// </summary>
@@ -2217,6 +2497,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_027110256c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Non-stacked notification 1.
         /// </summary>
@@ -2225,6 +2506,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0288ddbb33", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open Tinted Popup.
         /// </summary>
@@ -2233,14 +2515,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_02922129e5", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Provides minimize, maximize/restore, close, and optional help buttons. Styles....
+        ///   Looks up a localized string similar to Provides minimize, maximize/restore, close, and optional help buttons. Styles follow the host window’s active state and control window chrome. Typically used inside TitleBar, or placed alone in a custom title area..
         /// </summary>
         internal static string Sample_029dbfb305 {
             get {
                 return ResourceManager.GetString("Sample_029dbfb305", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Date and time.
         /// </summary>
@@ -2249,6 +2533,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_02a1c9a056", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover the button to see the default tip..
         /// </summary>
@@ -2257,6 +2542,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_02d9509b9b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tip.
         /// </summary>
@@ -2265,6 +2551,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_02d9819dda", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsEditable=True editable combo box..
         /// </summary>
@@ -2273,6 +2560,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_02ec1fa593", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rich content.
         /// </summary>
@@ -2281,6 +2569,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0357705cc8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MaxCount = 3.
         /// </summary>
@@ -2289,6 +2578,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_035d76dcf0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Subtitle.
         /// </summary>
@@ -2297,6 +2587,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_035f4e29da", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Day.
         /// </summary>
@@ -2305,6 +2596,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_03727ac485", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show clear button.
         /// </summary>
@@ -2313,6 +2605,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_03a0199535", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show options as tags with search support..
         /// </summary>
@@ -2321,6 +2614,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0442cbeedb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Item B.
         /// </summary>
@@ -2329,6 +2623,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_048547bbb0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select province / city.
         /// </summary>
@@ -2337,6 +2632,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_04a8c85aef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 0-255.
         /// </summary>
@@ -2345,6 +2641,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_04a9acc623", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Type text and press Enter to add a tag..
         /// </summary>
@@ -2353,6 +2650,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_04adfe2cf1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Prefilled.
         /// </summary>
@@ -2361,6 +2659,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_04d78f91fd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fade.
         /// </summary>
@@ -2369,6 +2668,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_04e0385c10", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Increase indent.
         /// </summary>
@@ -2377,6 +2677,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_051c56b123", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tertiary.
         /// </summary>
@@ -2385,6 +2686,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0521727bc2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option.
         /// </summary>
@@ -2393,6 +2695,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_054b4f3ea5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Password box.
         /// </summary>
@@ -2401,6 +2704,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_055293fb3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
@@ -2409,6 +2713,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0557fa923d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inherits WPF UI Button appearances..
         /// </summary>
@@ -2417,6 +2722,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_058f4b0139", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports comma separation; paste a,b,c to add multiple tags at once..
         /// </summary>
@@ -2425,6 +2731,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_059a49ce9e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mutually exclusive RadioButton groups across containers..
         /// </summary>
@@ -2433,6 +2740,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_05b03511cb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Autoplay.
         /// </summary>
@@ -2441,6 +2749,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_05b1dc7759", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Int32Displayer.
         /// </summary>
@@ -2449,6 +2758,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_05c14b8832", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 1 — Welcome to Violeta.
         /// </summary>
@@ -2457,6 +2767,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_05f27e568a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clipboard.
         /// </summary>
@@ -2465,6 +2776,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_061b40d699", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This Gallery already uses NavigationView.
         /// </summary>
@@ -2473,6 +2785,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_064a169925", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Info bar.
         /// </summary>
@@ -2481,6 +2794,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0665c67a72", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Special brushes and common sample-card combinations used across the Gallery..
         /// </summary>
@@ -2489,6 +2803,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_066ad0d0c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to • PaneDisplayMode: Left / LeftMinimal / Top, etc., control how the pane expands..
         /// </summary>
@@ -2497,6 +2812,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0674868522", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to One.
         /// </summary>
@@ -2505,6 +2821,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_06c2cea186", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Primary.
         /// </summary>
@@ -2513,6 +2830,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_074de7e7c2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to disabled.
         /// </summary>
@@ -2521,6 +2839,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_075ae3d2fc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Customize each item’s presentation with DataTemplate..
         /// </summary>
@@ -2529,6 +2848,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_075b8867a7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Stacking test.
         /// </summary>
@@ -2537,6 +2857,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_07a8b6d891", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success BG.
         /// </summary>
@@ -2545,6 +2866,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_07de3c627e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Down.
         /// </summary>
@@ -2553,6 +2875,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08a38277b0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clips content to the rounded outer edge..
         /// </summary>
@@ -2561,6 +2884,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08a6bfd44e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Width &amp;gt; Height × 1.3.
         /// </summary>
@@ -2569,6 +2893,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08a8d819d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter username.
         /// </summary>
@@ -2577,6 +2902,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08b1fa1304", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Account.
         /// </summary>
@@ -2585,6 +2911,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08bd40c754", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ChevronDownSmall.
         /// </summary>
@@ -2593,6 +2920,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_08f8181dce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cherry.
         /// </summary>
@@ -2601,6 +2929,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0905182530", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Checked / Disabled.
         /// </summary>
@@ -2609,22 +2938,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_090903ad32", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Result: {clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Emp....
+        ///   Looks up a localized string similar to Result: {clicked.ButtonType}{(string.IsNullOrEmpty(clicked.Text) ? string.Empty : $.
         /// </summary>
         internal static string Sample_0909d6d4dd {
             get {
                 return ResourceManager.GetString("Sample_0909d6d4dd", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to IsThreeState=True cycles unchecked → checked → indeterminate. Uses Indetermin....
+        ///   Looks up a localized string similar to IsThreeState=True cycles unchecked → checked → indeterminate. Uses IndeterminateIcon when IsChecked is null..
         /// </summary>
         internal static string Sample_090c2ca242 {
             get {
                 return ResourceManager.GetString("Sample_090c2ca242", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 1.5 (pill).
         /// </summary>
@@ -2633,6 +2965,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_090e90f3d1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to drag or dbl-click.
         /// </summary>
@@ -2641,6 +2974,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0929724039", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent indicator animation.
         /// </summary>
@@ -2649,6 +2983,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_09321a3297", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Splash screen.
         /// </summary>
@@ -2657,6 +2992,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0954ff825c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Base.
         /// </summary>
@@ -2665,6 +3001,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_095a1b43ef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mica.
         /// </summary>
@@ -2673,6 +3010,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_097ea7163a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SystemAccentColorPrimary.
         /// </summary>
@@ -2681,6 +3019,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0986005c67", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tag chip input.
         /// </summary>
@@ -2689,6 +3028,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_09e91c7b41", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rich text editing.
         /// </summary>
@@ -2697,6 +3037,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_09f3d0a727", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Info banner.
         /// </summary>
@@ -2705,6 +3046,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0a1e9274a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bluetooth.
         /// </summary>
@@ -2713,6 +3055,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0a4e486218", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Increment/decrement counter.
         /// </summary>
@@ -2721,6 +3064,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0aa6412b72", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pivot-styled TabControl.
         /// </summary>
@@ -2729,6 +3073,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0abe67e8c6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Loading data....
         /// </summary>
@@ -2737,6 +3082,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0ac491da7b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Star rating control with half-star support..
         /// </summary>
@@ -2745,6 +3091,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0acfecc954", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to To device.
         /// </summary>
@@ -2753,6 +3100,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b05d4ec1b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System tray icon.
         /// </summary>
@@ -2761,6 +3109,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b125f41f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
@@ -2769,6 +3118,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b27918290", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab indicator.
         /// </summary>
@@ -2777,6 +3127,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b66910aa9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Product specification picker.
         /// </summary>
@@ -2785,6 +3136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b8aba3183", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PivotHelper.LeftHeader / RightHeader.
         /// </summary>
@@ -2793,6 +3145,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b8b1d3827", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RichTextBox can edit content that includes.
         /// </summary>
@@ -2801,6 +3154,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0b8cd339bb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon FontSize=16.
         /// </summary>
@@ -2809,6 +3163,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0ba128aeb4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fast: {_fastClickCount}　Slow: {_slowClickCount}.
         /// </summary>
@@ -2817,6 +3172,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0ba1b99158", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Center.
         /// </summary>
@@ -2825,14 +3181,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0bbc2ea4e1", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to The colors below are provided as part of WPF UI. Reference them with DynamicR....
+        ///   Looks up a localized string similar to The colors below are provided as part of WPF UI. Reference them with DynamicResource bindings..
         /// </summary>
         internal static string Sample_0c4c999025 {
             get {
                 return ResourceManager.GetString("Sample_0c4c999025", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Secondary.
         /// </summary>
@@ -2841,22 +3199,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0c7d6cf194", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to LinearGradientBrush borders from Wpf.Ui theme (button / text / accent / circl....
+        ///   Looks up a localized string similar to LinearGradientBrush borders from Wpf.Ui theme (button / text / accent / circle controls)..
         /// </summary>
         internal static string Sample_0cd2b0ca2a {
             get {
                 return ResourceManager.GetString("Sample_0cd2b0ca2a", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Drag the slider below to shrink available width. Overflow items move into a C....
+        ///   Looks up a localized string similar to Drag the slider below to shrink available width. Overflow items move into a Compat Flyout (controls relocated as-is, not as MenuItems)..
         /// </summary>
         internal static string Sample_0cfb5648d9 {
             get {
                 return ResourceManager.GetString("Sample_0cfb5648d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Image control.
         /// </summary>
@@ -2865,6 +3226,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0d19ffacd9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card 4.
         /// </summary>
@@ -2873,6 +3235,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0d631fde3b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Combines tree structure with a list view; expand/collapse and multi-column..
         /// </summary>
@@ -2881,6 +3244,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0d838a9c7d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selection shapes.
         /// </summary>
@@ -2889,6 +3253,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0daf56c1c8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
@@ -2897,6 +3262,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0db377921f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Complete install.
         /// </summary>
@@ -2905,6 +3271,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0dd1930c12", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to UiButton.
         /// </summary>
@@ -2913,6 +3280,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0dfe59e591", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab strip vertically on the right..
         /// </summary>
@@ -2921,6 +3289,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0e649cb62f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to General settings content..
         /// </summary>
@@ -2929,6 +3298,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0e9fcd6e70", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification 2.
         /// </summary>
@@ -2937,14 +3307,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0ea7e63346", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Compose Content with a StackPanel instead of the Icon property. Foreground is....
+        ///   Looks up a localized string similar to Compose Content with a StackPanel instead of the Icon property. Foreground is inherited from the button — hold to verify pressed state..
         /// </summary>
         internal static string Sample_0f00121336 {
             get {
                 return ResourceManager.GetString("Sample_0f00121336", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System Fill.
         /// </summary>
@@ -2953,6 +3325,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0f0941da7e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorSpectrumVisible.
         /// </summary>
@@ -2961,6 +3334,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0f273844b1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save changes before closing?.
         /// </summary>
@@ -2969,6 +3343,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0f5bb4f6e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard Menu + ui:MenuItem.
         /// </summary>
@@ -2977,6 +3352,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0f69e5cbfd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 2.
         /// </summary>
@@ -2985,6 +3361,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0fa99936c9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+A.
         /// </summary>
@@ -2993,6 +3370,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_0fcdcf23e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This dialog demonstrates a marquee progress bar..
         /// </summary>
@@ -3001,6 +3379,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_10129a2fd7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wang Fang.
         /// </summary>
@@ -3009,6 +3388,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1039106987", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
@@ -3017,6 +3397,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1063e38cb5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Numeric spin input.
         /// </summary>
@@ -3025,6 +3406,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_10adc6be32", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IPv4 address and port input.
         /// </summary>
@@ -3033,6 +3415,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1125663605", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mobile development.
         /// </summary>
@@ -3041,6 +3424,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_11446c8fca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: {dialog.SelectedPath}.
         /// </summary>
@@ -3049,6 +3433,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_11528c4f6c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wednesday content..
         /// </summary>
@@ -3057,6 +3442,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_11946646f5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to main *.
         /// </summary>
@@ -3065,6 +3451,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_11f5071b0e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Step One.
         /// </summary>
@@ -3073,6 +3460,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_11f72c4bf8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tuesday content..
         /// </summary>
@@ -3081,6 +3469,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_120f27d061", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is an info notification ({location}).
         /// </summary>
@@ -3089,6 +3478,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_122bd04d19", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Work Documents.
         /// </summary>
@@ -3097,6 +3487,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_12621df30f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Third item.
         /// </summary>
@@ -3105,6 +3496,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1267f9f89a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Action 1.
         /// </summary>
@@ -3113,6 +3505,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_12a7ee47f3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OK and close.
         /// </summary>
@@ -3121,14 +3514,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_12cd9a94dc", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Statically define hierarchy nodes in XAML; supports expand/collapse and drag-....
+        ///   Looks up a localized string similar to Statically define hierarchy nodes in XAML; supports expand/collapse and drag-and-drop..
         /// </summary>
         internal static string Sample_12dac3eb3d {
             get {
                 return ResourceManager.GetString("Sample_12dac3eb3d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Seven.
         /// </summary>
@@ -3137,6 +3532,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_12e67aac3e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content dialog–style window.
         /// </summary>
@@ -3145,6 +3541,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_12f0e6842d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ReadOnly.
         /// </summary>
@@ -3153,6 +3550,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_131fb182a8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Senior engineer.
         /// </summary>
@@ -3161,6 +3559,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_132ab8784b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Retry.
         /// </summary>
@@ -3169,6 +3568,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_132c5cdcce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Waiting for click / double-click….
         /// </summary>
@@ -3177,6 +3577,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_136e16706d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NoResize.
         /// </summary>
@@ -3185,6 +3586,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_137e49a657", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsSelectionCancelable.
         /// </summary>
@@ -3193,6 +3595,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_13850e5b0e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content window.
         /// </summary>
@@ -3201,14 +3604,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_139a5b0200", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Selected state draws accent border inside swatch with background gap; hover s....
+        ///   Looks up a localized string similar to Selected state draws accent border inside swatch with background gap; hover scale, press bounce, and border animation. Click a swatch to try..
         /// </summary>
         internal static string Sample_13a67d4cc8 {
             get {
                 return ResourceManager.GetString("Sample_13a67d4cc8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to no spinner.
         /// </summary>
@@ -3217,6 +3622,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_13cef07bc8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to No buttons.
         /// </summary>
@@ -3225,14 +3631,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_13e47b9559", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Dropdown input with search suggestions; supports icon, placeholder, and clear....
+        ///   Looks up a localized string similar to Dropdown input with search suggestions; supports icon, placeholder, and clear button..
         /// </summary>
         internal static string Sample_1441f7daa2 {
             get {
                 return ResourceManager.GetString("Sample_1441f7daa2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fourth item.
         /// </summary>
@@ -3241,6 +3649,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1496f606a5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tag.
         /// </summary>
@@ -3249,6 +3658,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_14d342362f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IPv4 address + port.
         /// </summary>
@@ -3257,6 +3667,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_14ddc63d75", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard button.
         /// </summary>
@@ -3265,6 +3676,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_14edd6a459", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text on Accent.
         /// </summary>
@@ -3273,6 +3685,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_14fc481d26", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sub 2.1.
         /// </summary>
@@ -3281,6 +3694,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1542a2d801", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pagination — pagination control.
         /// </summary>
@@ -3289,6 +3703,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1567bdcc25", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Refresh required.
         /// </summary>
@@ -3297,6 +3712,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_157a149cee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Corner radius.
         /// </summary>
@@ -3305,6 +3721,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_158b3b19e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Page 2 — Fluent Design.
         /// </summary>
@@ -3313,6 +3730,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_159c645f66", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IconFontFamily + SuccessGlyph.
         /// </summary>
@@ -3321,6 +3739,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_15c61d5baf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mutually exclusive toggle group.
         /// </summary>
@@ -3329,6 +3748,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_15d3c2873a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Consolas.
         /// </summary>
@@ -3337,6 +3757,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_16507cdd5b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tags:.
         /// </summary>
@@ -3345,6 +3766,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1655dd5f2c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical slider.
         /// </summary>
@@ -3353,6 +3775,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1678c12dfc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Department manager.
         /// </summary>
@@ -3361,6 +3784,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1697f28005", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WebBrowser (legacy).
         /// </summary>
@@ -3369,6 +3793,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_169a3677a7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Breadcrumb.
         /// </summary>
@@ -3377,6 +3802,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_169b227aff", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
@@ -3385,6 +3811,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_16d2b386b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click the button above to read.
         /// </summary>
@@ -3393,6 +3820,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_17073bf769", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please note: this is a warning..
         /// </summary>
@@ -3401,6 +3829,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_17395556d2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Right Panel.
         /// </summary>
@@ -3409,6 +3838,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1752a53603", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Async wait dialog.
         /// </summary>
@@ -3417,14 +3847,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_17565d7913", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Windows credential dialog based on CredUIPromptForWindowsCredentials; support....
+        ///   Looks up a localized string similar to Windows credential dialog based on CredUIPromptForWindowsCredentials; supports save password, cache, and Credential Manager I/O..
         /// </summary>
         internal static string Sample_1766a8666a {
             get {
                 return ResourceManager.GetString("Sample_1766a8666a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please note the following.
         /// </summary>
@@ -3433,6 +3865,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_180108e19c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + text.
         /// </summary>
@@ -3441,6 +3874,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_180f56f954", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to State:.
         /// </summary>
@@ -3449,6 +3883,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_18325105de", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Column separator.
         /// </summary>
@@ -3457,6 +3892,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_187f57d72d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standalone busy-indicator animation..
         /// </summary>
@@ -3465,6 +3901,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1895d84b8a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Message box with icon; supports sync and async calls..
         /// </summary>
@@ -3473,6 +3910,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_18961e7e86", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar / CalendarDatePicker.
         /// </summary>
@@ -3481,6 +3919,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_18c4c020a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
@@ -3489,6 +3928,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_18c63459a2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dark mode.
         /// </summary>
@@ -3497,14 +3937,17 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_18d1485cc2", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Selected {dialog.FileNames.Length} files:.
+        ///   Looks up a localized string similar to Selected {dialog.FileNames.Length} files:
+        ///{string.Join(.
         /// </summary>
         internal static string Sample_1941fbc74a {
             get {
                 return ResourceManager.GetString("Sample_1941fbc74a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorPaletteVisible.
         /// </summary>
@@ -3513,6 +3956,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_197139f5c5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Receive email notifications.
         /// </summary>
@@ -3521,6 +3965,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_19b083f7cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cached network image.
         /// </summary>
@@ -3529,6 +3974,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_19cec4bfa6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Many pages.
         /// </summary>
@@ -3537,6 +3983,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1a62484fd6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon inherits ControlHelper.
         /// </summary>
@@ -3545,6 +3992,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1a93b64678", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show tray balloon notification.
         /// </summary>
@@ -3553,6 +4001,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1b0e13a022", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon / Value / Dot styles with different Severity colors..
         /// </summary>
@@ -3561,6 +4010,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1b3d9c6919", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fast: 0　Slow: 0.
         /// </summary>
@@ -3569,6 +4019,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1b92ef7c71", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 24-hour clock.
         /// </summary>
@@ -3577,6 +4028,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1ba133f7ff", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample footer.
         /// </summary>
@@ -3585,6 +4037,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1ba1994a8f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A basic Pivot.
         /// </summary>
@@ -3593,6 +4046,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1bb02e9548", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Add .
         /// </summary>
@@ -3601,6 +4055,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1bb125b89c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multiselect = true allows selecting multiple files..
         /// </summary>
@@ -3609,6 +4064,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1c91fe2647", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hold to increment.
         /// </summary>
@@ -3617,6 +4073,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cae9c41d8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to int (−100…100, step 5).
         /// </summary>
@@ -3625,6 +4082,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cb6b64981", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Word wrap.
         /// </summary>
@@ -3633,6 +4091,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cc5c88b14", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF password box..
         /// </summary>
@@ -3641,6 +4100,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cf6f5930e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ○ Inactive.
         /// </summary>
@@ -3649,6 +4109,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cf87f2966", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Embedded Microsoft Edge (Chromium) browser opening the Fluent UI Storybook..
         /// </summary>
@@ -3657,6 +4118,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1cf96448cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card.
         /// </summary>
@@ -3665,6 +4127,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1d565b9e53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TopRight.
         /// </summary>
@@ -3673,6 +4136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1d85a55789", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hotkey recording.
         /// </summary>
@@ -3681,6 +4145,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1dc0650f80", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 4. Keep scrolling to watch highlight changes..
         /// </summary>
@@ -3689,6 +4154,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1de8eaa668", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Department.
         /// </summary>
@@ -3697,14 +4163,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1e1459eeed", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to ContentWindow inherits from ShellWindow, embeds TitleBar by default, hosts cu....
+        ///   Looks up a localized string similar to ContentWindow inherits from ShellWindow, embeds TitleBar by default, hosts custom content via ContentWindowControl, and returns ContentWindowResult (OK / Cancel, etc.). Use it when you need a separate window instead of a ContentDialog..
         /// </summary>
         internal static string Sample_1e4f285714 {
             get {
                 return ResourceManager.GetString("Sample_1e4f285714", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fast (Delay=200, Interval=50).
         /// </summary>
@@ -3713,6 +4181,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1e4fcf41ba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic control for read-only text..
         /// </summary>
@@ -3721,6 +4190,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1e5753e63a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Simplified Chinese.
         /// </summary>
@@ -3729,6 +4199,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1e81fc32fe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Password....
         /// </summary>
@@ -3737,6 +4208,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1eb559ddc0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Core features merged.
         /// </summary>
@@ -3745,6 +4217,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1ec0c7b465", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Attach InfoBadge to NavigationViewItem for unread counts or status..
         /// </summary>
@@ -3753,6 +4226,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1eda6db667", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Increase.
         /// </summary>
@@ -3761,6 +4235,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1ef6e720b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slow (Delay=1000, Interval=400).
         /// </summary>
@@ -3769,14 +4244,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1efa490383", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Native TextBlock may show monochrome glyphs; EmojiedTextBlock renders color e....
+        ///   Looks up a localized string similar to Native TextBlock may show monochrome glyphs; EmojiedTextBlock renders color emoji..
         /// </summary>
         internal static string Sample_1f337ec787 {
             get {
                 return ResourceManager.GetString("Sample_1f337ec787", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to (Disabled).
         /// </summary>
@@ -3785,6 +4262,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1f698ebf83", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 8.
         /// </summary>
@@ -3793,6 +4271,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1f7768a40c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Editable ComboBox.
         /// </summary>
@@ -3801,6 +4280,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1f93fed7e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui TextBox with placeholder and clear button support..
         /// </summary>
@@ -3809,6 +4289,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1f9d2d95b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + text (vertical).
         /// </summary>
@@ -3817,6 +4298,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1fa42ff340", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Strong Stroke.
         /// </summary>
@@ -3825,6 +4307,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1fb35dc13b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Simple.
         /// </summary>
@@ -3833,6 +4316,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1fbb1e3943", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabStripPlacement = Right.
         /// </summary>
@@ -3841,6 +4325,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_1fc2aee9b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Grouped display using GroupStyle..
         /// </summary>
@@ -3849,6 +4334,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_200bb8cedf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Skeleton.
         /// </summary>
@@ -3857,6 +4343,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_20697811d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MongoDB.
         /// </summary>
@@ -3865,6 +4352,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_206e3718af", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System Fill Background.
         /// </summary>
@@ -3873,6 +4361,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_207dca511e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Shell window.
         /// </summary>
@@ -3881,6 +4370,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_20cc997916", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
@@ -3889,6 +4379,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_20def79426", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to List box.
         /// </summary>
@@ -3897,6 +4388,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_212779d466", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color emoji TextBlock / Picker.
         /// </summary>
@@ -3905,6 +4397,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_21353e2aa9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Home Remodel.
         /// </summary>
@@ -3913,6 +4406,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2175128e4c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to • IsPaneOpen / IsBackEnabled: control pane open state and the back button..
         /// </summary>
@@ -3921,6 +4415,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_222c7173fa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover the header strip to show prev/next when tabs overflow.
         /// </summary>
@@ -3929,6 +4424,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22541beb0f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Design.fig.
         /// </summary>
@@ -3937,6 +4433,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22554bfe34", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
@@ -3945,6 +4442,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_226b091218", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to XAML declaration options.
         /// </summary>
@@ -3953,6 +4451,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_227045d271", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multi-select dropdown.
         /// </summary>
@@ -3961,6 +4460,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22a638ef57", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QR code.
         /// </summary>
@@ -3969,6 +4469,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22b03c024d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Typical code / color tile layout..
         /// </summary>
@@ -3977,6 +4478,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22b093f15e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Go back.
         /// </summary>
@@ -3985,6 +4487,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_22b653bd8d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Desktop.
         /// </summary>
@@ -3993,6 +4496,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2310408a63", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A critical error occurred.
         /// </summary>
@@ -4001,6 +4505,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_234601f1a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enters a loading state for about 2 seconds, then recovers..
         /// </summary>
@@ -4009,6 +4514,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_23509bcfde", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QrCode — QR code.
         /// </summary>
@@ -4017,6 +4523,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_23561a8205", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AsyncBox — async content.
         /// </summary>
@@ -4025,6 +4532,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_236dc48e3d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard pagination; bind current page and total pages..
         /// </summary>
@@ -4033,6 +4541,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_23731d5885", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bind complex objects; DisplayMemberPath shows Name and syncs Content..
         /// </summary>
@@ -4041,6 +4550,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_23b09dfdc7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Verification code input.
         /// </summary>
@@ -4049,6 +4559,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_241bd43b47", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 72% · 86 MB of 120 MB.
         /// </summary>
@@ -4057,6 +4568,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24215f951b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Jiangsu.
         /// </summary>
@@ -4065,6 +4577,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2428ebeae7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Side navigation frame.
         /// </summary>
@@ -4073,6 +4586,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_243750408b", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grow = 2.
+        /// </summary>
+        internal static string Sample_24706f5e4d {
+            get {
+                return ResourceManager.GetString("Sample_24706f5e4d", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Native TaskDialog.
         /// </summary>
@@ -4081,6 +4604,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24991b0349", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QueryChanged: (cleared).
         /// </summary>
@@ -4089,6 +4613,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24a24070fd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Windows security credential dialog.
         /// </summary>
@@ -4097,6 +4622,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24be2656f9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NEW.
         /// </summary>
@@ -4105,6 +4631,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24d459a814", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Start over.
         /// </summary>
@@ -4113,6 +4640,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_24dfe773c7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Province / city cascade.
         /// </summary>
@@ -4121,6 +4649,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_251591221d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer panel.
         /// </summary>
@@ -4129,6 +4658,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2575be67fc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IPv4 address input.
         /// </summary>
@@ -4137,6 +4667,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2599b75b66", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Strong / Default.
         /// </summary>
@@ -4145,6 +4676,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_25aed2eb4b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Checked.
         /// </summary>
@@ -4153,6 +4685,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2627637e26", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Support.
         /// </summary>
@@ -4161,6 +4694,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_262b0b07df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Help button.
         /// </summary>
@@ -4169,6 +4703,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2649e6600b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ClipToBounds=False.
         /// </summary>
@@ -4177,6 +4712,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_266e706278", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample text for subsection 2.2..
         /// </summary>
@@ -4185,6 +4721,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_26ae404d23", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
@@ -4193,6 +4730,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_26bb841878", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Generates a QR code from text; adjust ECC level and corner radius..
         /// </summary>
@@ -4201,6 +4739,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_26cfbf3fb6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Urgent.
         /// </summary>
@@ -4209,6 +4748,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2708565083", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default Expander.
         /// </summary>
@@ -4217,6 +4757,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2749822f6c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Critical.
         /// </summary>
@@ -4225,6 +4766,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_278d01e5af", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Palette.
         /// </summary>
@@ -4233,6 +4775,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_278f9a3d30", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Info badge.
         /// </summary>
@@ -4241,6 +4784,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_27a4abbc1f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Continue.
         /// </summary>
@@ -4249,14 +4793,27 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_27ca568be2", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Gallery demo exception for previewing the ExceptionReport dialog..
+        ///   Looks up a localized string similar to Gallery demo exception for previewing the ExceptionReport dialog.
+        ///
+        ///This sample message is intentionally long and multi-line so you can verify ScrollViewer behavior when the exception details overflow the available area.
+        ///
+        ///Reproduction steps:
+        ///1. Open the ExceptionReport page in Gallery.
+        ///2. Click the button that shows this dialog.
+        ///3. Resize the window smaller if needed.
+        ///4. Confirm the details panel scrolls vertically and keeps text selectable.
+        ///
+        ///Additional context for layout testing:
+        ///- Line wrapping  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sample_280b260594 {
             get {
                 return ResourceManager.GetString("Sample_280b260594", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree model list view.
         /// </summary>
@@ -4265,6 +4822,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_28485a07e0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Configuration highlights.
         /// </summary>
@@ -4273,6 +4831,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_285f2d65c2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
@@ -4281,6 +4840,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_288f0c404c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress ring.
         /// </summary>
@@ -4289,6 +4849,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_28aa6906e9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three-state checkbox icons.
         /// </summary>
@@ -4297,6 +4858,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_28b51970d7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Another expander.
         /// </summary>
@@ -4305,6 +4867,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_28c448376e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 2.
         /// </summary>
@@ -4313,14 +4876,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_28db7c9a8d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to NumericUpDown is an abstract base class; use a concrete type such as NumericI....
+        ///   Looks up a localized string similar to NumericUpDown is an abstract base class; use a concrete type such as NumericIntUpDown..
         /// </summary>
         internal static string Sample_2904a01f72 {
             get {
                 return ResourceManager.GetString("Sample_2904a01f72", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Solid fill.
         /// </summary>
@@ -4329,6 +4894,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2907f5e4aa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
@@ -4337,6 +4903,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2938c7f7e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Animated number rolling.
         /// </summary>
@@ -4345,6 +4912,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_297dd00407", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overlay smoke.
         /// </summary>
@@ -4353,6 +4921,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_298c402ad9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OK / Cancel.
         /// </summary>
@@ -4361,6 +4930,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_299344c484", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to v1.0 release.
         /// </summary>
@@ -4369,6 +4939,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_29df7ab4fb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vector: X 0.00, Y 0.00.
         /// </summary>
@@ -4377,6 +4948,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2a0d4e15b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Continue the operation? ({location}).
         /// </summary>
@@ -4385,6 +4957,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2a13a32110", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to no local → 28.
         /// </summary>
@@ -4393,6 +4966,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2a309c7843", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Loading + Disabled.
         /// </summary>
@@ -4401,6 +4975,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2a342abec2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Password input.
         /// </summary>
@@ -4409,6 +4984,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2a3a9f88ca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TitleBar — custom title bar.
         /// </summary>
@@ -4417,6 +4993,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2aa42f4250", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Attention.
         /// </summary>
@@ -4425,6 +5002,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2aa97e44ca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to UI review approved.
         /// </summary>
@@ -4433,6 +5011,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2ac5ec7017", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Skeleton — skeleton screen.
         /// </summary>
@@ -4441,6 +5020,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2ad0b1dc17", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bottom.
         /// </summary>
@@ -4449,6 +5029,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2ad9d63b69", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Fill.
         /// </summary>
@@ -4457,6 +5038,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2b3bc77b9e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OverflowFlyoutAutoCloseMode.
         /// </summary>
@@ -4465,6 +5047,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2b530675b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — warning.
         /// </summary>
@@ -4473,6 +5056,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2b68259daf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ButtonSpinnerLocation=Left.
         /// </summary>
@@ -4481,6 +5065,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2b948774a3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pick a date.
         /// </summary>
@@ -4489,6 +5074,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2badfa8fae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Press a hotkey....
         /// </summary>
@@ -4497,6 +5083,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2c06ec4e6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: credential deleted..
         /// </summary>
@@ -4505,6 +5092,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2c6ba0e39a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: exception — {ex.Message}.
         /// </summary>
@@ -4513,6 +5101,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2c9b33f24f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to double (0…1).
         /// </summary>
@@ -4521,6 +5110,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2ca4618120", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Column 3.
         /// </summary>
@@ -4529,6 +5119,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2cb11e9ebf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree combo.
         /// </summary>
@@ -4537,6 +5128,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2ce70ecb55", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — error.
         /// </summary>
@@ -4545,6 +5137,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2cf6355daa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsComponentSliderVisible.
         /// </summary>
@@ -4553,6 +5146,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d66358181", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Input Active.
         /// </summary>
@@ -4561,6 +5155,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d6c0e1f5e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content.
         /// </summary>
@@ -4569,6 +5164,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d711b09bd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selectable copyable text block.
         /// </summary>
@@ -4577,6 +5173,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d7c6130ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click to load.
         /// </summary>
@@ -4585,6 +5182,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d7f6c045a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic · Fade animation · Rounded corners.
         /// </summary>
@@ -4593,6 +5191,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d81d2656d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vue.
         /// </summary>
@@ -4601,6 +5200,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d8ec58bab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:Flyout.
         /// </summary>
@@ -4609,6 +5209,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2d90f155d8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom-format time picker.
         /// </summary>
@@ -4617,6 +5218,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2daf8c0856", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System tray icon and menu.
         /// </summary>
@@ -4625,6 +5227,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2de0bc06f2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wheel picker.
         /// </summary>
@@ -4633,6 +5236,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2de3f7a95f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Label associated with TextBox.
         /// </summary>
@@ -4641,6 +5245,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2df973d88f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Minimize / Maximize / Close bar.
         /// </summary>
@@ -4649,6 +5254,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2e010513c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to An error occurred. Please try again later..
         /// </summary>
@@ -4657,6 +5263,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2e087c1ba6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pressed only.
         /// </summary>
@@ -4665,6 +5272,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2e7d397705", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent / Secondary.
         /// </summary>
@@ -4673,6 +5281,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2e83cfcd29", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Delay / Interval.
         /// </summary>
@@ -4681,6 +5290,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2f44e60b38", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample three-state.
         /// </summary>
@@ -4689,6 +5299,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2f74655b4c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Help always goes to overflow; Save never overflows; others spill as needed..
         /// </summary>
@@ -4697,6 +5308,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2fb1383e61", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to White.
         /// </summary>
@@ -4705,6 +5317,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_2fc96b2704", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to int (−100…100).
         /// </summary>
@@ -4713,6 +5326,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_302efd43e9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhang Wei.
         /// </summary>
@@ -4721,6 +5335,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_305be79653", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zoom Out.
         /// </summary>
@@ -4729,6 +5344,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30850b501f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Banner — banner notification.
         /// </summary>
@@ -4737,6 +5353,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30859ecb19", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ● Active.
         /// </summary>
@@ -4745,6 +5362,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_308e3a15a2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Circle.
         /// </summary>
@@ -4753,6 +5371,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30954d9008", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click to copy TextToCopy and play the WinUI-style checkmark animation..
         /// </summary>
@@ -4761,6 +5380,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3098f1d77b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Aa Bb Cc text.
         /// </summary>
@@ -4769,14 +5389,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30abc0f44c", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Click the left side to toggle IsChecked; open the chevron for options. Conten....
+        ///   Looks up a localized string similar to Click the left side to toggle IsChecked; open the chevron for options. Content sync is off by default..
         /// </summary>
         internal static string Sample_30d371c179 {
             get {
                 return ResourceManager.GetString("Sample_30d371c179", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree view.
         /// </summary>
@@ -4785,6 +5407,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30d8aa704d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF Button control..
         /// </summary>
@@ -4793,6 +5416,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30eed26e03", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DropDown.
         /// </summary>
@@ -4801,6 +5425,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_30fb85cbfc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Popup picker.
         /// </summary>
@@ -4809,6 +5434,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3157b6de96", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui PasswordBox with icon and placeholder support..
         /// </summary>
@@ -4817,6 +5443,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_318cab9dfe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IndicatorAnimation=Fluent.
         /// </summary>
@@ -4825,6 +5452,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_319fe31ff0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option D.
         /// </summary>
@@ -4833,6 +5461,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31b3adc7df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SyncContentWithSelection = True.
         /// </summary>
@@ -4841,6 +5470,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31c6a2bd46", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF Menu with ui:MenuItem for Fluent icons and styling..
         /// </summary>
@@ -4849,6 +5479,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31cf6f2636", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Styled TextBlock.
         /// </summary>
@@ -4857,6 +5488,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31d836ff42", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to double (0…1, step 0.1).
         /// </summary>
@@ -4865,6 +5497,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31f73e0ba4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
@@ -4873,6 +5506,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_31fde7b05a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Neutral BG.
         /// </summary>
@@ -4881,6 +5515,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_320d99b367", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wang Wu.
         /// </summary>
@@ -4889,6 +5524,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3228f322c9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Find next.
         /// </summary>
@@ -4897,6 +5533,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_322b95851a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Boolean state text.
         /// </summary>
@@ -4905,6 +5542,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3241f0c160", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Positive.
         /// </summary>
@@ -4913,6 +5551,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3289297424", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Width.
         /// </summary>
@@ -4921,6 +5560,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_32954654ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Task A-1.
         /// </summary>
@@ -4929,6 +5569,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_32ca86d11b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic (5 pages).
         /// </summary>
@@ -4937,6 +5578,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_32e7c869df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent / Tertiary.
         /// </summary>
@@ -4945,6 +5587,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_32f9b3efb5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
@@ -4953,6 +5596,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_330363dfc5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToggleCombo.
         /// </summary>
@@ -4961,6 +5605,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_331b534c4f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Person picture and badge.
         /// </summary>
@@ -4969,6 +5614,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3377cb7c99", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Typical install.
         /// </summary>
@@ -4977,6 +5623,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3407d84a3a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Time picker (12/24-hour).
         /// </summary>
@@ -4985,6 +5632,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3439dc393f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Placeholder before content loads. Toggle IsLoading / IsActive..
         /// </summary>
@@ -4993,6 +5641,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3444fcb679", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Title Large.
         /// </summary>
@@ -5001,6 +5650,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_34657fd293", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Info bar tip.
         /// </summary>
@@ -5009,6 +5659,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_346a620dc9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overall Project Plan.
         /// </summary>
@@ -5017,6 +5668,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3487e8efdf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SecondaryCardProgressStyle.
         /// </summary>
@@ -5025,6 +5677,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_34b1abfa00", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Transition content.
         /// </summary>
@@ -5033,6 +5686,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_34be9270ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Breadcrumb navigation.
         /// </summary>
@@ -5041,6 +5695,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3576258acd", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grow = 1.
+        /// </summary>
+        internal static string Sample_3581706f5e {
+            get {
+                return ResourceManager.GetString("Sample_3581706f5e", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical Rectangle.
         /// </summary>
@@ -5049,6 +5713,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_35a7cc6b7a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Draggable splitter.
         /// </summary>
@@ -5057,6 +5722,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_35d6458151", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent / Default.
         /// </summary>
@@ -5065,6 +5731,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_35f6a2f764", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text box + dropdown flyout with custom .NET time formats..
         /// </summary>
@@ -5073,6 +5740,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36044dc666", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tablet.
         /// </summary>
@@ -5081,6 +5749,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36384a9ea3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF UI Image with rounded corners and borders..
         /// </summary>
@@ -5089,6 +5758,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36398e25f0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorComponentsVisible.
         /// </summary>
@@ -5097,6 +5767,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_364c264fb7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Main window is hidden. Double-click the tray icon to reopen it..
         /// </summary>
@@ -5105,6 +5776,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3676039437", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Range 500–1000 with TickFrequency=20 snap steps..
         /// </summary>
@@ -5113,6 +5785,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36780b94c2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
@@ -5121,6 +5794,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36a4908a55", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Li Si.
         /// </summary>
@@ -5129,6 +5803,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36c942351e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard toggle button.
         /// </summary>
@@ -5137,6 +5812,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36de458418", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QA.
         /// </summary>
@@ -5145,6 +5821,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_36e41c1627", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: {result}.
         /// </summary>
@@ -5153,6 +5830,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_373ee67676", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto-fills rows and columns in child order..
         /// </summary>
@@ -5161,6 +5839,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_375192376c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification 3.
         /// </summary>
@@ -5169,6 +5848,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_37922953b5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Visibility options.
         /// </summary>
@@ -5177,6 +5857,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_37ee4cf592", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sub-section 2.2.
         /// </summary>
@@ -5185,6 +5866,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_37eed58825", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tiny.
         /// </summary>
@@ -5193,6 +5875,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_383c05bda6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pagination.
         /// </summary>
@@ -5201,6 +5884,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3862626c13", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Merge formatting.
         /// </summary>
@@ -5209,6 +5893,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_38ac16ad51", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShowsPreview=True (default) — commits the size after releasing the mouse..
         /// </summary>
@@ -5217,6 +5902,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_38b33a8af5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
@@ -5225,6 +5911,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_38cf16f220", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom title bar.
         /// </summary>
@@ -5233,6 +5920,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_38d11a85f2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segoe Fluent Icons — default icon font for most controls..
         /// </summary>
@@ -5241,6 +5929,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_38f82ccc91", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Title bar.
         /// </summary>
@@ -5249,6 +5938,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_391555a377", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Archive 2026.
         /// </summary>
@@ -5257,6 +5947,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3943241bd1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: canceled or closed.
         /// </summary>
@@ -5265,14 +5956,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_395d500fbf", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Combined IPv4 and port input (e.g. 192.168.0.10:8080); press . or : to jump t....
+        ///   Looks up a localized string similar to Combined IPv4 and port input (e.g. 192.168.0.10:8080); press . or : to jump to the port segment..
         /// </summary>
         internal static string Sample_3963b4df1d {
             get {
                 return ResourceManager.GetString("Sample_3963b4df1d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF UI TabView control with a look close to WinUI TabView..
         /// </summary>
@@ -5281,6 +5974,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_39886cefd9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PostgreSQL.
         /// </summary>
@@ -5289,6 +5983,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_399bd1ee58", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:AutoSuggestBox.
         /// </summary>
@@ -5297,6 +5992,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_39ff50b6cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paint Color Scheme.
         /// </summary>
@@ -5305,6 +6001,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3a3c00f8ba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NativeMessageBox — Yes/No.
         /// </summary>
@@ -5313,6 +6010,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3a4efdbeba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + text (StackPanel Content).
         /// </summary>
@@ -5321,6 +6019,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3a573f184a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF TextBox..
         /// </summary>
@@ -5329,6 +6028,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3a5fe68601", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Encrypt local data.
         /// </summary>
@@ -5337,6 +6037,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3a7c893a5d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to An error occurred. Please contact your administrator..
         /// </summary>
@@ -5345,6 +6046,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3acbae2b62", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Indeterminate indicator travels along the rounded bottom edge..
         /// </summary>
@@ -5353,6 +6055,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3adadaeee0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
@@ -5361,6 +6064,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b04598bd0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to The top-right of the main window TitleBar shows the live CaptionButtonBar..
         /// </summary>
@@ -5369,6 +6073,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b2223252e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Node.js.
         /// </summary>
@@ -5377,6 +6082,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b2819dd4c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clickable card actions; useful as settings page shortcuts..
         /// </summary>
@@ -5385,6 +6091,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b7b097beb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
@@ -5393,6 +6100,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b878279a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bold.
         /// </summary>
@@ -5401,6 +6109,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3b8a43acee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Error — long message.
         /// </summary>
@@ -5409,6 +6118,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3bfa83b27c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Untargeted + Light Dismiss.
         /// </summary>
@@ -5417,6 +6127,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c1f4d95f5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Native Win32 TaskDialog.
         /// </summary>
@@ -5425,6 +6136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c2460c13c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Step Five.
         /// </summary>
@@ -5433,6 +6145,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c297634b8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Actionable card.
         /// </summary>
@@ -5441,6 +6154,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c3e3e5487", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard RepeatButton.
         /// </summary>
@@ -5449,6 +6163,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c3e7f2bd3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Combined calendar + time picker.
         /// </summary>
@@ -5457,6 +6172,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3c9ff9bc0b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card / Secondary.
         /// </summary>
@@ -5465,14 +6181,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3cdd410bf1", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Menu uses ui:ControlHelper.IconFontSize=18 and IconWidth=20 so top-level / su....
+        ///   Looks up a localized string similar to Menu uses ui:ControlHelper.IconFontSize=18 and IconWidth=20 so top-level / submenu icons share a uniform slot (default IconWidth=NaN is auto)..
         /// </summary>
         internal static string Sample_3d38c23243 {
             get {
                 return ResourceManager.GetString("Sample_3d38c23243", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle with slide animation; supports drag, title, and custom On/Off content..
         /// </summary>
@@ -5481,6 +6199,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d4319582e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Smooth physics scrolling for mouse wheel, trackpad, and touch..
         /// </summary>
@@ -5489,6 +6208,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d502b523f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Apply changes.
         /// </summary>
@@ -5497,6 +6217,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d6aea7f98", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme switched: {tag}.
         /// </summary>
@@ -5505,6 +6226,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d860d035a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample Card.
         /// </summary>
@@ -5513,6 +6235,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d8a4674c4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Transparent.
         /// </summary>
@@ -5521,6 +6244,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3d97194308", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-styled hyperlink.
         /// </summary>
@@ -5529,14 +6253,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3dafb55bfe", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Detailed content shown when the Expander is expanded; useful for grouping sec....
+        ///   Looks up a localized string similar to Detailed content shown when the Expander is expanded; useful for grouping secondary info..
         /// </summary>
         internal static string Sample_3dc186229d {
             get {
                 return ResourceManager.GetString("Sample_3dc186229d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DisplayMemberPath + ItemsSource binding.
         /// </summary>
@@ -5545,6 +6271,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3dc7af023d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standalone swatches.
         /// </summary>
@@ -5553,14 +6280,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3dd55e39f8", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to StackPanel with icon, title, and secondary description — all inherit button F....
+        ///   Looks up a localized string similar to StackPanel with icon, title, and secondary description — all inherit button Foreground..
         /// </summary>
         internal static string Sample_3ddf6f22b0 {
             get {
                 return ResourceManager.GetString("Sample_3ddf6f22b0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card / Layer / Smoke.
         /// </summary>
@@ -5569,6 +6298,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3e8abac942", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hotkey capture.
         /// </summary>
@@ -5577,6 +6307,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3ec22d22be", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
@@ -5585,6 +6316,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3ec365dd53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsAlphaVisible.
         /// </summary>
@@ -5593,6 +6325,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3ef12e7ae5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:CalendarDatePicker.
         /// </summary>
@@ -5601,6 +6334,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3f084e5813", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pro.
         /// </summary>
@@ -5609,6 +6343,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3f086416bf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Horizontally scrolling text; control direction, speed, and AutoRun..
         /// </summary>
@@ -5617,6 +6352,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3f47bd2d77", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical StackPanel: icon above label, useful for compact toolbar-like toggles..
         /// </summary>
@@ -5625,6 +6361,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3f5d0ff650", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Column 1.
         /// </summary>
@@ -5633,6 +6370,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3fc35bb610", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to On Accent / Disabled.
         /// </summary>
@@ -5641,6 +6379,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3fd8e47968", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
@@ -5649,6 +6388,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3fea7ca76c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Development.
         /// </summary>
@@ -5657,6 +6397,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_3ff3c3e26a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL++.
         /// </summary>
@@ -5665,6 +6406,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_401ee19efd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Data 3.
         /// </summary>
@@ -5673,14 +6415,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4053a05691", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to All buttons set ControlHelper.IconFontSize=28. Left/middle Icon sets FontSize....
+        ///   Looks up a localized string similar to All buttons set ControlHelper.IconFontSize=28. Left/middle Icon sets FontSize=12 / 16 locally and stays small; right has no local FontSize and becomes 28..
         /// </summary>
         internal static string Sample_405bca6066 {
             get {
                 return ResourceManager.GetString("Sample_405bca6066", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ClearButtonEnabled=False.
         /// </summary>
@@ -5689,6 +6433,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4089352c97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 1px gradient divider used by NavigationView.
         /// </summary>
@@ -5697,6 +6442,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_409b0ce34f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar date.
         /// </summary>
@@ -5705,6 +6451,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_40fccfe532", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Align left.
         /// </summary>
@@ -5713,6 +6460,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_413f48cc71", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Attention BG.
         /// </summary>
@@ -5721,6 +6469,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_415c1ed2d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Item A.
         /// </summary>
@@ -5729,6 +6478,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_416b31af1e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ClipToBounds + CornerRadius.
         /// </summary>
@@ -5737,6 +6487,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_41b99ea80d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Messages.
         /// </summary>
@@ -5745,6 +6496,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_41de6d6cfb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab view.
         /// </summary>
@@ -5753,6 +6505,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_41e5da80c7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DateDisplay (yyyy-MM-dd).
         /// </summary>
@@ -5761,6 +6514,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_420090ffd5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zoom.
         /// </summary>
@@ -5769,6 +6523,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4252b72e6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flyout.
         /// </summary>
@@ -5777,6 +6532,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_42862a19bd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Simulate loading task.
         /// </summary>
@@ -5785,6 +6541,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4295b75647", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mutually exclusive toggle button group.
         /// </summary>
@@ -5793,6 +6550,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4298342678", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: user: {dialog.UserName}, save checked: {dialog.IsSaveChecked}.
         /// </summary>
@@ -5801,6 +6559,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_42d379fc40", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer - Right.
         /// </summary>
@@ -5809,6 +6568,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4345445667", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to View.
         /// </summary>
@@ -5817,6 +6577,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4351cfebe4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto row/column grid.
         /// </summary>
@@ -5825,6 +6586,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_43a6fef122", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cut.
         /// </summary>
@@ -5833,6 +6595,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_43fc77886b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled item.
         /// </summary>
@@ -5841,6 +6604,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4402da40de", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeline.
         /// </summary>
@@ -5849,6 +6613,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4404a8dacc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Label control for descriptive text..
         /// </summary>
@@ -5857,6 +6622,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_44096c0147", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Text / Primary.
         /// </summary>
@@ -5865,6 +6631,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_440e704448", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample text for subsection 2.1..
         /// </summary>
@@ -5873,6 +6640,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4473a9e79b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 6.
         /// </summary>
@@ -5881,6 +6649,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_44768e6912", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Action card.
         /// </summary>
@@ -5889,6 +6658,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_44ae9d4db8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Feedback controls.
         /// </summary>
@@ -5897,14 +6667,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_450e7ae75d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to RadioButtons sharing GroupName work with an icon toolbar; shrink width to see....
+        ///   Looks up a localized string similar to RadioButtons sharing GroupName work with an icon toolbar; shrink width to see overflow..
         /// </summary>
         internal static string Sample_452a4d35f3 {
             get {
                 return ResourceManager.GetString("Sample_452a4d35f3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wrap text.
         /// </summary>
@@ -5913,6 +6685,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_452dba7c65", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical timeline layout showing event order..
         /// </summary>
@@ -5921,6 +6694,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_452e6c9afa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Unavailable.
         /// </summary>
@@ -5929,6 +6703,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_453e6aa38d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Gold.
         /// </summary>
@@ -5937,6 +6712,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_454b22f95d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Boolean content.
         /// </summary>
@@ -5945,6 +6721,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4554fa92b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree combo box.
         /// </summary>
@@ -5953,6 +6730,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4598e31c82", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF UI button.
         /// </summary>
@@ -5961,6 +6739,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_459fe7634f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This text will be copied to the clipboard..
         /// </summary>
@@ -5969,6 +6748,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_45c2c3e135", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select All.
         /// </summary>
@@ -5977,6 +6757,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_45e96c0a42", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a description text..
         /// </summary>
@@ -5985,6 +6766,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_460daa68fb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select a single file.
         /// </summary>
@@ -5993,6 +6775,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4634be5ac1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Architect.
         /// </summary>
@@ -6001,6 +6784,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4647705c65", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limited stack (max 2).
         /// </summary>
@@ -6009,6 +6793,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_464fd99a16", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gap.
+        /// </summary>
+        internal static string Sample_469281706f {
+            get {
+                return ResourceManager.GetString("Sample_469281706f", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui-styled RichTextBox..
         /// </summary>
@@ -6017,6 +6811,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_46e283835a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hyperlink button with NavigateUri..
         /// </summary>
@@ -6025,6 +6820,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_470bcc646a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enable notifications.
         /// </summary>
@@ -6033,14 +6829,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4717f4f110", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to NumberDisplayer interpolates between old and new values with a smooth rolling....
+        ///   Looks up a localized string similar to NumberDisplayer interpolates between old and new values with a smooth rolling effect..
         /// </summary>
         internal static string Sample_474a772600 {
             get {
                 return ResourceManager.GetString("Sample_474a772600", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to The cake is a lie!.
         /// </summary>
@@ -6049,6 +6847,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_47635cbe1a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageIcon + DropDownButton.
         /// </summary>
@@ -6057,6 +6856,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_478b28d0c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FontIcon hyperlink.
         /// </summary>
@@ -6065,6 +6865,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_478f41fe45", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Resize width/height to see AspectRatioMode changes (tolerance=0.3)..
         /// </summary>
@@ -6073,6 +6874,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_47b666a05d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Music.
         /// </summary>
@@ -6081,6 +6883,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_47dcbd834e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Urgent emails go here..
         /// </summary>
@@ -6089,6 +6892,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_481fa5fc28", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Current state.
         /// </summary>
@@ -6097,6 +6901,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4835864833", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Credential management.
         /// </summary>
@@ -6105,6 +6910,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_483b1a6a0b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expandable task dialog.
         /// </summary>
@@ -6113,6 +6919,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_484693ecc7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Project kickoff.
         /// </summary>
@@ -6121,6 +6928,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_484aefb490", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Async content dialog.
         /// </summary>
@@ -6129,6 +6937,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_48587661be", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Used on accent-colored surfaces.
         /// </summary>
@@ -6137,6 +6946,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_48b803e623", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is the header text.
         /// </summary>
@@ -6145,14 +6955,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_490309ef24", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Drag the knob, or select the joystick and use the arrow keys. The current eig....
+        ///   Looks up a localized string similar to Drag the knob, or select the joystick and use the arrow keys. The current eight-direction value and normalized vector are displayed below. The deadzone can be adjusted with the slider..
         /// </summary>
         internal static string Sample_49834e2562 {
             get {
                 return ResourceManager.GetString("Sample_49834e2562", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System Accent.
         /// </summary>
@@ -6161,6 +6973,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4995c7c87e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Secondary style.
         /// </summary>
@@ -6169,6 +6982,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_49adc2661b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expandable.
         /// </summary>
@@ -6177,6 +6991,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_49b4aa407b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Liu Yang.
         /// </summary>
@@ -6185,6 +7000,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_49c531db9a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 3.
         /// </summary>
@@ -6193,6 +7009,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_49fbc11c73", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FluentSystemIcons.
         /// </summary>
@@ -6201,6 +7018,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a03e9f103", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Boolean text.
         /// </summary>
@@ -6209,6 +7027,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a0c1908e4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Change themes without hassle.
         /// </summary>
@@ -6217,6 +7036,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a2e02c6c4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Navigation view.
         /// </summary>
@@ -6225,6 +7045,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a39e6b7ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Compose Content with a horizontal StackPanel: icon and label side by side..
         /// </summary>
@@ -6233,6 +7054,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a4d0ffa97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab strip at the top (default)..
         /// </summary>
@@ -6241,6 +7063,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a4d9a7050", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cancellable task.
         /// </summary>
@@ -6249,6 +7072,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4a6adf2e3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to I am a text block..
         /// </summary>
@@ -6257,6 +7081,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ae4e1907f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RadioButton group + icon buttons.
         /// </summary>
@@ -6265,6 +7090,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4b0d57595a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to The cake.
         /// </summary>
@@ -6273,6 +7099,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4b111b983d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter credentials.
         /// </summary>
@@ -6281,6 +7108,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4b151dd64a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon, Header, description, and a control on the right..
         /// </summary>
@@ -6289,14 +7117,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4b3ae6ebbf", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Default style shows hover / selected borders. Sample style is flat icon-only.....
+        ///   Looks up a localized string similar to Default style shows hover / selected borders. Sample style is flat icon-only. Supports IsThreeState with IndeterminateIcon..
         /// </summary>
         internal static string Sample_4b919c21a8 {
             get {
                 return ResourceManager.GetString("Sample_4b919c21a8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
@@ -6305,6 +7135,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4b9c3271dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content dialog.
         /// </summary>
@@ -6313,6 +7144,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4bd533aa51", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select an action.
         /// </summary>
@@ -6321,6 +7153,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4bf5433ad8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic GridView with ItemClick.
         /// </summary>
@@ -6329,6 +7162,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4c08ca81b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Feature highlight.
         /// </summary>
@@ -6337,6 +7171,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4c13e4f695", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cannot edit.
         /// </summary>
@@ -6345,6 +7180,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4c141901e2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select all.
         /// </summary>
@@ -6353,6 +7189,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4c41e0bd95", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar date picker.
         /// </summary>
@@ -6361,6 +7198,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4c593f33d3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
@@ -6369,6 +7207,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ccbdc5301", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Horizontal.
         /// </summary>
@@ -6377,6 +7216,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4cde06e616", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MaxDecimalPlaces=0 allows integers only..
         /// </summary>
@@ -6385,6 +7225,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d02e8c8cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to New employee .
         /// </summary>
@@ -6393,6 +7234,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d0e6c6f67", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Long text wraps automatically..
         /// </summary>
@@ -6401,14 +7243,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d13a2326e", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Icon-only segments, matching UniGetUI's List / Grid / Icons switcher..
+        ///   Looks up a localized string similar to Icon-only segments, matching UniGetUI&apos;s List / Grid / Icons switcher..
         /// </summary>
         internal static string Sample_4d1b22903f {
             get {
                 return ResourceManager.GetString("Sample_4d1b22903f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Anchor to a target control; shows an icon and two buttons..
         /// </summary>
@@ -6417,6 +7261,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d3cc18eb2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
@@ -6425,6 +7270,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d3d769b81", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hide details.
         /// </summary>
@@ -6433,6 +7279,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d4d95676e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 9.
         /// </summary>
@@ -6441,6 +7288,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d561128b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show.
         /// </summary>
@@ -6449,6 +7297,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d775d4cd7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Canvas.
         /// </summary>
@@ -6457,6 +7306,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4d7f930b07", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Planned.
         /// </summary>
@@ -6465,6 +7315,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4daea5b39d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent System Icons Regular — used by WPF UI SymbolIcon..
         /// </summary>
@@ -6473,6 +7324,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4dce51f171", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paste from clipboard.
         /// </summary>
@@ -6481,6 +7333,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ddb17d702", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 4.
         /// </summary>
@@ -6489,6 +7342,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4de2a48a5d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mail.
         /// </summary>
@@ -6497,6 +7351,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4dfbb099ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon content.
         /// </summary>
@@ -6505,6 +7360,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e22bba902", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeModelListView — tree model list view.
         /// </summary>
@@ -6513,6 +7369,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e3b273ffa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Back with TitleBar press animation.
         /// </summary>
@@ -6521,6 +7378,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e50524970", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+-.
         /// </summary>
@@ -6529,6 +7387,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e664e5784", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Second item.
         /// </summary>
@@ -6537,6 +7396,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e864ad0c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Strawberry.
         /// </summary>
@@ -6545,6 +7405,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4e9244f80e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flags.
         /// </summary>
@@ -6553,6 +7414,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ea7801f17", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabStripPlacement = Left.
         /// </summary>
@@ -6561,6 +7423,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4eba575ac6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to suffix.
         /// </summary>
@@ -6569,14 +7432,18 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ec1b477cd", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to A warning dialog with a footer icon and hyperlink..
+        ///   Looks up a localized string similar to A warning dialog with a footer icon and hyperlink.
+        ///
+        ///Visit &lt;A HREF=&quot;https://github.com/emako/wpfui.violeta&quot;&gt;WPF UI Violeta&lt;/A&gt; to learn more..
         /// </summary>
         internal static string Sample_4ed22fb344 {
             get {
                 return ResourceManager.GetString("Sample_4ed22fb344", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to List.
         /// </summary>
@@ -6585,6 +7452,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4ee29ca12c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Integer NumberBox.
         /// </summary>
@@ -6593,6 +7461,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4f090cabd3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Strong fill.
         /// </summary>
@@ -6601,6 +7470,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_4f23daf5ee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Text.
         /// </summary>
@@ -6609,6 +7479,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5096bb1a69", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Column 2.
         /// </summary>
@@ -6617,6 +7488,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5098792454", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select one or more folders..
         /// </summary>
@@ -6625,6 +7497,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_509c20e53c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to React.
         /// </summary>
@@ -6633,14 +7506,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_50ce2da63b", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Usually call Splash.ShowAsync at Application startup. This demo button briefl....
+        ///   Looks up a localized string similar to Usually call Splash.ShowAsync at Application startup. This demo button briefly covers the main window—wait for it to close, or call Splash.CloseAsync..
         /// </summary>
         internal static string Sample_50ebf86def {
             get {
                 return ResourceManager.GetString("Sample_50ebf86def", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Draw a drop shadow under children; supports rounded corners and custom colors..
         /// </summary>
@@ -6649,6 +7524,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5148eb7ab0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Grid.
         /// </summary>
@@ -6657,14 +7533,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5174d1309f", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Wrapper over System.Windows.Controls.Image; loads and caches images via Image....
+        ///   Looks up a localized string similar to Wrapper over System.Windows.Controls.Image; loads and caches images via ImageUrl. First load needs network..
         /// </summary>
         internal static string Sample_51817fdf50 {
             get {
                 return ResourceManager.GetString("Sample_51817fdf50", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flagged emails go here..
         /// </summary>
@@ -6673,6 +7551,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_51995a4936", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Native Win32 MessageBox.
         /// </summary>
@@ -6681,6 +7560,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_519c3a4184", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic input.
         /// </summary>
@@ -6689,6 +7569,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_51c4183933", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Yellow.
         /// </summary>
@@ -6697,6 +7578,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_51e6cd92b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ListView — list view.
         /// </summary>
@@ -6705,6 +7587,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_520073ab0b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification 1.
         /// </summary>
@@ -6713,6 +7596,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5239b15bba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tick marks.
         /// </summary>
@@ -6721,6 +7605,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5276ece0c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sun Qi.
         /// </summary>
@@ -6729,6 +7614,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_52a48bb45a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rounded border &amp; clip.
         /// </summary>
@@ -6737,6 +7623,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_52af618fd0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Caution BG.
         /// </summary>
@@ -6745,6 +7632,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_52c1b590de", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Number input box.
         /// </summary>
@@ -6753,6 +7641,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5306905257", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Unread.
         /// </summary>
@@ -6761,6 +7650,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53770fd374", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Informational.
         /// </summary>
@@ -6769,6 +7659,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5391f9a882", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zoomable &amp; pannable image viewer.
         /// </summary>
@@ -6777,6 +7668,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53954ba50f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Uses FluentHyperlinkStyle; opens links via RequestNavigate on click..
         /// </summary>
@@ -6785,6 +7677,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53ec492c1d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bottom Panel.
         /// </summary>
@@ -6793,6 +7686,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53f204dfc4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Two columns.
         /// </summary>
@@ -6801,6 +7695,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53f90459ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic · Slide animation · Rounded corners.
         /// </summary>
@@ -6809,6 +7704,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_53fe1601e3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:Button with SymbolIcon..
         /// </summary>
@@ -6817,6 +7713,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_541c4daa70", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limited stack 2.
         /// </summary>
@@ -6825,6 +7722,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5453af82cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Change values with up/down arrows; supports Default / Left / Split layouts..
         /// </summary>
@@ -6833,6 +7731,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5454e81038", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to −.
         /// </summary>
@@ -6841,6 +7740,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5499493768", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Status controls.
         /// </summary>
@@ -6849,6 +7749,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_54cf06512f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Online.
         /// </summary>
@@ -6857,6 +7758,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_54f664c70c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rest.
         /// </summary>
@@ -6865,6 +7767,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_55276c10d8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Press Enter after typing….
         /// </summary>
@@ -6873,6 +7776,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_552b11b447", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
@@ -6881,6 +7785,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_55405ea6ff", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Windows security credentials.
         /// </summary>
@@ -6889,6 +7794,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_556f104600", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Solid / Default.
         /// </summary>
@@ -6897,6 +7803,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_559d7989bb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Chat.
         /// </summary>
@@ -6905,6 +7812,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_55dcdf017b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selection modes &amp;amp; multi-select checkbox.
         /// </summary>
@@ -6913,6 +7821,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_561b956e78", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Teaching tip flyout.
         /// </summary>
@@ -6921,6 +7830,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_562abb5714", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to File contents:.
         /// </summary>
@@ -6929,6 +7839,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5636766102", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy to clipboard.
         /// </summary>
@@ -6937,6 +7848,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_564be0b127", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Four-way drawer.
         /// </summary>
@@ -6945,6 +7857,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_565fbc57f3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification.
         /// </summary>
@@ -6953,6 +7866,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5660bcd256", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Numeric input box with placeholder support..
         /// </summary>
@@ -6961,6 +7875,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_56642b9154", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segoe UI.
         /// </summary>
@@ -6969,6 +7884,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5664e732f8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:TabView.
         /// </summary>
@@ -6977,6 +7893,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_56b9e13d5e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Unread emails go here..
         /// </summary>
@@ -6985,6 +7902,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5713128731", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Jiaxing.
         /// </summary>
@@ -6993,6 +7911,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_572fd7fd9c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Edit node.
         /// </summary>
@@ -7001,6 +7920,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_574256110b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + text (horizontal).
         /// </summary>
@@ -7009,6 +7929,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_576e3a8b1c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Exception report dialog.
         /// </summary>
@@ -7017,6 +7938,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_576ff61712", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cancelable = True.
         /// </summary>
@@ -7025,6 +7947,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5778ff39b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Layer / Default.
         /// </summary>
@@ -7033,6 +7956,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_578e852ac5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tuesday.
         /// </summary>
@@ -7041,6 +7965,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5792315f09", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Chen Jing.
         /// </summary>
@@ -7049,6 +7974,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_57a0dec9ef", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap.
+        /// </summary>
+        internal static string Sample_57a3928170 {
+            get {
+                return ResourceManager.GetString("Sample_57a3928170", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Focused input.
         /// </summary>
@@ -7057,6 +7992,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_57f460dd93", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon FontSize=12.
         /// </summary>
@@ -7065,6 +8001,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5804482520", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System.Windows.Controls.Image loading an image from local resources..
         /// </summary>
@@ -7073,6 +8010,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5806225c0c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DoubleDisplayer (N2).
         /// </summary>
@@ -7081,6 +8019,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_582ec0c988", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Left.
         /// </summary>
@@ -7089,6 +8028,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_583e7924e9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Add row.
         /// </summary>
@@ -7097,6 +8037,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_58477471b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Left content.
         /// </summary>
@@ -7105,6 +8046,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_58480236ab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + ToggleSwitch.
         /// </summary>
@@ -7113,6 +8055,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_598e6bdee0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Decrease indent.
         /// </summary>
@@ -7121,6 +8064,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a12c3b294", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Downloading package.
         /// </summary>
@@ -7129,6 +8073,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a6393b771", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree list based on ITreeModel; supports dynamic loading and custom data models..
         /// </summary>
@@ -7137,6 +8082,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a6728a2a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Record a hotkey from a key combination; supports modifiers and a clear button..
         /// </summary>
@@ -7145,6 +8091,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a6fd6d939", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled state.
         /// </summary>
@@ -7153,6 +8100,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a7392a0d7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export Image.
         /// </summary>
@@ -7161,6 +8109,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a78b83e98", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Share.
         /// </summary>
@@ -7169,6 +8118,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a95a425f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle theme.
         /// </summary>
@@ -7177,6 +8127,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a9663b095", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tabbed.
         /// </summary>
@@ -7185,6 +8136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5a9bcd254e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card 3.
         /// </summary>
@@ -7193,6 +8145,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5aa55d6b93", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text box.
         /// </summary>
@@ -7201,6 +8154,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5ac57ce6df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Brand nav + autoplay.
         /// </summary>
@@ -7209,6 +8163,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5afe3a1529", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContextMenu (right-click).
         /// </summary>
@@ -7217,6 +8172,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5b3ebc4802", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom ItemsPanel with UniformGrid; each item is a ui:Card..
         /// </summary>
@@ -7225,6 +8181,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5ba98ec5f0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom padding.
         /// </summary>
@@ -7233,6 +8190,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5bbbdab07a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limited stack 1.
         /// </summary>
@@ -7241,6 +8199,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5bc98065dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NativeMessageBox — OK.
         /// </summary>
@@ -7249,6 +8208,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5bd8feb5d7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Running.
         /// </summary>
@@ -7257,6 +8217,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5bda814c4a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Is a lie..
         /// </summary>
@@ -7265,6 +8226,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5c4f2fcaf6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success text colour..
         /// </summary>
@@ -7273,6 +8235,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5c60581cc9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Digit + Letter (default, Count=4).
         /// </summary>
@@ -7281,14 +8244,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5c9e0cd91b", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to At Gallery startup, TrayIconHost creates a real tray icon. When “Close to tra....
+        ///   Looks up a localized string similar to At Gallery startup, TrayIconHost creates a real tray icon. When “Close to tray” is enabled in Settings, closing the main window minimizes to the tray; double-click the tray icon or use the context menu to show/hide the window..
         /// </summary>
         internal static string Sample_5d2567470b {
             get {
                 return ResourceManager.GetString("Sample_5d2567470b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Account settings content..
         /// </summary>
@@ -7297,6 +8262,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5d293f9fe2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Processing.
         /// </summary>
@@ -7305,6 +8271,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5d459d550a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF UI ring progress indicator..
         /// </summary>
@@ -7313,6 +8280,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5d47c178f6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic types.
         /// </summary>
@@ -7321,6 +8289,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5d961e79ff", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
@@ -7329,6 +8298,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5dc99f6efe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to File picker.
         /// </summary>
@@ -7337,6 +8307,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5e10b994c5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Window.
         /// </summary>
@@ -7345,6 +8316,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5e68f5916f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bullets.
         /// </summary>
@@ -7353,6 +8325,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5e92ae1660", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto suggest.
         /// </summary>
@@ -7361,6 +8334,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5ea2fa9344", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open Slide Popup.
         /// </summary>
@@ -7369,6 +8343,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5eab39ac7f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to As email.
         /// </summary>
@@ -7377,6 +8352,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5f07e1c9a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cached image.
         /// </summary>
@@ -7385,6 +8361,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5f5597503b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content rotate button.
         /// </summary>
@@ -7393,14 +8370,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5f91910837", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Win32 TaskDialog with dark theme, command links, radio buttons, progress bar,....
+        ///   Looks up a localized string similar to Win32 TaskDialog with dark theme, command links, radio buttons, progress bar, and expandable information..
         /// </summary>
         internal static string Sample_5fb02eeebe {
             get {
                 return ResourceManager.GetString("Sample_5fb02eeebe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hotkey recording input.
         /// </summary>
@@ -7409,6 +8388,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_5fe427d39a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Complete requirements confirmation.
         /// </summary>
@@ -7417,6 +8397,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_600166f742", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Task A-2.
         /// </summary>
@@ -7425,6 +8406,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_602f80825c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sub 2.2.
         /// </summary>
@@ -7433,6 +8415,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_606cf8d121", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ◀ Previous.
         /// </summary>
@@ -7441,6 +8424,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_608443e0b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Full name.
         /// </summary>
@@ -7449,6 +8433,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_60d0458ac6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fonts &amp; typography.
         /// </summary>
@@ -7457,6 +8442,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6106634d5b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsHexInputVisible.
         /// </summary>
@@ -7465,6 +8451,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6159b1d323", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhang San.
         /// </summary>
@@ -7473,6 +8460,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_615db57aa3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Digit only (Count=6).
         /// </summary>
@@ -7481,6 +8469,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_615e30201a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide.
         /// </summary>
@@ -7489,6 +8478,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6160a53ece", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to An info banner for important tips..
         /// </summary>
@@ -7497,6 +8487,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_618dd07189", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to EmojiedTextBlock vs TextBlock.
         /// </summary>
@@ -7505,6 +8496,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_619bec7d3f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to EMAIL.
         /// </summary>
@@ -7513,6 +8505,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_61a649a33f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save As....
         /// </summary>
@@ -7521,6 +8514,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_61ac98f5cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to No clear button.
         /// </summary>
@@ -7529,6 +8523,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_61b0c7c3e4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Prefix / suffix.
         /// </summary>
@@ -7537,6 +8532,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_61b1603587", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
@@ -7545,6 +8541,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_625fb26b4b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+C.
         /// </summary>
@@ -7553,6 +8550,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_628c4615e1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SelectionMode.
         /// </summary>
@@ -7561,6 +8559,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6299674ebe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — expandable information.
         /// </summary>
@@ -7569,6 +8568,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_629dd8a6ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to MySQL.
         /// </summary>
@@ -7577,6 +8577,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_62a004b959", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to On leave.
         /// </summary>
@@ -7585,6 +8586,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_62a8cf0af7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBlock content can include inline elements such as Run, Span, and Bold..
         /// </summary>
@@ -7593,6 +8595,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6314139f1c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Compare: system ToolBar.
         /// </summary>
@@ -7601,6 +8604,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_63141d2f4e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ItemsSource.
         /// </summary>
@@ -7609,6 +8613,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_635c77a7e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three columns.
         /// </summary>
@@ -7617,6 +8622,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_63bd7d20cb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CanResize.
         /// </summary>
@@ -7625,6 +8631,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6437422900", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to F11.
         /// </summary>
@@ -7633,6 +8640,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_643b066242", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to In-page anchor navigation.
         /// </summary>
@@ -7641,6 +8649,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6452538f67", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: user canceled the dialog..
         /// </summary>
@@ -7649,6 +8658,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6457052c6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Button1.
         /// </summary>
@@ -7657,6 +8667,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6475a37462", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text Control.
         /// </summary>
@@ -7665,6 +8676,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_64a2cf1dce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Individual segments or the whole control can be disabled..
         /// </summary>
@@ -7673,14 +8685,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_64be2d2079", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Fluent-style swatch picker with instant commit, supporting row, grid, size, c....
+        ///   Looks up a localized string similar to Fluent-style swatch picker with instant commit, supporting row, grid, size, corner radius, disabled state, and keyboard selection..
         /// </summary>
         internal static string Sample_64d984a4b3 {
             get {
                 return ResourceManager.GetString("Sample_64d984a4b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show / Hide.
         /// </summary>
@@ -7689,14 +8703,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_655a0e3730", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Without Adapter, content may cover the stroke; Adapter clips to the inner cor....
+        ///   Looks up a localized string similar to Without Adapter, content may cover the stroke; Adapter clips to the inner corner radius..
         /// </summary>
         internal static string Sample_65c73cbf64 {
             get {
                 return ResourceManager.GetString("Sample_65c73cbf64", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable toggle button.
         /// </summary>
@@ -7705,6 +8721,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6612a8bf8c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageIcon combined with DropDownButton sample..
         /// </summary>
@@ -7713,6 +8730,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6625c308e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline banner notification.
         /// </summary>
@@ -7721,6 +8739,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66acb563c5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Single.
         /// </summary>
@@ -7729,6 +8748,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66ba162102", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Error banner.
         /// </summary>
@@ -7737,6 +8757,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66bd923ca5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to On Accent / Secondary.
         /// </summary>
@@ -7745,6 +8766,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66d2862820", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Divider — divider.
         /// </summary>
@@ -7753,6 +8775,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66d8aafdd1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline-item ListBox.
         /// </summary>
@@ -7761,6 +8784,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66e8d62a1a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Command + DoubleCommand.
         /// </summary>
@@ -7769,6 +8793,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_66fff5b8e3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline banner for status tips at the top of a page..
         /// </summary>
@@ -7777,6 +8802,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_671acfcae8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Twink.
         /// </summary>
@@ -7785,6 +8811,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6757783329", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Welcome to TeachingTip.
         /// </summary>
@@ -7793,6 +8820,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_675801d96a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Adaptive aspect-ratio layout.
         /// </summary>
@@ -7801,6 +8829,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_677dfd1ed1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click count: 0.
         /// </summary>
@@ -7809,6 +8838,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_67b61f5a7e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Secondary text colour..
         /// </summary>
@@ -7817,6 +8847,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_67d9132baf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar and CalendarDatePicker.
         /// </summary>
@@ -7825,6 +8856,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_67ef04a976", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Media controls.
         /// </summary>
@@ -7833,6 +8865,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_67f3b5a40c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Database.
         /// </summary>
@@ -7841,14 +8874,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_68051bf4aa", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Use a bitmap as icon content with optional monochrome rendering. Namespace: u....
+        ///   Looks up a localized string similar to Use a bitmap as icon content with optional monochrome rendering. Namespace: ui:BitmapIcon..
         /// </summary>
         internal static string Sample_6822dc757e {
             get {
                 return ResourceManager.GetString("Sample_6822dc757e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to All emails go here..
         /// </summary>
@@ -7857,6 +8892,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6861212c97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Placeholder.
         /// </summary>
@@ -7865,6 +8901,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_68753d36ec", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Align items.
+        /// </summary>
+        internal static string Sample_68b4a39281 {
+            get {
+                return ResourceManager.GetString("Sample_68b4a39281", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to StackPanel can hold more than one text line — title plus secondary description..
         /// </summary>
@@ -7873,6 +8919,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_68bd106b4f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A longer tooltip describing the control and suggested actions..
         /// </summary>
@@ -7881,6 +8928,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_68c7b5f75f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Always.
         /// </summary>
@@ -7889,6 +8937,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_68eec46437", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Kitchen Cabinet Style.
         /// </summary>
@@ -7897,6 +8946,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6923ddc026", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Solid Background.
         /// </summary>
@@ -7905,14 +8955,17 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_695ff47157", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Selected:.
+        ///   Looks up a localized string similar to Selected:
+        ///{string.Join(.
         /// </summary>
         internal static string Sample_69abf2d0e2 {
             get {
                 return ResourceManager.GetString("Sample_69abf2d0e2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hangzhou.
         /// </summary>
@@ -7921,6 +8974,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_69d6beffab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Got it!.
         /// </summary>
@@ -7929,6 +8983,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6a03d07c60", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
@@ -7937,6 +8992,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6a26f54883", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Repeat button.
         /// </summary>
@@ -7945,6 +9001,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6aa16c2381", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color.
         /// </summary>
@@ -7953,6 +9010,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6b36c6f7ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Document.docx.
         /// </summary>
@@ -7961,6 +9019,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6bbc20b3ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Split button.
         /// </summary>
@@ -7969,6 +9028,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6bf9fcc2fc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Win32 TaskDialog.
         /// </summary>
@@ -7977,6 +9037,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6c567e7af2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Int64Displayer.
         /// </summary>
@@ -7985,14 +9046,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6c5b0d98b5", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Right-click below. ContextMenu sets IconFontSize=22 and IconWidth=24 for all ....
+        ///   Looks up a localized string similar to Right-click below. ContextMenu sets IconFontSize=22 and IconWidth=24 for all item icons (submenu items inherit)..
         /// </summary>
         internal static string Sample_6c847fa7a3 {
             get {
                 return ResourceManager.GetString("Sample_6c847fa7a3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open file.
         /// </summary>
@@ -8001,6 +9064,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6cfd8797ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ExceptionReport.Show(...).
         /// </summary>
@@ -8009,6 +9073,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6d1946725f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click the selected item again to clear (left) vs non-cancelable (right)..
         /// </summary>
@@ -8017,6 +9082,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6d495b7e26", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent / Disabled.
         /// </summary>
@@ -8025,14 +9091,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6d78326cb4", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to This window uses the built-in TitleBar (title + caption buttons). Press OK or....
+        ///   Looks up a localized string similar to This window uses the built-in TitleBar (title + caption buttons). Press OK or Cancel, or close via the TitleBar..
         /// </summary>
         internal static string Sample_6d80adabe3 {
             get {
                 return ResourceManager.GetString("Sample_6d80adabe3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to On Accent / Primary.
         /// </summary>
@@ -8041,6 +9109,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6dc30af2dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to decimal….
         /// </summary>
@@ -8049,14 +9118,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6e5cae44cd", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Reference these keys with DynamicResource. Select and copy the resource name ....
+        ///   Looks up a localized string similar to Reference these keys with DynamicResource. Select and copy the resource name below..
         /// </summary>
         internal static string Sample_6e61328dc2 {
             get {
                 return ResourceManager.GetString("Sample_6e61328dc2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Never.
         /// </summary>
@@ -8065,6 +9136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6e7b34fa59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Button with loading state.
         /// </summary>
@@ -8073,6 +9145,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6e8636717c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OpenPaneLength — pane width when expanded.
         /// </summary>
@@ -8081,6 +9154,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6e9b5e7aa8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Right-click here.
         /// </summary>
@@ -8089,6 +9163,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ea355f5eb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeView tree structure.
         /// </summary>
@@ -8097,14 +9172,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ea44939b9", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Cascading selection: choosing a parent shows children; clear a leaf via the r....
+        ///   Looks up a localized string similar to Cascading selection: choosing a parent shows children; clear a leaf via the right-side button..
         /// </summary>
         internal static string Sample_6ed998e7cc {
             get {
                 return ResourceManager.GetString("Sample_6ed998e7cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text / Primary.
         /// </summary>
@@ -8113,6 +9190,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ee5b69fdd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Repeat button (hold to click repeatedly).
         /// </summary>
@@ -8121,6 +9199,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6eeed2029d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Typical use: step values, like NumericUpDown / ScrollBar inner buttons..
         /// </summary>
@@ -8129,6 +9208,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ef42093fc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default — drag to select, right-click to copy..
         /// </summary>
@@ -8137,6 +9217,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ef7ba9b1e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover me.
         /// </summary>
@@ -8145,6 +9226,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6ef838110b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NativeMessageBox — OK/Cancel.
         /// </summary>
@@ -8153,6 +9235,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6f0a3ce47c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon-only toggle, no hover or checked chrome.
         /// </summary>
@@ -8161,6 +9244,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6f2ce3ffe9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Size.
         /// </summary>
@@ -8169,6 +9253,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6f6cb72d54", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Monday.
         /// </summary>
@@ -8177,6 +9262,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6f8522e061", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card 2.
         /// </summary>
@@ -8185,6 +9271,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6fa1262c62", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Design phase.
         /// </summary>
@@ -8193,6 +9280,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_6fe4c8e483", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
@@ -8201,6 +9289,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7030ff6470", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show details.
         /// </summary>
@@ -8209,6 +9298,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7053881e1b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cascadia Code.
         /// </summary>
@@ -8217,6 +9307,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_70705ec213", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Text / Tertiary.
         /// </summary>
@@ -8225,6 +9316,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_709ef8c1cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to With left / right headers.
         /// </summary>
@@ -8233,6 +9325,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_70a2a52eef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
@@ -8241,6 +9334,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_710ad08b11", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer - Left.
         /// </summary>
@@ -8249,6 +9343,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_714d778cc5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SegoeFluentIcons.
         /// </summary>
@@ -8257,6 +9352,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_714d8a9e2c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Like/dislike control; click the selected state again to clear..
         /// </summary>
@@ -8265,6 +9361,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_71716d9ceb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent package.
         /// </summary>
@@ -8273,6 +9370,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7181c93786", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toast notification.
         /// </summary>
@@ -8281,6 +9379,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_71b081a671", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Placeholder / demo surface.
         /// </summary>
@@ -8289,6 +9388,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_71b4869e11", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeline — timeline (declarative).
         /// </summary>
@@ -8297,6 +9397,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_71df92bd0f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wenzhou.
         /// </summary>
@@ -8305,14 +9406,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_71f38f399f", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Shows an exception details dialog for global unhandled exception reporting. C....
+        ///   Looks up a localized string similar to Shows an exception details dialog for global unhandled exception reporting. Click to raise a demo exception..
         /// </summary>
         internal static string Sample_71fd6b18de {
             get {
                 return ResourceManager.GetString("Sample_71fd6b18de", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to read-only.
         /// </summary>
@@ -8321,6 +9424,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7233b8e3ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dismissible info bar; visibility controlled by IsOpen..
         /// </summary>
@@ -8329,6 +9433,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_725ba369df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Motion=Fade; drag works in Slide mode.
         /// </summary>
@@ -8337,6 +9442,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7261a4dcf2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Processing….
         /// </summary>
@@ -8345,6 +9451,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_72628b3afc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBlock appearance styles.
         /// </summary>
@@ -8353,6 +9460,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7269b2e6d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show snackbar.
         /// </summary>
@@ -8361,6 +9469,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_727f3b0153", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShowAsync.
         /// </summary>
@@ -8369,6 +9478,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_72c5f3496c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flagged.
         /// </summary>
@@ -8377,6 +9487,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_72d68acd07", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cover-flow card carousel.
         /// </summary>
@@ -8385,6 +9496,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_732c0b8417", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fixed-height ListBox.
         /// </summary>
@@ -8393,6 +9505,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7334842e9b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Full stars only.
         /// </summary>
@@ -8401,6 +9514,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_733ee7ce25", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Plain labels. Keyboard: Tab into the control, then Left / Right..
         /// </summary>
@@ -8409,6 +9523,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_73653cbe50", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 7.
         /// </summary>
@@ -8417,6 +9532,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_73709b070d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom icon.
         /// </summary>
@@ -8425,6 +9541,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7372dc9f39", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Marketing.
         /// </summary>
@@ -8433,6 +9550,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_73b1110542", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to vio:SearchBox.
         /// </summary>
@@ -8441,6 +9559,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_73b3d93de0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card 1.
         /// </summary>
@@ -8449,6 +9568,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_742c77afec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CopyToClipboard.
         /// </summary>
@@ -8457,6 +9577,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_742ff989bd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsItemClickEnabled.
         /// </summary>
@@ -8465,6 +9586,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_744f02e5bf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overlay on other controls.
         /// </summary>
@@ -8473,6 +9595,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_74a0d88f9a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Go to ContentWindow page for examples.
         /// </summary>
@@ -8481,6 +9604,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_74f2862be1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter file content....
         /// </summary>
@@ -8489,6 +9613,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7518aac27a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Message box.
         /// </summary>
@@ -8497,14 +9622,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_758409e3ca", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Static helpers similar to Toast. Uses a hidden tray icon internally, so apps ....
+        ///   Looks up a localized string similar to Static helpers similar to Toast. Uses a hidden tray icon internally, so apps do not need to host TrayIconHost..
         /// </summary>
         internal static string Sample_758ba147c8 {
             get {
                 return ResourceManager.GetString("Sample_758ba147c8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical.
         /// </summary>
@@ -8513,6 +9640,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_75ac842f8e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Release notes.md.
         /// </summary>
@@ -8521,6 +9649,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_75aee2c1f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CustomSymbolThemeFontFamily.
         /// </summary>
@@ -8529,6 +9658,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_75b788004e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Screenshot.png.
         /// </summary>
@@ -8537,6 +9667,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7617ac7261", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Caution.
         /// </summary>
@@ -8545,6 +9676,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_764a2caff0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Full screen.
         /// </summary>
@@ -8553,6 +9685,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_764ff8d94d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to I am a Label..
         /// </summary>
@@ -8561,6 +9694,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7665fd0969", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TickPlacement=Both shows ticks above and below..
         /// </summary>
@@ -8569,6 +9703,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_768a5d8f40", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: no deletable credential found..
         /// </summary>
@@ -8577,6 +9712,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_76a6900819", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Place technical details, stack traces, log snippets, or links here..
         /// </summary>
@@ -8585,22 +9721,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_76b983b8e6", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Aligned with WinUI SearchBox: QueryChanged (input/clear), QuerySubmitted (Ent....
+        ///   Looks up a localized string similar to Aligned with WinUI SearchBox: QueryChanged (input/clear), QuerySubmitted (Enter)..
         /// </summary>
         internal static string Sample_7711ba96c2 {
             get {
                 return ResourceManager.GetString("Sample_7711ba96c2", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Override icon font family / success glyph. Success animation uses the same Ic....
+        ///   Looks up a localized string similar to Override icon font family / success glyph. Success animation uses the same IconFontSize..
         /// </summary>
         internal static string Sample_77146a4531 {
             get {
                 return ResourceManager.GetString("Sample_77146a4531", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Switch layout items by aspect ratio.
         /// </summary>
@@ -8609,6 +9748,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_776feee78e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bind via ItemsSource and MemberPath..
         /// </summary>
@@ -8617,6 +9757,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_77bc5793f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Feature Schedule.
         /// </summary>
@@ -8625,6 +9766,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_780977a9b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to People.
         /// </summary>
@@ -8633,6 +9775,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_78386ec8f2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
@@ -8641,6 +9784,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_78463a384a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Teaching tip.
         /// </summary>
@@ -8649,14 +9793,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7846de57e9", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Targeted teaching tip with Title / Subtitle / Hero / Action / Close and Light....
+        ///   Looks up a localized string similar to Targeted teaching tip with Title / Subtitle / Hero / Action / Close and Light Dismiss..
         /// </summary>
         internal static string Sample_78636353a3 {
             get {
                 return ResourceManager.GetString("Sample_78636353a3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
@@ -8665,6 +9811,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_787b5677e3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic 10.
         /// </summary>
@@ -8673,6 +9820,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_78a7ffd4c6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Thursday.
         /// </summary>
@@ -8681,6 +9829,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_78ae6f0cd1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Left Navigation Separator.
         /// </summary>
@@ -8689,6 +9838,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_79251b34ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color key.
         /// </summary>
@@ -8697,6 +9847,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_794e93be0b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wednesday.
         /// </summary>
@@ -8705,6 +9856,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_796c163589", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Spectrum / palette color picker.
         /// </summary>
@@ -8713,6 +9865,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7978070c09", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Switch content by boolean.
         /// </summary>
@@ -8721,6 +9874,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_79a9d71799", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Justify content.
+        /// </summary>
+        internal static string Sample_79c5b4a392 {
+            get {
+                return ResourceManager.GetString("Sample_79c5b4a392", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy.
         /// </summary>
@@ -8729,6 +9892,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_79d3abe929", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Shorthand definitions.
         /// </summary>
@@ -8737,6 +9901,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a1b2c3d4e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Password can be saved.
         /// </summary>
@@ -8745,6 +9910,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a1c9b5e2b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 4.
         /// </summary>
@@ -8753,6 +9919,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a26d26ce2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Secure.
         /// </summary>
@@ -8761,6 +9928,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a2ccf251e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A flyout attached to a button or card via FlyoutService..
         /// </summary>
@@ -8769,6 +9937,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a37cf1b92", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Shenzhen.
         /// </summary>
@@ -8777,6 +9946,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a399889b9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Page 1 — Welcome to Violeta.
         /// </summary>
@@ -8785,14 +9955,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7a591f5191", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to CornerRadius is in design units. 1.5 is a pill on the 3px-wide bars; it scale....
+        ///   Looks up a localized string similar to CornerRadius is in design units. 1.5 is a pill on the 3px-wide bars; it scales with the control..
         /// </summary>
         internal static string Sample_7a6ef4aa34 {
             get {
                 return ResourceManager.GetString("Sample_7a6ef4aa34", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hidden.
         /// </summary>
@@ -8801,6 +9973,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7acdf85c69", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text / Tertiary.
         /// </summary>
@@ -8809,6 +9982,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7ae8d126e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overflow still uses the original Button; icon and command stay the same..
         /// </summary>
@@ -8817,6 +9991,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7b06d65d82", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dark preview.
         /// </summary>
@@ -8825,6 +10000,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7b849587f0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CachedImage — cached image.
         /// </summary>
@@ -8833,6 +10009,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7b88f14eae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AnimatedSettingsVisualSource — wind back + full turn (NavigationView settings)..
         /// </summary>
@@ -8841,6 +10018,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7bbfd27656", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Skeleton loading placeholder.
         /// </summary>
@@ -8849,6 +10027,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7be1a44b8f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — radio buttons.
         /// </summary>
@@ -8857,6 +10036,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7be4dfd564", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please wait.
         /// </summary>
@@ -8865,6 +10045,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7c1efe79cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard RadioButton.
         /// </summary>
@@ -8873,6 +10054,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7c245edeb1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Control Stroke.
         /// </summary>
@@ -8881,6 +10063,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7c716b3b01", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Async content loading container.
         /// </summary>
@@ -8889,6 +10072,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7c7205efaa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Primary button.
         /// </summary>
@@ -8897,6 +10081,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7c81d84b14", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Month.
         /// </summary>
@@ -8905,6 +10090,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7cbb885aa1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Archived.
         /// </summary>
@@ -8913,6 +10099,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7d69b3cb4c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hyperlink.
         /// </summary>
@@ -8921,6 +10108,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7d7894175e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Next ▶.
         /// </summary>
@@ -8929,6 +10117,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7d817bc13f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to No animation + tint.
         /// </summary>
@@ -8937,6 +10126,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7dcc93b8e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
@@ -8945,6 +10135,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7dce122004", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Friday content..
         /// </summary>
@@ -8953,6 +10144,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7deb4fd1ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Guangzhou.
         /// </summary>
@@ -8961,6 +10153,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e040aa9cb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hide to tray.
         /// </summary>
@@ -8969,6 +10162,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e0978814d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pre-checked and disabled states; borders still use Button resources..
         /// </summary>
@@ -8977,6 +10171,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e2b4a08c3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsComponentTextInputVisible.
         /// </summary>
@@ -8985,6 +10180,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e3f81feac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Violeta ContentDialog with async display and primary/secondary/close buttons..
         /// </summary>
@@ -8993,6 +10189,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e4681144d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TextBox with TextBlockTextBoxStyle&amp;#x0a;More lines....
         /// </summary>
@@ -9001,6 +10198,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e51a09629", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FontIcon.
         /// </summary>
@@ -9009,6 +10207,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e64d5c452", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mutually exclusive radio buttons in the same group..
         /// </summary>
@@ -9017,6 +10216,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e8aef110d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tag combo.
         /// </summary>
@@ -9025,6 +10225,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7e979b664d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to weight.
         /// </summary>
@@ -9033,6 +10234,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7edabf994b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save file.
         /// </summary>
@@ -9041,6 +10243,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7f2c95cd69", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports numbers, overflow, dots, placement, and custom colors..
         /// </summary>
@@ -9049,6 +10252,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7f7f2ab305", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable radio buttons.
         /// </summary>
@@ -9057,6 +10261,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7f917a32f0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This dialog uses command-link buttons..
         /// </summary>
@@ -9065,6 +10270,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7fb644b8b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+X.
         /// </summary>
@@ -9073,6 +10279,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7fcde52c9b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export as HTML.
         /// </summary>
@@ -9081,6 +10288,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7fdf828e06", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Preparing workspace.
         /// </summary>
@@ -9089,6 +10297,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_7fe8a3cd3f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample (flat).
         /// </summary>
@@ -9097,6 +10306,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_800a91550a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NoSQL.
         /// </summary>
@@ -9105,6 +10315,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_801d32a0f0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content can be a SymbolIcon (or any element) without text..
         /// </summary>
@@ -9113,22 +10324,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_80267bf66c", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton and more can be....
+        ///   Looks up a localized string similar to ToggleButton / CheckBox / ComboBox / TextBox / DropDownButton and more can be placed directly; overflowed items remain the same control instances..
         /// </summary>
         internal static string Sample_8069009e76 {
             get {
                 return ResourceManager.GetString("Sample_8069009e76", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to This Gallery main window inherits from ShellWindow. Click to open a simple de....
+        ///   Looks up a localized string similar to This Gallery main window inherits from ShellWindow. Click to open a simple demo window..
         /// </summary>
         internal static string Sample_80755e085c {
             get {
                 return ResourceManager.GetString("Sample_80755e085c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter name.
         /// </summary>
@@ -9137,14 +10351,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8093e3921d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to See the main window title bar for the live effect (theme switch is in CustomF....
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        internal static string Sample_80d6c5b4a3 {
+            get {
+                return ResourceManager.GetString("Sample_80d6c5b4a3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See the main window title bar for the live effect (theme switch is in CustomFooter)..
         /// </summary>
         internal static string Sample_80f041f752 {
             get {
                 return ResourceManager.GetString("Sample_80f041f752", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 。.
         /// </summary>
@@ -9153,6 +10378,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_81197c2d02", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Up to 3 tags allowed..
         /// </summary>
@@ -9161,6 +10387,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8152222184", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-styled flyout with Slide / Fade / None animations..
         /// </summary>
@@ -9169,6 +10396,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8187a6e35a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageIcon + Header.
         /// </summary>
@@ -9177,6 +10405,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_81b3ac017c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show targeted tip.
         /// </summary>
@@ -9185,6 +10414,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_81bb2fcc61", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Italic.
         /// </summary>
@@ -9193,6 +10423,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_81d6da77d6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShowsPreview=False — resizes immediately while dragging..
         /// </summary>
@@ -9201,6 +10432,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8224c38e00", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default ToolTip.
         /// </summary>
@@ -9209,6 +10441,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_822fb2cf0e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mark highlight background..
         /// </summary>
@@ -9217,6 +10450,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8291020758", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to List view.
         /// </summary>
@@ -9225,6 +10459,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_829cb1dd97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Design team.
         /// </summary>
@@ -9233,6 +10468,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_829ec9c321", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 1.
         /// </summary>
@@ -9241,6 +10477,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_82a0805a73", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selectable.
         /// </summary>
@@ -9249,6 +10486,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8318ce1c96", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ← click me.
         /// </summary>
@@ -9257,6 +10495,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8329093ddf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default ChromeBack glyph (E72B) with TitleBar RightToLeft press scale animation..
         /// </summary>
@@ -9265,6 +10504,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8336f7665e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Publish.
         /// </summary>
@@ -9273,6 +10513,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_83611abd5f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Recommended for links.
         /// </summary>
@@ -9281,6 +10522,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_837eda7c21", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to GlobalNavigationButton.
         /// </summary>
@@ -9289,6 +10531,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_83a0311541", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorSpectrumSliderVisible.
         /// </summary>
@@ -9297,6 +10540,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_83f3616584", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter credentials.
         /// </summary>
@@ -9305,6 +10549,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_83fb2119f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Demonstrates the Windows Security credential dialog..
         /// </summary>
@@ -9313,6 +10558,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_84063d73bf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dialog.
         /// </summary>
@@ -9321,6 +10567,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_841028314f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to example@email.com.
         /// </summary>
@@ -9329,6 +10576,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8455938a1d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Font.
         /// </summary>
@@ -9337,6 +10585,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8456bc40d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab titles can use a custom Header template, for example with a SymbolIcon..
         /// </summary>
@@ -9345,6 +10594,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_845f2f73d6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segmented time box.
         /// </summary>
@@ -9353,6 +10603,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_84675ebc31", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Page 3 — Multi-framework support.
         /// </summary>
@@ -9361,6 +10612,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_847e5a73a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overlay a busy state on content; supports multiple IndicatorType values..
         /// </summary>
@@ -9369,6 +10621,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_84acc30e7a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Alt surface.
         /// </summary>
@@ -9377,6 +10630,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_84d46a96ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to prefix.
         /// </summary>
@@ -9385,6 +10639,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_851f5ac994", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Foshan.
         /// </summary>
@@ -9393,6 +10648,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_852861b891", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QR code generation.
         /// </summary>
@@ -9401,6 +10657,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_856e16c875", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Volume levels.
         /// </summary>
@@ -9409,6 +10666,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_85b1524436", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paste text from clipboard.
         /// </summary>
@@ -9417,14 +10675,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_85c976908d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Switch theme: &lt;A HREF="dark">Dark&lt;/A>  |  &lt;A HREF="light">Light&lt;/A>.
+        ///   Looks up a localized string similar to Switch theme: &lt;A HREF=&quot;dark&quot;&gt;Dark&lt;/A&gt;  |  &lt;A HREF=&quot;light&quot;&gt;Light&lt;/A&gt;.
         /// </summary>
         internal static string Sample_85ed85c69f {
             get {
                 return ResourceManager.GetString("Sample_85ed85c69f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Warning text colour..
         /// </summary>
@@ -9433,6 +10693,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8643d5cf7d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Primary action + flyout.
         /// </summary>
@@ -9441,6 +10702,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_866c8bd883", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 1. Click an anchor on the left to scroll to a section..
         /// </summary>
@@ -9449,6 +10711,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_86a1afd027", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select image files.
         /// </summary>
@@ -9457,6 +10720,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_86ebf9a041", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to decimal (step 0.01).
         /// </summary>
@@ -9465,14 +10729,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_86fc4ae7d8", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Set IsSelectable=&amp;quot;True&amp;quot; to allow selecting and copying the ....
+        ///   Looks up a localized string similar to Set IsSelectable=&amp;quot;True&amp;quot; to allow selecting and copying the displayed text..
         /// </summary>
         internal static string Sample_86fc741fb1 {
             get {
                 return ResourceManager.GetString("Sample_86fc741fb1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Find….
         /// </summary>
@@ -9481,6 +10747,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_871d31a958", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drop shadow decoration.
         /// </summary>
@@ -9489,6 +10756,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_877990def9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
@@ -9497,6 +10765,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_87c835a6b1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Plain TextBox.
         /// </summary>
@@ -9505,14 +10774,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_87d0142c20", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Width/Height scale the 16×16 design. Uniform keeps proportions; Fill stretche....
+        ///   Looks up a localized string similar to Width/Height scale the 16×16 design. Uniform keeps proportions; Fill stretches pill height independently..
         /// </summary>
         internal static string Sample_87dbb69f19 {
             get {
                 return ResourceManager.GetString("Sample_87dbb69f19", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Changzhou.
         /// </summary>
@@ -9521,6 +10792,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_880490aef6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Split button with a primary action and a drop-down menu..
         /// </summary>
@@ -9529,6 +10801,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8813989799", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a RunningBlock demo (AutoRun: true).
         /// </summary>
@@ -9537,6 +10810,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_884cf29a24", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to enter int….
         /// </summary>
@@ -9545,6 +10819,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_88787e0a8d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsLoading.
         /// </summary>
@@ -9553,6 +10828,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_88d35241c6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Times New Roman.
         /// </summary>
@@ -9561,6 +10837,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8900726a3d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Warning banner.
         /// </summary>
@@ -9569,6 +10846,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_893ebd84f5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Microsoft.Win32.OpenFolderDialog（.NET 8+）。.
         /// </summary>
@@ -9577,6 +10855,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8950f24d7f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Edge browser.
         /// </summary>
@@ -9585,6 +10864,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8998bc5220", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 3.
         /// </summary>
@@ -9593,6 +10873,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_899eaed4fd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Label text.
         /// </summary>
@@ -9601,6 +10882,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_89ad888945", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Banner notification.
         /// </summary>
@@ -9609,6 +10891,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_89aeb41a27", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limited stack 4 (will replace).
         /// </summary>
@@ -9617,6 +10900,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_89bfb00829", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hero content sits above the title and body. Use it for illustrations or media..
         /// </summary>
@@ -9625,6 +10909,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_89ff0e22aa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Junior engineer.
         /// </summary>
@@ -9633,6 +10918,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8a0f7479e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a question. Do you confirm?.
         /// </summary>
@@ -9641,6 +10927,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8a3cbdcbba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Appearance variants.
         /// </summary>
@@ -9649,6 +10936,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8a60003101", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports zoom and pan. Source accepts a pack URI or relative resource path..
         /// </summary>
@@ -9657,6 +10945,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8a725dfc19", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Split.
         /// </summary>
@@ -9665,6 +10954,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8a9e64d86e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export as Markdown.
         /// </summary>
@@ -9673,6 +10963,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8ab81bbbd9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
@@ -9681,6 +10972,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b1a9953c4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Use comma-separated notation for ColumnDefinitions and RowDefinitions..
         /// </summary>
@@ -9689,6 +10981,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b2c3d4e5f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Control.
         /// </summary>
@@ -9697,6 +10990,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b36379b47", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BalloonTip.
         /// </summary>
@@ -9705,6 +10999,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b46c3bc9e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click count: {_clickCount}.
         /// </summary>
@@ -9713,14 +11008,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b560de494", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Asynchronously render children on a separate UI thread; can show a Loading vi....
+        ///   Looks up a localized string similar to Asynchronously render children on a separate UI thread; can show a Loading view while loading..
         /// </summary>
         internal static string Sample_8b64ac85c3 {
             get {
                 return ResourceManager.GetString("Sample_8b64ac85c3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Saturday.
         /// </summary>
@@ -9729,22 +11026,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8b7051187b", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Overflow items still leave the main bar, but no overflow button / Flyout is s....
+        ///   Looks up a localized string similar to Overflow items still leave the main bar, but no overflow button / Flyout is shown..
         /// </summary>
         internal static string Sample_8b93b1d357 {
             get {
                 return ResourceManager.GetString("Sample_8b93b1d357", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to AnimatedGlobalNavigationButtonVisualSource — Segoe GlobalNavButton E700 (not ....
+        ///   Looks up a localized string similar to AnimatedGlobalNavigationButtonVisualSource — Segoe GlobalNavButton E700 (not Fluent F4E1)..
         /// </summary>
         internal static string Sample_8c07d7e61c {
             get {
                 return ResourceManager.GetString("Sample_8c07d7e61c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select a folder..
         /// </summary>
@@ -9753,6 +11053,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c19852c92", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pagination control.
         /// </summary>
@@ -9761,6 +11062,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c238a9824", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Separator.
         /// </summary>
@@ -9769,6 +11071,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c47ecd40d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Plain RichTextBox.
         /// </summary>
@@ -9777,6 +11080,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c56954140", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CloseAsync.
         /// </summary>
@@ -9785,6 +11089,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c72a0d0cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flooring Woodgrain Type.
         /// </summary>
@@ -9793,6 +11098,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c7c85847d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: credential saved — user: {credential.UserName}.
         /// </summary>
@@ -9801,6 +11107,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c8c59b676", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy with checkmark animation.
         /// </summary>
@@ -9809,6 +11116,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8c9a8d4918", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Caption button bar.
         /// </summary>
@@ -9817,6 +11125,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8cb861a1ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Critical BG.
         /// </summary>
@@ -9825,6 +11134,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8d0fb6f99b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WinUI-style wrapping item grid.
         /// </summary>
@@ -9833,6 +11143,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8d769f1a3a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Windows-style flag glyphs (when available)..
         /// </summary>
@@ -9841,6 +11152,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8d800a5eb8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Offline.
         /// </summary>
@@ -9849,6 +11161,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8d9da4bc0e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon.FontSize wins over ControlHelper.
         /// </summary>
@@ -9857,6 +11170,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8dae381aff", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tag combo box.
         /// </summary>
@@ -9865,6 +11179,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8dbb85e851", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Non-stacking mode.
         /// </summary>
@@ -9873,6 +11188,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8dd1eb06c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Grid splitter.
         /// </summary>
@@ -9881,6 +11197,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8dd38aaf75", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Ticks + Snap.
         /// </summary>
@@ -9889,6 +11206,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e07d79b58", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 3, for verifying scroll sync..
         /// </summary>
@@ -9897,6 +11215,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e1dd99c8c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical TabControl.
         /// </summary>
@@ -9905,6 +11224,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e1eaa0d45", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tag input.
         /// </summary>
@@ -9913,6 +11233,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e3ac38ebb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Stroke.
         /// </summary>
@@ -9921,6 +11242,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e763d9065", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Message box with icon.
         /// </summary>
@@ -9929,6 +11251,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8e7ccd6ff9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Header + Content.
         /// </summary>
@@ -9937,6 +11260,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8f2ce987fd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dedicated IPv4 address box that validates each octet (0–255)..
         /// </summary>
@@ -9945,6 +11269,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8f5c60e948", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Separator (,).
         /// </summary>
@@ -9953,14 +11278,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8f7a9c4b01", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Icon has no local FontSize — ControlHelper.IconFontSize is applied via SetCur....
+        ///   Looks up a localized string similar to Icon has no local FontSize — ControlHelper.IconFontSize is applied via SetCurrentValue..
         /// </summary>
         internal static string Sample_8f97956fd7 {
             get {
                 return ResourceManager.GetString("Sample_8f97956fd7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Yes/No.
         /// </summary>
@@ -9969,6 +11296,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8fccf382e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to EmojiPicker.
         /// </summary>
@@ -9977,6 +11305,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_8fe2f0e456", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Configure &amp;amp; open.
         /// </summary>
@@ -9985,6 +11314,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_900750dec1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
@@ -9993,6 +11323,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_900c70fa5f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Opt.
         /// </summary>
@@ -10001,6 +11332,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_903a033e59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Orange.
         /// </summary>
@@ -10009,6 +11341,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_909cea0c97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flip-view control like a carousel; swipe left/right..
         /// </summary>
@@ -10017,6 +11350,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_90ea8506b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Browser.
         /// </summary>
@@ -10025,6 +11359,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_912302cb02", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Upload.
         /// </summary>
@@ -10033,6 +11368,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91412465ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to R&amp;D.
         /// </summary>
@@ -10041,6 +11377,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9176a628cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Badges and dots.
         /// </summary>
@@ -10049,14 +11386,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_917b016754", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Semi.Avalonia.ColorPicker-style spectrum / palette / channel editors, plus a ....
+        ///   Looks up a localized string similar to Semi.Avalonia.ColorPicker-style spectrum / palette / channel editors, plus a drop-down ColorPicker..
         /// </summary>
         internal static string Sample_91ae62d859 {
             get {
                 return ResourceManager.GetString("Sample_91ae62d859", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TopCenter.
         /// </summary>
@@ -10065,6 +11404,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91b8ede24b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show ContentDialog.
         /// </summary>
@@ -10073,6 +11413,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91c256c87a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:Image.
         /// </summary>
@@ -10081,6 +11422,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91d33f49b1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bottom lightweight notification.
         /// </summary>
@@ -10089,6 +11431,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91e1576aa8", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AlignSelf (within AlignItems=Stretch).
+        /// </summary>
+        internal static string Sample_91e7d6c5b4 {
+            get {
+                return ResourceManager.GetString("Sample_91e7d6c5b4", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — command links.
         /// </summary>
@@ -10097,6 +11449,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_91f1130627", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic.
         /// </summary>
@@ -10105,6 +11458,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_920809ad6f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to no buttons.
         /// </summary>
@@ -10113,6 +11467,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_925dfa591d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected item writes into left Content (off by default; enabled here)..
         /// </summary>
@@ -10121,6 +11476,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_92791c5349", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please select....
         /// </summary>
@@ -10129,6 +11485,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_92a3be5307", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Right.
         /// </summary>
@@ -10137,6 +11494,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_92b09c7c48", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fade C.
         /// </summary>
@@ -10145,6 +11503,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_92b6558177", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to document content..
         /// </summary>
@@ -10153,6 +11512,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_932b484438", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab.
         /// </summary>
@@ -10161,6 +11521,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9377e388f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
@@ -10169,6 +11530,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_939d5345ad", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QueryChanged：—.
         /// </summary>
@@ -10177,6 +11539,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_940f45db02", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent UI React–style Carousel + CarouselNav (page indicators)..
         /// </summary>
@@ -10185,6 +11548,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9411b11d27", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF-UI-styled data grid with sorting, selection, and virtualization..
         /// </summary>
@@ -10193,6 +11557,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_947e334a08", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Delete row.
         /// </summary>
@@ -10201,14 +11566,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_947fa341a6", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Single-click left runs Command; double-click left runs DoubleCommand (not the....
+        ///   Looks up a localized string similar to Single-click left runs Command; double-click left runs DoubleCommand (not the chevron)..
         /// </summary>
         internal static string Sample_9488273dae {
             get {
                 return ResourceManager.GetString("Sample_9488273dae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
@@ -10217,6 +11584,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_94966d9074", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Checked + disabled.
         /// </summary>
@@ -10225,6 +11593,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9509169bb1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hyperlink button.
         /// </summary>
@@ -10233,6 +11602,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_953ac8afe8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Number input.
         /// </summary>
@@ -10241,6 +11611,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9597dcaf43", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Release.
         /// </summary>
@@ -10249,6 +11620,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_95a352a546", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree list.
         /// </summary>
@@ -10257,6 +11629,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9604d1609b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Normal.
         /// </summary>
@@ -10265,6 +11638,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_960b44c579", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Border.
         /// </summary>
@@ -10273,6 +11647,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_961534b4ea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeout (seconds):.
         /// </summary>
@@ -10281,14 +11656,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_961787b91f", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Flat display of ToolBar*Style default and disabled appearances without vio:To....
+        ///   Looks up a localized string similar to Flat display of ToolBar*Style default and disabled appearances without vio:ToolBar (no overflow trigger needed)..
         /// </summary>
         internal static string Sample_962ec420d4 {
             get {
                 return ResourceManager.GetString("Sample_962ec420d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
@@ -10297,6 +11674,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9639e32cab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Series.
         /// </summary>
@@ -10305,6 +11683,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_966e7cdd84", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Project B.sln.
         /// </summary>
@@ -10313,6 +11692,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_967d1bf3a1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Saturday content..
         /// </summary>
@@ -10321,6 +11701,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_96c19f4a6b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to (none).
         /// </summary>
@@ -10329,6 +11710,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97139627c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cancelable = False.
         /// </summary>
@@ -10337,6 +11719,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_971c80bebe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to DataGrid — data grid.
         /// </summary>
@@ -10345,6 +11728,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_976db78a60", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SQL.
         /// </summary>
@@ -10353,6 +11737,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9778840a01", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default tooltip.
         /// </summary>
@@ -10361,6 +11746,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_977acbe88d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Simple slider.
         /// </summary>
@@ -10369,6 +11755,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97aa23f96a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Layer fill.
         /// </summary>
@@ -10377,6 +11764,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97ad4fc117", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Targeted TeachingTip.
         /// </summary>
@@ -10385,6 +11773,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97b0645e3d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Interactive volume.
         /// </summary>
@@ -10393,6 +11782,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97b423f318", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable button.
         /// </summary>
@@ -10401,6 +11791,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97c56016ab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text.
         /// </summary>
@@ -10409,6 +11800,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97d0761438", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Yes/No/Cancel.
         /// </summary>
@@ -10417,6 +11809,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_97d3036ee7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Four.
         /// </summary>
@@ -10425,6 +11818,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_981b8fcee4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Error at ({location}).
         /// </summary>
@@ -10433,6 +11827,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9840e62f59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected:.
         /// </summary>
@@ -10441,6 +11836,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_986ffb30e2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Engineer.
         /// </summary>
@@ -10449,6 +11845,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_98bc1a09b5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Danger.
         /// </summary>
@@ -10457,6 +11854,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_990816b607", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three-state.
         /// </summary>
@@ -10465,6 +11863,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9908fbe791", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multi-column wheel picker.
         /// </summary>
@@ -10473,6 +11872,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9937ff5001", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Suzhou.
         /// </summary>
@@ -10481,6 +11881,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_995882b996", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Grouped items.
         /// </summary>
@@ -10489,6 +11890,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9983599025", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Non-stacked notification 3.
         /// </summary>
@@ -10497,14 +11899,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9983a4a85f", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Holding the button repeatedly fires Click. Wpf.Ui provides a Fluent look via ....
+        ///   Looks up a localized string similar to Holding the button repeatedly fires Click. Wpf.Ui provides a Fluent look via DefaultRepeatButtonStyle..
         /// </summary>
         internal static string Sample_99a952b8e7 {
             get {
                 return ResourceManager.GetString("Sample_99a952b8e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover and checked show outer border + fill. Icons: UncheckedIcon / CheckedIcon..
         /// </summary>
@@ -10513,6 +11917,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_99d9bd7a3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bind a font list via ItemsSource..
         /// </summary>
@@ -10521,6 +11926,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9a1508f4ef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wu Xin.
         /// </summary>
@@ -10529,6 +11935,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9a201c3894", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsMultiSelectCheckBoxEnabled.
         /// </summary>
@@ -10537,6 +11944,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9a9a956b04", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Determinate.
         /// </summary>
@@ -10545,6 +11953,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9aa2f68b8e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Frontend.
         /// </summary>
@@ -10553,6 +11962,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9abfe4a039", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expand to see more.
         /// </summary>
@@ -10561,6 +11971,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9ad3b66421", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Utility / Patterns.
         /// </summary>
@@ -10569,6 +11980,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9aef26e2ef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Use app cache.
         /// </summary>
@@ -10577,6 +11989,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9af21fa553", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto-suggest input.
         /// </summary>
@@ -10585,6 +11998,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9afe366118", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Step Two.
         /// </summary>
@@ -10593,6 +12007,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9b1fadbb59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Striped Background.
         /// </summary>
@@ -10601,6 +12016,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9b744948cf", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard TabControl.
         /// </summary>
@@ -10609,6 +12025,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9bc1cf07bb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom install.
         /// </summary>
@@ -10617,6 +12034,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9bcbd65034", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Insert.
         /// </summary>
@@ -10625,6 +12043,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9bdb07e72d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PaneTitle — pane title text.
         /// </summary>
@@ -10633,6 +12052,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9bdc3ea41f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardControl combines a title and content area into a card layout..
         /// </summary>
@@ -10641,6 +12061,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9bf9a8e24d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rest or hover.
         /// </summary>
@@ -10649,6 +12070,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c16bff34c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Two-state CheckBox.
         /// </summary>
@@ -10657,6 +12079,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c1ee7f207", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Place the loading indicator left, right, top, or bottom of content..
         /// </summary>
@@ -10665,6 +12088,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c22a91217", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Violeta provides Fluent-styled Expander enhancements..
         /// </summary>
@@ -10673,6 +12097,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c3760d853", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success banner.
         /// </summary>
@@ -10681,6 +12106,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c3880d870", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Spacing.
         /// </summary>
@@ -10689,6 +12115,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c3d4e5f6a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 2 parent chapter with child sections below..
         /// </summary>
@@ -10697,6 +12124,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c64922ef8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Blue.
         /// </summary>
@@ -10705,6 +12133,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c9aabab3f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FontFamily resources.
         /// </summary>
@@ -10713,6 +12142,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9c9ce2c5f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QuerySubmitted：—.
         /// </summary>
@@ -10721,6 +12151,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9cabd9e8dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Image viewer.
         /// </summary>
@@ -10729,6 +12160,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9cb7d6cf2a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic toggle.
         /// </summary>
@@ -10737,6 +12169,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9cd21c0453", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Splash — splash screen.
         /// </summary>
@@ -10745,6 +12178,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9cee7d6c46", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sound.
         /// </summary>
@@ -10753,6 +12187,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d07e0e08a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sunday.
         /// </summary>
@@ -10761,6 +12196,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d1a0949c3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TreeListView — tree list view.
         /// </summary>
@@ -10769,6 +12205,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d268b366c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Black.
         /// </summary>
@@ -10777,6 +12214,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d2d1f62ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 2nd.
         /// </summary>
@@ -10785,6 +12223,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d5f1209e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click a side card, dots, or arrows to rotate. Keyboard Left / Right also works..
         /// </summary>
@@ -10793,6 +12232,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9d8875cae7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A real tray balloon notification from TrayIconHost..
         /// </summary>
@@ -10801,6 +12241,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9dba3a086c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical slider with ticks..
         /// </summary>
@@ -10809,6 +12250,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9dc8eb7157", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Caption — helper caption text.
         /// </summary>
@@ -10817,6 +12259,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9dd3ceb5b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeline — Mode / Type (Test demo).
         /// </summary>
@@ -10825,6 +12268,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9de44749b0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Items.
         /// </summary>
@@ -10833,6 +12277,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9dea4016db", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic info.
         /// </summary>
@@ -10841,6 +12286,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9e5ffa068e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Exception report.
         /// </summary>
@@ -10849,6 +12295,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9e8f93c666", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports display name, initials, badge, and image source..
         /// </summary>
@@ -10857,6 +12304,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9ec0bbf098", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Item 2.
         /// </summary>
@@ -10865,6 +12313,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9eda28f018", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ExceptionReport — exception report.
         /// </summary>
@@ -10873,6 +12322,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9f00d03364", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContextMenu (Placement=Bottom).
         /// </summary>
@@ -10881,6 +12331,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9f1662c76b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Page flip view.
         /// </summary>
@@ -10889,6 +12340,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9f1891c848", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Right-to-left.
         /// </summary>
@@ -10897,6 +12349,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9f94e42711", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Popup calendar to pick a date; IsTodayHighlighted highlights today..
         /// </summary>
@@ -10905,6 +12358,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9fb6b4af29", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer - Bottom.
         /// </summary>
@@ -10913,6 +12367,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9fbff36808", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Single select.
         /// </summary>
@@ -10921,6 +12376,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9fd1b7cb41", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Low disk space. Please free up space soon..
         /// </summary>
@@ -10929,6 +12385,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9fd77757e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segmented time input.
         /// </summary>
@@ -10937,230 +12394,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9ff42f75c8", resourceCulture);
             }
         }
-        /// <summary>
-        ///   Looks up a localized string similar to When IsEnabled is false (for example, while BusyMask is active), column heade....
-        /// </summary>
-        internal static string Sample_DataGrid_DisabledDesc {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_DisabledDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Set GridLinesVisibility="All" and optionally customize HorizontalGridLinesBru....
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesAllDesc {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to All grid lines.
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesAllTitle {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Set GridLinesVisibility="Horizontal". Default brushes use ControlElevationBor....
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesHorizontalDesc {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Horizontal grid lines.
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesHorizontalTitle {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Set GridLinesVisibility="Vertical" for column separators only..
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesVerticalDesc {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Vertical grid lines.
-        /// </summary>
-        internal static string Sample_DataGrid_GridLinesVerticalTitle {
-            get {
-                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to When disabled, the button and its flyout cannot be used..
-        /// </summary>
-        internal static string Sample_DropDownButton_DisabledDesc {
-            get {
-                return ResourceManager.GetString("Sample_DropDownButton_DisabledDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Your attention may be required..
-        /// </summary>
-        internal static string Sample_NativeAttentionBody {
-            get {
-                return ResourceManager.GetString("Sample_NativeAttentionBody", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Appearance styles the whole split control; each still has its own flyout comm....
-        /// </summary>
-        internal static string Sample_SplitButton_AppearanceDesc {
-            get {
-                return ResourceManager.GetString("Sample_SplitButton_AppearanceDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Primary click reports the current color; flyout items update the swatch..
-        /// </summary>
-        internal static string Sample_SplitButton_ColorSwatchDesc {
-            get {
-                return ResourceManager.GetString("Sample_SplitButton_ColorSwatchDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to When disabled, neither the primary action nor the chevron flyout can be used..
-        /// </summary>
-        internal static string Sample_SplitButton_DisabledDesc {
-            get {
-                return ResourceManager.GetString("Sample_SplitButton_DisabledDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Primary click shares; the flyout can nest Send and device targets..
-        /// </summary>
-        internal static string Sample_SplitButton_NestedFlyoutDesc {
-            get {
-                return ResourceManager.GetString("Sample_SplitButton_NestedFlyoutDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Primary click runs Save; open the chevron for Save As / Export..
-        /// </summary>
-        internal static string Sample_SplitButton_PrimaryFlyoutDesc {
-            get {
-                return ResourceManager.GetString("Sample_SplitButton_PrimaryFlyoutDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to WPF StatusBar with Wpf.Ui theme styling. Items flow horizontally with separat....
-        /// </summary>
-        internal static string Sample_StatusBar_BasicDesc {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_BasicDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Basic.
-        /// </summary>
-        internal static string Sample_StatusBar_BasicTitle {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_BasicTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Caps Lock: Off.
-        /// </summary>
-        internal static string Sample_StatusBar_CapsLockOff {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_CapsLockOff", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Themed window status bar.
-        /// </summary>
-        internal static string Sample_StatusBar_CardDesc {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_CardDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Use ItemsPanel with a Grid to pin left/center/right regions (editor-style sta....
-        /// </summary>
-        internal static string Sample_StatusBar_GridDesc {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_GridDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Grid layout.
-        /// </summary>
-        internal static string Sample_StatusBar_GridTitle {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_GridTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Mix SymbolIcon and text for a compact IDE-style footer..
-        /// </summary>
-        internal static string Sample_StatusBar_IconsDesc {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_IconsDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to With icons.
-        /// </summary>
-        internal static string Sample_StatusBar_IconsTitle {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_IconsTitle", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Line: 42, Char: 8.
-        /// </summary>
-        internal static string Sample_StatusBar_LineChar {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_LineChar", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Ln 1, Col 1.
-        /// </summary>
-        internal static string Sample_StatusBar_LnCol {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_LnCol", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Ready.
-        /// </summary>
-        internal static string Sample_StatusBar_Ready {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_Ready", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to 0 errors.
-        /// </summary>
-        internal static string Sample_StatusBar_ZeroErrors {
-            get {
-                return ResourceManager.GetString("Sample_StatusBar_ZeroErrors", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Rounded bubble with a pointer at the bottom center. Shown above the trigger a....
-        /// </summary>
-        internal static string Sample_ToolTip_CalloutDesc {
-            get {
-                return ResourceManager.GetString("Sample_ToolTip_CalloutDesc", resourceCulture);
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized string similar to Set vio:CalloutToolTipHelper.ForceDark to keep the dark callout even in the l....
-        /// </summary>
-        internal static string Sample_ToolTip_CalloutForceDarkDesc {
-            get {
-                return ResourceManager.GetString("Sample_ToolTip_CalloutForceDarkDesc", resourceCulture);
-            }
-        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Age.
         /// </summary>
@@ -11169,6 +12403,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a01a996323", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select multiple files.
         /// </summary>
@@ -11177,6 +12412,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a074a4a7c5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Step Three.
         /// </summary>
@@ -11185,6 +12421,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a090487d1b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WinUI-style view switcher.
         /// </summary>
@@ -11193,6 +12430,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a0a2c2b4a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multiple.
         /// </summary>
@@ -11201,6 +12439,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a0bf169f25", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RatingControl.
         /// </summary>
@@ -11209,6 +12448,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a0dab29410", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Target (credential target name).
         /// </summary>
@@ -11217,6 +12457,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a0e354a6b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color picker.
         /// </summary>
@@ -11225,6 +12466,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a0e6ecd1eb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Microsoft.Win32.SaveFileDialog writes text to the path the user selects..
         /// </summary>
@@ -11233,6 +12475,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a10fab8639", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Control.
         /// </summary>
@@ -11241,6 +12484,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a1595abbb4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageIcon hyperlink.
         /// </summary>
@@ -11249,6 +12493,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a1a9418daa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System Border.
         /// </summary>
@@ -11257,6 +12502,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a1b2c3d4e6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme color.
         /// </summary>
@@ -11265,6 +12511,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a1c76c6e1b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tile layout with WrapPanel and motion.
         /// </summary>
@@ -11273,6 +12520,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a1f2c3d4e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paste special.
         /// </summary>
@@ -11281,6 +12529,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a248c2206b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic horizontal slider, 0–100..
         /// </summary>
@@ -11289,6 +12538,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a279b97a03", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Star rating.
         /// </summary>
@@ -11297,6 +12547,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a297dda489", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample header.
         /// </summary>
@@ -11305,6 +12556,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a2b099aca0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Indeterminate.
         /// </summary>
@@ -11313,6 +12565,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a2d00c353d", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap.
+        /// </summary>
+        internal static string Sample_a2f8e7d6b5 {
+            get {
+                return ResourceManager.GetString("Sample_a2f8e7d6b5", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Account settings.
         /// </summary>
@@ -11321,6 +12583,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a3448ab5ed", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardAction with icon, title, and subtitle..
         /// </summary>
@@ -11329,6 +12592,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a34817221c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to UTF-8  CRLF  C#.
         /// </summary>
@@ -11337,6 +12601,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a36a5013ca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Busy overlay and indicator.
         /// </summary>
@@ -11345,14 +12610,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a38e764eb8", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Default HorizontalAlignment=Left; width shrinks to content and does not stret....
+        ///   Looks up a localized string similar to Default HorizontalAlignment=Left; width shrinks to content and does not stretch to fill parent..
         /// </summary>
         internal static string Sample_a3d4b2e49b {
             get {
                 return ResourceManager.GetString("Sample_a3d4b2e49b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme color resources.
         /// </summary>
@@ -11361,6 +12628,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a421a1bf6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic Label.
         /// </summary>
@@ -11369,6 +12637,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a42bf96fec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RunningBlock — marquee.
         /// </summary>
@@ -11377,6 +12646,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a4397cdc53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhejiang.
         /// </summary>
@@ -11385,6 +12655,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a44dc3df64", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text box + dropdown flyout rendering both a calendar and time wheels..
         /// </summary>
@@ -11393,6 +12664,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a47d284a58", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to HorizontalSpacing and VerticalSpacing insert fixed gaps between cells..
         /// </summary>
@@ -11401,6 +12673,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a4d5e6f7b8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Top.
         /// </summary>
@@ -11409,6 +12682,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a4ffdcf0dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Date picker.
         /// </summary>
@@ -11417,6 +12691,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a55d501e08", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to UniformGrid + ui:Card.
         /// </summary>
@@ -11425,6 +12700,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a5df907a38", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card / Button styles.
         /// </summary>
@@ -11433,14 +12709,17 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a5e9b0abe6", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to This may need your attention..
+        ///   Looks up a localized string similar to This may need your attention.
+        ///Click OK to continue..
         /// </summary>
         internal static string Sample_a63f92aa6a {
             get {
                 return ResourceManager.GetString("Sample_a63f92aa6a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to and other inline styles..
         /// </summary>
@@ -11449,6 +12728,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a69a0f6783", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle.
         /// </summary>
@@ -11457,6 +12737,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a6beb974cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to I am a styled TextBlock..
         /// </summary>
@@ -11465,6 +12746,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a6cabcfdee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BusyMask — busy overlay.
         /// </summary>
@@ -11473,6 +12755,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a6d6c786e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 1.
         /// </summary>
@@ -11481,6 +12764,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a6e8671eab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hidden / Compact / Inline spin-button layouts..
         /// </summary>
@@ -11489,6 +12773,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a72cc659bc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Aspect-ratio layout.
         /// </summary>
@@ -11497,6 +12782,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a74d2b62c9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardUiBorderStyle.
         /// </summary>
@@ -11505,6 +12791,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a7b8c9d0e2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Title2.
         /// </summary>
@@ -11513,6 +12800,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a7e0a4d8a3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: selected {dialog.SelectedPaths.Length} folders — {string.Join(.
         /// </summary>
@@ -11521,6 +12809,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a816603488", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:PasswordBox.
         /// </summary>
@@ -11529,6 +12818,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a8251dc84e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
@@ -11537,6 +12827,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a82be0f551", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tip and Callout styles.
         /// </summary>
@@ -11545,6 +12836,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a884f3bc36", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Numeric ComboBox input.
         /// </summary>
@@ -11553,6 +12845,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a8b3c4d5e6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segmented PIN input.
         /// </summary>
@@ -11561,6 +12854,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a8e217c6ad", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FluentSystemIconsFilled.
         /// </summary>
@@ -11569,6 +12863,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a9235fc91a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Personal Documents.
         /// </summary>
@@ -11577,6 +12872,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a959d9be39", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Subtle / Secondary.
         /// </summary>
@@ -11585,6 +12881,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a95e4e5b3e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default physical scrolling.
         /// </summary>
@@ -11593,6 +12890,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a96498c010", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Blueberry.
         /// </summary>
@@ -11601,6 +12899,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a96ab3d9cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Elevation Borders.
         /// </summary>
@@ -11609,6 +12908,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a96ad752e1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Plays transition animations on content change; supports multiple directions..
         /// </summary>
@@ -11617,6 +12917,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a970d9d633", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Background.
         /// </summary>
@@ -11625,6 +12926,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a9ded1e5ce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle + ComboBox-like split.
         /// </summary>
@@ -11633,6 +12935,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a9f55b98ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Thursday content..
         /// </summary>
@@ -11641,14 +12944,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_a9fbab0ded", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Delay sets the wait before the first repeat (ms); Interval sets the later rep....
+        ///   Looks up a localized string similar to Delay sets the wait before the first repeat (ms); Interval sets the later repeat interval..
         /// </summary>
         internal static string Sample_aa2fa8a46b {
             get {
                 return ResourceManager.GetString("Sample_aa2fa8a46b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 10.
         /// </summary>
@@ -11657,6 +12962,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aa3eb7c441", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Overflow headers (scroll).
         /// </summary>
@@ -11665,6 +12971,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aa8ed345de", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select folder.
         /// </summary>
@@ -11673,6 +12980,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aaa4b65e5c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom clipboard payload.
         /// </summary>
@@ -11681,6 +12989,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aaaaf95453", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CompactPaneLength — icon bar width when collapsed.
         /// </summary>
@@ -11689,14 +12998,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aabb3f6de1", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Left: ContextMenu IconFontSize=20 + IconWidth=22 (all icons). Middle item Fon....
+        ///   Looks up a localized string similar to Left: ContextMenu IconFontSize=20 + IconWidth=22 (all icons). Middle item FontSize=12 wins size; Share item overrides IconFontSize/IconWidth. Right DropDown unchanged..
         /// </summary>
         internal static string Sample_aad972b95a {
             get {
                 return ResourceManager.GetString("Sample_aad972b95a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Two.
         /// </summary>
@@ -11705,6 +13016,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aada29daee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to byte (0…255).
         /// </summary>
@@ -11713,6 +13025,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aaf18794ce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SystemAccentColorTertiary.
         /// </summary>
@@ -11721,6 +13034,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ab0b2d55f2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter your age.
         /// </summary>
@@ -11729,6 +13043,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ab5c3857f6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Column separator (ShowsPreview=False).
         /// </summary>
@@ -11737,6 +13052,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aba7d83a65", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to LabelPosition = Left + FormGroup.
         /// </summary>
@@ -11745,6 +13061,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_abdce9dc53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Control Strong / Solid / Subtle.
         /// </summary>
@@ -11753,6 +13070,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ac5ca43671", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ItemsSource binding.
         /// </summary>
@@ -11761,6 +13079,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ac68bbca75", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Value:.
         /// </summary>
@@ -11769,6 +13088,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_acdb802bfc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom content.
         /// </summary>
@@ -11777,6 +13097,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_acf041436a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress property (0–100) shows determinate progress..
         /// </summary>
@@ -11785,6 +13106,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ad4a69520c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab strip.
         /// </summary>
@@ -11793,6 +13115,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ad506ef284", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Nanjing.
         /// </summary>
@@ -11801,6 +13124,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ad827c5906", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Core features done; entering testing..
         /// </summary>
@@ -11809,6 +13133,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_adf525b652", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.Violeta.Gallery.Sample.
         /// </summary>
@@ -11817,6 +13142,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_adfad5098d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sample ContentDialog.
         /// </summary>
@@ -11825,6 +13151,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae05e054a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Placement.
         /// </summary>
@@ -11833,6 +13160,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae13e51f99", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Set Height to limit the list viewport..
         /// </summary>
@@ -11841,6 +13169,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae26e58675", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Circular.
         /// </summary>
@@ -11849,6 +13178,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae2fd93db7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Browse all samples grouped by control type; click a card to navigate..
         /// </summary>
@@ -11857,6 +13187,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae32fe0625", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: cached credential hit — user: {dialog.UserName}.
         /// </summary>
@@ -11865,6 +13196,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae35089b44", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Archive 2025.
         /// </summary>
@@ -11873,6 +13205,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ae654acc99", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard Image.
         /// </summary>
@@ -11881,6 +13214,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aea0ca94d7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card 5.
         /// </summary>
@@ -11889,6 +13223,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_aec2b16989", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to (Bottom spacer).
         /// </summary>
@@ -11897,6 +13232,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af1f5437ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Continue?.
         /// </summary>
@@ -11905,6 +13241,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af204660c7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard ToggleButton.
         /// </summary>
@@ -11913,14 +13250,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af24df2e7d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Button FontSize styles the label; ControlHelper.IconFontSize styles the icon ....
+        ///   Looks up a localized string similar to Button FontSize styles the label; ControlHelper.IconFontSize styles the icon independently..
         /// </summary>
         internal static string Sample_af320f2b89 {
             get {
                 return ResourceManager.GetString("Sample_af320f2b89", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected: {0}.
         /// </summary>
@@ -11929,6 +13268,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af69d6c47f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Embedded Edge browser.
         /// </summary>
@@ -11937,6 +13277,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af7651f268", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export PDF.
         /// </summary>
@@ -11945,6 +13286,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af80706065", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fixed MinWidth (left-aligned content).
         /// </summary>
@@ -11953,6 +13295,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af83bee9a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabControl + TabControlPivotStyle + PivotHelper.Title.
         /// </summary>
@@ -11961,6 +13304,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af8deffbfb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Boolean state text display.
         /// </summary>
@@ -11969,6 +13313,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_af927f847c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress state.
         /// </summary>
@@ -11977,6 +13322,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_afb4119954", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Canvas drawing.
         /// </summary>
@@ -11985,6 +13331,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_afe53fe801", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Prefilled tags; also demonstrates the disabled state..
         /// </summary>
@@ -11993,6 +13340,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_afeec3c773", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open folder.
         /// </summary>
@@ -12001,6 +13349,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b00f8cb915", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Design.
         /// </summary>
@@ -12009,14 +13358,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b08890a6ef", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Default is a 16×16 glyph (bars 3×5 / 8.5 / 12). 0 idle, 1 critical, 2 caution....
+        ///   Looks up a localized string similar to Default is a 16×16 glyph (bars 3×5 / 8.5 / 12). 0 idle, 1 critical, 2 caution, 3 success..
         /// </summary>
         internal static string Sample_b1108dabc7 {
             get {
                 return ResourceManager.GetString("Sample_b1108dabc7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+N.
         /// </summary>
@@ -12025,6 +13376,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b114e3cd30", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Output:.
         /// </summary>
@@ -12033,6 +13385,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1282d58a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
@@ -12041,6 +13394,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b15d91274e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter your name:.
         /// </summary>
@@ -12049,6 +13403,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b15e5d18e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Value / Maximum control the completion ratio..
         /// </summary>
@@ -12057,6 +13412,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1a86a3a9f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
@@ -12065,6 +13421,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1c94ca2fb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IP + port input.
         /// </summary>
@@ -12073,6 +13430,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1d8156ae0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Li Na.
         /// </summary>
@@ -12081,6 +13439,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1db96a48b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Compact.
         /// </summary>
@@ -12089,6 +13448,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b1fe2c2a59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Theme brush resource samples..
         /// </summary>
@@ -12097,6 +13457,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b248c77928", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to UI design completed and approved..
         /// </summary>
@@ -12105,6 +13466,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b250f38e10", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Person picture.
         /// </summary>
@@ -12113,6 +13475,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b26a335cdb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SampleIconToggleButtonStyle — icon swap only, no hover / selected chrome..
         /// </summary>
@@ -12121,22 +13484,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b29235652a", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Apply CardBorderStyle and SecondaryBorderStyle to the standard WPF Border con....
+        ///   Looks up a localized string similar to Apply CardBorderStyle and SecondaryBorderStyle to the standard WPF Border control..
         /// </summary>
         internal static string Sample_b2c3d4e5f7 {
             get {
                 return ResourceManager.GetString("Sample_b2c3d4e5f7", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Built-in WPF ToolBar + ToolBarTray (overflow still uses the system Popup pane....
+        ///   Looks up a localized string similar to Built-in WPF ToolBar + ToolBarTray (overflow still uses the system Popup panel, not a Violeta Flyout)..
         /// </summary>
         internal static string Sample_b2ce6a667b {
             get {
                 return ResourceManager.GetString("Sample_b2ce6a667b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to HalfStarEnabled=False allows whole-star ratings only..
         /// </summary>
@@ -12145,6 +13511,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b313aff943", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hierarchical tree dropdown supporting multi-level nesting..
         /// </summary>
@@ -12153,6 +13520,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b33212419d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Data grid.
         /// </summary>
@@ -12161,6 +13529,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b339aa8710", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Attach EmojiImage.Source to Image, or build a DrawingImage..
         /// </summary>
@@ -12169,6 +13538,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b33b46f030", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Score.
         /// </summary>
@@ -12177,6 +13547,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b34422e637", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Styles and Severity.
         /// </summary>
@@ -12185,6 +13556,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b368eb270f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Up to 3 tags….
         /// </summary>
@@ -12193,6 +13565,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b3cdee7277", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grow (1:2:1 ratio).
+        /// </summary>
+        internal static string Sample_b3e9a8f7c6 {
+            get {
+                return ResourceManager.GetString("Sample_b3e9a8f7c6", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option E.
         /// </summary>
@@ -12201,6 +13583,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b3f046ddef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ItemsSource bound to a string collection to show a hierarchical navigation path..
         /// </summary>
@@ -12209,14 +13592,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b4080aa16b", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to The left navigation of the main window is NavigationView. This page summarize....
+        ///   Looks up a localized string similar to The left navigation of the main window is NavigationView. This page summarizes common settings so you don&apos;t nest another full navigation frame..
         /// </summary>
         internal static string Sample_b40b2d467a {
             get {
                 return ResourceManager.GetString("Sample_b40b2d467a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pick an emoji and insert it into the text box..
         /// </summary>
@@ -12225,6 +13610,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b419386415", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Kickoff.
         /// </summary>
@@ -12233,6 +13619,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b420d8f320", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentControlThemeFontFamily.
         /// </summary>
@@ -12241,6 +13628,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b42a53dd9c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhao Liu.
         /// </summary>
@@ -12249,6 +13637,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b43536d046", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto (show buttons on hover).
         /// </summary>
@@ -12257,6 +13646,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b462ab0695", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Same Appearance options as other Wpf.Ui buttons..
         /// </summary>
@@ -12265,6 +13655,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b47f14dce2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Title1.
         /// </summary>
@@ -12273,6 +13664,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b4c0b4ef70", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Plain PasswordBox.
         /// </summary>
@@ -12281,6 +13673,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5172cef51", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to A simple ShellWindow demo window..
         /// </summary>
@@ -12289,6 +13682,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b51bf913f5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar and date picker.
         /// </summary>
@@ -12297,6 +13691,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b51dfb4a52", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to LabelPosition = Top.
         /// </summary>
@@ -12305,6 +13700,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b52e498964", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Employed.
         /// </summary>
@@ -12313,6 +13709,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5509be4c5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selectable text.
         /// </summary>
@@ -12321,6 +13718,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5a455b30d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected: (none).
         /// </summary>
@@ -12329,6 +13727,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5c92782c9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected: {dialog.FileName}.
         /// </summary>
@@ -12337,6 +13736,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5d2f7bf95", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Extended grid with shorthand and spacing.
         /// </summary>
@@ -12345,6 +13745,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5e6f7c8d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic 11.
         /// </summary>
@@ -12353,6 +13754,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b5ea8ebb08", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy text.
         /// </summary>
@@ -12361,14 +13763,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b603b043e8", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Placeholder text when nothing is selected. Editable ComboBox reuses ui:TextBo....
+        ///   Looks up a localized string similar to Placeholder text when nothing is selected. Editable ComboBox reuses ui:TextBox placeholder..
         /// </summary>
         internal static string Sample_b63b51f0a2 {
             get {
                 return ResourceManager.GetString("Sample_b63b51f0a2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Common Segoe Fluent Icons symbol samples..
         /// </summary>
@@ -12377,6 +13781,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b64c4416d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
@@ -12385,6 +13790,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b652de80d6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SelectedIndex:.
         /// </summary>
@@ -12393,6 +13799,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b66a71b92f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copied to clipboard!.
         /// </summary>
@@ -12401,6 +13808,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b6be24e1e2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy link.
         /// </summary>
@@ -12409,6 +13817,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b758336699", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:Flyout flyout.
         /// </summary>
@@ -12417,6 +13826,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b7640f1477", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 3rd.
         /// </summary>
@@ -12425,6 +13835,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b7b655045b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Banana.
         /// </summary>
@@ -12433,6 +13844,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b7c03bbf2b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Group header.
         /// </summary>
@@ -12441,6 +13853,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b8011fc79e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mark.
         /// </summary>
@@ -12449,6 +13862,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b82a9a13f4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to vio:ToolBar overflow (Flyout).
         /// </summary>
@@ -12457,6 +13871,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b847ef8c6a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Control Fill.
         /// </summary>
@@ -12465,6 +13880,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b84ef27085", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Customize appearance with FontFamily, FontStyle, and related properties..
         /// </summary>
@@ -12473,6 +13889,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b854c38c15", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save As….
         /// </summary>
@@ -12481,6 +13898,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b857d6cf4f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Operations.
         /// </summary>
@@ -12489,6 +13907,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b890b34994", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Badge.
         /// </summary>
@@ -12497,6 +13916,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b8c467fce0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SecondaryUiBorderStyle.
         /// </summary>
@@ -12505,6 +13925,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b8c9d0e1f3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Animated value transition.
         /// </summary>
@@ -12513,6 +13934,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b8de573c27", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tile-style showcase built with WrapPanel, including hover and press motion..
         /// </summary>
@@ -12521,14 +13943,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b8e4d12f90", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Replicants like any other machine are either a benefit or a hazard. If they'r....
+        ///   Looks up a localized string similar to Replicants like any other machine are either a benefit or a hazard. If they&apos;re a benefit it&apos;s not my problem..
         /// </summary>
         internal static string Sample_b8e5adbbb4 {
             get {
                 return ResourceManager.GetString("Sample_b8e5adbbb4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Action 2.
         /// </summary>
@@ -12537,6 +13961,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9130c08f3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Magenta.
         /// </summary>
@@ -12545,6 +13970,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b91cc2c141", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CanMinimize.
         /// </summary>
@@ -12553,6 +13979,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b942642e42", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: canceled.
         /// </summary>
@@ -12561,6 +13988,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b97d90527e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Error code: 0x80004005.
         /// </summary>
@@ -12569,6 +13997,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b98522c6a1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar date and time.
         /// </summary>
@@ -12577,6 +14006,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b98a0966e3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Acrylic + blue tint · No animation.
         /// </summary>
@@ -12585,6 +14015,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b98b98380c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
@@ -12593,6 +14024,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9987a246a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent icon symbols.
         /// </summary>
@@ -12601,6 +14033,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b99bca881d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Watermelon.
         /// </summary>
@@ -12609,6 +14042,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9af3fd5d3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multi-column wheel picker for dates, regions, specs, and more..
         /// </summary>
@@ -12617,6 +14051,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9b45830e6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Purple.
         /// </summary>
@@ -12625,14 +14060,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9ba865fec", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to NumberComboBox is an abstract base class; use a concrete type such as NumberI....
+        ///   Looks up a localized string similar to NumberComboBox is an abstract base class; use a concrete type such as NumberIntComboBox..
         /// </summary>
         internal static string Sample_b9c4d5e6f7 {
             get {
                 return ResourceManager.GetString("Sample_b9c4d5e6f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to File name:.
         /// </summary>
@@ -12641,6 +14078,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9c52d9a85", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Numbering.
         /// </summary>
@@ -12649,6 +14087,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9e88627ad", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Subtle / Tertiary.
         /// </summary>
@@ -12657,6 +14096,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9ec31d860", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
@@ -12665,6 +14105,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_b9f5c797eb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Numeric spinner.
         /// </summary>
@@ -12673,6 +14114,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ba2daa8218", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open....
         /// </summary>
@@ -12681,6 +14123,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ba66f68099", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Native Windows folder picker; supports single/multi select and owner window..
         /// </summary>
@@ -12689,6 +14132,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ba854efc10", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hero content.
         /// </summary>
@@ -12697,6 +14141,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ba968ba1aa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Eight.
         /// </summary>
@@ -12705,14 +14150,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_baca0ca672", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to This Gallery main window uses vio:TitleBar with CustomHeader / CustomFooter, ....
+        ///   Looks up a localized string similar to This Gallery main window uses vio:TitleBar with CustomHeader / CustomFooter, back and pane-toggle buttons, and an embedded CaptionButtonBar. Typical usage: place TitleBar at the top when ExtendsContentIntoTitleBar=&quot;True&quot;..
         /// </summary>
         internal static string Sample_bb061144dc {
             get {
                 return ResourceManager.GetString("Sample_bb061144dc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Border and background pairs used by the Banner control for status notifications..
         /// </summary>
@@ -12721,6 +14168,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bb310b1305", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to https://github.com/emako/wpfui.violeta.
         /// </summary>
@@ -12729,6 +14177,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bb76553442", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Later.
         /// </summary>
@@ -12737,6 +14186,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bb86dd5c6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Microsoft.Win32.OpenFileDialog with Filter set to all files..
         /// </summary>
@@ -12745,6 +14195,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bbb630278a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageView — image viewer.
         /// </summary>
@@ -12753,6 +14204,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bbd97789b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is an informational message..
         /// </summary>
@@ -12761,6 +14213,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc0a0553b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-style palette picker.
         /// </summary>
@@ -12769,6 +14222,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc2364af77", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Popup lightweight notification.
         /// </summary>
@@ -12777,6 +14231,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc53972278", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SystemAccentColorSecondary.
         /// </summary>
@@ -12785,6 +14240,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc699e2875", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Balloon tip without app tray icon.
         /// </summary>
@@ -12793,6 +14249,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc7e77fed5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Smoke.
         /// </summary>
@@ -12801,6 +14258,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bc93fd0fa1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SegmentedItem.Icon before Content..
         /// </summary>
@@ -12809,6 +14267,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bca533c537", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
@@ -12817,6 +14276,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bcc254b55c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable.
         /// </summary>
@@ -12825,6 +14285,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bcfaccebf7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+0.
         /// </summary>
@@ -12833,6 +14294,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bd0ae58d0c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text / Disabled.
         /// </summary>
@@ -12841,6 +14303,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bd57cc7ddd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Send files to cloud.
         /// </summary>
@@ -12849,6 +14312,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bd5d5dfbba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Undo.
         /// </summary>
@@ -12857,6 +14321,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bd9fcf46b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to decimal.
         /// </summary>
@@ -12865,14 +14330,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bdaa3c20a3", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to System.Windows.Controls.WebBrowser, based on the IE ActiveX control and still....
+        ///   Looks up a localized string similar to System.Windows.Controls.WebBrowser, based on the IE ActiveX control and still available on Windows. Navigates to https://example.com after the page loads..
         /// </summary>
         internal static string Sample_bdc314fd5e {
             get {
                 return ResourceManager.GetString("Sample_bdc314fd5e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Beside text.
         /// </summary>
@@ -12881,6 +14348,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_be085e490f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-styled flyout.
         /// </summary>
@@ -12889,6 +14357,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_be2c2766a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+V.
         /// </summary>
@@ -12897,6 +14366,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_be2fa6a418", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
@@ -12905,6 +14375,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_be5fbbe34c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+S.
         /// </summary>
@@ -12913,6 +14384,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_be753f71e3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Please note ({location}).
         /// </summary>
@@ -12921,6 +14393,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bec0dd5f65", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 1/4 | Right.
         /// </summary>
@@ -12929,6 +14402,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bec1248c09", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Anchor navigation.
         /// </summary>
@@ -12937,6 +14411,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bede211909", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rounded.
         /// </summary>
@@ -12945,6 +14420,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bef2481eda", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SplitButtonSpinnerStyle.
         /// </summary>
@@ -12953,6 +14429,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf17e9c380", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Header.
         /// </summary>
@@ -12961,6 +14438,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf50d5e661", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BottomCenter.
         /// </summary>
@@ -12969,6 +14447,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf7d9c8ad2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Model tree list.
         /// </summary>
@@ -12977,6 +14456,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf8a0189e0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Press any single key....
         /// </summary>
@@ -12985,6 +14465,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf8e4d847c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bitmap icon element.
         /// </summary>
@@ -12993,6 +14474,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bf954d20ed", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Keep text only.
         /// </summary>
@@ -13001,6 +14483,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bfa69a826f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Interactive joystick.
         /// </summary>
@@ -13009,6 +14492,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bfbd1f77f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to PersonPicture — person picture.
         /// </summary>
@@ -13017,6 +14501,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bfe0b47379", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Decrease.
         /// </summary>
@@ -13025,6 +14510,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bfe5fe4cc4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Link.
         /// </summary>
@@ -13033,14 +14519,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_bfe68d5844", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Place SnackbarPresenter on the page and create/show Snackbar in code. No DI /....
+        ///   Looks up a localized string similar to Place SnackbarPresenter on the page and create/show Snackbar in code. No DI / SnackbarService needed..
         /// </summary>
         internal static string Sample_c0280b33ba {
             get {
                 return ResourceManager.GetString("Sample_c0280b33ba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show notification.
         /// </summary>
@@ -13049,6 +14537,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c054855df3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Default 24-hour format; seconds optional..
         /// </summary>
@@ -13057,6 +14546,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c074b6e2ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Lengthening indicator animation.
         /// </summary>
@@ -13065,6 +14555,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c09d2052d1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom ItemTemplate.
         /// </summary>
@@ -13073,6 +14564,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c0a63f52dd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-styled ListView with GridView multi-column display..
         /// </summary>
@@ -13081,6 +14573,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c0ba2f001d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Project formally approved; requirements document completed..
         /// </summary>
@@ -13089,6 +14582,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c0ebbe10c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab strip vertically on the left..
         /// </summary>
@@ -13097,6 +14591,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c1142ce23d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Danger text colour..
         /// </summary>
@@ -13105,6 +14600,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c1419da6c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent carousel with nav dots.
         /// </summary>
@@ -13113,6 +14609,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c17befc4c1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card Stroke.
         /// </summary>
@@ -13121,14 +14618,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c18058c77b", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to AnimatedChevronUpDownSmallVisualSource — click toggles IsExpanded (ComboBox c....
+        ///   Looks up a localized string similar to AnimatedChevronUpDownSmallVisualSource — click toggles IsExpanded (ComboBox chevron)..
         /// </summary>
         internal static string Sample_c195abee02 {
             get {
                 return ResourceManager.GetString("Sample_c195abee02", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card with bottom progress.
         /// </summary>
@@ -13137,6 +14636,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c1a9e0b247", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SnackbarPresenter.
         /// </summary>
@@ -13145,14 +14645,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c1cff8854d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Primary / Secondary / Success / Caution / Danger appearances, including enabl....
+        ///   Looks up a localized string similar to Primary / Secondary / Success / Caution / Danger appearances, including enabled and disabled states..
         /// </summary>
         internal static string Sample_c1dde7ca84 {
             get {
                 return ResourceManager.GetString("Sample_c1dde7ca84", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Quaternary.
         /// </summary>
@@ -13161,6 +14663,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c217982fe6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fifth item.
         /// </summary>
@@ -13169,6 +14672,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c2229f2c51", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Underline decoration..
         /// </summary>
@@ -13177,6 +14681,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c22d9854ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dual-thumb range slider with tick snapping..
         /// </summary>
@@ -13185,6 +14690,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c23c5bc472", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bitmap icon.
         /// </summary>
@@ -13193,6 +14699,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c2b1a13637", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Time picker.
         /// </summary>
@@ -13201,6 +14708,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c2c8fb2356", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Angular.
         /// </summary>
@@ -13209,6 +14717,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c31c335ef3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer Container.
         /// </summary>
@@ -13217,6 +14726,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c31cea010f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
@@ -13225,6 +14735,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c33b138a16", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drag to select and copy via context menu; multiple semantic styles..
         /// </summary>
@@ -13233,6 +14744,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c33c5fc596", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WinUI-style wrapping grid. Distinct from ui:GridView (ListView column view)..
         /// </summary>
@@ -13241,6 +14753,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c36426c170", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled….
         /// </summary>
@@ -13249,6 +14762,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c36ec66db0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Vertical + Ticks.
         /// </summary>
@@ -13257,6 +14771,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3939ff6d2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
@@ -13265,6 +14780,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3992269b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Instant press.
         /// </summary>
@@ -13273,6 +14789,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3a90e71b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Redo.
         /// </summary>
@@ -13281,6 +14798,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3c873d33f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CardBorderStyle.
         /// </summary>
@@ -13289,6 +14807,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3d4e5f6a8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Search box.
         /// </summary>
@@ -13297,6 +14816,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3e817974d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 1.
         /// </summary>
@@ -13305,6 +14825,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3e94a2a4d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text / Secondary.
         /// </summary>
@@ -13313,6 +14834,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c3f9eb1102", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Smooth physical scrolling.
         /// </summary>
@@ -13321,14 +14843,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c41619d2a1", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Default / Always: dismiss by clicking outside (like ComboBox). Default closes....
+        ///   Looks up a localized string similar to Default / Always: dismiss by clicking outside (like ComboBox). Default closes again only for ButtonBase items; Always also closes on any item; Never closes only when … is clicked again..
         /// </summary>
         internal static string Sample_c425587ac1 {
             get {
                 return ResourceManager.GetString("Sample_c425587ac1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to On Accent / Selected.
         /// </summary>
@@ -13337,6 +14861,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c44d155523", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Finance.
         /// </summary>
@@ -13345,6 +14870,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c482980d38", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Filter files....
         /// </summary>
@@ -13353,6 +14879,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c499ef0ff8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pending dialog.
         /// </summary>
@@ -13361,6 +14888,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c4aa96fd4c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Group ToggleButtons for mutually exclusive selection (can deselect)..
         /// </summary>
@@ -13369,6 +14897,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c4aadfd0cd", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interactive demo.
+        /// </summary>
+        internal static string Sample_c4d0b9a8f7 {
+            get {
+                return ResourceManager.GetString("Sample_c4d0b9a8f7", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Read and write system clipboard text.
         /// </summary>
@@ -13377,6 +14915,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c4e39190f1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Horizontal or vertical divider, optionally with a caption..
         /// </summary>
@@ -13385,6 +14924,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c56a96438e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show 5 stacked notifications.
         /// </summary>
@@ -13393,6 +14933,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5704fa616", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a RunningBlock demo (AutoRun: false, Runaway: true).
         /// </summary>
@@ -13401,6 +14942,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c59432a4e9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShowButtonSpinner=False.
         /// </summary>
@@ -13409,6 +14951,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5c130941d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Product.
         /// </summary>
@@ -13417,6 +14960,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5d34b60ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Lightweight notification.
         /// </summary>
@@ -13425,14 +14969,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5e3546024", resourceCulture);
             }
         }
-        /// <summary>
-        ///   Looks up a localized string similar to Default — buttons right.
-        /// </summary>
-        internal static string Sample_c5e82a2b10 {
-            get {
-                return ResourceManager.GetString("Sample_c5e82a2b10", resourceCulture);
-            }
-        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Form-style layout (IsSharedSizeScope).
         /// </summary>
@@ -13441,6 +14978,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5e6f7d8a9", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default — buttons right.
+        /// </summary>
+        internal static string Sample_c5e82a2b10 {
+            get {
+                return ResourceManager.GetString("Sample_c5e82a2b10", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Privacy.
         /// </summary>
@@ -13449,6 +14996,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c5f29bb36f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Auto grid.
         /// </summary>
@@ -13457,6 +15005,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c60adf04b2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected text.
         /// </summary>
@@ -13465,6 +15014,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c639614d74", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Press shortcut, then clear....
         /// </summary>
@@ -13473,6 +15023,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c64d2d3a86", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Single column.
         /// </summary>
@@ -13481,6 +15032,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c69320e289", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports dark theme via DWM + SetWindowTheme + window subclassing..
         /// </summary>
@@ -13489,6 +15041,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c693b80589", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Step Four.
         /// </summary>
@@ -13497,22 +15050,25 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c6fbaf949d", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to IsSelectionEnabled / SelectionMode / IsMultiSelectCheckBoxEnabled / Header / ....
+        ///   Looks up a localized string similar to IsSelectionEnabled / SelectionMode / IsMultiSelectCheckBoxEnabled / Header / Footer.
         /// </summary>
         internal static string Sample_c70fed3fea {
             get {
                 return ResourceManager.GetString("Sample_c70fed3fea", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Appearance="Primary" emphasis style..
+        ///   Looks up a localized string similar to Appearance=&quot;Primary&quot; emphasis style..
         /// </summary>
         internal static string Sample_c71e9d5bfa {
             get {
                 return ResourceManager.GetString("Sample_c71e9d5bfa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Marquee scrolling text.
         /// </summary>
@@ -13521,6 +15077,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c732c7aa7d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tri-state checkbox: checked / unchecked / indeterminate..
         /// </summary>
@@ -13529,6 +15086,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c757dd6e88", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click a button to see the press animation..
         /// </summary>
@@ -13537,6 +15095,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c7f5115e62", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sunday content..
         /// </summary>
@@ -13545,6 +15104,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c80bbb2c45", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Continue current operation.
         /// </summary>
@@ -13553,6 +15113,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c81e7712be", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Text / Disabled.
         /// </summary>
@@ -13561,6 +15122,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c867f3e817", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Page Size Selector.
         /// </summary>
@@ -13569,6 +15131,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c86b15ef69", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent-styled main window base class.
         /// </summary>
@@ -13577,6 +15140,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c86b1fc481", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hello, Wpf.Ui.Violeta.
         /// </summary>
@@ -13585,6 +15149,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c884cdba0a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to For UI labels and static text.
         /// </summary>
@@ -13593,6 +15158,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c88ee6eed4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Switches between TrueText / FalseText by Value; styles can differ..
         /// </summary>
@@ -13601,6 +15167,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c891afad73", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Demonstrates an error icon with Retry / Cancel buttons..
         /// </summary>
@@ -13609,6 +15176,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c8a01628d6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dismiss.
         /// </summary>
@@ -13617,6 +15185,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c8a59e7135", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 0.7 ≤ W/H &amp;lt; 1.3.
         /// </summary>
@@ -13625,6 +15194,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c917aaa403", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OpenFileDialog / SaveFileDialog.
         /// </summary>
@@ -13633,14 +15203,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c91ab18949", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Place the tab strip on the left with TabStripPlacement=&quot;Left&quot;.
+        ///   Looks up a localized string similar to Place the tab strip on the left with TabStripPlacement=&quot;Left&quot;..
         /// </summary>
         internal static string Sample_c95804b6a7 {
             get {
                 return ResourceManager.GetString("Sample_c95804b6a7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mobile.
         /// </summary>
@@ -13649,6 +15221,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c95e748d58", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card content area.
         /// </summary>
@@ -13657,6 +15230,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c9d0e1f2a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline items.
         /// </summary>
@@ -13665,6 +15239,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c9db38cf9a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Range and steps.
         /// </summary>
@@ -13673,6 +15248,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_c9df53a9f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Click a card to open the corresponding control sample..
         /// </summary>
@@ -13681,6 +15257,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca4cd621e4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TeachingTip with a Hero area and custom content..
         /// </summary>
@@ -13689,14 +15266,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca50c39bef", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Left side is a ToggleButton (Command / DoubleCommand); right side opens a Com....
+        ///   Looks up a localized string similar to Left side is a ToggleButton (Command / DoubleCommand); right side opens a ComboBox-like list. Border colors follow Button..
         /// </summary>
         internal static string Sample_ca5e75861e {
             get {
                 return ResourceManager.GetString("Sample_ca5e75861e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show window from tray.
         /// </summary>
@@ -13705,6 +15284,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca624f0706", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three-bar volume indicator.
         /// </summary>
@@ -13713,6 +15293,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca75adcb80", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FlipView — flip view.
         /// </summary>
@@ -13721,6 +15302,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca774947d0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content shown after loading.
         /// </summary>
@@ -13729,6 +15311,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca7917af58", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three.
         /// </summary>
@@ -13737,6 +15320,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ca8a2087e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a native Win32 MessageBox..
         /// </summary>
@@ -13745,6 +15329,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cab56120f1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ClipToBounds=True.
         /// </summary>
@@ -13753,6 +15338,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cac73d13f9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports custom length, numeric mode, and password masking..
         /// </summary>
@@ -13761,6 +15347,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cae0504af9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Indeterminate progress with continuous animation..
         /// </summary>
@@ -13769,6 +15356,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cae8c05701", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Combined calendar and time picker.
         /// </summary>
@@ -13777,14 +15365,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_caeae4c1bc", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to AsyncBox demo content. Child content is created on an async UI thread; an ind....
+        ///   Looks up a localized string similar to AsyncBox demo content. Child content is created on an async UI thread; an indicator can show while loading..
         /// </summary>
         internal static string Sample_caf2c2a52f {
             get {
                 return ResourceManager.GetString("Sample_caf2c2a52f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SpinButton placement mode.
         /// </summary>
@@ -13793,14 +15383,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_caff940e2e", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Samples for interacting with Windows system APIs. File-picker controls are gr....
+        ///   Looks up a localized string similar to Samples for interacting with Windows system APIs. File-picker controls are grouped under Selectors..
         /// </summary>
         internal static string Sample_cb36623ef8 {
             get {
                 return ResourceManager.GetString("Sample_cb36623ef8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon only.
         /// </summary>
@@ -13809,6 +15401,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cb392954a8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BoolStateContentControl — boolean state content.
         /// </summary>
@@ -13817,6 +15410,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cb5ec0615f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option C.
         /// </summary>
@@ -13825,6 +15419,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cbae0a2a40", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab control.
         /// </summary>
@@ -13833,6 +15428,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cc193a7a67", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wuxi.
         /// </summary>
@@ -13841,6 +15437,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cc6b473b7e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drop-down button.
         /// </summary>
@@ -13849,6 +15446,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cc70a816b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress sits on the card bottom indicator and follows the corner radius..
         /// </summary>
@@ -13857,6 +15455,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ccb1147c8d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 3 — multi-framework support.
         /// </summary>
@@ -13865,6 +15464,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ccdd6cd1e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to (Unable to read clipboard).
         /// </summary>
@@ -13873,6 +15473,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ccdded2782", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to As file.
         /// </summary>
@@ -13881,6 +15482,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cd3668b9d5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 5.
         /// </summary>
@@ -13889,6 +15491,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cd7eb7bcf9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification type.
         /// </summary>
@@ -13897,6 +15500,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cd82d2bb25", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tool (min / max / close).
         /// </summary>
@@ -13905,6 +15509,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cd980f82dd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter content....
         /// </summary>
@@ -13913,6 +15518,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cdd6fe7d2f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cascading combo.
         /// </summary>
@@ -13921,6 +15527,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cddce965d7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle button.
         /// </summary>
@@ -13929,6 +15536,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ce00c5f605", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flagship.
         /// </summary>
@@ -13937,6 +15545,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ce3d5f558f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
@@ -13945,6 +15554,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ce8ae9da5b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tags: (none).
         /// </summary>
@@ -13953,6 +15563,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ce8e73e55c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Square.
         /// </summary>
@@ -13961,14 +15572,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ceb46ca115", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Context menu: show/hide, show notification, restart, exit. To fully quit, use....
+        ///   Looks up a localized string similar to Context menu: show/hide, show notification, restart, exit. To fully quit, use Exit in the tray menu..
         /// </summary>
         internal static string Sample_cfd0ca6826 {
             get {
                 return ResourceManager.GetString("Sample_cfd0ca6826", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Marquee.
         /// </summary>
@@ -13977,6 +15590,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cfeae99cc9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Violeta Fluent Icons — extra glyphs via CustomFontSymbols..
         /// </summary>
@@ -13985,6 +15599,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cfefa51adc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled uses ToggleButton disabled brushes (default) or opacity (sample)..
         /// </summary>
@@ -13993,6 +15608,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_cffe839e03", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to EmojiImage.
         /// </summary>
@@ -14001,6 +15617,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d0115c6563", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Associate an input control via Target for accessibility..
         /// </summary>
@@ -14009,6 +15626,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d02bcb24d5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — progress bar.
         /// </summary>
@@ -14017,6 +15635,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d02ebc627c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Can also be inlined in a paragraph:.
         /// </summary>
@@ -14025,14 +15644,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d04e2a27f3", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Leave TextToCopy empty and handle clipboard in Click (or bind Command). Anima....
+        ///   Looks up a localized string similar to Leave TextToCopy empty and handle clipboard in Click (or bind Command). Animation still plays; rapid clicks are throttled..
         /// </summary>
         internal static string Sample_d04ee88f76 {
             get {
                 return ResourceManager.GetString("Sample_d04ee88f76", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expander panel.
         /// </summary>
@@ -14041,6 +15662,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d09980a885", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 4 — localization for 11 languages.
         /// </summary>
@@ -14049,6 +15671,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d09f873566", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Traditional Chinese.
         /// </summary>
@@ -14057,6 +15680,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d0bb8c23f6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Padding=0 and CornerRadius=4 customize padding and corner radius..
         /// </summary>
@@ -14065,14 +15689,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d0dcd65d52", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Appearance settings content.
+        ///   Looks up a localized string similar to Appearance settings content..
         /// </summary>
         internal static string Sample_d12796b557 {
             get {
                 return ResourceManager.GetString("Sample_d12796b557", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Font &amp; typography hierarchy.
         /// </summary>
@@ -14081,6 +15707,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d128bf935c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
@@ -14089,6 +15716,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d15305d7a4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic NumberBox.
         /// </summary>
@@ -14097,6 +15725,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d153de3bbb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ImageIcon.
         /// </summary>
@@ -14105,6 +15734,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d17a461c54", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports multi-select, tag display, and search filtering..
         /// </summary>
@@ -14113,6 +15743,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d1f2679e83", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Supports Secondary / Primary / Danger / Success appearances..
         /// </summary>
@@ -14121,6 +15752,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d20fff90d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsSettingsVisible — show settings entry.
         /// </summary>
@@ -14129,6 +15761,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d229e6f892", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wheel time.
         /// </summary>
@@ -14137,6 +15770,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d23726dc34", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable hyperlink.
         /// </summary>
@@ -14145,6 +15779,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d2608a7e92", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Not Loading.
         /// </summary>
@@ -14153,6 +15788,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d26fbd7e76", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Week.
         /// </summary>
@@ -14161,6 +15797,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d2ce009594", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter file name....
         /// </summary>
@@ -14169,6 +15806,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d31088e654", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to App bg.
         /// </summary>
@@ -14177,14 +15815,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d33b310664", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to • Frame / Content: hosts page navigation; Gallery switches pages via Tag with....
+        ///   Looks up a localized string similar to • Frame / Content: hosts page navigation; Gallery switches pages via Tag with GalleryNavigator..
         /// </summary>
         internal static string Sample_d359e84325 {
             get {
                 return ResourceManager.GetString("Sample_d359e84325", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WPF UI hyperlink.
         /// </summary>
@@ -14193,6 +15833,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d372cf2ca1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Green.
         /// </summary>
@@ -14201,6 +15842,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d382816a3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Quick-open with common TitleBar / chrome combinations..
         /// </summary>
@@ -14209,6 +15851,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d3ca4cba5b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multi-select dropdown with tags and search.
         /// </summary>
@@ -14217,6 +15860,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d3d3ea7de9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to More.
         /// </summary>
@@ -14225,6 +15869,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d3da97e2d9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Four-way drawer panel.
         /// </summary>
@@ -14233,6 +15878,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d3e2cd292d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Copy text to clipboard.
         /// </summary>
@@ -14241,6 +15887,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d408b45dc4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShowOverflowMenu = False.
         /// </summary>
@@ -14249,6 +15896,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d40cb6e5b9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Inline TextBlock.
         /// </summary>
@@ -14257,6 +15905,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d413c4bae0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open multiple files.
         /// </summary>
@@ -14265,6 +15914,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d44c79bb8c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Export as PDF.
         /// </summary>
@@ -14273,6 +15923,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d47722faec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification 5.
         /// </summary>
@@ -14281,6 +15932,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d47ea33b91", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Guangdong.
         /// </summary>
@@ -14289,6 +15941,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4912425b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsAlphaEnabled.
         /// </summary>
@@ -14297,6 +15950,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4a3649959", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Press scales to 0.98 immediately. Hover border switches without transition..
         /// </summary>
@@ -14305,6 +15959,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4b81f82c3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SecondaryBorderStyle.
         /// </summary>
@@ -14313,14 +15968,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4e5f6a7b9", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Determinate progress fills the bottom indicator and follows the card corner r....
+        ///   Looks up a localized string similar to Determinate progress fills the bottom indicator and follows the card corner radius..
         /// </summary>
         internal static string Sample_d4e8f1a092 {
             get {
                 return ResourceManager.GetString("Sample_d4e8f1a092", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to RadioButtonGroup.
         /// </summary>
@@ -14329,6 +15986,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4e90d2491", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Circular looping with built-in CarouselNav.
         /// </summary>
@@ -14337,6 +15995,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4ed947d9d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color swatch.
         /// </summary>
@@ -14345,6 +16004,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d4f7b9383f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Java.
         /// </summary>
@@ -14353,6 +16013,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d52387880e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AllowDrag.
         /// </summary>
@@ -14361,6 +16022,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d530a2e8e8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Right-side content.
         /// </summary>
@@ -14369,6 +16031,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d53bad00d1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Folder picker.
         /// </summary>
@@ -14377,6 +16040,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d5431c4c66", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option B.
         /// </summary>
@@ -14385,6 +16049,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d581ed5da9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Learn more.
         /// </summary>
@@ -14393,14 +16058,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d59048f21f", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Cover-flow card carousel with left / center / right slots. Chrome uses WPF UI....
+        ///   Looks up a localized string similar to Cover-flow card carousel with left / center / right slots. Chrome uses WPF UI Card brushes..
         /// </summary>
         internal static string Sample_d5be96d71e {
             get {
                 return ResourceManager.GetString("Sample_d5be96d71e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Renders as a text block with TextBlockTextBoxStyle / TextBlockUiTextBoxStyle..
         /// </summary>
@@ -14409,6 +16076,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d5e7922721", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:TextBox with TextBlockUiTextBoxStyle&amp;#x0a;More lines....
         /// </summary>
@@ -14417,6 +16085,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d5ea1ead59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IconFontSize / IconWidth on menu.
         /// </summary>
@@ -14425,6 +16094,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d5f5e93fca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Native message box.
         /// </summary>
@@ -14433,6 +16103,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d688c1ee0b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wrap sibling ui:Grid rows in Grid.IsSharedSizeScope and assign SharedSizeGroup on label columns to align labels across rows — similar to vio:Form..
         /// </summary>
@@ -14441,6 +16112,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d6f7a8b9c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.
         /// </summary>
@@ -14449,6 +16121,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d6fa5df418", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
@@ -14457,6 +16130,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d7098f5050", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Select multiple folders.
         /// </summary>
@@ -14465,6 +16139,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d71db75c5a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Longer tip.
         /// </summary>
@@ -14473,6 +16148,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d7362ceba9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent popup.
         /// </summary>
@@ -14481,6 +16157,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d75951dac0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CenterOwner.
         /// </summary>
@@ -14489,6 +16166,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d76f53ff82", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pressed.
         /// </summary>
@@ -14497,6 +16175,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d78a68f6a8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Write the text below to the system clipboard..
         /// </summary>
@@ -14505,6 +16184,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d78e5f1e99", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card container.
         /// </summary>
@@ -14513,14 +16193,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d7d0cbd874", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Kind mirrors AnimatedVisuals. Override icons via IconFontFamily / IconFontSiz....
+        ///   Looks up a localized string similar to Kind mirrors AnimatedVisuals. Override icons via IconFontFamily / IconFontSize / IconGlyph and SecondaryIcon* (two-glyph kinds)..
         /// </summary>
         internal static string Sample_d7dc507bbe {
             get {
                 return ResourceManager.GetString("Sample_d7dc507bbe", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
@@ -14529,6 +16211,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d7ec2d3fea", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WinUI Gallery CopyToClipboardSuccessAnimation — copy → Accept (CopyButton)..
         /// </summary>
@@ -14537,6 +16220,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d80641522c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Embedded browser.
         /// </summary>
@@ -14545,6 +16229,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d85118659e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open ShellWindow demo.
         /// </summary>
@@ -14553,6 +16238,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d8a7964484", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open ContentWindow demo.
         /// </summary>
@@ -14561,6 +16247,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d8b5dbc3ee", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Body — sample body text.
         /// </summary>
@@ -14569,6 +16256,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d8c6ee30ab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Info.
         /// </summary>
@@ -14577,6 +16265,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d8c7e04c8e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sync.
         /// </summary>
@@ -14585,14 +16274,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d8e87c0927", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Panels slide out from the four sides of the container. Click a button to swit....
+        ///   Looks up a localized string similar to Panels slide out from the four sides of the container. Click a button to switch direction..
         /// </summary>
         internal static string Sample_d994685ba5 {
             get {
                 return ResourceManager.GetString("Sample_d994685ba5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to WinUI AnimatedVisuals-aligned kinds.
         /// </summary>
@@ -14601,6 +16292,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d99f8a76a1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Async wait dialog with progress and cancel; suited for background tasks..
         /// </summary>
@@ -14609,6 +16301,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d9a25d2136", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Replace the default search icon via the Icon property..
         /// </summary>
@@ -14617,6 +16310,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d9ade15a16", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fade A.
         /// </summary>
@@ -14625,6 +16319,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d9b735f827", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+SHIFT+W.
         /// </summary>
@@ -14633,6 +16328,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d9bc7d0e89", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Accent Text / Secondary.
         /// </summary>
@@ -14641,6 +16337,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_d9edb0fd16", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FlowDocument sample.
         /// </summary>
@@ -14649,6 +16346,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_da3e0a9d70", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Choose install method.
         /// </summary>
@@ -14657,6 +16355,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_da479fcbb1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Smooth scrolling.
         /// </summary>
@@ -14665,6 +16364,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_da47feab65", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SymbolIcon + Header + Description.
         /// </summary>
@@ -14673,6 +16373,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_da98f58ef1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Common Gallery sample container: secondary fill + card stroke..
         /// </summary>
@@ -14681,6 +16382,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_daa24eccc7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ForceDark.
         /// </summary>
@@ -14689,6 +16391,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dac46d6c30", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Recent.
         /// </summary>
@@ -14697,6 +16400,70 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dae52b8071", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When IsEnabled is false (for example, while BusyMask is active), column headers must not show resize gripper bars before the header text..
+        /// </summary>
+        internal static string Sample_DataGrid_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_DisabledDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;All&quot; and optionally customize HorizontalGridLinesBrush / VerticalGridLinesBrush..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesAllDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesAllTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesAllTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;Horizontal&quot;. Default brushes use ControlElevationBorderBrush..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesHorizontalDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesHorizontalTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesHorizontalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set GridLinesVisibility=&quot;Vertical&quot; for column separators only..
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesVerticalDesc {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical grid lines.
+        /// </summary>
+        internal static string Sample_DataGrid_GridLinesVerticalTitle {
+            get {
+                return ResourceManager.GetString("Sample_DataGrid_GridLinesVerticalTitle", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 2 — Fluent Design style.
         /// </summary>
@@ -14705,6 +16472,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_db17cc2401", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Delete credential.
         /// </summary>
@@ -14713,6 +16481,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_db5f3f8829", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Saved: {dialog.FileName}.
         /// </summary>
@@ -14721,6 +16490,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_db86bca01b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+F.
         /// </summary>
@@ -14729,6 +16499,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_db9079247e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Check box.
         /// </summary>
@@ -14737,14 +16508,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_db98f889ce", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to WinUI-style mutually exclusive selector. Selected segment uses a subtle fill ....
+        ///   Looks up a localized string similar to WinUI-style mutually exclusive selector. Selected segment uses a subtle fill and an accent underline..
         /// </summary>
         internal static string Sample_dbcfdf998d {
             get {
                 return ResourceManager.GetString("Sample_dbcfdf998d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Save (Icon FontSize=12 wins).
         /// </summary>
@@ -14753,6 +16526,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dbcff88eda", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Choose tool.
         /// </summary>
@@ -14761,6 +16535,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dbdced69d1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent Hyperlink.
         /// </summary>
@@ -14769,6 +16544,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc033e3fae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content FontSize vs IconFontSize.
         /// </summary>
@@ -14777,6 +16553,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc0a3d4565", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to View mode.
         /// </summary>
@@ -14785,6 +16562,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc685a0197", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disable rating.
         /// </summary>
@@ -14793,6 +16571,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc7561744e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NativeMessageBox — Yes/No/Cancel.
         /// </summary>
@@ -14801,6 +16580,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc94b4096c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Draw vector graphics on a Canvas with Path and scale via Viewbox..
         /// </summary>
@@ -14809,6 +16589,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dc9af340ca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bottom notification.
         /// </summary>
@@ -14817,6 +16598,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dcc6b91062", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hide.
         /// </summary>
@@ -14825,6 +16607,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dce5379cb9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Monday content..
         /// </summary>
@@ -14833,6 +16616,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dcf3e24e70", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Working, please wait....
         /// </summary>
@@ -14841,6 +16625,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dd3316267a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clipboard contents:.
         /// </summary>
@@ -14849,6 +16634,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dd70c03ba8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Corner radius ratio.
         /// </summary>
@@ -14857,6 +16643,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dd8f6a81a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Busy overlay.
         /// </summary>
@@ -14865,6 +16652,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dd938e9088", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ToolBar* styles.
         /// </summary>
@@ -14873,6 +16661,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de12187d6c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Date picker.
         /// </summary>
@@ -14881,6 +16670,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de1a35a24c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon + larger corner radius.
         /// </summary>
@@ -14889,6 +16679,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de214cf5f1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard.
         /// </summary>
@@ -14897,6 +16688,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de28d2720d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Canvas inside a Viewbox.
         /// </summary>
@@ -14905,6 +16697,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de3e76e86b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Common properties.
         /// </summary>
@@ -14913,6 +16706,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_de882bfd0a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentWindow Demo.
         /// </summary>
@@ -14921,6 +16715,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_deb91a5c97", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhao Lei.
         /// </summary>
@@ -14929,6 +16724,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ded8c0a3ed", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Alerts.
         /// </summary>
@@ -14937,6 +16733,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df583ae7ba", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content can host custom content such as SymbolIcon..
         /// </summary>
@@ -14945,6 +16742,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df62566578", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Windows Security CredentialDialog.
         /// </summary>
@@ -14953,6 +16751,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df66e389cb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom ItemTemplate.
         /// </summary>
@@ -14961,6 +16760,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df74b5081d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Contractor contact info.
         /// </summary>
@@ -14969,6 +16769,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df961a4b78", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Horizontal Rectangle.
         /// </summary>
@@ -14977,6 +16778,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_df9ef05bc0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wpf.Ui.Violeta.
         /// </summary>
@@ -14985,6 +16787,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_dfba37c389", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When disabled, the button and its flyout cannot be used..
+        /// </summary>
+        internal static string Sample_DropDownButton_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_DropDownButton_DisabledDesc", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pick a color.
         /// </summary>
@@ -14993,6 +16805,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e02ff1e53f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Image + ClipToBounds=True.
         /// </summary>
@@ -15001,6 +16814,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e0315bedad", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show untargeted tip.
         /// </summary>
@@ -15009,6 +16823,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e0370534a1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option A.
         /// </summary>
@@ -15017,14 +16832,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e04cead454", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to • MenuItems / FooterMenuItems: define primary and footer navigation items; ea....
+        ///   Looks up a localized string similar to • MenuItems / FooterMenuItems: define primary and footer navigation items; each can bind TargetPageType or Tag..
         /// </summary>
         internal static string Sample_e080e01adc {
             get {
                 return ResourceManager.GetString("Sample_e080e01adc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hero.
         /// </summary>
@@ -15033,6 +16850,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e0a67c8c63", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Redis.
         /// </summary>
@@ -15041,6 +16859,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e111446745", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Close all.
         /// </summary>
@@ -15049,6 +16868,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e125221047", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Non-stacked notification 2.
         /// </summary>
@@ -15057,6 +16877,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e16428ce2a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Button2.
         /// </summary>
@@ -15065,6 +16886,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e165925a7c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsAccentColorsVisible.
         /// </summary>
@@ -15073,6 +16895,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e1715873b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Manual.
         /// </summary>
@@ -15081,6 +16904,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e1ba155a9f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dialog (close only).
         /// </summary>
@@ -15089,6 +16913,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e1e1b18487", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Notification 4.
         /// </summary>
@@ -15097,6 +16922,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e1fc97da7b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Teal.
         /// </summary>
@@ -15105,6 +16931,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e20385a2b4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Read the text currently on the clipboard..
         /// </summary>
@@ -15113,6 +16940,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2187047c4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option 2.
         /// </summary>
@@ -15121,22 +16949,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e24963e407", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to The app is running in the system tray. Double-click the icon to show or hide ....
+        ///   Looks up a localized string similar to The app is running in the system tray. Double-click the icon to show or hide the main window..
         /// </summary>
         internal static string Sample_e2524ddfb6 {
             get {
                 return ResourceManager.GetString("Sample_e2524ddfb6", resourceCulture);
             }
         }
-        /// <summary>
-        ///   Looks up a localized string similar to About this app.
-        /// </summary>
-        internal static string Sample_e25a537ce9 {
-            get {
-                return ResourceManager.GetString("Sample_e25a537ce9", resourceCulture);
-            }
-        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Rich text.
         /// </summary>
@@ -15145,6 +16967,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2591e971f", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About this app..
+        /// </summary>
+        internal static string Sample_e25a537ce9 {
+            get {
+                return ResourceManager.GetString("Sample_e25a537ce9", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tree list view.
         /// </summary>
@@ -15153,6 +16985,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e29255e458", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:RichTextBox.
         /// </summary>
@@ -15161,6 +16994,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2a85bb79c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Carousel — carousel.
         /// </summary>
@@ -15169,6 +17003,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2b17aee1f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Read saved credentials.
         /// </summary>
@@ -15177,6 +17012,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2b1998a54", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress bar.
         /// </summary>
@@ -15185,6 +17021,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2e33e2c41", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Expand the control to see more details..
         /// </summary>
@@ -15193,6 +17030,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2e51ea8f9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Appearance=Brand, IsAutoplayEnabled, 3s interval.
         /// </summary>
@@ -15201,6 +17039,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2eab3c10c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open image.
         /// </summary>
@@ -15209,6 +17048,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e2fb29cf31", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Result: (waiting).
         /// </summary>
@@ -15217,6 +17057,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e35e9417ad", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drawer - Top.
         /// </summary>
@@ -15225,6 +17066,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e36ce07bd9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Keep files up to date.
         /// </summary>
@@ -15233,6 +17075,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e3784ee777", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Content transition animation.
         /// </summary>
@@ -15241,6 +17084,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e3bb7cc30f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BitmapIcon — bitmap icon.
         /// </summary>
@@ -15249,6 +17093,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e3cda4ae4b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ChildMargin sample.
         /// </summary>
@@ -15257,6 +17102,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e3e9da1f11", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Drop-down button that opens a ContextMenu..
         /// </summary>
@@ -15265,6 +17111,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e44ca4d5c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Abort and go back.
         /// </summary>
@@ -15273,6 +17120,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e4568d8868", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Application.
         /// </summary>
@@ -15281,6 +17129,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e498749f3c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Loading button.
         /// </summary>
@@ -15289,6 +17138,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e49cbd1a5f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorModelVisible.
         /// </summary>
@@ -15297,6 +17147,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e4ca56bee4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color emoji rendering based on emoji.wpf (COLR/CPAL via Segoe UI Emoji)..
         /// </summary>
@@ -15305,6 +17156,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e4eae01063", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Timeline — data binding.
         /// </summary>
@@ -15313,6 +17165,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e4f76ad96c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Disabled only.
         /// </summary>
@@ -15321,6 +17174,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e553145336", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+Z.
         /// </summary>
@@ -15329,6 +17183,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5639828ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Animated.
         /// </summary>
@@ -15337,6 +17192,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5c92093d4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Five.
         /// </summary>
@@ -15345,6 +17201,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5d9de39f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Ui Border.
         /// </summary>
@@ -15353,6 +17210,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5f6a7b8c0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
@@ -15361,6 +17219,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5f71fc31e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Indeterminate animation runs along the rounded bottom edge..
         /// </summary>
@@ -15369,6 +17228,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e5f9a2b103", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Command link.
         /// </summary>
@@ -15377,6 +17237,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e620898657", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Apple.
         /// </summary>
@@ -15385,6 +17246,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e6803e21b9", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CSS Flexbox layout.
+        /// </summary>
+        internal static string Sample_e6b2a1c0d9 {
+            get {
+                return ResourceManager.GetString("Sample_e6b2a1c0d9", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Secondary card.
         /// </summary>
@@ -15393,6 +17264,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e6c190b35f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CaptionButtonBar — caption button bar.
         /// </summary>
@@ -15401,6 +17273,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e6f4a019ed", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Six.
         /// </summary>
@@ -15409,6 +17282,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e6fbc0b967", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Archive.
         /// </summary>
@@ -15417,6 +17291,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e727b00944", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTO.
         /// </summary>
@@ -15425,6 +17300,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e74804e480", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent Popup.
         /// </summary>
@@ -15433,6 +17309,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e74a0d0f02", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Adjust the surface diameter to verify dynamic geometry and layout..
         /// </summary>
@@ -15441,6 +17318,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e775124bb9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Backend.
         /// </summary>
@@ -15449,6 +17327,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e778d61ae4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Pin.
         /// </summary>
@@ -15457,6 +17336,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e78e14c5f1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Flip view.
         /// </summary>
@@ -15465,6 +17345,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e793aeb29c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ContentWindow — content window.
         /// </summary>
@@ -15473,6 +17354,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e7a103d40a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Bold.
         /// </summary>
@@ -15481,6 +17363,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e803663cf5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to BorderThickness / BorderContentAdapter.
         /// </summary>
@@ -15489,6 +17372,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e825afc6a6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
@@ -15497,6 +17381,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e83a256e4f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Badge — badge.
         /// </summary>
@@ -15505,6 +17390,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e8f31fbc7e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zhou Mei.
         /// </summary>
@@ -15513,6 +17399,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e90b708ea5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Three-state CheckBox.
         /// </summary>
@@ -15521,6 +17408,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e90ddbc56a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Scroll content line 4.
         /// </summary>
@@ -15529,6 +17417,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e970cf7899", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Top Panel.
         /// </summary>
@@ -15537,6 +17426,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e984017186", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paused.
         /// </summary>
@@ -15545,6 +17435,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e99180abf4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Type or paste comma-separated values….
         /// </summary>
@@ -15553,6 +17444,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e9aca1a2c3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Neutral.
         /// </summary>
@@ -15561,6 +17453,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_e9bb5320b3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limited stack 3 (will replace).
         /// </summary>
@@ -15569,6 +17462,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ea0a332c59", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Nested flyout.
         /// </summary>
@@ -15577,6 +17471,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ea43fd3483", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fade + drag.
         /// </summary>
@@ -15585,6 +17480,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ea9c482c64", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+SHIFT+S.
         /// </summary>
@@ -15593,6 +17489,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eaafe93ae6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom click / Command.
         /// </summary>
@@ -15601,14 +17498,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eab08f976e", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to CarouselNav Appearance=Brand, IsAutoplayEnabled, 2s interval. Hover pauses au....
+        ///   Looks up a localized string similar to CarouselNav Appearance=Brand, IsAutoplayEnabled, 2s interval. Hover pauses autoplay..
         /// </summary>
         internal static string Sample_eabd09afef {
             get {
                 return ResourceManager.GetString("Sample_eabd09afef", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tertiary text colour..
         /// </summary>
@@ -15617,6 +17516,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eac15be139", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 12-hour clock.
         /// </summary>
@@ -15625,6 +17525,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eafbd6a246", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Paste.
         /// </summary>
@@ -15633,6 +17534,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eafbece101", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TaskDialog — information.
         /// </summary>
@@ -15641,6 +17543,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eb38190f53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Open Fade Popup.
         /// </summary>
@@ -15649,6 +17552,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eb71826e17", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Presets.
         /// </summary>
@@ -15657,6 +17561,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eb81441fe2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AutoGrid — 2×2.
         /// </summary>
@@ -15665,6 +17570,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eb9e9a900c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Success ({location}).
         /// </summary>
@@ -15673,6 +17579,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ebe103ec6a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ClockIdentifier=12HourClock, with AM/PM..
         /// </summary>
@@ -15681,6 +17588,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ebf3722f8d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 1st.
         /// </summary>
@@ -15689,6 +17597,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ec31383cc7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsOn.
         /// </summary>
@@ -15697,6 +17606,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ec3f5ff99b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tab strip at the bottom..
         /// </summary>
@@ -15705,6 +17615,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ec42781195", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Async content.
         /// </summary>
@@ -15713,6 +17624,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ecb6201948", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Spin button.
         /// </summary>
@@ -15721,6 +17633,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ecbc7f2bbd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is the header text..
         /// </summary>
@@ -15729,6 +17642,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ecd0b43233", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TransitioningContentControl — transitioning content.
         /// </summary>
@@ -15737,6 +17651,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed093b889a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Search input.
         /// </summary>
@@ -15745,6 +17660,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed114f1d75", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is an informational TaskDialog.
         /// </summary>
@@ -15753,6 +17669,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed377f66a0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IP address input.
         /// </summary>
@@ -15761,6 +17678,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed50de239d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Ningbo.
         /// </summary>
@@ -15769,6 +17687,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed5a4dc733", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SETTINGS.
         /// </summary>
@@ -15777,6 +17696,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed6f7aca78", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to AnimatedBackVisualSource — RightToLeft ScaleX (TitleBar / GoBackButton)..
         /// </summary>
@@ -15785,6 +17705,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ed90a66da7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Mixed controls (moved into Flyout as-is).
         /// </summary>
@@ -15793,6 +17714,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_edae724270", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Parent-child cascading combo box.
         /// </summary>
@@ -15801,14 +17723,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ee2358e53a", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to AnimatedChevronDownSmallVisualSource — clipped translate (DropDownButton). Tr....
+        ///   Looks up a localized string similar to AnimatedChevronDownSmallVisualSource — clipped translate (DropDownButton). Trailing chevron after Content..
         /// </summary>
         internal static string Sample_ee2844ed89 {
             get {
                 return ResourceManager.GetString("Sample_ee2844ed89", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Red.
         /// </summary>
@@ -15817,6 +17741,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ee38e4d5dd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Row separator.
         /// </summary>
@@ -15825,6 +17750,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ee3d70da45", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF ToggleButton that toggles pressed/released state..
         /// </summary>
@@ -15833,6 +17759,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ee5b0776e9", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Password mask.
         /// </summary>
@@ -15841,6 +17768,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eea8b0d77a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
@@ -15849,6 +17777,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eec6c4bdbd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Choose the install options you want to use..
         /// </summary>
@@ -15857,6 +17786,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eed4f2841b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Data 2.
         /// </summary>
@@ -15865,6 +17795,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eeda260c6a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Icon buttons + Flyout overflow.
         /// </summary>
@@ -15873,6 +17804,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eedaef971a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover.
         /// </summary>
@@ -15881,6 +17813,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eee0168be6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Form.
         /// </summary>
@@ -15889,6 +17822,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_eee1e2258d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Declare MultiComboBoxItem directly in XAML..
         /// </summary>
@@ -15897,6 +17831,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ef0fd2940b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a RunningBlock demo (AutoRun: false, Runaway: false).
         /// </summary>
@@ -15905,6 +17840,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ef63950d96", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent icons.
         /// </summary>
@@ -15913,6 +17849,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ef7fd6c161", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to QuerySubmitted: (empty query).
         /// </summary>
@@ -15921,6 +17858,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_efc15e78f4", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to 99+.
         /// </summary>
@@ -15929,6 +17867,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_efe52ee303", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card surface.
         /// </summary>
@@ -15937,6 +17876,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_efecd66351", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to This is a default notification ({location}).
         /// </summary>
@@ -15945,6 +17885,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f062dba511", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Divider Stroke.
         /// </summary>
@@ -15953,6 +17894,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f063e6ce32", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to v1.0 publicly released..
         /// </summary>
@@ -15961,6 +17903,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f072efab93", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to • Header / TitleBar: can be combined with the window title bar and breadcrumbs..
         /// </summary>
@@ -15969,6 +17912,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f07479f3ac", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom drop-down template (swatch + name). With sync off, left text stays fixed..
         /// </summary>
@@ -15977,6 +17921,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f11b4b9255", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Like / dislike rating.
         /// </summary>
@@ -15985,6 +17930,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1861aaa47", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Two-state checkbox: checked / unchecked..
         /// </summary>
@@ -15993,6 +17939,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1add48d43", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to SymbolThemeFontFamily.
         /// </summary>
@@ -16001,6 +17948,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1c6de1310", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Development complete.
         /// </summary>
@@ -16009,6 +17957,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1d86ff89e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to First item.
         /// </summary>
@@ -16017,6 +17966,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1ef59ee34", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Operation completed successfully!.
         /// </summary>
@@ -16025,6 +17975,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1f6027baa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Extended.
         /// </summary>
@@ -16033,6 +17984,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f23578fcd2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Segmented time box with keyboard and mouse-wheel adjustment..
         /// </summary>
@@ -16041,6 +17993,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f249dc8eab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to IsColorPreviewVisible.
         /// </summary>
@@ -16049,6 +18002,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f2579cf82c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Slide 3.
         /// </summary>
@@ -16057,6 +18011,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f268cd05d3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
@@ -16065,6 +18020,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f2a6c498fb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Height &amp;gt; Width × 1.3.
         /// </summary>
@@ -16073,6 +18029,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f2ae179a7e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Section 2.
         /// </summary>
@@ -16081,6 +18038,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f2d02e9add", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card-styled border.
         /// </summary>
@@ -16089,6 +18047,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f2e8d1c4b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Japanese.
         /// </summary>
@@ -16097,6 +18056,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f32ced6a9b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Violeta ContentDialog with primary, secondary, and close buttons..
         /// </summary>
@@ -16105,6 +18065,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f330915173", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to HsvColor:.
         /// </summary>
@@ -16113,6 +18074,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f3c7f21d05", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Custom Header / Footer.
         /// </summary>
@@ -16121,6 +18083,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f3d813c9a3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Keep source formatting.
         /// </summary>
@@ -16129,6 +18092,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f3e545b191", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to System Segoe Fluent Icons font family name (from WPF UI Fonts.xaml)..
         /// </summary>
@@ -16137,6 +18101,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f43c1d474a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wrapper around Win32 MessageBoxW; does not depend on WPF MessageBox..
         /// </summary>
@@ -16145,6 +18110,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f4aad45b10", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Shows different content by boolean; click to toggle..
         /// </summary>
@@ -16153,6 +18119,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f4cd310f32", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
@@ -16161,6 +18128,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f4ec5f57bd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Range slider.
         /// </summary>
@@ -16169,6 +18137,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f4fbd6c803", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CTRL+O.
         /// </summary>
@@ -16177,6 +18146,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f53168ebeb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Without a Target binding, clicking outside dismisses it..
         /// </summary>
@@ -16185,6 +18155,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f5403ebf57", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show options as tags.
         /// </summary>
@@ -16193,6 +18164,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f5668379e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle visibility.
         /// </summary>
@@ -16201,6 +18173,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f579716646", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Item 1.
         /// </summary>
@@ -16209,6 +18182,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f59e6f3afd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Name....
         /// </summary>
@@ -16217,6 +18191,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f5a481d0ae", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to World.
         /// </summary>
@@ -16225,6 +18200,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f5a7924e62", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Zoom In.
         /// </summary>
@@ -16233,6 +18209,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f5ca4abce8", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fade B.
         /// </summary>
@@ -16241,6 +18218,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f67bcc6ac3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Add node.
         /// </summary>
@@ -16249,6 +18227,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f68216034d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Alternate mode with different node types..
         /// </summary>
@@ -16257,6 +18236,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f699b2bc6e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Larger CornerRadius still keeps the indicator flush with the rounded bottom..
         /// </summary>
@@ -16265,14 +18245,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f6a0b3c214", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Apply CardUiBorderStyle and SecondaryUiBorderStyle to the extended ui:Border ....
+        ///   Looks up a localized string similar to Apply CardUiBorderStyle and SecondaryUiBorderStyle to the extended ui:Border control with ClipToBounds enabled..
         /// </summary>
         internal static string Sample_f6a7b8c9d1 {
             get {
                 return ResourceManager.GetString("Sample_f6a7b8c9d1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ChevronUpDownSmall.
         /// </summary>
@@ -16281,6 +18263,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f6d33340fa", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Multiple formats.
         /// </summary>
@@ -16289,6 +18272,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f6d51bcb81", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hover grows to 1.04, press shrinks to 0.96, with short eased transitions..
         /// </summary>
@@ -16297,6 +18281,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f6da31a4e5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Underline.
         /// </summary>
@@ -16305,6 +18290,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f6f8ea0815", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected: {string.Join(.
         /// </summary>
@@ -16313,6 +18299,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f738ece436", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabStripPlacement = Bottom.
         /// </summary>
@@ -16321,6 +18308,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f7710c4b52", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A CSS Flexbox-inspired layout panel supporting direction, justify-content, align-items, wrap, gap, and per-child grow/shrink/basis..
+        /// </summary>
+        internal static string Sample_f7a3b2c1d0 {
+            get {
+                return ResourceManager.GetString("Sample_f7a3b2c1d0", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to InfoBadge in NavigationView.
         /// </summary>
@@ -16329,6 +18326,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f7bcc4e1df", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to size.
         /// </summary>
@@ -16337,6 +18335,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f7bd60b75b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to I am a Label of the TextBox below..
         /// </summary>
@@ -16345,6 +18344,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f7cfa1a0e7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Toggle switch control.
         /// </summary>
@@ -16353,6 +18353,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f7fad24da1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NavigationViewDefaultPaneBackground.
         /// </summary>
@@ -16361,6 +18362,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8029247b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to True.
         /// </summary>
@@ -16369,6 +18371,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f827cf462f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Card / Default.
         /// </summary>
@@ -16377,6 +18380,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f82b73359d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to TabStripPlacement = Top.
         /// </summary>
@@ -16385,6 +18389,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f899dc5e5e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Hierarchical tree dropdown.
         /// </summary>
@@ -16393,6 +18398,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f89ef54b9a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Calendar.
         /// </summary>
@@ -16401,6 +18407,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8c3feb48c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Limit Filter to common image formats..
         /// </summary>
@@ -16409,6 +18416,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8df5a8bca", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Recommended background.
         /// </summary>
@@ -16417,14 +18425,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8e7d6c5b4", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to NavigationView overlay (drawer) mode uses NavigationViewDefaultPaneBackground....
+        ///   Looks up a localized string similar to NavigationView overlay (drawer) mode uses NavigationViewDefaultPaneBackground for the pane surface. Use the same brush on Drawer content panels for visual consistency..
         /// </summary>
         internal static string Sample_f8e7d6c5b5 {
             get {
                 return ResourceManager.GetString("Sample_f8e7d6c5b5", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Resource key.
         /// </summary>
@@ -16433,6 +18443,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8e7d6c5b6", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Usage.
         /// </summary>
@@ -16441,6 +18452,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8e7d6c5b7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show hero tip.
         /// </summary>
@@ -16449,6 +18461,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f8eeba813d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF rich text editor with FlowDocument support..
         /// </summary>
@@ -16457,6 +18470,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f91458ff7d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Share (item = 28 / 32).
         /// </summary>
@@ -16465,6 +18479,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f93ee83a87", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Compact Right.
         /// </summary>
@@ -16473,6 +18488,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f944265643", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Radio button.
         /// </summary>
@@ -16481,6 +18497,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f96dabbc50", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to With clear button.
         /// </summary>
@@ -16489,6 +18506,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f9783871d2", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tri-state Select All checkbox linked to child options..
         /// </summary>
@@ -16497,6 +18515,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f9fed5cea3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dot style can show a badge at the top-right of a button..
         /// </summary>
@@ -16505,6 +18524,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fa126e58bb", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Wi-Fi.
         /// </summary>
@@ -16513,6 +18533,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fa524b7254", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard Calendar and DatePicker (CalendarDatePicker)..
         /// </summary>
@@ -16521,6 +18542,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fa9b11c609", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OnOffContent.
         /// </summary>
@@ -16529,6 +18551,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fabd943254", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Archive 2024.
         /// </summary>
@@ -16537,6 +18560,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fac5cc4b04", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Completed.
         /// </summary>
@@ -16545,6 +18569,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fad5222ca0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Selected.
         /// </summary>
@@ -16553,6 +18578,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fad7c8a21f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Form layout.
         /// </summary>
@@ -16561,6 +18587,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_faf4e7e50d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Sub-section 2.1.
         /// </summary>
@@ -16569,6 +18596,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_faf9006158", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Left Panel.
         /// </summary>
@@ -16577,14 +18605,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fb51cbb272", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Don't show again.
+        ///   Looks up a localized string similar to Don&apos;t show again.
         /// </summary>
         internal static string Sample_fb54df5d84 {
             get {
                 return ResourceManager.GetString("Sample_fb54df5d84", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Color:.
         /// </summary>
@@ -16593,6 +18623,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fb5a0e846f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Popup calendar panel to select a date..
         /// </summary>
@@ -16601,6 +18632,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fb6e46429f", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to In progress.
         /// </summary>
@@ -16609,6 +18641,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fb852fc6cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option 3.
         /// </summary>
@@ -16617,6 +18650,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fbeee6bcd1", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Indicator — indicator.
         /// </summary>
@@ -16625,6 +18659,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fbefb6bac3", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ControlHelper.IconFontSize (default glyph).
         /// </summary>
@@ -16633,6 +18668,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fbf399e379", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to No TitleBar.
         /// </summary>
@@ -16641,6 +18677,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fc2738e683", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Font size.
         /// </summary>
@@ -16649,6 +18686,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fc55aff8c7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CanResizeWithGrip.
         /// </summary>
@@ -16657,6 +18695,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fc6d8b49ec", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Text block.
         /// </summary>
@@ -16665,6 +18704,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fca196e010", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Split + Location=Left.
         /// </summary>
@@ -16673,6 +18713,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fcba73761d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to OverflowMode：Always / Never / AsNeeded.
         /// </summary>
@@ -16681,6 +18722,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fcf877bc83", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to String path.
         /// </summary>
@@ -16689,6 +18731,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fd10e00a5b", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Option 1.
         /// </summary>
@@ -16697,6 +18740,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fd577a8bfd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Align right.
         /// </summary>
@@ -16705,6 +18749,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fd8e9572cc", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Project A.sln.
         /// </summary>
@@ -16713,6 +18758,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fddd82fee0", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Find....
         /// </summary>
@@ -16721,6 +18767,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fe77d5fbcd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Capacity.
         /// </summary>
@@ -16729,6 +18776,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fe7d74278a", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Dual-thumb range slider.
         /// </summary>
@@ -16737,6 +18785,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_feab68ba18", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CalloutToolTipStyle.
         /// </summary>
@@ -16745,6 +18794,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_feae7cef26", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to CenterScreen.
         /// </summary>
@@ -16753,6 +18803,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_febca04d55", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ui:TextBox.
         /// </summary>
@@ -16761,6 +18812,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fec7f8fb9e", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tray notification.
         /// </summary>
@@ -16769,6 +18821,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fecb037951", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Basic TextBlock.
         /// </summary>
@@ -16777,6 +18830,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_fee30be123", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FlowDirection=RightToLeft right-to-left layout..
         /// </summary>
@@ -16785,6 +18839,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_feefa735f7", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ComboBox with inline-defined ComboBoxItems..
         /// </summary>
@@ -16793,6 +18848,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff1cc32d53", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to NavigationButtonsVisibility=Visible.
         /// </summary>
@@ -16801,6 +18857,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff41915aab", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Standard WPF button.
         /// </summary>
@@ -16809,6 +18866,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff4d6ca0ce", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Define ListBoxItems directly in XAML..
         /// </summary>
@@ -16817,6 +18875,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff7c4a7fda", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to ShellWindow — shell window.
         /// </summary>
@@ -16825,6 +18884,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff7cc5837d", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to FontIcon and ImageIcon samples..
         /// </summary>
@@ -16833,6 +18893,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ff8807ee6c", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Fluent System Icons Filled — SymbolIcon with Filled=True..
         /// </summary>
@@ -16841,12 +18902,410 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ffc6b21acd", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Active state.
         /// </summary>
         internal static string Sample_ffecc9f0be {
             get {
                 return ResourceManager.GetString("Sample_ffecc9f0be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 1.
+        /// </summary>
+        internal static string Sample_flex_item01 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 2.
+        /// </summary>
+        internal static string Sample_flex_item02 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 3.
+        /// </summary>
+        internal static string Sample_flex_item03 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 4.
+        /// </summary>
+        internal static string Sample_flex_item04 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 5.
+        /// </summary>
+        internal static string Sample_flex_item05 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 6.
+        /// </summary>
+        internal static string Sample_flex_item06 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 7.
+        /// </summary>
+        internal static string Sample_flex_item07 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item 8.
+        /// </summary>
+        internal static string Sample_flex_item08 {
+            get {
+                return ResourceManager.GetString("Sample_flex_item08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Row.
+        /// </summary>
+        internal static string Sample_flex01 {
+            get {
+                return ResourceManager.GetString("Sample_flex01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column.
+        /// </summary>
+        internal static string Sample_flex02 {
+            get {
+                return ResourceManager.GetString("Sample_flex02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Row reverse.
+        /// </summary>
+        internal static string Sample_flex03 {
+            get {
+                return ResourceManager.GetString("Sample_flex03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column reverse.
+        /// </summary>
+        internal static string Sample_flex04 {
+            get {
+                return ResourceManager.GetString("Sample_flex04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        internal static string Sample_flex05 {
+            get {
+                return ResourceManager.GetString("Sample_flex05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End.
+        /// </summary>
+        internal static string Sample_flex06 {
+            get {
+                return ResourceManager.GetString("Sample_flex06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Center.
+        /// </summary>
+        internal static string Sample_flex07 {
+            get {
+                return ResourceManager.GetString("Sample_flex07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space between.
+        /// </summary>
+        internal static string Sample_flex08 {
+            get {
+                return ResourceManager.GetString("Sample_flex08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space around.
+        /// </summary>
+        internal static string Sample_flex09 {
+            get {
+                return ResourceManager.GetString("Sample_flex09", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space evenly.
+        /// </summary>
+        internal static string Sample_flex10 {
+            get {
+                return ResourceManager.GetString("Sample_flex10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto.
+        /// </summary>
+        internal static string Sample_flex11 {
+            get {
+                return ResourceManager.GetString("Sample_flex11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stretch.
+        /// </summary>
+        internal static string Sample_flex12 {
+            get {
+                return ResourceManager.GetString("Sample_flex12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Baseline.
+        /// </summary>
+        internal static string Sample_flex13 {
+            get {
+                return ResourceManager.GetString("Sample_flex13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No wrap.
+        /// </summary>
+        internal static string Sample_flex14 {
+            get {
+                return ResourceManager.GetString("Sample_flex14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap.
+        /// </summary>
+        internal static string Sample_flex15 {
+            get {
+                return ResourceManager.GetString("Sample_flex15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap reverse.
+        /// </summary>
+        internal static string Sample_flex16 {
+            get {
+                return ResourceManager.GetString("Sample_flex16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your attention may be required.
+        ///Click OK to continue..
+        /// </summary>
+        internal static string Sample_NativeAttentionBody {
+            get {
+                return ResourceManager.GetString("Sample_NativeAttentionBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appearance styles the whole split control; each still has its own flyout commands..
+        /// </summary>
+        internal static string Sample_SplitButton_AppearanceDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_AppearanceDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click reports the current color; flyout items update the swatch..
+        /// </summary>
+        internal static string Sample_SplitButton_ColorSwatchDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_ColorSwatchDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When disabled, neither the primary action nor the chevron flyout can be used..
+        /// </summary>
+        internal static string Sample_SplitButton_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_DisabledDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click shares; the flyout can nest Send and device targets..
+        /// </summary>
+        internal static string Sample_SplitButton_NestedFlyoutDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_NestedFlyoutDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary click runs Save; open the chevron for Save As / Export..
+        /// </summary>
+        internal static string Sample_SplitButton_PrimaryFlyoutDesc {
+            get {
+                return ResourceManager.GetString("Sample_SplitButton_PrimaryFlyoutDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WPF StatusBar with Wpf.Ui theme styling. Items flow horizontally with separators..
+        /// </summary>
+        internal static string Sample_StatusBar_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_BasicDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic.
+        /// </summary>
+        internal static string Sample_StatusBar_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_BasicTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caps Lock: Off.
+        /// </summary>
+        internal static string Sample_StatusBar_CapsLockOff {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_CapsLockOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Themed window status bar.
+        /// </summary>
+        internal static string Sample_StatusBar_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use ItemsPanel with a Grid to pin left/center/right regions (editor-style status bar)..
+        /// </summary>
+        internal static string Sample_StatusBar_GridDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_GridDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grid layout.
+        /// </summary>
+        internal static string Sample_StatusBar_GridTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_GridTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mix SymbolIcon and text for a compact IDE-style footer..
+        /// </summary>
+        internal static string Sample_StatusBar_IconsDesc {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_IconsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With icons.
+        /// </summary>
+        internal static string Sample_StatusBar_IconsTitle {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_IconsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Line: 42, Char: 8.
+        /// </summary>
+        internal static string Sample_StatusBar_LineChar {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_LineChar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ln 1, Col 1.
+        /// </summary>
+        internal static string Sample_StatusBar_LnCol {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_LnCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        internal static string Sample_StatusBar_Ready {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0 errors.
+        /// </summary>
+        internal static string Sample_StatusBar_ZeroErrors {
+            get {
+                return ResourceManager.GetString("Sample_StatusBar_ZeroErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rounded bubble with a pointer at the bottom center. Shown above the trigger and horizontally centered..
+        /// </summary>
+        internal static string Sample_ToolTip_CalloutDesc {
+            get {
+                return ResourceManager.GetString("Sample_ToolTip_CalloutDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set vio:CalloutToolTipHelper.ForceDark to keep the dark callout even in the light theme..
+        /// </summary>
+        internal static string Sample_ToolTip_CalloutForceDarkDesc {
+            get {
+                return ResourceManager.GetString("Sample_ToolTip_CalloutForceDarkDesc", resourceCulture);
             }
         }
     }

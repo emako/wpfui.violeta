@@ -6356,4 +6356,118 @@ OK をクリックして続行してください。</value>
   <data name="Sample_0e649cb62f" xml:space="preserve">
     <value>タブバーを右側に縦配置。</value>
   </data>
+  <data name="Gallery_Page_FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="Sample_f7a3b2c1d0" xml:space="preserve">
+    <value>CSS Flexbox に着想を得たレイアウト パネル。direction、justify-content、align-items、wrap、gap、および子要素の grow/shrink/basis をサポートします。</value>
+  </data>
+  <data name="Sample_e6b2a1c0d9" xml:space="preserve">
+    <value>CSS Flexbox レイアウト</value>
+  </data>
+  <data name="Sample_c4d0b9a8f7" xml:space="preserve">
+    <value>インタラクティブ デモ</value>
+  </data>
+  <data name="Sample_b3e9a8f7c6" xml:space="preserve">
+    <value>Grow（1:2:1 比率）</value>
+  </data>
+  <data name="Sample_a2f8e7d6b5" xml:space="preserve">
+    <value>折り返し</value>
+  </data>
+  <data name="Sample_91e7d6c5b4" xml:space="preserve">
+    <value>AlignSelf（AlignItems=Stretch 時）</value>
+  </data>
+  <data name="Sample_80d6c5b4a3" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="Sample_79c5b4a392" xml:space="preserve">
+    <value>主軸方向の配置</value>
+  </data>
+  <data name="Sample_68b4a39281" xml:space="preserve">
+    <value>交差軸方向の配置</value>
+  </data>
+  <data name="Sample_57a3928170" xml:space="preserve">
+    <value>折り返し</value>
+  </data>
+  <data name="Sample_469281706f" xml:space="preserve">
+    <value>間隔</value>
+  </data>
+  <data name="Sample_3581706f5e" xml:space="preserve">
+    <value>Grow = 1</value>
+  </data>
+  <data name="Sample_24706f5e4d" xml:space="preserve">
+    <value>Grow = 2</value>
+  </data>
+  <data name="Sample_flex01" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="Sample_flex02" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="Sample_flex03" xml:space="preserve">
+    <value>行（逆順）</value>
+  </data>
+  <data name="Sample_flex04" xml:space="preserve">
+    <value>列（逆順）</value>
+  </data>
+  <data name="Sample_flex05" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="Sample_flex06" xml:space="preserve">
+    <value>末尾</value>
+  </data>
+  <data name="Sample_flex07" xml:space="preserve">
+    <value>中央</value>
+  </data>
+  <data name="Sample_flex08" xml:space="preserve">
+    <value>両端揃え</value>
+  </data>
+  <data name="Sample_flex09" xml:space="preserve">
+    <value>均等（周囲）</value>
+  </data>
+  <data name="Sample_flex10" xml:space="preserve">
+    <value>均等（間隔）</value>
+  </data>
+  <data name="Sample_flex11" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="Sample_flex12" xml:space="preserve">
+    <value>伸縮</value>
+  </data>
+  <data name="Sample_flex13" xml:space="preserve">
+    <value>ベースライン</value>
+  </data>
+  <data name="Sample_flex14" xml:space="preserve">
+    <value>折り返さない</value>
+  </data>
+  <data name="Sample_flex15" xml:space="preserve">
+    <value>折り返す</value>
+  </data>
+  <data name="Sample_flex16" xml:space="preserve">
+    <value>逆順で折り返す</value>
+  </data>
+  <data name="Sample_flex_item01" xml:space="preserve">
+    <value>項目 1</value>
+  </data>
+  <data name="Sample_flex_item02" xml:space="preserve">
+    <value>項目 2</value>
+  </data>
+  <data name="Sample_flex_item03" xml:space="preserve">
+    <value>項目 3</value>
+  </data>
+  <data name="Sample_flex_item04" xml:space="preserve">
+    <value>項目 4</value>
+  </data>
+  <data name="Sample_flex_item05" xml:space="preserve">
+    <value>項目 5</value>
+  </data>
+  <data name="Sample_flex_item06" xml:space="preserve">
+    <value>項目 6</value>
+  </data>
+  <data name="Sample_flex_item07" xml:space="preserve">
+    <value>項目 7</value>
+  </data>
+  <data name="Sample_flex_item08" xml:space="preserve">
+    <value>項目 8</value>
+  </data>
 </root>
