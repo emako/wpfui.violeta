@@ -1,9 +1,11 @@
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Wpf.Ui.Violeta.Controls.Compat;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -11,9 +13,11 @@ namespace Wpf.Ui.Violeta.Controls;
 /// A selectable segment used inside a <see cref="Segmented"/> control.
 /// </summary>
 [TemplatePart(Name = PartSelectionBackground, Type = typeof(Border))]
+[TemplatePart(Name = PartRoot, Type = typeof(Border))]
 public class SegmentedItem : ListBoxItem
 {
     private const string PartSelectionBackground = "SelectionBackground";
+    private const string PartRoot = "Root";
 
     /// <summary>Inset shared by hover chrome and the selected-state animation origin.</summary>
     internal const double ChromeInset = 2.5;
@@ -22,8 +26,11 @@ public class SegmentedItem : ListBoxItem
     private static readonly IEasingFunction SelectionChromeEasing = new CubicEase { EasingMode = EasingMode.EaseOut };
 
     private Border? _selectionBackground;
+    private UIElement? _root;
+    private DependencyPropertyDescriptor? _isPressedDescriptor;
     private ThicknessAnimation? _selectionChromeAnimation;
     private bool _isSelectionChromeAnimating;
+    private bool _isPressActive;
 
     static SegmentedItem()
     {
@@ -73,7 +80,19 @@ public class SegmentedItem : ListBoxItem
     {
         base.OnApplyTemplate();
 
+        UnhookPressHelper();
+
         _selectionBackground = GetTemplateChild(PartSelectionBackground) as Border;
+        _root = GetTemplateChild(PartRoot) as UIElement;
+
+        if (_root is not null)
+        {
+            _isPressedDescriptor = DependencyPropertyDescriptor.FromProperty(
+                PressHelper.IsPressedProperty,
+                typeof(UIElement));
+            _isPressedDescriptor.AddValueChanged(_root, OnRootPressChanged);
+        }
+
         ApplySelectionChrome(IsSelected, animate: false);
     }
 
@@ -84,8 +103,63 @@ public class SegmentedItem : ListBoxItem
         if (e.Property == Selector.IsSelectedProperty)
         {
             ApplySelectionChrome(IsSelected, animate: IsLoaded);
+
+            if (!IsSelected)
+            {
+                UpdatePressState(isPressed: false);
+            }
+        }
+        else if (e.Property == UIElement.IsEnabledProperty && !IsEnabled)
+        {
+            UpdatePressState(isPressed: false);
         }
     }
+
+    private void OnRootPressChanged(object? sender, EventArgs e)
+    {
+        if (_root is null)
+        {
+            return;
+        }
+
+        UpdatePressState(PressHelper.GetIsPressed(_root));
+    }
+
+    private void UnhookPressHelper()
+    {
+        if (_root is not null && _isPressedDescriptor is not null)
+        {
+            _isPressedDescriptor.RemoveValueChanged(_root, OnRootPressChanged);
+        }
+
+        _isPressedDescriptor = null;
+        _root = null;
+    }
+
+    private void UpdatePressState(bool isPressed)
+    {
+        if (!IsSelected || !IsEnabled)
+        {
+            if (_isPressActive)
+            {
+                _isPressActive = false;
+                GetOwnerSegmented()?.SetIndicatorPressed(false);
+            }
+
+            return;
+        }
+
+        if (_isPressActive == isPressed)
+        {
+            return;
+        }
+
+        _isPressActive = isPressed;
+        GetOwnerSegmented()?.SetIndicatorPressed(isPressed);
+    }
+
+    private Segmented? GetOwnerSegmented() =>
+        ItemsControl.ItemsControlFromItemContainer(this) as Segmented;
 
     private static void OnSelectionCornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

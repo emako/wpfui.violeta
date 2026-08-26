@@ -44,6 +44,7 @@ public class Segmented : ListBox
     private const double IndicatorBottomMargin = 3;
     private const double ShellPadding = 0;
     private const double ItemInnerCornerRadius = 4;
+    private const double IndicatorPressedMinScale = 0.625;
 
     private FrameworkElement? _indicator;
     private Storyboard? _indicatorStoryboard;
@@ -119,6 +120,27 @@ public class Segmented : ListBox
         SizeChanged += OnSegmentedSizeChanged;
         UpdateItemVisuals();
         UpdateIndicatorPosition(animate: false);
+    }
+
+    /// <summary>
+    /// Scales the bottom accent indicator while the selected segment is pressed.
+    /// </summary>
+    internal void SetIndicatorPressed(bool pressed)
+    {
+        if (_indicator?.RenderTransform is not ScaleTransform scale)
+        {
+            return;
+        }
+
+        scale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+
+        var scaleAnim = new DoubleAnimation
+        {
+            To = pressed ? IndicatorPressedMinScale : 1.0,
+            Duration = TimeSpan.FromMilliseconds(167),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
+        };
+        scale.BeginAnimation(ScaleTransform.ScaleXProperty, scaleAnim);
     }
 
     protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
