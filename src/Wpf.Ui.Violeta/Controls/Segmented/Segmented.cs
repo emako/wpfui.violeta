@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -22,7 +23,9 @@ namespace Wpf.Ui.Violeta.Controls;
 public class Segmented : ListBox
 {
     private const string PartIndicator = "PART_Indicator";
-    private const double IndicatorBottomMargin = 2;
+    private const double IndicatorBottomMargin = 3;
+    private const double ShellPadding = 0;
+    private const double ItemInnerCornerRadius = 4;
 
     private FrameworkElement? _indicator;
     private Storyboard? _indicatorStoryboard;
@@ -30,7 +33,12 @@ public class Segmented : ListBox
 
     /// <summary>Identifies the <see cref="CornerRadius"/> dependency property.</summary>
     public static readonly DependencyProperty CornerRadiusProperty =
-        Border.CornerRadiusProperty.AddOwner(typeof(Segmented));
+        Border.CornerRadiusProperty.AddOwner(
+            typeof(Segmented),
+            new FrameworkPropertyMetadata(
+                new CornerRadius(4),
+                FrameworkPropertyMetadataOptions.AffectsRender,
+                OnCornerRadiusChanged));
 
     /// <summary>Gets or sets the corner radius of the segmented shell.</summary>
     public CornerRadius CornerRadius
@@ -75,7 +83,89 @@ public class Segmented : ListBox
         ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
         SizeChanged -= OnSegmentedSizeChanged;
         SizeChanged += OnSegmentedSizeChanged;
+        UpdateItemVisuals();
         UpdateIndicatorPosition(animate: false);
+    }
+
+    protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
+    {
+        base.OnItemsChanged(e);
+        Dispatcher.BeginInvoke(UpdateItemVisuals);
+    }
+
+    private static void OnCornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Segmented segmented)
+        {
+            segmented.UpdateItemVisuals();
+        }
+    }
+
+    private void UpdateItemVisuals()
+    {
+        if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
+        {
+            return;
+        }
+
+        var count = Items.Count;
+        if (count == 0)
+        {
+            return;
+        }
+
+        var outerRadius = GetShellInnerCornerRadius();
+
+        for (var index = 0; index < count; index++)
+        {
+            if (ItemContainerGenerator.ContainerFromIndex(index) is not SegmentedItem item)
+            {
+                continue;
+            }
+
+            item.SelectionCornerRadius = GetSelectionCornerRadius(index, count, outerRadius);
+        }
+    }
+
+    private double GetShellInnerCornerRadius()
+    {
+        var shellRadius = CornerRadius.TopLeft;
+        if (CornerRadius.TopRight > 0)
+        {
+            shellRadius = Math.Min(shellRadius, CornerRadius.TopRight);
+        }
+
+        if (CornerRadius.BottomRight > 0)
+        {
+            shellRadius = Math.Min(shellRadius, CornerRadius.BottomRight);
+        }
+
+        if (CornerRadius.BottomLeft > 0)
+        {
+            shellRadius = Math.Min(shellRadius, CornerRadius.BottomLeft);
+        }
+
+        return Math.Max(0, shellRadius - ShellPadding);
+    }
+
+    private static CornerRadius GetSelectionCornerRadius(int index, int count, double outerRadius)
+    {
+        if (count == 1)
+        {
+            return new CornerRadius(outerRadius);
+        }
+
+        if (index == 0)
+        {
+            return new CornerRadius(outerRadius, ItemInnerCornerRadius, ItemInnerCornerRadius, outerRadius);
+        }
+
+        if (index == count - 1)
+        {
+            return new CornerRadius(ItemInnerCornerRadius, outerRadius, outerRadius, ItemInnerCornerRadius);
+        }
+
+        return new CornerRadius(ItemInnerCornerRadius);
     }
 
     private void OnSegmentedSizeChanged(object sender, SizeChangedEventArgs e)
@@ -127,7 +217,11 @@ public class Segmented : ListBox
             return;
         }
 
-        Dispatcher.BeginInvoke(() => UpdateIndicatorPosition(animate: false));
+        Dispatcher.BeginInvoke(() =>
+        {
+            UpdateItemVisuals();
+            UpdateIndicatorPosition(animate: false);
+        });
     }
 
     private void OnContainerLoaded(object sender, RoutedEventArgs e)

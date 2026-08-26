@@ -4,9 +4,8 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--
-        WinUI Segmented-style selection: subtle fill plus an accent underline
-        under the selected segment (not Fluent's full-accent fill).
-        Visual language matches UniGetUI's ViewModeSelector.
+        WinUI Segmented: hover uses an inset pill (Margin=2); selected fill spans the segment
+        with no margin and position-aware outer corner radii.
     -->
     <Style x:Key="DefaultSegmentedItemStyle" TargetType="{x:Type local:SegmentedItem}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -16,8 +15,10 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="8,4,8,8" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="10,5,10,7" />
         <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MinWidth" Value="40" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -27,11 +28,22 @@
                 <ControlTemplate TargetType="{x:Type local:SegmentedItem}">
                     <Grid SnapsToDevicePixels="True">
                         <Border
+                            x:Name="SelectionBackground"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            CornerRadius="4"
+                            SnapsToDevicePixels="True" />
+                        <Border
+                            x:Name="HoverBackground"
+                            Margin="2"
+                            Background="Transparent"
+                            CornerRadius="4"
+                            SnapsToDevicePixels="True" />
+                        <Border
                             x:Name="Root"
                             Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="Transparent"
                             SnapsToDevicePixels="True">
                             <StackPanel
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -68,7 +80,7 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Setter TargetName="SelectionBackground" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -76,14 +88,14 @@
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Setter TargetName="HoverBackground" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                            <Setter TargetName="SelectionBackground" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
@@ -100,10 +112,10 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="CornerRadius" Value="4" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -130,13 +142,13 @@
                         ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         SnapsToDevicePixels="True">
-                        <Grid>
-                            <ItemsPresenter />
+                        <Grid SnapsToDevicePixels="True">
+                            <ItemsPresenter VerticalAlignment="Stretch" />
                             <Border
                                 x:Name="PART_Indicator"
                                 Width="16"
                                 Height="3"
-                                Margin="0,0,0,2"
+                                Margin="0,0,0,3"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom"
                                 Background="{DynamicResource AccentFillColorDefaultBrush}"

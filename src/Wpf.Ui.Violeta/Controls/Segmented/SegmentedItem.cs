@@ -6,8 +6,13 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// A selectable segment used inside a <see cref="Segmented"/> control.
 /// </summary>
+[TemplatePart(Name = PartSelectionBackground, Type = typeof(Border))]
 public class SegmentedItem : ListBoxItem
 {
+    private const string PartSelectionBackground = "SelectionBackground";
+
+    private Border? _selectionBackground;
+
     static SegmentedItem()
     {
         DefaultStyleKeyProperty.OverrideMetadata(
@@ -30,5 +35,49 @@ public class SegmentedItem : ListBoxItem
     {
         get => GetValue(IconProperty);
         set => SetValue(IconProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="SelectionCornerRadius"/> dependency property.</summary>
+    public static readonly DependencyProperty SelectionCornerRadiusProperty = DependencyProperty.Register(
+        nameof(SelectionCornerRadius),
+        typeof(CornerRadius),
+        typeof(SegmentedItem),
+        new FrameworkPropertyMetadata(
+            new CornerRadius(4),
+            FrameworkPropertyMetadataOptions.AffectsRender,
+            OnSelectionCornerRadiusChanged));
+
+    /// <summary>
+    /// Corner radius for the selected-state pill. Edge segments use larger radii on
+    /// shell-facing corners; middle segments stay uniformly rounded.
+    /// </summary>
+    public CornerRadius SelectionCornerRadius
+    {
+        get => (CornerRadius)GetValue(SelectionCornerRadiusProperty);
+        set => SetValue(SelectionCornerRadiusProperty, value);
+    }
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+
+        _selectionBackground = GetTemplateChild(PartSelectionBackground) as Border;
+        UpdateSelectionCornerRadius();
+    }
+
+    private static void OnSelectionCornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is SegmentedItem item)
+        {
+            item.UpdateSelectionCornerRadius();
+        }
+    }
+
+    private void UpdateSelectionCornerRadius()
+    {
+        if (_selectionBackground is not null)
+        {
+            _selectionBackground.CornerRadius = SelectionCornerRadius;
+        }
     }
 }
