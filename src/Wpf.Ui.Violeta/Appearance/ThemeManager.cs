@@ -44,10 +44,7 @@ public static class ThemeManager
     /// </summary>
     public static void Register(ThemeDictionaryRegistration registration)
     {
-        if (registration is null)
-        {
-            throw new ArgumentNullException(nameof(registration));
-        }
+        _ = registration ?? throw new ArgumentNullException(nameof(registration));
 
         lock (RegistrationsInternal)
         {
@@ -63,10 +60,7 @@ public static class ThemeManager
     /// </summary>
     public static bool Unregister(ThemeDictionaryRegistration registration)
     {
-        if (registration is null)
-        {
-            throw new ArgumentNullException(nameof(registration));
-        }
+        _ = registration ?? throw new ArgumentNullException(nameof(registration));
 
         lock (RegistrationsInternal)
         {
@@ -405,7 +399,7 @@ public static class ThemeManager
         ThemeDictionaryRegistration[] registrations;
         lock (RegistrationsInternal)
         {
-            registrations = RegistrationsInternal.ToArray();
+            registrations = [.. RegistrationsInternal];
         }
 
         foreach (ThemeDictionaryRegistration registration in registrations)
@@ -429,7 +423,7 @@ public static class ThemeManager
         ThemeDictionaryRegistration[] registrations;
         lock (RegistrationsInternal)
         {
-            registrations = RegistrationsInternal.ToArray();
+            registrations = [.. RegistrationsInternal];
         }
 
         foreach (ThemeDictionaryRegistration registration in registrations)
