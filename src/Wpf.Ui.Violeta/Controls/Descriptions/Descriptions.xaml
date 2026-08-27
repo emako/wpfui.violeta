@@ -1,0 +1,194 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  Shared tokens  -->
+    <!--  ═══════════════════════════════════════════════════  -->
+    <sys:Double x:Key="DescriptionsLineHeight">20</sys:Double>
+    <FontWeight x:Key="DescriptionsValueFontWeight">SemiBold</FontWeight>
+    <sys:Double x:Key="DescriptionsKeySmallFontSize">12</sys:Double>
+    <sys:Double x:Key="DescriptionsValueSmallFontSize">16</sys:Double>
+    <sys:Double x:Key="DescriptionsKeyMediumFontSize">14</sys:Double>
+    <sys:Double x:Key="DescriptionsValueMediumFontSize">20</sys:Double>
+    <sys:Double x:Key="DescriptionsKeyLargeFontSize">14</sys:Double>
+    <sys:Double x:Key="DescriptionsValueLargeFontSize">28</sys:Double>
+    <Thickness x:Key="DescriptionsKeyPadding">0,0,24,0</Thickness>
+    <Thickness x:Key="DescriptionsItemMargin">0,0,0,12</Thickness>
+    <Thickness x:Key="DescriptionsValueSmallMargin">0,0,48,0</Thickness>
+    <Thickness x:Key="DescriptionsValueMediumMargin">0,0,60,0</Thickness>
+    <Thickness x:Key="DescriptionsValueLargeMargin">0,0,80,0</Thickness>
+    <Thickness x:Key="DescriptionsKeySmallMargin">0</Thickness>
+    <Thickness x:Key="DescriptionsKeyMediumMargin">0,0,0,4</Thickness>
+    <Thickness x:Key="DescriptionsKeyLargeMargin">0,0,0,4</Thickness>
+    <Thickness x:Key="DescriptionsKeyPlainMargin">0,0,8,0</Thickness>
+
+    <!--  ═══════════════════════════════════════════════════  -->
+    <!--  Descriptions  -->
+    <!--  ═══════════════════════════════════════════════════  -->
+    <Style TargetType="local:Descriptions">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Descriptions">
+                    <Grid x:Name="PART_Root">
+                        <ItemsPresenter />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <local:ColumnWrapPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  LEFT template (label to the left of content)  -->
+    <ControlTemplate x:Key="DescriptionsItemLeftTemplate" TargetType="local:DescriptionsItem">
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Margin="{StaticResource DescriptionsItemMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" SharedSizeGroup="DescriptionsLabel" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" MinWidth="0" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                x:Name="PART_LabelBorder"
+                Grid.Column="0"
+                Width="{TemplateBinding LabelWidth}"
+                VerticalAlignment="Center">
+                <ContentPresenter
+                    x:Name="PART_Label"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{TemplateBinding Label}"
+                    ContentTemplate="{TemplateBinding LabelTemplate}"
+                    RecognizesAccessKey="True"
+                    TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                    TextElement.FontSize="{StaticResource DescriptionsKeyMediumFontSize}" />
+            </Border>
+
+            <TextBlock
+                x:Name="PART_Colon"
+                Grid.Column="1"
+                Margin="{StaticResource DescriptionsKeyPlainMargin}"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                Text=":"
+                Visibility="Collapsed" />
+
+            <ContentPresenter
+                x:Name="PART_ContentPresenter"
+                Grid.Column="2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                TextElement.FontSize="{StaticResource DescriptionsKeyMediumFontSize}" />
+        </Grid>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="ItemAlignment" Value="Center">
+                <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Right" />
+                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
+                <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Left" />
+            </Trigger>
+            <Trigger Property="ItemAlignment" Value="Left">
+                <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Left" />
+                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
+                <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Left" />
+            </Trigger>
+            <Trigger Property="ItemAlignment" Value="Justify">
+                <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Left" />
+                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
+                <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Right" />
+            </Trigger>
+            <Trigger Property="ItemAlignment" Value="Plain">
+                <Setter TargetName="PART_Colon" Property="Visibility" Value="Visible" />
+                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--  TOP template (label above content)  -->
+    <ControlTemplate x:Key="DescriptionsItemTopTemplate" TargetType="local:DescriptionsItem">
+        <StackPanel VerticalAlignment="Top" Margin="{StaticResource DescriptionsItemMargin}">
+            <ContentPresenter
+                x:Name="PART_Label"
+                Content="{TemplateBinding Label}"
+                ContentTemplate="{TemplateBinding LabelTemplate}"
+                TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <ContentPresenter
+                x:Name="PART_ContentPresenter"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                TextElement.FontWeight="{StaticResource DescriptionsValueFontWeight}"
+                TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        </StackPanel>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="Size" Value="Small">
+                <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeySmallMargin}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeySmallFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueSmallMargin}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueSmallFontSize}" />
+            </Trigger>
+            <Trigger Property="Size" Value="Medium">
+                <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeyMediumMargin}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeyMediumFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueMediumMargin}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueMediumFontSize}" />
+            </Trigger>
+            <Trigger Property="Size" Value="Large">
+                <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeyLargeMargin}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeyLargeFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueLargeMargin}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueLargeFontSize}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--  DescriptionsItem  -->
+    <Style TargetType="local:DescriptionsItem">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template" Value="{StaticResource DescriptionsItemLeftTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="LabelPosition" Value="Top">
+                <Setter Property="Template" Value="{StaticResource DescriptionsItemTopTemplate}" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Trigger>
+            <Trigger Property="LabelPosition" Value="Bottom">
+                <Setter Property="Template" Value="{StaticResource DescriptionsItemTopTemplate}" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

@@ -3833,6 +3833,24 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_Form" xml:space="preserve">
     <value>Form</value>
   </data>
+  <data name="Gallery_Page_Descriptions" xml:space="preserve">
+    <value>Descriptions</value>
+  </data>
+  <data name="Sample_descriptions_inline" xml:space="preserve">
+    <value>Inline XAML declaration</value>
+  </data>
+  <data name="Sample_descriptions_binding" xml:space="preserve">
+    <value>Data binding with LabelMemberPath and DisplayMemberPath</value>
+  </data>
+  <data name="Sample_descriptions_horizontal" xml:space="preserve">
+    <value>Horizontal layout with Small / Medium / Large sizes</value>
+  </data>
+  <data name="Sample_descriptions_column_wrap" xml:space="preserve">
+    <value>ColumnWrapPanel with Plain alignment</value>
+  </data>
+  <data name="Sample_descriptions_summary" xml:space="preserve">
+    <value>Read-only label/value list</value>
+  </data>
   <data name="Gallery_Page_Grid" xml:space="preserve">
     <value>Grid</value>
   </data>

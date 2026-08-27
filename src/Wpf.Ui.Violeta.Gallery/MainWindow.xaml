@@ -351,6 +351,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DropShadowChrome}}" Tag="layout/drop-shadow-chrome" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AspectRatioLayout}}" Tag="layout/aspect-ratio-layout" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Form}}" Tag="layout/form" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Descriptions}}" Tag="layout/descriptions" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GridSplitter}}" Tag="layout/grid-splitter" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Divider}}" Tag="layout/divider" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}" Tag="layout/drawer" />

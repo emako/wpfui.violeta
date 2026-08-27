@@ -196,6 +196,7 @@ public partial class MainWindow : ShellWindow
         ["layout/drop-shadow-chrome"] = static () => new DropShadowChromePage(),
         ["layout/aspect-ratio-layout"] = static () => new AspectRatioLayoutPage(),
         ["layout/form"] = static () => new FormPage(),
+        ["layout/descriptions"] = static () => new DescriptionsPage(),
         ["layout/grid-splitter"] = static () => new GridSplitterPage(),
         ["layout/divider"] = static () => new DividerPage(),
         ["layout/drawer"] = static () => new DrawerPage(),

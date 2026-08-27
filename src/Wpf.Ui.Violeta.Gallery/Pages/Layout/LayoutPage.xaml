@@ -189,6 +189,20 @@
                     Height="80"
                     Margin="0,0,12,12"
                     Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
+                    CommandParameter="layout/descriptions">
+                    <ui:CardAction.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE946;" />
+                    </ui:CardAction.Icon>
+                    <StackPanel>
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Descriptions}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_descriptions_summary}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </ui:CardAction>
+                <ui:CardAction
+                    Width="260"
+                    Height="80"
+                    Margin="0,0,12,12"
+                    Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
                     CommandParameter="layout/grid-splitter">
                     <ui:CardAction.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE76B;" />

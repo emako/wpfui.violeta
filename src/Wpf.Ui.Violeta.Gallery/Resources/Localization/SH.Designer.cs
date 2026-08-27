@@ -1257,6 +1257,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Descriptions.
+        /// </summary>
+        internal static string Gallery_Page_Descriptions {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Descriptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GoBackButton.
         /// </summary>
         internal static string Gallery_Page_GoBackButton {
@@ -16758,6 +16767,51 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_ded8c0a3ed {
             get {
                 return ResourceManager.GetString("Sample_ded8c0a3ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding with LabelMemberPath and DisplayMemberPath.
+        /// </summary>
+        internal static string Sample_descriptions_binding {
+            get {
+                return ResourceManager.GetString("Sample_descriptions_binding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ColumnWrapPanel with Plain alignment.
+        /// </summary>
+        internal static string Sample_descriptions_column_wrap {
+            get {
+                return ResourceManager.GetString("Sample_descriptions_column_wrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal layout with Small / Medium / Large sizes.
+        /// </summary>
+        internal static string Sample_descriptions_horizontal {
+            get {
+                return ResourceManager.GetString("Sample_descriptions_horizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline XAML declaration.
+        /// </summary>
+        internal static string Sample_descriptions_inline {
+            get {
+                return ResourceManager.GetString("Sample_descriptions_inline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read-only label/value list.
+        /// </summary>
+        internal static string Sample_descriptions_summary {
+            get {
+                return ResourceManager.GetString("Sample_descriptions_summary", resourceCulture);
             }
         }
         
