@@ -1,6 +1,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -19,6 +20,12 @@ public class Descriptions : ItemsControl
     static Descriptions()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(Descriptions), new FrameworkPropertyMetadata(typeof(Descriptions)));
+        Grid.IsSharedSizeScopeProperty.OverrideMetadata(
+            typeof(Descriptions),
+            new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        DisplayMemberPathProperty.OverrideMetadata(
+            typeof(Descriptions),
+            new FrameworkPropertyMetadata(null, OnDisplayMemberPathChanged));
     }
 
     public static readonly DependencyProperty LabelTemplateProperty = DependencyProperty.Register(
@@ -85,7 +92,7 @@ public class Descriptions : ItemsControl
         nameof(Orientation),
         typeof(Orientation),
         typeof(Descriptions),
-        new PropertyMetadata(Orientation.Vertical));
+        new PropertyMetadata(Orientation.Vertical, OnOrientationChanged));
 
     public Orientation Orientation
     {
@@ -105,11 +112,27 @@ public class Descriptions : ItemsControl
         set => SetValue(SizeProperty, value);
     }
 
+    public Descriptions()
+    {
+        ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
+    }
+
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
         _root = GetTemplateChild(PartRoot) as Panel;
         UpdateSharedSizeScope();
+    }
+
+    protected override Size MeasureOverride(Size availableSize)
+    {
+        // When parent passes infinite width but MaxWidth is set, constrain so stretch children share one width.
+        if (double.IsPositiveInfinity(availableSize.Width) && MaxWidth < double.PositiveInfinity)
+        {
+            availableSize.Width = MaxWidth;
+        }
+
+        return base.MeasureOverride(availableSize);
     }
 
     protected override bool IsItemItsOwnContainerOverride(object item)
@@ -121,6 +144,7 @@ public class Descriptions : ItemsControl
     protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
     {
         base.PrepareContainerForItemOverride(element, item);
+
         if (element is not DescriptionsItem descriptionItem)
         {
             return;
@@ -135,8 +159,23 @@ public class Descriptions : ItemsControl
         SetupBindings(descriptionItem, item);
     }
 
+    protected override void ClearContainerForItemOverride(DependencyObject element, object item)
+    {
+        if (element is DescriptionsItem descriptionItem)
+        {
+            BindingOperations.ClearBinding(descriptionItem, LabeledContentControl.LabelProperty);
+            BindingOperations.ClearBinding(descriptionItem, ContentControl.ContentProperty);
+        }
+
+        base.ClearContainerForItemOverride(element, item);
+    }
+
     internal double GetItemLabelWidth()
         => LabelWidth.IsAbsolute ? LabelWidth.Value : double.NaN;
+
+    internal bool UsesFixedWidthLayout()
+        => LabelPosition is DescriptionsLabelPosition.Left or DescriptionsLabelPosition.Right
+           && ItemAlignment != DescriptionsItemAlignment.Plain;
 
     private void SetupBindings(DescriptionsItem container, object item)
     {
@@ -154,21 +193,31 @@ public class Descriptions : ItemsControl
             container.Label = item;
         }
 
-        if (ItemTemplate is not null)
+        // DisplayMemberPath auto-generates ItemTemplate on ItemsControl; bind the value property directly instead.
+        if (!string.IsNullOrEmpty(DisplayMemberPath))
+        {
+            container.ClearValue(ContentControl.ContentTemplateProperty);
+            BindingOperations.SetBinding(container, ContentControl.ContentProperty, new Binding(DisplayMemberPath));
+        }
+        else if (ItemTemplate is not null)
         {
             container.ClearValue(ContentControl.ContentProperty);
             container.Content = item;
             container.ContentTemplate = ItemTemplate;
         }
-        else if (!string.IsNullOrEmpty(DisplayMemberPath))
-        {
-            container.ClearValue(ContentControl.ContentTemplateProperty);
-            BindingOperations.SetBinding(container, ContentControl.ContentProperty, new Binding(DisplayMemberPath));
-        }
         else
         {
+            container.ClearValue(ContentControl.ContentTemplateProperty);
             container.ClearValue(ContentControl.ContentProperty);
             container.Content = item;
+        }
+    }
+
+    private static void OnDisplayMemberPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Descriptions descriptions)
+        {
+            descriptions.RefreshContainers();
         }
     }
 
@@ -202,20 +251,36 @@ public class Descriptions : ItemsControl
     {
         if (d is Descriptions descriptions)
         {
-            if (e.Property == LabelWidthProperty || e.Property == ItemAlignmentProperty)
-            {
-                descriptions.UpdateSharedSizeScope();
-            }
-
+            descriptions.UpdateSharedSizeScope();
             descriptions.PropagateToAllContainers();
+        }
+    }
+
+    private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is Descriptions descriptions)
+        {
+            descriptions.PropagateToAllContainers();
+        }
+    }
+
+    private void OnItemContainerGeneratorStatusChanged(object? sender, EventArgs e)
+    {
+        if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+        {
+            UpdateSharedSizeScope();
+            PropagateToAllContainers();
         }
     }
 
     private void UpdateSharedSizeScope()
     {
+        bool enabled = UsesFixedWidthLayout();
+        Grid.SetIsSharedSizeScope(this, enabled);
+
         if (_root is not null)
         {
-            Grid.SetIsSharedSizeScope(_root, ItemAlignment != DescriptionsItemAlignment.Plain);
+            Grid.SetIsSharedSizeScope(_root, enabled);
         }
     }
 
@@ -236,7 +301,14 @@ public class Descriptions : ItemsControl
         {
             if (ItemContainerGenerator.ContainerFromItem(item) is DescriptionsItem descriptionItem)
             {
-                SetupBindings(descriptionItem, ReferenceEquals(descriptionItem, item) ? null : item);
+                if (ReferenceEquals(descriptionItem, item))
+                {
+                    descriptionItem.ApplyDescriptionsProperties(this);
+                }
+                else
+                {
+                    SetupBindings(descriptionItem, item);
+                }
             }
         }
     }

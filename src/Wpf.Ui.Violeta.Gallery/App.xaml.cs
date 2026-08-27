@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using LiteObservableLanguages;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Gallery.Globalization;
 using Wpf.Ui.Violeta.Gallery.Resources.Localization;
@@ -30,6 +31,8 @@ public partial class App : Application
             .UseFallback(new CultureInfo("en-US"));
 
         MuiLanguageManager.SetLanguage(MuiLanguageManager.LanguageDefault);
+
+        ThemeManager.Apply(ApplicationTheme.Dark);
 
         base.OnStartup(e);
     }

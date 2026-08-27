@@ -1,20 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
-    <!--  ═══════════════════════════════════════════════════  -->
-    <!--  Shared tokens  -->
-    <!--  ═══════════════════════════════════════════════════  -->
-    <sys:Double x:Key="DescriptionsLineHeight">20</sys:Double>
-    <FontWeight x:Key="DescriptionsValueFontWeight">SemiBold</FontWeight>
-    <sys:Double x:Key="DescriptionsKeySmallFontSize">12</sys:Double>
-    <sys:Double x:Key="DescriptionsValueSmallFontSize">16</sys:Double>
-    <sys:Double x:Key="DescriptionsKeyMediumFontSize">14</sys:Double>
-    <sys:Double x:Key="DescriptionsValueMediumFontSize">20</sys:Double>
-    <sys:Double x:Key="DescriptionsKeyLargeFontSize">14</sys:Double>
-    <sys:Double x:Key="DescriptionsValueLargeFontSize">28</sys:Double>
     <Thickness x:Key="DescriptionsKeyPadding">0,0,24,0</Thickness>
     <Thickness x:Key="DescriptionsItemMargin">0,0,0,12</Thickness>
     <Thickness x:Key="DescriptionsValueSmallMargin">0,0,48,0</Thickness>
@@ -25,13 +13,12 @@
     <Thickness x:Key="DescriptionsKeyLargeMargin">0,0,0,4</Thickness>
     <Thickness x:Key="DescriptionsKeyPlainMargin">0,0,8,0</Thickness>
 
-    <!--  ═══════════════════════════════════════════════════  -->
-    <!--  Descriptions  -->
-    <!--  ═══════════════════════════════════════════════════  -->
     <Style TargetType="local:Descriptions">
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:Descriptions">
@@ -44,7 +31,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <StackPanel />
+                    <StackPanel HorizontalAlignment="Stretch" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -61,7 +48,6 @@
         </Style.Triggers>
     </Style>
 
-    <!--  LEFT template (label to the left of content)  -->
     <ControlTemplate x:Key="DescriptionsItemLeftTemplate" TargetType="local:DescriptionsItem">
         <Grid
             HorizontalAlignment="Stretch"
@@ -77,16 +63,17 @@
                 x:Name="PART_LabelBorder"
                 Grid.Column="0"
                 Width="{TemplateBinding LabelWidth}"
+                Padding="{StaticResource DescriptionsKeyPadding}"
+                HorizontalAlignment="Stretch"
                 VerticalAlignment="Center">
                 <ContentPresenter
                     x:Name="PART_Label"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Content="{TemplateBinding Label}"
                     ContentTemplate="{TemplateBinding LabelTemplate}"
-                    RecognizesAccessKey="True"
-                    TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}"
-                    TextElement.FontSize="{StaticResource DescriptionsKeyMediumFontSize}" />
+                    TextElement.FontSize="14"
+                    TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </Border>
 
             <TextBlock
@@ -106,40 +93,35 @@
                 Content="{TemplateBinding Content}"
                 ContentTemplate="{TemplateBinding ContentTemplate}"
                 ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                TextElement.FontSize="{StaticResource DescriptionsKeyMediumFontSize}" />
+                TextElement.FontSize="14"
+                TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </Grid>
 
         <ControlTemplate.Triggers>
-            <Trigger Property="ItemAlignment" Value="Center">
-                <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Right" />
-                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
-                <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Left" />
-            </Trigger>
             <Trigger Property="ItemAlignment" Value="Left">
                 <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Left" />
-                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
                 <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Left" />
             </Trigger>
             <Trigger Property="ItemAlignment" Value="Justify">
                 <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Left" />
-                <Setter TargetName="PART_LabelBorder" Property="Padding" Value="{StaticResource DescriptionsKeyPadding}" />
                 <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Right" />
             </Trigger>
             <Trigger Property="ItemAlignment" Value="Plain">
                 <Setter TargetName="PART_Colon" Property="Visibility" Value="Visible" />
                 <Setter TargetName="PART_LabelBorder" Property="Padding" Value="0" />
+                <Setter TargetName="PART_Label" Property="HorizontalAlignment" Value="Left" />
+                <Setter TargetName="PART_ContentPresenter" Property="HorizontalAlignment" Value="Left" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!--  TOP template (label above content)  -->
     <ControlTemplate x:Key="DescriptionsItemTopTemplate" TargetType="local:DescriptionsItem">
         <StackPanel VerticalAlignment="Top" Margin="{StaticResource DescriptionsItemMargin}">
             <ContentPresenter
                 x:Name="PART_Label"
                 Content="{TemplateBinding Label}"
                 ContentTemplate="{TemplateBinding LabelTemplate}"
+                TextElement.FontSize="14"
                 TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
             <ContentPresenter
@@ -147,35 +129,36 @@
                 Content="{TemplateBinding Content}"
                 ContentTemplate="{TemplateBinding ContentTemplate}"
                 ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                TextElement.FontWeight="{StaticResource DescriptionsValueFontWeight}"
+                TextElement.FontSize="20"
+                TextElement.FontWeight="SemiBold"
                 TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </StackPanel>
 
         <ControlTemplate.Triggers>
             <Trigger Property="Size" Value="Small">
                 <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeySmallMargin}" />
-                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeySmallFontSize}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="12" />
                 <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueSmallMargin}" />
-                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueSmallFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="16" />
             </Trigger>
             <Trigger Property="Size" Value="Medium">
                 <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeyMediumMargin}" />
-                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeyMediumFontSize}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="14" />
                 <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueMediumMargin}" />
-                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueMediumFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="20" />
             </Trigger>
             <Trigger Property="Size" Value="Large">
                 <Setter TargetName="PART_Label" Property="Margin" Value="{StaticResource DescriptionsKeyLargeMargin}" />
-                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="{StaticResource DescriptionsKeyLargeFontSize}" />
+                <Setter TargetName="PART_Label" Property="TextElement.FontSize" Value="14" />
                 <Setter TargetName="PART_ContentPresenter" Property="Margin" Value="{StaticResource DescriptionsValueLargeMargin}" />
-                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="{StaticResource DescriptionsValueLargeFontSize}" />
+                <Setter TargetName="PART_ContentPresenter" Property="TextElement.FontSize" Value="28" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!--  DescriptionsItem  -->
     <Style TargetType="local:DescriptionsItem">
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Template" Value="{StaticResource DescriptionsItemLeftTemplate}" />

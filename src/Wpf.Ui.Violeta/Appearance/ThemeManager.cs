@@ -288,6 +288,14 @@ public static class ThemeManager
 
         if (GetAppTheme() == theme)
         {
+            if (updateAccent)
+            {
+                ApplicationAccentColorManager.Apply(
+                    ApplicationAccentColorManager.GetColorizationColor(),
+                    theme,
+                    systemGlassColor: false);
+            }
+
             return;
         }
 

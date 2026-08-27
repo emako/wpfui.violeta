@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -42,10 +43,6 @@ public class DescriptionsItem : LabeledContentControl
         typeof(DescriptionsItem),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange));
 
-    /// <summary>
-    /// Pixel width of the label column when <see cref="LabelPosition"/> is <see cref="DescriptionsLabelPosition.Left"/>.
-    /// <see cref="double.NaN"/> means auto-size via shared-size scope.
-    /// </summary>
     public double LabelWidth
     {
         get => (double)GetValue(LabelWidthProperty);
@@ -58,7 +55,6 @@ public class DescriptionsItem : LabeledContentControl
         typeof(DescriptionsItem),
         new PropertyMetadata(DescriptionsSize.Medium));
 
-    /// <summary>Font size variant for top-label layout.</summary>
     public DescriptionsSize Size
     {
         get => (DescriptionsSize)GetValue(SizeProperty);
@@ -67,25 +63,10 @@ public class DescriptionsItem : LabeledContentControl
 
     internal void ApplyDescriptionsProperties(Descriptions descriptions)
     {
-        if (ReadLocalValue(LabelPositionProperty) == DependencyProperty.UnsetValue)
-        {
-            SetCurrentValue(LabelPositionProperty, descriptions.LabelPosition);
-        }
-
-        if (ReadLocalValue(ItemAlignmentProperty) == DependencyProperty.UnsetValue)
-        {
-            SetCurrentValue(ItemAlignmentProperty, descriptions.ItemAlignment);
-        }
-
-        if (ReadLocalValue(LabelWidthProperty) == DependencyProperty.UnsetValue)
-        {
-            SetCurrentValue(LabelWidthProperty, descriptions.GetItemLabelWidth());
-        }
-
-        if (ReadLocalValue(SizeProperty) == DependencyProperty.UnsetValue)
-        {
-            SetCurrentValue(SizeProperty, descriptions.Size);
-        }
+        SetIfUnset(LabelPositionProperty, descriptions.LabelPosition);
+        SetIfUnset(ItemAlignmentProperty, descriptions.ItemAlignment);
+        SetIfUnset(LabelWidthProperty, descriptions.GetItemLabelWidth());
+        SetIfUnset(SizeProperty, descriptions.Size);
 
         if (ReadLocalValue(LabelTemplateProperty) == DependencyProperty.UnsetValue && descriptions.LabelTemplate is not null)
         {
@@ -95,6 +76,27 @@ public class DescriptionsItem : LabeledContentControl
         if (ReadLocalValue(ContentTemplateProperty) == DependencyProperty.UnsetValue && descriptions.ItemTemplate is not null)
         {
             SetCurrentValue(ContentTemplateProperty, descriptions.ItemTemplate);
+        }
+
+        if (IsLeftLayout(descriptions))
+        {
+            HorizontalAlignment = HorizontalAlignment.Stretch;
+        }
+        else
+        {
+            HorizontalAlignment = HorizontalAlignment.Left;
+        }
+    }
+
+    private static bool IsLeftLayout(Descriptions descriptions)
+        => descriptions.LabelPosition is DescriptionsLabelPosition.Left or DescriptionsLabelPosition.Right
+           && descriptions.Orientation == Orientation.Vertical;
+
+    private void SetIfUnset(DependencyProperty property, object value)
+    {
+        if (ReadLocalValue(property) == DependencyProperty.UnsetValue)
+        {
+            SetCurrentValue(property, value);
         }
     }
 }

@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Gallery.Pages.Layout"
@@ -34,8 +33,8 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_descriptions_inline}}" />
                     <vio:Descriptions
+                        HorizontalAlignment="Stretch"
                         MaxWidth="400"
-                        HorizontalAlignment="Left"
                         Margin="0,8,0,0"
                         LabelPosition="Left"
                         ItemAlignment="Center">
@@ -43,7 +42,15 @@
                         <vio:DescriptionsItem Label="7-day Retention" Content="98%" />
                         <vio:DescriptionsItem Label="Security Level" Content="III" />
                         <vio:DescriptionsItem Label="Category">
-                            <ui:Badge Content="E-Commerce" />
+                            <Border
+                                Padding="8,2"
+                                HorizontalAlignment="Left"
+                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBlock FontSize="12" Text="E-Commerce" />
+                            </Border>
                         </vio:DescriptionsItem>
                         <vio:DescriptionsItem Label="Verification" Content="Unverified" />
                     </vio:Descriptions>
@@ -64,8 +71,8 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_descriptions_binding}}" />
                     <vio:Descriptions
+                        HorizontalAlignment="Stretch"
                         MaxWidth="400"
-                        HorizontalAlignment="Left"
                         Margin="0,8,0,0"
                         ItemsSource="{Binding DescriptionItems, RelativeSource={RelativeSource AncestorType=local:DescriptionsPage}}"
                         LabelMemberPath="Label"
@@ -151,6 +158,7 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_descriptions_column_wrap}}" />
                     <vio:Descriptions
+                        HorizontalAlignment="Stretch"
                         Margin="0,8,0,0"
                         ItemsSource="{Binding DescriptionItems2, RelativeSource={RelativeSource AncestorType=local:DescriptionsPage}}"
                         LabelMemberPath="Label"
