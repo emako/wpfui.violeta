@@ -6471,7 +6471,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>拉伸子項</value>
   </data>
   <data name="Sample_flex18" xml:space="preserve">
-    <value>子項設定 MinWidth，並啟用 Wrap 與 StretchItems。放不下時自動換行；同一行有剩餘空間時等分拉寬鋪滿。拖動視窗寬度可觀察兩種效果。</value>
+    <value>子項設定 MinWidth，並啟用 Wrap 與 StretchItems。放不下時自動換行；滿行有剩餘空間時等分拉寬鋪滿，末行保持與滿行相同的項寬。拖動視窗寬度可觀察兩種效果。</value>
   </data>
   <data name="Sample_flex_item01" xml:space="preserve">
     <value>項目 1</value>
@@ -6496,5 +6496,74 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_flex_item08" xml:space="preserve">
     <value>項目 8</value>
+  </data>
+  <data name="Gallery_Page_DragDrop" xml:space="preserve">
+    <value>DragDrop</value>
+  </data>
+  <data name="Sample_DragDrop_Overview" xml:space="preserve">
+    <value>附加屬性拖曳</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxBoundTitle" xml:space="preserve">
+    <value>ListBox（資料繫結）</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxBoundDesc" xml:space="preserve">
+    <value>兩個繫結到相同類型集合的 ListBox。在它們之間拖曳以移動或重新排序項目。</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxUnboundTitle" xml:space="preserve">
+    <value>ListBox（未繫結）</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxUnboundDesc" xml:space="preserve">
+    <value>未繫結的 ListBoxItem。將左側 ListBox 中的項目拖到右側 ListBox。</value>
+  </data>
+  <data name="Sample_DragDrop_ListViewBoundTitle" xml:space="preserve">
+    <value>ListView（資料繫結）</value>
+  </data>
+  <data name="Sample_DragDrop_ListViewBoundDesc" xml:space="preserve">
+    <value>兩個繫結到相同類型集合的 ListView。在它們之間拖曳項目。</value>
+  </data>
+  <data name="Sample_DragDrop_TreeViewBoundTitle" xml:space="preserve">
+    <value>TreeView（資料繫結）</value>
+  </data>
+  <data name="Sample_DragDrop_TreeViewBoundDesc" xml:space="preserve">
+    <value>兩個繫結階層資料的 TreeView。在樹之間拖曳節點或在樹內重新排序。</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridBoundTitle" xml:space="preserve">
+    <value>DataGrid（資料繫結）</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridBoundDesc" xml:space="preserve">
+    <value>兩個繫結行集合的 DataGrid。在網格之間拖曳行。</value>
+  </data>
+  <data name="Sample_DragDrop_Item" xml:space="preserve">
+    <value>項目 {0}</value>
+  </data>
+  <data name="Sample_DragDrop_UnboundItem" xml:space="preserve">
+    <value>未繫結項目 {0}</value>
+  </data>
+  <data name="Sample_DragDrop_TreeRoot" xml:space="preserve">
+    <value>根節點 {0}</value>
+  </data>
+  <data name="Sample_DragDrop_TreeChild" xml:space="preserve">
+    <value>子節點 {0}</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridName" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridCity" xml:space="preserve">
+    <value>城市</value>
+  </data>
+  <data name="Sample_DragDrop_Person" xml:space="preserve">
+    <value>人員 {0}</value>
+  </data>
+  <data name="Sample_DragDrop_CityA" xml:space="preserve">
+    <value>西雅圖</value>
+  </data>
+  <data name="Sample_DragDrop_CityB" xml:space="preserve">
+    <value>波特蘭</value>
+  </data>
+  <data name="Sample_DragDrop_CityC" xml:space="preserve">
+    <value>舊金山</value>
+  </data>
+  <data name="Sample_DragDrop_CityD" xml:space="preserve">
+    <value>洛杉磯</value>
   </data>
 </root>

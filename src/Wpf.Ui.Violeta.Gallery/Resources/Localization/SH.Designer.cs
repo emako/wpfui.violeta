@@ -1113,6 +1113,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DragDrop.
+        /// </summary>
+        internal static string Gallery_Page_DragDrop {
+            get {
+                return ResourceManager.GetString("Gallery_Page_DragDrop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DatePicker.
         /// </summary>
         internal static string Gallery_Page_DatePicker {
@@ -19387,6 +19396,204 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_ToolTip_CalloutForceDarkDesc {
             get {
                 return ResourceManager.GetString("Sample_ToolTip_CalloutForceDarkDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seattle.
+        /// </summary>
+        internal static string Sample_DragDrop_CityA {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_CityA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portland.
+        /// </summary>
+        internal static string Sample_DragDrop_CityB {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_CityB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to San Francisco.
+        /// </summary>
+        internal static string Sample_DragDrop_CityC {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_CityC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Los Angeles.
+        /// </summary>
+        internal static string Sample_DragDrop_CityD {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_CityD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        internal static string Sample_DragDrop_DataGridCity {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_DataGridCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two DataGrids bound to row collections. Drag rows between grids..
+        /// </summary>
+        internal static string Sample_DragDrop_DataGridBoundDesc {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_DataGridBoundDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataGrid (data-bound).
+        /// </summary>
+        internal static string Sample_DragDrop_DataGridBoundTitle {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_DataGridBoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Sample_DragDrop_DataGridName {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_DataGridName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item {0}.
+        /// </summary>
+        internal static string Sample_DragDrop_Item {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two ListBoxes bound to collections of the same type. Drag items between them to move or reorder..
+        /// </summary>
+        internal static string Sample_DragDrop_ListBoxBoundDesc {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListBoxBoundDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ListBox (data-bound).
+        /// </summary>
+        internal static string Sample_DragDrop_ListBoxBoundTitle {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListBoxBoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unbound ListBoxItems. Drag items from the left ListBox to the right ListBox..
+        /// </summary>
+        internal static string Sample_DragDrop_ListBoxUnboundDesc {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListBoxUnboundDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ListBox (unbound).
+        /// </summary>
+        internal static string Sample_DragDrop_ListBoxUnboundTitle {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListBoxUnboundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two ListViews bound to collections of the same type. Drag items between them..
+        /// </summary>
+        internal static string Sample_DragDrop_ListViewBoundDesc {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListViewBoundDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ListView (data-bound).
+        /// </summary>
+        internal static string Sample_DragDrop_ListViewBoundTitle {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_ListViewBoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attached drag and drop.
+        /// </summary>
+        internal static string Sample_DragDrop_Overview {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person {0}.
+        /// </summary>
+        internal static string Sample_DragDrop_Person {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_Person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Child {0}.
+        /// </summary>
+        internal static string Sample_DragDrop_TreeChild {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_TreeChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two TreeViews with hierarchical data. Drag nodes between trees or reorder within a tree..
+        /// </summary>
+        internal static string Sample_DragDrop_TreeViewBoundDesc {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_TreeViewBoundDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TreeView (data-bound).
+        /// </summary>
+        internal static string Sample_DragDrop_TreeViewBoundTitle {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_TreeViewBoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Root {0}.
+        /// </summary>
+        internal static string Sample_DragDrop_TreeRoot {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_TreeRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unbound item {0}.
+        /// </summary>
+        internal static string Sample_DragDrop_UnboundItem {
+            get {
+                return ResourceManager.GetString("Sample_DragDrop_UnboundItem", resourceCulture);
             }
         }
     }

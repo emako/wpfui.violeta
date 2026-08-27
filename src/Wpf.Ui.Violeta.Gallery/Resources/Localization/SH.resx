@@ -6471,7 +6471,7 @@ Click OK to continue.</value>
     <value>Stretch items</value>
   </data>
   <data name="Sample_flex18" xml:space="preserve">
-    <value>Set MinWidth on children with Wrap and StretchItems. Items wrap when they no longer fit; when a row has extra space, children expand equally to fill the line. Resize the window to see both behaviors.</value>
+    <value>Set MinWidth on children with Wrap and StretchItems. Items wrap when they no longer fit; full rows expand equally to fill extra space, while the last partial row keeps the same item width as full rows. Resize the window to see both behaviors.</value>
   </data>
   <data name="Sample_flex_item01" xml:space="preserve">
     <value>Item 1</value>
@@ -6496,5 +6496,74 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_flex_item08" xml:space="preserve">
     <value>Item 8</value>
+  </data>
+  <data name="Gallery_Page_DragDrop" xml:space="preserve">
+    <value>DragDrop</value>
+  </data>
+  <data name="Sample_DragDrop_Overview" xml:space="preserve">
+    <value>Attached drag and drop</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxBoundTitle" xml:space="preserve">
+    <value>ListBox (data-bound)</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxBoundDesc" xml:space="preserve">
+    <value>Two ListBoxes bound to collections of the same type. Drag items between them to move or reorder.</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxUnboundTitle" xml:space="preserve">
+    <value>ListBox (unbound)</value>
+  </data>
+  <data name="Sample_DragDrop_ListBoxUnboundDesc" xml:space="preserve">
+    <value>Unbound ListBoxItems. Drag items from the left ListBox to the right ListBox.</value>
+  </data>
+  <data name="Sample_DragDrop_ListViewBoundTitle" xml:space="preserve">
+    <value>ListView (data-bound)</value>
+  </data>
+  <data name="Sample_DragDrop_ListViewBoundDesc" xml:space="preserve">
+    <value>Two ListViews bound to collections of the same type. Drag items between them.</value>
+  </data>
+  <data name="Sample_DragDrop_TreeViewBoundTitle" xml:space="preserve">
+    <value>TreeView (data-bound)</value>
+  </data>
+  <data name="Sample_DragDrop_TreeViewBoundDesc" xml:space="preserve">
+    <value>Two TreeViews with hierarchical data. Drag nodes between trees or reorder within a tree.</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridBoundTitle" xml:space="preserve">
+    <value>DataGrid (data-bound)</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridBoundDesc" xml:space="preserve">
+    <value>Two DataGrids bound to row collections. Drag rows between grids.</value>
+  </data>
+  <data name="Sample_DragDrop_Item" xml:space="preserve">
+    <value>Item {0}</value>
+  </data>
+  <data name="Sample_DragDrop_UnboundItem" xml:space="preserve">
+    <value>Unbound item {0}</value>
+  </data>
+  <data name="Sample_DragDrop_TreeRoot" xml:space="preserve">
+    <value>Root {0}</value>
+  </data>
+  <data name="Sample_DragDrop_TreeChild" xml:space="preserve">
+    <value>Child {0}</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Sample_DragDrop_DataGridCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Sample_DragDrop_Person" xml:space="preserve">
+    <value>Person {0}</value>
+  </data>
+  <data name="Sample_DragDrop_CityA" xml:space="preserve">
+    <value>Seattle</value>
+  </data>
+  <data name="Sample_DragDrop_CityB" xml:space="preserve">
+    <value>Portland</value>
+  </data>
+  <data name="Sample_DragDrop_CityC" xml:space="preserve">
+    <value>San Francisco</value>
+  </data>
+  <data name="Sample_DragDrop_CityD" xml:space="preserve">
+    <value>Los Angeles</value>
   </data>
 </root>

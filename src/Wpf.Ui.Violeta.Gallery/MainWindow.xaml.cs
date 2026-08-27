@@ -168,6 +168,7 @@ public partial class MainWindow : ShellWindow
         ["collections/card-carousel"] = static () => new CardCarouselPage(),
         ["collections/pagination"] = static () => new PaginationPage(),
         ["collections/timeline"] = static () => new TimelinePage(),
+        ["collections/drag-drop"] = static () => new DragDropPage(),
 
         ["navigation"] = static () => new NavigationPage(),
         ["navigation/navigation-view"] = static () => new NavigationViewPage(),

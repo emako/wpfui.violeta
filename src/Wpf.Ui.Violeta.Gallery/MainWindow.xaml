@@ -313,6 +313,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardCarousel}}" Tag="collections/card-carousel" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Pagination}}" Tag="collections/pagination" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Timeline}}" Tag="collections/timeline" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DragDrop}}" Tag="collections/drag-drop" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
