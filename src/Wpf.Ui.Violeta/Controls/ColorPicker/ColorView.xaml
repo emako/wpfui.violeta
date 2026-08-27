@@ -41,7 +41,9 @@
     <sys:Double x:Key="ColorViewNumericUpDownWidth">88</sys:Double>
     <sys:Double x:Key="ColorViewNumericUpDownMinHeight">32</sys:Double>
     <Thickness x:Key="ColorViewNumericUpDownPadding">8,0,8,0</Thickness>
-    <Thickness x:Key="ColorViewNumericUpDownMargin">0,6,12,6</Thickness>
+    <Thickness x:Key="ColorViewNumericUpDownMargin">0,0,12,0</Thickness>
+    <Thickness x:Key="ColorViewComponentRowMargin">0,0,12,8</Thickness>
+    <Thickness x:Key="ColorViewComponentSliderRowMargin">0,0,0,8</Thickness>
     <sys:Double x:Key="ColorSliderWidth">12</sys:Double>
     <CornerRadius x:Key="ColorSliderCornerRadius">4</CornerRadius>
     <CornerRadius x:Key="ColorSliderThumbCornerRadius">999</CornerRadius>
@@ -272,51 +274,48 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="12" />
-                                        <RowDefinition Height="*" MinHeight="44" />
-                                        <RowDefinition Height="*" MinHeight="44" />
-                                        <RowDefinition Height="*" MinHeight="44" />
-                                        <RowDefinition Height="*" MinHeight="44" />
-                                        <RowDefinition Height="8" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <Grid
+                                    <ComboBox
+                                        x:Name="ColorModelComboBox"
                                         Grid.Row="0"
                                         Grid.Column="0"
-                                        Grid.ColumnSpan="2">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="12" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <ComboBox
-                                            x:Name="ColorModelComboBox"
-                                            VerticalAlignment="Center"
-                                            SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                            SelectedValuePath="Tag"
-                                            Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                            <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
-                                            <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
-                                        </ComboBox>
-                                        <ui:TextBox
-                                            x:Name="PART_HexTextBox"
-                                            Grid.Column="2"
-                                            MaxLength="8"
-                                            ClearButtonEnabled="True"
-                                            Style="{DynamicResource PrefixTextBoxStyle}"
-                                            VerticalContentAlignment="Center"
-                                            Visibility="{Binding IsHexInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                            local:InputAssist.Prefix="#" />
-                                    </Grid>
+                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                        VerticalAlignment="Center"
+                                        SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                        SelectedValuePath="Tag"
+                                        Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
+                                        <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
+                                    </ComboBox>
+                                    <ui:TextBox
+                                        x:Name="PART_HexTextBox"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                        VerticalAlignment="Center"
+                                        MaxLength="8"
+                                        ClearButtonEnabled="True"
+                                        Style="{DynamicResource PrefixTextBoxStyle}"
+                                        VerticalContentAlignment="Center"
+                                        Visibility="{Binding IsHexInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                        local:InputAssist.Prefix="#" />
 
                                     <local:NumericDoubleUpDown
                                         x:Name="Component1NumericUpDown"
                                         Grid.Row="2"
                                         Grid.Column="0"
                                         Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        Height="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
                                         Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                        VerticalAlignment="Center"
                                         Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
                                         InnerLeftContent="R"
                                         Maximum="{Binding Maximum, ElementName=Component1Slider}"
@@ -327,6 +326,7 @@
                                         x:Name="Component1Slider"
                                         Grid.Row="2"
                                         Grid.Column="1"
+                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
                                         Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
@@ -344,10 +344,10 @@
                                         Grid.Row="3"
                                         Grid.Column="0"
                                         Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        Height="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
                                         Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                        VerticalAlignment="Center"
                                         Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
                                         InnerLeftContent="G"
                                         Maximum="{Binding Maximum, ElementName=Component2Slider}"
@@ -358,6 +358,7 @@
                                         x:Name="Component2Slider"
                                         Grid.Row="3"
                                         Grid.Column="1"
+                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
                                         Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
@@ -375,10 +376,10 @@
                                         Grid.Row="4"
                                         Grid.Column="0"
                                         Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        Height="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
                                         Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                        VerticalAlignment="Center"
                                         Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
                                         InnerLeftContent="B"
                                         Maximum="{Binding Maximum, ElementName=Component3Slider}"
@@ -389,6 +390,7 @@
                                         x:Name="Component3Slider"
                                         Grid.Row="4"
                                         Grid.Column="1"
+                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
                                         Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
@@ -406,10 +408,10 @@
                                         Grid.Row="5"
                                         Grid.Column="0"
                                         Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        Height="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         Margin="{DynamicResource ColorViewNumericUpDownMargin}"
                                         Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                        VerticalAlignment="Center"
                                         Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
                                         InnerLeftContent="A"
                                         IsEnabled="{TemplateBinding IsAlphaEnabled}"
