@@ -24,7 +24,7 @@
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <PackageReadmeFile>README.md</PackageReadmeFile>
       <PackageIcon>wpfui.png</PackageIcon>
-      <NoWarn>1701;1702;8602;8604;8764;8600;0649;</NoWarn>
+      <NoWarn>$(NoWarn);CS1701;CS1702;CS8602;CS8604;CS8764;CS8600;CS0649;</NoWarn>
   </PropertyGroup>
 
     <ItemGroup>
@@ -48,7 +48,7 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="3.0.5" />
-        <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
+        <PackageReference Include="AvalonEdit" Version="6.3.0.120" />
     </ItemGroup>
 
 </Project>
