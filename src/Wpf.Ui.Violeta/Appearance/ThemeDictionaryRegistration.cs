@@ -73,10 +73,7 @@ public sealed class ThemeDictionaryRegistration
             throw new ArgumentException("Value cannot be null or whitespace.", nameof(searchNamespace));
         }
 
-        if (themesBaseUri is null)
-        {
-            throw new ArgumentNullException(nameof(themesBaseUri));
-        }
+        _ = themesBaseUri ?? throw new ArgumentNullException(nameof(themesBaseUri));
 
         return new ThemeDictionaryRegistration
         {
@@ -105,15 +102,9 @@ public sealed class ThemeDictionaryRegistration
             throw new ArgumentException("Value cannot be null or whitespace.", nameof(searchNamespace));
         }
 
-        if (lightThemeUri is null)
-        {
-            throw new ArgumentNullException(nameof(lightThemeUri));
-        }
+        _ = lightThemeUri ?? throw new ArgumentNullException(nameof(lightThemeUri));
 
-        if (darkThemeUri is null)
-        {
-            throw new ArgumentNullException(nameof(darkThemeUri));
-        }
+        _ = darkThemeUri ?? throw new ArgumentNullException(nameof(darkThemeUri));
 
         return new ThemeDictionaryRegistration
         {
@@ -146,10 +137,12 @@ public sealed class ThemeDictionaryRegistration
         string fileName = ResolveThemeFileName(theme, systemTheme);
         string basePath = ThemesBaseUri.ToString();
 
+#pragma warning disable CA1865 // Use char overload
         if (!basePath.EndsWith("/", StringComparison.Ordinal))
         {
             basePath += '/';
         }
+#pragma warning restore CA1865 // Use char overload
 
         return new Uri(basePath + fileName + ".xaml", UriKind.Absolute);
     }
