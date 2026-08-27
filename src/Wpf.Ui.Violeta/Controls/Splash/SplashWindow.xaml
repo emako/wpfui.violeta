@@ -113,7 +113,7 @@
     <Grid>
         <Viewbox
             Name="viewbox"
-            Height="{x:Static local:SplashConfig.ImageHeight}"
+            Height="{Binding ImageHeight}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             RenderTransformOrigin="0.5,0.5">
@@ -126,7 +126,7 @@
                 </TransformGroup>
             </UIElement.RenderTransform>
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <vui:Border ClipToBounds="True" CornerRadius="{x:Static local:SplashConfig.CornerRadius}">
+                <vui:Border ClipToBounds="True" CornerRadius="{Binding CornerRadius}">
                     <Image Source="{Binding ImageUri}" />
                 </vui:Border>
             </Grid>

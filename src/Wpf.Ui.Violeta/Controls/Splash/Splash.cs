@@ -23,20 +23,22 @@ public static class Splash
         }
     }
 
-    public static void ShowAsync(string imageUriString, double opacity = 1d, Action<SplashWindow>? actived = null, Action? completed = null)
+    public static void ShowAsync(string imageUriString, double opacity = 1d, Action<SplashWindow>? actived = null, Action? completed = null, SplashOption? option = null)
     {
-        ShowAsync(new Uri(imageUriString), opacity, actived, completed);
+        ShowAsync(new Uri(imageUriString), opacity, actived, completed, option);
     }
 
-    public static void ShowAsync(Uri imageUri, double opacity = 1d, Action<SplashWindow>? actived = null, Action? completed = null)
+    public static void ShowAsync(Uri imageUri, double opacity = 1d, Action<SplashWindow>? actived = null, Action? completed = null, SplashOption? option = null)
     {
+        option ??= new SplashOption { ImageHeight = 300, CornerRadius = new(4d) };
+
         Current = new(sta =>
         {
             if (string.IsNullOrWhiteSpace(sta.Value.Name))
             {
                 sta.Value.Name = "Splash Thread";
             }
-            sta.Result = new SplashWindow(imageUri)
+            sta.Result = new SplashWindow(imageUri, option)
             {
                 Opacity = opacity,
             };

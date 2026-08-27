@@ -13,6 +13,12 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
 
     public Uri ImageUri { get; }
 
+    public SplashOption Option { get; }
+
+    public double ImageHeight => Option.ImageHeight;
+
+    public CornerRadius CornerRadius => Option.CornerRadius;
+
     public object? Hint
     {
         get;
@@ -23,10 +29,11 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
 
     public DateTime TimeOfCtor = DateTime.Now;
 
-    public SplashWindow(Uri imageUri)
+    public SplashWindow(Uri imageUri, SplashOption option)
     {
         DataContext = this;
         ImageUri = imageUri;
+        Option = option;
         InitializeComponent();
 
         MouseLeftButtonDown += (sender, _) =>
