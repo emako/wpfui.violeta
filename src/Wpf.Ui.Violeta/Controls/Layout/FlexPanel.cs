@@ -426,7 +426,8 @@ public class FlexPanel : Panel
     }
 
     /// <summary>
-    /// Gets or sets whether children without <see cref="Grow"/> expand to fill remaining space on each line.
+    /// Gets or sets whether children without <see cref="Grow"/> expand to fill remaining space on each full line.
+    /// When wrapping is enabled, partial last lines keep the stretched size from full lines instead of expanding further.
     /// </summary>
     public bool StretchItems
     {
@@ -479,6 +480,9 @@ public class FlexPanel : Panel
         => isHorizontal ? new Size(main, cross) : new Size(cross, main);
 
     private double GetChildBasis(UIElement child, bool isHorizontal)
+        => GetChildBasisStatic(child, isHorizontal);
+
+    private static double GetChildBasisStatic(UIElement child, bool isHorizontal)
     {
         var basis = GetBasis(child);
         if (!double.IsNaN(basis))
@@ -648,17 +652,77 @@ public class FlexPanel : Panel
         }
 
         double crossOffset = 0;
+        double? referenceStretchedMainSize = null;
 
-        foreach (var line in lines)
+        for (var lineIndex = 0; lineIndex < lines.Count; lineIndex++)
         {
-            ArrangeLine(line, crossOffset, availableMain, isHorizontal, isReversed, mainGap, justifyContent, alignItems);
+            var line = lines[lineIndex];
+            var isFullLine = IsFullLine(line, lineIndex, lines, availableMain, mainGap, isHorizontal);
+            var stretchedMainSize = ArrangeLine(
+                line,
+                crossOffset,
+                availableMain,
+                isHorizontal,
+                isReversed,
+                mainGap,
+                justifyContent,
+                alignItems,
+                isFullLine,
+                referenceStretchedMainSize);
+
+            if (isFullLine && stretchedMainSize.HasValue)
+            {
+                referenceStretchedMainSize ??= stretchedMainSize;
+            }
+
             crossOffset += line.CrossSize + crossGap;
         }
 
         return finalSize;
     }
 
-    private void ArrangeLine(
+    private static bool IsFullLine(
+        FlexLine line,
+        int lineIndex,
+        IReadOnlyList<FlexLine> lines,
+        double availableMain,
+        double mainGap,
+        bool isHorizontal)
+    {
+        if (lines.Count == 1)
+        {
+            return true;
+        }
+
+        if (lineIndex < lines.Count - 1)
+        {
+            return true;
+        }
+
+        if (line.Children.Count == 0 || double.IsPositiveInfinity(availableMain))
+        {
+            return false;
+        }
+
+        var minBasis = double.MaxValue;
+        foreach (var flexLine in lines)
+        {
+            foreach (var child in flexLine.Children)
+            {
+                minBasis = Math.Min(minBasis, GetChildBasisStatic(child, isHorizontal));
+            }
+        }
+
+        if (minBasis == double.MaxValue)
+        {
+            return false;
+        }
+
+        var gapToAdd = line.Children.Count > 0 ? mainGap : 0;
+        return line.TotalBasis + gapToAdd + minBasis > availableMain;
+    }
+
+    private double? ArrangeLine(
         FlexLine line,
         double crossOffset,
         double availableMain,
@@ -666,13 +730,15 @@ public class FlexPanel : Panel
         bool isReversed,
         double mainGap,
         FlexJustify justifyContent,
-        FlexAlign alignItems)
+        FlexAlign alignItems,
+        bool isFullLine,
+        double? referenceStretchedMainSize)
     {
         var lineChildren = line.Children;
         var childCount = lineChildren.Count;
         if (childCount == 0)
         {
-            return;
+            return null;
         }
 
         double contentMain = 0;
@@ -687,8 +753,9 @@ public class FlexPanel : Panel
 
         var freeSpace = availableMain - contentMain;
         var childSizes = new double[childCount];
+        double? stretchedMainSize = null;
 
-        if (freeSpace > 0 && line.TotalGrow > 0)
+        if (freeSpace > 0 && line.TotalGrow > 0 && isFullLine)
         {
             for (var i = 0; i < childCount; i++)
             {
@@ -696,6 +763,21 @@ public class FlexPanel : Panel
                 var basis = GetChildBasis(child, isHorizontal);
                 var grow = GetEffectiveGrow(child);
                 childSizes[i] = basis + ((grow / line.TotalGrow) * freeSpace);
+
+                if (grow > 0)
+                {
+                    stretchedMainSize = childSizes[i];
+                }
+            }
+        }
+        else if (!isFullLine && referenceStretchedMainSize.HasValue)
+        {
+            for (var i = 0; i < childCount; i++)
+            {
+                var child = lineChildren[i];
+                childSizes[i] = GetEffectiveGrow(child) > 0
+                    ? referenceStretchedMainSize.Value
+                    : GetChildBasis(child, isHorizontal);
             }
         }
         else if (freeSpace < 0 && line.TotalShrink > 0)
@@ -766,6 +848,8 @@ public class FlexPanel : Panel
 
             mainOffset += mainSize + itemSpacing;
         }
+
+        return stretchedMainSize;
     }
 
     private static (double StartOffset, double ItemSpacing) CalculateJustifyOffsets(
