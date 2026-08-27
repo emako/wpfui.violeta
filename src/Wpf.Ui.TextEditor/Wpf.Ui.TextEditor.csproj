@@ -1,31 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-      <PackageId>WPF-UI.TextEditor</PackageId>
-      <Product>WPF-UI.TextEditor</Product>
-      <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
-      <UseWPF>true</UseWPF>
-      <UseWinUI>false</UseWinUI>
-      <UseWindowsForms>false</UseWindowsForms>
-      <LangVersion>latest</LangVersion>
-      <Nullable>enable</Nullable>
-      <EnableWindowsTargeting>true</EnableWindowsTargeting>
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-      <AssemblyVersion>4.3.0.11</AssemblyVersion>
-      <FileVersion>4.3.0.11</FileVersion>
-      <Version>$(VersionPrefix)4.3.0.11</Version>
-      <Authors>ema</Authors>
-      <Company>ema</Company>
-      <Description>WPF UI TextEditor is based on WPF UI, and provides the TextBox-like viewer.</Description>
-      <PackageProjectUrl>https://github.com/emako/wpfui.texteditor</PackageProjectUrl>
-      <RepositoryUrl>https://github.com/emako/wpfui.texteditor</RepositoryUrl>
-      <RepositoryType>git</RepositoryType>
-      <PackageTags>WPF-UI .NET WPF TextEditor</PackageTags>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <PackageReadmeFile>README.md</PackageReadmeFile>
-      <PackageIcon>wpfui.png</PackageIcon>
-      <NoWarn>$(NoWarn);CS1701;CS1702;CS8602;CS8604;CS8764;CS8600;CS0649;</NoWarn>
-  </PropertyGroup>
+    <PropertyGroup>
+        <PackageId>WPF-UI.TextEditor</PackageId>
+        <Product>WPF-UI.TextEditor</Product>
+        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <UseWinUI>false</UseWinUI>
+        <UseWindowsForms>false</UseWindowsForms>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <AssemblyVersion>4.3.0.11</AssemblyVersion>
+        <FileVersion>4.3.0.11</FileVersion>
+        <Version>$(VersionPrefix)4.3.0.11</Version>
+        <Authors>ema</Authors>
+        <Company>ema</Company>
+        <Description>WPF UI TextEditor is based on WPF UI, and provides the TextBox-like viewer.</Description>
+        <PackageProjectUrl>https://github.com/emako/wpfui.texteditor</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/emako/wpfui.texteditor</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>WPF-UI .NET WPF TextEditor</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>wpfui.png</PackageIcon>
+        <NoWarn>$(NoWarn);CS1701;CS1702;CS8602;CS8604;CS8764;CS8600;CS0649;</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <TargetFrameworks>net462;net10.0-windows</TargetFrameworks>
+    </PropertyGroup>
 
     <ItemGroup>
         <Resource Include="Resources\Fonts\*.ttf" />
