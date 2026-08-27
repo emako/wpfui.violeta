@@ -1,0 +1,28 @@
+﻿using System.Windows;
+using System.Windows.Controls;
+
+namespace Wpf.Ui.Violeta.Attached.DragDrop.Utilities;
+
+public class RootElementFinder : IRootElementFinder
+{
+    public UIElement FindRoot(DependencyObject visual)
+    {
+        var parentWindow = Window.GetWindow(visual);
+        var rootElement = parentWindow != null ? parentWindow.Content as UIElement : null;
+        if (rootElement == null)
+        {
+            if (Application.Current != null && Application.Current.MainWindow != null)
+            {
+                rootElement = Application.Current.MainWindow.Content as UIElement;
+            }
+            rootElement ??= visual.GetVisualAncestor<Page>() ?? visual.GetVisualAncestor<UserControl>() as UIElement;
+        }
+
+        // i don't want the fu... windows forms reference
+        // if (rootElement == null) {
+        //     var elementHost = m_DragInfo.VisualSource.GetVisualAncestor<ElementHost>();
+        //     rootElement = elementHost != null ? elementHost.Child : null;
+        // }
+        return rootElement;
+    }
+}

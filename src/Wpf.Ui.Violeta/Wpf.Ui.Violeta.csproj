@@ -46,12 +46,14 @@
         <None Remove="Resources\Fonts\*.ttf" />
         <None Remove="Resources\Images\*.png" />
         <None Remove="Resources\Images\*.ico" />
+        <None Remove="Attached\DragDrop\Icons\*.png" />
     </ItemGroup>
 
     <ItemGroup>
         <Resource Include="Resources\Fonts\*.ttf" />
         <Resource Include="Resources\Images\*.png" />
         <Resource Include="Resources\Images\*.ico" />
+        <Resource Include="Attached\DragDrop\Icons\*.png" />
     </ItemGroup>
 
     <!-- Legacy code, keep it for reference. -->
