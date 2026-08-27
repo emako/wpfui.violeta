@@ -47,6 +47,7 @@ internal abstract class AnimatedSymbolBehavior
             AnimatedSymbolKind.ChevronUpDownSmall => new AnimatedSymbolButton.ChevronUpDownSmallBehavior(),
             AnimatedSymbolKind.GlobalNavigationButton => new AnimatedSymbolButton.GlobalNavigationButtonBehavior(),
             AnimatedSymbolKind.CopyToClipboard => new AnimatedSymbolButton.CopyToClipboardBehavior(),
+            AnimatedSymbolKind.Spin => new AnimatedSymbolButton.SpinBehavior(),
             _ => null,
         };
 

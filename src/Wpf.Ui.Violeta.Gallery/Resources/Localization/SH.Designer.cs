@@ -870,6 +870,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BorderBeam.
+        /// </summary>
+        internal static string Gallery_Page_BorderBeam {
+            get {
+                return ResourceManager.GetString("Gallery_Page_BorderBeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BreadcrumbBar.
         /// </summary>
         internal static string Gallery_Page_BreadcrumbBar {
@@ -13873,6 +13882,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Border beam.
+        /// </summary>
+        internal static string Sample_b7e4a1c8d2 {
+            get {
+                return ResourceManager.GetString("Sample_b7e4a1c8d2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group header.
         /// </summary>
         internal static string Sample_b8011fc79e {
@@ -15223,6 +15241,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A gradient highlight travels along the card border, similar to Ant Design 6.4 BorderBeam..
+        /// </summary>
+        internal static string Sample_c8f5b2d9e3 {
+            get {
+                return ResourceManager.GetString("Sample_c8f5b2d9e3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 0.7 ≤ W/H &amp;lt; 1.3.
         /// </summary>
         internal static string Sample_c917aaa403 {
@@ -16267,6 +16294,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spin.
+        /// </summary>
+        internal static string Sample_b4e7f2a901 {
+            get {
+                return ResourceManager.GetString("Sample_b4e7f2a901", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Kind to Spin and IsLoading to true to show a spinning arc in the symbol slot (same visual as LoadingButton)..
+        /// </summary>
+        internal static string Sample_b4e7f2a902 {
+            get {
+                return ResourceManager.GetString("Sample_b4e7f2a902", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Embedded browser.
         /// </summary>
         internal static string Sample_d85118659e {
@@ -16380,6 +16425,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_d9edb0fd16 {
             get {
                 return ResourceManager.GetString("Sample_d9edb0fd16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default accent colors.
+        /// </summary>
+        internal static string Sample_d9g6c3e0f4 {
+            get {
+                return ResourceManager.GetString("Sample_d9g6c3e0f4", resourceCulture);
             }
         }
         
@@ -16938,6 +16992,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_e0a67c8c63 {
             get {
                 return ResourceManager.GetString("Sample_e0a67c8c63", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dual beams.
+        /// </summary>
+        internal static string Sample_e0h7d4f1g5 {
+            get {
+                return ResourceManager.GetString("Sample_e0h7d4f1g5", resourceCulture);
             }
         }
         
@@ -18076,6 +18139,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom gradient colors with two beams and a thicker line..
+        /// </summary>
+        internal static string Sample_f1i8e5g2h6 {
+            get {
+                return ResourceManager.GetString("Sample_f1i8e5g2h6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Extended.
         /// </summary>
         internal static string Sample_f23578fcd2 {
@@ -19008,6 +19080,42 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_ffecc9f0be {
             get {
                 return ResourceManager.GetString("Sample_ffecc9f0be", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom colors, Count=2.
+        /// </summary>
+        internal static string Sample_g2j9f6h3i7 {
+            get {
+                return ResourceManager.GetString("Sample_g2j9f6h3i7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controlled animation.
+        /// </summary>
+        internal static string Sample_h3k0g7i4j8 {
+            get {
+                return ResourceManager.GetString("Sample_h3k0g7i4j8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle IsActive to pause or resume the border beam animation..
+        /// </summary>
+        internal static string Sample_i4l1h8j5k9 {
+            get {
+                return ResourceManager.GetString("Sample_i4l1h8j5k9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsActive.
+        /// </summary>
+        internal static string Sample_j5m2i9k6l0 {
+            get {
+                return ResourceManager.GetString("Sample_j5m2i9k6l0", resourceCulture);
             }
         }
         

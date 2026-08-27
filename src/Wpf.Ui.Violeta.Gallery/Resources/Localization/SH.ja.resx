@@ -3815,6 +3815,36 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_CardProgress" xml:space="preserve">
     <value>CardProgress</value>
   </data>
+  <data name="Gallery_Page_BorderBeam" xml:space="preserve">
+    <value>BorderBeam</value>
+  </data>
+  <data name="Sample_b7e4a1c8d2" xml:space="preserve">
+    <value>ボーダービーム</value>
+  </data>
+  <data name="Sample_c8f5b2d9e3" xml:space="preserve">
+    <value>グラデーションのハイライトがカードの枠線に沿って移動します。Ant Design 6.4 の BorderBeam に似ています。</value>
+  </data>
+  <data name="Sample_d9g6c3e0f4" xml:space="preserve">
+    <value>既定のアクセント色</value>
+  </data>
+  <data name="Sample_e0h7d4f1g5" xml:space="preserve">
+    <value>デュアルビーム</value>
+  </data>
+  <data name="Sample_f1i8e5g2h6" xml:space="preserve">
+    <value>カスタムグラデーション色、2 本のビーム、太いライン。</value>
+  </data>
+  <data name="Sample_g2j9f6h3i7" xml:space="preserve">
+    <value>カスタム色、Count=2</value>
+  </data>
+  <data name="Sample_h3k0g7i4j8" xml:space="preserve">
+    <value>制御されたアニメーション</value>
+  </data>
+  <data name="Sample_i4l1h8j5k9" xml:space="preserve">
+    <value>IsActive を切り替えてボーダービームのアニメーションを一時停止または再開します。</value>
+  </data>
+  <data name="Sample_j5m2i9k6l0" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
   <data name="Gallery_Page_TilePressFeedback" xml:space="preserve">
     <value>Tile</value>
   </data>
@@ -4000,6 +4030,12 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_d80641522c" xml:space="preserve">
     <value>WinUI Gallery CopyToClipboardSuccessAnimation — コピー → Accept（CopyButton）。</value>
+  </data>
+  <data name="Sample_b4e7f2a901" xml:space="preserve">
+    <value>Spin</value>
+  </data>
+  <data name="Sample_b4e7f2a902" xml:space="preserve">
+    <value>Kind を Spin、IsLoading を true にすると、シンボル位置に回転アークが表示されます（LoadingButton と同じ見た目）。</value>
   </data>
   <data name="Sample_14edd6a459" xml:space="preserve">
     <value>標準ボタン</value>

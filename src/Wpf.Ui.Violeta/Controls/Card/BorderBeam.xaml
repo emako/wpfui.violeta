@@ -1,0 +1,78 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Style x:Key="DefaultBorderBeamStyle" TargetType="{x:Type local:BorderBeam}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource CardBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource CardForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource CardBorderThemeThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource CardPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="BeamColor" Value="{DynamicResource SystemAccentColorPrimary}" />
+        <Setter Property="BeamHighlightColor" Value="{DynamicResource SystemAccentColorSecondary}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:BorderBeam}">
+                    <Grid ClipToBounds="False" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Border
+                            x:Name="ContentBorder"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+
+                        <local:BorderBeamIndicator
+                            x:Name="PART_BeamIndicator"
+                            BeamColor="{TemplateBinding BeamColor}"
+                            BeamHighlightColor="{TemplateBinding BeamHighlightColor}"
+                            BeamSize="{TemplateBinding BeamSize}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Count="{TemplateBinding Count}"
+                            Duration="{TemplateBinding Duration}"
+                            HostBorderThickness="{TemplateBinding BorderThickness}"
+                            IsActive="{TemplateBinding IsActive}"
+                            LineWidth="{TemplateBinding LineWidth}"
+                            Outset="{TemplateBinding Outset}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource CardBackgroundDisabled}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource CardBorderBrushDisabled}" />
+                            <Setter TargetName="PART_BeamIndicator" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultBorderBeamStyle}" TargetType="{x:Type local:BorderBeam}" />
+
+    <Style
+        x:Key="SecondaryBorderBeamStyle"
+        BasedOn="{StaticResource DefaultBorderBeamStyle}"
+        TargetType="{x:Type local:BorderBeam}">
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CardStrokeColorDefaultBrush}" />
+    </Style>
+
+</ResourceDictionary>

@@ -46,4 +46,10 @@ public enum AnimatedSymbolKind
     /// (<see cref="CopyButton"/>).
     /// </summary>
     CopyToClipboard,
+
+    /// <summary>
+    /// Spinning arc indicator in the symbol slot when <see cref="AnimatedSymbolButton.IsLoading"/>
+    /// is <c>true</c> (same 300° arc / 0.8 s rotation as <see cref="LoadingButton"/>).
+    /// </summary>
+    Spin,
 }

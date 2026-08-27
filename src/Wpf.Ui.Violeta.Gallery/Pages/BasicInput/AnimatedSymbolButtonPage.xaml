@@ -181,6 +181,106 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b4e7f2a901}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b4e7f2a902}}"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:AnimatedSymbolButton
+                            Margin="0,0,8,0"
+                            IsLoading="True"
+                            Kind="Spin" />
+                        <vio:AnimatedSymbolButton
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
+                            IsLoading="True"
+                            Kind="Spin" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_2d7f6c045a}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_23509bcfde}}"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:AnimatedSymbolButton
+                            Margin="0,0,8,0"
+                            Appearance="Secondary"
+                            Click="SpinButton_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
+                            Kind="Spin" />
+                        <vio:AnimatedSymbolButton
+                            Margin="0,0,8,0"
+                            Appearance="Primary"
+                            Click="SpinButton_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
+                            Kind="Spin" />
+                        <vio:AnimatedSymbolButton
+                            Appearance="Danger"
+                            Click="SpinButton_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_939d5345ad}}"
+                            Kind="Spin" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9f5c797eb}}" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:AnimatedSymbolButton
+                            Margin="0,0,8,0"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d26fbd7e76}}"
+                            IsEnabled="False"
+                            IsLoading="False"
+                            Kind="Spin" />
+                        <vio:AnimatedSymbolButton
+                            Appearance="Primary"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_2a342abec2}}"
+                            IsEnabled="False"
+                            IsLoading="True"
+                            Kind="Spin" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

@@ -343,6 +343,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardControl}}" Tag="layout/card-control" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardAction}}" Tag="layout/card-action" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CardProgress}}" Tag="layout/card-progress" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BorderBeam}}" Tag="layout/border-beam" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TilePressFeedback}}" Tag="layout/tile-press-feedback" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Grid}}" Tag="layout/grid" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AutoGrid}}" Tag="layout/auto-grid" />

@@ -73,7 +73,9 @@ public class DescriptionsItem : LabeledContentControl
             SetCurrentValue(LabelTemplateProperty, descriptions.LabelTemplate);
         }
 
-        if (ReadLocalValue(ContentTemplateProperty) == DependencyProperty.UnsetValue && descriptions.ItemTemplate is not null)
+        if (string.IsNullOrEmpty(descriptions.DisplayMemberPath)
+            && ReadLocalValue(ContentTemplateProperty) == DependencyProperty.UnsetValue
+            && descriptions.ItemTemplate is not null)
         {
             SetCurrentValue(ContentTemplateProperty, descriptions.ItemTemplate);
         }

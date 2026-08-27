@@ -3815,6 +3815,36 @@ Click OK to continue.</value>
   <data name="Gallery_Page_CardProgress" xml:space="preserve">
     <value>CardProgress</value>
   </data>
+  <data name="Gallery_Page_BorderBeam" xml:space="preserve">
+    <value>BorderBeam</value>
+  </data>
+  <data name="Sample_b7e4a1c8d2" xml:space="preserve">
+    <value>Border beam</value>
+  </data>
+  <data name="Sample_c8f5b2d9e3" xml:space="preserve">
+    <value>A gradient highlight travels along the card border, similar to Ant Design 6.4 BorderBeam.</value>
+  </data>
+  <data name="Sample_d9g6c3e0f4" xml:space="preserve">
+    <value>Default accent colors</value>
+  </data>
+  <data name="Sample_e0h7d4f1g5" xml:space="preserve">
+    <value>Dual beams</value>
+  </data>
+  <data name="Sample_f1i8e5g2h6" xml:space="preserve">
+    <value>Custom gradient colors with two beams and a thicker line.</value>
+  </data>
+  <data name="Sample_g2j9f6h3i7" xml:space="preserve">
+    <value>Custom colors, Count=2</value>
+  </data>
+  <data name="Sample_h3k0g7i4j8" xml:space="preserve">
+    <value>Controlled animation</value>
+  </data>
+  <data name="Sample_i4l1h8j5k9" xml:space="preserve">
+    <value>Toggle IsActive to pause or resume the border beam animation.</value>
+  </data>
+  <data name="Sample_j5m2i9k6l0" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
   <data name="Gallery_Page_TilePressFeedback" xml:space="preserve">
     <value>Tile</value>
   </data>
@@ -4000,6 +4030,12 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_d80641522c" xml:space="preserve">
     <value>WinUI Gallery CopyToClipboardSuccessAnimation — copy → Accept (CopyButton).</value>
+  </data>
+  <data name="Sample_b4e7f2a901" xml:space="preserve">
+    <value>Spin</value>
+  </data>
+  <data name="Sample_b4e7f2a902" xml:space="preserve">
+    <value>Set Kind to Spin and IsLoading to true to show a spinning arc in the symbol slot (same visual as LoadingButton).</value>
   </data>
   <data name="Sample_14edd6a459" xml:space="preserve">
     <value>Standard button</value>

@@ -16,6 +16,8 @@ public class Descriptions : ItemsControl
     private const string PartRoot = "PART_Root";
 
     private Panel? _root;
+    private DataTemplate? _displayMemberContentTemplate;
+    private string? _displayMemberContentTemplatePath;
 
     static Descriptions()
     {
@@ -143,20 +145,19 @@ public class Descriptions : ItemsControl
 
     protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
     {
+        if (element is DescriptionsItem descriptionItem)
+        {
+            if (ReferenceEquals(element, item))
+            {
+                descriptionItem.ApplyDescriptionsProperties(this);
+                return;
+            }
+
+            SetupBindings(descriptionItem, item);
+            return;
+        }
+
         base.PrepareContainerForItemOverride(element, item);
-
-        if (element is not DescriptionsItem descriptionItem)
-        {
-            return;
-        }
-
-        if (ReferenceEquals(element, item))
-        {
-            descriptionItem.ApplyDescriptionsProperties(this);
-            return;
-        }
-
-        SetupBindings(descriptionItem, item);
     }
 
     protected override void ClearContainerForItemOverride(DependencyObject element, object item)
@@ -193,22 +194,24 @@ public class Descriptions : ItemsControl
             container.Label = item;
         }
 
-        // DisplayMemberPath auto-generates ItemTemplate on ItemsControl; bind the value property directly instead.
+        // Keep the full item as Content and render DisplayMemberPath through a dedicated template,
+        // matching Ursa's approach. Binding Content directly conflicts with ItemsControl's display-member template.
         if (!string.IsNullOrEmpty(DisplayMemberPath))
         {
-            container.ClearValue(ContentControl.ContentTemplateProperty);
-            BindingOperations.SetBinding(container, ContentControl.ContentProperty, new Binding(DisplayMemberPath));
+            BindingOperations.ClearBinding(container, ContentControl.ContentProperty);
+            container.Content = item;
+            container.ContentTemplate = GetDisplayMemberContentTemplate(DisplayMemberPath);
         }
         else if (ItemTemplate is not null)
         {
-            container.ClearValue(ContentControl.ContentProperty);
+            BindingOperations.ClearBinding(container, ContentControl.ContentProperty);
             container.Content = item;
             container.ContentTemplate = ItemTemplate;
         }
         else
         {
+            BindingOperations.ClearBinding(container, ContentControl.ContentProperty);
             container.ClearValue(ContentControl.ContentTemplateProperty);
-            container.ClearValue(ContentControl.ContentProperty);
             container.Content = item;
         }
     }
@@ -217,8 +220,29 @@ public class Descriptions : ItemsControl
     {
         if (d is Descriptions descriptions)
         {
+            descriptions.ClearValue(ItemTemplateProperty);
+            descriptions._displayMemberContentTemplate = null;
+            descriptions._displayMemberContentTemplatePath = null;
             descriptions.RefreshContainers();
         }
+    }
+
+    private DataTemplate GetDisplayMemberContentTemplate(string memberPath)
+    {
+        if (_displayMemberContentTemplate is not null && _displayMemberContentTemplatePath == memberPath)
+        {
+            return _displayMemberContentTemplate;
+        }
+
+        var template = new DataTemplate();
+        var textBlockFactory = new FrameworkElementFactory(typeof(TextBlock));
+        textBlockFactory.SetBinding(TextBlock.TextProperty, new Binding(memberPath));
+        textBlockFactory.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
+        template.VisualTree = textBlockFactory;
+        template.Seal();
+        _displayMemberContentTemplate = template;
+        _displayMemberContentTemplatePath = memberPath;
+        return template;
     }
 
     private static void OnLabelMemberPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

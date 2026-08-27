@@ -85,6 +85,22 @@ public partial class AnimatedSymbolButton : Wpf.Ui.Controls.Button
         set => SetValue(TextToCopyProperty, value);
     }
 
+    public static readonly DependencyProperty IsLoadingProperty = DependencyProperty.Register(
+        nameof(IsLoading),
+        typeof(bool),
+        typeof(AnimatedSymbolButton),
+        new PropertyMetadata(false));
+
+    /// <summary>
+    /// When <see cref="Kind"/> is <see cref="AnimatedSymbolKind.Spin"/>, shows a spinning arc
+    /// in the symbol slot (same visual as <see cref="LoadingButton"/>).
+    /// </summary>
+    public bool IsLoading
+    {
+        get => (bool)GetValue(IsLoadingProperty);
+        set => SetValue(IsLoadingProperty, value);
+    }
+
     #endregion
 
     #region Primary icon (FontFamily / FontSize / Glyph)
@@ -401,6 +417,7 @@ internal readonly record struct AnimatedSymbolDefaults(
             AnimatedSymbolKind.ChevronUpDownSmall => new("\uE70D", 10, "\uE70D"),
             AnimatedSymbolKind.CopyToClipboard => new("\uE8C8", 16, "\uE73E"),
             AnimatedSymbolKind.Back => new("\uE72B", 16, "\uE72B"),
+            AnimatedSymbolKind.Spin => new(string.Empty, 16, string.Empty),
             _ => new("\uE72B", 16, "\uE72B"),
         };
 }

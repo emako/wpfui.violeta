@@ -167,6 +167,29 @@
                                         </Grid>
                                     </Border>
 
+                                    <!--  Spin kind — 300° arc, same geometry as LoadingButton  -->
+                                    <Grid
+                                        x:Name="PART_Spinner"
+                                        Width="14"
+                                        Height="14"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        RenderTransformOrigin="0.5,0.5"
+                                        Visibility="Collapsed">
+                                        <Grid.RenderTransform>
+                                            <RotateTransform x:Name="PART_SpinnerRotate" Angle="0" />
+                                        </Grid.RenderTransform>
+                                        <Ellipse
+                                            x:Name="PART_SpinnerEllipse"
+                                            StrokeDashArray="15.71 3.14"
+                                            StrokeDashCap="Round"
+                                            StrokeThickness="2">
+                                            <Ellipse.Stroke>
+                                                <Binding Path="Foreground" RelativeSource="{RelativeSource TemplatedParent}" />
+                                            </Ellipse.Stroke>
+                                        </Ellipse>
+                                    </Grid>
+
                                     <TextBlock
                                         x:Name="PART_SuccessGlyph"
                                         HorizontalAlignment="Center"
@@ -232,6 +255,7 @@
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="PART_DefaultGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="PART_SuccessGlyph" Property="Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_SpinnerEllipse" Property="Stroke" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <Trigger Property="IsEnabled" Value="False">
@@ -240,7 +264,40 @@
                             <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                             <Setter TargetName="PART_DefaultGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
                             <Setter TargetName="PART_SuccessGlyph" Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+                            <Setter TargetName="PART_SpinnerEllipse" Property="Stroke" Value="{DynamicResource ButtonForegroundDisabled}" />
                         </Trigger>
+
+                        <!--  Spin kind — show arc spinner and hide glyph while loading  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Kind" Value="Spin" />
+                                <Condition Property="IsLoading" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="PART_Spinner" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_ClipHost" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Kind" Value="Spin" />
+                                <Condition Property="IsLoading" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="SpinnerRotateSB">
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_SpinnerRotate"
+                                            Storyboard.TargetProperty="Angle"
+                                            From="0"
+                                            To="360"
+                                            Duration="0:0:0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="SpinnerRotateSB" />
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
 
                         <Trigger Property="Appearance" Value="Secondary">
                             <Setter TargetName="InsetBorder" Property="BorderThickness" Value="0" />

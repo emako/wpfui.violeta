@@ -3815,6 +3815,36 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_CardProgress" xml:space="preserve">
     <value>CardProgress</value>
   </data>
+  <data name="Gallery_Page_BorderBeam" xml:space="preserve">
+    <value>BorderBeam</value>
+  </data>
+  <data name="Sample_b7e4a1c8d2" xml:space="preserve">
+    <value>邊框光束</value>
+  </data>
+  <data name="Sample_c8f5b2d9e3" xml:space="preserve">
+    <value>漸層色高亮沿卡片邊框持續遊走，類似 Ant Design 6.4 的 BorderBeam 效果。</value>
+  </data>
+  <data name="Sample_d9g6c3e0f4" xml:space="preserve">
+    <value>預設主題色</value>
+  </data>
+  <data name="Sample_e0h7d4f1g5" xml:space="preserve">
+    <value>雙光束</value>
+  </data>
+  <data name="Sample_f1i8e5g2h6" xml:space="preserve">
+    <value>自訂漸層色，雙光束，更粗的線條。</value>
+  </data>
+  <data name="Sample_g2j9f6h3i7" xml:space="preserve">
+    <value>自訂顏色，Count=2</value>
+  </data>
+  <data name="Sample_h3k0g7i4j8" xml:space="preserve">
+    <value>受控動畫</value>
+  </data>
+  <data name="Sample_i4l1h8j5k9" xml:space="preserve">
+    <value>切換 IsActive 可暫停或恢復邊框光束動畫。</value>
+  </data>
+  <data name="Sample_j5m2i9k6l0" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
   <data name="Gallery_Page_TilePressFeedback" xml:space="preserve">
     <value>Tile</value>
   </data>
@@ -4000,6 +4030,12 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_d80641522c" xml:space="preserve">
     <value>WinUI Gallery CopyToClipboardSuccessAnimation — 複製 → Accept（CopyButton）。</value>
+  </data>
+  <data name="Sample_b4e7f2a901" xml:space="preserve">
+    <value>Spin</value>
+  </data>
+  <data name="Sample_b4e7f2a902" xml:space="preserve">
+    <value>將 Kind 設為 Spin 且 IsLoading 為 true 時，在符號位顯示旋轉弧線（與 LoadingButton 相同）。</value>
   </data>
   <data name="Sample_14edd6a459" xml:space="preserve">
     <value>標準按鈕</value>
