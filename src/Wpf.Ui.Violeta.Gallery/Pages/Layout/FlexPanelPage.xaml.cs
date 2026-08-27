@@ -12,6 +12,8 @@ public partial class FlexPanelPage : Wpf.Ui.Violeta.Controls.Page
         CbJustifyContent.SelectionChanged += (_, _) => UpdatePanelJustifyContent();
         CbAlignItems.SelectionChanged += (_, _) => UpdatePanelAlignItems();
         CbWrap.SelectionChanged += (_, _) => UpdatePanelWrap();
+        ChkStretchItems.Checked += (_, _) => UpdatePanelStretchItems();
+        ChkStretchItems.Unchecked += (_, _) => UpdatePanelStretchItems();
     }
 
     private void UpdatePanelDirection()
@@ -83,5 +85,15 @@ public partial class FlexPanelPage : Wpf.Ui.Violeta.Controls.Page
             2 => FlexWrap.WrapReverse,
             _ => FlexWrap.NoWrap,
         };
+    }
+
+    private void UpdatePanelStretchItems()
+    {
+        if (DemoPanel is null || ChkStretchItems is null)
+        {
+            return;
+        }
+
+        DemoPanel.StretchItems = ChkStretchItems.IsChecked == true;
     }
 }

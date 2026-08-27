@@ -6393,7 +6393,7 @@ Click OK to continue.</value>
     <value>Grow (1:2:1 ratio)</value>
   </data>
   <data name="Sample_a2f8e7d6b5" xml:space="preserve">
-    <value>Wrap</value>
+    <value>Wrap + stretch items</value>
   </data>
   <data name="Sample_91e7d6c5b4" xml:space="preserve">
     <value>AlignSelf (within AlignItems=Stretch)</value>
@@ -6466,6 +6466,9 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_flex16" xml:space="preserve">
     <value>Wrap reverse</value>
+  </data>
+  <data name="Sample_flex17" xml:space="preserve">
+    <value>Stretch items</value>
   </data>
   <data name="Sample_flex_item01" xml:space="preserve">
     <value>Item 1</value>

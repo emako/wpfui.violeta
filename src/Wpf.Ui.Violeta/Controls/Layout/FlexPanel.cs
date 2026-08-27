@@ -202,6 +202,15 @@ public class FlexPanel : Panel
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange),
         IsGapValid);
 
+    /// <summary>
+    /// Identifies the <see cref="StretchItems"/> dependency property.
+    /// </summary>
+    public static readonly DependencyProperty StretchItemsProperty = DependencyProperty.Register(
+        nameof(StretchItems),
+        typeof(bool),
+        typeof(FlexPanel),
+        new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsArrange));
+
     #endregion
 
     #region Attached Properties
@@ -416,6 +425,15 @@ public class FlexPanel : Panel
         set => SetValue(ColumnGapProperty, value);
     }
 
+    /// <summary>
+    /// Gets or sets whether children without <see cref="Grow"/> expand to fill remaining space on each line.
+    /// </summary>
+    public bool StretchItems
+    {
+        get => (bool)GetValue(StretchItemsProperty);
+        set => SetValue(StretchItemsProperty, value);
+    }
+
     #endregion
 
     #region Validation
@@ -469,6 +487,17 @@ public class FlexPanel : Panel
         }
 
         return GetMainSize(child.DesiredSize, isHorizontal);
+    }
+
+    private double GetEffectiveGrow(UIElement child)
+    {
+        var grow = GetGrow(child);
+        if (grow > 0)
+        {
+            return grow;
+        }
+
+        return StretchItems ? 1.0 : 0.0;
     }
 
     #endregion
@@ -565,7 +594,7 @@ public class FlexPanel : Panel
 
             currentLine.Children.Add(child);
             currentLine.TotalBasis += childBasis + gapToAdd;
-            currentLine.TotalGrow += GetGrow(child);
+            currentLine.TotalGrow += GetEffectiveGrow(child);
             currentLine.TotalShrink += GetShrink(child) * childBasis;
             currentLine.CrossSize = Math.Max(currentLine.CrossSize, childCross);
         }
@@ -655,7 +684,7 @@ public class FlexPanel : Panel
             {
                 var child = lineChildren[i];
                 var basis = GetChildBasis(child, isHorizontal);
-                var grow = GetGrow(child);
+                var grow = GetEffectiveGrow(child);
                 childSizes[i] = basis + ((grow / line.TotalGrow) * freeSpace);
             }
         }

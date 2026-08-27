@@ -18,7 +18,7 @@
             <Setter Property="Padding" Value="8,4" />
         </Style>
         <Style x:Key="DemoChip" BasedOn="{StaticResource DemoBox}" TargetType="{x:Type Border}">
-            <Setter Property="Width" Value="48" />
+            <Setter Property="MinWidth" Value="48" />
             <Setter Property="Height" Value="36" />
         </Style>
         <Style x:Key="BlueBox" BasedOn="{StaticResource DemoBox}" TargetType="{x:Type Border}">
@@ -144,6 +144,13 @@
                                     Text="{Binding ElementName=SliderGap, Path=Value, StringFormat=F0}" />
                             </Grid>
                         </StackPanel>
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Style="{StaticResource OptionLabel}" Text="{I18N {x:Static lang:LangKeys.Sample_flex17}}" />
+                            <CheckBox
+                                x:Name="ChkStretchItems"
+                                Margin="0,4,0,0"
+                                Content="{I18N {x:Static lang:LangKeys.Sample_flex12}}" />
+                        </StackPanel>
                     </UniformGrid>
                     <Border MinHeight="120" Style="{StaticResource DemoSurface}">
                         <ui:FlexPanel
@@ -213,29 +220,29 @@
                         FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_a2f8e7d6b5}}" />
                     <Border MinHeight="160" Style="{StaticResource DemoSurface}">
-                        <ui:FlexPanel Margin="10" Gap="10" Wrap="Wrap">
-                            <Border Width="88" Style="{StaticResource BlueBox}">
+                        <ui:FlexPanel Margin="10" Gap="10" StretchItems="True" Wrap="Wrap">
+                            <Border MinWidth="88" Style="{StaticResource BlueBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item01}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource GreenBox}">
+                            <Border MinWidth="88" Style="{StaticResource GreenBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item02}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource PurpleBox}">
+                            <Border MinWidth="88" Style="{StaticResource PurpleBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item03}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource OrangeBox}">
+                            <Border MinWidth="88" Style="{StaticResource OrangeBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item04}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource PinkBox}">
+                            <Border MinWidth="88" Style="{StaticResource PinkBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item05}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource BlueBox}">
+                            <Border MinWidth="88" Style="{StaticResource BlueBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item06}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource GreenBox}">
+                            <Border MinWidth="88" Style="{StaticResource GreenBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item07}}" />
                             </Border>
-                            <Border Width="88" Style="{StaticResource PurpleBox}">
+                            <Border MinWidth="88" Style="{StaticResource PurpleBox}">
                                 <TextBlock Style="{StaticResource LabelText}" Text="{I18N {x:Static lang:LangKeys.Sample_flex_item08}}" />
                             </Border>
                         </ui:FlexPanel>

@@ -12567,7 +12567,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wrap.
+        ///   Looks up a localized string similar to Wrap + stretch items.
         /// </summary>
         internal static string Sample_a2f8e7d6b5 {
             get {
@@ -19161,6 +19161,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_flex16 {
             get {
                 return ResourceManager.GetString("Sample_flex16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stretch items.
+        /// </summary>
+        internal static string Sample_flex17 {
+            get {
+                return ResourceManager.GetString("Sample_flex17", resourceCulture);
             }
         }
         
