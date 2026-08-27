@@ -6384,7 +6384,7 @@ Click OK to continue.</value>
     <value>A CSS Flexbox-inspired layout panel supporting direction, justify-content, align-items, wrap, gap, and per-child grow/shrink/basis.</value>
   </data>
   <data name="Sample_e6b2a1c0d9" xml:space="preserve">
-    <value>CSS Flexbox layout</value>
+    <value>Wrap, stretch, and MinWidth layout</value>
   </data>
   <data name="Sample_c4d0b9a8f7" xml:space="preserve">
     <value>Interactive demo</value>
@@ -6469,6 +6469,9 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_flex17" xml:space="preserve">
     <value>Stretch items</value>
+  </data>
+  <data name="Sample_flex18" xml:space="preserve">
+    <value>Set MinWidth on children with Wrap and StretchItems. Items wrap when they no longer fit; when a row has extra space, children expand equally to fill the line. Resize the window to see both behaviors.</value>
   </data>
   <data name="Sample_flex_item01" xml:space="preserve">
     <value>Item 1</value>

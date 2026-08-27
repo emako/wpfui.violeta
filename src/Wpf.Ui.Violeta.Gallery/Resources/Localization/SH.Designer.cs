@@ -17284,7 +17284,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CSS Flexbox layout.
+        ///   Looks up a localized string similar to Wrap, stretch, and MinWidth layout.
         /// </summary>
         internal static string Sample_e6b2a1c0d9 {
             get {
@@ -19170,6 +19170,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_flex17 {
             get {
                 return ResourceManager.GetString("Sample_flex17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set MinWidth on children with Wrap and StretchItems. Items wrap when they no longer fit; when a row has extra space, children expand equally to fill the line. Resize the window to see both behaviors..
+        /// </summary>
+        internal static string Sample_flex18 {
+            get {
+                return ResourceManager.GetString("Sample_flex18", resourceCulture);
             }
         }
         

@@ -486,7 +486,17 @@ public class FlexPanel : Panel
             return basis;
         }
 
-        return GetMainSize(child.DesiredSize, isHorizontal);
+        var main = GetMainSize(child.DesiredSize, isHorizontal);
+        if (child is FrameworkElement fe)
+        {
+            var min = isHorizontal ? fe.MinWidth : fe.MinHeight;
+            if (min > 0 && !double.IsInfinity(min))
+            {
+                main = Math.Max(main, min);
+            }
+        }
+
+        return main;
     }
 
     private double GetEffectiveGrow(UIElement child)
