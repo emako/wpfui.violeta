@@ -1,0 +1,18 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        EmptySimpleLogo geometry (HandyControl EmptyBaseStyle).
+        Theme-colored DrawingBrush lives in Resources/Theme/{Light|Dark}.xaml
+        so light/dark swap replaces the entire brush.
+    -->
+    <Rectangle
+        x:Key="LogoRectangle4Empty"
+        x:Shared="False"
+        Width="64"
+        Height="41"
+        HorizontalAlignment="Center"
+        Fill="{DynamicResource EmptySimpleLogo}" />
+
+</ResourceDictionary>

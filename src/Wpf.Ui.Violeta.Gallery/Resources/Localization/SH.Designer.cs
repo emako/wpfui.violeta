@@ -1185,6 +1185,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EmptySimpleLogo.
+        /// </summary>
+        internal static string Gallery_Page_EmptySimpleLogo {
+            get {
+                return ResourceManager.GetString("Gallery_Page_EmptySimpleLogo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ExceptionReport.
         /// </summary>
         internal static string Gallery_Page_ExceptionReport {
@@ -16938,6 +16947,60 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Sample_DropDownButton_DisabledDesc {
             get {
                 return ResourceManager.GetString("Sample_DropDownButton_DisabledDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HandyControl-style empty tray logo. Fill and stroke colors follow the current light/dark theme..
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_BasicDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_BasicTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty state logo brush.
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data.
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_NoData {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogo..
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_SizesDesc {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_SizesDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        internal static string Sample_EmptySimpleLogo_SizesTitle {
+            get {
+                return ResourceManager.GetString("Sample_EmptySimpleLogo_SizesTitle", resourceCulture);
             }
         }
         

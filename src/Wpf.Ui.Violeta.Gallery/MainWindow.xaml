@@ -377,6 +377,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateContentControl}}" Tag="status/bool-state-content-control" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToolTip}}" Tag="status/tool-tip" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_StatusBar}}" Tag="status/status-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_EmptySimpleLogo}}" Tag="status/empty-simple-logo" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

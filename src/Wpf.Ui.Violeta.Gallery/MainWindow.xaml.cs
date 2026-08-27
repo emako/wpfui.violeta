@@ -216,6 +216,7 @@ public partial class MainWindow : ShellWindow
         ["status/bool-state-content-control"] = static () => new BoolStateContentControlPage(),
         ["status/tool-tip"] = static () => new ToolTipPage(),
         ["status/status-bar"] = static () => new StatusBarPage(),
+        ["status/empty-simple-logo"] = static () => new EmptySimpleLogoPage(),
 
         ["media"] = static () => new MediaPage(),
         ["media/image"] = static () => new ImagePage(),

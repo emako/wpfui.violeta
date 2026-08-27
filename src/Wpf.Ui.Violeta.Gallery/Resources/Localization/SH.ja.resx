@@ -3935,6 +3935,27 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_StatusBar" xml:space="preserve">
     <value>StatusBar</value>
   </data>
+  <data name="Gallery_Page_EmptySimpleLogo" xml:space="preserve">
+    <value>EmptySimpleLogo</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_CardDesc" xml:space="preserve">
+    <value>空状態ロゴブラシ</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_BasicTitle" xml:space="preserve">
+    <value>デフォルト</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
+    <value>HandyControl 風の空トレイロゴ。塗りと線の色はライト/ダークテーマに追従します。</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
+    <value>データがありません</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_SizesTitle" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="Sample_EmptySimpleLogo_SizesDesc" xml:space="preserve">
+    <value>EmptySimpleLogo を Fill した Rectangle の Width / Height で拡大縮小します。</value>
+  </data>
   <data name="Gallery_Page_Image" xml:space="preserve">
     <value>Image</value>
   </data>
