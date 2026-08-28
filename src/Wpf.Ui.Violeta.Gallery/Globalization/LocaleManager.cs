@@ -7,7 +7,7 @@ namespace Wpf.Ui.Violeta.Gallery.Globalization;
 /// <summary>
 /// Language menu facade
 /// </summary>
-public static class MuiLanguageManager
+public static class LocaleManager
 {
     public static string Language { get; private set; } = MuiLanguage.ChineseSimplified;
 
@@ -48,4 +48,18 @@ public static class MuiLanguageManager
             _ => new CultureInfo(languageCode),
         };
     }
+}
+
+/// <summary>
+/// Gallery language codes (aligned with .NET culture names / satellite resx).
+/// </summary>
+public static class MuiLanguage
+{
+    public const string English = "en";
+
+    public const string Japanese = "ja";
+
+    public const string ChineseSimplified = "zh-Hans";
+
+    public const string ChineseTraditional = "zh-Hant";
 }

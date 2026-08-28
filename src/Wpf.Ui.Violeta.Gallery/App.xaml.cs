@@ -30,7 +30,7 @@ public partial class App : Application
             .UseResourceManager(SH.ResourceManager)
             .UseFallback(new CultureInfo("en-US"));
 
-        MuiLanguageManager.SetLanguage(MuiLanguageManager.LanguageDefault);
+        LocaleManager.SetLanguage(LocaleManager.LanguageDefault);
 
         ThemeManager.Apply(ApplicationTheme.Dark);
 

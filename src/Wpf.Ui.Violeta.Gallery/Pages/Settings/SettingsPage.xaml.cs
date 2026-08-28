@@ -263,7 +263,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
     {
         var language = Window.GetWindow(this) is MainWindow mainWindow
             ? mainWindow.LanguageComboBoxSelectedTag
-            : MuiLanguageManager.Language;
+            : LocaleManager.Language;
 
         SelectLanguageItem(language);
     }
@@ -333,7 +333,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        MuiLanguageManager.SetLanguage(language);
+        LocaleManager.SetLanguage(language);
 
         if (Window.GetWindow(this) is MainWindow mainWindow)
         {

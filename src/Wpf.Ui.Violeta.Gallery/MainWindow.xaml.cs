@@ -275,7 +275,7 @@ public partial class MainWindow : ShellWindow
 
     private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
-        SyncLanguageComboBox(MuiLanguageManager.Language);
+        SyncLanguageComboBox(LocaleManager.Language);
         GalleryNav.SelectedItem = HomeItem;
     }
 
@@ -468,13 +468,13 @@ public partial class MainWindow : ShellWindow
             return;
         }
 
-        MuiLanguageManager.SetLanguage(language);
+        LocaleManager.SetLanguage(language);
     }
 
     internal int ThemeComboBoxSelectedIndex => ThemeComboBox.SelectedIndex;
 
     internal string LanguageComboBoxSelectedTag =>
-        LanguageComboBox.SelectedItem is ComboBoxItem { Tag: string tag } ? tag : MuiLanguageManager.Language;
+        LanguageComboBox.SelectedItem is ComboBoxItem { Tag: string tag } ? tag : LocaleManager.Language;
 
     /// <summary>
     /// Keeps the title-bar theme combo in sync when theme is changed from Settings.
