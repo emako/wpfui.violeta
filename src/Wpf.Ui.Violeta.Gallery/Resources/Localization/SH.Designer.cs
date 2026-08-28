@@ -1068,6 +1068,105 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ThemeRefreshConverter.
+        /// </summary>
+        internal static string Gallery_Page_ThemeRefreshConverter {
+            get {
+                return ResourceManager.GetString("Gallery_Page_ThemeRefreshConverter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme-aware converter chains.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BoolToBrushConverter with DynamicResource brushes....
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With ThemeRefreshConverter.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_With {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_With", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme switch updates the brush immediately.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_With_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_With_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without ThemeRefreshConverter.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Without {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Without", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme switch keeps the previous brush....
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Without_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Without_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep the toggle unchanged....
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Hint {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle theme.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_ToggleTheme {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_ToggleTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to True.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_True {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_True", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to False.
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_False {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_False", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ComboBox.
         /// </summary>
         internal static string Gallery_Page_ComboBox {

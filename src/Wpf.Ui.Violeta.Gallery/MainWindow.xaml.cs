@@ -57,6 +57,7 @@ public partial class MainWindow : ShellWindow
         ["design/typography"] = static () => new TypographyPage(),
         ["design/icons"] = static () => new IconsPage(),
         ["design/colors"] = static () => new ColorsPage(),
+        ["design/theme-refresh-converter"] = static () => new ThemeRefreshConverterPage(),
 
         // Group overview pages (by control family)
         ["buttons"] = static () => new ButtonsPage(),

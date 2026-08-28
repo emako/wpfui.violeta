@@ -1,0 +1,119 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Design.ThemeRefreshConverterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:c="http://schemas.github.com/liteobservableconverters/2026/xaml"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeRefreshConverter}}"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <vio:Page.Resources>
+        <!-- Without ThemeRefreshConverter: DynamicResource brushes on BoolToBrushConverter only apply when the bool changes. -->
+        <c:ValueConverterGroup x:Key="BoolToBrushWithoutThemeRefresh">
+            <c:BoolToBrushConverter
+                TrueValue="{DynamicResource SystemFillColorSuccessBrush}"
+                FalseValue="{DynamicResource SystemFillColorCriticalBrush}" />
+        </c:ValueConverterGroup>
+
+        <!-- With ThemeRefreshConverter inserted: theme switches also re-run the chain. -->
+        <c:ValueConverterGroup x:Key="BoolToBrushWithThemeRefresh">
+            <vio:ThemeRefreshConverter />
+            <c:BoolToBrushConverter
+                TrueValue="{DynamicResource SystemFillColorSuccessBrush}"
+                FalseValue="{DynamicResource SystemFillColorCriticalBrush}" />
+        </c:ValueConverterGroup>
+    </vio:Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,8"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeRefreshConverter}}" />
+            <TextBlock
+                Margin="0,0,0,16"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_Desc}}"
+                TextWrapping="Wrap" />
+
+            <ui:StackPanel Margin="0,0,0,16" Orientation="Horizontal" Spacing="12">
+                <vio:ToggleSwitch
+                    x:Name="DemoToggle"
+                    IsOn="True"
+                    OffContent="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_False}}"
+                    OnContent="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_True}}" />
+                <ui:Button
+                    Appearance="Primary"
+                    Click="OnToggleThemeClick"
+                    Content="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_ToggleTheme}}" />
+            </ui:StackPanel>
+
+            <TextBlock
+                Margin="0,0,0,12"
+                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_Hint}}"
+                TextWrapping="Wrap" />
+
+            <UniformGrid Columns="2" Margin="0,0,0,0">
+                <Border
+                    Margin="0,0,8,0"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_Without}}" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_Without_Desc}}"
+                            TextWrapping="Wrap" />
+                        <Border
+                            Width="160"
+                            Height="72"
+                            HorizontalAlignment="Left"
+                            Background="{Binding IsOn, ElementName=DemoToggle, Converter={StaticResource BoolToBrushWithoutThemeRefresh}}"
+                            CornerRadius="8" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Margin="8,0,0,0"
+                    Padding="20"
+                    Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_With}}" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Gallery_ThemeRefresh_With_Desc}}"
+                            TextWrapping="Wrap" />
+                        <Border
+                            Width="160"
+                            Height="72"
+                            HorizontalAlignment="Left"
+                            Background="{Binding IsOn, ElementName=DemoToggle, Converter={StaticResource BoolToBrushWithThemeRefresh}}"
+                            CornerRadius="8" />
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

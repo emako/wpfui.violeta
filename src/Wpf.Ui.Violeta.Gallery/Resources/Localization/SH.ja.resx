@@ -3497,6 +3497,39 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
   </data>
+  <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
+    <value>ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_CardDesc" xml:space="preserve">
+    <value>テーマ対応コンバーター連鎖</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
+    <value>DynamicResource のブラシを使う BoolToBrushConverter は、通常 bool が変わったときだけ Convert し直します。ThemeRefreshConverter を LiteObservableConverters の ValueConverterGroup に差し込むと、テーマ切替時にもバインディングが更新されます。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
+    <value>ThemeRefreshConverter あり</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
+    <value>テーマ切替ですぐブラシが更新されます。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
+    <value>ThemeRefreshConverter なし</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
+    <value>テーマを切り替えても、bool を再度切り替えるまで古いブラシのままです。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
+    <value>トグルはそのままにして、「テーマ切替」で左右を比較してください。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
+    <value>テーマ切替</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_True" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
+    <value>False</value>
+  </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
   </data>

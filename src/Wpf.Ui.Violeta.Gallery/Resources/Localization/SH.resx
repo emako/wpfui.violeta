@@ -3497,6 +3497,39 @@ Click OK to continue.</value>
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
   </data>
+  <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
+    <value>ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_CardDesc" xml:space="preserve">
+    <value>Theme-aware converter chains</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
+    <value>BoolToBrushConverter with DynamicResource brushes only re-converts when the bool changes. Insert ThemeRefreshConverter into LiteObservableConverters ValueConverterGroup so theme switches also refresh the binding.</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
+    <value>With ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
+    <value>Theme switch updates the brush immediately.</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
+    <value>Without ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
+    <value>Theme switch keeps the previous brush until the bool toggles again.</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
+    <value>Keep the toggle unchanged, then click Toggle theme to compare the two panels.</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
+    <value>Toggle theme</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_True" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
+    <value>False</value>
+  </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
   </data>

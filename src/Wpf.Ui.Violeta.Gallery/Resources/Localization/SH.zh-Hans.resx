@@ -3497,6 +3497,39 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
   </data>
+  <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
+    <value>ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_CardDesc" xml:space="preserve">
+    <value>主题感知转换器链</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
+    <value>BoolToBrushConverter 搭配 DynamicResource 画刷时，通常只在 bool 变化时重新 Convert。把 ThemeRefreshConverter 插入 LiteObservableConverters 的 ValueConverterGroup，主题切换时也会刷新绑定。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
+    <value>使用 ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
+    <value>切换主题后画刷立即更新。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
+    <value>未使用 ThemeRefreshConverter</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
+    <value>切换主题后仍保留旧画刷，直到再次切换 bool。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
+    <value>保持开关不变，点击「切换主题」对比左右效果。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
+    <value>切换主题</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_True" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
+    <value>False</value>
+  </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
   </data>
