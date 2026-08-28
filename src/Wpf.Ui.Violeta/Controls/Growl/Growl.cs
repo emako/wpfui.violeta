@@ -115,6 +115,12 @@ public class Growl : Control
     /// <summary>Default in-window panel used when no token is specified.</summary>
     public static Panel? GrowlPanel { get; set; }
 
+    /// <summary>
+    /// Extra margin applied to the auto-created in-window panel.
+    /// Additive to the automatic title-bar inset used when content extends into the chrome.
+    /// </summary>
+    public static Thickness OffsetMargin { get; set; }
+
     public GrowlType Type
     {
         get => (GrowlType)GetValue(TypeProperty);
@@ -389,6 +395,8 @@ public class Growl : Control
         {
             HorizontalAlignment = HorizontalAlignment.Right,
             VerticalAlignment = VerticalAlignment.Top,
+            // Keep growls below the title bar / caption buttons (ExtendsContentIntoTitleBar).
+            Margin = ResolveDefaultPanelMargin(window),
         };
 
         InitGrowlPanel(panel);
@@ -400,6 +408,52 @@ public class Growl : Control
         layer.Add(s_defaultAdorner);
 
         return panel;
+    }
+
+    /// <summary>
+    /// Top inset so the auto panel does not cover caption buttons when content is drawn under the chrome.
+    /// </summary>
+    private static Thickness ResolveDefaultPanelMargin(Window window)
+    {
+        var offset = OffsetMargin;
+        var topInset = 0d;
+
+        var titleBar = FindVisualChild<TitleBar>(window);
+        if (titleBar is not null)
+        {
+            topInset = titleBar.ActualHeight > 0 ? titleBar.ActualHeight : 32;
+        }
+        else if (window is ShellWindow { ExtendsContentIntoTitleBar: true })
+        {
+            topInset = SystemParameters.WindowCaptionHeight;
+            if (topInset <= 0)
+            {
+                topInset = 32;
+            }
+        }
+
+        return new Thickness(offset.Left, offset.Top + topInset, offset.Right, offset.Bottom);
+    }
+
+    private static T? FindVisualChild<T>(DependencyObject root) where T : DependencyObject
+    {
+        var count = VisualTreeHelper.GetChildrenCount(root);
+        for (var i = 0; i < count; i++)
+        {
+            var child = VisualTreeHelper.GetChild(root, i);
+            if (child is T match)
+            {
+                return match;
+            }
+
+            var nested = FindVisualChild<T>(child);
+            if (nested is not null)
+            {
+                return nested;
+            }
+        }
+
+        return null;
     }
 
     private static AdornerLayer? FindAdornerLayer(DependencyObject root)
