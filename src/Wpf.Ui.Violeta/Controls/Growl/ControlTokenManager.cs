@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Windows;
+
+namespace Wpf.Ui.Violeta.Controls;
+
+internal sealed class ControlTokenManager<T>(
+    Action<string, T>? registerCallback = null,
+    Action<string, T>? unregisterCallback = null)
+    where T : FrameworkElement
+{
+    private readonly Dictionary<string, WeakReference<T>> _controlDict = [];
+
+    public void Register(string token, T control)
+    {
+        if (string.IsNullOrEmpty(token) || control is null)
+        {
+            return;
+        }
+
+        _controlDict[token] = new WeakReference<T>(control);
+        registerCallback?.Invoke(token, control);
+    }
+
+    public void Unregister(T control)
+    {
+        if (control is null)
+        {
+            return;
+        }
+
+        string? unregisteredToken = null;
+        foreach (var item in _controlDict)
+        {
+            if (!item.Value.TryGetTarget(out var target) || !ReferenceEquals(control, target))
+            {
+                continue;
+            }
+
+            unregisteredToken = item.Key;
+            break;
+        }
+
+        if (unregisteredToken is null)
+        {
+            return;
+        }
+
+        _controlDict.Remove(unregisteredToken);
+        unregisterCallback?.Invoke(unregisteredToken, control);
+    }
+
+    public bool TryGetControl(string token, out T? control)
+    {
+        control = null;
+
+        if (string.IsNullOrEmpty(token) || !_controlDict.TryGetValue(token, out var reference))
+        {
+            return false;
+        }
+
+        return reference.TryGetTarget(out control);
+    }
+
+    public void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not T control)
+        {
+            return;
+        }
+
+        if (e.NewValue is null)
+        {
+            Unregister(control);
+        }
+        else
+        {
+            Register(e.NewValue.ToString()!, control);
+        }
+    }
+}

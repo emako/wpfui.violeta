@@ -1941,6 +1941,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Growl.
+        /// </summary>
+        internal static string Gallery_Page_Growl {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Growl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ToggleButton.
         /// </summary>
         internal static string Gallery_Page_ToggleButton {

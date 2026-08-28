@@ -290,6 +290,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Snackbar}}" Tag="notifications/snackbar" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Toast}}" Tag="notifications/toast" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Growl}}" Tag="notifications/growl" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Banner}}" Tag="notifications/banner" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Notification}}" Tag="notifications/notification" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TrayIcon}}" Tag="notifications/tray-icon" />

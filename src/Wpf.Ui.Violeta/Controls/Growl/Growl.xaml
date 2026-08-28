@@ -1,0 +1,217 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <BooleanToVisibilityConverter x:Key="GrowlBooleanToVisibilityConverter" />
+
+    <Style TargetType="{x:Type local:GrowlWindow}">
+        <Setter Property="Width" Value="340" />
+        <Setter Property="MaxWidth" Value="340" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="ShowActivated" Value="False" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="Topmost" Value="True" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="AllowsTransparency" Value="True" />
+    </Style>
+
+    <Style x:Key="GrowlCloseButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Width" Value="22" />
+        <Setter Property="Height" Value="22" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Root"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="4">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="&#xE711;" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GrowlActionButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Root"
+                        Background="{TemplateBinding Background}"
+                        Padding="8,4">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DefaultGrowlStyle" TargetType="{x:Type local:Growl}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="MinHeight" Value="60" />
+        <Setter Property="Width" Value="320" />
+        <Setter Property="MaxWidth" Value="320" />
+        <Setter Property="Margin" Value="10,10,10,0" />
+        <Setter Property="Background" Value="{DynamicResource ApplicationBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextControlForeground}" />
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Growl}">
+                    <Grid x:Name="PART_GridMain" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform X="{TemplateBinding MaxWidth}" />
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Border
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="3"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8">
+                            <Border.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="16"
+                                    Direction="270"
+                                    Opacity="0.18"
+                                    ShadowDepth="4"
+                                    Color="Black" />
+                            </Border.Effect>
+                        </Border>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="0,14,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="22"
+                            Foreground="{TemplateBinding IconBrush}"
+                            Text="{TemplateBinding Icon}" />
+
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,12,8,12"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="14"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding Message}"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                Margin="0,4,0,0"
+                                FontSize="12"
+                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                Text="{Binding Time, RelativeSource={RelativeSource TemplatedParent}, StringFormat=yyyy/MM/dd HH:mm:ss}"
+                                Visibility="{Binding ShowDateTime, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GrowlBooleanToVisibilityConverter}}" />
+                        </StackPanel>
+
+                        <Button
+                            x:Name="PART_ButtonClose"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="4,8,10,0"
+                            VerticalAlignment="Top"
+                            Command="{x:Static local:Growl.CloseCommand}"
+                            Style="{StaticResource GrowlCloseButtonStyle}"
+                            Visibility="Collapsed" />
+
+                        <UniformGrid
+                            x:Name="PART_PanelMore"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Height="32"
+                            IsEnabled="False"
+                            Visibility="Collapsed"
+                            Columns="2">
+                            <Button
+                                Command="{x:Static local:Growl.CancelCommand}"
+                                Style="{StaticResource GrowlActionButtonStyle}">
+                                <TextBlock
+                                    Foreground="{DynamicResource SystemFillColorCriticalBrush}"
+                                    Text="{Binding CancelStr, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Button>
+                            <Button
+                                Command="{x:Static local:Growl.ConfirmCommand}"
+                                Style="{StaticResource GrowlActionButtonStyle}">
+                                <TextBlock
+                                    Foreground="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                                    Text="{Binding ConfirmStr, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Button>
+                        </UniformGrid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="local:Growl.TransitionMode" Value="Bottom2Top">
+                <Setter Property="Margin" Value="10,0,10,10" />
+            </Trigger>
+            <Trigger Property="local:Growl.TransitionMode" Value="Bottom2TopWithFade">
+                <Setter Property="Margin" Value="10,0,10,10" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultGrowlStyle}" TargetType="{x:Type local:Growl}" />
+
+</ResourceDictionary>

@@ -151,6 +151,7 @@ public partial class MainWindow : ShellWindow
         ["notifications"] = static () => new NotificationsPage(),
         ["notifications/snackbar"] = static () => new SnackbarPage(),
         ["notifications/toast"] = static () => new ToastPage(),
+        ["notifications/growl"] = static () => new GrowlPage(),
         ["notifications/banner"] = static () => new BannerPage(),
         ["notifications/notification"] = static () => new NotificationPage(),
         ["notifications/tray-icon"] = static () => new TrayIconPage(),

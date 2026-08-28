@@ -3722,6 +3722,9 @@ Click OK to continue.</value>
   <data name="Gallery_Page_Toast" xml:space="preserve">
     <value>Toast</value>
   </data>
+  <data name="Gallery_Page_Growl" xml:space="preserve">
+    <value>Growl</value>
+  </data>
   <data name="Gallery_Page_Banner" xml:space="preserve">
     <value>Banner</value>
   </data>
