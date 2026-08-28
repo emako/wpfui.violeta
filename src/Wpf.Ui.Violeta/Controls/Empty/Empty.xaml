@@ -1,6 +1,4 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--
         EmptySimpleLogo geometry (HandyControl EmptyBaseStyle).
@@ -9,10 +7,10 @@
     -->
     <Rectangle
         x:Key="LogoRectangle4Empty"
-        x:Shared="False"
         Width="64"
         Height="41"
         HorizontalAlignment="Center"
-        Fill="{DynamicResource EmptySimpleLogo}" />
+        x:Shared="False"
+        Fill="{DynamicResource EmptySimpleLogoBrush}" />
 
 </ResourceDictionary>

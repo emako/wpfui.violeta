@@ -3948,7 +3948,7 @@ OK をクリックして続行してください。</value>
     <value>デフォルト</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>HandyControl 風の空トレイロゴ。塗りと線の色はライト/ダークテーマに追従します。</value>
+    <value>Ant.Design スタイルの空トレイロゴ。塗りと線の色はライト/ダークテーマに追従します。</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>データがありません</value>
@@ -3957,7 +3957,7 @@ OK をクリックして続行してください。</value>
     <value>サイズ</value>
   </data>
   <data name="Sample_EmptySimpleLogo_SizesDesc" xml:space="preserve">
-    <value>EmptySimpleLogo を Fill した Rectangle の Width / Height で拡大縮小します。</value>
+    <value>EmptySimpleLogoBrush を Fill した Rectangle の Width / Height で拡大縮小します。</value>
   </data>
   <data name="Gallery_Page_Image" xml:space="preserve">
     <value>Image</value>

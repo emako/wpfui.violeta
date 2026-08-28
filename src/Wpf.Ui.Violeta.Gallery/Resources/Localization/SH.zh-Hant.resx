@@ -3948,7 +3948,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>預設</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>HandyControl 風格的空托盤 Logo。填色與描邊會隨淺色/深色主題切換。</value>
+    <value>Ant.Design 風格的空托盤 Logo。填色與描邊會隨淺色/深色主題切換。</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>暫無資料</value>
@@ -3957,7 +3957,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>尺寸</value>
   </data>
   <data name="Sample_EmptySimpleLogo_SizesDesc" xml:space="preserve">
-    <value>透過設定填入 EmptySimpleLogo 的 Rectangle 寬高來縮放。</value>
+    <value>透過設定填入 EmptySimpleLogoBrush 的 Rectangle 寬高來縮放。</value>
   </data>
   <data name="Gallery_Page_Image" xml:space="preserve">
     <value>Image</value>

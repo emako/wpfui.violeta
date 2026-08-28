@@ -3948,7 +3948,7 @@ Click OK to continue.</value>
     <value>Default</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>HandyControl-style empty tray logo. Fill and stroke colors follow the current light/dark theme.</value>
+    <value>Ant.Design-style empty tray logo. Fill and stroke colors follow the current light/dark theme.</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>No data</value>
@@ -3957,7 +3957,7 @@ Click OK to continue.</value>
     <value>Sizes</value>
   </data>
   <data name="Sample_EmptySimpleLogo_SizesDesc" xml:space="preserve">
-    <value>Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogo.</value>
+    <value>Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogoBrush.</value>
   </data>
   <data name="Gallery_Page_Image" xml:space="preserve">
     <value>Image</value>

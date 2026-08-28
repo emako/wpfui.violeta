@@ -16958,9 +16958,9 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_DropDownButton_DisabledDesc", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to HandyControl-style empty tray logo. Fill and stroke colors follow the current light/dark theme..
+        ///   Looks up a localized string similar to Ant.Design-style empty tray logo. Fill and stroke colors follow the current light/dark theme..
         /// </summary>
         internal static string Sample_EmptySimpleLogo_BasicDesc {
             get {
@@ -16996,7 +16996,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogo..
+        ///   Looks up a localized string similar to Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogoBrush..
         /// </summary>
         internal static string Sample_EmptySimpleLogo_SizesDesc {
             get {
