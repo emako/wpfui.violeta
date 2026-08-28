@@ -394,6 +394,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_WebBrowser}}" Tag="media/web-browser" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_WebView2}}" Tag="media/web-view2" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PersonPicture}}" Tag="media/person-picture" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Gravatar}}" Tag="media/gravatar" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BitmapIcon}}" Tag="media/bitmap-icon" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" Tag="media/qr-code" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CachedImage}}" Tag="media/cached-image" />

@@ -3504,22 +3504,22 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>主題感知轉換器鏈</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>BoolToBrushConverter 搭配 DynamicResource 畫刷時，通常只在 bool 變化時重新 Convert。把 ThemeRefreshConverter 插入 LiteObservableConverters 的 ValueConverterGroup，主題切換時也會重新整理繫結。</value>
+    <value>把 ValueConverterGroup 指定給 ThemeRefreshConverter.Converter，再用 ThemeRefreshConverter 作為 Binding.Converter。主題切換時會重新 Convert 使用該包裝器的繫結。</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
-    <value>使用 ThemeRefreshConverter</value>
+    <value>使用 ThemeRefreshConverter 包裝</value>
   </data>
   <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
-    <value>切換主題後畫刷立即更新。</value>
+    <value>切換主題後：應立刻與期望色一致。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
-    <value>未使用 ThemeRefreshConverter</value>
+    <value>僅 Group（無包裝）</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
-    <value>切換主題後仍保留舊畫刷，直到再次切換 bool。</value>
+    <value>切換主題後：應保持舊顏色，直到再撥一次 bool。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
-    <value>保持開關不變，點擊「切換主題」對比左右效果。</value>
+    <value>對比時不要撥動開關，只點「切換主題」。</value>
   </data>
   <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
     <value>切換主題</value>
@@ -3529,6 +3529,15 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
     <value>False</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected" xml:space="preserve">
+    <value>期望色（純 DynamicResource）</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected_Desc" xml:space="preserve">
+    <value>此色塊始終跟隨主題。切換主題後，右側應與它一致，左側應滯後。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
+    <value>測試步驟：1）保持開關為 ON。2）期望 / 左 / 右應同色。3）不要撥開關，只點「切換主題」。4）期望與右側黑白對調；左側保持舊色。</value>
   </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
@@ -4006,6 +4015,30 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_Page_WebView2" xml:space="preserve">
     <value>WebView2</value>
+  </data>
+  <data name="Gallery_Page_Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="Gallery_Gravatar_CardDesc" xml:space="preserve">
+    <value>由 Id 產生的 Identicon 頭像</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples" xml:space="preserve">
+    <value>Identicon 範例</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples_Desc" xml:space="preserve">
+    <value>依 Id 字串產生幾何圖案（GitHub 風格左右對稱 5x5 網格）。不支援圖片載入。</value>
+  </data>
+  <data name="Gallery_Gravatar_Live" xml:space="preserve">
+    <value>即時預覽</value>
+  </data>
+  <data name="Gallery_Gravatar_Live_Desc" xml:space="preserve">
+    <value>修改 Id 即可重新產生頭像。</value>
+  </data>
+  <data name="Gallery_Gravatar_IdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Gallery_Gravatar_Circle" xml:space="preserve">
+    <value>圓形樣式</value>
   </data>
   <data name="Gallery_Page_PersonPicture" xml:space="preserve">
     <value>PersonPicture</value>

@@ -3504,22 +3504,22 @@ Click OK to continue.</value>
     <value>Theme-aware converter chains</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>BoolToBrushConverter with DynamicResource brushes only re-converts when the bool changes. Insert ThemeRefreshConverter into LiteObservableConverters ValueConverterGroup so theme switches also refresh the binding.</value>
+    <value>Pass your ValueConverterGroup into ThemeRefreshConverter.Converter. Prefer MultiBinding: first binding is your value, second binds ThemeRefreshConverter.Revision so theme changes reliably re-run Convert.</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
-    <value>With ThemeRefreshConverter</value>
+    <value>With ThemeRefreshConverter wrapper</value>
   </data>
   <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
-    <value>Theme switch updates the brush immediately.</value>
+    <value>After theme switch: should match Expected immediately.</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
-    <value>Without ThemeRefreshConverter</value>
+    <value>Group only (no wrapper)</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
-    <value>Theme switch keeps the previous brush until the bool toggles again.</value>
+    <value>After theme switch: should keep the previous color until you flip the bool.</value>
   </data>
   <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
-    <value>Keep the toggle unchanged, then click Toggle theme to compare the two panels.</value>
+    <value>Do not flip the bool when comparing — only click Toggle theme.</value>
   </data>
   <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
     <value>Toggle theme</value>
@@ -3529,6 +3529,15 @@ Click OK to continue.</value>
   </data>
   <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
     <value>False</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected" xml:space="preserve">
+    <value>Expected (pure DynamicResource)</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected_Desc" xml:space="preserve">
+    <value>This swatch always tracks the theme. After Toggle theme, Right should match it; Left should lag.</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
+    <value>How to test: 1) Keep toggle ON. 2) Expected / Left / Right should match. 3) Click Toggle theme without flipping the toggle. 4) Expected and Right flip black/white; Left stays on the previous color.</value>
   </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
@@ -4006,6 +4015,30 @@ Click OK to continue.</value>
   </data>
   <data name="Gallery_Page_WebView2" xml:space="preserve">
     <value>WebView2</value>
+  </data>
+  <data name="Gallery_Page_Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="Gallery_Gravatar_CardDesc" xml:space="preserve">
+    <value>Identicon avatar from Id</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples" xml:space="preserve">
+    <value>Identicon samples</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples_Desc" xml:space="preserve">
+    <value>Geometric pattern generated from an Id string (GitHub-style mirrored 5x5 grid). No image loading.</value>
+  </data>
+  <data name="Gallery_Gravatar_Live" xml:space="preserve">
+    <value>Live preview</value>
+  </data>
+  <data name="Gallery_Gravatar_Live_Desc" xml:space="preserve">
+    <value>Change the Id to regenerate the avatar.</value>
+  </data>
+  <data name="Gallery_Gravatar_IdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Gallery_Gravatar_Circle" xml:space="preserve">
+    <value>Circle style</value>
   </data>
   <data name="Gallery_Page_PersonPicture" xml:space="preserve">
     <value>PersonPicture</value>

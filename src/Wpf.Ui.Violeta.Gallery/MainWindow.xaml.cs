@@ -227,6 +227,7 @@ public partial class MainWindow : ShellWindow
         ["media/web-browser"] = static () => new WebBrowserPage(),
         ["media/web-view2"] = static () => new WebView2Page(),
         ["media/person-picture"] = static () => new PersonPicturePage(),
+        ["media/gravatar"] = static () => new GravatarPage(),
         ["media/bitmap-icon"] = static () => new BitmapIconPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
         ["media/cached-image"] = static () => new CachedImagePage(),

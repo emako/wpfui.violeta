@@ -3504,22 +3504,22 @@ OK をクリックして続行してください。</value>
     <value>テーマ対応コンバーター連鎖</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>DynamicResource のブラシを使う BoolToBrushConverter は、通常 bool が変わったときだけ Convert し直します。ThemeRefreshConverter を LiteObservableConverters の ValueConverterGroup に差し込むと、テーマ切替時にもバインディングが更新されます。</value>
+    <value>ValueConverterGroup を ThemeRefreshConverter.Converter に渡し、ThemeRefreshConverter を Binding.Converter にします。テーマ切替時、そのラッパーを使うバインディングが再 Convert されます。</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
-    <value>ThemeRefreshConverter あり</value>
+    <value>ThemeRefreshConverter でラップ</value>
   </data>
   <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
-    <value>テーマ切替ですぐブラシが更新されます。</value>
+    <value>テーマ切替後: すぐに期待色と一致します。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
-    <value>ThemeRefreshConverter なし</value>
+    <value>Group のみ（ラップなし）</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
-    <value>テーマを切り替えても、bool を再度切り替えるまで古いブラシのままです。</value>
+    <value>テーマ切替後: bool を再度切り替えるまで古い色のままです。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Hint" xml:space="preserve">
-    <value>トグルはそのままにして、「テーマ切替」で左右を比較してください。</value>
+    <value>比較中はトグルを動かさず、「テーマ切替」だけ押してください。</value>
   </data>
   <data name="Gallery_ThemeRefresh_ToggleTheme" xml:space="preserve">
     <value>テーマ切替</value>
@@ -3529,6 +3529,15 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Gallery_ThemeRefresh_False" xml:space="preserve">
     <value>False</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected" xml:space="preserve">
+    <value>期待色（純 DynamicResource）</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Expected_Desc" xml:space="preserve">
+    <value>このスウォッチは常にテーマに追従します。テーマ切替後、右は一致し、左は遅れます。</value>
+  </data>
+  <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
+    <value>手順: 1) トグルは ON のまま。2) 期待/左/右が同色か確認。3) トグルはいじらずテーマ切替のみ。4) 期待と右は白黒が入れ替わり、左は旧色のまま。</value>
   </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
@@ -4006,6 +4015,30 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Gallery_Page_WebView2" xml:space="preserve">
     <value>WebView2</value>
+  </data>
+  <data name="Gallery_Page_Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="Gallery_Gravatar_CardDesc" xml:space="preserve">
+    <value>Id から生成する Identicon アバター</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples" xml:space="preserve">
+    <value>Identicon サンプル</value>
+  </data>
+  <data name="Gallery_Gravatar_Samples_Desc" xml:space="preserve">
+    <value>Id 文字列から幾何パターンを生成します（GitHub 風の左右対称 5x5 グリッド）。画像読み込みは非対応です。</value>
+  </data>
+  <data name="Gallery_Gravatar_Live" xml:space="preserve">
+    <value>ライブプレビュー</value>
+  </data>
+  <data name="Gallery_Gravatar_Live_Desc" xml:space="preserve">
+    <value>Id を変更するとアバターが再生成されます。</value>
+  </data>
+  <data name="Gallery_Gravatar_IdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Gallery_Gravatar_Circle" xml:space="preserve">
+    <value>円形スタイル</value>
   </data>
   <data name="Gallery_Page_PersonPicture" xml:space="preserve">
     <value>PersonPicture</value>

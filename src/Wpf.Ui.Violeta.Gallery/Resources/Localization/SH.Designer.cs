@@ -1140,6 +1140,33 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How to test:...
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Steps {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Steps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected (pure DynamicResource).
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Expected {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Expected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This swatch always tracks the theme....
+        /// </summary>
+        internal static string Gallery_ThemeRefresh_Expected_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeRefresh_Expected_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Toggle theme.
         /// </summary>
         internal static string Gallery_ThemeRefresh_ToggleTheme {
@@ -1388,6 +1415,78 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         internal static string Gallery_Page_GoBackButton {
             get {
                 return ResourceManager.GetString("Gallery_Page_GoBackButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gravatar.
+        /// </summary>
+        internal static string Gallery_Page_Gravatar {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Gravatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identicon avatar from Id.
+        /// </summary>
+        internal static string Gallery_Gravatar_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identicon samples.
+        /// </summary>
+        internal static string Gallery_Gravatar_Samples {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geometric pattern generated from an Id string (GitHub-style mirrored 5x5 grid). No image loading..
+        /// </summary>
+        internal static string Gallery_Gravatar_Samples_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_Samples_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live preview.
+        /// </summary>
+        internal static string Gallery_Gravatar_Live {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_Live", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the Id to regenerate the avatar.
+        /// </summary>
+        internal static string Gallery_Gravatar_Live_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_Live_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        internal static string Gallery_Gravatar_IdLabel {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_IdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Circle style.
+        /// </summary>
+        internal static string Gallery_Gravatar_Circle {
+            get {
+                return ResourceManager.GetString("Gallery_Gravatar_Circle", resourceCulture);
             }
         }
         
