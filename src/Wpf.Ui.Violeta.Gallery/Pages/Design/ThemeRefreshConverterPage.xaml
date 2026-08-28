@@ -12,18 +12,16 @@
     d:Background="#1C1C1C"
     mc:Ignorable="d">
     <vio:Page.Resources>
-        <!-- Shared bool → theme brush chain (no theme refresh by itself). -->
-        <c:ValueConverterGroup x:Key="BoolToBrushGroup">
-            <c:BoolToBrushConverter
-                TrueValue="{DynamicResource TextFillColorPrimaryBrush}"
-                FalseValue="{DynamicResource AccentFillColorDefaultBrush}" />
-            <vio:CloneBrushConverter />
+        <c:ValueConverterGroup x:Key="BoolToBrushWithoutThemeRefresh">
+            <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{DynamicResource AccentTextFillColorPrimaryBrush}" />
         </c:ValueConverterGroup>
-
-        <!-- Wrap the group: use THIS as Binding.Converter. -->
-        <vio:ThemeRefreshConverter
-            x:Key="BoolToBrushWithThemeRefresh"
-            Converter="{StaticResource BoolToBrushGroup}" />
+        <vio:ThemeRefreshConverter x:Key="BoolToBrushWithThemeRefresh">
+            <vio:ThemeRefreshConverter.Converter>
+                <c:ValueConverterGroup>
+                    <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{vio:ThemeBinding AccentTextFillColorPrimaryBrush}" />
+                </c:ValueConverterGroup>
+            </vio:ThemeRefreshConverter.Converter>
+        </vio:ThemeRefreshConverter>
     </vio:Page.Resources>
 
     <ScrollViewer>
@@ -52,7 +50,10 @@
                     TextWrapping="Wrap" />
             </Border>
 
-            <ui:StackPanel Margin="0,0,0,16" Orientation="Horizontal" Spacing="12">
+            <ui:StackPanel
+                Margin="0,0,0,16"
+                Orientation="Horizontal"
+                Spacing="12">
                 <vio:ToggleSwitch
                     x:Name="DemoToggle"
                     IsOn="True"
@@ -78,9 +79,8 @@
                 Height="72"
                 Margin="0,0,0,20"
                 HorizontalAlignment="Left"
-                Background="{DynamicResource TextFillColorPrimaryBrush}"
-                CornerRadius="8"
-                ToolTip="DynamicResource TextFillColorPrimaryBrush" />
+                Background="{DynamicResource AccentTextFillColorPrimaryBrush}"
+                CornerRadius="8" />
 
             <UniformGrid Columns="2">
                 <Border
@@ -105,7 +105,7 @@
                             Width="160"
                             Height="72"
                             HorizontalAlignment="Left"
-                            Background="{Binding IsOn, ElementName=DemoToggle, Converter={StaticResource BoolToBrushGroup}}"
+                            Background="{Binding IsOn, ElementName=DemoToggle, Converter={StaticResource BoolToBrushWithoutThemeRefresh}}"
                             CornerRadius="8" />
                     </StackPanel>
                 </Border>

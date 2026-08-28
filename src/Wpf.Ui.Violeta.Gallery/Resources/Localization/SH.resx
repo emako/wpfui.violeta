@@ -3504,16 +3504,16 @@ Click OK to continue.</value>
     <value>Theme-aware converter chains</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>Pass your ValueConverterGroup into ThemeRefreshConverter.Converter. Prefer MultiBinding: first binding is your value, second binds ThemeRefreshConverter.Revision so theme changes reliably re-run Convert.</value>
+    <value>Nest ValueConverterGroup under ThemeRefreshConverter.Converter. Use MultiBinding: value + Revision. Theme bumps Revision so Convert re-runs via the binding engine. Shorthand: {vio:ThemeBinding ...}.</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
-    <value>With ThemeRefreshConverter wrapper</value>
+    <value>ThemeRefreshConverter wrapper</value>
   </data>
   <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
     <value>After theme switch: should match Expected immediately.</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
-    <value>Group only (no wrapper)</value>
+    <value>ValueConverterGroup only</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
     <value>After theme switch: should keep the previous color until you flip the bool.</value>

@@ -3504,16 +3504,16 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>主题感知转换器链</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>把 ValueConverterGroup 赋给 ThemeRefreshConverter.Converter。推荐用 MultiBinding：第一路绑数据，第二路绑 ThemeRefreshConverter.Revision；主题切换时 Revision 变化会稳定触发重新 Convert。</value>
+    <value>把 ValueConverterGroup 嵌在 ThemeRefreshConverter.Converter 中。使用 MultiBinding：第一路绑数据，第二路绑 Revision。主题切换时 Revision 自增，由绑定引擎稳定触发重新 Convert。也可写 {vio:ThemeBinding ...}。</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
-    <value>使用 ThemeRefreshConverter 包装</value>
+    <value>ThemeRefreshConverter 包装</value>
   </data>
   <data name="Gallery_ThemeRefresh_With_Desc" xml:space="preserve">
     <value>切换主题后：应立刻与期望色一致。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without" xml:space="preserve">
-    <value>仅 Group（无包装）</value>
+    <value>仅 ValueConverterGroup</value>
   </data>
   <data name="Gallery_ThemeRefresh_Without_Desc" xml:space="preserve">
     <value>切换主题后：应保持旧颜色，直到再拨一次 bool。</value>
@@ -3537,7 +3537,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>此色块始终跟随主题。切换主题后，右侧应与它一致，左侧应滞后。</value>
   </data>
   <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
-    <value>测试步骤：1）保持开关为 ON。2）期望 / 左 / 右应同色。3）不要拨开关，只点「切换主题」。4）期望与右侧黑白对调；左侧保持旧色。</value>
+    <value>测试：1）开关保持 ON。2）期望/左/右同色。3）只点「切换主题」。4）期望与右侧黑白对调，左侧保持旧色。</value>
   </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
