@@ -2,8 +2,9 @@
 
     <!--
         EmptySimpleLogo geometry (HandyControl EmptyBaseStyle).
-        Theme-colored DrawingBrush lives in Resources/Theme/{Light|Dark}.xaml
-        so light/dark swap replaces the entire brush.
+        Uses EmptySimpleLogoNeutralBrush — mid-contrast chrome that reads on
+        common card/page surfaces without EmptySimpleLogoPreviewBackgroundBrush.
+        Theme DrawingBrushes live in Resources/Theme/{Light|Dark}.xaml.
     -->
     <Rectangle
         x:Key="LogoRectangle4Empty"
@@ -11,6 +12,6 @@
         Height="41"
         HorizontalAlignment="Center"
         x:Shared="False"
-        Fill="{DynamicResource EmptySimpleLogoBrush}" />
+        Fill="{DynamicResource EmptySimpleLogoNeutralBrush}" />
 
 </ResourceDictionary>

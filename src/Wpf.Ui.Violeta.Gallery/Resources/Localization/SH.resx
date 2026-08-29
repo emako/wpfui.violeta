@@ -3987,19 +3987,19 @@ Click OK to continue.</value>
     <value>Empty state logo brush</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicTitle" xml:space="preserve">
-    <value>Default</value>
+    <value>Neutral</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>Ant.Design-style empty tray logo. Fill and stroke colors follow the current light/dark theme.</value>
+    <value>EmptySimpleLogoNeutralBrush — mid-chrome grays that stay readable on common card and page surfaces without a matched preview background.</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>No data</value>
   </data>
   <data name="Sample_EmptySimpleLogo_SizesTitle" xml:space="preserve">
-    <value>Sizes</value>
+    <value>Paired preview</value>
   </data>
   <data name="Sample_EmptySimpleLogo_SizesDesc" xml:space="preserve">
-    <value>Scale by setting Width and Height on a Rectangle filled with EmptySimpleLogoBrush.</value>
+    <value>EmptySimpleLogoBrush is sampled for EmptySimpleLogoPreviewBackgroundBrush. Scale via Rectangle Width / Height.</value>
   </data>
   <data name="Gallery_Page_Image" xml:space="preserve">
     <value>Image</value>
