@@ -3990,7 +3990,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>通用 Neutral</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>EmptySimpleLogoNeutralBrush — 中性鉻灰，在常見卡片/頁面背景上仍清晰可讀，無需配套預覽背景色。</value>
+    <value>EmptySimpleLogoNeutralBrush — 中性鉻灰，在常見卡片/頁面背景上仍清晰可讀，無需配套預覽背景色。建議自行依背景色調整透明度，讓圖示顏色更融入。</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>暫無資料</value>

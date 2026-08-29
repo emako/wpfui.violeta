@@ -3990,7 +3990,7 @@ Click OK to continue.</value>
     <value>Neutral</value>
   </data>
   <data name="Sample_EmptySimpleLogo_BasicDesc" xml:space="preserve">
-    <value>EmptySimpleLogoNeutralBrush — mid-chrome grays that stay readable on common card and page surfaces without a matched preview background.</value>
+    <value>EmptySimpleLogoNeutralBrush — mid-chrome grays that stay readable on common card and page surfaces without a matched preview background. Prefer adjusting opacity to your background so the icon blends in.</value>
   </data>
   <data name="Sample_EmptySimpleLogo_NoData" xml:space="preserve">
     <value>No data</value>

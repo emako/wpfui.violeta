@@ -39,7 +39,8 @@
                     <Border
                         Padding="32,40"
                         Background="{DynamicResource CardBackgroundBrush}"
-                        CornerRadius="8">
+                        CornerRadius="8"
+                        Opacity="0.6">
                         <StackPanel HorizontalAlignment="Center">
                             <Rectangle
                                 Width="64"
