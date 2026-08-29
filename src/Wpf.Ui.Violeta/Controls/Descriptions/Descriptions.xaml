@@ -73,7 +73,7 @@
                     Content="{TemplateBinding Label}"
                     ContentTemplate="{TemplateBinding LabelTemplate}"
                     TextElement.FontSize="14"
-                    TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </Border>
 
             <TextBlock
@@ -81,7 +81,7 @@
                 Grid.Column="1"
                 Margin="{StaticResource DescriptionsKeyPlainMargin}"
                 VerticalAlignment="Center"
-                Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 Text=":"
                 Visibility="Collapsed" />
 
@@ -122,7 +122,7 @@
                 Content="{TemplateBinding Label}"
                 ContentTemplate="{TemplateBinding LabelTemplate}"
                 TextElement.FontSize="14"
-                TextElement.Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
             <ContentPresenter
                 x:Name="PART_ContentPresenter"
