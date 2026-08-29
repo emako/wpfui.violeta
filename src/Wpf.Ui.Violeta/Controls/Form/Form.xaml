@@ -87,7 +87,7 @@
     <!--  Required asterisk style  -->
     <Style x:Key="FormItemRequiredAsteriskStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource SystemFillColorCriticalBrush}" />
-        <Setter Property="Margin" Value="2,0,0,0" />
+        <Setter Property="Margin" Value="0,0,2,0" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Text" Value="*" />
@@ -113,15 +113,15 @@
             <!--  Label row (hidden when NoLabel = true)  -->
             <Grid x:Name="PART_LabelRow" Margin="0,0,0,4">
                 <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="PART_Asterisk"
+                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
+                        Visibility="Hidden" />
                     <ContentPresenter
                         Content="{TemplateBinding Label}"
                         RecognizesAccessKey="True"
                         TextElement.FontWeight="SemiBold"
                         TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                    <TextBlock
-                        x:Name="PART_Asterisk"
-                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
-                        Visibility="Collapsed" />
                 </StackPanel>
             </Grid>
 
@@ -174,15 +174,15 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="PART_Asterisk"
+                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
+                        Visibility="Hidden" />
                     <ContentPresenter
                         Content="{TemplateBinding Label}"
                         RecognizesAccessKey="True"
                         TextElement.FontWeight="SemiBold"
                         TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                    <TextBlock
-                        x:Name="PART_Asterisk"
-                        Style="{StaticResource FormItemRequiredAsteriskStyle}"
-                        Visibility="Collapsed" />
                 </StackPanel>
             </Border>
 
