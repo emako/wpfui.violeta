@@ -4,14 +4,9 @@ using System.Windows;
 
 namespace Wpf.Ui.Violeta.Appearance;
 
-internal class ResourceDictionaryManager
+internal class ResourceDictionaryManager(string searchNamespace)
 {
-    public string SearchNamespace { get; }
-
-    public ResourceDictionaryManager(string searchNamespace)
-    {
-        SearchNamespace = searchNamespace;
-    }
+    public string SearchNamespace { get; } = searchNamespace;
 
     public bool HasDictionary(string resourceLookup)
     {
@@ -20,7 +15,7 @@ internal class ResourceDictionaryManager
 
     public ResourceDictionary? GetDictionary(string resourceLookup)
     {
-        Collection<ResourceDictionary> applicationDictionaries = GetApplicationMergedDictionaries();
+        Collection<ResourceDictionary> applicationDictionaries = ApplicationMergedDictionaries;
 
         if (applicationDictionaries.Count == 0)
         {
@@ -127,8 +122,6 @@ internal class ResourceDictionaryManager
         return false;
     }
 
-    private Collection<ResourceDictionary> GetApplicationMergedDictionaries()
-    {
-        return UiApplication.Current.Resources.MergedDictionaries;
-    }
+    private static Collection<ResourceDictionary> ApplicationMergedDictionaries
+        => UiApplication.Current.Resources.MergedDictionaries;
 }
