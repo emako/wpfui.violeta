@@ -29,6 +29,7 @@ public class StackPanel : Panel
     {
         var spacing = Spacing;
         var panelDesiredSize = new Size();
+        var visibleCount = 0;
 
         if (Orientation == Orientation.Vertical)
         {
@@ -36,24 +37,26 @@ public class StackPanel : Panel
             foreach (UIElement child in InternalChildren)
             {
                 child.Measure(availableSize);
-                var childDesiredSize = child.DesiredSize;
 
-                panelDesiredSize.Height += childDesiredSize.Height;
-
-                if (child.Visibility != Visibility.Collapsed)
+                if (child.Visibility == Visibility.Collapsed)
                 {
-                    panelDesiredSize.Height += spacing;
+                    continue;
                 }
+
+                var childDesiredSize = child.DesiredSize;
+                panelDesiredSize.Height += childDesiredSize.Height;
 
                 if (childDesiredSize.Width > panelDesiredSize.Width)
                 {
                     panelDesiredSize.Width = childDesiredSize.Width;
                 }
+
+                visibleCount++;
             }
 
-            if (InternalChildren.Count != 0)
+            if (visibleCount > 1)
             {
-                panelDesiredSize.Height -= spacing;
+                panelDesiredSize.Height += spacing * (visibleCount - 1);
             }
         }
         else
@@ -62,24 +65,26 @@ public class StackPanel : Panel
             foreach (UIElement child in InternalChildren)
             {
                 child.Measure(availableSize);
-                var childDesiredSize = child.DesiredSize;
 
-                panelDesiredSize.Width += childDesiredSize.Width;
-
-                if (child.Visibility != Visibility.Collapsed)
+                if (child.Visibility == Visibility.Collapsed)
                 {
-                    panelDesiredSize.Width += spacing;
+                    continue;
                 }
+
+                var childDesiredSize = child.DesiredSize;
+                panelDesiredSize.Width += childDesiredSize.Width;
 
                 if (childDesiredSize.Height > panelDesiredSize.Height)
                 {
                     panelDesiredSize.Height = childDesiredSize.Height;
                 }
+
+                visibleCount++;
             }
 
-            if (InternalChildren.Count != 0)
+            if (visibleCount > 1)
             {
-                panelDesiredSize.Width -= spacing;
+                panelDesiredSize.Width += spacing * (visibleCount - 1);
             }
         }
 
@@ -90,36 +95,50 @@ public class StackPanel : Panel
     {
         var offset = 0d;
         var spacing = Spacing;
+        var isFirstVisible = true;
 
         if (Orientation == Orientation.Vertical)
         {
             foreach (UIElement child in InternalChildren)
             {
-                var childDesiredSize = child.DesiredSize;
+                if (child.Visibility == Visibility.Collapsed)
+                {
+                    child.Arrange(new Rect());
+                    continue;
+                }
 
-                child.Arrange(new Rect(0, offset, finalSize.Width, childDesiredSize.Height));
-
-                offset += childDesiredSize.Height;
-
-                if (child.Visibility != Visibility.Collapsed)
+                if (!isFirstVisible)
                 {
                     offset += spacing;
                 }
+
+                isFirstVisible = false;
+
+                var childDesiredSize = child.DesiredSize;
+                child.Arrange(new Rect(0, offset, finalSize.Width, childDesiredSize.Height));
+                offset += childDesiredSize.Height;
             }
         }
         else
         {
             foreach (UIElement child in InternalChildren)
             {
-                var childDesiredSize = child.DesiredSize;
+                if (child.Visibility == Visibility.Collapsed)
+                {
+                    child.Arrange(new Rect());
+                    continue;
+                }
 
-                child.Arrange(new Rect(offset, 0, childDesiredSize.Width, finalSize.Height));
-
-                offset += childDesiredSize.Width;
-                if (child.Visibility != Visibility.Collapsed)
+                if (!isFirstVisible)
                 {
                     offset += spacing;
                 }
+
+                isFirstVisible = false;
+
+                var childDesiredSize = child.DesiredSize;
+                child.Arrange(new Rect(offset, 0, childDesiredSize.Width, finalSize.Height));
+                offset += childDesiredSize.Width;
             }
         }
 
