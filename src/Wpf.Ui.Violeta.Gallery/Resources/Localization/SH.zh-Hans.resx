@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3496,6 +3496,60 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
+  </data>
+  <data name="Gallery_Page_ThemeColorApproach" xml:space="preserve">
+    <value>ThemeColorApproach</value>
+  </data>
+  <data name="Gallery_ThemeColor_CardDesc" xml:space="preserve">
+    <value>浅色 → 深色颜色转换</value>
+  </data>
+  <data name="Gallery_ThemeColor_Desc" xml:space="preserve">
+    <value>选择浅色主题颜色后，ThemeColorApproach.ToDark 会按 LAB 明度重映射（Office / roosterjs）实时算出深色。强调色阶来自 Fluent ColorPalette（SystemAccentColorLight*/Dark*）。</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark" xml:space="preserve">
+    <value>浅色 → 深色</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark_Desc" xml:space="preserve">
+    <value>修改浅色或 base L*，深色结果会立即重算。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PickLight" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL" xml:space="preserve">
+    <value>深色基准 L*（默认 21.247 = #333333）</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL_Hint" xml:space="preserve">
+    <value>数值越小，整体深色调越暗。</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightSwatch" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Gallery_ThemeColor_DarkSwatch" xml:space="preserve">
+    <value>深色（自动）</value>
+  </data>
+  <data name="Gallery_ThemeColor_IsLight" xml:space="preserve">
+    <value>IsColorLight</value>
+  </data>
+  <data name="Gallery_ThemeColor_AutoCalc" xml:space="preserve">
+    <value>由 ThemeColorApproach.ToDark 自动计算</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette" xml:space="preserve">
+    <value>强调色色阶</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette_Desc" xml:space="preserve">
+    <value>CreateAccentPalette 基于同一浅色生成 Fluent 7 阶色板。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent" xml:space="preserve">
+    <value>按主题选用的主强调色</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent_Desc" xml:space="preserve">
+    <value>WinUI 通常在浅色主题用 Dark1，深色主题用 Light2。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForLight" xml:space="preserve">
+    <value>浅色主题主色（Dark1）</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForDark" xml:space="preserve">
+    <value>深色主题主色（Light2）</value>
   </data>
   <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
     <value>ThemeRefreshConverter</value>

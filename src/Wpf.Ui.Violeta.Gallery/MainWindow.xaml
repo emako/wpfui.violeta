@@ -131,6 +131,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Typography}}" Tag="design/typography" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Icons}}" Tag="design/icons" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}" Tag="design/colors" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeColorApproach}}" Tag="design/theme-color-approach" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeRefreshConverter}}" Tag="design/theme-refresh-converter" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>

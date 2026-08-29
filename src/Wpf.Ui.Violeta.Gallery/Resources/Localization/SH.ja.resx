@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3496,6 +3496,60 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
+  </data>
+  <data name="Gallery_Page_ThemeColorApproach" xml:space="preserve">
+    <value>ThemeColorApproach</value>
+  </data>
+  <data name="Gallery_ThemeColor_CardDesc" xml:space="preserve">
+    <value>ライト → ダーク色変換</value>
+  </data>
+  <data name="Gallery_ThemeColor_Desc" xml:space="preserve">
+    <value>ライトテーマ色を選ぶと、ThemeColorApproach.ToDark が LAB 明度を再マップ（Office / roosterjs）してダーク色を即時更新します。アクセント階調は Fluent ColorPalette（SystemAccentColorLight*/Dark*）です。</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark" xml:space="preserve">
+    <value>ライト → ダーク</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark_Desc" xml:space="preserve">
+    <value>ライト色または base L* を変更すると、ダーク結果がすぐ再計算されます。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PickLight" xml:space="preserve">
+    <value>ライト色</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL" xml:space="preserve">
+    <value>ダーク基準 L*（既定 21.247 = #333333）</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL_Hint" xml:space="preserve">
+    <value>値が小さいほど全体のダーク調が暗くなります。</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightSwatch" xml:space="preserve">
+    <value>ライト</value>
+  </data>
+  <data name="Gallery_ThemeColor_DarkSwatch" xml:space="preserve">
+    <value>ダーク（自動）</value>
+  </data>
+  <data name="Gallery_ThemeColor_IsLight" xml:space="preserve">
+    <value>IsColorLight</value>
+  </data>
+  <data name="Gallery_ThemeColor_AutoCalc" xml:space="preserve">
+    <value>ThemeColorApproach.ToDark で自動計算</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette" xml:space="preserve">
+    <value>アクセントパレット</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette_Desc" xml:space="preserve">
+    <value>CreateAccentPalette は同じライト色から Fluent 7 段階ランプを生成します。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent" xml:space="preserve">
+    <value>テーマ別プライマリアクセント</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent_Desc" xml:space="preserve">
+    <value>WinUI では通常ライトで Dark1、ダークで Light2 を使います。</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForLight" xml:space="preserve">
+    <value>ライトテーマ主色（Dark1）</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForDark" xml:space="preserve">
+    <value>ダークテーマ主色（Light2）</value>
   </data>
   <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
     <value>ThemeRefreshConverter</value>

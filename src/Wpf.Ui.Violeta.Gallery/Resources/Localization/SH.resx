@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3496,6 +3496,60 @@ Click OK to continue.</value>
   </data>
   <data name="Gallery_Page_Colors" xml:space="preserve">
     <value>Colors</value>
+  </data>
+  <data name="Gallery_Page_ThemeColorApproach" xml:space="preserve">
+    <value>ThemeColorApproach</value>
+  </data>
+  <data name="Gallery_ThemeColor_CardDesc" xml:space="preserve">
+    <value>Light → dark color conversion</value>
+  </data>
+  <data name="Gallery_ThemeColor_Desc" xml:space="preserve">
+    <value>Pick a light-theme color; ThemeColorApproach.ToDark remaps LAB lightness (Office / roosterjs) and updates the dark swatch live. Accent ramps use Fluent ColorPalette (SystemAccentColorLight*/Dark*).</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark" xml:space="preserve">
+    <value>Light → Dark</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightToDark_Desc" xml:space="preserve">
+    <value>Change the light color or base L*; the dark result recalculates immediately.</value>
+  </data>
+  <data name="Gallery_ThemeColor_PickLight" xml:space="preserve">
+    <value>Light color</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL" xml:space="preserve">
+    <value>Dark base L* (default 21.247 = #333333)</value>
+  </data>
+  <data name="Gallery_ThemeColor_BaseL_Hint" xml:space="preserve">
+    <value>Lower values produce a darker overall dark palette.</value>
+  </data>
+  <data name="Gallery_ThemeColor_LightSwatch" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Gallery_ThemeColor_DarkSwatch" xml:space="preserve">
+    <value>Dark (auto)</value>
+  </data>
+  <data name="Gallery_ThemeColor_IsLight" xml:space="preserve">
+    <value>IsColorLight</value>
+  </data>
+  <data name="Gallery_ThemeColor_AutoCalc" xml:space="preserve">
+    <value>Auto-calculated via ThemeColorApproach.ToDark</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette" xml:space="preserve">
+    <value>Accent palette</value>
+  </data>
+  <data name="Gallery_ThemeColor_AccentPalette_Desc" xml:space="preserve">
+    <value>CreateAccentPalette builds the 7-step Fluent ramp from the same light color.</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent" xml:space="preserve">
+    <value>Primary accent by theme</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryAccent_Desc" xml:space="preserve">
+    <value>WinUI typically uses Dark1 in light theme and Light2 in dark theme.</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForLight" xml:space="preserve">
+    <value>Light theme primary (Dark1)</value>
+  </data>
+  <data name="Gallery_ThemeColor_PrimaryForDark" xml:space="preserve">
+    <value>Dark theme primary (Light2)</value>
   </data>
   <data name="Gallery_Page_ThemeRefreshConverter" xml:space="preserve">
     <value>ThemeRefreshConverter</value>
