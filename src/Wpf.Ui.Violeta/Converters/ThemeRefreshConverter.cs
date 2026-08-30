@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
@@ -14,95 +15,34 @@ using Wpf.Ui.Violeta.Appearance;
 namespace Wpf.Ui.Violeta.Converters;
 
 /// <summary>
-/// Theme-aware wrapper around an inner <see cref="IValueConverter"/> (e.g. a
-/// LiteObservableConverters <c>ValueConverterGroup</c>).
-/// <para>
-/// Use as an <see cref="IMultiValueConverter"/>: first binding is the source value,
-/// second binding is <see cref="Revision"/>. Theme changes increment <see cref="Revision"/>,
-/// so WPF re-runs <c>Convert</c> with no target / visual-tree scanning.
-/// </para>
+/// App-wide theme revision. Bind as the second <see cref="MultiBinding"/> input so
+/// WPF re-runs the converter when the theme changes.
 /// </summary>
-/// <example>
-/// <code language="xml">
-/// <![CDATA[
-/// <vio:ThemeRefreshConverter x:Key="BoolToBrushGroup">
-///   <vio:ThemeRefreshConverter.Converter>
-///     <c:ValueConverterGroup>
-///       <c:BoolToBrushConverter TrueValue="{DynamicResource TextFillColorPrimaryBrush}"
-///                                FalseValue="{DynamicResource AccentFillColorDefaultBrush}" />
-///     </c:ValueConverterGroup>
-///   </vio:ThemeRefreshConverter.Converter>
-/// </vio:ThemeRefreshConverter>
-///
-/// <Border.Background>
-///   <MultiBinding Converter="{StaticResource BoolToBrushGroup}">
-///     <Binding Path="IsOn" ElementName="Toggle" />
-///     <Binding Path="Revision" Source="{StaticResource BoolToBrushGroup}" />
-///   </MultiBinding>
-/// </Border.Background>
-/// ]]>
-/// </code>
-/// </example>
-[ContentProperty(nameof(Converter))]
-public sealed class ThemeRefreshConverter : DependencyObject, IMultiValueConverter
+public sealed class ThemeRevision : DependencyObject
 {
-    public static readonly DependencyProperty ConverterProperty = DependencyProperty.Register(
-        nameof(Converter),
-        typeof(IValueConverter),
-        typeof(ThemeRefreshConverter),
-        new PropertyMetadata(null));
+    public static ThemeRevision Current { get; } = new();
 
     public static readonly DependencyProperty RevisionProperty = DependencyProperty.Register(
         nameof(Revision),
         typeof(int),
-        typeof(ThemeRefreshConverter),
+        typeof(ThemeRevision),
         new PropertyMetadata(0));
 
-    private static bool _subscribed;
-    private static readonly List<WeakReference<ThemeRefreshConverter>> LiveInstances = [];
-
-    public ThemeRefreshConverter()
+    static ThemeRevision()
     {
-        EnsureSubscribed();
-        lock (LiveInstances)
-        {
-            LiveInstances.Add(new WeakReference<ThemeRefreshConverter>(this));
-        }
+        ThemeManager.Changed += OnThemeChanged;
     }
 
-    /// <summary>
-    /// Inner converter (typically <c>ValueConverterGroup</c>).
-    /// </summary>
-    public IValueConverter? Converter
-    {
-        get => (IValueConverter?)GetValue(ConverterProperty);
-        set => SetValue(ConverterProperty, value);
-    }
-
-    /// <summary>
-    /// Bumped on every theme change. Bind this as the second <see cref="MultiBinding"/> input.
-    /// </summary>
     public int Revision
     {
         get => (int)GetValue(RevisionProperty);
         private set => SetValue(RevisionProperty, value);
     }
 
-    private static void EnsureSubscribed()
+    private static void OnThemeChanged(ApplicationTheme theme, Color accent)
     {
-        if (_subscribed)
-        {
-            return;
-        }
-
-        _subscribed = true;
-        ThemeManager.Changed += OnThemeChanged;
-    }
-
-    private static void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
-    {
-        _ = currentApplicationTheme;
-        _ = systemAccent;
+        _ = theme;
+        _ = accent;
 
         Application? app = Application.Current;
         if (app is null)
@@ -110,85 +50,56 @@ public sealed class ThemeRefreshConverter : DependencyObject, IMultiValueConvert
             return;
         }
 
-        _ = app.Dispatcher.BeginInvoke(DispatcherPriority.DataBind, new Action(BumpAllRevisions));
+        _ = app.Dispatcher.BeginInvoke(DispatcherPriority.DataBind, static () => Current.Revision++);
     }
+}
 
-    private static void BumpAllRevisions()
-    {
-        lock (LiveInstances)
-        {
-            for (int i = LiveInstances.Count - 1; i >= 0; i--)
-            {
-                if (!LiveInstances[i].TryGetTarget(out ThemeRefreshConverter? instance))
-                {
-                    LiveInstances.RemoveAt(i);
-                    continue;
-                }
+/// <summary>
+/// Wraps an <see cref="IValueConverter"/> as an <see cref="IMultiValueConverter"/>.
+/// First binding is the source value; second binding is <see cref="ThemeRevision.Revision"/>.
+/// </summary>
+/// <example>
+/// <code language="xml">
+/// <![CDATA[
+/// <vio:ThemeRefreshConverter x:Key="BoolToBrush">
+///   <c:BoolToBrushConverter TrueValue="{DynamicResource AccentFillColorDefaultBrush}"
+///                            FalseValue="{DynamicResource TextFillColorPrimaryBrush}" />
+/// </vio:ThemeRefreshConverter>
+///
+/// <Border.Background>
+///   <MultiBinding Converter="{StaticResource BoolToBrush}">
+///     <Binding Path="IsOn" ElementName="Toggle" />
+///     <Binding Path="Revision" Source="{x:Static vio:ThemeRevision.Current}" />
+///   </MultiBinding>
+/// </Border.Background>
+/// ]]>
+/// </code>
+/// </example>
+[ContentProperty(nameof(Converter))]
+public sealed class ThemeRefreshConverter : IMultiValueConverter
+{
+    private static readonly ConditionalWeakTable<DependencyObject, Dictionary<DependencyProperty, object>> ResourceKeys = new();
 
-                InvalidateOwnedResources(instance.Converter);
-                instance.Revision++;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Invalidates local DPs on the owned converter chain so DynamicResource re-resolves.
-    /// </summary>
-    private static void InvalidateOwnedResources(object? converter)
-    {
-        if (converter is null)
-        {
-            return;
-        }
-
-        if (converter is DependencyObject dependencyObject)
-        {
-            LocalValueEnumerator enumerator = dependencyObject.GetLocalValueEnumerator();
-            while (enumerator.MoveNext())
-            {
-                LocalValueEntry entry = enumerator.Current;
-                if (entry.Value is BindingExpressionBase)
-                {
-                    continue;
-                }
-
-                dependencyObject.InvalidateProperty(entry.Property);
-            }
-        }
-
-        PropertyInfo? convertersProperty = converter.GetType().GetProperty(
-            "Converters",
-            BindingFlags.Instance | BindingFlags.Public);
-
-        if (convertersProperty?.GetValue(converter) is IEnumerable items)
-        {
-            foreach (object? item in items)
-            {
-                InvalidateOwnedResources(item);
-            }
-        }
-    }
+    public IValueConverter? Converter { get; set; }
 
     public object? Convert(object?[] values, Type targetType, object? parameter, CultureInfo culture)
     {
-        EnsureSubscribed();
-
         object? value = values is { Length: > 0 } ? values[0] : null;
 
-        InvalidateOwnedResources(Converter);
+        // Theme dictionary swaps leave DynamicResource expressions on orphan DOs stale.
+        // Re-materialize from Application resources before delegating.
+        Rematerialize(Converter);
 
-        IValueConverter? converter = Converter;
-        return converter is null
+        return Converter is null
             ? value
-            : converter.Convert(value, targetType, parameter, culture);
+            : Converter.Convert(value, targetType, parameter, culture);
     }
 
     public object?[] ConvertBack(object? value, Type[] targetTypes, object? parameter, CultureInfo culture)
     {
-        IValueConverter? converter = Converter;
-        object? converted = converter is null
+        object? converted = Converter is null
             ? value
-            : converter.ConvertBack(
+            : Converter.ConvertBack(
                 value,
                 targetTypes is { Length: > 0 } ? targetTypes[0] : typeof(object),
                 parameter,
@@ -206,5 +117,69 @@ public sealed class ThemeRefreshConverter : DependencyObject, IMultiValueConvert
         }
 
         return result;
+    }
+
+    private static void Rematerialize(object? node)
+    {
+        if (node is null)
+        {
+            return;
+        }
+
+        if (node is DependencyObject dependencyObject)
+        {
+            RematerializeResources(dependencyObject);
+        }
+
+        PropertyInfo? convertersProperty = node.GetType().GetProperty(
+            "Converters",
+            BindingFlags.Instance | BindingFlags.Public);
+
+        if (convertersProperty?.GetValue(node) is IEnumerable items)
+        {
+            foreach (object? item in items)
+            {
+                Rematerialize(item);
+            }
+        }
+    }
+
+    private static void RematerializeResources(DependencyObject target)
+    {
+        Application? app = Application.Current;
+        if (app is null)
+        {
+            return;
+        }
+
+        Dictionary<DependencyProperty, object> keys = ResourceKeys.GetOrCreateValue(target);
+
+        LocalValueEnumerator enumerator = target.GetLocalValueEnumerator();
+        while (enumerator.MoveNext())
+        {
+            LocalValueEntry entry = enumerator.Current;
+            if (entry.Value is null or BindingExpressionBase)
+            {
+                continue;
+            }
+
+            // ResourceReferenceExpression is internal; detect via ResourceKey.
+            PropertyInfo? resourceKeyProperty = entry.Value.GetType().GetProperty(
+                "ResourceKey",
+                BindingFlags.Instance | BindingFlags.Public);
+
+            if (resourceKeyProperty?.GetValue(entry.Value) is { } key)
+            {
+                keys[entry.Property] = key;
+            }
+        }
+
+        foreach (KeyValuePair<DependencyProperty, object> pair in keys)
+        {
+            if (app.TryFindResource(pair.Value) is { } resource)
+            {
+                target.SetValue(pair.Key, resource);
+            }
+        }
     }
 }

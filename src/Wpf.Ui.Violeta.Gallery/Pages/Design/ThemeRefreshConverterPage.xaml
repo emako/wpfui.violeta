@@ -16,11 +16,7 @@
             <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{DynamicResource AccentTextFillColorPrimaryBrush}" />
         </c:ValueConverterGroup>
         <vio:ThemeRefreshConverter x:Key="BoolToBrushWithThemeRefresh">
-            <vio:ThemeRefreshConverter.Converter>
-                <c:ValueConverterGroup>
-                    <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{DynamicResource AccentTextFillColorPrimaryBrush}" />
-                </c:ValueConverterGroup>
-            </vio:ThemeRefreshConverter.Converter>
+            <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{DynamicResource AccentTextFillColorPrimaryBrush}" />
         </vio:ThemeRefreshConverter>
     </vio:Page.Resources>
 
@@ -136,7 +132,7 @@
                             <Border.Background>
                                 <MultiBinding Converter="{StaticResource BoolToBrushWithThemeRefresh}">
                                     <Binding ElementName="DemoToggle" Path="IsOn" />
-                                    <Binding Path="Revision" Source="{StaticResource BoolToBrushWithThemeRefresh}" />
+                                    <Binding Path="Revision" Source="{x:Static vio:ThemeRevision.Current}" />
                                 </MultiBinding>
                             </Border.Background>
                         </Border>
