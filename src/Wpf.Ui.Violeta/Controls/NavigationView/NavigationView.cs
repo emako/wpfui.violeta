@@ -2225,6 +2225,14 @@ public partial class NavigationView : ContentControl, IControlProtected
         UIElement prevIndicator = m_activeIndicator;
         UIElement nextIndicator = FindSelectionIndicator(nextItem);
 
+        // Selected item not realized yet (common after AutoSuggest expands a parent). Never blank the
+        // previous indicator here — that leaves IsSelected styling without a pill. Retry after layout.
+        if (nextItem != null && nextIndicator == null)
+        {
+            ScheduleSelectionIndicatorAnimation(nextItem);
+            return;
+        }
+
         bool haveValidAnimation = false;
         // It's possible that AnimateSelectionChanged is called multiple times before the first animation is complete.
         // To have better user experience, if the selected target is the same, keep the first animation
@@ -2250,7 +2258,19 @@ public partial class NavigationView : ContentControl, IControlProtected
         {
             UIElement paneContentGrid = m_paneContentGrid;
 
-            if ((prevIndicator != nextIndicator) && paneContentGrid != null && prevIndicator != null && nextIndicator != null && SharedHelpers.IsAnimationsEnabled)
+            // Indicator exists in template but is not yet in the pane visual tree (just expanded).
+            // Animating with Identity transforms leaves FillBehavior.Stop reverting Opacity to 0.
+            bool nextInPaneTree = nextIndicator != null
+                && paneContentGrid != null
+                && nextIndicator.FindCommonVisualAncestor(paneContentGrid) != null;
+
+            if (nextItem != null && nextIndicator != null && !nextInPaneTree)
+            {
+                ScheduleSelectionIndicatorAnimation(nextItem);
+                return;
+            }
+
+            if ((prevIndicator != nextIndicator) && paneContentGrid != null && prevIndicator != null && nextIndicator != null && nextInPaneTree && SharedHelpers.IsAnimationsEnabled)
             {
                 // Make sure both indicators are visible and in their original locations
                 ResetElementAnimationProperties(prevIndicator, 1.0);
@@ -2280,7 +2300,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                     areElementsAtSameDepth = prevPosPoint.X == nextPosPoint.X;
                 }
 
-                var storyboard = new Storyboard { FillBehavior = FillBehavior.Stop };
+                var storyboard = new Storyboard { FillBehavior = FillBehavior.HoldEnd };
 
                 if (!areElementsAtSameDepth)
                 {
@@ -2330,18 +2350,31 @@ public partial class NavigationView : ContentControl, IControlProtected
 
                 storyboard.Completed += OnAnimationComplete;
 
+                m_indicatorStoryboard = storyboard;
                 storyboard.Begin(this, true);
                 storyboard.Pause(this);
                 storyboard.SeekAlignedToLastTick(this, TimeSpan.Zero, TimeSeekOrigin.BeginTime);
+                var storyboardGeneration = ++m_indicatorStoryboardGeneration;
                 Dispatcher.BeginInvoke(() =>
                 {
+                    // Skip resume if this storyboard was aborted/replaced.
+                    if (storyboardGeneration != m_indicatorStoryboardGeneration || m_indicatorStoryboard != storyboard)
+                    {
+                        return;
+                    }
+
                     storyboard.Resume(this);
                 }, DispatcherPriority.Loaded);
             }
             else
             {
-                // if all else fails, or if animations are turned off, attempt to correctly set the positions and opacities of the indicators.
-                ResetElementAnimationProperties(prevIndicator, 0.0);
+                // Snap without animation. Only hide prev when it is a different indicator —
+                // otherwise Opacity is briefly forced to 0 on the active pill (prev == next).
+                if (!ReferenceEquals(prevIndicator, nextIndicator))
+                {
+                    ResetElementAnimationProperties(prevIndicator, 0.0);
+                }
+
                 ResetElementAnimationProperties(nextIndicator, 1.0);
             }
 
@@ -2523,6 +2556,17 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void OnAnimationComplete(object? sender, EventArgs args)
     {
+        if (sender is Storyboard completed && ReferenceEquals(m_indicatorStoryboard, completed))
+        {
+            m_indicatorStoryboard = null;
+            m_indicatorStoryboardGeneration++;
+        }
+        else
+        {
+            // Abort path (sender == null) or mismatched storyboard: tear down clocks first.
+            StopIndicatorStoryboard();
+        }
+
         var indicator = m_prevIndicator;
         ResetElementAnimationProperties(indicator, 0.0);
         m_prevIndicator = null;
@@ -2530,6 +2574,24 @@ public partial class NavigationView : ContentControl, IControlProtected
         indicator = m_nextIndicator;
         ResetElementAnimationProperties(indicator, 1.0);
         m_nextIndicator = null;
+    }
+
+    void StopIndicatorStoryboard()
+    {
+        m_indicatorStoryboardGeneration++;
+        if (m_indicatorStoryboard is { } storyboard)
+        {
+            m_indicatorStoryboard = null;
+            try
+            {
+                storyboard.Stop(this);
+                storyboard.Remove(this);
+            }
+            catch
+            {
+                // Storyboard may already be detached.
+            }
+        }
     }
 
     void ResetElementAnimationProperties(UIElement element, double desiredOpacity)
@@ -4441,7 +4503,10 @@ public partial class NavigationView : ContentControl, IControlProtected
                     navViewItem.IsSelected = true;
                 }
             }
-            AnimateSelectionChanged(item);
+
+            // Child repeaters become visible after expand-from-search; sync the pill after layout
+            // instead of animating immediately (next indicator may not be in the pane tree yet).
+            ScheduleSelectionIndicatorAnimation(item);
         }
     }
 
@@ -4539,12 +4604,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             return;
         }
 
-        if (NavigateToMenuItemFromAutoSuggestBox(MenuItems, selectedSuggestBoxItem))
-        {
-            return;
-        }
-
-        _ = NavigateToMenuItemFromAutoSuggestBox(FooterMenuItems, selectedSuggestBoxItem);
+        _ = NavigateToMenuItemFromAutoSuggestBox(selectedSuggestBoxItem);
     }
 
     void AutoSuggestBoxOnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
@@ -4576,14 +4636,22 @@ public partial class NavigationView : ContentControl, IControlProtected
             return;
         }
 
-        var element = suggestions[0];
+        // Prefer exact text match (UpdateTextOnSelect fills QueryText with the chosen item).
+        var element = suggestions.Find(s =>
+            string.Equals(s, args.QueryText, StringComparison.CurrentCultureIgnoreCase))
+            ?? suggestions[0];
 
-        if (NavigateToMenuItemFromAutoSuggestBox(MenuItems, element))
+        _ = NavigateToMenuItemFromAutoSuggestBox(element);
+    }
+
+    bool NavigateToMenuItemFromAutoSuggestBox(string selectedSuggestBoxItem)
+    {
+        if (NavigateToMenuItemFromAutoSuggestBox(MenuItems, selectedSuggestBoxItem))
         {
-            return;
+            return true;
         }
 
-        _ = NavigateToMenuItemFromAutoSuggestBox(FooterMenuItems, element);
+        return NavigateToMenuItemFromAutoSuggestBox(FooterMenuItems, selectedSuggestBoxItem);
     }
 
     bool NavigateToMenuItemFromAutoSuggestBox(IEnumerable? list, string selectedSuggestBoxItem)
@@ -4602,11 +4670,18 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (item.Content is string content && content == selectedSuggestBoxItem)
             {
-                ExpandParentItems(MenuItems, item);
-                ExpandParentItems(FooterMenuItems, item);
+                _ = ExpandParentItems(MenuItems, item)
+                    | ExpandParentItems(FooterMenuItems, item);
+
                 SelectedItem = item;
                 item.BringIntoView();
                 _ = item.Focus();
+
+                // Always defer pill sync after search navigation. Expand+select races leave the
+                // selection indicator at template Opacity=0 (FillBehavior.Stop / null next), while
+                // IsSelected background still updates — matching the "page ok, pill missing" bug.
+                ScheduleSelectionIndicatorAnimation(item);
+
                 return true;
             }
 
@@ -4619,6 +4694,9 @@ public partial class NavigationView : ContentControl, IControlProtected
         return false;
     }
 
+    /// <summary>
+    /// Expands ancestors of <paramref name="target"/>. Returns true if any parent was newly expanded.
+    /// </summary>
     bool ExpandParentItems(IEnumerable? list, NavigationViewItem target)
     {
         if (list is null)
@@ -4635,17 +4713,127 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (ReferenceEquals(item, target))
             {
-                return true;
+                return false;
             }
 
-            if (ExpandParentItems(item.MenuItems, target))
+            if (item.MenuItems is { Count: > 0 } && IsOrContainsMenuItem(item.MenuItems, target))
             {
-                item.IsExpanded = true;
+                var expandedDeeper = ExpandParentItems(item.MenuItems, target);
+                var expandedHere = false;
+                if (!item.IsExpanded)
+                {
+                    item.IsExpanded = true;
+                    expandedHere = true;
+                }
+
+                return expandedHere || expandedDeeper;
+            }
+        }
+
+        return false;
+    }
+
+    static bool IsOrContainsMenuItem(IEnumerable? list, NavigationViewItem target)
+    {
+        if (list is null)
+        {
+            return false;
+        }
+
+        foreach (var obj in list)
+        {
+            if (obj is not NavigationViewItem item)
+            {
+                continue;
+            }
+
+            if (ReferenceEquals(item, target) || IsOrContainsMenuItem(item.MenuItems, target))
+            {
                 return true;
             }
         }
 
         return false;
+    }
+
+    void ScheduleSelectionIndicatorAnimation(object item)
+    {
+        m_pendingSelectionIndicatorAnimationItem = item;
+        m_pendingSelectionIndicatorAnimationRetries = 0;
+        Dispatcher.BeginInvoke(ReplayPendingSelectionIndicatorAnimation, DispatcherPriority.Loaded);
+    }
+
+    void ReplayPendingSelectionIndicatorAnimation()
+    {
+        if (m_pendingSelectionIndicatorAnimationItem is not { } item)
+        {
+            return;
+        }
+
+        if (!ReferenceEquals(SelectedItem, item))
+        {
+            m_pendingSelectionIndicatorAnimationItem = null;
+            return;
+        }
+
+        UpdateLayout();
+
+        if (item is NavigationViewItem pendingItem)
+        {
+            pendingItem.ApplyTemplate();
+            pendingItem.UpdateLayout();
+            if (pendingItem.GetPresenter() is { } presenter)
+            {
+                presenter.ApplyTemplate();
+                presenter.UpdateLayout();
+            }
+        }
+
+        var indicator = FindSelectionIndicator(item);
+        var inPaneTree = indicator != null
+            && m_paneContentGrid != null
+            && indicator.FindCommonVisualAncestor(m_paneContentGrid) != null;
+
+        if ((indicator is null || !inPaneTree) && m_pendingSelectionIndicatorAnimationRetries < 8)
+        {
+            m_pendingSelectionIndicatorAnimationRetries++;
+            Dispatcher.BeginInvoke(ReplayPendingSelectionIndicatorAnimation, DispatcherPriority.ContextIdle);
+            return;
+        }
+
+        m_pendingSelectionIndicatorAnimationItem = null;
+        ForceActiveSelectionIndicator(item, indicator);
+    }
+
+    /// <summary>
+    /// Sets the selection pill without relying on in-flight indicator storyboards.
+    /// Template default Opacity is 0; aborted/Stop animations often leave the pill invisible
+    /// even though <see cref="NavigationViewItem.IsSelected"/> (background) is correct.
+    /// </summary>
+    void ForceActiveSelectionIndicator(object item, UIElement indicator)
+    {
+        StopIndicatorStoryboard();
+        m_prevIndicator = null;
+        m_nextIndicator = null;
+
+        if (m_activeIndicator is { } previous && !ReferenceEquals(previous, indicator))
+        {
+            ResetElementAnimationProperties(previous, 0.0);
+        }
+
+        if (indicator is null)
+        {
+            m_activeIndicator = null;
+            return;
+        }
+
+        ResetElementAnimationProperties(indicator, 1.0);
+        m_activeIndicator = indicator;
+
+        if (item is NavigationViewItem nvi)
+        {
+            nvi.BringIntoView();
+        }
     }
 
     void OnIsPaneOpenChanged()
@@ -6180,6 +6368,10 @@ public partial class NavigationView : ContentControl, IControlProtected
     private UIElement m_nextIndicator;
     private UIElement m_activeIndicator;
     private object m_lastSelectedItemPendingAnimationInTopNav;
+    private object m_pendingSelectionIndicatorAnimationItem;
+    private int m_pendingSelectionIndicatorAnimationRetries;
+    private Storyboard m_indicatorStoryboard;
+    private int m_indicatorStoryboardGeneration;
 
     private FrameworkElement m_togglePaneTopPadding;
     private FrameworkElement m_contentPaneTopPadding;

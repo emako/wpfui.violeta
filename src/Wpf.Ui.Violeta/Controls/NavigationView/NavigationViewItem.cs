@@ -184,7 +184,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         var selectIndicator = m_helper.GetSelectionIndicator();
         if (GetPresenter() is { } presenter)
         {
-            selectIndicator = presenter.GetSelectionIndicator();
+            selectIndicator = presenter.GetSelectionIndicator() ?? selectIndicator;
         }
         return selectIndicator;
     }
@@ -579,7 +579,7 @@ public partial class NavigationViewItem : NavigationViewItemBase
         }
     }
 
-    NavigationViewItemPresenter GetPresenter()
+    internal NavigationViewItemPresenter GetPresenter()
     {
         NavigationViewItemPresenter presenter = null;
         if (m_navigationViewItemPresenter != null)
