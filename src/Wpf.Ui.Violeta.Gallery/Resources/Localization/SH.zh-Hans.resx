@@ -3558,7 +3558,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>主题感知转换器链</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>把 ValueConverterGroup 嵌在 ThemeRefreshConverter.Converter 中。使用 MultiBinding：第一路绑数据，第二路绑 Revision。主题切换时 Revision 自增，由绑定引擎稳定触发重新 Convert。也可写 {vio:ThemeBinding ...}。</value>
+    <value>把 ValueConverterGroup 嵌在 ThemeRefreshConverter.Converter 中。使用 MultiBinding：第一路绑数据，第二路绑 Revision。主题切换时 Revision 自增，由绑定引擎稳定触发重新 Convert。</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
     <value>ThemeRefreshConverter 包装</value>

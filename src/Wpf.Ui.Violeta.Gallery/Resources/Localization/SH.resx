@@ -3558,7 +3558,7 @@ Click OK to continue.</value>
     <value>Theme-aware converter chains</value>
   </data>
   <data name="Gallery_ThemeRefresh_Desc" xml:space="preserve">
-    <value>Nest ValueConverterGroup under ThemeRefreshConverter.Converter. Use MultiBinding: value + Revision. Theme bumps Revision so Convert re-runs via the binding engine. Shorthand: {vio:ThemeBinding ...}.</value>
+    <value>Nest ValueConverterGroup under ThemeRefreshConverter.Converter. Use MultiBinding: value + Revision. Theme bumps Revision so Convert re-runs via the binding engine.</value>
   </data>
   <data name="Gallery_ThemeRefresh_With" xml:space="preserve">
     <value>ThemeRefreshConverter wrapper</value>

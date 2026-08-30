@@ -18,7 +18,7 @@
         <vio:ThemeRefreshConverter x:Key="BoolToBrushWithThemeRefresh">
             <vio:ThemeRefreshConverter.Converter>
                 <c:ValueConverterGroup>
-                    <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{vio:ThemeBinding AccentTextFillColorPrimaryBrush}" />
+                    <c:BoolToBrushConverter FalseValue="{DynamicResource TextFillColorPrimaryBrush}" TrueValue="{DynamicResource AccentTextFillColorPrimaryBrush}" />
                 </c:ValueConverterGroup>
             </vio:ThemeRefreshConverter.Converter>
         </vio:ThemeRefreshConverter>
