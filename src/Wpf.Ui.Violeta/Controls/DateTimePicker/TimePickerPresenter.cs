@@ -170,6 +170,8 @@ public class TimePickerPresenter : Control
     {
         base.OnApplyTemplate();
 
+        UnsubscribeSelectorEvents();
+
         _hourSelector = GetTemplateChild(PartHourSelector) as DateTimePickerPanel;
         _minuteSelector = GetTemplateChild(PartMinuteSelector) as DateTimePickerPanel;
         _secondSelector = GetTemplateChild(PartSecondSelector) as DateTimePickerPanel;
@@ -204,6 +206,29 @@ public class TimePickerPresenter : Control
 
         ApplyVisibleItemCount();
         SyncPanelsToTime();
+        SubscribeSelectorEvents();
+    }
+
+    private void UnsubscribeSelectorEvents()
+    {
+        if (_hourSelector != null) _hourSelector.SelectionChanged -= OnPanelSelectionChanged;
+        if (_minuteSelector != null) _minuteSelector.SelectionChanged -= OnPanelSelectionChanged;
+        if (_secondSelector != null) _secondSelector.SelectionChanged -= OnPanelSelectionChanged;
+        if (_periodSelector != null) _periodSelector.SelectionChanged -= OnPanelSelectionChanged;
+    }
+
+    private void SubscribeSelectorEvents()
+    {
+        if (_hourSelector != null) _hourSelector.SelectionChanged += OnPanelSelectionChanged;
+        if (_minuteSelector != null) _minuteSelector.SelectionChanged += OnPanelSelectionChanged;
+        if (_secondSelector != null) _secondSelector.SelectionChanged += OnPanelSelectionChanged;
+        if (_periodSelector != null) _periodSelector.SelectionChanged += OnPanelSelectionChanged;
+    }
+
+    private void OnPanelSelectionChanged(object? sender, RoutedEventArgs e)
+    {
+        if (GetSelectedTime() is { } time)
+            Time = time;
     }
 
     // ------------------------------------------------------------------
