@@ -96,9 +96,9 @@ public static partial class DragDrop
             uiElement.PreviewMouseLeftButtonUp -= DragSourceOnMouseLeftButtonUp;
             uiElement.PreviewMouseMove -= DragSourceOnMouseMove;
 
-            uiElement.PreviewTouchDown -= DragSourceOnTouchDown;
-            uiElement.PreviewTouchUp -= DragSourceOnTouchUp;
-            uiElement.PreviewTouchMove -= DragSourceOnTouchMove;
+            uiElement.PreviewTouchDown -= DragSourceOnTouchDown!;
+            uiElement.PreviewTouchUp -= DragSourceOnTouchUp!;
+            uiElement.PreviewTouchMove -= DragSourceOnTouchMove!;
 
             uiElement.GiveFeedback -= DragSourceOnGiveFeedback;
 
@@ -108,9 +108,9 @@ public static partial class DragDrop
                 uiElement.PreviewMouseLeftButtonUp += DragSourceOnMouseLeftButtonUp;
                 uiElement.PreviewMouseMove += DragSourceOnMouseMove;
 
-                uiElement.PreviewTouchDown += DragSourceOnTouchDown;
-                uiElement.PreviewTouchUp += DragSourceOnTouchUp;
-                uiElement.PreviewTouchMove += DragSourceOnTouchMove;
+                uiElement.PreviewTouchDown += DragSourceOnTouchDown!;
+                uiElement.PreviewTouchUp += DragSourceOnTouchUp!;
+                uiElement.PreviewTouchMove += DragSourceOnTouchMove!;
 
                 uiElement.GiveFeedback += DragSourceOnGiveFeedback;
             }
@@ -547,7 +547,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("DropTargetAdornerBrush",
                                               typeof(Brush),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((Brush)null));
+                                              new PropertyMetadata((Brush)null!));
 
     /// <summary>Helper for getting <see cref="DropTargetAdornerBrushProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="DropTargetAdornerBrushProperty"/> from.</param>
@@ -601,7 +601,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("DropTargetAdornerPen",
                                               typeof(Pen),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((Pen)null));
+                                              new PropertyMetadata((Pen)null!));
 
     /// <summary>Helper for getting <see cref="DropTargetAdornerPenProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="DropTargetAdornerPenProperty"/> from.</param>
@@ -803,8 +803,7 @@ public static partial class DragDrop
     /// <param name="e"></param>
     private static void OnUseDropTargetHintChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        var dropTarget = d as UIElement;
-        if (dropTarget == null)
+        if (d is not UIElement dropTarget)
         {
             return;
         }
@@ -1317,7 +1316,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectNoneAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectNoneAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectNoneAdornerTemplateProperty"/> from.</param>
@@ -1346,7 +1345,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectCopyAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectCopyAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectCopyAdornerTemplateProperty"/> from.</param>
@@ -1375,7 +1374,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectMoveAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectMoveAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectMoveAdornerTemplateProperty"/> from.</param>
@@ -1404,7 +1403,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectLinkAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectLinkAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectLinkAdornerTemplateProperty"/> from.</param>
@@ -1433,7 +1432,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectAllAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectAllAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectAllAdornerTemplateProperty"/> from.</param>
@@ -1462,7 +1461,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("EffectScrollAdornerTemplate",
                                               typeof(DataTemplate),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((DataTemplate)null));
+                                              new PropertyMetadata((DataTemplate)null!));
 
     /// <summary>Helper for getting <see cref="EffectScrollAdornerTemplateProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="EffectScrollAdornerTemplateProperty"/> from.</param>
@@ -1620,7 +1619,7 @@ public static partial class DragDrop
         = DependencyProperty.RegisterAttached("DropTargetScrollViewer",
                                               typeof(ScrollViewer),
                                               typeof(DragDrop),
-                                              new PropertyMetadata((ScrollViewer)null));
+                                              new PropertyMetadata((ScrollViewer)null!));
 
     /// <summary>Helper for getting <see cref="DropTargetScrollViewerProperty"/> from <paramref name="element"/>.</summary>
     /// <param name="element"><see cref="DependencyObject"/> to read <see cref="DropTargetScrollViewerProperty"/> from.</param>
@@ -1629,7 +1628,7 @@ public static partial class DragDrop
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
     public static ScrollViewer GetDropTargetScrollViewer(DependencyObject element)
     {
-        return (ScrollViewer)element?.GetValue(DropTargetScrollViewerProperty);
+        return (ScrollViewer)element?.GetValue(DropTargetScrollViewerProperty)!;
     }
 
     /// <summary>Helper for setting <see cref="DropTargetScrollViewerProperty"/> on <paramref name="element"/>.</summary>

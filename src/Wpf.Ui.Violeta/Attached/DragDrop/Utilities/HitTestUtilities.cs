@@ -21,10 +21,10 @@ public static class HitTestUtilities
     {
         if (sender is not Visual visual)
         {
-            return null;
+            return null!;
         }
 
-        HitTestResult hit = null;
+        HitTestResult hit = null!;
 
         VisualTreeHelper.HitTest(
             visual,
@@ -53,7 +53,7 @@ public static class HitTestUtilities
             new PointHitTestParameters(elementPosition)
         );
 
-        return hit?.VisualHit.GetVisualAncestor<T>();
+        return hit?.VisualHit.GetVisualAncestor<T>()!;
     }
 
     public static bool HitTest4GridViewColumnHeader(object sender, Point elementPosition)

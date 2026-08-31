@@ -63,7 +63,7 @@ public static class DragDropExtensions
     /// <returns></returns>
     public static DataTemplate GetCaptureScreenDataTemplate(this UIElement element, FlowDirection visualSourceFlowDirection)
     {
-        DataTemplate template = null;
+        DataTemplate template = null!;
         var bs = CaptureScreen(element, visualSourceFlowDirection);
         if (bs != null)
         {
@@ -78,7 +78,7 @@ public static class DragDropExtensions
             template = new DataTemplate { VisualTree = factory };
         }
 
-        return template;
+        return template!;
     }
 
     // Helper to generate the image - I grabbed this off Google
@@ -87,7 +87,7 @@ public static class DragDropExtensions
     {
         if (target == null)
         {
-            return null;
+            return null!;
         }
 
         var bounds = VisualTreeHelper.GetDescendantBounds(target);
@@ -102,7 +102,7 @@ public static class DragDropExtensions
         var pixelHeight = (int)Math.Ceiling(dpiBounds.Height);
         if (pixelWidth < 0 || pixelHeight < 0)
         {
-            return null;
+            return null!;
         }
 
         var rtb = new RenderTargetBitmap(pixelWidth, pixelHeight, dpiX, dpiY, PixelFormats.Pbgra32);
