@@ -93,7 +93,43 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("ContentWindowDialogControl_OpenDefault", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string ContentWindowDialogControl_ButtonOK {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_ButtonOK", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string ContentWindowDialogControl_ButtonCancel {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_ButtonCancel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string ContentWindowDialogControl_ButtonClose {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_ButtonClose", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open with Close button.
+        /// </summary>
+        internal static string ContentWindowDialogControl_OpenWithClose {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_OpenWithClose", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Result: cached credential — user: {0}.
         /// </summary>

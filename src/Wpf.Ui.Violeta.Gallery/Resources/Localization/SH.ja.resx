@@ -4170,7 +4170,19 @@ OK をクリックして続行してください。</value>
     <value>ダイアログウィンドウコントロール</value>
   </data>
   <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
-    <value>ContentWindowControl を基にした汎用ダイアログシェル：本文はスクロール可能で、下部のOK/キャンセルボタンは固定表示です。ボタン文言を未設定の場合は violeta 独自のローカライズ（OK/キャンセル）にフォールバックします。</value>
+    <value>ContentWindowControl を基にしたダイアログウィンドウ：本文はスクロール可能で、下部に最大3つのコマンドボタン（プライマリ/セカンダリ/クローズ）を固定表示します。</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonCancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonClose" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenWithClose" xml:space="preserve">
+    <value>3ボタン（右寄せ）</value>
   </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>

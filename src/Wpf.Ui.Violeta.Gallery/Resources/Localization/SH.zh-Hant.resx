@@ -4170,7 +4170,19 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>彈窗視窗控制項</value>
   </data>
   <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
-    <value>基於 ContentWindowControl 的通用彈窗殼層：內文置中，底部確定/取消按鈕由控制項範本提供。按鈕文案未設定時，預設使用 violeta 內建多語言「確定/取消」，並跟隨目前介面語言。</value>
+    <value>基於 ContentWindowControl 的彈窗殼層：正文可捲動，底部固定最多三個命令按鈕（主/次/關閉）。</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonClose" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonOK" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenWithClose" xml:space="preserve">
+    <value>三個按鈕（靠右對齊）</value>
   </data>
   <data name="ContentWindowDialogControl_DemoName" xml:space="preserve">
     <value>Violeta 彈窗</value>

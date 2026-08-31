@@ -4170,7 +4170,19 @@ Click OK to continue.</value>
     <value>Dialog window control</value>
   </data>
   <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
-    <value>A common dialog shell based on ContentWindowControl: a scrollable body with OK/Cancel buttons pinned to the bottom. Unset button text falls back to violeta's built-in OK/Cancel localization.</value>
+    <value>A dialog window with a scrollable body and up to three command buttons (primary/secondary/close) pinned to the bottom.</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ContentWindowDialogControl_ButtonOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenWithClose" xml:space="preserve">
+    <value>Open with 3 buttons (right-aligned)</value>
   </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>

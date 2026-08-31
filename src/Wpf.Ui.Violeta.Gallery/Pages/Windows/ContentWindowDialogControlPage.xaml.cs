@@ -15,27 +15,44 @@ public partial class ContentWindowDialogControlPage : Wpf.Ui.Violeta.Controls.Pa
 
     private void OpenDefaultDialogWindow_Click(object sender, RoutedEventArgs e)
     {
-        ShowDialogWindow(showCancel: true);
+        ShowDialogWindow(new ContentWindowDialogControl
+        {
+            Title = LangKeys.Sample_9e5ffa068e.Tr(),
+            PrimaryButtonText = LangKeys.ContentWindowDialogControl_ButtonOK.Tr(),
+            SecondaryButtonText = LangKeys.ContentWindowDialogControl_ButtonCancel.Tr(),
+            DefaultButton = ContentDialogButton.Primary,
+            Content = CreateDemoForm(),
+        });
     }
 
     private void OpenConfirmOnlyDialogWindow_Click(object sender, RoutedEventArgs e)
     {
-        ShowDialogWindow(showCancel: false);
-    }
-
-    private void ShowDialogWindow(bool showCancel)
-    {
-        var content = new ContentWindowDialogControl
+        ShowDialogWindow(new ContentWindowDialogControl
         {
             Title = LangKeys.Sample_9e5ffa068e.Tr(),
+            PrimaryButtonText = LangKeys.ContentWindowDialogControl_ButtonOK.Tr(),
+            DefaultButton = ContentDialogButton.Primary,
             Content = CreateDemoForm(),
-        };
+        });
+    }
 
-        if (!showCancel)
+    private void OpenCloseAlignedDialogWindow_Click(object sender, RoutedEventArgs e)
+    {
+        ShowDialogWindow(new ContentWindowDialogControl
         {
-            content.ShowSecondaryButton = false;
-        }
+            Title = LangKeys.Sample_9e5ffa068e.Tr(),
+            PrimaryButtonText = LangKeys.ContentWindowDialogControl_ButtonOK.Tr(),
+            SecondaryButtonText = LangKeys.ContentWindowDialogControl_ButtonCancel.Tr(),
+            CloseButtonText = LangKeys.ContentWindowDialogControl_ButtonClose.Tr(),
+            IsSecondaryButtonEnabled = false,
+            DefaultButton = ContentDialogButton.Primary,
+            ButtonAlignment = ContentWindowButtonAlignment.Right,
+            Content = CreateDemoForm(),
+        });
+    }
 
+    private void ShowDialogWindow(ContentWindowDialogControl content)
+    {
         var dialog = ContentWindow.Create(content);
         dialog.Owner = Window.GetWindow(App.Current.MainWindow);
         _ = dialog.ShowDialog();

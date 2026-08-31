@@ -5,39 +5,50 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
     <Style x:Key="DefaultVioletaContentWindowDialogControlStyle" TargetType="{x:Type local:ContentWindowDialogControl}">
+        <Setter Property="Padding" Value="{DynamicResource ContentDialogPadding}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ContentWindowDialogControl}">
-                    <Grid>
+                    <Grid Margin="{TemplateBinding Padding}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
-                            <Grid
-                                MinHeight="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                                <ContentPresenter VerticalAlignment="Center" ContentSource="Content" />
+
+                        <ScrollViewer
+                            Grid.Row="0"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Auto">
+                            <Grid MinHeight="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ScrollViewer}}" Margin="0,0,12,0">
+                                <ContentPresenter
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    ContentSource="Content" />
                             </Grid>
                         </ScrollViewer>
-                        <StackPanel
+
+                        <Grid
+                            x:Name="CommandArea"
                             Grid.Row="1"
-                            Margin="0,24"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal">
-                            <ui:Button
-                                x:Name="SecondaryButton"
-                                MinWidth="90"
-                                Margin="0,0,24,0"
-                                Appearance="Secondary"
-                                Content="{TemplateBinding SecondaryButtonText}" />
+                            Margin="0,24,0,0"
+                            VerticalAlignment="Center">
                             <ui:Button
                                 x:Name="PrimaryButton"
                                 MinWidth="90"
-                                Appearance="Primary"
-                                Content="{TemplateBinding PrimaryButtonText}" />
-                        </StackPanel>
+                                Margin="0,0,8,0"
+                                Content="{TemplateBinding PrimaryButtonText}"
+                                IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}" />
+                            <ui:Button
+                                x:Name="SecondaryButton"
+                                MinWidth="90"
+                                Margin="0,0,8,0"
+                                Content="{TemplateBinding SecondaryButtonText}"
+                                IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}" />
+                            <ui:Button
+                                x:Name="CloseButton"
+                                MinWidth="90"
+                                Content="{TemplateBinding CloseButtonText}" />
+                        </Grid>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
