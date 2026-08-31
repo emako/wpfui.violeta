@@ -1,0 +1,399 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hotfix="clr-namespace:Wpf.Ui.Violeta.Hotfix"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--  Closely based on WPF-UI Slider, plus WinUI AutoToolTip + accent decrease fill + thumb motion.  -->
+
+    <sys:Double x:Key="SliderTrackHeight">4</sys:Double>
+
+    <Style x:Key="UiSliderButtonStyle" TargetType="{x:Type RepeatButton}">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="UiSliderHorizontalDecreaseStyle"
+        BasedOn="{StaticResource UiSliderButtonStyle}"
+        TargetType="{x:Type RepeatButton}">
+        <Setter Property="Background" Value="{DynamicResource SliderTrackValueFill}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="Transparent">
+                        <Border
+                            Height="{StaticResource SliderTrackHeight}"
+                            VerticalAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="2" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="UiSliderVerticalDecreaseStyle"
+        BasedOn="{StaticResource UiSliderButtonStyle}"
+        TargetType="{x:Type RepeatButton}">
+        <Setter Property="Background" Value="{DynamicResource SliderTrackValueFill}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="Transparent">
+                        <Border
+                            Width="{StaticResource SliderTrackHeight}"
+                            HorizontalAlignment="Center"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="2" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="SliderAutoToolTipStyle"
+        BasedOn="{StaticResource {x:Type ToolTip}}"
+        TargetType="{x:Type ToolTip}">
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="hotfix:SliderAutoToolTipHelper.IsEnabled" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="UiSliderThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SliderThumbBackground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource SliderOuterThumbBackground}" />
+        <Setter Property="hotfix:SliderAutoToolTipHelper.Attach" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="16">
+                        <Ellipse
+                            x:Name="SliderInnerThumb"
+                            Width="12"
+                            Height="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Fill="{TemplateBinding Foreground}"
+                            RenderTransformOrigin="0.5,0.5"
+                            Stroke="Transparent"
+                            StrokeThickness="0">
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="1.167" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="1.167" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="0.83" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="0.83" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Same structure as WPF-UI UiHorizontalSlider (known-good layout).  -->
+    <ControlTemplate x:Key="UiHorizontalSlider" TargetType="{x:Type Slider}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TickBar
+                x:Name="TopTick"
+                Grid.Row="0"
+                Height="6"
+                Fill="{DynamicResource SliderTickBarFill}"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Placement="Top"
+                SnapsToDevicePixels="True"
+                TickFrequency="{TemplateBinding TickFrequency}"
+                Ticks="{TemplateBinding Ticks}"
+                Visibility="Collapsed" />
+            <Border
+                x:Name="TrackBackground"
+                Grid.Row="1"
+                Height="{StaticResource SliderTrackHeight}"
+                Margin="0"
+                Background="{DynamicResource SliderTrackFill}"
+                BorderThickness="0"
+                CornerRadius="2"
+                IsHitTestVisible="False" />
+            <Track
+                x:Name="PART_Track"
+                Grid.Row="1"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Orientation="{TemplateBinding Orientation}"
+                Value="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton
+                        x:Name="DecreaseButton"
+                        Command="Slider.DecreaseLarge"
+                        Style="{StaticResource UiSliderHorizontalDecreaseStyle}" />
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="Thumb" Style="{StaticResource UiSliderThumbStyle}">
+                        <Thumb.Resources>
+                            <Style BasedOn="{StaticResource SliderAutoToolTipStyle}" TargetType="{x:Type ToolTip}" />
+                        </Thumb.Resources>
+                    </Thumb>
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource UiSliderButtonStyle}" />
+                </Track.IncreaseRepeatButton>
+            </Track>
+            <TickBar
+                x:Name="BottomTick"
+                Grid.Row="2"
+                Height="6"
+                Fill="{DynamicResource SliderTickBarFill}"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Placement="Bottom"
+                SnapsToDevicePixels="True"
+                TickFrequency="{TemplateBinding TickFrequency}"
+                Ticks="{TemplateBinding Ticks}"
+                Visibility="Collapsed" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="TickPlacement" Value="TopLeft">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="BottomRight">
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="Both">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillPointerOver}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+            </Trigger>
+            <Trigger SourceName="Thumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillDisabled}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillDisabled}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="Thumb" Property="Opacity" Value="0.4" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="UiVerticalSlider" TargetType="{x:Type Slider}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TickBar
+                x:Name="TopTick"
+                Width="6"
+                Fill="{DynamicResource SliderTickBarFill}"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Placement="Left"
+                SnapsToDevicePixels="True"
+                TickFrequency="{TemplateBinding TickFrequency}"
+                Ticks="{TemplateBinding Ticks}"
+                Visibility="Collapsed" />
+            <Border
+                x:Name="TrackBackground"
+                Grid.Column="1"
+                Width="{StaticResource SliderTrackHeight}"
+                Margin="0"
+                Background="{DynamicResource SliderTrackFill}"
+                BorderThickness="0"
+                CornerRadius="2"
+                IsHitTestVisible="False" />
+            <Track
+                x:Name="PART_Track"
+                Grid.Column="1"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Orientation="{TemplateBinding Orientation}"
+                Value="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton
+                        x:Name="DecreaseButton"
+                        Command="Slider.DecreaseLarge"
+                        Style="{StaticResource UiSliderVerticalDecreaseStyle}" />
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="Thumb" Style="{StaticResource UiSliderThumbStyle}">
+                        <Thumb.Resources>
+                            <Style BasedOn="{StaticResource SliderAutoToolTipStyle}" TargetType="{x:Type ToolTip}" />
+                        </Thumb.Resources>
+                    </Thumb>
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="Slider.IncreaseLarge" Style="{StaticResource UiSliderButtonStyle}" />
+                </Track.IncreaseRepeatButton>
+            </Track>
+            <TickBar
+                x:Name="BottomTick"
+                Grid.Column="2"
+                Width="6"
+                Fill="{DynamicResource SliderTickBarFill}"
+                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                Maximum="{TemplateBinding Maximum}"
+                Minimum="{TemplateBinding Minimum}"
+                Placement="Right"
+                SnapsToDevicePixels="True"
+                TickFrequency="{TemplateBinding TickFrequency}"
+                Ticks="{TemplateBinding Ticks}"
+                Visibility="Collapsed" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="TickPlacement" Value="TopLeft">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="BottomRight">
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="TickPlacement" Value="Both">
+                <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillPointerOver}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+            </Trigger>
+            <Trigger SourceName="Thumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillDisabled}" />
+                <Setter TargetName="DecreaseButton" Property="Background" Value="{DynamicResource SliderTrackValueFillDisabled}" />
+                <Setter TargetName="Thumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="Thumb" Property="Opacity" Value="0.4" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="DefaultSliderStyle" TargetType="{x:Type Slider}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="AutoToolTipPlacement" Value="TopLeft" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="MinWidth" Value="104" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Template" Value="{StaticResource UiHorizontalSlider}" />
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="MinWidth" Value="32" />
+                <Setter Property="MinHeight" Value="104" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Template" Value="{StaticResource UiVerticalSlider}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultSliderStyle}" TargetType="{x:Type Slider}" />
+
+</ResourceDictionary>

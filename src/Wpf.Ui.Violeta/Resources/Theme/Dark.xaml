@@ -206,6 +206,16 @@
         Opacity="0.4"
         ShadowDepth="6" />
 
+    <!--  Slider  -->
+    <SolidColorBrush x:Key="SliderTrackValueFill" Color="{DynamicResource AccentFillColorDefault}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="{DynamicResource AccentFillColorSecondary}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="{DynamicResource AccentFillColorTertiary}" />
+    <SolidColorBrush x:Key="SliderTrackValueFillDisabled" Color="{StaticResource AccentFillColorDisabled}" />
+    <SolidColorBrush x:Key="SliderTrackFillPressed" Color="{StaticResource ControlStrongFillColorDefault}" />
+    <SolidColorBrush x:Key="SliderTrackFillDisabled" Color="{StaticResource ControlStrongFillColorDisabled}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="{DynamicResource AccentFillColorTertiary}" />
+    <SolidColorBrush x:Key="SliderThumbBackgroundDisabled" Color="{StaticResource AccentFillColorDisabled}" />
+
     <!--  ColorPicker  -->
     <m:StaticResource x:Key="ColorViewTabItemSelectedForeground" ResourceKey="AccentFillColorDefaultBrush" />
     <SolidColorBrush x:Key="ColorSliderDefaultBorderBrush" Color="Black" />
