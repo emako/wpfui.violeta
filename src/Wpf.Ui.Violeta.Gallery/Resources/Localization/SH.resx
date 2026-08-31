@@ -4127,6 +4127,21 @@ Click OK to continue.</value>
   <data name="Gallery_Page_ContentWindow" xml:space="preserve">
     <value>ContentWindow</value>
   </data>
+  <data name="Gallery_Page_ContentWindowDialogControl" xml:space="preserve">
+    <value>ContentWindowDialogControl</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenConfirmOnly" xml:space="preserve">
+    <value>Open with OK only</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenDefault" xml:space="preserve">
+    <value>Open with OK + Cancel</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescTitle" xml:space="preserve">
+    <value>Dialog window control</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
+    <value>A common dialog shell based on ContentWindowControl: a scrollable body with OK/Cancel buttons pinned to the bottom. Unset button text falls back to violeta's built-in OK/Cancel localization.</value>
+  </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>
   </data>

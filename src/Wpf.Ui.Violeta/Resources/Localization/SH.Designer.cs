@@ -64,6 +64,15 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string ButtonCancel {
+            get {
+                return ResourceManager.GetString("ButtonCancel", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Copy.
         /// </summary>
         internal static string ButtonCopy {
@@ -71,7 +80,16 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
                 return ResourceManager.GetString("ButtonCopy", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string ButtonOK {
+            get {
+                return ResourceManager.GetString("ButtonOK", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>

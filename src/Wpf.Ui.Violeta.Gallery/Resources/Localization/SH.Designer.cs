@@ -1381,7 +1381,52 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_ContentWindow", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to ContentWindowDialogControl.
+        /// </summary>
+        internal static string Gallery_Page_ContentWindowDialogControl {
+            get {
+                return ResourceManager.GetString("Gallery_Page_ContentWindowDialogControl", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open with OK only.
+        /// </summary>
+        internal static string ContentWindowDialogControl_OpenConfirmOnly {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_OpenConfirmOnly", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open with OK + Cancel.
+        /// </summary>
+        internal static string ContentWindowDialogControl_OpenDefault {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_OpenDefault", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Dialog window control.
+        /// </summary>
+        internal static string ContentWindowDialogControl_DescTitle {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_DescTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A common dialog shell based on ContentWindowControl: a scrollable body with OK/Cancel buttons pinned to the bottom. Unset button text falls back to violeta's built-in OK/Cancel localization.
+        /// </summary>
+        internal static string ContentWindowDialogControl_DescBody {
+            get {
+                return ResourceManager.GetString("ContentWindowDialogControl_DescBody", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to CopyButton.
         /// </summary>

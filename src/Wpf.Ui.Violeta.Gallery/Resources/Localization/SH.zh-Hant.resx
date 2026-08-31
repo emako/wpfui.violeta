@@ -4127,6 +4127,27 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_ContentWindow" xml:space="preserve">
     <value>ContentWindow</value>
   </data>
+  <data name="Gallery_Page_ContentWindowDialogControl" xml:space="preserve">
+    <value>ContentWindowDialogControl</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenConfirmOnly" xml:space="preserve">
+    <value>開啟（僅確定）</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenDefault" xml:space="preserve">
+    <value>開啟（確定+取消）</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescTitle" xml:space="preserve">
+    <value>彈窗視窗控制項</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
+    <value>基於 ContentWindowControl 的通用彈窗殼層：內文置中，底部確定/取消按鈕由控制項範本提供。按鈕文案未設定時，預設使用 violeta 內建多語言「確定/取消」，並跟隨目前介面語言。</value>
+  </data>
+  <data name="ContentWindowDialogControl_DemoName" xml:space="preserve">
+    <value>Violeta 彈窗</value>
+  </data>
+  <data name="ContentWindowDialogControl_DemoDesc" xml:space="preserve">
+    <value>該彈窗使用 ContentWindowDialogControl 殼層，底部按鈕由控制項範本提供，其文案預設為 violeta 的「確定/取消」。</value>
+  </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>
   </data>

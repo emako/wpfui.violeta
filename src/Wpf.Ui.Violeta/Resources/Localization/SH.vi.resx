@@ -135,8 +135,14 @@
   <data name="ExceptionWindowTitle" xml:space="preserve">
     <value>Lỗi</value>
   </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
+  </data>
   <data name="ButtonCopy" xml:space="preserve">
     <value>Sao chép</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>Bỏ qua</value>

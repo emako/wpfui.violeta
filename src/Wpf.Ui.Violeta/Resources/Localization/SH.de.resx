@@ -76,8 +76,14 @@
   <data name="ExceptionWindowTitle" xml:space="preserve">
     <value>Fehler aufgetreten</value>
   </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
   <data name="ButtonCopy" xml:space="preserve">
     <value>Kopieren</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>Ignorieren</value>

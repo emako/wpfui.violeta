@@ -4127,6 +4127,21 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_ContentWindow" xml:space="preserve">
     <value>ContentWindow</value>
   </data>
+  <data name="Gallery_Page_ContentWindowDialogControl" xml:space="preserve">
+    <value>ContentWindowDialogControl</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenConfirmOnly" xml:space="preserve">
+    <value>打开（仅确定）</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenDefault" xml:space="preserve">
+    <value>打开（确定+取消）</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescTitle" xml:space="preserve">
+    <value>弹窗窗口控件</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
+    <value>基于 ContentWindowControl 的通用弹窗外壳：正文可滚动，底部确定/取消按钮固定。按钮文案未设置时，兜底为 violeta 自带多语言「确定/取消」。</value>
+  </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>
   </data>

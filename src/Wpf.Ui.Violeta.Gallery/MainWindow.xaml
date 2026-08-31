@@ -274,6 +274,7 @@
                     </vio:NavigationViewItem.Icon>
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentDialog}}" Tag="dialogs/content-dialog" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ContentWindowDialogControl}}" Tag="dialogs/content-window-dialog" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_MessageBox}}" Tag="dialogs/message-box" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PendingBox}}" Tag="dialogs/pending-box" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TaskDialog}}" Tag="dialogs/task-dialog" />

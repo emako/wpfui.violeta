@@ -135,8 +135,14 @@
   <data name="ExceptionWindowTitle" xml:space="preserve">
     <value>오류</value>
   </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
   <data name="ButtonCopy" xml:space="preserve">
     <value>복사</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>확인</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>무시하다</value>

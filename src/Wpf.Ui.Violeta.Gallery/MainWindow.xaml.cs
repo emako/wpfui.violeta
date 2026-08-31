@@ -140,6 +140,7 @@ public partial class MainWindow : ShellWindow
 
         ["dialogs"] = static () => new DialogsPage(),
         ["dialogs/content-dialog"] = static () => new ContentDialogPage(),
+        ["dialogs/content-window-dialog"] = static () => new ContentWindowDialogControlPage(),
         ["dialogs/message-box"] = static () => new MessageBoxPage(),
         ["dialogs/pending-box"] = static () => new PendingBoxPage(),
         ["dialogs/task-dialog"] = static () => new TaskDialogPage(),

@@ -135,8 +135,14 @@
   <data name="ExceptionWindowTitle" xml:space="preserve">
     <value>Kesalahan</value>
   </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
   <data name="ButtonCopy" xml:space="preserve">
     <value>Salin</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>Abaikan</value>

@@ -4127,6 +4127,21 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_ContentWindow" xml:space="preserve">
     <value>ContentWindow</value>
   </data>
+  <data name="Gallery_Page_ContentWindowDialogControl" xml:space="preserve">
+    <value>ContentWindowDialogControl</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenConfirmOnly" xml:space="preserve">
+    <value>OKのみで開く</value>
+  </data>
+  <data name="ContentWindowDialogControl_OpenDefault" xml:space="preserve">
+    <value>OK+キャンセルで開く</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescTitle" xml:space="preserve">
+    <value>ダイアログウィンドウコントロール</value>
+  </data>
+  <data name="ContentWindowDialogControl_DescBody" xml:space="preserve">
+    <value>ContentWindowControl を基にした汎用ダイアログシェル：本文はスクロール可能で、下部のOK/キャンセルボタンは固定表示です。ボタン文言を未設定の場合は violeta 独自のローカライズ（OK/キャンセル）にフォールバックします。</value>
+  </data>
   <data name="Gallery_Page_TitleBar" xml:space="preserve">
     <value>TitleBar</value>
   </data>
