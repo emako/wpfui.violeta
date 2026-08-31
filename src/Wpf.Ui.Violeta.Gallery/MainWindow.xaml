@@ -375,6 +375,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}" Tag="status/progress-bar" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressRing}}" Tag="status/progress-ring" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Badge}}" Tag="status/badge" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Shield}}" Tag="status/shield" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_VolumeView}}" Tag="status/volume-view" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Skeleton}}" Tag="status/skeleton" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BusyMask}}" Tag="status/busy-mask" />

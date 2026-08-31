@@ -214,6 +214,7 @@ public partial class MainWindow : ShellWindow
         ["status/progress-bar"] = static () => new ProgressBarPage(),
         ["status/progress-ring"] = static () => new ProgressRingPage(),
         ["status/badge"] = static () => new BadgePage(),
+        ["status/shield"] = static () => new ShieldPage(),
         ["status/volume-view"] = static () => new VolumeViewPage(),
         ["status/skeleton"] = static () => new SkeletonPage(),
         ["status/busy-mask"] = static () => new BusyMaskPage(),

@@ -9,6 +9,9 @@
     <SolidColorBrush x:Key="MainWindowBackground" Color="#CC292929" />
     <SolidColorBrush x:Key="MainWindowBackgroundNoTransparent" Color="#FF292929" />
 
+    <!--  Shield  -->
+    <SolidColorBrush x:Key="ShieldSubjectBackgroundBrush" Color="#4A4A4A" />
+
     <!--  ContentDialog  -->
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="{StaticResource LayerFillColorAlt}" />
     <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="{DynamicResource SystemAltMediumColor}" />

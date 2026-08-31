@@ -4013,6 +4013,36 @@ Click OK to continue.</value>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
+  <data name="Gallery_Page_Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="Sample_Shield_CardDesc" xml:space="preserve">
+    <value>Shields.io-style key/value badge</value>
+  </data>
+  <data name="Sample_Shield_BasicTitle" xml:space="preserve">
+    <value>Shield — basic</value>
+  </data>
+  <data name="Sample_Shield_BasicDesc" xml:space="preserve">
+    <value>Two-segment badge with a subject label and a status value, similar to shields.io.</value>
+  </data>
+  <data name="Sample_Shield_ColorsTitle" xml:space="preserve">
+    <value>Shield — colors</value>
+  </data>
+  <data name="Sample_Shield_ColorsDesc" xml:space="preserve">
+    <value>Default accent color, or set Color for custom status backgrounds. Works in light and dark themes.</value>
+  </data>
+  <data name="Sample_Shield_StatusAccent" xml:space="preserve">
+    <value>theme</value>
+  </data>
+  <data name="Sample_Shield_StatusSuccess" xml:space="preserve">
+    <value>passing</value>
+  </data>
+  <data name="Sample_Shield_StatusWarning" xml:space="preserve">
+    <value>72%</value>
+  </data>
+  <data name="Sample_Shield_StatusDanger" xml:space="preserve">
+    <value>failing</value>
+  </data>
   <data name="Gallery_Page_VolumeView" xml:space="preserve">
     <value>VolumeView</value>
   </data>

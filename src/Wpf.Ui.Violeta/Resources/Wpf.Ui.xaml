@@ -69,6 +69,7 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/KeyGestureInput/KeyGestureInput.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Divider/Divider.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Badge/Badge.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Shield/Shield.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/VolumeView/VolumeView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/AspectRatioLayout/AspectRatioLayout.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/AcrylicPanel/AcrylicPanel.xaml" />

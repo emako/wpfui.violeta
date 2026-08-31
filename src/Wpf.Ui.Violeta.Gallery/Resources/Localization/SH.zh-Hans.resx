@@ -4013,6 +4013,36 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
+  <data name="Gallery_Page_Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="Sample_Shield_CardDesc" xml:space="preserve">
+    <value>Shields.io 风格键值徽章</value>
+  </data>
+  <data name="Sample_Shield_BasicTitle" xml:space="preserve">
+    <value>Shield — 基础</value>
+  </data>
+  <data name="Sample_Shield_BasicDesc" xml:space="preserve">
+    <value>左右两段式徽章，左侧为主题标签、右侧为状态值，风格类似 shields.io。</value>
+  </data>
+  <data name="Sample_Shield_ColorsTitle" xml:space="preserve">
+    <value>Shield — 颜色</value>
+  </data>
+  <data name="Sample_Shield_ColorsDesc" xml:space="preserve">
+    <value>默认使用主题强调色，也可通过 Color 自定义状态段背景。支持浅色与深色主题。</value>
+  </data>
+  <data name="Sample_Shield_StatusAccent" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="Sample_Shield_StatusSuccess" xml:space="preserve">
+    <value>通过</value>
+  </data>
+  <data name="Sample_Shield_StatusWarning" xml:space="preserve">
+    <value>72%</value>
+  </data>
+  <data name="Sample_Shield_StatusDanger" xml:space="preserve">
+    <value>失败</value>
+  </data>
   <data name="Gallery_Page_VolumeView" xml:space="preserve">
     <value>VolumeView</value>
   </data>

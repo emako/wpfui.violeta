@@ -4013,6 +4013,36 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
+  <data name="Gallery_Page_Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="Sample_Shield_CardDesc" xml:space="preserve">
+    <value>Shields.io 風キー/値バッジ</value>
+  </data>
+  <data name="Sample_Shield_BasicTitle" xml:space="preserve">
+    <value>Shield — 基本</value>
+  </data>
+  <data name="Sample_Shield_BasicDesc" xml:space="preserve">
+    <value>左側にラベル、右側に状態値を持つ 2 セグメントバッジ（shields.io 風）。</value>
+  </data>
+  <data name="Sample_Shield_ColorsTitle" xml:space="preserve">
+    <value>Shield — 色</value>
+  </data>
+  <data name="Sample_Shield_ColorsDesc" xml:space="preserve">
+    <value>既定はテーマのアクセント色。Color で状態側の背景を指定できます。ライト/ダーク両対応。</value>
+  </data>
+  <data name="Sample_Shield_StatusAccent" xml:space="preserve">
+    <value>テーマ</value>
+  </data>
+  <data name="Sample_Shield_StatusSuccess" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="Sample_Shield_StatusWarning" xml:space="preserve">
+    <value>72%</value>
+  </data>
+  <data name="Sample_Shield_StatusDanger" xml:space="preserve">
+    <value>失敗</value>
+  </data>
   <data name="Gallery_Page_VolumeView" xml:space="preserve">
     <value>VolumeView</value>
   </data>
