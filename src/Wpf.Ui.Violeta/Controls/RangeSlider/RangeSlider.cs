@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
+using Wpf.Ui.Violeta.Controls.Primitives;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -620,6 +622,10 @@ public class RangeSlider : Control
         }
 
         autoToolTip.Content = GetAutoToolTipNumber(isLower ? LowerValue : UpperValue);
+
+        // Arrange the thumb at the new value, then move the tooltip popup with it.
+        _track?.UpdateLayout();
+        RepositionAutoToolTip(autoToolTip);
     }
 
     private void HideAutoToolTip(bool isLower)
@@ -652,6 +658,14 @@ public class RangeSlider : Control
 
         SliderHelper.SetIsEnabled(toolTip, true);
         return toolTip;
+    }
+
+    private static void RepositionAutoToolTip(ToolTip toolTip)
+    {
+        // Same workaround WPF Slider uses: ToolTip popup does not follow PlacementTarget
+        // unless Popup.Reposition is invoked after the thumb has moved.
+        var popup = toolTip.Parent as Popup ?? VisualTreeHelper.GetParent(toolTip) as Popup;
+        popup?.Reposition();
     }
 
     private string GetAutoToolTipNumber(double value)
