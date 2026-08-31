@@ -15,9 +15,6 @@ public class BorderBeamIndicator : FrameworkElement
     private long _animationStartTimestamp;
     private double _progress;
     private bool _isRendering;
-    private LinearGradientBrush? _cachedBeamBrush;
-    private Color _cachedBeamColor;
-    private Color _cachedBeamHighlightColor;
 
     static BorderBeamIndicator()
     {
@@ -250,24 +247,35 @@ public class BorderBeamIndicator : FrameworkElement
 
         var cornerRadius = ClampCornerRadius(outer, CornerRadius);
         var lineWidth = Math.Max(0.5, LineWidth);
-        var ring = CreateRingGeometry(outer, cornerRadius, lineWidth);
-        if (ring is null)
+
+        // Stroke along the ring centerline so the beam follows rounded corners continuously
+        // instead of revealing a rotated square through a ring mask (which breaks at corners).
+        var inset = lineWidth * 0.5;
+        var strokeRect = new Rect(
+            outer.X + inset,
+            outer.Y + inset,
+            Math.Max(0, outer.Width - lineWidth),
+            Math.Max(0, outer.Height - lineWidth));
+
+        if (strokeRect.Width <= 0 || strokeRect.Height <= 0)
         {
             return;
         }
 
-        drawingContext.PushClip(ring);
+        var strokeRadius = new CornerRadius(
+            Math.Max(0, cornerRadius.TopLeft - inset),
+            Math.Max(0, cornerRadius.TopRight - inset),
+            Math.Max(0, cornerRadius.BottomRight - inset),
+            Math.Max(0, cornerRadius.BottomLeft - inset));
 
-        var path = new RoundedRectPath(outer, cornerRadius);
+        var path = new RoundedRectPath(strokeRect, strokeRadius);
         if (path.TotalLength <= 0)
         {
-            drawingContext.Pop();
             return;
         }
 
         var beamSize = Math.Max(8, BeamSize);
         var beamCount = Math.Max(1, Count);
-        var brush = GetOrCreateBeamBrush();
 
         for (var index = 0; index < beamCount; index++)
         {
@@ -277,60 +285,127 @@ public class BorderBeamIndicator : FrameworkElement
                 phase += 1.0;
             }
 
-            var distance = phase * path.TotalLength;
-            var (point, angle) = path.GetPointAndAngle(distance);
-            DrawBeam(drawingContext, brush, point, angle, beamSize);
+            DrawBeamAlongPath(
+                drawingContext,
+                path,
+                headDistance: phase * path.TotalLength,
+                beamLength: beamSize,
+                strokeWidth: lineWidth);
         }
-
-        drawingContext.Pop();
     }
 
-    private LinearGradientBrush GetOrCreateBeamBrush()
+    private void DrawBeamAlongPath(
+        DrawingContext drawingContext,
+        RoundedRectPath path,
+        double headDistance,
+        double beamLength,
+        double strokeWidth)
     {
+        var totalLength = path.TotalLength;
+        if (totalLength <= 0 || beamLength <= 0)
+        {
+            return;
+        }
+
+        // Keep a visible gap so the beam never covers the entire perimeter.
+        beamLength = Math.Min(beamLength, totalLength * 0.85);
+
+        var sampleCount = Math.Max(48, (int)Math.Ceiling(beamLength));
+        var points = new Point[sampleCount + 1];
+        for (var i = 0; i <= sampleCount; i++)
+        {
+            // t = 0 at the opaque head, t = 1 at the transparent tail.
+            var t = (double)i / sampleCount;
+            var distance = NormalizeDistance(headDistance - t * beamLength, totalLength);
+            points[i] = path.GetPointAndAngle(distance).Point;
+        }
+
+        // Draw short bands so the gradient follows the path through corners
+        // (a single Absolute LinearGradientBrush would cut across the chord).
+        const int bandCount = 16;
+        for (var band = 0; band < bandCount; band++)
+        {
+            var t0 = (double)band / bandCount;
+            var t1 = (double)(band + 1) / bandCount;
+            var color = SampleBeamColor((t0 + t1) * 0.5);
+            if (color.A == 0)
+            {
+                continue;
+            }
+
+            var startIndex = (int)Math.Round(t0 * sampleCount);
+            var endIndex = Math.Max(startIndex + 1, (int)Math.Round(t1 * sampleCount));
+            endIndex = Math.Min(endIndex, sampleCount);
+
+            var geometry = new StreamGeometry();
+            using (var ctx = geometry.Open())
+            {
+                ctx.BeginFigure(points[startIndex], false, false);
+                for (var i = startIndex + 1; i <= endIndex; i++)
+                {
+                    ctx.LineTo(points[i], true, true);
+                }
+            }
+
+            geometry.Freeze();
+
+            var brush = new SolidColorBrush(color);
+            brush.Freeze();
+            var pen = new Pen(brush, strokeWidth)
+            {
+                StartLineCap = PenLineCap.Round,
+                EndLineCap = PenLineCap.Round,
+                LineJoin = PenLineJoin.Round,
+            };
+            pen.Freeze();
+
+            drawingContext.DrawGeometry(null, pen, geometry);
+        }
+    }
+
+    private Color SampleBeamColor(double t)
+    {
+        t = Clamp01(t);
         var beamColor = BeamColor;
         var highlightColor = BeamHighlightColor;
-        if (_cachedBeamBrush is not null
-            && _cachedBeamColor == beamColor
-            && _cachedBeamHighlightColor == highlightColor)
+        var transparent = Color.FromArgb(0, highlightColor.R, highlightColor.G, highlightColor.B);
+
+        if (t <= MaxBeamColorStopPercent)
         {
-            return _cachedBeamBrush;
+            var local = MaxBeamColorStopPercent <= 0 ? 0 : t / MaxBeamColorStopPercent;
+            return LerpColor(beamColor, highlightColor, local);
         }
 
-        var gradient = new LinearGradientBrush
-        {
-            StartPoint = new Point(1, 0.5),
-            EndPoint = new Point(0, 0.5),
-            MappingMode = BrushMappingMode.RelativeToBoundingBox,
-            GradientStops =
-            {
-                new GradientStop(beamColor, 0),
-                new GradientStop(highlightColor, MaxBeamColorStopPercent),
-                new GradientStop(Color.FromArgb(0, highlightColor.R, highlightColor.G, highlightColor.B), 1),
-            },
-        };
-        gradient.Freeze();
-
-        _cachedBeamBrush = gradient;
-        _cachedBeamColor = beamColor;
-        _cachedBeamHighlightColor = highlightColor;
-        return gradient;
+        var fade = (t - MaxBeamColorStopPercent) / (1.0 - MaxBeamColorStopPercent);
+        return LerpColor(highlightColor, transparent, fade);
     }
 
-    private static void DrawBeam(
-        DrawingContext drawingContext,
-        Brush brush,
-        Point anchor,
-        double angleDegrees,
-        double beamSize)
+    private static Color LerpColor(Color from, Color to, double t)
     {
-        drawingContext.PushTransform(new TranslateTransform(anchor.X, anchor.Y));
-        drawingContext.PushTransform(new RotateTransform(angleDegrees));
-        drawingContext.DrawRectangle(
-            brush,
-            null,
-            new Rect(-beamSize * 0.9, -beamSize * 0.5, beamSize, beamSize));
-        drawingContext.Pop();
-        drawingContext.Pop();
+        t = Clamp01(t);
+        return Color.FromArgb(
+            (byte)(from.A + (to.A - from.A) * t),
+            (byte)(from.R + (to.R - from.R) * t),
+            (byte)(from.G + (to.G - from.G) * t),
+            (byte)(from.B + (to.B - from.B) * t));
+    }
+
+    private static double Clamp01(double value) => value < 0 ? 0 : value > 1 ? 1 : value;
+
+    private static double NormalizeDistance(double distance, double totalLength)
+    {
+        if (totalLength <= 0)
+        {
+            return 0;
+        }
+
+        distance %= totalLength;
+        if (distance < 0)
+        {
+            distance += totalLength;
+        }
+
+        return distance;
     }
 
     private double ResolveOutset()
@@ -342,103 +417,6 @@ public class BorderBeamIndicator : FrameworkElement
 
         var thickness = HostBorderThickness;
         return Math.Max(thickness.Left, Math.Max(thickness.Top, Math.Max(thickness.Right, thickness.Bottom)));
-    }
-
-    private static Geometry? CreateRingGeometry(Rect outer, CornerRadius cornerRadius, double lineWidth)
-    {
-        if (outer.Width <= 0 || outer.Height <= 0)
-        {
-            return null;
-        }
-
-        var inner = new Rect(
-            outer.X + lineWidth,
-            outer.Y + lineWidth,
-            Math.Max(0, outer.Width - lineWidth * 2),
-            Math.Max(0, outer.Height - lineWidth * 2));
-
-        if (inner.Width <= 0 || inner.Height <= 0)
-        {
-            return CreateRoundedRectGeometry(outer, cornerRadius);
-        }
-
-        var innerRadius = new CornerRadius(
-            Math.Max(0, cornerRadius.TopLeft - lineWidth),
-            Math.Max(0, cornerRadius.TopRight - lineWidth),
-            Math.Max(0, cornerRadius.BottomRight - lineWidth),
-            Math.Max(0, cornerRadius.BottomLeft - lineWidth));
-
-        var geometry = new CombinedGeometry(
-            GeometryCombineMode.Exclude,
-            CreateRoundedRectGeometry(outer, cornerRadius),
-            CreateRoundedRectGeometry(inner, innerRadius));
-        geometry.Freeze();
-        return geometry;
-    }
-
-    private static Geometry CreateRoundedRectGeometry(Rect rect, CornerRadius cornerRadius)
-    {
-        var geometry = new PathGeometry();
-        var figure = new PathFigure { IsClosed = true };
-
-        var topLeft = Math.Min(cornerRadius.TopLeft, Math.Min(rect.Width, rect.Height) * 0.5);
-        var topRight = Math.Min(cornerRadius.TopRight, Math.Min(rect.Width, rect.Height) * 0.5);
-        var bottomRight = Math.Min(cornerRadius.BottomRight, Math.Min(rect.Width, rect.Height) * 0.5);
-        var bottomLeft = Math.Min(cornerRadius.BottomLeft, Math.Min(rect.Width, rect.Height) * 0.5);
-
-        figure.StartPoint = new Point(rect.Left + topLeft, rect.Top);
-
-        figure.Segments.Add(new LineSegment(new Point(rect.Right - topRight, rect.Top), true));
-        if (topRight > 0)
-        {
-            figure.Segments.Add(new ArcSegment(
-                new Point(rect.Right, rect.Top + topRight),
-                new Size(topRight, topRight),
-                0,
-                false,
-                SweepDirection.Clockwise,
-                true));
-        }
-
-        figure.Segments.Add(new LineSegment(new Point(rect.Right, rect.Bottom - bottomRight), true));
-        if (bottomRight > 0)
-        {
-            figure.Segments.Add(new ArcSegment(
-                new Point(rect.Right - bottomRight, rect.Bottom),
-                new Size(bottomRight, bottomRight),
-                0,
-                false,
-                SweepDirection.Clockwise,
-                true));
-        }
-
-        figure.Segments.Add(new LineSegment(new Point(rect.Left + bottomLeft, rect.Bottom), true));
-        if (bottomLeft > 0)
-        {
-            figure.Segments.Add(new ArcSegment(
-                new Point(rect.Left, rect.Bottom - bottomLeft),
-                new Size(bottomLeft, bottomLeft),
-                0,
-                false,
-                SweepDirection.Clockwise,
-                true));
-        }
-
-        figure.Segments.Add(new LineSegment(new Point(rect.Left, rect.Top + topLeft), true));
-        if (topLeft > 0)
-        {
-            figure.Segments.Add(new ArcSegment(
-                new Point(rect.Left + topLeft, rect.Top),
-                new Size(topLeft, topLeft),
-                0,
-                false,
-                SweepDirection.Clockwise,
-                true));
-        }
-
-        geometry.Figures.Add(figure);
-        geometry.Freeze();
-        return geometry;
     }
 
     private static CornerRadius ClampCornerRadius(Rect rect, CornerRadius cornerRadius)
