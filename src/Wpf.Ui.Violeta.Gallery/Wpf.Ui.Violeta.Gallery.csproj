@@ -45,13 +45,15 @@
     <ItemGroup>
         <EmbeddedResource Update="Resources\Localization\SH.resx">
             <!-- Legacy code, keep it for reference. -->
-            <Generator>PublicResXFileCodeGenerator</Generator>
+            <!--
+			<Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>SH.Designer.cs</LastGenOutput>
             <StronglyTypedFileName>Resources\Localization\SH.Designer.cs</StronglyTypedFileName>
             <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
             <StronglyTypedNamespace>Wpf.Ui.Violeta.Gallery.Resources.Localization</StronglyTypedNamespace>
             <StronglyTypedClassName>SH</StronglyTypedClassName>
             <Public>true</Public>
+			-->
         </EmbeddedResource>
         <EmbeddedResource Update="Resources\Localization\SH.ja.resx">
             <DependentUpon>SH.resx</DependentUpon>

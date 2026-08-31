@@ -47,7 +47,7 @@
                                     x:Name="ContentPresenter_Icon"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Content="{TemplateBinding local:TabItemHelper.Icon}"
+                                    Content="{TemplateBinding local:PivotHelper.Icon}"
                                     Focusable="False"
                                     FontFamily="{DynamicResource PivotHeaderItemFontFamily}"
                                     FontSize="{DynamicResource PivotHeaderItemFontSize}"
@@ -177,7 +177,7 @@
                             <Setter TargetName="Border" Property="TextElement.Foreground" Value="{DynamicResource PivotHeaderItemForegroundSelectedPressed}" />
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource PivotHeaderItemBackgroundSelectedPressed}" />
                         </MultiTrigger>
-                        <Trigger Property="local:TabItemHelper.Icon" Value="{x:Null}">
+                        <Trigger Property="local:PivotHelper.Icon" Value="{x:Null}">
                             <Setter TargetName="SimpleStackPanel_Header" Property="Spacing" Value="0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
