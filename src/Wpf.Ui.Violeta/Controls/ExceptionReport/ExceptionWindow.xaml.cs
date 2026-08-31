@@ -89,9 +89,9 @@ public partial class ExceptionWindow : ShellWindow
         Title = SH.ExceptionWindowTitle;
         Hint1TextBlock.Text = SH.ExceptionWindowHint1;
         Hint2TextBlock.Text = SH.ExceptionWindowHint2;
-        CopyTextBlock.Text = SH.ButtonCopy;
-        IgnoreTextBlock.Text = SH.ButtonIgnore;
-        ExitTextBlock.Text = SH.ButtonExit;
+        CopyButton.Content = SH.ButtonCopy;
+        TryIgnoreButton.Content = SH.ButtonIgnore;
+        ExitButton.Content = SH.ButtonExit;
 
         CopyButton.Click += (_, _) => CopyInfo();
         TryIgnoreButton.Click += (_, _) => IgnoreAndTry();

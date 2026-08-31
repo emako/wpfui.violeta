@@ -123,20 +123,14 @@
                         x:Name="TryIgnoreButton"
                         MinWidth="120"
                         Appearance="{x:Static ui:ControlAppearance.Primary}">
-                        <ui:Button.Content>
-                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.UpdateRestore}" />
-                                <TextBlock x:Name="IgnoreTextBlock" />
-                            </vui:StackPanel>
-                        </ui:Button.Content>
+                        <ui:Button.Icon>
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.UpdateRestore}" />
+                        </ui:Button.Icon>
                     </ui:Button>
                     <ui:Button x:Name="CopyButton" MinWidth="120">
-                        <ui:Button.Content>
-                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Copy}" />
-                                <TextBlock x:Name="CopyTextBlock" />
-                            </vui:StackPanel>
-                        </ui:Button.Content>
+                        <ui:Button.Icon>
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Copy}" />
+                        </ui:Button.Icon>
                     </ui:Button>
                 </vui:StackPanel>
                 <vui:StackPanel
@@ -145,12 +139,9 @@
                     Orientation="Horizontal"
                     Spacing="10">
                     <ui:Button x:Name="ExitButton" MinWidth="120">
-                        <ui:Button.Content>
-                            <vui:StackPanel Orientation="Horizontal" Spacing="6">
-                                <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Cancel}" />
-                                <TextBlock x:Name="ExitTextBlock" />
-                            </vui:StackPanel>
-                        </ui:Button.Content>
+                        <ui:Button.Icon>
+                            <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" Glyph="{x:Static ui:FontSymbols.Cancel}" />
+                        </ui:Button.Icon>
                     </ui:Button>
                 </vui:StackPanel>
             </Grid>
