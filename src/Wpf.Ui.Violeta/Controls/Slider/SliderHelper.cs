@@ -6,13 +6,14 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Wpf.Ui.Controls;
 
-namespace Wpf.Ui.Violeta.Hotfix;
+namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// WinUI-style Slider AutoToolTip placement and Fluent style attachment for Hotfix Slider.
+/// WinUI-style Slider AutoToolTip placement and Fluent style attachment.
 /// </summary>
-public static class SliderAutoToolTipHelper
+public static class SliderHelper
 {
     private const string AutoToolTipStyleKey = "SliderAutoToolTipStyle";
 
@@ -35,7 +36,7 @@ public static class SliderAutoToolTipHelper
         DependencyProperty.RegisterAttached(
             "Attach",
             typeof(bool),
-            typeof(SliderAutoToolTipHelper),
+            typeof(SliderHelper),
             new PropertyMetadata(false, OnAttachChanged));
 
     private static void OnAttachChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -89,52 +90,6 @@ public static class SliderAutoToolTipHelper
 
     #endregion Attach
 
-    #region Prefix / Suffix
-
-    /// <summary>
-    /// Optional text prepended to the AutoToolTip value, e.g. "Volume: ".
-    /// Attach to the <see cref="Slider"/> (or to the ToolTip itself).
-    /// </summary>
-    public static string? GetPrefix(DependencyObject element)
-    {
-        return (string?)element.GetValue(PrefixProperty);
-    }
-
-    public static void SetPrefix(DependencyObject element, string? value)
-    {
-        element.SetValue(PrefixProperty, value);
-    }
-
-    public static readonly DependencyProperty PrefixProperty =
-        DependencyProperty.RegisterAttached(
-            "Prefix",
-            typeof(string),
-            typeof(SliderAutoToolTipHelper),
-            new PropertyMetadata(null));
-
-    /// <summary>
-    /// Optional text appended to the AutoToolTip value, e.g. "%".
-    /// Attach to the <see cref="Slider"/> (or to the ToolTip itself).
-    /// </summary>
-    public static string? GetSuffix(DependencyObject element)
-    {
-        return (string?)element.GetValue(SuffixProperty);
-    }
-
-    public static void SetSuffix(DependencyObject element, string? value)
-    {
-        element.SetValue(SuffixProperty, value);
-    }
-
-    public static readonly DependencyProperty SuffixProperty =
-        DependencyProperty.RegisterAttached(
-            "Suffix",
-            typeof(string),
-            typeof(SliderAutoToolTipHelper),
-            new PropertyMetadata(null));
-
-    #endregion Prefix / Suffix
-
     #region IsEnabled
 
     public static bool GetIsEnabled(ToolTip toolTip)
@@ -151,7 +106,7 @@ public static class SliderAutoToolTipHelper
         DependencyProperty.RegisterAttached(
             "IsEnabled",
             typeof(bool),
-            typeof(SliderAutoToolTipHelper),
+            typeof(SliderHelper),
             new PropertyMetadata(OnIsEnabledChanged));
 
     private static void OnIsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -231,8 +186,8 @@ public static class SliderAutoToolTipHelper
         }
 
         // When attached to the ToolTip itself, honor the local value over the slider's.
-        string? prefix = GetPrefix(toolTip) ?? GetPrefix(slider);
-        string? suffix = GetSuffix(toolTip) ?? GetSuffix(slider);
+        string? prefix = ControlHelper.GetPrefix(toolTip) ?? ControlHelper.GetPrefix(slider);
+        string? suffix = ControlHelper.GetSuffix(toolTip) ?? ControlHelper.GetSuffix(slider);
 
         if (string.IsNullOrEmpty(prefix) && string.IsNullOrEmpty(suffix))
         {
@@ -260,7 +215,7 @@ public static class SliderAutoToolTipHelper
         DependencyProperty.RegisterAttached(
             "IsFormattingContent",
             typeof(bool),
-            typeof(SliderAutoToolTipHelper));
+            typeof(SliderHelper));
 
     private static bool GetIsFormattingContent(ToolTip toolTip)
     {
@@ -280,7 +235,7 @@ public static class SliderAutoToolTipHelper
         DependencyProperty.RegisterAttached(
             "OriginalCustomPopupPlacementCallback",
             typeof(CustomPopupPlacementCallback),
-            typeof(SliderAutoToolTipHelper));
+            typeof(SliderHelper));
 
     private static CustomPopupPlacementCallback GetOriginalCustomPopupPlacementCallback(ToolTip toolTip)
     {

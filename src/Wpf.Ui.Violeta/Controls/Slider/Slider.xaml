@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:hotfix="clr-namespace:Wpf.Ui.Violeta.Hotfix"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--  Closely based on WPF-UI Slider, plus WinUI AutoToolTip + accent decrease fill + thumb motion.  -->
@@ -67,7 +67,7 @@
         BasedOn="{StaticResource {x:Type ToolTip}}"
         TargetType="{x:Type ToolTip}">
         <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
-        <Setter Property="hotfix:SliderAutoToolTipHelper.IsEnabled" Value="True" />
+        <Setter Property="local:SliderHelper.IsEnabled" Value="True" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
@@ -81,7 +81,7 @@
         <Setter Property="Foreground" Value="{DynamicResource SliderThumbBackground}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource SliderOuterThumbBackground}" />
-        <Setter Property="hotfix:SliderAutoToolTipHelper.Attach" Value="True" />
+        <Setter Property="local:SliderHelper.Attach" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">

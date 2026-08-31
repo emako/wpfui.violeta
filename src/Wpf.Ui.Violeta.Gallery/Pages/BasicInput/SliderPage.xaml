@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:hotfix="clr-namespace:Wpf.Ui.Violeta.Hotfix;assembly=Wpf.Ui.Violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}"
     d:Background="#1C1C1C"
@@ -211,8 +210,8 @@
                             AutoToolTipPlacement="TopLeft"
                             Maximum="100"
                             Minimum="0"
-                            hotfix:SliderAutoToolTipHelper.Prefix="Volume: "
-                            hotfix:SliderAutoToolTipHelper.Suffix=" %"
+                            ui:ControlHelper.Prefix="Volume: "
+                            ui:ControlHelper.Suffix=" %"
                             Value="35" />
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
                             <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />

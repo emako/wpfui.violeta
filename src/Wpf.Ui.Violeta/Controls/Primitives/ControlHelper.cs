@@ -1068,4 +1068,54 @@ public static class ControlHelper
             element.Focus();
         }
     }
+
+    // -- Prefix ----------------------------------------------------------
+
+    /// <summary>
+    /// Identifies the Prefix attached property.
+    /// Optional text prepended to a value shown by a control (e.g. the Slider AutoToolTip).
+    /// </summary>
+    public static readonly DependencyProperty PrefixProperty =
+        DependencyProperty.RegisterAttached(
+            "Prefix",
+            typeof(string),
+            typeof(ControlHelper),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Gets the text prepended to the displayed value.
+    /// </summary>
+    public static string? GetPrefix(DependencyObject element) =>
+        (string?)element.GetValue(PrefixProperty);
+
+    /// <summary>
+    /// Sets the text prepended to the displayed value.
+    /// </summary>
+    public static void SetPrefix(DependencyObject element, string? value) =>
+        element.SetValue(PrefixProperty, value);
+
+    // -- Suffix ----------------------------------------------------------
+
+    /// <summary>
+    /// Identifies the Suffix attached property.
+    /// Optional text appended to a value shown by a control (e.g. the Slider AutoToolTip).
+    /// </summary>
+    public static readonly DependencyProperty SuffixProperty =
+        DependencyProperty.RegisterAttached(
+            "Suffix",
+            typeof(string),
+            typeof(ControlHelper),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Gets the text appended to the displayed value.
+    /// </summary>
+    public static string? GetSuffix(DependencyObject element) =>
+        (string?)element.GetValue(SuffixProperty);
+
+    /// <summary>
+    /// Sets the text appended to the displayed value.
+    /// </summary>
+    public static void SetSuffix(DependencyObject element, string? value) =>
+        element.SetValue(SuffixProperty, value);
 }
