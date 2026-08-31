@@ -54,7 +54,7 @@ public class ToolBarOverflowPanel : Panel
     {
         SyncOverflowChildren();
 
-        double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
+        double spacing = Math.Max(0, ToolBar?.Spacing ?? 0);
         double wrapWidth = WrapWidth;
         int maxItemsPerRow = MaxItemsPerRow;
         bool hasWidthLimit = wrapWidth > 0;
@@ -74,6 +74,11 @@ public class ToolBarOverflowPanel : Panel
         foreach (UIElement child in Children)
         {
             child.Measure(infinite);
+            if (child.Visibility == Visibility.Collapsed)
+            {
+                continue;
+            }
+
             Size size = child.DesiredSize;
 
             double gap = rowItemCount > 0 ? spacing : 0;
@@ -106,7 +111,7 @@ public class ToolBarOverflowPanel : Panel
 
     protected override Size ArrangeOverride(Size finalSize)
     {
-        double spacing = Math.Max(0, ToolBar?.ItemSpacing ?? 0);
+        double spacing = Math.Max(0, ToolBar?.Spacing ?? 0);
         double wrapWidth = WrapWidth;
         int maxItemsPerRow = MaxItemsPerRow;
         bool hasWidthLimit = wrapWidth > 0;
@@ -120,6 +125,12 @@ public class ToolBarOverflowPanel : Panel
 
         foreach (UIElement child in Children)
         {
+            if (child.Visibility == Visibility.Collapsed)
+            {
+                child.Arrange(new Rect());
+                continue;
+            }
+
             Size size = child.DesiredSize;
             bool exceedsWidth = hasWidthLimit && rowItemCount > 0 && x + spacing + size.Width > limit;
             bool exceedsItemCount = hasItemLimit && rowItemCount >= maxItemsPerRow;

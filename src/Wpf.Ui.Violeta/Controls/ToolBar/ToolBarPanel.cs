@@ -38,7 +38,7 @@ public class ToolBarPanel : Panel
             return new Size(0, 0);
         }
 
-        double spacing = Math.Max(0, toolBar.ItemSpacing);
+        double spacing = Math.Max(0, toolBar.Spacing);
         var infinite = new Size(double.PositiveInfinity, constraint.Height);
 
         double maxHeight = 0;
@@ -133,7 +133,7 @@ public class ToolBarPanel : Panel
 
         for (int i = 0; i < count; i++)
         {
-            if (children[i] is null)
+            if (children[i] is not { } child || child.Visibility == Visibility.Collapsed)
             {
                 continue;
             }
@@ -203,7 +203,7 @@ public class ToolBarPanel : Panel
             return ArrangeAsStack(finalSize, spacing: 0);
         }
 
-        double spacing = Math.Max(0, toolBar.ItemSpacing);
+        double spacing = Math.Max(0, toolBar.Spacing);
         var generator = toolBar.ItemContainerGenerator;
         double x = 0;
         double height = finalSize.Height;
@@ -223,6 +223,12 @@ public class ToolBarPanel : Panel
 
             if (!ReferenceEquals(VisualTreeHelper.GetParent(child), this))
             {
+                continue;
+            }
+
+            if (child.Visibility == Visibility.Collapsed)
+            {
+                child.Arrange(new Rect());
                 continue;
             }
 
@@ -320,6 +326,11 @@ public class ToolBarPanel : Panel
         foreach (UIElement child in Children)
         {
             child.Measure(infinite);
+            if (child.Visibility == Visibility.Collapsed)
+            {
+                continue;
+            }
+
             if (index > 0)
             {
                 width += spacing;
@@ -339,6 +350,12 @@ public class ToolBarPanel : Panel
         bool first = true;
         foreach (UIElement child in Children)
         {
+            if (child.Visibility == Visibility.Collapsed)
+            {
+                child.Arrange(new Rect());
+                continue;
+            }
+
             if (!first)
             {
                 x += spacing;

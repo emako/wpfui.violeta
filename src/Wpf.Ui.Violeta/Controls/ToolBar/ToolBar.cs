@@ -236,24 +236,24 @@ public class ToolBar : ItemsControl
 
     #endregion OverflowPanelWrapWidth
 
-    #region ItemSpacing
+    #region Spacing
 
-    public static readonly DependencyProperty ItemSpacingProperty = DependencyProperty.Register(
-        nameof(ItemSpacing),
+    public static readonly DependencyProperty SpacingProperty = DependencyProperty.Register(
+        nameof(Spacing),
         typeof(double),
         typeof(ToolBar),
-        new FrameworkPropertyMetadata(6d, FrameworkPropertyMetadataOptions.AffectsMeasure, OnItemSpacingChanged));
+        new FrameworkPropertyMetadata(6d, FrameworkPropertyMetadataOptions.AffectsMeasure, OnSpacingChanged));
 
     /// <summary>
     /// Gap between adjacent items in the primary bar and the overflow flyout.
     /// </summary>
-    public double ItemSpacing
+    public double Spacing
     {
-        get => (double)GetValue(ItemSpacingProperty);
-        set => SetValue(ItemSpacingProperty, value);
+        get => (double)GetValue(SpacingProperty);
+        set => SetValue(SpacingProperty, value);
     }
 
-    private static void OnItemSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is ToolBar toolBar)
         {
@@ -262,7 +262,7 @@ public class ToolBar : ItemsControl
         }
     }
 
-    #endregion ItemSpacing
+    #endregion Spacing
 
     #region OverflowButtonStyle
 
