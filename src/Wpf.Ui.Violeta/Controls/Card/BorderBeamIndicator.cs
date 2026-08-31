@@ -1,7 +1,7 @@
 using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Threading;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -12,9 +12,12 @@ public class BorderBeamIndicator : FrameworkElement
 {
     private const double MaxBeamColorStopPercent = 0.7;
 
-    private readonly DispatcherTimer _timer;
-    private DateTime _animationStart = DateTime.UtcNow;
+    private long _animationStartTimestamp;
     private double _progress;
+    private bool _isRendering;
+    private LinearGradientBrush? _cachedBeamBrush;
+    private Color _cachedBeamColor;
+    private Color _cachedBeamHighlightColor;
 
     static BorderBeamIndicator()
     {
@@ -29,12 +32,6 @@ public class BorderBeamIndicator : FrameworkElement
 
     public BorderBeamIndicator()
     {
-        _timer = new DispatcherTimer(DispatcherPriority.Render)
-        {
-            Interval = TimeSpan.FromMilliseconds(1000.0 / 60.0),
-        };
-        _timer.Tick += OnTimerTick;
-
         Loaded += (_, _) => UpdateAnimationState();
         Unloaded += (_, _) => StopAnimation();
         IsVisibleChanged += (_, _) => UpdateAnimationState();
@@ -269,8 +266,8 @@ public class BorderBeamIndicator : FrameworkElement
         }
 
         var beamSize = Math.Max(8, BeamSize);
-        var durationSeconds = Math.Max(0.1, Duration.TotalSeconds);
         var beamCount = Math.Max(1, Count);
+        var brush = GetOrCreateBeamBrush();
 
         for (var index = 0; index < beamCount; index++)
         {
@@ -282,16 +279,23 @@ public class BorderBeamIndicator : FrameworkElement
 
             var distance = phase * path.TotalLength;
             var (point, angle) = path.GetPointAndAngle(distance);
-            DrawBeam(drawingContext, point, angle, beamSize);
+            DrawBeam(drawingContext, brush, point, angle, beamSize);
         }
 
         drawingContext.Pop();
-
-        _ = durationSeconds;
     }
 
-    private void DrawBeam(DrawingContext drawingContext, Point anchor, double angleDegrees, double beamSize)
+    private LinearGradientBrush GetOrCreateBeamBrush()
     {
+        var beamColor = BeamColor;
+        var highlightColor = BeamHighlightColor;
+        if (_cachedBeamBrush is not null
+            && _cachedBeamColor == beamColor
+            && _cachedBeamHighlightColor == highlightColor)
+        {
+            return _cachedBeamBrush;
+        }
+
         var gradient = new LinearGradientBrush
         {
             StartPoint = new Point(1, 0.5),
@@ -299,17 +303,30 @@ public class BorderBeamIndicator : FrameworkElement
             MappingMode = BrushMappingMode.RelativeToBoundingBox,
             GradientStops =
             {
-                new GradientStop(BeamColor, 0),
-                new GradientStop(BeamHighlightColor, MaxBeamColorStopPercent),
-                new GradientStop(Color.FromArgb(0, BeamHighlightColor.R, BeamHighlightColor.G, BeamHighlightColor.B), 1),
+                new GradientStop(beamColor, 0),
+                new GradientStop(highlightColor, MaxBeamColorStopPercent),
+                new GradientStop(Color.FromArgb(0, highlightColor.R, highlightColor.G, highlightColor.B), 1),
             },
         };
         gradient.Freeze();
 
+        _cachedBeamBrush = gradient;
+        _cachedBeamColor = beamColor;
+        _cachedBeamHighlightColor = highlightColor;
+        return gradient;
+    }
+
+    private static void DrawBeam(
+        DrawingContext drawingContext,
+        Brush brush,
+        Point anchor,
+        double angleDegrees,
+        double beamSize)
+    {
         drawingContext.PushTransform(new TranslateTransform(anchor.X, anchor.Y));
         drawingContext.PushTransform(new RotateTransform(angleDegrees));
         drawingContext.DrawRectangle(
-            gradient,
+            brush,
             null,
             new Rect(-beamSize * 0.9, -beamSize * 0.5, beamSize, beamSize));
         drawingContext.Pop();
@@ -448,18 +465,39 @@ public class BorderBeamIndicator : FrameworkElement
 
     private static void OnAnimationPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        ((BorderBeamIndicator)d).UpdateAnimationState();
+        var indicator = (BorderBeamIndicator)d;
+        if (e.Property == DurationProperty && indicator._isRendering && e.OldValue is TimeSpan oldDuration)
+        {
+            // Keep the current phase when duration changes so the beam does not jump.
+            var oldSeconds = Math.Max(0.1, oldDuration.TotalSeconds);
+            var newSeconds = Math.Max(0.1, indicator.Duration.TotalSeconds);
+            var elapsed = (Stopwatch.GetTimestamp() - indicator._animationStartTimestamp) / (double)Stopwatch.Frequency;
+            var phase = (elapsed % oldSeconds) / oldSeconds;
+            indicator._animationStartTimestamp =
+                Stopwatch.GetTimestamp() - (long)(phase * newSeconds * Stopwatch.Frequency);
+        }
+
+        indicator.UpdateAnimationState();
     }
 
-    private void OnTimerTick(object? sender, EventArgs e)
+    private void OnRendering(object? sender, EventArgs e)
     {
-        if (!IsActive || Duration.TotalSeconds <= 0)
+        if (!IsActive)
         {
             return;
         }
 
-        var elapsed = (DateTime.UtcNow - _animationStart).TotalSeconds;
-        _progress = (elapsed % Duration.TotalSeconds) / Duration.TotalSeconds;
+        var durationSeconds = Math.Max(0.1, Duration.TotalSeconds);
+        var elapsed = (Stopwatch.GetTimestamp() - _animationStartTimestamp) / (double)Stopwatch.Frequency;
+        var nextProgress = (elapsed % durationSeconds) / durationSeconds;
+
+        // Skip no-op frames (e.g. duplicate Rendering callbacks) to avoid redundant redraws.
+        if (Math.Abs(nextProgress - _progress) < 1e-9)
+        {
+            return;
+        }
+
+        _progress = nextProgress;
         InvalidateVisual();
     }
 
@@ -477,19 +515,28 @@ public class BorderBeamIndicator : FrameworkElement
 
     private void StartAnimation()
     {
-        _animationStart = DateTime.UtcNow;
-        if (!_timer.IsEnabled)
+        if (_isRendering)
         {
-            _timer.Start();
+            return;
         }
+
+        // Resume from the last known phase instead of snapping back to the origin.
+        var durationSeconds = Math.Max(0.1, Duration.TotalSeconds);
+        _animationStartTimestamp =
+            Stopwatch.GetTimestamp() - (long)(_progress * durationSeconds * Stopwatch.Frequency);
+        CompositionTarget.Rendering += OnRendering;
+        _isRendering = true;
     }
 
     private void StopAnimation()
     {
-        if (_timer.IsEnabled)
+        if (!_isRendering)
         {
-            _timer.Stop();
+            return;
         }
+
+        CompositionTarget.Rendering -= OnRendering;
+        _isRendering = false;
     }
 
     private sealed class RoundedRectPath
