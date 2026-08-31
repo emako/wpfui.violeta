@@ -20,7 +20,11 @@ public class RangeTrack : FrameworkElement
 {
     // --- Visual children ------------------------------------------------------
 
-    private readonly Border _selectionBorder = new() { IsHitTestVisible = false };
+    private readonly Border _selectionBorder = new()
+    {
+        IsHitTestVisible = false,
+        CornerRadius = new CornerRadius(2),
+    };
     private Thumb? _lowerThumb;
     private Thumb? _upperThumb;
 

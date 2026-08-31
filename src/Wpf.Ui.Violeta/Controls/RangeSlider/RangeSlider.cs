@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,6 +53,11 @@ public class RangeSlider : Control
 
     // Which thumb responds to keyboard arrow keys
     private RangeSliderActiveThumb _activeThumb = RangeSliderActiveThumb.Lower;
+
+    private ToolTip? _lowerAutoToolTip;
+    private ToolTip? _upperAutoToolTip;
+    private object? _lowerThumbOriginalToolTip;
+    private object? _upperThumbOriginalToolTip;
 
     // --- Constructor ----------------------------------------------------------
 
@@ -229,6 +235,36 @@ public class RangeSlider : Control
         set => SetValue(IsReadOnlyProperty, value);
     }
 
+    public static readonly DependencyProperty AutoToolTipPlacementProperty =
+        DependencyProperty.Register(nameof(AutoToolTipPlacement), typeof(AutoToolTipPlacement), typeof(RangeSlider),
+            new FrameworkPropertyMetadata(AutoToolTipPlacement.TopLeft));
+
+    /// <summary>
+    /// Gets or sets whether a tooltip showing the current value appears while a thumb is dragged,
+    /// and where it is placed relative to the thumb.
+    /// </summary>
+    public AutoToolTipPlacement AutoToolTipPlacement
+    {
+        get => (AutoToolTipPlacement)GetValue(AutoToolTipPlacementProperty);
+        set => SetValue(AutoToolTipPlacementProperty, value);
+    }
+
+    public static readonly DependencyProperty AutoToolTipPrecisionProperty =
+        DependencyProperty.Register(nameof(AutoToolTipPrecision), typeof(int), typeof(RangeSlider),
+            new FrameworkPropertyMetadata(0), ValidateAutoToolTipPrecision);
+
+    /// <summary>
+    /// Gets or sets the number of digits displayed after the decimal point in the AutoToolTip.
+    /// </summary>
+    public int AutoToolTipPrecision
+    {
+        get => (int)GetValue(AutoToolTipPrecisionProperty);
+        set => SetValue(AutoToolTipPrecisionProperty, value);
+    }
+
+    private static bool ValidateAutoToolTipPrecision(object value) =>
+        value is int precision && precision >= 0;
+
     // --- Coerce callbacks -----------------------------------------------------
 
     private static object CoerceMinimum(DependencyObject d, object baseValue)
@@ -287,6 +323,7 @@ public class RangeSlider : Control
         // Detach from old parts
         if (_lowerThumb != null)
         {
+            HideAutoToolTip(isLower: true);
             _lowerThumb.DragStarted -= OnLowerThumbDragStarted;
             _lowerThumb.DragDelta -= OnLowerThumbDragDelta;
             _lowerThumb.DragCompleted -= OnLowerThumbDragCompleted;
@@ -294,11 +331,14 @@ public class RangeSlider : Control
         }
         if (_upperThumb != null)
         {
+            HideAutoToolTip(isLower: false);
             _upperThumb.DragStarted -= OnUpperThumbDragStarted;
             _upperThumb.DragDelta -= OnUpperThumbDragDelta;
             _upperThumb.DragCompleted -= OnUpperThumbDragCompleted;
             _upperThumb.GotMouseCapture -= OnUpperThumbGotMouseCapture;
         }
+        _lowerAutoToolTip = null;
+        _upperAutoToolTip = null;
         _track?.MouseLeftButtonDown -= OnTrackMouseLeftButtonDown;
 
         _track = GetTemplateChild(PART_Track) as RangeTrack;
@@ -328,17 +368,27 @@ public class RangeSlider : Control
         => _activeThumb = RangeSliderActiveThumb.Lower;
 
     private void OnLowerThumbDragStarted(object? sender, DragStartedEventArgs e)
-        => _isDraggingLower = true;
+    {
+        _isDraggingLower = true;
+        if (!IsReadOnly)
+        {
+            ShowAutoToolTip(isLower: true);
+        }
+    }
 
     private void OnLowerThumbDragDelta(object? sender, DragDeltaEventArgs e)
     {
         if (IsReadOnly || _track == null) return;
         double delta = GetDeltaValue(e.HorizontalChange, e.VerticalChange);
         MoveLowerValue(delta);
+        UpdateAutoToolTip(isLower: true);
     }
 
     private void OnLowerThumbDragCompleted(object? sender, DragCompletedEventArgs e)
-        => _isDraggingLower = false;
+    {
+        _isDraggingLower = false;
+        HideAutoToolTip(isLower: true);
+    }
 
     // --- Drag: Upper Thumb ----------------------------------------------------
 
@@ -346,17 +396,27 @@ public class RangeSlider : Control
         => _activeThumb = RangeSliderActiveThumb.Upper;
 
     private void OnUpperThumbDragStarted(object? sender, DragStartedEventArgs e)
-        => _isDraggingUpper = true;
+    {
+        _isDraggingUpper = true;
+        if (!IsReadOnly)
+        {
+            ShowAutoToolTip(isLower: false);
+        }
+    }
 
     private void OnUpperThumbDragDelta(object? sender, DragDeltaEventArgs e)
     {
         if (IsReadOnly || _track == null) return;
         double delta = GetDeltaValue(e.HorizontalChange, e.VerticalChange);
         MoveUpperValue(delta);
+        UpdateAutoToolTip(isLower: false);
     }
 
     private void OnUpperThumbDragCompleted(object? sender, DragCompletedEventArgs e)
-        => _isDraggingUpper = false;
+    {
+        _isDraggingUpper = false;
+        HideAutoToolTip(isLower: false);
+    }
 
     // --- Track click ----------------------------------------------------------
 
@@ -521,5 +581,83 @@ public class RangeSlider : Control
             return min;
 
         return value > max ? max : value;
+    }
+
+    // --- AutoToolTip ----------------------------------------------------------
+
+    private void ShowAutoToolTip(bool isLower)
+    {
+        var thumb = isLower ? _lowerThumb : _upperThumb;
+        if (thumb is null || AutoToolTipPlacement == AutoToolTipPlacement.None)
+        {
+            return;
+        }
+
+        if (isLower)
+        {
+            _lowerThumbOriginalToolTip = thumb.ToolTip;
+            _lowerAutoToolTip ??= CreateAutoToolTip(thumb);
+            thumb.ToolTip = _lowerAutoToolTip;
+            _lowerAutoToolTip.Content = GetAutoToolTipNumber(LowerValue);
+            _lowerAutoToolTip.IsOpen = true;
+        }
+        else
+        {
+            _upperThumbOriginalToolTip = thumb.ToolTip;
+            _upperAutoToolTip ??= CreateAutoToolTip(thumb);
+            thumb.ToolTip = _upperAutoToolTip;
+            _upperAutoToolTip.Content = GetAutoToolTipNumber(UpperValue);
+            _upperAutoToolTip.IsOpen = true;
+        }
+    }
+
+    private void UpdateAutoToolTip(bool isLower)
+    {
+        var autoToolTip = isLower ? _lowerAutoToolTip : _upperAutoToolTip;
+        if (autoToolTip is null || AutoToolTipPlacement == AutoToolTipPlacement.None)
+        {
+            return;
+        }
+
+        autoToolTip.Content = GetAutoToolTipNumber(isLower ? LowerValue : UpperValue);
+    }
+
+    private void HideAutoToolTip(bool isLower)
+    {
+        var thumb = isLower ? _lowerThumb : _upperThumb;
+        var autoToolTip = isLower ? _lowerAutoToolTip : _upperAutoToolTip;
+        if (autoToolTip is not null)
+        {
+            autoToolTip.IsOpen = false;
+        }
+
+        if (thumb is not null)
+        {
+            thumb.ToolTip = isLower ? _lowerThumbOriginalToolTip : _upperThumbOriginalToolTip;
+        }
+    }
+
+    private ToolTip CreateAutoToolTip(Thumb thumb)
+    {
+        var toolTip = new ToolTip
+        {
+            Placement = PlacementMode.Custom,
+            PlacementTarget = thumb,
+        };
+
+        if (TryFindResource("SliderAutoToolTipStyle") is Style style)
+        {
+            toolTip.Style = style;
+        }
+
+        SliderHelper.SetIsEnabled(toolTip, true);
+        return toolTip;
+    }
+
+    private string GetAutoToolTipNumber(double value)
+    {
+        var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
+        format.NumberDecimalDigits = AutoToolTipPrecision;
+        return value.ToString("N", format);
     }
 }

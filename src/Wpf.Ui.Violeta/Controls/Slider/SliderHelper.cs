@@ -11,7 +11,7 @@ using Wpf.Ui.Controls;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// WinUI-style Slider AutoToolTip placement and Fluent style attachment.
+/// WinUI-style Slider / RangeSlider AutoToolTip placement and Fluent style attachment.
 /// </summary>
 public static class SliderHelper
 {
@@ -145,7 +145,7 @@ public static class SliderHelper
     private static void WirePlacement(ToolTip toolTip)
     {
         if (toolTip.PlacementTarget is Thumb thumb &&
-            thumb.TemplatedParent is Slider slider)
+            TryGetAutoToolTipHost(thumb, out _, out var orientation, out var placement))
         {
             if (toolTip.ReadLocalValue(OriginalCustomPopupPlacementCallbackProperty) == DependencyProperty.UnsetValue)
             {
@@ -154,7 +154,7 @@ public static class SliderHelper
 
             toolTip.Placement = PlacementMode.Custom;
             toolTip.CustomPopupPlacementCallback = (popupSize, targetSize, offset) =>
-                PositionAutoToolTip(slider, toolTip, popupSize, targetSize);
+                PositionAutoToolTip(orientation, placement, toolTip, popupSize, targetSize);
         }
     }
 
@@ -179,15 +179,16 @@ public static class SliderHelper
     {
         if (sender is not ToolTip toolTip ||
             toolTip.PlacementTarget is not Thumb thumb ||
-            thumb.TemplatedParent is not Slider slider ||
+            !TryGetAutoToolTipHost(thumb, out var host, out _, out _) ||
+            host is null ||
             toolTip.Content is not string content)
         {
             return;
         }
 
-        // When attached to the ToolTip itself, honor the local value over the slider's.
-        string? prefix = ControlHelper.GetPrefix(toolTip) ?? ControlHelper.GetPrefix(slider);
-        string? suffix = ControlHelper.GetSuffix(toolTip) ?? ControlHelper.GetSuffix(slider);
+        // When attached to the ToolTip itself, honor the local value over the host's.
+        string? prefix = ControlHelper.GetPrefix(toolTip) ?? ControlHelper.GetPrefix(host);
+        string? suffix = ControlHelper.GetSuffix(toolTip) ?? ControlHelper.GetSuffix(host);
 
         if (string.IsNullOrEmpty(prefix) && string.IsNullOrEmpty(suffix))
         {
@@ -287,8 +288,48 @@ public static class SliderHelper
             new Point(targetSize.Width + 20, targetSize.Height + 20));
     }
 
+    private static bool TryGetAutoToolTipHost(
+        Thumb thumb,
+        out FrameworkElement? host,
+        out Orientation orientation,
+        out AutoToolTipPlacement placement)
+    {
+        switch (thumb.TemplatedParent)
+        {
+            case Slider slider:
+                host = slider;
+                orientation = slider.Orientation;
+                placement = slider.AutoToolTipPlacement;
+                return true;
+
+            case RangeSlider rangeSlider:
+                host = rangeSlider;
+                orientation = rangeSlider.Orientation;
+                placement = rangeSlider.AutoToolTipPlacement;
+                return true;
+        }
+
+        // RangeSlider thumbs are assigned as RangeTrack properties; walk the tree if needed.
+        for (DependencyObject? parent = thumb; parent is not null; parent = VisualTreeHelper.GetParent(parent))
+        {
+            if (parent is RangeSlider visualRangeSlider)
+            {
+                host = visualRangeSlider;
+                orientation = visualRangeSlider.Orientation;
+                placement = visualRangeSlider.AutoToolTipPlacement;
+                return true;
+            }
+        }
+
+        host = null;
+        orientation = default;
+        placement = default;
+        return false;
+    }
+
     private static CustomPopupPlacement[] PositionAutoToolTip(
-        Slider slider,
+        Orientation orientation,
+        AutoToolTipPlacement placement,
         ToolTip autoToolTip,
         Size popupSize,
         Size targetSize)
@@ -296,10 +337,10 @@ public static class SliderHelper
         Point point;
         PopupPrimaryAxis primaryAxis;
 
-        switch (slider.AutoToolTipPlacement)
+        switch (placement)
         {
             case AutoToolTipPlacement.TopLeft:
-                if (slider.Orientation == Orientation.Horizontal)
+                if (orientation == Orientation.Horizontal)
                 {
                     point = new Point((targetSize.Width - popupSize.Width) * 0.5, -popupSize.Height);
                     primaryAxis = PopupPrimaryAxis.Horizontal;
@@ -312,7 +353,7 @@ public static class SliderHelper
                 break;
 
             case AutoToolTipPlacement.BottomRight:
-                if (slider.Orientation == Orientation.Horizontal)
+                if (orientation == Orientation.Horizontal)
                 {
                     point = new Point((targetSize.Width - popupSize.Width) * 0.5, targetSize.Height);
                     primaryAxis = PopupPrimaryAxis.Horizontal;

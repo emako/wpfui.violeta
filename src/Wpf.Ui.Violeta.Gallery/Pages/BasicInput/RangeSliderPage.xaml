@@ -109,6 +109,37 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5f1a3c8d}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9d2e4a0}}"
+                        TextWrapping="Wrap" />
+                    <vio:RangeSlider
+                        Width="320"
+                        HorizontalAlignment="Left"
+                        AutoToolTipPlacement="TopLeft"
+                        LowerValue="20"
+                        Maximum="100"
+                        Minimum="0"
+                        ui:ControlHelper.Prefix="Range: "
+                        ui:ControlHelper.Suffix=" %"
+                        UpperValue="80" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
                         Text="{I18N {x:Static lang:LangKeys.Sample_75ac842f8e}}" />
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,24,0" Orientation="Horizontal">

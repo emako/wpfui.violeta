@@ -4,11 +4,11 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--
-        Thumb style – mirrors WPF-UI's UiSliderThumbStyle
+        Thumb style – mirrors Slider's UiSliderThumbStyle (Fluent motion + AutoToolTip attach).
     -->
     <Style x:Key="RangeSliderThumbStyle" TargetType="{x:Type Thumb}">
-        <Setter Property="Width" Value="20" />
         <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="20" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -17,34 +17,98 @@
         <Setter Property="Foreground" Value="{DynamicResource SliderThumbBackground}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource SliderOuterThumbBackground}" />
+        <Setter Property="local:SliderHelper.Attach" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
                     <Border
-                        x:Name="ThumbBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="16">
                         <Ellipse
-                            x:Name="ThumbEllipse"
+                            x:Name="SliderInnerThumb"
                             Width="12"
                             Height="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                             Fill="{TemplateBinding Foreground}"
+                            RenderTransformOrigin="0.5,0.5"
                             Stroke="Transparent"
-                            StrokeThickness="0" />
+                            StrokeThickness="0">
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="1.167" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="1.167" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="0.83" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlNormalAnimationDuration}"
+                                                Value="0.83" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SliderInnerThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="{DynamicResource ControlFastOutSlowInKeySpline}"
+                                                KeyTime="{DynamicResource ControlFastAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ThumbEllipse" Property="Fill" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
-                        </Trigger>
-                        <Trigger Property="IsDragging" Value="True">
-                            <Setter TargetName="ThumbBorder" Property="Opacity" Value="0.8" />
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ThumbBorder" Property="Opacity" Value="0.4" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -61,7 +125,6 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--  Top tick bar  -->
             <TickBar
                 x:Name="PART_TopTick"
                 Grid.Row="0"
@@ -74,18 +137,16 @@
                 TickFrequency="{TemplateBinding TickFrequency}"
                 Visibility="Collapsed" />
 
-            <!--  Track background (full grey bar)  -->
             <Border
                 x:Name="TrackBackground"
                 Grid.Row="1"
-                Height="4"
+                Height="{DynamicResource SliderTrackHeight}"
                 Margin="0"
                 Background="{DynamicResource SliderTrackFill}"
                 BorderThickness="0"
                 CornerRadius="2"
                 IsHitTestVisible="False" />
 
-            <!--  RangeTrack – manages selection range + thumbs  -->
             <local:RangeTrack
                 x:Name="PART_Track"
                 Grid.Row="1"
@@ -93,7 +154,7 @@
                 Maximum="{TemplateBinding Maximum}"
                 Minimum="{TemplateBinding Minimum}"
                 Orientation="{TemplateBinding Orientation}"
-                SelectionRangeFill="{DynamicResource SystemAccentColorBrush}"
+                SelectionRangeFill="{DynamicResource SliderTrackValueFill}"
                 UpperValue="{Binding UpperValue, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                 <local:RangeTrack.LowerThumb>
                     <Thumb x:Name="PART_LowerThumb" Style="{StaticResource RangeSliderThumbStyle}" />
@@ -103,7 +164,6 @@
                 </local:RangeTrack.UpperThumb>
             </local:RangeTrack>
 
-            <!--  Bottom tick bar  -->
             <TickBar
                 x:Name="PART_BottomTick"
                 Grid.Row="2"
@@ -117,12 +177,6 @@
                 Visibility="Collapsed" />
         </Grid>
         <ControlTemplate.Triggers>
-            <!--  Track pointer-over: highlight track fill  -->
-            <Trigger SourceName="PART_Track" Property="IsMouseOver" Value="True">
-                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
-            </Trigger>
-
-            <!--  Tick placement  -->
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter TargetName="PART_TopTick" Property="Visibility" Value="Visible" />
             </Trigger>
@@ -133,10 +187,29 @@
                 <Setter TargetName="PART_TopTick" Property="Visibility" Value="Visible" />
                 <Setter TargetName="PART_BottomTick" Property="Visibility" Value="Visible" />
             </Trigger>
-
-            <!--  Disabled state  -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPointerOver}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+            </Trigger>
+            <Trigger SourceName="PART_LowerThumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
+            <Trigger SourceName="PART_UpperThumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter TargetName="RootGrid" Property="Opacity" Value="0.4" />
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillDisabled}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillDisabled}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="PART_LowerThumb" Property="Opacity" Value="0.4" />
+                <Setter TargetName="PART_UpperThumb" Property="Opacity" Value="0.4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -152,7 +225,6 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <!--  Left tick bar  -->
             <TickBar
                 x:Name="PART_LeftTick"
                 Grid.Column="0"
@@ -165,18 +237,16 @@
                 TickFrequency="{TemplateBinding TickFrequency}"
                 Visibility="Collapsed" />
 
-            <!--  Track background  -->
             <Border
                 x:Name="TrackBackground"
                 Grid.Column="1"
-                Width="4"
+                Width="{DynamicResource SliderTrackHeight}"
                 Margin="0"
                 Background="{DynamicResource SliderTrackFill}"
                 BorderThickness="0"
                 CornerRadius="2"
                 IsHitTestVisible="False" />
 
-            <!--  RangeTrack  -->
             <local:RangeTrack
                 x:Name="PART_Track"
                 Grid.Column="1"
@@ -184,7 +254,7 @@
                 Maximum="{TemplateBinding Maximum}"
                 Minimum="{TemplateBinding Minimum}"
                 Orientation="{TemplateBinding Orientation}"
-                SelectionRangeFill="{DynamicResource SystemAccentColorBrush}"
+                SelectionRangeFill="{DynamicResource SliderTrackValueFill}"
                 UpperValue="{Binding UpperValue, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                 <local:RangeTrack.LowerThumb>
                     <Thumb x:Name="PART_LowerThumb" Style="{StaticResource RangeSliderThumbStyle}" />
@@ -194,7 +264,6 @@
                 </local:RangeTrack.UpperThumb>
             </local:RangeTrack>
 
-            <!--  Right tick bar  -->
             <TickBar
                 x:Name="PART_RightTick"
                 Grid.Column="2"
@@ -208,9 +277,6 @@
                 Visibility="Collapsed" />
         </Grid>
         <ControlTemplate.Triggers>
-            <Trigger SourceName="PART_Track" Property="IsMouseOver" Value="True">
-                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
-            </Trigger>
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter TargetName="PART_LeftTick" Property="Visibility" Value="Visible" />
             </Trigger>
@@ -221,31 +287,53 @@
                 <Setter TargetName="PART_LeftTick" Property="Visibility" Value="Visible" />
                 <Setter TargetName="PART_RightTick" Property="Visibility" Value="Visible" />
             </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPointerOver}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPointerOver}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+            </Trigger>
+            <Trigger SourceName="PART_LowerThumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
+            <Trigger SourceName="PART_UpperThumb" Property="IsDragging" Value="True">
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillPressed}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillPressed}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundPressed}" />
+            </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter TargetName="RootGrid" Property="Opacity" Value="0.4" />
+                <Setter TargetName="TrackBackground" Property="Background" Value="{DynamicResource SliderTrackFillDisabled}" />
+                <Setter TargetName="PART_Track" Property="SelectionRangeFill" Value="{DynamicResource SliderTrackValueFillDisabled}" />
+                <Setter TargetName="PART_LowerThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="PART_UpperThumb" Property="Foreground" Value="{DynamicResource SliderThumbBackgroundDisabled}" />
+                <Setter TargetName="PART_LowerThumb" Property="Opacity" Value="0.4" />
+                <Setter TargetName="PART_UpperThumb" Property="Opacity" Value="0.4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!--
-        Default Style
-    -->
-    <Style TargetType="{x:Type local:RangeSlider}">
+    <Style x:Key="DefaultRangeSliderStyle" TargetType="{x:Type local:RangeSlider}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="AutoToolTipPlacement" Value="TopLeft" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="MinWidth" Value="104" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Template" Value="{StaticResource UiHorizontalRangeSlider}" />
         <Style.Triggers>
-            <Trigger Property="Orientation" Value="Horizontal">
-                <Setter Property="MinWidth" Value="104" />
-                <Setter Property="MinHeight" Value="21" />
-                <Setter Property="Template" Value="{StaticResource UiHorizontalRangeSlider}" />
-            </Trigger>
             <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="MinWidth" Value="21" />
+                <Setter Property="MinWidth" Value="32" />
                 <Setter Property="MinHeight" Value="104" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Template" Value="{StaticResource UiVerticalRangeSlider}" />
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style BasedOn="{StaticResource DefaultRangeSliderStyle}" TargetType="{x:Type local:RangeSlider}" />
 
 </ResourceDictionary>
