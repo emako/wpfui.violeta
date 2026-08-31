@@ -47,7 +47,7 @@
                                     x:Name="ContentPresenter_Icon"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Content="{TemplateBinding compat:TabItemHelper.Icon}"
+                                    Content="{TemplateBinding local:TabItemHelper.Icon}"
                                     Focusable="False"
                                     FontFamily="{DynamicResource PivotHeaderItemFontFamily}"
                                     FontSize="{DynamicResource PivotHeaderItemFontSize}"
@@ -177,7 +177,7 @@
                             <Setter TargetName="Border" Property="TextElement.Foreground" Value="{DynamicResource PivotHeaderItemForegroundSelectedPressed}" />
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource PivotHeaderItemBackgroundSelectedPressed}" />
                         </MultiTrigger>
-                        <Trigger Property="compat:TabItemHelper.Icon" Value="{x:Null}">
+                        <Trigger Property="local:TabItemHelper.Icon" Value="{x:Null}">
                             <Setter TargetName="SimpleStackPanel_Header" Property="Spacing" Value="0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -247,8 +247,8 @@
                         <ContentControl
                             x:Name="TitleContentControl"
                             Margin="{DynamicResource PivotPortraitThemePadding}"
-                            Content="{TemplateBinding compat:PivotHelper.Title}"
-                            ContentTemplate="{TemplateBinding compat:PivotHelper.TitleTemplate}"
+                            Content="{TemplateBinding local:PivotHelper.Title}"
+                            ContentTemplate="{TemplateBinding local:PivotHelper.TitleTemplate}"
                             IsTabStop="False"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                             Style="{StaticResource TitleContentControlStyle}"
@@ -331,8 +331,8 @@
                                     x:Name="LeftHeaderPresenter"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
-                                    Content="{TemplateBinding compat:PivotHelper.LeftHeader}"
-                                    ContentTemplate="{TemplateBinding compat:PivotHelper.LeftHeaderTemplate}"
+                                    Content="{TemplateBinding local:PivotHelper.LeftHeader}"
+                                    ContentTemplate="{TemplateBinding local:PivotHelper.LeftHeaderTemplate}"
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                 <compat:PivotHeaderScrollViewer
                                     x:Name="ScrollViewer"
@@ -388,8 +388,8 @@
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
-                                    Content="{TemplateBinding compat:PivotHelper.RightHeader}"
-                                    ContentTemplate="{TemplateBinding compat:PivotHelper.RightHeaderTemplate}"
+                                    Content="{TemplateBinding local:PivotHelper.RightHeader}"
+                                    ContentTemplate="{TemplateBinding local:PivotHelper.RightHeaderTemplate}"
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Grid>
                             <Border
