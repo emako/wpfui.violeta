@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,6 +89,52 @@ public static class SliderAutoToolTipHelper
 
     #endregion Attach
 
+    #region Prefix / Suffix
+
+    /// <summary>
+    /// Optional text prepended to the AutoToolTip value, e.g. "Volume: ".
+    /// Attach to the <see cref="Slider"/> (or to the ToolTip itself).
+    /// </summary>
+    public static string? GetPrefix(DependencyObject element)
+    {
+        return (string?)element.GetValue(PrefixProperty);
+    }
+
+    public static void SetPrefix(DependencyObject element, string? value)
+    {
+        element.SetValue(PrefixProperty, value);
+    }
+
+    public static readonly DependencyProperty PrefixProperty =
+        DependencyProperty.RegisterAttached(
+            "Prefix",
+            typeof(string),
+            typeof(SliderAutoToolTipHelper),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Optional text appended to the AutoToolTip value, e.g. "%".
+    /// Attach to the <see cref="Slider"/> (or to the ToolTip itself).
+    /// </summary>
+    public static string? GetSuffix(DependencyObject element)
+    {
+        return (string?)element.GetValue(SuffixProperty);
+    }
+
+    public static void SetSuffix(DependencyObject element, string? value)
+    {
+        element.SetValue(SuffixProperty, value);
+    }
+
+    public static readonly DependencyProperty SuffixProperty =
+        DependencyProperty.RegisterAttached(
+            "Suffix",
+            typeof(string),
+            typeof(SliderAutoToolTipHelper),
+            new PropertyMetadata(null));
+
+    #endregion Prefix / Suffix
+
     #region IsEnabled
 
     public static bool GetIsEnabled(ToolTip toolTip)
@@ -113,6 +161,8 @@ public static class SliderAutoToolTipHelper
         {
             WirePlacement(toolTip);
 
+            AddContentListener(toolTip);
+
             toolTip.IsVisibleChanged -= OnToolTipIsVisibleChanged;
             toolTip.IsVisibleChanged += OnToolTipIsVisibleChanged;
 
@@ -120,6 +170,9 @@ public static class SliderAutoToolTipHelper
             {
                 UpdatePlacementRectangle(toolTip, visibleThumb.RenderSize);
             }
+
+            // WPF sets Content before this attached property applies, so reformat once now.
+            OnAutoToolTipContentChanged(toolTip, EventArgs.Empty);
         }
         else
         {
@@ -129,6 +182,7 @@ public static class SliderAutoToolTipHelper
                 toolTip.ClearValue(OriginalCustomPopupPlacementCallbackProperty);
             }
 
+            RemoveContentListener(toolTip);
             toolTip.IsVisibleChanged -= OnToolTipIsVisibleChanged;
         }
     }
@@ -150,6 +204,75 @@ public static class SliderAutoToolTipHelper
     }
 
     #endregion IsEnabled
+
+    #region Content formatting
+
+    private static readonly DependencyPropertyDescriptor ContentPropertyDescriptor =
+        DependencyPropertyDescriptor.FromProperty(ContentControl.ContentProperty, typeof(ToolTip));
+
+    private static void AddContentListener(ToolTip toolTip)
+    {
+        ContentPropertyDescriptor.AddValueChanged(toolTip, OnAutoToolTipContentChanged);
+    }
+
+    private static void RemoveContentListener(ToolTip toolTip)
+    {
+        ContentPropertyDescriptor.RemoveValueChanged(toolTip, OnAutoToolTipContentChanged);
+    }
+
+    private static void OnAutoToolTipContentChanged(object? sender, EventArgs e)
+    {
+        if (sender is not ToolTip toolTip ||
+            toolTip.PlacementTarget is not Thumb thumb ||
+            thumb.TemplatedParent is not Slider slider ||
+            toolTip.Content is not string content)
+        {
+            return;
+        }
+
+        // When attached to the ToolTip itself, honor the local value over the slider's.
+        string? prefix = GetPrefix(toolTip) ?? GetPrefix(slider);
+        string? suffix = GetSuffix(toolTip) ?? GetSuffix(slider);
+
+        if (string.IsNullOrEmpty(prefix) && string.IsNullOrEmpty(suffix))
+        {
+            return;
+        }
+
+        // Do not re-wrap the value we just wrote.
+        if (GetIsFormattingContent(toolTip))
+        {
+            return;
+        }
+
+        SetIsFormattingContent(toolTip, true);
+        try
+        {
+            toolTip.Content = prefix + content + suffix;
+        }
+        finally
+        {
+            SetIsFormattingContent(toolTip, false);
+        }
+    }
+
+    private static readonly DependencyProperty IsFormattingContentProperty =
+        DependencyProperty.RegisterAttached(
+            "IsFormattingContent",
+            typeof(bool),
+            typeof(SliderAutoToolTipHelper));
+
+    private static bool GetIsFormattingContent(ToolTip toolTip)
+    {
+        return (bool)toolTip.GetValue(IsFormattingContentProperty);
+    }
+
+    private static void SetIsFormattingContent(ToolTip toolTip, bool value)
+    {
+        toolTip.SetValue(IsFormattingContentProperty, value);
+    }
+
+    #endregion Content formatting
 
     #region OriginalCustomPopupPlacementCallback
 

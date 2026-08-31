@@ -6821,4 +6821,10 @@ Click OK to continue.</value>
   <data name="Sample_DragDrop_CityD" xml:space="preserve">
     <value>Los Angeles</value>
   </data>
+  <data name="Sample_5f1a3c8d" xml:space="preserve">
+    <value>AutoToolTip prefix / suffix</value>
+  </data>
+  <data name="Sample_b9d2e4a0" xml:space="preserve">
+    <value>Drag the slider; the tooltip value is wrapped with a prefix and a suffix.</value>
+  </data>
 </root>

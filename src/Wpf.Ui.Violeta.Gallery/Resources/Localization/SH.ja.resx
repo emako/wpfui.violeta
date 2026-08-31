@@ -6821,4 +6821,10 @@ OK をクリックして続行してください。</value>
   <data name="Sample_DragDrop_CityD" xml:space="preserve">
     <value>ロサンゼルス</value>
   </data>
+  <data name="Sample_5f1a3c8d" xml:space="preserve">
+    <value>AutoToolTip の接頭辞 / 接尾辞</value>
+  </data>
+  <data name="Sample_b9d2e4a0" xml:space="preserve">
+    <value>スライダーをドラッグすると、ツールチップの値に接頭辞と接尾辞が付きます。</value>
+  </data>
 </root>

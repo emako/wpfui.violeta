@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:hotfix="clr-namespace:Wpf.Ui.Violeta.Hotfix;assembly=Wpf.Ui.Violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Slider}}"
     d:Background="#1C1C1C"
@@ -174,6 +175,48 @@
                         <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
                             <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
                             <TextBlock Text="{Binding Value, ElementName=VerticalSlider}" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5f1a3c8d}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_b9d2e4a0}}"
+                        TextWrapping="Wrap" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Slider
+                            x:Name="PrefixedSlider"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            AutoToolTipPlacement="TopLeft"
+                            Maximum="100"
+                            Minimum="0"
+                            hotfix:SliderAutoToolTipHelper.Prefix="Volume: "
+                            hotfix:SliderAutoToolTipHelper.Suffix=" %"
+                            Value="35" />
+                        <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_b1282d58a4}}" />
+                            <TextBlock Text="{Binding Value, ElementName=PrefixedSlider}" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>

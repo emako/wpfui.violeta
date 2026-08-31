@@ -6827,4 +6827,10 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_DragDrop_CityD" xml:space="preserve">
     <value>洛杉磯</value>
   </data>
+  <data name="Sample_5f1a3c8d" xml:space="preserve">
+    <value>AutoToolTip 前置文字 / 後置文字</value>
+  </data>
+  <data name="Sample_b9d2e4a0" xml:space="preserve">
+    <value>拖動滑桿,ToolTip 中的數值會自動加上前置與後置文字。</value>
+  </data>
 </root>
