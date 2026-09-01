@@ -95,10 +95,10 @@ public partial class ContentWindowDialogControlPage : Wpf.Ui.Violeta.Controls.Pa
     private static ComboBox BuildDepartmentComboBox()
     {
         var combo = new ComboBox { Width = 220 };
-        combo.Items.Add(new ComboBoxItem { Content = LangKeys.Sample_9176a628cc.Tr() });
-        combo.Items.Add(new ComboBoxItem { Content = LangKeys.Sample_829ec9c321.Tr() });
-        combo.Items.Add(new ComboBoxItem { Content = LangKeys.Sample_c5d34b60ac.Tr() });
-        combo.Items.Add(new ComboBoxItem { Content = LangKeys.Sample_b890b34994.Tr() });
+        combo.Items.Add(new System.Windows.Controls.ComboBoxItem { Content = LangKeys.Sample_9176a628cc.Tr() });
+        combo.Items.Add(new System.Windows.Controls.ComboBoxItem { Content = LangKeys.Sample_829ec9c321.Tr() });
+        combo.Items.Add(new System.Windows.Controls.ComboBoxItem { Content = LangKeys.Sample_c5d34b60ac.Tr() });
+        combo.Items.Add(new System.Windows.Controls.ComboBoxItem { Content = LangKeys.Sample_b890b34994.Tr() });
         combo.SelectedIndex = 0;
         return combo;
     }

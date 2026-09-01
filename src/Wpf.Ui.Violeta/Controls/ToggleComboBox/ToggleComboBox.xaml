@@ -68,14 +68,42 @@
                             CornerRadius="{TemplateBinding Border.CornerRadius}"
                             SnapsToDevicePixels="True">
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="ComboBoxItemShortcut" />
+                                </Grid.ColumnDefinitions>
                                 <ContentPresenter
                                     x:Name="PART_ContentPresenter"
+                                    Grid.Column="0"
                                     Margin="{TemplateBinding Padding}"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     TextElement.Foreground="{TemplateBinding Foreground}" />
+                                <!--  MenuItem-style shortcut (local:ComboBoxItem.InputGestureText).  -->
+                                <TextBlock
+                                    x:Name="InputGesture"
+                                    Grid.Column="1"
+                                    Margin="25,0,8,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource TextFillColorDisabledBrush}"
+                                    Text="{Binding Path=(local:ComboBoxItem.InputGestureText), RelativeSource={RelativeSource TemplatedParent}}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <Trigger Property="Text" Value="">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Trigger>
+                                                <Trigger Property="Text" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                                 <Rectangle
                                     x:Name="ActiveRectangle"
+                                    Grid.Column="0"
                                     Width="3"
                                     Height="16"
                                     Margin="0"
@@ -105,6 +133,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style
+        x:Key="DefaultVioletaToggleComboBoxItemStyle"
+        BasedOn="{StaticResource DefaultToggleComboBoxItemStyle}"
+        TargetType="{x:Type local:ComboBoxItem}" />
+
 
     <Style x:Key="DefaultToggleComboBoxStyle" TargetType="{x:Type local:ToggleComboBox}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
@@ -267,7 +301,10 @@
                                                 TextElement.FontWeight="{TemplateBinding FontWeight}"
                                                 TextElement.Foreground="{TemplateBinding Foreground}"
                                                 VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                                <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" TextElement.FontSize="{TemplateBinding FontSize}" />
+                                                <ItemsPresenter
+                                                    Grid.IsSharedSizeScope="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained"
+                                                    TextElement.FontSize="{TemplateBinding FontSize}" />
                                             </controls:DynamicScrollViewer>
                                         </Border>
                                     </controls:EffectThicknessDecorator>

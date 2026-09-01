@@ -11,7 +11,7 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;
 
 public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
 {
-    public ObservableCollection<GridViewSampleItem> Items { get; } = new();
+    public ObservableCollection<GridViewSampleItem> Items { get; } = [];
 
     public GridViewPage()
     {
@@ -45,7 +45,7 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
 
     private void SelectionModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (ContentGridView is null || SelectionModeComboBox.SelectedItem is not ComboBoxItem selected)
+        if (ContentGridView is null || SelectionModeComboBox.SelectedItem is not System.Windows.Controls.ComboBoxItem selected)
         {
             return;
         }
@@ -55,14 +55,17 @@ public partial class GridViewPage : Wpf.Ui.Violeta.Controls.Page
             case "None":
                 ContentGridView.IsSelectionEnabled = false;
                 break;
+
             case "Single":
                 ContentGridView.IsSelectionEnabled = true;
                 ContentGridView.SelectionMode = SelectionMode.Single;
                 break;
+
             case "Multiple":
                 ContentGridView.IsSelectionEnabled = true;
                 ContentGridView.SelectionMode = SelectionMode.Multiple;
                 break;
+
             case "Extended":
                 ContentGridView.IsSelectionEnabled = true;
                 ContentGridView.SelectionMode = SelectionMode.Extended;

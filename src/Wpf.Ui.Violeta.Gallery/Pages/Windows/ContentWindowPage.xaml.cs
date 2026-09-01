@@ -222,7 +222,7 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
 
     private WindowStartupLocation ParseStartupLocation()
     {
-        return StartupLocationComboBox.SelectedItem is ComboBoxItem { Tag: string tag }
+        return StartupLocationComboBox.SelectedItem is System.Windows.Controls.ComboBoxItem { Tag: string tag }
             && Enum.TryParse(tag, out WindowStartupLocation location)
             ? location
             : WindowStartupLocation.CenterOwner;
@@ -230,7 +230,7 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
 
     private WindowBackdropPreference ParseBackdropType()
     {
-        return BackdropTypeComboBox.SelectedItem is ComboBoxItem { Tag: string tag }
+        return BackdropTypeComboBox.SelectedItem is System.Windows.Controls.ComboBoxItem { Tag: string tag }
             && Enum.TryParse(tag, out WindowBackdropPreference backdrop)
             ? backdrop
             : WindowBackdropPreference.Mica;
@@ -238,7 +238,7 @@ public partial class ContentWindowPage : Wpf.Ui.Violeta.Controls.Page
 
     private ResizeMode ParseResizeMode()
     {
-        return ResizeModeComboBox.SelectedItem is ComboBoxItem { Tag: string tag }
+        return ResizeModeComboBox.SelectedItem is System.Windows.Controls.ComboBoxItem { Tag: string tag }
             && Enum.TryParse(tag, out ResizeMode mode)
             ? mode
             : ResizeMode.CanResize;

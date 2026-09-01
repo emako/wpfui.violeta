@@ -46,7 +46,7 @@ public partial class TransitioningContentControlPage : Wpf.Ui.Violeta.Controls.P
 
     private void TransitionType_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (TransitionTypeComboBox.SelectedItem is ComboBoxItem item && item.Tag is string tag)
+        if (TransitionTypeComboBox.SelectedItem is System.Windows.Controls.ComboBoxItem item && item.Tag is string tag)
         {
             if (Enum.TryParse<TransitionType>(tag, out var type))
             {

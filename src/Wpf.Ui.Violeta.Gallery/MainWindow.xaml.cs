@@ -469,7 +469,7 @@ public partial class MainWindow : ShellWindow
             return;
         }
 
-        if (LanguageComboBox.SelectedItem is not ComboBoxItem { Tag: string language })
+        if (LanguageComboBox.SelectedItem is not System.Windows.Controls.ComboBoxItem { Tag: string language })
         {
             return;
         }
@@ -480,7 +480,7 @@ public partial class MainWindow : ShellWindow
     internal int ThemeComboBoxSelectedIndex => ThemeComboBox.SelectedIndex;
 
     internal string LanguageComboBoxSelectedTag =>
-        LanguageComboBox.SelectedItem is ComboBoxItem { Tag: string tag } ? tag : LocaleManager.Language;
+        LanguageComboBox.SelectedItem is System.Windows.Controls.ComboBoxItem { Tag: string tag } ? tag : LocaleManager.Language;
 
     /// <summary>
     /// Keeps the title-bar theme combo in sync when theme is changed from Settings.
@@ -505,7 +505,7 @@ public partial class MainWindow : ShellWindow
         {
             for (var i = 0; i < LanguageComboBox.Items.Count; i++)
             {
-                if (LanguageComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+                if (LanguageComboBox.Items[i] is System.Windows.Controls.ComboBoxItem { Tag: string tag }
                     && string.Equals(tag, language, StringComparison.OrdinalIgnoreCase))
                 {
                     LanguageComboBox.SelectedIndex = i;

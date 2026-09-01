@@ -52,7 +52,7 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="3.0.5" />
-        <PackageReference Include="AvalonEdit" Version="6.3.0.120" />
+        <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
     </ItemGroup>
 
 </Project>

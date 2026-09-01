@@ -275,7 +275,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
         {
             for (var i = 0; i < LanguageComboBox.Items.Count; i++)
             {
-                if (LanguageComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+                if (LanguageComboBox.Items[i] is System.Windows.Controls.ComboBoxItem { Tag: string tag }
                     && string.Equals(tag, language, StringComparison.OrdinalIgnoreCase))
                 {
                     LanguageComboBox.SelectedIndex = i;
@@ -293,7 +293,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
     {
         foreach (var item in BackdropComboBox.Items)
         {
-            if (item is not ComboBoxItem comboItem || comboItem.Tag is not string tag)
+            if (item is not System.Windows.Controls.ComboBoxItem comboItem || comboItem.Tag is not string tag)
             {
                 continue;
             }
@@ -311,7 +311,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
     {
         for (var i = 0; i < BackdropComboBox.Items.Count; i++)
         {
-            if (BackdropComboBox.Items[i] is ComboBoxItem { Tag: string tag }
+            if (BackdropComboBox.Items[i] is System.Windows.Controls.ComboBoxItem { Tag: string tag }
                 && Enum.TryParse<WindowBackdropPreference>(tag, out var itemPreference)
                 && itemPreference == preference)
             {
@@ -328,7 +328,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        if (LanguageComboBox.SelectedItem is not ComboBoxItem { Tag: string language })
+        if (LanguageComboBox.SelectedItem is not System.Windows.Controls.ComboBoxItem { Tag: string language })
         {
             return;
         }
@@ -383,7 +383,7 @@ public partial class SettingsPage : Wpf.Ui.Violeta.Controls.Page
             return;
         }
 
-        if (BackdropComboBox.SelectedItem is not ComboBoxItem { Tag: string tag }
+        if (BackdropComboBox.SelectedItem is not System.Windows.Controls.ComboBoxItem { Tag: string tag }
             || !Enum.TryParse<WindowBackdropPreference>(tag, out var preference))
         {
             return;
