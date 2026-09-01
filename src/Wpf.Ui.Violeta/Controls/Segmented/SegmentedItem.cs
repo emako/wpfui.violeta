@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Wpf.Ui.Violeta.Controls.Compat;
@@ -56,6 +57,32 @@ public class SegmentedItem : ListBoxItem
         set => SetValue(IconProperty, value);
     }
 
+    /// <summary>Identifies the <see cref="Command"/> dependency property.</summary>
+    public static readonly DependencyProperty CommandProperty = ButtonBase.CommandProperty.AddOwner(
+        typeof(SegmentedItem));
+
+    /// <summary>
+    /// Gets or sets the command to invoke when this segment becomes selected.
+    /// </summary>
+    public ICommand? Command
+    {
+        get => (ICommand?)GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="CommandParameter"/> dependency property.</summary>
+    public static readonly DependencyProperty CommandParameterProperty =
+        ButtonBase.CommandParameterProperty.AddOwner(typeof(SegmentedItem));
+
+    /// <summary>
+    /// Gets or sets the parameter to pass to <see cref="Command"/> when it is invoked.
+    /// </summary>
+    public object? CommandParameter
+    {
+        get => GetValue(CommandParameterProperty);
+        set => SetValue(CommandParameterProperty, value);
+    }
+
     /// <summary>Identifies the <see cref="SelectionCornerRadius"/> dependency property.</summary>
     public static readonly DependencyProperty SelectionCornerRadiusProperty = DependencyProperty.Register(
         nameof(SelectionCornerRadius),
@@ -104,7 +131,11 @@ public class SegmentedItem : ListBoxItem
         {
             ApplySelectionChrome(IsSelected, animate: IsLoaded);
 
-            if (!IsSelected)
+            if (IsSelected)
+            {
+                TryExecuteCommand();
+            }
+            else
             {
                 UpdatePressState(isPressed: false);
             }
@@ -112,6 +143,21 @@ public class SegmentedItem : ListBoxItem
         else if (e.Property == UIElement.IsEnabledProperty && !IsEnabled)
         {
             UpdatePressState(isPressed: false);
+        }
+    }
+
+    private void TryExecuteCommand()
+    {
+        if (GetOwnerSegmented()?.IsRestoringSelection == true)
+        {
+            return;
+        }
+
+        var parameter = CommandParameter;
+        var command = Command;
+        if (command?.CanExecute(parameter) == true)
+        {
+            command.Execute(parameter);
         }
     }
 

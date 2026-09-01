@@ -34,6 +34,8 @@ public enum SegmentedIndicatorAnimation
 /// Inherits <see cref="ListBox"/> so <see cref="System.Windows.Controls.Primitives.Selector.SelectedIndex"/>,
 /// <see cref="System.Windows.Controls.Primitives.Selector.SelectedItem"/>, and
 /// <see cref="System.Windows.Controls.Primitives.Selector.SelectionChanged"/> work as usual.
+/// Each <see cref="SegmentedItem"/> can also bind <see cref="SegmentedItem.Command"/> /
+/// <see cref="SegmentedItem.CommandParameter"/>; the command runs when that segment becomes selected.
 /// Selection is always single; clearing the current segment is not allowed.
 /// The accent underline uses <see cref="IndicatorAnimation"/> (default: lengthening).
 /// </remarks>
@@ -53,6 +55,12 @@ public class Segmented : ListBox
     private FrameworkElement? _indicator;
     private Storyboard? _indicatorStoryboard;
     private bool _restoringSelection;
+
+    /// <summary>
+    /// True while selection is being restored after an attempt to clear it.
+    /// Used by <see cref="SegmentedItem"/> to avoid re-invoking <see cref="SegmentedItem.Command"/>.
+    /// </summary>
+    internal bool IsRestoringSelection => _restoringSelection;
 
     /// <summary>Identifies the <see cref="CornerRadius"/> dependency property.</summary>
     public static readonly DependencyProperty CornerRadiusProperty =
