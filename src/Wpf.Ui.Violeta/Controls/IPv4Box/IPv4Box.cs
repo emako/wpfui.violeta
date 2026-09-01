@@ -74,6 +74,7 @@ public class IPv4Box : Control
         tb.PreviewTextInput += Octet_PreviewTextInput;
         tb.PreviewKeyDown += Octet_PreviewKeyDown;
         tb.TextChanged += Octet_TextChanged;
+        tb.LostFocus += Octet_LostFocus;
         DataObject.AddPastingHandler(tb, OnPaste);
     }
 
@@ -215,6 +216,24 @@ public class IPv4Box : Control
         }
 
         UpdateIpFromTextBoxes();
+    }
+
+    private void Octet_LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (sender is not TextBox tb) return;
+
+        bool allEmpty = string.IsNullOrEmpty(_octet0?.Text) &&
+                        string.IsNullOrEmpty(_octet1?.Text) &&
+                        string.IsNullOrEmpty(_octet2?.Text) &&
+                        string.IsNullOrEmpty(_octet3?.Text);
+
+        if (string.IsNullOrEmpty(tb.Text) && !allEmpty)
+        {
+            _isInternalUpdate = true;
+            tb.Text = "0";
+            _isInternalUpdate = false;
+            UpdateIpFromTextBoxes();
+        }
     }
 
     private void OnPaste(object? sender, DataObjectPastingEventArgs e)
