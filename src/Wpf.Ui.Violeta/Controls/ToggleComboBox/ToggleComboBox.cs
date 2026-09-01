@@ -140,7 +140,7 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
         nameof(IsSelectionCancelable),
         typeof(bool),
         typeof(ToggleComboBox),
-        new PropertyMetadata(true));
+        new PropertyMetadata(false));
 
     public static readonly DependencyProperty MouseOverBackgroundProperty = DependencyProperty.Register(
         nameof(MouseOverBackground),
