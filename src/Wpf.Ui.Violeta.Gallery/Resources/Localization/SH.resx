@@ -6827,4 +6827,10 @@ Click OK to continue.</value>
   <data name="Sample_b9d2e4a0" xml:space="preserve">
     <value>Drag the slider; the tooltip value is wrapped with a prefix and a suffix.</value>
   </data>
+  <data name="Sample_1e0d090cf9" xml:space="preserve">
+    <value>With ToggleComboBox</value>
+  </data>
+  <data name="Sample_60a24f6dd6" xml:space="preserve">
+    <value>Mix ToggleButton and ToggleComboBox in one group for exclusive selection.</value>
+  </data>
 </root>

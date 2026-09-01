@@ -6827,4 +6827,10 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_b9d2e4a0" xml:space="preserve">
     <value>拖动滑块,ToolTip 中的数值会自动带上前缀和后缀。</value>
   </data>
+  <data name="Sample_1e0d090cf9" xml:space="preserve">
+    <value>配合 ToggleComboBox</value>
+  </data>
+  <data name="Sample_60a24f6dd6" xml:space="preserve">
+    <value>在同一组中混用 ToggleButton 与 ToggleComboBox，实现互斥选中。</value>
+  </data>
 </root>

@@ -6827,4 +6827,10 @@ OK をクリックして続行してください。</value>
   <data name="Sample_b9d2e4a0" xml:space="preserve">
     <value>スライダーをドラッグすると、ツールチップの値に接頭辞と接尾辞が付きます。</value>
   </data>
+  <data name="Sample_1e0d090cf9" xml:space="preserve">
+    <value>ToggleComboBox との併用</value>
+  </data>
+  <data name="Sample_60a24f6dd6" xml:space="preserve">
+    <value>同一グループで ToggleButton と ToggleComboBox を混在させ、排他選択を実現します。</value>
+  </data>
 </root>

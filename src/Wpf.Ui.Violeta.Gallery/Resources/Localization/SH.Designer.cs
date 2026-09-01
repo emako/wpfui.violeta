@@ -4654,6 +4654,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to With ToggleComboBox.
+        /// </summary>
+        public static string Sample_1e0d090cf9 {
+            get {
+                return ResourceManager.GetString("Sample_1e0d090cf9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Department.
         /// </summary>
         public static string Sample_1e1459eeed {
@@ -8929,6 +8938,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_608443e0b4 {
             get {
                 return ResourceManager.GetString("Sample_608443e0b4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mix ToggleButton and ToggleComboBox in one group for exclusive selection.
+        /// </summary>
+        public static string Sample_60a24f6dd6 {
+            get {
+                return ResourceManager.GetString("Sample_60a24f6dd6", resourceCulture);
             }
         }
         

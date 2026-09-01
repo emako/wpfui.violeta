@@ -6833,4 +6833,10 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_b9d2e4a0" xml:space="preserve">
     <value>拖動滑桿,ToolTip 中的數值會自動加上前置與後置文字。</value>
   </data>
+  <data name="Sample_1e0d090cf9" xml:space="preserve">
+    <value>配合 ToggleComboBox</value>
+  </data>
+  <data name="Sample_60a24f6dd6" xml:space="preserve">
+    <value>在同一組中混用 ToggleButton 與 ToggleComboBox，實現互斥選取。</value>
+  </data>
 </root>

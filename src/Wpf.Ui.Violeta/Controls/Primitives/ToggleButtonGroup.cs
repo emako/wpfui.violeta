@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using ToggleComboBox = Wpf.Ui.Violeta.Controls.ToggleComboBox;
 
 namespace Wpf.Ui.Violeta.Controls.Primitives;
 
 /// <summary>
-/// Represents a group of <see cref="ToggleButton"/> controls where only one
-/// button can be checked at a time (similar to radio button behavior).
+/// Represents a group of toggleable controls where only one can be checked at a time
+/// (similar to radio button behavior). Supports <see cref="ToggleButton"/> and
+/// <see cref="ToggleComboBox"/>.
 /// </summary>
-public class ToggleButtonGroup : List<ToggleButton>
+public class ToggleButtonGroup : List<FrameworkElement>
 {
     /// <summary>
     /// Gets or sets a value that indicates whether the selected toggle can be canceled
@@ -38,20 +40,30 @@ public class ToggleButtonGroup : List<ToggleButton>
 
     /// <summary>
     /// Attached dependency property used to associate a <see cref="ToggleButtonGroup"/> with
-    /// a <see cref="ToggleButton"/> control.
+    /// a <see cref="ToggleButton"/> or <see cref="ToggleComboBox"/> control.
     /// </summary>
     public static readonly DependencyProperty GroupProperty =
         DependencyProperty.RegisterAttached("Group", typeof(ToggleButtonGroup), typeof(ToggleButtonGroup), new PropertyMetadata(null!, OnGroupChanged));
 
     /// <summary>
-    /// Called when the attached Group property changes. When a group is attached to a
-    /// ToggleButton, the button is joined into the group.
+    /// Called when the attached Group property changes. When a group is attached, the
+    /// control is joined into the group.
     /// </summary>
     private static void OnGroupChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is ToggleButton tb)
+        if (e.NewValue is not ToggleButtonGroup group)
         {
-            ((ToggleButtonGroup)e.NewValue).Join(tb);
+            return;
+        }
+
+        switch (d)
+        {
+            case ToggleButton toggleButton:
+                group.Join(toggleButton);
+                break;
+            case ToggleComboBox toggleComboBox:
+                group.Join(toggleComboBox);
+                break;
         }
     }
 
@@ -72,54 +84,136 @@ public class ToggleButtonGroup : List<ToggleButton>
     }
 
     /// <summary>
+    /// Fluent helper to join a toggle combo box to the group and return the group instance.
+    /// </summary>
+    /// <param name="toggleComboBox">Toggle combo box to join.</param>
+    /// <returns>The current <see cref="ToggleButtonGroup"/> instance.</returns>
+    public ToggleButtonGroup JoinWith(ToggleComboBox toggleComboBox)
+    {
+        Join(toggleComboBox);
+        return this;
+    }
+
+    /// <summary>
     /// Adds the specified toggle button to the group and wires up Checked/Unchecked handlers
     /// to enforce single-selection behavior.
     /// </summary>
     /// <param name="toggleButton">Toggle button to add to the group.</param>
-    public void Join(ToggleButton toggleButton)
+    public void Join(ToggleButton toggleButton) => JoinCore(toggleButton);
+
+    /// <summary>
+    /// Adds the specified toggle combo box to the group and wires up Checked/Unchecked handlers
+    /// to enforce single-selection behavior.
+    /// </summary>
+    /// <param name="toggleComboBox">Toggle combo box to add to the group.</param>
+    public void Join(ToggleComboBox toggleComboBox) => JoinCore(toggleComboBox);
+
+    private void JoinCore(FrameworkElement element)
     {
-        Add(toggleButton);
-
-        // When a button is checked, uncheck other buttons in the same group.
-        toggleButton.Checked += (s, e) =>
+        // Already joined (e.g. Join -> SetGroup -> OnGroupChanged -> Join).
+        if (Contains(element))
         {
-            if (s is ToggleButton cb && GetGroup(cb) is ToggleButtonGroup group)
+            return;
+        }
+
+        Add(element);
+        AttachHandlers(element);
+
+        // Store the group so other code can retrieve it via GetGroup.
+        // Skip if already attached to avoid re-entrancy through OnGroupChanged.
+        if (!ReferenceEquals(GetGroup(element), this))
+        {
+            SetGroup(element, this);
+        }
+    }
+
+    private void AttachHandlers(FrameworkElement element)
+    {
+        switch (element)
+        {
+            case ToggleButton toggleButton:
+                toggleButton.Checked += OnMemberChecked;
+                toggleButton.Unchecked += OnMemberUnchecked;
+                break;
+            case ToggleComboBox toggleComboBox:
+                toggleComboBox.Checked += OnMemberChecked;
+                toggleComboBox.Unchecked += OnMemberUnchecked;
+                break;
+        }
+    }
+
+    private void OnMemberChecked(object sender, RoutedEventArgs e)
+    {
+        if (Handling || sender is not FrameworkElement current || GetGroup(current) is not ToggleButtonGroup group)
+        {
+            return;
+        }
+
+        Handling = true;
+        try
+        {
+            foreach (FrameworkElement member in group)
             {
-                Handling = true; // prevent Unchecked handler from fighting back
-                foreach (ToggleButton tb in group)
+                if (!ReferenceEquals(member, current))
                 {
-                    if (tb != cb)
-                    {
-                        tb.IsChecked = false;
-                    }
+                    SetIsChecked(member, false);
                 }
-                Handling = false;
             }
-        };
-
-        // When a button is unchecked, prevent leaving the group with no selection
-        // unless IsCanCancel is true.
-        toggleButton.Unchecked += (s, e) =>
+        }
+        finally
         {
-            if (!IsCanCancel && !Handling && s is ToggleButton cb)
-            {
-                // revert the uncheck to keep one item selected
-                cb.IsChecked = true;
-            }
-        };
+            Handling = false;
+        }
+    }
 
-        // Store the group on the toggle so other code can retrieve it via GetGroup.
-        SetGroup(toggleButton, this);
+    private void OnMemberUnchecked(object sender, RoutedEventArgs e)
+    {
+        if (IsCanCancel || Handling || sender is not FrameworkElement current)
+        {
+            return;
+        }
+
+        Handling = true;
+        try
+        {
+            // revert the uncheck to keep one item selected
+            SetIsChecked(current, true);
+        }
+        finally
+        {
+            Handling = false;
+        }
+    }
+
+    private static void SetIsChecked(FrameworkElement element, bool? value)
+    {
+        switch (element)
+        {
+            case ToggleButton toggleButton:
+                toggleButton.IsChecked = value;
+                break;
+            case ToggleComboBox toggleComboBox:
+                toggleComboBox.IsChecked = value;
+                break;
+        }
     }
 
     /// <summary>
     /// Removes the toggle button from the group and clears the attached group property.
     /// </summary>
-    /// <param name="checkBox">Toggle button to remove.</param>
-    public void Unjoin(ToggleButton checkBox)
+    /// <param name="toggleButton">Toggle button to remove.</param>
+    public void Unjoin(ToggleButton toggleButton) => UnjoinCore(toggleButton);
+
+    /// <summary>
+    /// Removes the toggle combo box from the group and clears the attached group property.
+    /// </summary>
+    /// <param name="toggleComboBox">Toggle combo box to remove.</param>
+    public void Unjoin(ToggleComboBox toggleComboBox) => UnjoinCore(toggleComboBox);
+
+    private void UnjoinCore(FrameworkElement element)
     {
-        Remove(checkBox);
-        SetGroup(checkBox, null!);
+        Remove(element);
+        SetGroup(element, null!);
     }
 
     /// <summary>

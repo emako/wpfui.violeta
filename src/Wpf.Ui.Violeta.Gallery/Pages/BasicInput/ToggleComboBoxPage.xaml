@@ -358,6 +358,51 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
+
+            <!--  ToggleButtonGroup  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButtonGroup}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_60a24f6dd6}}" />
+                    <ui:StackPanel Orientation="Horizontal" Spacing="8">
+                        <ui:StackPanel.Resources>
+                            <vio:ToggleButtonGroup x:Key="ToggleComboBoxGroup" IsCanCancel="True" />
+                            <x:Array x:Key="GroupItems" Type="{x:Type sys:String}">
+                                <sys:String>A</sys:String>
+                                <sys:String>B</sys:String>
+                                <sys:String>C</sys:String>
+                            </x:Array>
+                        </ui:StackPanel.Resources>
+                        <vio:ToggleComboBox
+                            MinWidth="120"
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleComboBoxGroup}"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_ec31383cc7}}"
+                            IsChecked="True"
+                            ItemsSource="{DynamicResource GroupItems}" />
+                        <vio:ToggleComboBox
+                            MinWidth="120"
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleComboBoxGroup}"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_9d5f1209e8}}"
+                            ItemsSource="{DynamicResource GroupItems}" />
+                        <ToggleButton
+                            vio:ToggleButtonGroup.Group="{DynamicResource ToggleComboBoxGroup}"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_b7b655045b}}" />
+                    </ui:StackPanel>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>
