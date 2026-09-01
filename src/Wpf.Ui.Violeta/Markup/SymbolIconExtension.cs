@@ -7,7 +7,7 @@ using SymbolIcon = Wpf.Ui.Violeta.Controls.SymbolIcon;
 namespace Wpf.Ui.Violeta.Markup;
 
 /// <summary>
-/// Markup extension that provides a Violeta <see cref="VioletaSymbolIcon"/> with correct
+/// Markup extension that provides a Violeta <see cref="SymbolIcon"/> with correct
 /// UTF-32 glyph encoding (workaround for upstream <c>GetString</c> bug).
 /// </summary>
 /// <example>
@@ -48,6 +48,11 @@ public class SymbolIconExtension : MarkupExtension
 
     public double FontSize { get; set; }
 
+    /// <summary>
+    /// Width of the produced <see cref="SymbolIcon"/>. Defaults to <see cref="double.NaN"/> (auto).
+    /// </summary>
+    public double Width { get; set; } = double.NaN;
+
     public override object ProvideValue(IServiceProvider serviceProvider)
     {
         SymbolIcon symbolIcon = new() { Symbol = Symbol, Filled = Filled };
@@ -55,6 +60,11 @@ public class SymbolIconExtension : MarkupExtension
         if (FontSize > 0)
         {
             symbolIcon.FontSize = FontSize;
+        }
+
+        if (!double.IsNaN(Width))
+        {
+            symbolIcon.Width = Width;
         }
 
         return symbolIcon;
