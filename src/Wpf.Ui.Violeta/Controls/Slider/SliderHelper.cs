@@ -1,9 +1,12 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Controls;
@@ -20,7 +23,8 @@ public static class SliderHelper
     #region Attach
 
     /// <summary>
-    /// When set on a <see cref="Thumb"/>, applies Fluent AutoToolTip styling after WPF creates the tooltip on drag.
+    /// When set on a <see cref="Thumb"/>, shows the value AutoToolTip on hover (for <see cref="Slider"/>)
+    /// and applies Fluent styling when the host creates a tooltip on drag.
     /// </summary>
     public static bool GetAttach(Thumb thumb)
     {
@@ -47,21 +51,115 @@ public static class SliderHelper
         }
 
         thumb.DragStarted -= OnThumbDragStarted;
+        thumb.DragCompleted -= OnThumbDragCompleted;
+        thumb.MouseEnter -= OnThumbMouseEnter;
+        thumb.MouseLeave -= OnThumbMouseLeave;
+
         if ((bool)e.NewValue)
         {
             thumb.DragStarted += OnThumbDragStarted;
+            thumb.DragCompleted += OnThumbDragCompleted;
+            thumb.MouseEnter += OnThumbMouseEnter;
+            thumb.MouseLeave += OnThumbMouseLeave;
         }
+        else
+        {
+            HideHoverAutoToolTip(thumb);
+        }
+    }
+
+    private static void OnThumbMouseEnter(object sender, MouseEventArgs e)
+    {
+        var thumb = (Thumb)sender;
+        if (thumb.IsDragging || IsRangeSliderThumb(thumb))
+        {
+            return;
+        }
+
+        ShowHoverAutoToolTip(thumb);
+    }
+
+    private static void OnThumbMouseLeave(object sender, MouseEventArgs e)
+    {
+        var thumb = (Thumb)sender;
+        if (thumb.IsDragging || IsRangeSliderThumb(thumb))
+        {
+            return;
+        }
+
+        HideHoverAutoToolTip(thumb);
     }
 
     private static void OnThumbDragStarted(object sender, DragStartedEventArgs e)
     {
         var thumb = (Thumb)sender;
 
-        // Slider.OnThumbDragStarted creates _autoToolTip after this handler; defer configuration.
+        // Thumb instance handlers run before Slider's class handler. Hand the already-open
+        // hover tip to Slider._autoToolTip so drag reuses it — no hide→show flicker.
+        if (!IsRangeSliderThumb(thumb) &&
+            thumb.TemplatedParent is Slider slider &&
+            GetHoverAutoToolTip(thumb) is ToolTip hoverTip)
+        {
+            TrySetSliderAutoToolTip(slider, hoverTip);
+        }
+
+        // Slider.OnThumbDragStarted may create _autoToolTip after this handler; defer configuration.
         _ = thumb.Dispatcher.BeginInvoke(
             DispatcherPriority.Loaded,
             () => ConfigureAutoToolTip(thumb));
     }
+
+    private static void OnThumbDragCompleted(object sender, DragCompletedEventArgs e)
+    {
+        var thumb = (Thumb)sender;
+
+        // RangeSlider owns its AutoToolTip lifecycle (including hover).
+        if (IsRangeSliderThumb(thumb))
+        {
+            return;
+        }
+
+        // Still hovering: keep the same tip open across drag→hover (skip Slider's IsOpen=false).
+        if (thumb.IsMouseOver && thumb.TemplatedParent is Slider slider)
+        {
+            var tip = TryGetSliderAutoToolTip(slider) ?? GetHoverAutoToolTip(thumb);
+            if (tip is not null)
+            {
+                SetHoverAutoToolTip(thumb, tip);
+                TrySetSliderAutoToolTip(slider, null);
+
+                _ = thumb.Dispatcher.BeginInvoke(
+                    DispatcherPriority.Send,
+                    () =>
+                    {
+                        TrySetSliderAutoToolTip(slider, tip);
+                        if (thumb.IsMouseOver)
+                        {
+                            ShowHoverAutoToolTip(thumb);
+                        }
+                        else
+                        {
+                            HideHoverAutoToolTip(thumb);
+                        }
+                    });
+                return;
+            }
+        }
+
+        // Left the thumb: let Slider close the tip, then clear our hover state.
+        _ = thumb.Dispatcher.BeginInvoke(
+            DispatcherPriority.Send,
+            () => HideHoverAutoToolTip(thumb));
+    }
+
+    private static readonly FieldInfo? SliderAutoToolTipField =
+        typeof(Slider).GetField("_autoToolTip", BindingFlags.Instance | BindingFlags.NonPublic);
+
+    private static void TrySetSliderAutoToolTip(Slider slider, ToolTip? toolTip) =>
+        SliderAutoToolTipField?.SetValue(slider, toolTip);
+
+    private static ToolTip? TryGetSliderAutoToolTip(Slider slider) =>
+        SliderAutoToolTipField?.GetValue(slider) as ToolTip;
 
     private static void ConfigureAutoToolTip(Thumb thumb)
     {
@@ -89,6 +187,116 @@ public static class SliderHelper
     }
 
     #endregion Attach
+
+    #region Hover AutoToolTip
+
+    private static readonly DependencyProperty HoverAutoToolTipProperty =
+        DependencyProperty.RegisterAttached(
+            "HoverAutoToolTip",
+            typeof(ToolTip),
+            typeof(SliderHelper));
+
+    private static readonly DependencyProperty ThumbOriginalToolTipProperty =
+        DependencyProperty.RegisterAttached(
+            "ThumbOriginalToolTip",
+            typeof(object),
+            typeof(SliderHelper));
+
+    private static ToolTip? GetHoverAutoToolTip(Thumb thumb) =>
+        (ToolTip?)thumb.GetValue(HoverAutoToolTipProperty);
+
+    private static void SetHoverAutoToolTip(Thumb thumb, ToolTip? value) =>
+        thumb.SetValue(HoverAutoToolTipProperty, value);
+
+    private static object? GetThumbOriginalToolTip(Thumb thumb) =>
+        thumb.GetValue(ThumbOriginalToolTipProperty);
+
+    private static void SetThumbOriginalToolTip(Thumb thumb, object? value) =>
+        thumb.SetValue(ThumbOriginalToolTipProperty, value);
+
+    private static void ShowHoverAutoToolTip(Thumb thumb)
+    {
+        if (!TryGetThumbValue(thumb, out double value, out int precision, out AutoToolTipPlacement placement) ||
+            placement == AutoToolTipPlacement.None)
+        {
+            return;
+        }
+
+        var hoverTip = GetHoverAutoToolTip(thumb);
+        if (hoverTip is null)
+        {
+            hoverTip = new ToolTip
+            {
+                Placement = PlacementMode.Custom,
+                PlacementTarget = thumb,
+            };
+            ApplyFluentStyle(hoverTip, thumb);
+            SetIsEnabled(hoverTip, true);
+            SetHoverAutoToolTip(thumb, hoverTip);
+        }
+
+        if (!ReferenceEquals(thumb.ToolTip, hoverTip))
+        {
+            SetThumbOriginalToolTip(thumb, thumb.ToolTip);
+            thumb.ToolTip = hoverTip;
+        }
+
+        hoverTip.Content = FormatAutoToolTipNumber(value, precision);
+        hoverTip.IsOpen = true;
+    }
+
+    private static void CloseHoverAutoToolTip(Thumb thumb)
+    {
+        var hoverTip = GetHoverAutoToolTip(thumb);
+        if (hoverTip is not null)
+        {
+            hoverTip.IsOpen = false;
+        }
+    }
+
+    private static void HideHoverAutoToolTip(Thumb thumb)
+    {
+        CloseHoverAutoToolTip(thumb);
+
+        var hoverTip = GetHoverAutoToolTip(thumb);
+        if (hoverTip is not null && ReferenceEquals(thumb.ToolTip, hoverTip))
+        {
+            thumb.ToolTip = GetThumbOriginalToolTip(thumb);
+        }
+    }
+
+    private static bool TryGetThumbValue(
+        Thumb thumb,
+        out double value,
+        out int precision,
+        out AutoToolTipPlacement placement)
+    {
+        value = 0;
+        precision = 0;
+        placement = AutoToolTipPlacement.None;
+
+        if (!TryGetAutoToolTipHost(thumb, out var host, out _, out placement) ||
+            host is not Slider slider)
+        {
+            return false;
+        }
+
+        value = slider.Value;
+        precision = slider.AutoToolTipPrecision;
+        return true;
+    }
+
+    private static bool IsRangeSliderThumb(Thumb thumb) =>
+        TryGetAutoToolTipHost(thumb, out var host, out _, out _) && host is RangeSlider;
+
+    private static string FormatAutoToolTipNumber(double value, int precision)
+    {
+        var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
+        format.NumberDecimalDigits = precision;
+        return value.ToString("N", format);
+    }
+
+    #endregion Hover AutoToolTip
 
     #region IsEnabled
 

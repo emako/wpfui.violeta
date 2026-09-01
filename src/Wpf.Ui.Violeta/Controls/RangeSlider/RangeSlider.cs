@@ -242,7 +242,7 @@ public class RangeSlider : Control
             new FrameworkPropertyMetadata(AutoToolTipPlacement.TopLeft));
 
     /// <summary>
-    /// Gets or sets whether a tooltip showing the current value appears while a thumb is dragged,
+    /// Gets or sets whether a tooltip showing the current value appears while a thumb is hovered or dragged,
     /// and where it is placed relative to the thumb.
     /// </summary>
     public AutoToolTipPlacement AutoToolTipPlacement
@@ -330,6 +330,8 @@ public class RangeSlider : Control
             _lowerThumb.DragDelta -= OnLowerThumbDragDelta;
             _lowerThumb.DragCompleted -= OnLowerThumbDragCompleted;
             _lowerThumb.GotMouseCapture -= OnLowerThumbGotMouseCapture;
+            _lowerThumb.MouseEnter -= OnLowerThumbMouseEnter;
+            _lowerThumb.MouseLeave -= OnLowerThumbMouseLeave;
         }
         if (_upperThumb != null)
         {
@@ -338,6 +340,8 @@ public class RangeSlider : Control
             _upperThumb.DragDelta -= OnUpperThumbDragDelta;
             _upperThumb.DragCompleted -= OnUpperThumbDragCompleted;
             _upperThumb.GotMouseCapture -= OnUpperThumbGotMouseCapture;
+            _upperThumb.MouseEnter -= OnUpperThumbMouseEnter;
+            _upperThumb.MouseLeave -= OnUpperThumbMouseLeave;
         }
         _lowerAutoToolTip = null;
         _upperAutoToolTip = null;
@@ -353,6 +357,8 @@ public class RangeSlider : Control
             _lowerThumb.DragDelta += OnLowerThumbDragDelta;
             _lowerThumb.DragCompleted += OnLowerThumbDragCompleted;
             _lowerThumb.GotMouseCapture += OnLowerThumbGotMouseCapture;
+            _lowerThumb.MouseEnter += OnLowerThumbMouseEnter;
+            _lowerThumb.MouseLeave += OnLowerThumbMouseLeave;
         }
         if (_upperThumb != null)
         {
@@ -360,6 +366,8 @@ public class RangeSlider : Control
             _upperThumb.DragDelta += OnUpperThumbDragDelta;
             _upperThumb.DragCompleted += OnUpperThumbDragCompleted;
             _upperThumb.GotMouseCapture += OnUpperThumbGotMouseCapture;
+            _upperThumb.MouseEnter += OnUpperThumbMouseEnter;
+            _upperThumb.MouseLeave += OnUpperThumbMouseLeave;
         }
         _track?.MouseLeftButtonDown += OnTrackMouseLeftButtonDown;
     }
@@ -368,6 +376,22 @@ public class RangeSlider : Control
 
     private void OnLowerThumbGotMouseCapture(object? sender, MouseEventArgs e)
         => _activeThumb = RangeSliderActiveThumb.Lower;
+
+    private void OnLowerThumbMouseEnter(object? sender, MouseEventArgs e)
+    {
+        if (!_isDraggingLower)
+        {
+            ShowAutoToolTip(isLower: true);
+        }
+    }
+
+    private void OnLowerThumbMouseLeave(object? sender, MouseEventArgs e)
+    {
+        if (!_isDraggingLower)
+        {
+            HideAutoToolTip(isLower: true);
+        }
+    }
 
     private void OnLowerThumbDragStarted(object? sender, DragStartedEventArgs e)
     {
@@ -389,13 +413,37 @@ public class RangeSlider : Control
     private void OnLowerThumbDragCompleted(object? sender, DragCompletedEventArgs e)
     {
         _isDraggingLower = false;
-        HideAutoToolTip(isLower: true);
+        // Keep the tip visible when the pointer is still over the thumb (hover continuity).
+        if (_lowerThumb?.IsMouseOver == true)
+        {
+            UpdateAutoToolTip(isLower: true);
+        }
+        else
+        {
+            HideAutoToolTip(isLower: true);
+        }
     }
 
     // --- Drag: Upper Thumb ----------------------------------------------------
 
     private void OnUpperThumbGotMouseCapture(object? sender, MouseEventArgs e)
         => _activeThumb = RangeSliderActiveThumb.Upper;
+
+    private void OnUpperThumbMouseEnter(object? sender, MouseEventArgs e)
+    {
+        if (!_isDraggingUpper)
+        {
+            ShowAutoToolTip(isLower: false);
+        }
+    }
+
+    private void OnUpperThumbMouseLeave(object? sender, MouseEventArgs e)
+    {
+        if (!_isDraggingUpper)
+        {
+            HideAutoToolTip(isLower: false);
+        }
+    }
 
     private void OnUpperThumbDragStarted(object? sender, DragStartedEventArgs e)
     {
@@ -417,7 +465,15 @@ public class RangeSlider : Control
     private void OnUpperThumbDragCompleted(object? sender, DragCompletedEventArgs e)
     {
         _isDraggingUpper = false;
-        HideAutoToolTip(isLower: false);
+        // Keep the tip visible when the pointer is still over the thumb (hover continuity).
+        if (_upperThumb?.IsMouseOver == true)
+        {
+            UpdateAutoToolTip(isLower: false);
+        }
+        else
+        {
+            HideAutoToolTip(isLower: false);
+        }
     }
 
     // --- Track click ----------------------------------------------------------
@@ -597,17 +653,25 @@ public class RangeSlider : Control
 
         if (isLower)
         {
-            _lowerThumbOriginalToolTip = thumb.ToolTip;
             _lowerAutoToolTip ??= CreateAutoToolTip(thumb);
-            thumb.ToolTip = _lowerAutoToolTip;
+            if (!ReferenceEquals(thumb.ToolTip, _lowerAutoToolTip))
+            {
+                _lowerThumbOriginalToolTip = thumb.ToolTip;
+                thumb.ToolTip = _lowerAutoToolTip;
+            }
+
             _lowerAutoToolTip.Content = GetAutoToolTipNumber(LowerValue);
             _lowerAutoToolTip.IsOpen = true;
         }
         else
         {
-            _upperThumbOriginalToolTip = thumb.ToolTip;
             _upperAutoToolTip ??= CreateAutoToolTip(thumb);
-            thumb.ToolTip = _upperAutoToolTip;
+            if (!ReferenceEquals(thumb.ToolTip, _upperAutoToolTip))
+            {
+                _upperThumbOriginalToolTip = thumb.ToolTip;
+                thumb.ToolTip = _upperAutoToolTip;
+            }
+
             _upperAutoToolTip.Content = GetAutoToolTipNumber(UpperValue);
             _upperAutoToolTip.IsOpen = true;
         }
