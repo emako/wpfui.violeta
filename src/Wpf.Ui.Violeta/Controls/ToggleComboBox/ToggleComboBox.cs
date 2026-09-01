@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
 using Border = System.Windows.Controls.Border;
@@ -608,10 +609,10 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
             return;
         }
 
-        SetCurrentValue(ContentProperty, GetDisplayText(SelectedItem));
+        SetCurrentValue(ContentProperty, GetDisplayContent(SelectedItem));
     }
 
-    private object? GetDisplayText(object? item)
+    private object? GetDisplayContent(object? item)
     {
         if (item is null)
         {
@@ -624,7 +625,98 @@ public class ToggleComboBox : System.Windows.Controls.ComboBox
             return value?.ToString() ?? string.Empty;
         }
 
-        return item is string s ? s : item.ToString() ?? string.Empty;
+        // Inline ComboBoxItem: use Content (panel / icon / text), not Type.FullName from ToString().
+        if (item is ComboBoxItem comboBoxItem)
+        {
+            return PrepareDisplayContent(comboBoxItem.Content);
+        }
+
+        if (item is string text)
+        {
+            return text;
+        }
+
+        if (item is FrameworkElement)
+        {
+            return PrepareDisplayContent(item);
+        }
+
+        return item.ToString() ?? string.Empty;
+    }
+
+    /// <summary>
+    /// Returns content suitable for the primary ContentPresenter. FrameworkElements that already
+    /// belong to a drop-down item are cloned so they can appear in both places.
+    /// </summary>
+    private static object? PrepareDisplayContent(object? content)
+    {
+        if (content is null)
+        {
+            return string.Empty;
+        }
+
+        if (content is not FrameworkElement element)
+        {
+            return content;
+        }
+
+        if (element.Parent is null && LogicalTreeHelper.GetParent(element) is null)
+        {
+            return element;
+        }
+
+        try
+        {
+            var xaml = XamlWriter.Save(element);
+            return XamlReader.Parse(xaml);
+        }
+        catch
+        {
+            return ExtractDisplayText(element) ?? element.ToString() ?? string.Empty;
+        }
+    }
+
+    private static string? ExtractDisplayText(DependencyObject root)
+    {
+        if (root is System.Windows.Controls.TextBlock textBlock)
+        {
+            return textBlock.Text;
+        }
+
+        if (root is System.Windows.Controls.TextBox textBox)
+        {
+            return textBox.Text;
+        }
+
+        // Wpf.Ui.Controls.TextBlock / TextBox also expose Text.
+        if (root is Wpf.Ui.Controls.TextBlock uiTextBlock)
+        {
+            return uiTextBlock.Text;
+        }
+
+        if (root is Wpf.Ui.Controls.TextBox uiTextBox)
+        {
+            return uiTextBox.Text;
+        }
+
+        if (root is ContentControl { Content: string s })
+        {
+            return s;
+        }
+
+        foreach (var child in LogicalTreeHelper.GetChildren(root))
+        {
+            if (child is DependencyObject dependencyObject)
+            {
+                var text = ExtractDisplayText(dependencyObject);
+                if (!string.IsNullOrEmpty(text))
+                {
+                    return text;
+                }
+            }
+        }
+
+        return null;
     }
 
     private static object? GetPropertyValue(object item, string path)
