@@ -158,6 +158,14 @@ public class DropDownButton : Wpf.Ui.Controls.Button
             return;
         }
 
+        // ButtonBase only keeps IsPressed when the gesture started on this control
+        // (and the pointer is still over it). Without this, a press elsewhere that
+        // releases over us would still open the flyout.
+        if (!IsPressed)
+        {
+            return;
+        }
+
         BeginChevronReleaseAnimation();
 
         if (_contextMenu is null)
