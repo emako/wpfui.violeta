@@ -358,12 +358,16 @@ public class SplitButton : Wpf.Ui.Controls.Button
             return;
         }
 
-        BeginChevronReleaseAnimation();
-
-        if (sender is not ToggleButton || _contextMenu is null || _splitButtonToggleBorder is null)
+        // Same as DropDownButton: only open when the press started on the chevron
+        // (ToggleButton.IsPressed). A press elsewhere that releases over us must not open.
+        if (sender is not ToggleButton { IsPressed: true }
+            || _contextMenu is null
+            || _splitButtonToggleBorder is null)
         {
             return;
         }
+
+        BeginChevronReleaseAnimation();
 
         var position = e.GetPosition(_splitButtonToggleBorder);
         if (VisualTreeHelper.HitTest(_splitButtonToggleBorder, position)?.VisualHit is null)
