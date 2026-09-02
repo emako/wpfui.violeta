@@ -192,11 +192,15 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!--  Primary split (IsChecked / Click / Command)  -->
+                                <!--
+                                    Padding.Right is owned by the chevron segment (same as DropDownButton:
+                                    content uses Right=0 so text sits close to the glyph).
+                                -->
                                 <Border
                                     x:Name="PART_Content"
                                     Grid.Column="0"
                                     Margin="0"
-                                    Padding="{TemplateBinding Padding}"
+                                    Padding="{TemplateBinding Padding, Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"

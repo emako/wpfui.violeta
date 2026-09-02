@@ -10,8 +10,11 @@
 
     <!--
         Toolbar SplitButton: transparent chrome by default; SubtleFill hover / press
-        (same visual language as ToolBarButtonStyle). Keeps DefaultSplitButtonStyle
-        template + chevron animation; only retargets fill / border brushes.
+        (same visual language as ToolBarButtonStyle).
+        - Chevron: compact inset (4,0,6,0) via Style.Resources override of
+        DefaultSplitButtonToggleButtonStyle (template uses DynamicResource).
+        Keeps DefaultSplitButtonStyle template + chevron animation; only retargets
+        fill / border brushes + chevron inset.
     -->
     <Style
         x:Key="SimpleSplitButtonStyle"
@@ -37,10 +40,44 @@
         x:Key="ToolBarSplitButtonStyle"
         BasedOn="{StaticResource SimpleSplitButtonStyle}"
         TargetType="{x:Type local:SplitButton}">
+        <!--
+            Same key as DefaultSplitButtonToggleButtonStyle so the template's DynamicResource
+            resolves to this compact inset (matches ToolBarToggleComboBoxStyle chevron).
+        -->
+        <Style.Resources>
+            <Style x:Key="DefaultSplitButtonToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Border.CornerRadius" Value="0" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border
+                                x:Name="ContentBorder"
+                                Padding="4,0,6,0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding Border.CornerRadius}">
+                                <ContentPresenter
+                                    x:Name="PART_ContentHost"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False" />
         </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
-

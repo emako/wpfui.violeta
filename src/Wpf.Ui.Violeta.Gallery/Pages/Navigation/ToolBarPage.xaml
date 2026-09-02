@@ -83,7 +83,6 @@
                                 VerticalAlignment="Center" />
                             <vio:DropDownButton
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_30fb85cbfc}}"
                                 Icon="{ui:SymbolIcon ChevronDown24}"
                                 Style="{StaticResource ToolBarDropDownButtonStyle}">
@@ -96,7 +95,6 @@
                             </vio:DropDownButton>
                             <vio:SplitButton
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_8a9e64d86e}}"
                                 Style="{StaticResource ToolBarSplitButtonStyle}">
                                 <vio:SplitButton.Flyout>
@@ -108,9 +106,8 @@
                             </vio:SplitButton>
                             <vio:ToggleComboBox
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_331b534c4f}}"
-                                Icon="{ui:SymbolIcon TextBold24}"
+                                Icon="{ui:SymbolIcon ChevronDown24}"
                                 IsChecked="True"
                                 Style="{StaticResource ToolBarToggleComboBoxStyle}">
                                 <vio:ToggleComboBox.ItemsSource>
@@ -187,7 +184,6 @@
                                 VerticalAlignment="Center" />
                             <vio:DropDownButton
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_30fb85cbfc}}"
                                 Icon="{ui:SymbolIcon LockClosed24}"
                                 IsEnabled="False"
@@ -200,7 +196,6 @@
                             </vio:DropDownButton>
                             <vio:SplitButton
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_8a9e64d86e}}"
                                 IsEnabled="False"
                                 Style="{StaticResource ToolBarSplitButtonStyle}">
@@ -212,7 +207,6 @@
                             </vio:SplitButton>
                             <vio:ToggleComboBox
                                 Margin="2"
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_331b534c4f}}"
                                 Icon="{ui:SymbolIcon LockClosed24}"
                                 IsChecked="True"
@@ -410,10 +404,7 @@
                                 <ui:SymbolIcon Symbol="Search24" />
                             </Button>
                             <Separator />
-                            <vio:DropDownButton
-                                Padding="10,4"
-                                Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}"
-                                Style="{StaticResource ToolBarDropDownButtonStyle}">
+                            <vio:DropDownButton Content="{I18N {x:Static lang:LangKeys.Sample_9bdb07e72d}}" Style="{StaticResource ToolBarDropDownButtonStyle}">
                                 <vio:DropDownButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_20def79426}}" />
@@ -422,10 +413,7 @@
                                     </ContextMenu>
                                 </vio:DropDownButton.Flyout>
                             </vio:DropDownButton>
-                            <vio:SplitButton
-                                Padding="10,4"
-                                Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}"
-                                Style="{StaticResource ToolBarSplitButtonStyle}">
+                            <vio:SplitButton Content="{I18N {x:Static lang:LangKeys.Sample_55405ea6ff}}" Style="{StaticResource ToolBarSplitButtonStyle}">
                                 <vio:SplitButton.Flyout>
                                     <ContextMenu>
                                         <MenuItem Header="{I18N {x:Static lang:LangKeys.Sample_d47722faec}}" />
@@ -435,7 +423,6 @@
                                 </vio:SplitButton.Flyout>
                             </vio:SplitButton>
                             <vio:ToggleComboBox
-                                Padding="10,4"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_3b8a43acee}}"
                                 Icon="{ui:SymbolIcon TextBold24}"
                                 Style="{StaticResource ToolBarToggleComboBoxStyle}">
@@ -453,9 +440,7 @@
                                 Style="{StaticResource ToolBarCopyButtonStyle}"
                                 TextToCopy="Hello from ToolBarCopyButton"
                                 ToolTip="{I18N {x:Static lang:LangKeys.Sample_79d3abe929}}" />
-                            <vio:GoBackButton
-                                Padding="8,4"
-                                Style="{StaticResource ToolBarGoBackButtonStyle}" />
+                            <vio:GoBackButton Padding="8,4" Style="{StaticResource ToolBarGoBackButtonStyle}" />
                         </vio:ToolBar>
                     </Border>
                 </StackPanel>

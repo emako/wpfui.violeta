@@ -63,11 +63,15 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
+                            <!--
+                                Padding.Right is owned by the chevron segment (same as DropDownButton /
+                                ToggleComboBox: content uses Right=0 so text sits close to the glyph).
+                            -->
                             <Border
                                 x:Name="PART_Content"
                                 Grid.Column="0"
                                 Margin="0"
-                                Padding="{TemplateBinding Padding}"
+                                Padding="{TemplateBinding Padding, Converter={StaticResource LeftSplitThicknessConverter}}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource LeftSplitThicknessConverter}}"
