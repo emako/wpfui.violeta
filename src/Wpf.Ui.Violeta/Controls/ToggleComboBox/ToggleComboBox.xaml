@@ -155,8 +155,11 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <!--  Classic bar (not DynamicScrollViewer overlay); shows when content overflows.  -->
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+        <!--  Match ContextMenu: allow nearly full work-area height before scrolling (default is screen/3).  -->
+        <Setter Property="MaxDropDownHeight" Value="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultToggleComboBoxItemStyle}" />
         <Setter Property="Popup.PopupAnimation" Value="None" />
         <Setter Property="Popup.Placement" Value="Bottom" />
@@ -292,9 +295,10 @@
                                                     ShadowDepth="10"
                                                     Color="#202020" />
                                             </Border.Effect>
-                                            <controls:DynamicScrollViewer
+                                            <ScrollViewer
                                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                 Margin="0"
+                                                CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                                                 HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                 SnapsToDevicePixels="True"
                                                 TextElement.FontSize="{TemplateBinding FontSize}"
@@ -305,7 +309,7 @@
                                                     Grid.IsSharedSizeScope="True"
                                                     KeyboardNavigation.DirectionalNavigation="Contained"
                                                     TextElement.FontSize="{TemplateBinding FontSize}" />
-                                            </controls:DynamicScrollViewer>
+                                            </ScrollViewer>
                                         </Border>
                                     </controls:EffectThicknessDecorator>
                                 </Popup>

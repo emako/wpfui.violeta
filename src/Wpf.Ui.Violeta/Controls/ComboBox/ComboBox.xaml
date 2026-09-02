@@ -223,9 +223,12 @@
         <Setter Property="BorderThickness" Value="{StaticResource ComboBoxBorderThemeThickness}" />
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <!--  Classic bar (not DynamicScrollViewer overlay); shows when content overflows.  -->
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+        <!--  Match ContextMenu: allow nearly full work-area height before scrolling (default is screen/3).  -->
+        <Setter Property="MaxDropDownHeight" Value="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -373,9 +376,10 @@
                                             </Border.Effect>
 
                                             <Grid>
-                                                <controls:DynamicScrollViewer
+                                                <ScrollViewer
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                     Margin="0"
+                                                    CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                     SnapsToDevicePixels="True"
                                                     TextElement.FontSize="{TemplateBinding FontSize}"
@@ -386,7 +390,7 @@
                                                         Grid.IsSharedSizeScope="True"
                                                         KeyboardNavigation.DirectionalNavigation="Contained"
                                                         TextElement.FontSize="{TemplateBinding FontSize}" />
-                                                </controls:DynamicScrollViewer>
+                                                </ScrollViewer>
                                             </Grid>
                                         </Border>
                                     </controls:EffectThicknessDecorator>
