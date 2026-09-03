@@ -7,6 +7,105 @@
     <BooleanToVisibilityConverter x:Key="TabsTitleBooleanToVisibilityConverter" />
 
     <!--
+        VS Code-like tab strip scrollbar: thin overlay thumb, no line buttons,
+        visible only while the ScrollViewer is hovered.
+    -->
+    <Style x:Key="TabsTitleScrollBarPageButtonStyle" TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="Transparent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TabsTitleScrollBarThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border
+                        x:Name="ThumbFill"
+                        Height="3"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource TabsTitleScrollBarThumbBrush}"
+                        CornerRadius="1.5"
+                        SnapsToDevicePixels="True" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ThumbFill" Property="Background" Value="{DynamicResource TabsTitleScrollBarThumbHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="ThumbFill" Property="Background" Value="{DynamicResource TabsTitleScrollBarThumbHoverBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TabsTitleHorizontalScrollBarStyle" TargetType="{x:Type ScrollBar}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="Height" Value="6" />
+        <Setter Property="MinHeight" Value="6" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid Background="Transparent" SnapsToDevicePixels="True">
+                        <Track x:Name="PART_Track" IsDirectionReversed="False">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource TabsTitleScrollBarPageButtonStyle}" />
+                            </Track.DecreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource TabsTitleScrollBarThumbStyle}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource TabsTitleScrollBarPageButtonStyle}" />
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="TabsTitleScrollViewerBarlessTemplate" TargetType="{x:Type ScrollViewer}">
+        <Grid Background="Transparent" ClipToBounds="True">
+            <ScrollContentPresenter
+                x:Name="PART_ScrollContentPresenter"
+                Margin="{TemplateBinding Padding}"
+                CanContentScroll="{TemplateBinding CanContentScroll}"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            <ScrollBar
+                x:Name="PART_HorizontalScrollBar"
+                Maximum="{TemplateBinding ScrollableWidth}"
+                Orientation="Horizontal"
+                Value="{TemplateBinding HorizontalOffset}"
+                ViewportSize="{TemplateBinding ViewportWidth}"
+                Visibility="Collapsed" />
+            <ScrollBar
+                x:Name="PART_VerticalScrollBar"
+                Maximum="{TemplateBinding ScrollableHeight}"
+                Orientation="Vertical"
+                Value="{TemplateBinding VerticalOffset}"
+                ViewportSize="{TemplateBinding ViewportHeight}"
+                Visibility="Collapsed" />
+        </Grid>
+    </ControlTemplate>
+
+    <!--
         VS Code 1.135+ Modern UI editor tabs (modern-ui-tabs):
         pill fill with cornerRadius.small (4px), horizontal inset gap,
         no side borders / no active top accent line.
@@ -15,7 +114,8 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Cursor" Value="Hand" />
+        <!-- Arrow on the item so Content (logical child) does not inherit Hand from elsewhere. -->
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="{Binding TabBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{Binding TabForeground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
@@ -28,7 +128,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TabsTitleControlItem}">
-                    <Border Background="Transparent" SnapsToDevicePixels="True">
+                    <!--
+                        Cursor must live on the header chrome only — Cursor inherits through the
+                        logical tree, so setting it on TabsTitleControlItem would make Content Hand too.
+                    -->
+                    <Border
+                        x:Name="HeaderRoot"
+                        Background="Transparent"
+                        Cursor="Hand"
+                        SnapsToDevicePixels="True">
                         <!--  tab-fill: inset 2px (spacing.size20), radius 4px (cornerRadius.small)  -->
                         <Border
                             x:Name="TabFill"
@@ -98,7 +206,7 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource TabsTitleDisabledForegroundBrush}" />
-                            <Setter Property="Cursor" Value="Arrow" />
+                            <Setter TargetName="HeaderRoot" Property="Cursor" Value="Arrow" />
                         </Trigger>
                         <Trigger Property="Icon" Value="{x:Null}">
                             <Setter TargetName="IconPresenter" Property="Visibility" Value="Collapsed" />
@@ -144,49 +252,73 @@
                             BorderBrush="{DynamicResource TabsTitleHeaderBorderBrush}"
                             BorderThickness="0,0,0,1"
                             DockPanel.Dock="Top">
-                            <DockPanel>
-                                <Button
-                                    x:Name="PART_AddButton"
-                                    Width="28"
-                                    Height="28"
-                                    Margin="2,0,6,0"
-                                    Padding="4"
-                                    VerticalAlignment="Center"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    Cursor="Hand"
-                                    DockPanel.Dock="Right"
-                                    Focusable="False"
-                                    Foreground="{TemplateBinding AddButtonForeground}"
-                                    IsTabStop="False"
-                                    Visibility="{TemplateBinding ShowAddButton,
-                                                                 Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
-                                    <ui:SymbolIcon
-                                        FontSize="12"
-                                        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                                        Symbol="Add12" />
-                                </Button>
-                                <ScrollViewer
-                                    Margin="2,0,0,0"
-                                    CanContentScroll="False"
-                                    HorizontalScrollBarVisibility="Auto"
-                                    VerticalScrollBarVisibility="Disabled">
-                                    <ItemsPresenter VerticalAlignment="Stretch" />
-                                </ScrollViewer>
-                            </DockPanel>
+                            <Grid>
+                                <DockPanel>
+                                    <Button
+                                        x:Name="PART_AddButton"
+                                        Width="28"
+                                        Height="28"
+                                        Margin="2,0,6,0"
+                                        Padding="4"
+                                        VerticalAlignment="Center"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        Cursor="Hand"
+                                        DockPanel.Dock="Right"
+                                        Focusable="False"
+                                        Foreground="{TemplateBinding AddButtonForeground}"
+                                        IsTabStop="False"
+                                        Visibility="{TemplateBinding ShowAddButton,
+                                                                     Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
+                                        <ui:SymbolIcon
+                                            FontSize="12"
+                                            Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                                            Symbol="Add12" />
+                                    </Button>
+                                    <ScrollViewer
+                                        x:Name="PART_TabsScrollViewer"
+                                        Margin="2,0,0,0"
+                                        CanContentScroll="False"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        Template="{StaticResource TabsTitleScrollViewerBarlessTemplate}"
+                                        VerticalScrollBarVisibility="Disabled">
+                                        <ItemsPresenter VerticalAlignment="Stretch" />
+                                    </ScrollViewer>
+                                </DockPanel>
+                                <!-- Overlay: visible only while HeaderPanel (tab strip) is hovered. -->
+                                <ScrollBar
+                                    x:Name="PART_TabsScrollBar"
+                                    Margin="6,0,34,1"
+                                    VerticalAlignment="Bottom"
+                                    Cursor="Arrow"
+                                    IsHitTestVisible="False"
+                                    Maximum="{Binding ScrollableWidth, ElementName=PART_TabsScrollViewer}"
+                                    Opacity="0"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource TabsTitleHorizontalScrollBarStyle}"
+                                    ViewportSize="{Binding ViewportWidth, ElementName=PART_TabsScrollViewer}"
+                                    Visibility="{Binding ComputedHorizontalScrollBarVisibility, ElementName=PART_TabsScrollViewer}" />
+                            </Grid>
                         </Border>
                         <Border
                             x:Name="PART_ContentBorder"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{DynamicResource TabsTitleContentBackgroundBrush}"
-                            ClipToBounds="True">
+                            ClipToBounds="True"
+                            Cursor="Arrow">
                             <ContentPresenter
                                 x:Name="PART_ContentPresenter"
                                 HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch" />
+                                VerticalAlignment="Stretch"
+                                Cursor="Arrow" />
                         </Border>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ShowAddButton" Value="False">
+                            <Setter TargetName="PART_TabsScrollBar" Property="Margin" Value="6,0,6,1" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

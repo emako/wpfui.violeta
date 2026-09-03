@@ -395,6 +395,8 @@
     <SolidColorBrush x:Key="TabsTitleContentBackgroundBrush" Color="#1F1F1F" />
     <SolidColorBrush x:Key="TabsTitleIconForegroundBrush" Color="#CCCCCC" />
     <SolidColorBrush x:Key="TabsTitleDisabledForegroundBrush" Color="#6E6E6E" />
+    <SolidColorBrush x:Key="TabsTitleScrollBarThumbBrush" Color="#66FFFFFF" />
+    <SolidColorBrush x:Key="TabsTitleScrollBarThumbHoverBrush" Color="#99FFFFFF" />
     <CornerRadius x:Key="TabsTitleTabCornerRadius">4</CornerRadius>
 
 </ResourceDictionary>

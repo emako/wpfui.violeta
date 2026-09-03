@@ -2,6 +2,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -18,17 +19,24 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = PartContentPresenter, Type = typeof(ContentPresenter))]
 [TemplatePart(Name = PartContentBorder, Type = typeof(Border))]
 [TemplatePart(Name = PartAddButton, Type = typeof(Button))]
+[TemplatePart(Name = PartTabsScrollViewer, Type = typeof(ScrollViewer))]
+[TemplatePart(Name = PartTabsScrollBar, Type = typeof(ScrollBar))]
 public class TabsTitleControl : Selector
 {
     private const string PartContentPresenter = "PART_ContentPresenter";
     private const string PartContentBorder = "PART_ContentBorder";
     private const string PartAddButton = "PART_AddButton";
+    private const string PartTabsScrollViewer = "PART_TabsScrollViewer";
+    private const string PartTabsScrollBar = "PART_TabsScrollBar";
 
     private ContentPresenter? _contentPresenter;
     private Border? _contentBorder;
     private Button? _addButton;
+    private ScrollViewer? _tabsScrollViewer;
+    private ScrollBar? _tabsScrollBar;
     private int _previousIndex;
     private bool _isAnimating;
+    private bool _isSyncingScrollBar;
 
     /// <summary>Identifies the <see cref="HeaderBackground"/> dependency property.</summary>
     public static readonly DependencyProperty HeaderBackgroundProperty = DependencyProperty.Register(
@@ -240,19 +248,133 @@ public class TabsTitleControl : Selector
     public override void OnApplyTemplate()
     {
         _addButton?.Click -= OnAddButtonClick;
+        DetachTabsScrollChrome();
 
         base.OnApplyTemplate();
 
         _contentPresenter = GetTemplateChild(PartContentPresenter) as ContentPresenter;
         _contentBorder = GetTemplateChild(PartContentBorder) as Border;
         _addButton = GetTemplateChild(PartAddButton) as Button;
+        _tabsScrollViewer = GetTemplateChild(PartTabsScrollViewer) as ScrollViewer;
+        _tabsScrollBar = GetTemplateChild(PartTabsScrollBar) as ScrollBar;
 
         _addButton?.Click += OnAddButtonClick;
+        AttachTabsScrollChrome();
 
         // Template Freezables are immutable — install a fresh transform for slide animation.
         _contentBorder?.RenderTransform = new TranslateTransform();
 
         ApplySelection(animate: false);
+    }
+
+    private void AttachTabsScrollChrome()
+    {
+        if (_tabsScrollViewer is null || _tabsScrollBar is null)
+        {
+            return;
+        }
+
+        _tabsScrollViewer.ScrollChanged += OnTabsScrollChanged;
+        _tabsScrollBar.Scroll += OnTabsScrollBarScroll;
+        SyncTabsScrollBarFromViewer();
+        UpdateTabsScrollBarHoverState();
+    }
+
+    private void DetachTabsScrollChrome()
+    {
+        if (_tabsScrollViewer is not null)
+        {
+            _tabsScrollViewer.ScrollChanged -= OnTabsScrollChanged;
+        }
+
+        if (_tabsScrollBar is not null)
+        {
+            _tabsScrollBar.Scroll -= OnTabsScrollBarScroll;
+            _tabsScrollBar.Opacity = 0;
+            _tabsScrollBar.IsHitTestVisible = false;
+        }
+    }
+
+    private void OnTabsScrollChanged(object sender, ScrollChangedEventArgs e)
+    {
+        if (e.HorizontalChange == 0 && e.ExtentWidthChange == 0 && e.ViewportWidthChange == 0)
+        {
+            return;
+        }
+
+        SyncTabsScrollBarFromViewer();
+    }
+
+    private void OnTabsScrollBarScroll(object sender, ScrollEventArgs e)
+    {
+        if (_tabsScrollViewer is null || _isSyncingScrollBar)
+        {
+            return;
+        }
+
+        _tabsScrollViewer.ScrollToHorizontalOffset(e.NewValue);
+    }
+
+    private void SyncTabsScrollBarFromViewer()
+    {
+        if (_tabsScrollViewer is null || _tabsScrollBar is null)
+        {
+            return;
+        }
+
+        _isSyncingScrollBar = true;
+        try
+        {
+            _tabsScrollBar.Value = _tabsScrollViewer.HorizontalOffset;
+        }
+        finally
+        {
+            _isSyncingScrollBar = false;
+        }
+    }
+
+    protected override void OnMouseMove(MouseEventArgs e)
+    {
+        base.OnMouseMove(e);
+        UpdateTabsScrollBarHoverState();
+    }
+
+    protected override void OnMouseLeave(MouseEventArgs e)
+    {
+        base.OnMouseLeave(e);
+        UpdateTabsScrollBarHoverState();
+    }
+
+    /// <summary>
+    /// Shows the tab-strip scrollbar only when the pointer is geometrically inside the
+    /// scrollable tabs region (or while dragging the thumb). Do not use <see cref="UIElement.IsMouseOver"/>
+    /// on the header — tab Content remains a logical child of each item, so WPF can report
+    /// IsMouseOver on the strip while the pointer is actually over content.
+    /// </summary>
+    private void UpdateTabsScrollBarHoverState()
+    {
+        if (_tabsScrollBar is null || _tabsScrollViewer is null)
+        {
+            return;
+        }
+
+        var show = _tabsScrollBar.IsMouseCaptureWithin
+            || IsPointerInsideElement(_tabsScrollViewer)
+            || (_tabsScrollBar.IsHitTestVisible && IsPointerInsideElement(_tabsScrollBar));
+
+        _tabsScrollBar.Opacity = show ? 1 : 0;
+        _tabsScrollBar.IsHitTestVisible = show;
+    }
+
+    private static bool IsPointerInsideElement(FrameworkElement element)
+    {
+        if (!element.IsVisible || element.ActualWidth <= 0 || element.ActualHeight <= 0)
+        {
+            return false;
+        }
+
+        var pos = Mouse.GetPosition(element);
+        return pos.X >= 0 && pos.Y >= 0 && pos.X <= element.ActualWidth && pos.Y <= element.ActualHeight;
     }
 
     private void OnLoaded(object sender, RoutedEventArgs e)
