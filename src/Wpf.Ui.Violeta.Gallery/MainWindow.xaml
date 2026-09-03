@@ -333,6 +333,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabControl}}" Tag="navigation/tab-control" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabView}}" Tag="navigation/tab-view" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabStrip}}" Tag="navigation/tab-strip" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TabsTitleControl}}" Tag="navigation/tabs-title-control" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Segmented}}" Tag="navigation/segmented" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Pivot}}" Tag="navigation/pivot" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Anchor}}" Tag="navigation/anchor" />

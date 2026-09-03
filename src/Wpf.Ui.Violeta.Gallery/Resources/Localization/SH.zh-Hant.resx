@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3889,6 +3889,51 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_Page_TabStrip" xml:space="preserve">
     <value>TabStrip</value>
+  </data>
+  <data name="Gallery_Page_TabsTitleControl" xml:space="preserve">
+    <value>TabsTitleControl</value>
+  </data>
+  <data name="Sample_4fdea646ad" xml:space="preserve">
+    <value>文件式標題頁籤</value>
+  </data>
+  <data name="Sample_8a641c5767" xml:space="preserve">
+    <value>基本用法</value>
+  </data>
+  <data name="Sample_a724993e93" xml:space="preserve">
+    <value>可關閉的標題頁籤，含新增按鈕與內容滑動切換。</value>
+  </data>
+  <data name="Sample_f28128b38e" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="Sample_1bedbb9cef" xml:space="preserve">
+    <value>歡迎來到首頁頁籤。</value>
+  </data>
+  <data name="Sample_ca9bec0e51" xml:space="preserve">
+    <value>在此瀏覽你的文件。</value>
+  </data>
+  <data name="Sample_0f17a34a89" xml:space="preserve">
+    <value>調整應用程式設定。</value>
+  </data>
+  <data name="Sample_0a2067aea1" xml:space="preserve">
+    <value>無新增按鈕</value>
+  </data>
+  <data name="Sample_244b326080" xml:space="preserve">
+    <value>透過 ShowAddButton=False 隱藏新增按鈕。部分頁籤可停用關閉。</value>
+  </data>
+  <data name="Sample_3c5e891bff" xml:space="preserve">
+    <value>釘選</value>
+  </data>
+  <data name="Sample_6343675fe8" xml:space="preserve">
+    <value>此頁籤無法關閉。</value>
+  </data>
+  <data name="Sample_2c09e798bf" xml:space="preserve">
+    <value>可編輯</value>
+  </data>
+  <data name="Sample_49874e6470" xml:space="preserve">
+    <value>使用關閉按鈕關閉此頁籤。</value>
+  </data>
+  <data name="Sample_c8a19ea6c7" xml:space="preserve">
+    <value>新頁籤</value>
   </data>
   <data name="Gallery_Page_Segmented" xml:space="preserve">
     <value>Segmented</value>

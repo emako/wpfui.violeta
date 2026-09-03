@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3889,6 +3889,51 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Gallery_Page_TabStrip" xml:space="preserve">
     <value>TabStrip</value>
+  </data>
+  <data name="Gallery_Page_TabsTitleControl" xml:space="preserve">
+    <value>TabsTitleControl</value>
+  </data>
+  <data name="Sample_4fdea646ad" xml:space="preserve">
+    <value>ドキュメント風タイトルタブ</value>
+  </data>
+  <data name="Sample_8a641c5767" xml:space="preserve">
+    <value>基本的な使い方</value>
+  </data>
+  <data name="Sample_a724993e93" xml:space="preserve">
+    <value>閉じられるタイトルタブ。追加ボタンとコンテンツのスライド切替に対応。</value>
+  </data>
+  <data name="Sample_f28128b38e" xml:space="preserve">
+    <value>ドキュメント</value>
+  </data>
+  <data name="Sample_1bedbb9cef" xml:space="preserve">
+    <value>ホームタブへようこそ。</value>
+  </data>
+  <data name="Sample_ca9bec0e51" xml:space="preserve">
+    <value>ここでドキュメントを参照できます。</value>
+  </data>
+  <data name="Sample_0f17a34a89" xml:space="preserve">
+    <value>アプリの設定を変更します。</value>
+  </data>
+  <data name="Sample_0a2067aea1" xml:space="preserve">
+    <value>追加ボタンなし</value>
+  </data>
+  <data name="Sample_244b326080" xml:space="preserve">
+    <value>ShowAddButton=False で追加ボタンを非表示。一部のタブは閉じる操作を無効にできます。</value>
+  </data>
+  <data name="Sample_3c5e891bff" xml:space="preserve">
+    <value>ピン留め</value>
+  </data>
+  <data name="Sample_6343675fe8" xml:space="preserve">
+    <value>このタブは閉じられません。</value>
+  </data>
+  <data name="Sample_2c09e798bf" xml:space="preserve">
+    <value>編集可能</value>
+  </data>
+  <data name="Sample_49874e6470" xml:space="preserve">
+    <value>× ボタンでこのタブを閉じます。</value>
+  </data>
+  <data name="Sample_c8a19ea6c7" xml:space="preserve">
+    <value>新しいタブ</value>
   </data>
   <data name="Gallery_Page_Segmented" xml:space="preserve">
     <value>Segmented</value>

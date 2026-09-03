@@ -86,6 +86,7 @@
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/VirtualJoystick/VirtualJoystick.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/GridSplitter/GridSplitter.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TabStrip/TabStrip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/TabsTitleControl/TabsTitleControl.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Segmented/Segmented.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Pivot/Pivot.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta;component/Controls/Anchor/Anchor.xaml" />

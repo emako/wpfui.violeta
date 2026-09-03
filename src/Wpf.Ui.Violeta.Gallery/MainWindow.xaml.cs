@@ -182,6 +182,7 @@ public partial class MainWindow : ShellWindow
         ["navigation/tab-control"] = static () => new TabControlPage(),
         ["navigation/tab-view"] = static () => new TabViewPage(),
         ["navigation/tab-strip"] = static () => new TabStripPage(),
+        ["navigation/tabs-title-control"] = static () => new TabsTitleControlPage(),
         ["navigation/segmented"] = static () => new SegmentedPage(),
         ["basic-input/segmented"] = static () => new SegmentedPage(),
         ["navigation/pivot"] = static () => new PivotPage(),

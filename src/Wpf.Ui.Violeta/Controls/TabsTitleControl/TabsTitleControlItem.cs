@@ -1,0 +1,186 @@
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using System.Windows.Media;
+
+namespace Wpf.Ui.Violeta.Controls;
+
+/// <summary>
+/// A headered tab item used inside <see cref="TabsTitleControl"/>.
+/// Supports text glyph icons, image icons, and an optional close button.
+/// </summary>
+[TemplatePart(Name = PartCloseButton, Type = typeof(Button))]
+public class TabsTitleControlItem : HeaderedContentControl
+{
+    private const string PartCloseButton = "PART_CloseButton";
+
+    private Button? _closeButton;
+
+    /// <summary>Identifies the <see cref="IsSelected"/> dependency property.</summary>
+    public static readonly DependencyProperty IsSelectedProperty =
+        Selector.IsSelectedProperty.AddOwner(
+            typeof(TabsTitleControlItem),
+            new FrameworkPropertyMetadata(
+                false,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
+
+    /// <summary>Gets or sets whether this item is selected.</summary>
+    public bool IsSelected
+    {
+        get => (bool)GetValue(IsSelectedProperty);
+        set => SetValue(IsSelectedProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="TextIcon"/> dependency property.</summary>
+    public static readonly DependencyProperty TextIconProperty = DependencyProperty.Register(
+        nameof(TextIcon),
+        typeof(string),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(null));
+
+    /// <summary>
+    /// Gets or sets a glyph string shown when <see cref="ImageSource"/> is null
+    /// (typically a Segoe MDL2 / Fluent icon code point).
+    /// </summary>
+    public string? TextIcon
+    {
+        get => (string?)GetValue(TextIconProperty);
+        set => SetValue(TextIconProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="TextIconFontFamily"/> dependency property.</summary>
+    public static readonly DependencyProperty TextIconFontFamilyProperty = DependencyProperty.Register(
+        nameof(TextIconFontFamily),
+        typeof(FontFamily),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(new FontFamily("Segoe MDL2 Assets")));
+
+    /// <summary>Gets or sets the font family used to render <see cref="TextIcon"/>.</summary>
+    public FontFamily TextIconFontFamily
+    {
+        get => (FontFamily)GetValue(TextIconFontFamilyProperty);
+        set => SetValue(TextIconFontFamilyProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="ImageSource"/> dependency property.</summary>
+    public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
+        nameof(ImageSource),
+        typeof(ImageSource),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(null));
+
+    /// <summary>Gets or sets an optional image icon. When set, it replaces <see cref="TextIcon"/>.</summary>
+    public ImageSource? ImageSource
+    {
+        get => (ImageSource?)GetValue(ImageSourceProperty);
+        set => SetValue(ImageSourceProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="IconSize"/> dependency property.</summary>
+    public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(
+        nameof(IconSize),
+        typeof(double),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(16.0));
+
+    /// <summary>Gets or sets the width and height of the icon.</summary>
+    public double IconSize
+    {
+        get => (double)GetValue(IconSizeProperty);
+        set => SetValue(IconSizeProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="IsClosable"/> dependency property.</summary>
+    public static readonly DependencyProperty IsClosableProperty = DependencyProperty.Register(
+        nameof(IsClosable),
+        typeof(bool),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(true));
+
+    /// <summary>Gets or sets whether the close button is shown.</summary>
+    public bool IsClosable
+    {
+        get => (bool)GetValue(IsClosableProperty);
+        set => SetValue(IsClosableProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="IsBrand"/> dependency property.</summary>
+    public static readonly DependencyProperty IsBrandProperty = DependencyProperty.Register(
+        nameof(IsBrand),
+        typeof(bool),
+        typeof(TabsTitleControlItem),
+        new PropertyMetadata(false));
+
+    /// <summary>Gets or sets whether this item is treated as a brand / pinned tab.</summary>
+    public bool IsBrand
+    {
+        get => (bool)GetValue(IsBrandProperty);
+        set => SetValue(IsBrandProperty, value);
+    }
+
+    /// <summary>Identifies the <see cref="CloseTab"/> routed event.</summary>
+    public static readonly RoutedEvent CloseTabEvent = EventManager.RegisterRoutedEvent(
+        nameof(CloseTab),
+        RoutingStrategy.Bubble,
+        typeof(RoutedEventHandler),
+        typeof(TabsTitleControlItem));
+
+    /// <summary>Occurs when the user requests to close this tab.</summary>
+    public event RoutedEventHandler CloseTab
+    {
+        add => AddHandler(CloseTabEvent, value);
+        remove => RemoveHandler(CloseTabEvent, value);
+    }
+
+    static TabsTitleControlItem()
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(
+            typeof(TabsTitleControlItem),
+            new FrameworkPropertyMetadata(typeof(TabsTitleControlItem)));
+    }
+
+    public TabsTitleControlItem()
+    {
+        Background = Brushes.Transparent;
+        BorderThickness = new Thickness(0);
+    }
+
+    public override void OnApplyTemplate()
+    {
+        if (_closeButton is not null)
+        {
+            _closeButton.Click -= OnCloseButtonClick;
+        }
+
+        base.OnApplyTemplate();
+
+        _closeButton = GetTemplateChild(PartCloseButton) as Button;
+        if (_closeButton is not null)
+        {
+            _closeButton.Click += OnCloseButtonClick;
+        }
+    }
+
+    protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+    {
+        base.OnMouseLeftButtonDown(e);
+
+        if (ItemsControl.ItemsControlFromItemContainer(this) is TabsTitleControl parentTab)
+        {
+            var index = parentTab.ItemContainerGenerator.IndexFromContainer(this);
+            if (index >= 0)
+            {
+                parentTab.SelectedIndex = index;
+            }
+        }
+
+        e.Handled = true;
+    }
+
+    private void OnCloseButtonClick(object sender, RoutedEventArgs e)
+    {
+        RaiseEvent(new RoutedEventArgs(CloseTabEvent, this));
+        e.Handled = true;
+    }
+}

@@ -20,4 +20,5 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries, named
 - [🔗 WPFDevelopers](https://github.com/WPFDevelopersOrg/WPFDevelopers)
 - [🔗 emoji.wpf](https://github.com/samhocevar/emoji.wpf)
 - [🔗 atc-wpf](https://github.com/atc-net/atc-wpf)
+- [🔗 StartUI4.WPF](https://github.com/KSSTU/StartUI4.WPF)
 
