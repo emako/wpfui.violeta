@@ -37,6 +37,11 @@ public class TabsTitleControl : Selector
     private int _previousIndex;
     private bool _isAnimating;
     private bool _isSyncingScrollBar;
+    private bool _tabsScrollBarDesiredVisible;
+    private bool _tabsScrollBarHitTestVisible;
+
+    private static readonly TimeSpan TabsScrollBarFadeInDuration = TimeSpan.FromMilliseconds(100);
+    private static readonly TimeSpan TabsScrollBarFadeOutDuration = TimeSpan.FromMilliseconds(800);
 
     /// <summary>Identifies the <see cref="HeaderBackground"/> dependency property.</summary>
     public static readonly DependencyProperty HeaderBackgroundProperty = DependencyProperty.Register(
@@ -290,9 +295,13 @@ public class TabsTitleControl : Selector
         if (_tabsScrollBar is not null)
         {
             _tabsScrollBar.Scroll -= OnTabsScrollBarScroll;
+            _tabsScrollBar.BeginAnimation(OpacityProperty, null);
             _tabsScrollBar.Opacity = 0;
             _tabsScrollBar.IsHitTestVisible = false;
         }
+
+        _tabsScrollBarDesiredVisible = false;
+        _tabsScrollBarHitTestVisible = false;
     }
 
     private void OnTabsScrollChanged(object sender, ScrollChangedEventArgs e)
@@ -350,6 +359,7 @@ public class TabsTitleControl : Selector
     /// scrollable tabs region (or while dragging the thumb). Do not use <see cref="UIElement.IsMouseOver"/>
     /// on the header — tab Content remains a logical child of each item, so WPF can report
     /// IsMouseOver on the strip while the pointer is actually over content.
+    /// Fade timings match VS Code monaco scrollbars: 100ms in, 800ms out.
     /// </summary>
     private void UpdateTabsScrollBarHoverState()
     {
@@ -360,10 +370,74 @@ public class TabsTitleControl : Selector
 
         var show = _tabsScrollBar.IsMouseCaptureWithin
             || IsPointerInsideElement(_tabsScrollViewer)
-            || (_tabsScrollBar.IsHitTestVisible && IsPointerInsideElement(_tabsScrollBar));
+            || (_tabsScrollBarHitTestVisible && IsPointerInsideElement(_tabsScrollBar));
 
-        _tabsScrollBar.Opacity = show ? 1 : 0;
-        _tabsScrollBar.IsHitTestVisible = show;
+        if (show == _tabsScrollBarDesiredVisible)
+        {
+            return;
+        }
+
+        _tabsScrollBarDesiredVisible = show;
+        AnimateTabsScrollBarOpacity(show);
+    }
+
+    private void AnimateTabsScrollBarOpacity(bool show)
+    {
+        if (_tabsScrollBar is null)
+        {
+            return;
+        }
+
+        // Stop any in-flight fade so the next animation starts from the current visual opacity.
+        var from = _tabsScrollBar.Opacity;
+        _tabsScrollBar.BeginAnimation(OpacityProperty, null);
+        _tabsScrollBar.Opacity = from;
+
+        if (show)
+        {
+            _tabsScrollBarHitTestVisible = true;
+            _tabsScrollBar.IsHitTestVisible = true;
+
+            var fadeIn = new DoubleAnimation(from, 1, TabsScrollBarFadeInDuration)
+            {
+                // VS Code: transition: opacity 100ms linear
+                EasingFunction = null,
+                FillBehavior = FillBehavior.HoldEnd,
+            };
+            fadeIn.Completed += (_, _) =>
+            {
+                if (_tabsScrollBar is null || !_tabsScrollBarDesiredVisible)
+                {
+                    return;
+                }
+
+                _tabsScrollBar.BeginAnimation(OpacityProperty, null);
+                _tabsScrollBar.Opacity = 1;
+            };
+            _tabsScrollBar.BeginAnimation(OpacityProperty, fadeIn);
+            return;
+        }
+
+        var fadeOut = new DoubleAnimation(from, 0, TabsScrollBarFadeOutDuration)
+        {
+            // VS Code: .invisible.fade { transition: opacity 800ms linear }
+            EasingFunction = null,
+            FillBehavior = FillBehavior.HoldEnd,
+        };
+        // VS Code applies pointer-events: none as soon as the hide class is set.
+        _tabsScrollBarHitTestVisible = false;
+        _tabsScrollBar.IsHitTestVisible = false;
+        fadeOut.Completed += (_, _) =>
+        {
+            if (_tabsScrollBar is null || _tabsScrollBarDesiredVisible)
+            {
+                return;
+            }
+
+            _tabsScrollBar.BeginAnimation(OpacityProperty, null);
+            _tabsScrollBar.Opacity = 0;
+        };
+        _tabsScrollBar.BeginAnimation(OpacityProperty, fadeOut);
     }
 
     private static bool IsPointerInsideElement(FrameworkElement element)
