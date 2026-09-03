@@ -10,11 +10,12 @@ namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// A title-style tab control with closable tabs, an optional add button,
-/// and a sliding content transition — suitable for document / browser-like headers.
+/// and optional content transitions — suitable for document / browser-like headers.
 /// </summary>
 /// <remarks>
 /// Styles use theme <c>DynamicResource</c> brushes so light and dark modes are supported
-/// without rebuilding templates in code.
+/// without rebuilding templates in code. Content switching defaults to
+/// <see cref="TabsTitleContentTransition.None"/>; set <see cref="ContentTransition"/> to enable animation.
 /// </remarks>
 [TemplatePart(Name = PartContentPresenter, Type = typeof(ContentPresenter))]
 [TemplatePart(Name = PartContentBorder, Type = typeof(Border))]
@@ -197,6 +198,23 @@ public class TabsTitleControl : Selector
         set => SetValue(ShowAddButtonProperty, value);
     }
 
+    /// <summary>Identifies the <see cref="ContentTransition"/> dependency property.</summary>
+    public static readonly DependencyProperty ContentTransitionProperty = DependencyProperty.Register(
+        nameof(ContentTransition),
+        typeof(TabsTitleContentTransition),
+        typeof(TabsTitleControl),
+        new FrameworkPropertyMetadata(TabsTitleContentTransition.None));
+
+    /// <summary>
+    /// Gets or sets how content transitions when the selected tab changes.
+    /// Defaults to <see cref="TabsTitleContentTransition.None"/>.
+    /// </summary>
+    public TabsTitleContentTransition ContentTransition
+    {
+        get => (TabsTitleContentTransition)GetValue(ContentTransitionProperty);
+        set => SetValue(ContentTransitionProperty, value);
+    }
+
     /// <summary>Delegate for <see cref="CloseTab"/>.</summary>
     public delegate void TabsTitleCloseRoutedEventHandler(object sender, TabsTitleCloseRoutedEventArgs e);
 
@@ -269,7 +287,7 @@ public class TabsTitleControl : Selector
         // Template Freezables are immutable — install a fresh transform for slide animation.
         _contentBorder?.RenderTransform = new TranslateTransform();
 
-        ApplySelection(animate: false);
+        ApplySelection(TabsTitleContentTransition.None);
     }
 
     private void AttachTabsScrollChrome()
@@ -463,12 +481,12 @@ public class TabsTitleControl : Selector
             SelectedIndex = 0;
         }
 
-        ApplySelection(animate: false);
+        ApplySelection(TabsTitleContentTransition.None);
     }
 
     private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        ApplySelection(animate: true);
+        ApplySelection(ContentTransition);
     }
 
     private void OnAddButtonClick(object sender, RoutedEventArgs e)
@@ -498,7 +516,7 @@ public class TabsTitleControl : Selector
         e.Handled = true;
     }
 
-    private void ApplySelection(bool animate)
+    private void ApplySelection(TabsTitleContentTransition transition)
     {
         if (_contentPresenter is null)
         {
@@ -512,7 +530,54 @@ public class TabsTitleControl : Selector
             return;
         }
 
-        if (!animate || newIndex == _previousIndex || _contentPresenter.Content is null || _contentBorder is null || _isAnimating)
+        if (transition == TabsTitleContentTransition.None
+            || newIndex == _previousIndex
+            || _contentPresenter.Content is null
+            || _contentBorder is null
+            || _isAnimating)
+        {
+            CancelContentTransition();
+            SetContentFromIndex(newIndex);
+            _previousIndex = newIndex;
+            return;
+        }
+
+        switch (transition)
+        {
+            case TabsTitleContentTransition.Slide:
+                AnimateSlideTransition(newIndex);
+                break;
+
+            default:
+                CancelContentTransition();
+                SetContentFromIndex(newIndex);
+                _previousIndex = newIndex;
+                break;
+        }
+    }
+
+    private void CancelContentTransition()
+    {
+        if (_contentBorder is null)
+        {
+            _isAnimating = false;
+            return;
+        }
+
+        _contentBorder.BeginAnimation(OpacityProperty, null);
+        if (_contentBorder.RenderTransform is TranslateTransform translate)
+        {
+            translate.BeginAnimation(TranslateTransform.XProperty, null);
+            translate.X = 0;
+        }
+
+        _contentBorder.Opacity = 1;
+        _isAnimating = false;
+    }
+
+    private void AnimateSlideTransition(int newIndex)
+    {
+        if (_contentBorder is null)
         {
             SetContentFromIndex(newIndex);
             _previousIndex = newIndex;

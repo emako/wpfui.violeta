@@ -234,6 +234,7 @@
         <Setter Property="TabSelectedForeground" Value="{DynamicResource TabsTitleTabSelectedForegroundBrush}" />
         <Setter Property="CloseButtonForeground" Value="{DynamicResource TabsTitleIconForegroundBrush}" />
         <Setter Property="AddButtonForeground" Value="{DynamicResource TabsTitleIconForegroundBrush}" />
+        <Setter Property="ContentTransition" Value="None" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
