@@ -42,25 +42,71 @@
                         AddTab="OnAddTab">
                         <vio:TabsTitleControlItem
                             Header="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}"
-                            IsSelected="True"
-                            TextIcon="&#xE80F;">
+                            IsSelected="True">
+                            <TextBlock
+                                Margin="16"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_1bedbb9cef}}" />
+                        </vio:TabsTitleControlItem>
+                        <vio:TabsTitleControlItem Header="{I18N {x:Static lang:LangKeys.Sample_f28128b38e}}">
+                            <TextBlock
+                                Margin="16"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_ca9bec0e51}}" />
+                        </vio:TabsTitleControlItem>
+                        <vio:TabsTitleControlItem Header="{I18N {x:Static lang:LangKeys.Gallery_Settings}}">
+                            <TextBlock
+                                Margin="16"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_0f17a34a89}}" />
+                        </vio:TabsTitleControlItem>
+                    </vio:TabsTitleControl>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_64095ef0f9}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e9bb5f0dbc}}" />
+                    <vio:TabsTitleControl MinHeight="180" ShowAddButton="False">
+                        <vio:TabsTitleControlItem
+                            Header="{I18N {x:Static lang:LangKeys.Gallery_Nav_Home}}"
+                            Icon="{ui:SymbolIcon Home24}"
+                            IsSelected="True">
                             <TextBlock
                                 Margin="16"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_1bedbb9cef}}" />
                         </vio:TabsTitleControlItem>
                         <vio:TabsTitleControlItem
                             Header="{I18N {x:Static lang:LangKeys.Sample_f28128b38e}}"
-                            TextIcon="&#xE8A5;">
+                            Icon="{ui:SymbolIcon Document24}">
                             <TextBlock
                                 Margin="16"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_ca9bec0e51}}" />
                         </vio:TabsTitleControlItem>
                         <vio:TabsTitleControlItem
                             Header="{I18N {x:Static lang:LangKeys.Gallery_Settings}}"
-                            TextIcon="&#xE713;">
+                            Icon="{ui:SymbolIcon Settings24}">
                             <TextBlock
                                 Margin="16"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_0f17a34a89}}" />
+                        </vio:TabsTitleControlItem>
+                        <vio:TabsTitleControlItem
+                            Header="{I18N {x:Static lang:LangKeys.Sample_3c5e891bff}}"
+                            Icon="&#xE735;">
+                            <TextBlock
+                                Margin="16"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_6343675fe8}}" />
                         </vio:TabsTitleControlItem>
                     </vio:TabsTitleControl>
                 </StackPanel>
@@ -87,16 +133,14 @@
                         <vio:TabsTitleControlItem
                             Header="{I18N {x:Static lang:LangKeys.Sample_3c5e891bff}}"
                             IsClosable="False"
-                            IsSelected="True"
-                            TextIcon="&#xE735;">
+                            IsSelected="True">
                             <TextBlock
                                 Margin="16"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_6343675fe8}}" />
                         </vio:TabsTitleControlItem>
                         <vio:TabsTitleControlItem
                             Header="{I18N {x:Static lang:LangKeys.Sample_2c09e798bf}}"
-                            IsClosable="True"
-                            TextIcon="&#xE70F;">
+                            IsClosable="True">
                             <TextBlock
                                 Margin="16"
                                 Text="{I18N {x:Static lang:LangKeys.Sample_49874e6470}}" />

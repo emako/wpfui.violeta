@@ -239,10 +239,7 @@ public class TabsTitleControl : Selector
 
     public override void OnApplyTemplate()
     {
-        if (_addButton is not null)
-        {
-            _addButton.Click -= OnAddButtonClick;
-        }
+        _addButton?.Click -= OnAddButtonClick;
 
         base.OnApplyTemplate();
 
@@ -250,16 +247,10 @@ public class TabsTitleControl : Selector
         _contentBorder = GetTemplateChild(PartContentBorder) as Border;
         _addButton = GetTemplateChild(PartAddButton) as Button;
 
-        if (_addButton is not null)
-        {
-            _addButton.Click += OnAddButtonClick;
-        }
+        _addButton?.Click += OnAddButtonClick;
 
         // Template Freezables are immutable — install a fresh transform for slide animation.
-        if (_contentBorder is not null)
-        {
-            _contentBorder.RenderTransform = new TranslateTransform();
-        }
+        _contentBorder?.RenderTransform = new TranslateTransform();
 
         ApplySelection(animate: false);
     }

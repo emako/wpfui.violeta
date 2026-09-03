@@ -5,10 +5,12 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
     <BooleanToVisibilityConverter x:Key="TabsTitleBooleanToVisibilityConverter" />
-    <local:TabsTitleNullToVisibilityConverter x:Key="TabsTitleNullToCollapsedConverter" />
-    <local:TabsTitleNullToVisibilityConverter x:Key="TabsTitleNullToVisibleConverter" Invert="True" />
 
-    <!--  Item  -->
+    <!--
+        VS Code 1.135+ Modern UI editor tabs (modern-ui-tabs):
+        pill fill with cornerRadius.small (4px), horizontal inset gap,
+        no side borders / no active top accent line.
+    -->
     <Style TargetType="{x:Type local:TabsTitleControlItem}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -19,78 +21,68 @@
         <Setter Property="Foreground" Value="{Binding TabForeground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
         <Setter Property="FontSize" Value="{Binding TabFontSize, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
         <Setter Property="Padding" Value="{Binding TabPadding, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
-        <Setter Property="Margin" Value="0,4,2,4" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="MinHeight" Value="32" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TabsTitleControlItem}">
-                    <Border
-                        x:Name="ItemBorder"
-                        Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="True"
-                        CornerRadius="6"
-                        SnapsToDevicePixels="True">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+                    <Border Background="Transparent" SnapsToDevicePixels="True">
+                        <!--  tab-fill: inset 2px (spacing.size20), radius 4px (cornerRadius.small)  -->
+                        <Border
+                            x:Name="TabFill"
+                            Margin="2,4"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{DynamicResource TabsTitleTabCornerRadius}"
+                            SnapsToDevicePixels="True">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                            <Grid
-                                x:Name="IconContainer"
-                                Grid.Column="0"
-                                Width="{TemplateBinding IconSize}"
-                                Height="{TemplateBinding IconSize}"
-                                Margin="0,0,8,0"
-                                VerticalAlignment="Center">
-                                <Image
-                                    x:Name="IconImage"
-                                    Width="{TemplateBinding IconSize}"
-                                    Height="{TemplateBinding IconSize}"
-                                    Source="{TemplateBinding ImageSource}"
-                                    Visibility="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TabsTitleNullToCollapsedConverter}}" />
-                                <TextBlock
-                                    x:Name="IconText"
-                                    HorizontalAlignment="Center"
+                                <ContentPresenter
+                                    x:Name="IconPresenter"
+                                    Grid.Column="0"
+                                    Margin="0,0,8,0"
                                     VerticalAlignment="Center"
-                                    FontFamily="{TemplateBinding TextIconFontFamily}"
-                                    FontSize="{TemplateBinding IconSize}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    Text="{TemplateBinding TextIcon}"
-                                    Visibility="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TabsTitleNullToVisibleConverter}}" />
+                                    Content="{TemplateBinding Icon}"
+                                    Focusable="False"
+                                    RecognizesAccessKey="False"
+                                    TextElement.FontSize="{TemplateBinding FontSize}"
+                                    TextElement.Foreground="{TemplateBinding Foreground}" />
+
+                                <ContentPresenter
+                                    x:Name="HeaderPresenter"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    ContentSource="Header" />
+
+                                <Button
+                                    x:Name="PART_CloseButton"
+                                    Grid.Column="2"
+                                    Margin="8,0,0,0"
+                                    Padding="2"
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Focusable="False"
+                                    Foreground="{Binding CloseButtonForeground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}"
+                                    IsTabStop="False"
+                                    Visibility="{TemplateBinding IsClosable,
+                                                                 Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
+                                    <ui:SymbolIcon
+                                        FontSize="10"
+                                        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                                        Symbol="Dismiss12" />
+                                </Button>
                             </Grid>
-
-                            <ContentPresenter
-                                x:Name="HeaderPresenter"
-                                Grid.Column="1"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                ContentSource="Header" />
-
-                            <Button
-                                x:Name="PART_CloseButton"
-                                Grid.Column="2"
-                                Margin="12,0,0,0"
-                                Padding="2"
-                                VerticalAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Cursor="Hand"
-                                Focusable="False"
-                                Foreground="{Binding CloseButtonForeground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}"
-                                IsTabStop="False"
-                                Visibility="{TemplateBinding IsClosable, Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
-                                <ui:SymbolIcon
-                                    FontSize="10"
-                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                                    Symbol="Dismiss12" />
-                            </Button>
-                        </Grid>
+                        </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
@@ -98,52 +90,42 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ItemBorder" Property="Background" Value="{Binding TabHoverBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
+                            <Setter TargetName="TabFill" Property="Background" Value="{Binding TabHoverBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
                         </MultiTrigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="ItemBorder" Property="Background" Value="{Binding TabSelectedBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
+                            <Setter TargetName="TabFill" Property="Background" Value="{Binding TabSelectedBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
                             <Setter Property="Foreground" Value="{Binding TabSelectedForeground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
-                            <Setter TargetName="HeaderPresenter" Property="TextElement.FontWeight" Value="SemiBold" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TabsTitleDisabledForegroundBrush}" />
                             <Setter Property="Cursor" Value="Arrow" />
                         </Trigger>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding TextIcon, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}" />
-                                <Condition Binding="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter TargetName="IconContainer" Property="Visibility" Value="Collapsed" />
-                        </MultiDataTrigger>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding TextIcon, RelativeSource={RelativeSource TemplatedParent}}" Value="" />
-                                <Condition Binding="{Binding ImageSource, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter TargetName="IconContainer" Property="Visibility" Value="Collapsed" />
-                        </MultiDataTrigger>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="IconPresenter" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="IconPresenter" Property="Margin" Value="0" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!--  Container  -->
     <Style TargetType="{x:Type local:TabsTitleControl}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="HeaderBackground" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
-        <Setter Property="TabBackground" Value="Transparent" />
-        <Setter Property="TabSelectedBackground" Value="{DynamicResource SolidBackgroundFillColorBaseBrush}" />
-        <Setter Property="TabHoverBackground" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
-        <Setter Property="TabForeground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
-        <Setter Property="TabSelectedForeground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-        <Setter Property="CloseButtonForeground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
-        <Setter Property="AddButtonForeground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Setter Property="TabPadding" Value="6,0,8,0" />
+        <Setter Property="TabFontSize" Value="13" />
+        <Setter Property="HeaderBackground" Value="{DynamicResource TabsTitleHeaderBackgroundBrush}" />
+        <Setter Property="TabBackground" Value="{DynamicResource TabsTitleTabBackgroundBrush}" />
+        <Setter Property="TabSelectedBackground" Value="{DynamicResource TabsTitleTabSelectedBackgroundBrush}" />
+        <Setter Property="TabHoverBackground" Value="{DynamicResource TabsTitleTabHoverBackgroundBrush}" />
+        <Setter Property="TabForeground" Value="{DynamicResource TabsTitleTabForegroundBrush}" />
+        <Setter Property="TabSelectedForeground" Value="{DynamicResource TabsTitleTabSelectedForegroundBrush}" />
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource TabsTitleIconForegroundBrush}" />
+        <Setter Property="AddButtonForeground" Value="{DynamicResource TabsTitleIconForegroundBrush}" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -155,43 +137,49 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TabsTitleControl}">
                     <DockPanel Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <DockPanel
+                        <Border
                             x:Name="HeaderPanel"
+                            MinHeight="32"
                             Background="{TemplateBinding HeaderBackground}"
+                            BorderBrush="{DynamicResource TabsTitleHeaderBorderBrush}"
+                            BorderThickness="0,0,0,1"
                             DockPanel.Dock="Top">
-                            <Button
-                                x:Name="PART_AddButton"
-                                Width="24"
-                                Height="24"
-                                Margin="8,0,8,0"
-                                Padding="4"
-                                VerticalAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Cursor="Hand"
-                                DockPanel.Dock="Right"
-                                Focusable="False"
-                                Foreground="{TemplateBinding AddButtonForeground}"
-                                IsTabStop="False"
-                                Visibility="{TemplateBinding ShowAddButton, Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
-                                <ui:SymbolIcon
-                                    FontSize="12"
-                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                                    Symbol="Add12" />
-                            </Button>
-                            <ScrollViewer
-                                Margin="0"
-                                CanContentScroll="False"
-                                HorizontalScrollBarVisibility="Auto"
-                                VerticalScrollBarVisibility="Disabled">
-                                <ItemsPresenter Margin="6,0,0,0" VerticalAlignment="Center" />
-                            </ScrollViewer>
-                        </DockPanel>
+                            <DockPanel>
+                                <Button
+                                    x:Name="PART_AddButton"
+                                    Width="28"
+                                    Height="28"
+                                    Margin="2,0,6,0"
+                                    Padding="4"
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    DockPanel.Dock="Right"
+                                    Focusable="False"
+                                    Foreground="{TemplateBinding AddButtonForeground}"
+                                    IsTabStop="False"
+                                    Visibility="{TemplateBinding ShowAddButton,
+                                                                 Converter={StaticResource TabsTitleBooleanToVisibilityConverter}}">
+                                    <ui:SymbolIcon
+                                        FontSize="12"
+                                        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                                        Symbol="Add12" />
+                                </Button>
+                                <ScrollViewer
+                                    Margin="2,0,0,0"
+                                    CanContentScroll="False"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    VerticalScrollBarVisibility="Disabled">
+                                    <ItemsPresenter VerticalAlignment="Stretch" />
+                                </ScrollViewer>
+                            </DockPanel>
+                        </Border>
                         <Border
                             x:Name="PART_ContentBorder"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
-                            Background="{TemplateBinding TabSelectedBackground}"
+                            Background="{DynamicResource TabsTitleContentBackgroundBrush}"
                             ClipToBounds="True">
                             <ContentPresenter
                                 x:Name="PART_ContentPresenter"

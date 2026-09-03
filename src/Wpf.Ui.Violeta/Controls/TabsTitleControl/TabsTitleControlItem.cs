@@ -3,19 +3,20 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using Wpf.Ui.Controls;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// A headered tab item used inside <see cref="TabsTitleControl"/>.
-/// Supports text glyph icons, image icons, and an optional close button.
+/// Supports an optional <see cref="IconElement"/> icon and close button.
 /// </summary>
-[TemplatePart(Name = PartCloseButton, Type = typeof(Button))]
+[TemplatePart(Name = PartCloseButton, Type = typeof(System.Windows.Controls.Button))]
 public class TabsTitleControlItem : HeaderedContentControl
 {
     private const string PartCloseButton = "PART_CloseButton";
 
-    private Button? _closeButton;
+    private System.Windows.Controls.Button? _closeButton;
 
     /// <summary>Identifies the <see cref="IsSelected"/> dependency property.</summary>
     public static readonly DependencyProperty IsSelectedProperty =
@@ -32,63 +33,21 @@ public class TabsTitleControlItem : HeaderedContentControl
         set => SetValue(IsSelectedProperty, value);
     }
 
-    /// <summary>Identifies the <see cref="TextIcon"/> dependency property.</summary>
-    public static readonly DependencyProperty TextIconProperty = DependencyProperty.Register(
-        nameof(TextIcon),
-        typeof(string),
+    /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
+    public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
+        nameof(Icon),
+        typeof(IconElement),
         typeof(TabsTitleControlItem),
-        new PropertyMetadata(null));
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     /// <summary>
-    /// Gets or sets a glyph string shown when <see cref="ImageSource"/> is null
-    /// (typically a Segoe MDL2 / Fluent icon code point).
+    /// Gets or sets the optional icon shown before the header.
+    /// Accepts <see cref="IconElement"/> (e.g. <c>SymbolIcon</c>) or a glyph string via type converter.
     /// </summary>
-    public string? TextIcon
+    public IconElement? Icon
     {
-        get => (string?)GetValue(TextIconProperty);
-        set => SetValue(TextIconProperty, value);
-    }
-
-    /// <summary>Identifies the <see cref="TextIconFontFamily"/> dependency property.</summary>
-    public static readonly DependencyProperty TextIconFontFamilyProperty = DependencyProperty.Register(
-        nameof(TextIconFontFamily),
-        typeof(FontFamily),
-        typeof(TabsTitleControlItem),
-        new PropertyMetadata(new FontFamily("Segoe MDL2 Assets")));
-
-    /// <summary>Gets or sets the font family used to render <see cref="TextIcon"/>.</summary>
-    public FontFamily TextIconFontFamily
-    {
-        get => (FontFamily)GetValue(TextIconFontFamilyProperty);
-        set => SetValue(TextIconFontFamilyProperty, value);
-    }
-
-    /// <summary>Identifies the <see cref="ImageSource"/> dependency property.</summary>
-    public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
-        nameof(ImageSource),
-        typeof(ImageSource),
-        typeof(TabsTitleControlItem),
-        new PropertyMetadata(null));
-
-    /// <summary>Gets or sets an optional image icon. When set, it replaces <see cref="TextIcon"/>.</summary>
-    public ImageSource? ImageSource
-    {
-        get => (ImageSource?)GetValue(ImageSourceProperty);
-        set => SetValue(ImageSourceProperty, value);
-    }
-
-    /// <summary>Identifies the <see cref="IconSize"/> dependency property.</summary>
-    public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(
-        nameof(IconSize),
-        typeof(double),
-        typeof(TabsTitleControlItem),
-        new PropertyMetadata(16.0));
-
-    /// <summary>Gets or sets the width and height of the icon.</summary>
-    public double IconSize
-    {
-        get => (double)GetValue(IconSizeProperty);
-        set => SetValue(IconSizeProperty, value);
+        get => (IconElement?)GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
     }
 
     /// <summary>Identifies the <see cref="IsClosable"/> dependency property.</summary>
@@ -148,18 +107,12 @@ public class TabsTitleControlItem : HeaderedContentControl
 
     public override void OnApplyTemplate()
     {
-        if (_closeButton is not null)
-        {
-            _closeButton.Click -= OnCloseButtonClick;
-        }
+        _closeButton?.Click -= OnCloseButtonClick;
 
         base.OnApplyTemplate();
 
-        _closeButton = GetTemplateChild(PartCloseButton) as Button;
-        if (_closeButton is not null)
-        {
-            _closeButton.Click += OnCloseButtonClick;
-        }
+        _closeButton = GetTemplateChild(PartCloseButton) as System.Windows.Controls.Button;
+        _closeButton?.Click += OnCloseButtonClick;
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

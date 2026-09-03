@@ -3935,6 +3935,12 @@ OK をクリックして続行してください。</value>
   <data name="Sample_c8a19ea6c7" xml:space="preserve">
     <value>新しいタブ</value>
   </data>
+  <data name="Sample_64095ef0f9" xml:space="preserve">
+    <value>アイコン付き</value>
+  </data>
+  <data name="Sample_e9bb5f0dbc" xml:space="preserve">
+    <value>SymbolIcon / IconElement でタブアイコンを指定します。</value>
+  </data>
   <data name="Gallery_Page_Segmented" xml:space="preserve">
     <value>Segmented</value>
   </data>

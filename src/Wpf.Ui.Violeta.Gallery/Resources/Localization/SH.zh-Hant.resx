@@ -3935,6 +3935,12 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_c8a19ea6c7" xml:space="preserve">
     <value>新頁籤</value>
   </data>
+  <data name="Sample_64095ef0f9" xml:space="preserve">
+    <value>帶圖示</value>
+  </data>
+  <data name="Sample_e9bb5f0dbc" xml:space="preserve">
+    <value>使用 SymbolIcon / IconElement 作為頁籤圖示。</value>
+  </data>
   <data name="Gallery_Page_Segmented" xml:space="preserve">
     <value>Segmented</value>
   </data>

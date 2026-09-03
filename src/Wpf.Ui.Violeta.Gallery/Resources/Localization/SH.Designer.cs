@@ -9221,6 +9221,14 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
+        ///   Looks up a localized string similar to With icons.
+        /// </summary>
+        public static string Sample_64095ef0f9 {
+            get {
+                return ResourceManager.GetString("Sample_64095ef0f9", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Looks up a localized string similar to ItemsSource.
         /// </summary>
         public static string Sample_635c77a7e7 {
@@ -18444,6 +18452,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_e9bb5320b3 {
             get {
                 return ResourceManager.GetString("Sample_e9bb5320b3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs with SymbolIcon / IconElement icons..
+        /// </summary>
+        public static string Sample_e9bb5f0dbc {
+            get {
+                return ResourceManager.GetString("Sample_e9bb5f0dbc", resourceCulture);
             }
         }
         

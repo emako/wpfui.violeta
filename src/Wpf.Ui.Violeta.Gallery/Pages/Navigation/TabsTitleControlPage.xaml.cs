@@ -1,6 +1,6 @@
 using System.Windows;
-using System.Windows.Controls;
 using LiteObservableLanguages;
+using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls;
 using Wpf.Ui.Violeta.Gallery.Globalization;
 
@@ -22,8 +22,8 @@ public partial class TabsTitleControlPage : Wpf.Ui.Violeta.Controls.Page
         var item = new TabsTitleControlItem
         {
             Header = title,
-            TextIcon = "\uE8A5",
-            Content = new TextBlock
+            Icon = new Wpf.Ui.Controls.SymbolIcon { Symbol = SymbolRegular.Document24 },
+            Content = new System.Windows.Controls.TextBlock
             {
                 Margin = new Thickness(16),
                 Text = $"{title} — {LangKeys.Sample_1bedbb9cef.Tr()}",

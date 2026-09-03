@@ -374,4 +374,27 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
+    <!--
+        TabsTitleControl — VS Code 1.135+ Modern UI tabs (modern-ui-tabs)
+        Dark Modern defaults for modernEditorTab / editorGroupHeader:
+        tabsBackground #181818 | editor #1F1F1F
+        modernEditorTab.activeBackground #37373D (list.inactiveSelectionBackground)
+        modernEditorTab.hoverBackground #2A2D2E (list.hoverBackground)
+        inactive fill transparent | activeForeground #FFFFFF
+        cornerRadius.small = 4px
+    -->
+    <SolidColorBrush x:Key="TabsTitleHeaderBackgroundBrush" Color="#181818" />
+    <SolidColorBrush x:Key="TabsTitleHeaderBorderBrush" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="TabsTitleTabBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TabsTitleTabSelectedBackgroundBrush" Color="#37373D" />
+    <SolidColorBrush x:Key="TabsTitleTabHoverBackgroundBrush" Color="#2A2D2E" />
+    <SolidColorBrush x:Key="TabsTitleTabForegroundBrush" Color="#9D9D9D" />
+    <SolidColorBrush x:Key="TabsTitleTabSelectedForegroundBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="TabsTitleTabBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TabsTitleTabActiveBorderTopBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="TabsTitleContentBackgroundBrush" Color="#1F1F1F" />
+    <SolidColorBrush x:Key="TabsTitleIconForegroundBrush" Color="#CCCCCC" />
+    <SolidColorBrush x:Key="TabsTitleDisabledForegroundBrush" Color="#6E6E6E" />
+    <CornerRadius x:Key="TabsTitleTabCornerRadius">4</CornerRadius>
+
 </ResourceDictionary>
