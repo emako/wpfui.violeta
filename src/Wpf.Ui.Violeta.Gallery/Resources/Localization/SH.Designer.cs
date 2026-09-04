@@ -14136,7 +14136,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply CardBorderStyle and SecondaryBorderStyle to the standard WPF Border control..
+        ///   Looks up a localized string similar to Apply CardBorderStyle and CardSecondaryBorderStyle to the standard WPF Border control..
         /// </summary>
         public static string Sample_b2c3d4e5f7 {
             get {
@@ -14595,7 +14595,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SecondaryUiBorderStyle.
+        ///   Looks up a localized string similar to CardSecondaryUiBorderStyle.
         /// </summary>
         public static string Sample_b8c9d0e1f3 {
             get {
@@ -16692,7 +16692,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SecondaryBorderStyle.
+        ///   Looks up a localized string similar to CardSecondaryBorderStyle.
         /// </summary>
         public static string Sample_d4e5f6a7b9 {
             get {
@@ -19329,7 +19329,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply CardUiBorderStyle and SecondaryUiBorderStyle to the extended ui:Border control with ClipToBounds enabled..
+        ///   Looks up a localized string similar to Apply CardUiBorderStyle and CardSecondaryUiBorderStyle to the extended ui:Border control with ClipToBounds enabled..
         /// </summary>
         public static string Sample_f6a7b8c9d1 {
             get {

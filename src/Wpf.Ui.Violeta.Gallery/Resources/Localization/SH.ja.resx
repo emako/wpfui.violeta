@@ -6630,25 +6630,25 @@ OK をクリックして続行してください。</value>
     <value>システム Border</value>
   </data>
   <data name="Sample_b2c3d4e5f7" xml:space="preserve">
-    <value>標準の WPF Border コントロールに CardBorderStyle と SecondaryBorderStyle を適用します。</value>
+    <value>標準の WPF Border コントロールに CardBorderStyle と CardSecondaryBorderStyle を適用します。</value>
   </data>
   <data name="Sample_c3d4e5f6a8" xml:space="preserve">
     <value>CardBorderStyle</value>
   </data>
   <data name="Sample_d4e5f6a7b9" xml:space="preserve">
-    <value>SecondaryBorderStyle</value>
+    <value>CardSecondaryBorderStyle</value>
   </data>
   <data name="Sample_e5f6a7b8c0" xml:space="preserve">
     <value>Ui Border</value>
   </data>
   <data name="Sample_f6a7b8c9d1" xml:space="preserve">
-    <value>拡張 ui:Border コントロールに CardUiBorderStyle と SecondaryUiBorderStyle を適用し、ClipToBounds を有効にします。</value>
+    <value>拡張 ui:Border コントロールに CardUiBorderStyle と CardSecondaryUiBorderStyle を適用し、ClipToBounds を有効にします。</value>
   </data>
   <data name="Sample_a7b8c9d0e2" xml:space="preserve">
     <value>CardUiBorderStyle</value>
   </data>
   <data name="Sample_b8c9d0e1f3" xml:space="preserve">
-    <value>SecondaryUiBorderStyle</value>
+    <value>CardSecondaryUiBorderStyle</value>
   </data>
   <data name="Sample_c9d0e1f2a4" xml:space="preserve">
     <value>カードのコンテンツ領域</value>

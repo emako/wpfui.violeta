@@ -61,7 +61,7 @@
                                 Width="200"
                                 MinHeight="96"
                                 Padding="16"
-                                Style="{StaticResource SecondaryBorderStyle}">
+                                Style="{StaticResource CardSecondaryBorderStyle}">
                                 <TextBlock
                                     VerticalAlignment="Center"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -122,7 +122,7 @@
                                 Width="200"
                                 MinHeight="96"
                                 Padding="16"
-                                Style="{StaticResource SecondaryUiBorderStyle}">
+                                Style="{StaticResource CardSecondaryUiBorderStyle}">
                                 <TextBlock
                                     VerticalAlignment="Center"
                                     Foreground="{DynamicResource TextFillColorPrimaryBrush}"

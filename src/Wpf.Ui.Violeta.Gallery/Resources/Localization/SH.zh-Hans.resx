@@ -6630,25 +6630,25 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>系统 Border</value>
   </data>
   <data name="Sample_b2c3d4e5f7" xml:space="preserve">
-    <value>将 CardBorderStyle 和 SecondaryBorderStyle 应用于标准 WPF Border 控件。</value>
+    <value>将 CardBorderStyle 和 CardSecondaryBorderStyle 应用于标准 WPF Border 控件。</value>
   </data>
   <data name="Sample_c3d4e5f6a8" xml:space="preserve">
     <value>CardBorderStyle</value>
   </data>
   <data name="Sample_d4e5f6a7b9" xml:space="preserve">
-    <value>SecondaryBorderStyle</value>
+    <value>CardSecondaryBorderStyle</value>
   </data>
   <data name="Sample_e5f6a7b8c0" xml:space="preserve">
     <value>Ui Border</value>
   </data>
   <data name="Sample_f6a7b8c9d1" xml:space="preserve">
-    <value>将 CardUiBorderStyle 和 SecondaryUiBorderStyle 应用于扩展的 ui:Border 控件，并启用 ClipToBounds。</value>
+    <value>将 CardUiBorderStyle 和 CardSecondaryUiBorderStyle 应用于扩展的 ui:Border 控件，并启用 ClipToBounds。</value>
   </data>
   <data name="Sample_a7b8c9d0e2" xml:space="preserve">
     <value>CardUiBorderStyle</value>
   </data>
   <data name="Sample_b8c9d0e1f3" xml:space="preserve">
-    <value>SecondaryUiBorderStyle</value>
+    <value>CardSecondaryUiBorderStyle</value>
   </data>
   <data name="Sample_c9d0e1f2a4" xml:space="preserve">
     <value>卡片内容区域</value>

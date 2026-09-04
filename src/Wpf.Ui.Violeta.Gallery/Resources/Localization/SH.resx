@@ -6630,25 +6630,25 @@ Click OK to continue.</value>
     <value>System Border</value>
   </data>
   <data name="Sample_b2c3d4e5f7" xml:space="preserve">
-    <value>Apply CardBorderStyle and SecondaryBorderStyle to the standard WPF Border control.</value>
+    <value>Apply CardBorderStyle and CardSecondaryBorderStyle to the standard WPF Border control.</value>
   </data>
   <data name="Sample_c3d4e5f6a8" xml:space="preserve">
     <value>CardBorderStyle</value>
   </data>
   <data name="Sample_d4e5f6a7b9" xml:space="preserve">
-    <value>SecondaryBorderStyle</value>
+    <value>CardSecondaryBorderStyle</value>
   </data>
   <data name="Sample_e5f6a7b8c0" xml:space="preserve">
     <value>Ui Border</value>
   </data>
   <data name="Sample_f6a7b8c9d1" xml:space="preserve">
-    <value>Apply CardUiBorderStyle and SecondaryUiBorderStyle to the extended ui:Border control with ClipToBounds enabled.</value>
+    <value>Apply CardUiBorderStyle and CardSecondaryUiBorderStyle to the extended ui:Border control with ClipToBounds enabled.</value>
   </data>
   <data name="Sample_a7b8c9d0e2" xml:space="preserve">
     <value>CardUiBorderStyle</value>
   </data>
   <data name="Sample_b8c9d0e1f3" xml:space="preserve">
-    <value>SecondaryUiBorderStyle</value>
+    <value>CardSecondaryUiBorderStyle</value>
   </data>
   <data name="Sample_c9d0e1f2a4" xml:space="preserve">
     <value>Card content area</value>
