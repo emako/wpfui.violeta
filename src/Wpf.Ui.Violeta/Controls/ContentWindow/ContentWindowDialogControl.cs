@@ -139,6 +139,51 @@ public class ContentWindowDialogControl : ContentWindowControl
         set => SetValue(ButtonAlignmentProperty, value);
     }
 
+    public static readonly DependencyProperty IsBusyProperty = DependencyProperty.Register(
+        nameof(IsBusy), typeof(bool), typeof(ContentWindowDialogControl), new PropertyMetadata(false));
+
+    public bool IsBusy
+    {
+        get => (bool)GetValue(IsBusyProperty);
+        set => SetValue(IsBusyProperty, value);
+    }
+
+    public static readonly DependencyProperty BusyContentProperty = DependencyProperty.Register(
+        nameof(BusyContent), typeof(string), typeof(ContentWindowDialogControl), new PropertyMetadata(string.Empty));
+
+    public string BusyContent
+    {
+        get => (string)GetValue(BusyContentProperty);
+        set => SetValue(BusyContentProperty, value);
+    }
+
+    public static readonly DependencyProperty BusyContentMarginProperty = DependencyProperty.Register(
+        nameof(BusyContentMargin), typeof(Thickness), typeof(ContentWindowDialogControl), new PropertyMetadata(new Thickness(0, 30, 0, 0)));
+
+    public Thickness BusyContentMargin
+    {
+        get => (Thickness)GetValue(BusyContentMarginProperty);
+        set => SetValue(BusyContentMarginProperty, value);
+    }
+
+    public static readonly DependencyProperty IndicatorTypeProperty = DependencyProperty.Register(
+        nameof(IndicatorType), typeof(IndicatorType), typeof(ContentWindowDialogControl), new PropertyMetadata(IndicatorType.Ring));
+
+    public IndicatorType IndicatorType
+    {
+        get => (IndicatorType)GetValue(IndicatorTypeProperty);
+        set => SetValue(IndicatorTypeProperty, value);
+    }
+
+    public static readonly DependencyProperty BusyBackgroundProperty = DependencyProperty.Register(
+        nameof(BusyBackground), typeof(System.Windows.Media.Brush), typeof(ContentWindowDialogControl), new PropertyMetadata(null));
+
+    public System.Windows.Media.Brush? BusyBackground
+    {
+        get => (System.Windows.Media.Brush?)GetValue(BusyBackgroundProperty);
+        set => SetValue(BusyBackgroundProperty, value);
+    }
+
     public event Wpf.Ui.Controls.TypedEventHandler<ContentWindowDialogControl, ContentWindowOpenedEventArgs>? Opened;
 
     public event Wpf.Ui.Controls.TypedEventHandler<ContentWindowDialogControl, ContentWindowClosingEventArgs>? Closing;
