@@ -1762,6 +1762,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_PinCode", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to PopConfirmButton.
+        /// </summary>
+        public static string Gallery_Page_PopConfirmButton {
+            get {
+                return ResourceManager.GetString("Gallery_Page_PopConfirmButton", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Pivot.
@@ -20552,5 +20561,140 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_ToolTip_CalloutForceDarkDesc", resourceCulture);
             }
         }
+        /// <summary>
+        ///   Looks up a localized string similar to Opens a confirmation flyout; ConfirmedCommand runs only after confirm..
+        /// </summary>
+        public static string Sample_a7e3c91f20 {
+            get {
+                return ResourceManager.GetString("Sample_a7e3c91f20", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic.
+        /// </summary>
+        public static string Sample_b8f4d02a31 {
+            get {
+                return ResourceManager.GetString("Sample_b8f4d02a31", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Bind ConfirmedCommand / CancelledCommand; they run after confirm or cancel..
+        /// </summary>
+        public static string Sample_c9e5a13b42 {
+            get {
+                return ResourceManager.GetString("Sample_c9e5a13b42", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to MessageBox icons.
+        /// </summary>
+        public static string Sample_d0f6b24c53 {
+            get {
+                return ResourceManager.GetString("Sample_d0f6b24c53", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Same glyphs and colors as MessageBox (Warning / Error / Information / Success / Question)..
+        /// </summary>
+        public static string Sample_e1a7c35d64 {
+            get {
+                return ResourceManager.GetString("Sample_e1a7c35d64", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ToolBarPopConfirmButtonStyle.
+        /// </summary>
+        public static string Sample_f2b8d46e75 {
+            get {
+                return ResourceManager.GetString("Sample_f2b8d46e75", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Transparent toolbar chrome with SubtleFill hover / press..
+        /// </summary>
+        public static string Sample_03c9e57f86 {
+            get {
+                return ResourceManager.GetString("Sample_03c9e57f86", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Save these changes?.
+        /// </summary>
+        public static string Sample_14dae68097 {
+            get {
+                return ResourceManager.GetString("Sample_14dae68097", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This change cannot be undone..
+        /// </summary>
+        public static string Sample_25ebf791a8 {
+            get {
+                return ResourceManager.GetString("Sample_25ebf791a8", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hello World.
+        /// </summary>
+        public static string Sample_36fca802b9 {
+            get {
+                return ResourceManager.GetString("Sample_36fca802b9", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Sample_470db913c0 {
+            get {
+                return ResourceManager.GetString("Sample_470db913c0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmed.
+        /// </summary>
+        public static string Sample_581eca24d1 {
+            get {
+                return ResourceManager.GetString("Sample_581eca24d1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string Sample_692fdb35e2 {
+            get {
+                return ResourceManager.GetString("Sample_692fdb35e2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for confirmation….
+        /// </summary>
+        public static string Sample_7a30ec46f3 {
+            get {
+                return ResourceManager.GetString("Sample_7a30ec46f3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation flyout before ConfirmedCommand.
+        /// </summary>
+        public static string Sample_8b41fd5704 {
+            get {
+                return ResourceManager.GetString("Sample_8b41fd5704", resourceCulture);
+            }
+        }
+
     }
 }

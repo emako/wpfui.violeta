@@ -1,0 +1,180 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
+
+    <Style x:Key="PopConfirmCloseButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="28" />
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Setter Property="FontFamily" Value="{DynamicResource SymbolThemeFontFamily}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Content" Value="&#xE711;" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="Root"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{DynamicResource ControlCornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="False" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        Flyout content. Host DataContext is the owning PopConfirmButton.
+        Columns: [icon] [title + message] [close] — message shares the title column so it stays aligned.
+    -->
+    <ControlTemplate x:Key="DefaultPopConfirmFlyoutTemplate" TargetType="{x:Type ContentControl}">
+        <Border
+            MinWidth="280"
+            MaxWidth="360"
+            Padding="16"
+            Background="{DynamicResource SolidBackgroundFillColorTertiaryBrush}"
+            BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="{DynamicResource OverlayCornerRadius}"
+            SnapsToDevicePixels="True">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="16"
+                    Direction="270"
+                    Opacity="0.28"
+                    ShadowDepth="4"
+                    Color="#000000" />
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Fixed 22×22 host keeps glyph optically centered with the title first line.  -->
+                    <Border
+                        x:Name="IconHost"
+                        Grid.Column="0"
+                        Width="22"
+                        Height="22"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Top">
+                        <TextBlock
+                            x:Name="IconGlyph"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="{DynamicResource SymbolThemeFontFamily}"
+                            FontSize="18"
+                            Text="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.New}}"
+                            TextAlignment="Center"
+                            Foreground="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}" />
+                    </Border>
+
+                    <StackPanel Grid.Column="1" Margin="0,0,8,0">
+                        <TextBlock
+                            x:Name="TitleText"
+                            VerticalAlignment="Top"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                            LineHeight="22"
+                            LineStackingStrategy="BlockLineHeight"
+                            Text="{Binding Title}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            x:Name="MessageText"
+                            Margin="0,6,0,0"
+                            FontSize="12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{Binding Message}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <Button
+                        x:Name="CloseButton"
+                        Grid.Column="2"
+                        Margin="0,-2,-2,0"
+                        VerticalAlignment="Top"
+                        Command="{Binding InternalCancelCommand}"
+                        Style="{StaticResource PopConfirmCloseButtonStyle}" />
+                </Grid>
+
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="0,14,0,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                    <ui:Button
+                        MinWidth="72"
+                        Margin="0,0,8,0"
+                        Padding="12,4"
+                        Appearance="Secondary"
+                        Command="{Binding InternalCancelCommand}"
+                        Content="{Binding DisplayCancelButtonText}" />
+                    <ui:Button
+                        MinWidth="72"
+                        Padding="12,4"
+                        Appearance="Primary"
+                        Command="{Binding InternalConfirmCommand}"
+                        Content="{Binding DisplayConfirmButtonText}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <DataTrigger Binding="{Binding MessageBoxIcon}" Value="{x:Static local:MessageBoxIcon.None}">
+                <Setter TargetName="IconHost" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Title}" Value="{x:Null}">
+                <Setter TargetName="TitleText" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Title}" Value="">
+                <Setter TargetName="TitleText" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Message}" Value="{x:Null}">
+                <Setter TargetName="MessageText" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Message}" Value="">
+                <Setter TargetName="MessageText" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsCloseButtonVisible}" Value="False">
+                <Setter TargetName="CloseButton" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style
+        x:Key="DefaultPopConfirmButtonStyle"
+        BasedOn="{StaticResource DefaultUiButtonStyle}"
+        TargetType="{x:Type local:PopConfirmButton}" />
+
+    <Style BasedOn="{StaticResource DefaultPopConfirmButtonStyle}" TargetType="{x:Type local:PopConfirmButton}" />
+
+</ResourceDictionary>

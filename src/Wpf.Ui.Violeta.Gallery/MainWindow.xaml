@@ -156,6 +156,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ToggleButton}}" Tag="basic-input/toggle-button" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SplitButton}}" Tag="basic-input/split-button" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_LoadingButton}}" Tag="basic-input/loading-button" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_PopConfirmButton}}" Tag="basic-input/pop-confirm-button" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CopyButton}}" Tag="basic-input/copy-button" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GoBackButton}}" Tag="basic-input/go-back-button" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimatedSymbolButton}}" Tag="basic-input/animated-symbol-button" />

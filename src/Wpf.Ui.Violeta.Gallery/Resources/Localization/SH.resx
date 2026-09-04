@@ -6884,4 +6884,52 @@ Click OK to continue.</value>
   <data name="Sample_60a24f6dd6" xml:space="preserve">
     <value>Mix ToggleButton and ToggleComboBox in one group for exclusive selection.</value>
   </data>
+  <data name="Gallery_Page_PopConfirmButton" xml:space="preserve">
+    <value>PopConfirmButton</value>
+  </data>
+  <data name="Sample_a7e3c91f20" xml:space="preserve">
+    <value>Opens a confirmation flyout; ConfirmedCommand runs only after confirm.</value>
+  </data>
+  <data name="Sample_b8f4d02a31" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Sample_c9e5a13b42" xml:space="preserve">
+    <value>Bind ConfirmedCommand / CancelledCommand; they run after confirm or cancel.</value>
+  </data>
+  <data name="Sample_d0f6b24c53" xml:space="preserve">
+    <value>MessageBox icons</value>
+  </data>
+  <data name="Sample_e1a7c35d64" xml:space="preserve">
+    <value>Same glyphs and colors as MessageBox (Warning / Error / Information / Success / Question).</value>
+  </data>
+  <data name="Sample_f2b8d46e75" xml:space="preserve">
+    <value>ToolBarPopConfirmButtonStyle</value>
+  </data>
+  <data name="Sample_03c9e57f86" xml:space="preserve">
+    <value>Transparent toolbar chrome with SubtleFill hover / press.</value>
+  </data>
+  <data name="Sample_14dae68097" xml:space="preserve">
+    <value>Save these changes?</value>
+  </data>
+  <data name="Sample_25ebf791a8" xml:space="preserve">
+    <value>This change cannot be undone.</value>
+  </data>
+  <data name="Sample_36fca802b9" xml:space="preserve">
+    <value>Hello World</value>
+  </data>
+  <data name="Sample_470db913c0" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Sample_581eca24d1" xml:space="preserve">
+    <value>Confirmed</value>
+  </data>
+  <data name="Sample_692fdb35e2" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Sample_7a30ec46f3" xml:space="preserve">
+    <value>Waiting for confirmation…</value>
+  </data>
+  <data name="Sample_8b41fd5704" xml:space="preserve">
+    <value>Confirmation flyout before ConfirmedCommand</value>
+  </data>
 </root>

@@ -90,6 +90,7 @@ public partial class MainWindow : ShellWindow
         ["basic-input/toggle-combo-box"] = static () => new ToggleComboBoxPage(),
         ["basic-input/slider"] = static () => new SliderPage(),
         ["basic-input/loading-button"] = static () => new LoadingButtonPage(),
+        ["basic-input/pop-confirm-button"] = static () => new PopConfirmButtonPage(),
         ["basic-input/copy-button"] = static () => new CopyButtonPage(),
         ["basic-input/go-back-button"] = static () => new GoBackButtonPage(),
         ["basic-input/animated-symbol-button"] = static () => new AnimatedSymbolButtonPage(),
