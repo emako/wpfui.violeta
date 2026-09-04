@@ -85,6 +85,12 @@
   <data name="ButtonOK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>Nein</value>
+  </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>Ignorieren</value>
   </data>

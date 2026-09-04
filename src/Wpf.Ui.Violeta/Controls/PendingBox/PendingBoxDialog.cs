@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using Wpf.Ui.Controls;
+using Wpf.Ui.Violeta.Resources.Localization;
 using Wpf.Ui.Violeta.Win32;
 using Button = System.Windows.Controls.Button;
 using TextBlock = System.Windows.Controls.TextBlock;
@@ -116,7 +117,7 @@ public partial class PendingBoxDialog : Window
         {
             CancelButton.Click += OnCancelButtonClick;
             CancelButton.IsCancel = true;
-            CancelButton.Content = GetString(User32.DialogBoxCommand.IDCANCEL);
+            CancelButton.Content = SH.ButtonCancel;
             CancelButton.Visibility = IsShowCancel ? Visibility.Visible : Visibility.Collapsed;
         }
     }

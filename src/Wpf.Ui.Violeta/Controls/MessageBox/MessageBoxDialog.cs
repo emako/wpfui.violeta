@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
+using Wpf.Ui.Violeta.Resources.Localization;
 using Wpf.Ui.Violeta.Win32;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
@@ -434,10 +435,10 @@ public partial class MessageBoxDialog : ShellWindow
     private void UpdateButtonTextState()
     {
         MessageBoxTemplateSettings templateSettings = TemplateSettings;
-        templateSettings.OKButtonText = string.IsNullOrEmpty(OKButtonText) ? GetString(User32.DialogBoxCommand.IDOK) : OKButtonText;
-        templateSettings.YesButtonText = string.IsNullOrEmpty(YesButtonText) ? GetString(User32.DialogBoxCommand.IDYES) : YesButtonText;
-        templateSettings.NoButtonText = string.IsNullOrEmpty(NoButtonText) ? GetString(User32.DialogBoxCommand.IDNO) : NoButtonText;
-        templateSettings.CancelButtonText = string.IsNullOrEmpty(CancelButtonText) ? GetString(User32.DialogBoxCommand.IDCANCEL) : CancelButtonText;
+        templateSettings.OKButtonText = string.IsNullOrEmpty(OKButtonText) ? SH.ButtonOK : OKButtonText;
+        templateSettings.YesButtonText = string.IsNullOrEmpty(YesButtonText) ? SH.ButtonYes : YesButtonText;
+        templateSettings.NoButtonText = string.IsNullOrEmpty(NoButtonText) ? SH.ButtonNo : NoButtonText;
+        templateSettings.CancelButtonText = string.IsNullOrEmpty(CancelButtonText) ? SH.ButtonCancel : CancelButtonText;
     }
 
     [SuppressMessage("Performance", "SYSLIB1045:Convert to 'GeneratedRegexAttribute'.")]

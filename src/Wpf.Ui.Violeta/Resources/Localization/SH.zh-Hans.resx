@@ -144,6 +144,12 @@
   <data name="ButtonOK" xml:space="preserve">
     <value>确定</value>
   </data>
+  <data name="ButtonYes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="ButtonNo" xml:space="preserve">
+    <value>否</value>
+  </data>
   <data name="ButtonIgnore" xml:space="preserve">
     <value>忽略</value>
   </data>

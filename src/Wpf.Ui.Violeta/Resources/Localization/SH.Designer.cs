@@ -91,6 +91,24 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string ButtonYes {
+            get {
+                return ResourceManager.GetString("ButtonYes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string ButtonNo {
+            get {
+                return ResourceManager.GetString("ButtonNo", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string ButtonExit {
