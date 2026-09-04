@@ -416,6 +416,18 @@ public class ContentWindowDialogControl : ContentWindowControl
         var visible = buttons.Where(b => !string.IsNullOrEmpty(GetButtonText(b))).ToList();
         bool isStretch = ButtonAlignment == ContentWindowButtonAlignment.Stretch;
 
+        // 无任何底部按钮时收起整块 CommandArea，避免仍占着 Margin 空白
+        commandArea.Visibility = visible.Count == 0 ? Visibility.Collapsed : Visibility.Visible;
+        if (visible.Count == 0)
+        {
+            foreach (var button in buttons)
+            {
+                button.Visibility = Visibility.Collapsed;
+            }
+
+            return;
+        }
+
         commandArea.HorizontalAlignment = isStretch
             ? HorizontalAlignment.Stretch
             : ButtonAlignment switch
