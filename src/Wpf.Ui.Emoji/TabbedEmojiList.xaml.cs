@@ -33,18 +33,10 @@ public partial class TabbedEmojiList : UserControl
         InitializeComponent();
     }
 
-    public static readonly Style DefaultPopupBorderStyle = new Style()
-    {
-        TargetType = typeof(Border),
-        Setters =
-        {
-            new Setter(BackgroundProperty, Color.FromArgb(255,249,249,249).ToBrush()),
-            new Setter(BorderBrushProperty, Color.FromArgb(255,228,228,228).ToBrush()),
-            new Setter(BorderThicknessProperty, new Thickness(1)),
-            new Setter(Border.PaddingProperty, new Thickness(8)),
-            new Setter(Border.CornerRadiusProperty, new CornerRadius(8)),
-        }
-    };
+    /// <summary>
+    /// Default popup chrome; brushes resolve from Emoji theme dictionaries (light / dark).
+    /// </summary>
+    public static readonly Style DefaultPopupBorderStyle = CreateDefaultPopupBorderStyle();
 
     public static readonly Style DefaultEmojiToggleButtonStyle = new Style()
     {
@@ -56,6 +48,21 @@ public partial class TabbedEmojiList : UserControl
             new Setter(PaddingProperty, new Thickness(4)),
         }
     };
+
+    private static Style CreateDefaultPopupBorderStyle()
+    {
+        return new Style(typeof(Border))
+        {
+            Setters =
+            {
+                new Setter(BackgroundProperty, new DynamicResourceExtension("EmojiPopupBackgroundBrush")),
+                new Setter(BorderBrushProperty, new DynamicResourceExtension("EmojiPopupBorderBrush")),
+                new Setter(BorderThicknessProperty, new Thickness(1)),
+                new Setter(Border.PaddingProperty, new Thickness(8)),
+                new Setter(Border.CornerRadiusProperty, new CornerRadius(8)),
+            }
+        };
+    }
 
     public IList<EmojiData.Group> EmojiGroups => EmojiData.AllGroups;
 

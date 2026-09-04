@@ -2,6 +2,7 @@
     x:Class="Wpf.Ui.Violeta.Gallery.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:emoji="http://schemas.lepo.co/wpfui/2022/xaml/emoji"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     StartupUri="MainWindow.xaml">
@@ -12,6 +13,7 @@
                 <ui:ControlsDictionary />
                 <vio:ThemesDictionary Theme="Dark" />
                 <vio:ControlsDictionary />
+                <emoji:ThemesDictionary Theme="Dark" />
                 <ResourceDictionary Source="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Resource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

@@ -3,29 +3,38 @@ using Wpf.Ui.Appearance;
 
 namespace Wpf.Ui.Violeta.Appearance;
 
-/// <summary>
-/// Describes a theme resource dictionary that <see cref="ThemeManager"/> can locate and swap.
-/// </summary>
-public sealed class ThemeDictionaryRegistration
+public static class ThemeDictionaryRegistrations
 {
     /// <summary>
     /// Built-in registration for WPF UI theme dictionaries.
     /// </summary>
-    public static ThemeDictionaryRegistration DefaultWpfUi { get; } = FromPackUri(
+    public static ThemeDictionaryRegistration DefaultWpfUi { get; } = ThemeDictionaryRegistration.FromPackUri(
         searchNamespace: "wpf.ui;",
         themesBaseUri: new Uri("pack://application:,,,/Wpf.Ui;component/Resources/Theme/", UriKind.Absolute),
-        resolveThemeFileName: ThemeDictionaryFileNameResolvers.WpfUi,
         name: "Wpf.Ui");
 
     /// <summary>
     /// Built-in registration for Violeta theme dictionaries.
     /// </summary>
-    public static ThemeDictionaryRegistration DefaultVioleta { get; } = FromPackUri(
+    public static ThemeDictionaryRegistration DefaultVioleta { get; } = ThemeDictionaryRegistration.FromPackUri(
         searchNamespace: "wpf.ui.violeta;",
         themesBaseUri: new Uri("pack://application:,,,/Wpf.Ui.Violeta;component/Resources/Theme/", UriKind.Absolute),
-        resolveThemeFileName: ThemeDictionaryFileNameResolvers.LightDarkWithHighContrastFallback,
         name: "Wpf.Ui.Violeta");
 
+    /// <summary>
+    /// Built-in registration for Emoji theme dictionaries.
+    /// </summary>
+    public static ThemeDictionaryRegistration DefaultEmoji { get; } = ThemeDictionaryRegistration.FromPackUri(
+        searchNamespace: "wpf.ui.emoji;",
+        themesBaseUri: new Uri("pack://application:,,,/Wpf.Ui.Emoji;component/Resources/Theme/", UriKind.Absolute),
+        name: "Wpf.Ui.Emoji");
+}
+
+/// <summary>
+/// Describes a theme resource dictionary that <see cref="ThemeManager"/> can locate and swap.
+/// </summary>
+public sealed class ThemeDictionaryRegistration
+{
     /// <summary>
     /// Substring used to locate the dictionary in application merged dictionaries.
     /// Typically the lowercase assembly URI segment, e.g. <c>wpf.ui.violeta;</c>.
@@ -43,20 +52,9 @@ public sealed class ThemeDictionaryRegistration
     public string? Name { get; init; }
 
     /// <summary>
-    /// Base pack URI for theme XAML files when <see cref="ResolveThemeUri"/> is not set.
+    /// Base pack URI for theme XAML files.
     /// </summary>
     public Uri? ThemesBaseUri { get; init; }
-
-    /// <summary>
-    /// Resolves the XAML file name without extension when <see cref="ResolveThemeUri"/> is not set.
-    /// </summary>
-    public Func<ApplicationTheme, SystemTheme, string>? ResolveThemeFileName { get; init; }
-
-    /// <summary>
-    /// Optional full URI resolver. When set, it takes precedence over
-    /// <see cref="ThemesBaseUri"/> and <see cref="ResolveThemeFileName"/>.
-    /// </summary>
-    public Func<ApplicationTheme, SystemTheme, Uri>? ResolveThemeUri { get; init; }
 
     /// <summary>
     /// Creates a registration that swaps pack URIs under <paramref name="themesBaseUri"/>.
@@ -64,7 +62,6 @@ public sealed class ThemeDictionaryRegistration
     public static ThemeDictionaryRegistration FromPackUri(
         string searchNamespace,
         Uri themesBaseUri,
-        Func<ApplicationTheme, SystemTheme, string>? resolveThemeFileName = null,
         string dictionaryLookup = "theme",
         string? name = null)
     {
@@ -79,62 +76,29 @@ public sealed class ThemeDictionaryRegistration
         {
             SearchNamespace = searchNamespace,
             ThemesBaseUri = themesBaseUri,
-            ResolveThemeFileName = resolveThemeFileName ?? ThemeDictionaryFileNameResolvers.LightDark,
             DictionaryLookup = dictionaryLookup,
             Name = name,
         };
     }
 
     /// <summary>
-    /// Creates a registration from explicit light and dark theme URIs.
-    /// High contrast falls back to dark for <see cref="SystemTheme.HCBlack"/> and light otherwise.
+    /// Resolves the pack URI for the given application and system theme.
     /// </summary>
-    public static ThemeDictionaryRegistration FromThemes(
-        string searchNamespace,
-        Uri lightThemeUri,
-        Uri darkThemeUri,
-        Uri? highContrastThemeUri = null,
-        string dictionaryLookup = "theme",
-        string? name = null)
+    public Uri GetThemeUri(ApplicationTheme theme, SystemTheme systemTheme)
     {
-        if (string.IsNullOrWhiteSpace(searchNamespace))
-        {
-            throw new ArgumentException("Value cannot be null or whitespace.", nameof(searchNamespace));
-        }
-
-        _ = lightThemeUri ?? throw new ArgumentNullException(nameof(lightThemeUri));
-
-        _ = darkThemeUri ?? throw new ArgumentNullException(nameof(darkThemeUri));
-
-        return new ThemeDictionaryRegistration
-        {
-            SearchNamespace = searchNamespace,
-            DictionaryLookup = dictionaryLookup,
-            Name = name,
-            ResolveThemeUri = (theme, systemTheme) => theme switch
-            {
-                ApplicationTheme.Dark => darkThemeUri,
-                ApplicationTheme.HighContrast => highContrastThemeUri
-                    ?? (systemTheme == SystemTheme.HCBlack ? darkThemeUri : lightThemeUri),
-                _ => lightThemeUri,
-            },
-        };
-    }
-
-    internal Uri GetThemeUri(ApplicationTheme theme, SystemTheme systemTheme)
-    {
-        if (ResolveThemeUri is not null)
-        {
-            return ResolveThemeUri(theme, systemTheme);
-        }
-
-        if (ThemesBaseUri is null || ResolveThemeFileName is null)
+        if (ThemesBaseUri is null)
         {
             throw new InvalidOperationException(
-                $"Theme registration '{Name ?? SearchNamespace}' must define either ResolveThemeUri or both ThemesBaseUri and ResolveThemeFileName.");
+                $"Theme registration '{Name ?? SearchNamespace}' must define ThemesBaseUri.");
         }
 
-        string fileName = ResolveThemeFileName(theme, systemTheme);
+        string fileName = theme switch
+        {
+            ApplicationTheme.Dark => "Dark",
+            ApplicationTheme.HighContrast => systemTheme == SystemTheme.HCBlack ? "Dark" : "Light",
+            _ => "Light",
+        };
+
         string basePath = ThemesBaseUri.ToString();
 
 #pragma warning disable CA1865 // Use char overload

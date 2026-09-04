@@ -5,6 +5,9 @@ using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Appearance;
 
+/// <summary>
+/// If you are using NativeTray, it is not recommended to use this class again.
+/// </summary>
 public static class SystemMenuThemeManager
 {
     public static void Apply(SystemMenuTheme theme = SystemMenuTheme.Auto)

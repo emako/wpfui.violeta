@@ -23,8 +23,9 @@ public static class ThemeManager
 
     static ThemeManager()
     {
-        Register(ThemeDictionaryRegistration.DefaultWpfUi);
-        Register(ThemeDictionaryRegistration.DefaultVioleta);
+        Register(ThemeDictionaryRegistrations.DefaultWpfUi);
+        Register(ThemeDictionaryRegistrations.DefaultVioleta);
+        Register(ThemeDictionaryRegistrations.DefaultEmoji);
     }
 
     /// <summary>

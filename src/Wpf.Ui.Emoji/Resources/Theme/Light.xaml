@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="EmojiPopupBackgroundBrush" Color="#FFF9F9F9" />
+    <SolidColorBrush x:Key="EmojiPopupBorderBrush" Color="#FFE4E4E4" />
+
+    <Style x:Key="EmojiPopupBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource EmojiPopupBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource EmojiPopupBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="CornerRadius" Value="8" />
+    </Style>
+
+</ResourceDictionary>

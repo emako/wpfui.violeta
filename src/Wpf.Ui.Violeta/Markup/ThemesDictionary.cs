@@ -28,7 +28,7 @@ public class ThemesDictionary : ResourceDictionary
 
     private void SetSourceBasedOnSelectedTheme(ApplicationTheme? selectedApplicationTheme)
     {
-        Source = ThemeDictionaryRegistration.DefaultVioleta.GetThemeUri(
+        Source = ThemeDictionaryRegistrations.DefaultVioleta.GetThemeUri(
             selectedApplicationTheme ?? ApplicationTheme.Light,
             ThemeManager.GetSystemTheme());
     }

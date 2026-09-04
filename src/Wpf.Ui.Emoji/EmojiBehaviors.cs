@@ -43,6 +43,4 @@ public static class EmojiBehaviors
         if (sender is FlowDocument doc)
             doc.SubstituteGlyphs();
     }
-
-    public const string XmlNamespace = "http://schemas.lepo.co/wpfui/2022/xaml/emoji";
 }

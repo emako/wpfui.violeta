@@ -76,7 +76,6 @@
     <ItemGroup>
         <LargeResources Include="Resources\Text\UnicodeEmoji\emoji-test.txt" />
         <None Include="@(LargeResources)" />
-        <None Include="COPYING" Pack="true" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup>
@@ -86,6 +85,10 @@
 
     <ItemGroup>
         <Resource Include="Resources\Shaders\TintEffect.ps" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
     </ItemGroup>
 
 </Project>
