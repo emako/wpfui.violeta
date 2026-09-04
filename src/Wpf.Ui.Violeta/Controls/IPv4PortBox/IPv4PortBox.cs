@@ -82,6 +82,7 @@ public class IPv4PortBox : Control
         tb.PreviewTextInput += Port_PreviewTextInput;
         tb.PreviewKeyDown += Port_PreviewKeyDown;
         tb.TextChanged += Port_TextChanged;
+        tb.LostFocus += Port_LostFocus;
         DataObject.AddPastingHandler(tb, OnPaste);
     }
 
@@ -342,6 +343,26 @@ public class IPv4PortBox : Control
         UpdateEndpointFromTextBoxes();
     }
 
+    private void Port_LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (_isInternalUpdate || _port is null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrEmpty(_port.Text)
+            && TryParseEndpoint(Endpoint?.Trim() ?? string.Empty, out _, out int endpointPort)
+            && endpointPort >= 0)
+        {
+            _isInternalUpdate = true;
+            _port.Text = endpointPort.ToString();
+            _isInternalUpdate = false;
+            return;
+        }
+
+        UpdateEndpointFromTextBoxes();
+    }
+
     private void OnPaste(object? sender, DataObjectPastingEventArgs e)
     {
         if (e.SourceDataObject.GetDataPresent(DataFormats.Text))
@@ -568,7 +589,15 @@ public class IPv4PortBox : Control
             string ip = $"{SafeOctet(a)}.{SafeOctet(b)}.{SafeOctet(c)}.{SafeOctet(d)}";
             if (string.IsNullOrEmpty(p))
             {
-                SetCurrentValue(EndpointProperty, ip);
+                if (TryParseEndpoint(Endpoint?.Trim() ?? string.Empty, out _, out int existingPort)
+                    && existingPort >= 0)
+                {
+                    SetCurrentValue(EndpointProperty, $"{ip}:{existingPort}");
+                }
+                else
+                {
+                    SetCurrentValue(EndpointProperty, ip);
+                }
             }
             else
             {
