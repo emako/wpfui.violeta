@@ -15,100 +15,54 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ColorPreviewer}">
                     <Grid>
-                        <!--  Preview with accent shades  -->
+                        <!--  WinUI-style contiguous shade bar  -->
                         <Grid Visibility="{TemplateBinding IsAccentColorsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Grid
+                            <Border
                                 Grid.Column="0"
-                                Width="{DynamicResource ColorPreviewerAccentSectionWidth}"
-                                Height="{DynamicResource ColorPreviewerAccentSectionHeight}"
-                                VerticalAlignment="Center">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Border
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="2"
-                                    Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                    CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                                <Border
-                                    x:Name="PART_AccentDecrement2Border"
-                                    Grid.Column="0"
-                                    Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=-2}"
-                                    CornerRadius="{DynamicResource ColorPreviewerCornerRadius}"
-                                    Tag="-2" />
-                                <Border
-                                    x:Name="PART_AccentDecrement1Border"
-                                    Grid.Column="1"
-                                    Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=-1}"
-                                    Tag="-1" />
-                            </Grid>
+                                Grid.ColumnSpan="5"
+                                Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
+                                CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
 
                             <Border
+                                x:Name="PART_AccentDecrement2Border"
+                                Grid.Column="0"
+                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=-2}"
+                                CornerRadius="{DynamicResource ColorPreviewerLeftCornerRadius}"
+                                Tag="-2" />
+                            <Border
+                                x:Name="PART_AccentDecrement1Border"
                                 Grid.Column="1"
-                                Margin="0,8"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                CornerRadius="{DynamicResource ColorPreviewerCornerRadius}">
-                                <Border.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="12"
-                                        Direction="270"
-                                        Opacity="0.18"
-                                        ShadowDepth="2" />
-                                </Border.Effect>
-                                <Grid>
-                                    <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                                    <Border Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                                </Grid>
-                            </Border>
-
-                            <Grid
+                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=-1}"
+                                Tag="-1" />
+                            <Border
                                 Grid.Column="2"
-                                Width="{DynamicResource ColorPreviewerAccentSectionWidth}"
-                                Height="{DynamicResource ColorPreviewerAccentSectionHeight}"
-                                VerticalAlignment="Center">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Border
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="2"
-                                    Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                                    CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                                <Border
-                                    x:Name="PART_AccentIncrement1Border"
-                                    Grid.Column="0"
-                                    Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=1}"
-                                    Tag="1" />
-                                <Border
-                                    x:Name="PART_AccentIncrement2Border"
-                                    Grid.Column="1"
-                                    Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=2}"
-                                    CornerRadius="{DynamicResource ColorPreviewerCornerRadius}"
-                                    Tag="2" />
-                            </Grid>
+                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" />
+                            <Border
+                                x:Name="PART_AccentIncrement1Border"
+                                Grid.Column="3"
+                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=1}"
+                                Tag="1" />
+                            <Border
+                                x:Name="PART_AccentIncrement2Border"
+                                Grid.Column="4"
+                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=2}"
+                                CornerRadius="{DynamicResource ColorPreviewerRightCornerRadius}"
+                                Tag="2" />
                         </Grid>
 
                         <!--  Preview only  -->
-                        <Border
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            CornerRadius="{DynamicResource ColorPreviewerCornerRadius}"
-                            Visibility="{TemplateBinding IsAccentColorsVisible,
-                                                         Converter={StaticResource InverseBoolToVisibilityConverter}}">
-                            <Grid>
-                                <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                                <Border Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
-                            </Grid>
-                        </Border>
+                        <Grid Visibility="{TemplateBinding IsAccentColorsVisible, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                            <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
+                            <Border Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" CornerRadius="{DynamicResource ColorPreviewerCornerRadius}" />
+                        </Grid>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

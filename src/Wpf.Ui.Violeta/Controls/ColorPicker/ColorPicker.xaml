@@ -142,7 +142,7 @@
                 Placement="Bottom"
                 PlacementTarget="{Binding ElementName=ContentBorder}"
                 PopupAnimation="Slide"
-                StaysOpen="True"
+                StaysOpen="False"
                 VerticalOffset="1">
                 <Border
                     x:Name="DropDownBorder"
@@ -300,7 +300,7 @@
                 Placement="Bottom"
                 PlacementTarget="{Binding ElementName=ContentBorder}"
                 PopupAnimation="Slide"
-                StaysOpen="True"
+                StaysOpen="False"
                 VerticalOffset="1">
                 <Border
                     x:Name="DropDownBorder"

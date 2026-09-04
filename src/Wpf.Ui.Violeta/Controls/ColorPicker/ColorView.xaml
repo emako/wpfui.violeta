@@ -47,10 +47,10 @@
     <sys:Double x:Key="ColorSliderWidth">12</sys:Double>
     <CornerRadius x:Key="ColorSliderCornerRadius">4</CornerRadius>
     <CornerRadius x:Key="ColorSliderThumbCornerRadius">999</CornerRadius>
-    <sys:Double x:Key="ColorPreviewerAccentSectionWidth">80</sys:Double>
-    <sys:Double x:Key="ColorPreviewerAccentSectionHeight">20</sys:Double>
-    <sys:Double x:Key="ColorPreviewerHeight">48</sys:Double>
+    <sys:Double x:Key="ColorPreviewerHeight">24</sys:Double>
     <CornerRadius x:Key="ColorPreviewerCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="ColorPreviewerLeftCornerRadius">4,0,0,4</CornerRadius>
+    <CornerRadius x:Key="ColorPreviewerRightCornerRadius">0,4,4,0</CornerRadius>
     <CornerRadius x:Key="ColorSpectrumCornerRadius">4</CornerRadius>
     <sys:Double x:Key="ColorPickerMinHeight">32</sys:Double>
     <CornerRadius x:Key="ColorPickerCornerRadius">4</CornerRadius>
