@@ -9,13 +9,16 @@ public partial class PopConfirmButtonPage : Wpf.Ui.Violeta.Controls.Page
 {
     public PopConfirmButtonPage()
     {
-        ConfirmedCommand = new RelayCommand(() => StatusText.Text = LangKeys.Sample_581eca24d1.Tr());
-        CancelledCommand = new RelayCommand(() => StatusText.Text = LangKeys.Sample_692fdb35e2.Tr());
+        PrimaryCommand = new RelayCommand(() => StatusText.Text = LangKeys.Sample_581eca24d1.Tr());
+        SecondaryCommand = new RelayCommand(() => StatusText.Text = "Secondary");
+        CloseCommand = new RelayCommand(() => StatusText.Text = LangKeys.Sample_692fdb35e2.Tr());
         DataContext = this;
         InitializeComponent();
     }
 
-    public ICommand ConfirmedCommand { get; }
+    public ICommand PrimaryCommand { get; }
 
-    public ICommand CancelledCommand { get; }
+    public ICommand SecondaryCommand { get; }
+
+    public ICommand CloseCommand { get; }
 }

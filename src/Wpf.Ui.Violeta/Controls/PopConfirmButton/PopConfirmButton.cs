@@ -8,8 +8,10 @@ using Wpf.Ui.Violeta.Resources.Localization;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// A button that opens a confirmation flyout before running <see cref="ConfirmedCommand"/>.
-/// Clicking the button only shows the flyout; the command runs after the user confirms.
+/// A button that opens a confirmation flyout before running footer commands.
+/// API mirrors <see cref="ContentDialog"/>: Primary / Secondary / Close.
+/// By default Primary (OK) and Close (Cancel) are shown; set <see cref="SecondaryButtonText"/> to show a third button.
+/// Empty string on Primary/Close text hides that button; <c>null</c> uses the localized default and keeps it visible.
 /// </summary>
 /// <example>
 /// <code lang="xml">
@@ -18,8 +20,8 @@ namespace Wpf.Ui.Violeta.Controls;
 ///     Title="Delete this item?"
 ///     Message="This action cannot be undone."
 ///     MessageBoxIcon="Warning"
-///     ConfirmedCommand="{Binding DeleteCommand}"
-///     CancelledCommand="{Binding CancelDeleteCommand}" /&gt;
+///     PrimaryButtonCommand="{Binding DeleteCommand}"
+///     CloseButtonCommand="{Binding CancelCommand}" /&gt;
 /// </code>
 /// </example>
 public class PopConfirmButton : Wpf.Ui.Controls.Button
@@ -29,131 +31,287 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
     private FluentPopup? _popup;
     private ContentControl? _flyoutHost;
     private bool _suppressIsOpenCallback;
-    private bool _confirming;
-    private bool _skipCancelledOnClose;
+    private bool _executingFooter;
+    private bool _skipCloseOnPopupClosed;
 
-    private readonly ICommand _internalConfirmCommand;
-    private readonly ICommand _internalCancelCommand;
+    private readonly ICommand _internalPrimaryCommand;
+    private readonly ICommand _internalSecondaryCommand;
+    private readonly ICommand _internalCloseCommand;
 
-    /// <summary>Identifies the <see cref="Title"/> dependency property.</summary>
+    #region Title / Message / Icon / Placement
+
     public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
-        nameof(Title),
-        typeof(string),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+        nameof(Title), typeof(string), typeof(PopConfirmButton), new PropertyMetadata(null));
 
-    /// <summary>Identifies the <see cref="Message"/> dependency property.</summary>
+    public string? Title
+    {
+        get => (string?)GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
+    }
+
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-        nameof(Message),
-        typeof(string),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+        nameof(Message), typeof(string), typeof(PopConfirmButton), new PropertyMetadata(null));
 
-    /// <summary>Identifies the <see cref="ConfirmButtonText"/> dependency property.</summary>
-    public static readonly DependencyProperty ConfirmButtonTextProperty = DependencyProperty.Register(
-        nameof(ConfirmButtonText),
-        typeof(string),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+    public string? Message
+    {
+        get => (string?)GetValue(MessageProperty);
+        set => SetValue(MessageProperty, value);
+    }
 
-    /// <summary>Identifies the <see cref="CancelButtonText"/> dependency property.</summary>
-    public static readonly DependencyProperty CancelButtonTextProperty = DependencyProperty.Register(
-        nameof(CancelButtonText),
-        typeof(string),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
-
-    /// <summary>Identifies the <see cref="MessageBoxIcon"/> dependency property.</summary>
     public static readonly DependencyProperty MessageBoxIconProperty = DependencyProperty.Register(
-        nameof(MessageBoxIcon),
-        typeof(MessageBoxIcon),
-        typeof(PopConfirmButton),
+        nameof(MessageBoxIcon), typeof(MessageBoxIcon), typeof(PopConfirmButton),
         new PropertyMetadata(MessageBoxIcon.Warning));
 
-    /// <summary>Identifies the <see cref="IsCloseButtonVisible"/> dependency property.</summary>
-    public static readonly DependencyProperty IsCloseButtonVisibleProperty = DependencyProperty.Register(
-        nameof(IsCloseButtonVisible),
-        typeof(bool),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(true));
+    public MessageBoxIcon MessageBoxIcon
+    {
+        get => (MessageBoxIcon)GetValue(MessageBoxIconProperty);
+        set => SetValue(MessageBoxIconProperty, value);
+    }
 
-    /// <summary>Identifies the <see cref="IsConfirmOpen"/> dependency property.</summary>
+    /// <summary>Chrome (header) dismiss X visibility — not the footer Close button.</summary>
+    public static readonly DependencyProperty IsCloseButtonVisibleProperty = DependencyProperty.Register(
+        nameof(IsCloseButtonVisible), typeof(bool), typeof(PopConfirmButton), new PropertyMetadata(true));
+
+    public bool IsCloseButtonVisible
+    {
+        get => (bool)GetValue(IsCloseButtonVisibleProperty);
+        set => SetValue(IsCloseButtonVisibleProperty, value);
+    }
+
     public static readonly DependencyProperty IsConfirmOpenProperty = DependencyProperty.Register(
-        nameof(IsConfirmOpen),
-        typeof(bool),
-        typeof(PopConfirmButton),
+        nameof(IsConfirmOpen), typeof(bool), typeof(PopConfirmButton),
         new PropertyMetadata(false, OnIsConfirmOpenChanged));
 
-    /// <summary>Identifies the <see cref="Placement"/> dependency property.</summary>
+    public bool IsConfirmOpen
+    {
+        get => (bool)GetValue(IsConfirmOpenProperty);
+        set => SetValue(IsConfirmOpenProperty, value);
+    }
+
     public static readonly DependencyProperty PlacementProperty = DependencyProperty.Register(
-        nameof(Placement),
-        typeof(PlacementMode),
-        typeof(PopConfirmButton),
+        nameof(Placement), typeof(PlacementMode), typeof(PopConfirmButton),
         new PropertyMetadata(PlacementMode.Bottom, OnPlacementChanged));
 
-    /// <summary>Identifies the <see cref="ConfirmedCommand"/> dependency property.</summary>
-    public static readonly DependencyProperty ConfirmedCommandProperty = DependencyProperty.Register(
-        nameof(ConfirmedCommand),
-        typeof(ICommand),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+    public PlacementMode Placement
+    {
+        get => (PlacementMode)GetValue(PlacementProperty);
+        set => SetValue(PlacementProperty, value);
+    }
 
-    /// <summary>Identifies the <see cref="ConfirmedCommandParameter"/> dependency property.</summary>
-    public static readonly DependencyProperty ConfirmedCommandParameterProperty = DependencyProperty.Register(
-        nameof(ConfirmedCommandParameter),
-        typeof(object),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+    #endregion
 
-    /// <summary>Identifies the <see cref="CancelledCommand"/> dependency property.</summary>
-    public static readonly DependencyProperty CancelledCommandProperty = DependencyProperty.Register(
-        nameof(CancelledCommand),
-        typeof(ICommand),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+    #region Primary
 
-    /// <summary>Identifies the <see cref="CancelledCommandParameter"/> dependency property.</summary>
-    public static readonly DependencyProperty CancelledCommandParameterProperty = DependencyProperty.Register(
-        nameof(CancelledCommandParameter),
-        typeof(object),
-        typeof(PopConfirmButton),
-        new PropertyMetadata(null));
+    public static readonly DependencyProperty PrimaryButtonTextProperty = DependencyProperty.Register(
+        nameof(PrimaryButtonText), typeof(string), typeof(PopConfirmButton),
+        new PropertyMetadata(null, OnFooterButtonTextChanged));
 
-    private static readonly DependencyPropertyKey DisplayConfirmButtonTextPropertyKey =
-        DependencyProperty.RegisterReadOnly(
-            nameof(DisplayConfirmButtonText),
-            typeof(string),
-            typeof(PopConfirmButton),
+    /// <summary>Primary footer label. <c>null</c> → localized OK; <c>""</c> → hide.</summary>
+    public string? PrimaryButtonText
+    {
+        get => (string?)GetValue(PrimaryButtonTextProperty);
+        set => SetValue(PrimaryButtonTextProperty, value);
+    }
+
+    public static readonly DependencyProperty PrimaryButtonCommandProperty = DependencyProperty.Register(
+        nameof(PrimaryButtonCommand), typeof(ICommand), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public ICommand? PrimaryButtonCommand
+    {
+        get => (ICommand?)GetValue(PrimaryButtonCommandProperty);
+        set => SetValue(PrimaryButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty PrimaryButtonCommandParameterProperty = DependencyProperty.Register(
+        nameof(PrimaryButtonCommandParameter), typeof(object), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public object? PrimaryButtonCommandParameter
+    {
+        get => GetValue(PrimaryButtonCommandParameterProperty);
+        set => SetValue(PrimaryButtonCommandParameterProperty, value);
+    }
+
+    public static readonly DependencyProperty IsPrimaryButtonEnabledProperty = DependencyProperty.Register(
+        nameof(IsPrimaryButtonEnabled), typeof(bool), typeof(PopConfirmButton), new PropertyMetadata(true));
+
+    public bool IsPrimaryButtonEnabled
+    {
+        get => (bool)GetValue(IsPrimaryButtonEnabledProperty);
+        set => SetValue(IsPrimaryButtonEnabledProperty, value);
+    }
+
+    #endregion
+
+    #region Secondary
+
+    public static readonly DependencyProperty SecondaryButtonTextProperty = DependencyProperty.Register(
+        nameof(SecondaryButtonText), typeof(string), typeof(PopConfirmButton),
+        new PropertyMetadata(null, OnFooterButtonTextChanged));
+
+    /// <summary>Secondary footer label. Shown only when non-null and non-empty (third button).</summary>
+    public string? SecondaryButtonText
+    {
+        get => (string?)GetValue(SecondaryButtonTextProperty);
+        set => SetValue(SecondaryButtonTextProperty, value);
+    }
+
+    public static readonly DependencyProperty SecondaryButtonCommandProperty = DependencyProperty.Register(
+        nameof(SecondaryButtonCommand), typeof(ICommand), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public ICommand? SecondaryButtonCommand
+    {
+        get => (ICommand?)GetValue(SecondaryButtonCommandProperty);
+        set => SetValue(SecondaryButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty SecondaryButtonCommandParameterProperty = DependencyProperty.Register(
+        nameof(SecondaryButtonCommandParameter), typeof(object), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public object? SecondaryButtonCommandParameter
+    {
+        get => GetValue(SecondaryButtonCommandParameterProperty);
+        set => SetValue(SecondaryButtonCommandParameterProperty, value);
+    }
+
+    public static readonly DependencyProperty IsSecondaryButtonEnabledProperty = DependencyProperty.Register(
+        nameof(IsSecondaryButtonEnabled), typeof(bool), typeof(PopConfirmButton), new PropertyMetadata(true));
+
+    public bool IsSecondaryButtonEnabled
+    {
+        get => (bool)GetValue(IsSecondaryButtonEnabledProperty);
+        set => SetValue(IsSecondaryButtonEnabledProperty, value);
+    }
+
+    #endregion
+
+    #region Close (footer)
+
+    public static readonly DependencyProperty CloseButtonTextProperty = DependencyProperty.Register(
+        nameof(CloseButtonText), typeof(string), typeof(PopConfirmButton),
+        new PropertyMetadata(null, OnFooterButtonTextChanged));
+
+    /// <summary>Close/cancel footer label. <c>null</c> → localized Cancel; <c>""</c> → hide.</summary>
+    public string? CloseButtonText
+    {
+        get => (string?)GetValue(CloseButtonTextProperty);
+        set => SetValue(CloseButtonTextProperty, value);
+    }
+
+    public static readonly DependencyProperty CloseButtonCommandProperty = DependencyProperty.Register(
+        nameof(CloseButtonCommand), typeof(ICommand), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public ICommand? CloseButtonCommand
+    {
+        get => (ICommand?)GetValue(CloseButtonCommandProperty);
+        set => SetValue(CloseButtonCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty CloseButtonCommandParameterProperty = DependencyProperty.Register(
+        nameof(CloseButtonCommandParameter), typeof(object), typeof(PopConfirmButton), new PropertyMetadata(null));
+
+    public object? CloseButtonCommandParameter
+    {
+        get => GetValue(CloseButtonCommandParameterProperty);
+        set => SetValue(CloseButtonCommandParameterProperty, value);
+    }
+
+    #endregion
+
+    #region Display / visibility (template)
+
+    private static readonly DependencyPropertyKey DisplayPrimaryButtonTextPropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(DisplayPrimaryButtonText), typeof(string), typeof(PopConfirmButton),
             new PropertyMetadata(string.Empty));
 
-    /// <summary>Identifies the <see cref="DisplayConfirmButtonText"/> dependency property.</summary>
-    public static readonly DependencyProperty DisplayConfirmButtonTextProperty =
-        DisplayConfirmButtonTextPropertyKey.DependencyProperty;
+    public static readonly DependencyProperty DisplayPrimaryButtonTextProperty =
+        DisplayPrimaryButtonTextPropertyKey.DependencyProperty;
 
-    private static readonly DependencyPropertyKey DisplayCancelButtonTextPropertyKey =
-        DependencyProperty.RegisterReadOnly(
-            nameof(DisplayCancelButtonText),
-            typeof(string),
-            typeof(PopConfirmButton),
+    public string DisplayPrimaryButtonText => (string)GetValue(DisplayPrimaryButtonTextProperty);
+
+    private static readonly DependencyPropertyKey DisplaySecondaryButtonTextPropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(DisplaySecondaryButtonText), typeof(string), typeof(PopConfirmButton),
             new PropertyMetadata(string.Empty));
 
-    /// <summary>Identifies the <see cref="DisplayCancelButtonText"/> dependency property.</summary>
-    public static readonly DependencyProperty DisplayCancelButtonTextProperty =
-        DisplayCancelButtonTextPropertyKey.DependencyProperty;
+    public static readonly DependencyProperty DisplaySecondaryButtonTextProperty =
+        DisplaySecondaryButtonTextPropertyKey.DependencyProperty;
 
-    /// <summary>Identifies the <see cref="ConfirmedEvent"/> routed event.</summary>
-    public static readonly RoutedEvent ConfirmedEvent = EventManager.RegisterRoutedEvent(
-        nameof(Confirmed),
-        RoutingStrategy.Bubble,
-        typeof(RoutedEventHandler),
-        typeof(PopConfirmButton));
+    public string DisplaySecondaryButtonText => (string)GetValue(DisplaySecondaryButtonTextProperty);
 
-    /// <summary>Identifies the <see cref="CancelledEvent"/> routed event.</summary>
-    public static readonly RoutedEvent CancelledEvent = EventManager.RegisterRoutedEvent(
-        nameof(Cancelled),
-        RoutingStrategy.Bubble,
-        typeof(RoutedEventHandler),
-        typeof(PopConfirmButton));
+    private static readonly DependencyPropertyKey DisplayCloseButtonTextPropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(DisplayCloseButtonText), typeof(string), typeof(PopConfirmButton),
+            new PropertyMetadata(string.Empty));
+
+    public static readonly DependencyProperty DisplayCloseButtonTextProperty =
+        DisplayCloseButtonTextPropertyKey.DependencyProperty;
+
+    public string DisplayCloseButtonText => (string)GetValue(DisplayCloseButtonTextProperty);
+
+    private static readonly DependencyPropertyKey IsPrimaryButtonVisiblePropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(IsPrimaryButtonVisible), typeof(bool), typeof(PopConfirmButton),
+            new PropertyMetadata(true));
+
+    public static readonly DependencyProperty IsPrimaryButtonVisibleProperty =
+        IsPrimaryButtonVisiblePropertyKey.DependencyProperty;
+
+    public bool IsPrimaryButtonVisible => (bool)GetValue(IsPrimaryButtonVisibleProperty);
+
+    private static readonly DependencyPropertyKey IsSecondaryButtonVisiblePropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(IsSecondaryButtonVisible), typeof(bool), typeof(PopConfirmButton),
+            new PropertyMetadata(false));
+
+    public static readonly DependencyProperty IsSecondaryButtonVisibleProperty =
+        IsSecondaryButtonVisiblePropertyKey.DependencyProperty;
+
+    public bool IsSecondaryButtonVisible => (bool)GetValue(IsSecondaryButtonVisibleProperty);
+
+    private static readonly DependencyPropertyKey IsCloseFooterButtonVisiblePropertyKey =
+        DependencyProperty.RegisterReadOnly(nameof(IsCloseFooterButtonVisible), typeof(bool), typeof(PopConfirmButton),
+            new PropertyMetadata(true));
+
+    public static readonly DependencyProperty IsCloseFooterButtonVisibleProperty =
+        IsCloseFooterButtonVisiblePropertyKey.DependencyProperty;
+
+    /// <summary>Whether the footer Close button is visible (independent of chrome X).</summary>
+    public bool IsCloseFooterButtonVisible => (bool)GetValue(IsCloseFooterButtonVisibleProperty);
+
+    #endregion
+
+    #region Events
+
+    public static readonly RoutedEvent PrimaryButtonClickEvent = EventManager.RegisterRoutedEvent(
+        nameof(PrimaryButtonClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(PopConfirmButton));
+
+    public event RoutedEventHandler PrimaryButtonClick
+    {
+        add => AddHandler(PrimaryButtonClickEvent, value);
+        remove => RemoveHandler(PrimaryButtonClickEvent, value);
+    }
+
+    public static readonly RoutedEvent SecondaryButtonClickEvent = EventManager.RegisterRoutedEvent(
+        nameof(SecondaryButtonClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(PopConfirmButton));
+
+    public event RoutedEventHandler SecondaryButtonClick
+    {
+        add => AddHandler(SecondaryButtonClickEvent, value);
+        remove => RemoveHandler(SecondaryButtonClickEvent, value);
+    }
+
+    public static readonly RoutedEvent CloseButtonClickEvent = EventManager.RegisterRoutedEvent(
+        nameof(CloseButtonClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(PopConfirmButton));
+
+    public event RoutedEventHandler CloseButtonClick
+    {
+        add => AddHandler(CloseButtonClickEvent, value);
+        remove => RemoveHandler(CloseButtonClickEvent, value);
+    }
+
+    #endregion
+
+    public ICommand InternalPrimaryCommand => _internalPrimaryCommand;
+
+    public ICommand InternalSecondaryCommand => _internalSecondaryCommand;
+
+    public ICommand InternalCloseCommand => _internalCloseCommand;
 
     static PopConfirmButton()
     {
@@ -164,183 +322,124 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
 
     public PopConfirmButton()
     {
-        _internalConfirmCommand = new PopConfirmActionCommand(ExecuteConfirm);
-        _internalCancelCommand = new PopConfirmActionCommand(ExecuteCancel);
+        _internalPrimaryCommand = new PopConfirmActionCommand(ExecutePrimary);
+        _internalSecondaryCommand = new PopConfirmActionCommand(ExecuteSecondary);
+        _internalCloseCommand = new PopConfirmActionCommand(ExecuteClose);
         Unloaded += OnUnloaded;
+        RefreshFooterButtonState();
     }
-
-    /// <summary>Gets or sets the confirmation title.</summary>
-    public string? Title
-    {
-        get => (string?)GetValue(TitleProperty);
-        set => SetValue(TitleProperty, value);
-    }
-
-    /// <summary>Gets or sets the secondary message under the title.</summary>
-    public string? Message
-    {
-        get => (string?)GetValue(MessageProperty);
-        set => SetValue(MessageProperty, value);
-    }
-
-    /// <summary>Gets or sets the confirm button label. Defaults to the localized OK string when null or empty.</summary>
-    public string? ConfirmButtonText
-    {
-        get => (string?)GetValue(ConfirmButtonTextProperty);
-        set => SetValue(ConfirmButtonTextProperty, value);
-    }
-
-    /// <summary>Gets or sets the cancel button label. Defaults to the localized Cancel string when null or empty.</summary>
-    public string? CancelButtonText
-    {
-        get => (string?)GetValue(CancelButtonTextProperty);
-        set => SetValue(CancelButtonTextProperty, value);
-    }
-
-    /// <summary>Gets or sets the icon shown beside the title (same glyphs/colors as <see cref="MessageBox"/>).</summary>
-    public MessageBoxIcon MessageBoxIcon
-    {
-        get => (MessageBoxIcon)GetValue(MessageBoxIconProperty);
-        set => SetValue(MessageBoxIconProperty, value);
-    }
-
-    /// <summary>Gets or sets whether the close (X) button is visible.</summary>
-    public bool IsCloseButtonVisible
-    {
-        get => (bool)GetValue(IsCloseButtonVisibleProperty);
-        set => SetValue(IsCloseButtonVisibleProperty, value);
-    }
-
-    /// <summary>Gets or sets whether the confirmation flyout is open.</summary>
-    public bool IsConfirmOpen
-    {
-        get => (bool)GetValue(IsConfirmOpenProperty);
-        set => SetValue(IsConfirmOpenProperty, value);
-    }
-
-    /// <summary>Gets or sets the flyout placement relative to the button.</summary>
-    public PlacementMode Placement
-    {
-        get => (PlacementMode)GetValue(PlacementProperty);
-        set => SetValue(PlacementProperty, value);
-    }
-
-    /// <summary>Gets or sets the command executed when the user confirms.</summary>
-    public ICommand? ConfirmedCommand
-    {
-        get => (ICommand?)GetValue(ConfirmedCommandProperty);
-        set => SetValue(ConfirmedCommandProperty, value);
-    }
-
-    /// <summary>Gets or sets the parameter for <see cref="ConfirmedCommand"/>.</summary>
-    public object? ConfirmedCommandParameter
-    {
-        get => GetValue(ConfirmedCommandParameterProperty);
-        set => SetValue(ConfirmedCommandParameterProperty, value);
-    }
-
-    /// <summary>Gets or sets the command executed when the user cancels or dismisses the flyout.</summary>
-    public ICommand? CancelledCommand
-    {
-        get => (ICommand?)GetValue(CancelledCommandProperty);
-        set => SetValue(CancelledCommandProperty, value);
-    }
-
-    /// <summary>Gets or sets the parameter for <see cref="CancelledCommand"/>.</summary>
-    public object? CancelledCommandParameter
-    {
-        get => GetValue(CancelledCommandParameterProperty);
-        set => SetValue(CancelledCommandParameterProperty, value);
-    }
-
-    /// <summary>Raised after the user confirms (after <see cref="ConfirmedCommand"/> is executed).</summary>
-    public event RoutedEventHandler Confirmed
-    {
-        add => AddHandler(ConfirmedEvent, value);
-        remove => RemoveHandler(ConfirmedEvent, value);
-    }
-
-    /// <summary>Raised when the user cancels or light-dismisses the flyout.</summary>
-    public event RoutedEventHandler Cancelled
-    {
-        add => AddHandler(CancelledEvent, value);
-        remove => RemoveHandler(CancelledEvent, value);
-    }
-
-    /// <summary>Command bound by the flyout Confirm button.</summary>
-    public ICommand InternalConfirmCommand => _internalConfirmCommand;
-
-    /// <summary>Command bound by the flyout Cancel / Close buttons.</summary>
-    public ICommand InternalCancelCommand => _internalCancelCommand;
-
-    /// <summary>Localized confirm label shown in the flyout.</summary>
-    public string DisplayConfirmButtonText => (string)GetValue(DisplayConfirmButtonTextProperty);
-
-    /// <summary>Localized cancel label shown in the flyout.</summary>
-    public string DisplayCancelButtonText => (string)GetValue(DisplayCancelButtonTextProperty);
 
     /// <inheritdoc />
     protected override void OnClick()
     {
-        // Opening / toggling the flyout must not run ConfirmedCommand / Button.Command.
         if (IsConfirmOpen)
         {
-            CloseConfirm(raiseCancelled: true);
+            CloseFlyout(raiseClose: true);
             return;
         }
 
         OpenConfirm();
     }
 
-    /// <summary>Opens the confirmation flyout.</summary>
     public void OpenConfirm()
     {
         EnsurePopup();
-        RefreshDisplayButtonTexts();
+        RefreshFooterButtonState();
         SetCurrentValue(IsConfirmOpenProperty, true);
     }
 
-    /// <summary>Closes the confirmation flyout without confirming.</summary>
-    public void CloseConfirm() => CloseConfirm(raiseCancelled: false);
+    public void CloseConfirm() => CloseFlyout(raiseClose: false);
 
-    private void CloseConfirm(bool raiseCancelled)
+    private void CloseFlyout(bool raiseClose)
     {
-        _skipCancelledOnClose = true;
+        _skipCloseOnPopupClosed = true;
         SetCurrentValue(IsConfirmOpenProperty, false);
 
-        if (raiseCancelled)
+        if (raiseClose)
         {
-            RaiseCancelled();
+            RaiseClose();
         }
     }
 
-    private void ExecuteConfirm()
+    private void ExecutePrimary()
     {
-        if (_confirming)
+        if (_executingFooter)
         {
             return;
         }
 
-        _confirming = true;
-        _skipCancelledOnClose = true;
+        _executingFooter = true;
+        _skipCloseOnPopupClosed = true;
         try
         {
             SetCurrentValue(IsConfirmOpenProperty, false);
-            TryExecuteCommand(ConfirmedCommand, ConfirmedCommandParameter);
-            RaiseEvent(new RoutedEventArgs(ConfirmedEvent, this));
+            TryExecuteCommand(PrimaryButtonCommand, PrimaryButtonCommandParameter);
+            RaiseEvent(new RoutedEventArgs(PrimaryButtonClickEvent, this));
         }
         finally
         {
-            _confirming = false;
+            _executingFooter = false;
         }
     }
 
-    private void ExecuteCancel() => CloseConfirm(raiseCancelled: true);
-
-    private void RaiseCancelled()
+    private void ExecuteSecondary()
     {
-        TryExecuteCommand(CancelledCommand, CancelledCommandParameter);
-        RaiseEvent(new RoutedEventArgs(CancelledEvent, this));
+        if (_executingFooter)
+        {
+            return;
+        }
+
+        _executingFooter = true;
+        _skipCloseOnPopupClosed = true;
+        try
+        {
+            SetCurrentValue(IsConfirmOpenProperty, false);
+            TryExecuteCommand(SecondaryButtonCommand, SecondaryButtonCommandParameter);
+            RaiseEvent(new RoutedEventArgs(SecondaryButtonClickEvent, this));
+        }
+        finally
+        {
+            _executingFooter = false;
+        }
+    }
+
+    private void ExecuteClose() => CloseFlyout(raiseClose: true);
+
+    private void RaiseClose()
+    {
+        TryExecuteCommand(CloseButtonCommand, CloseButtonCommandParameter);
+        RaiseEvent(new RoutedEventArgs(CloseButtonClickEvent, this));
+    }
+
+    private static void OnFooterButtonTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((PopConfirmButton)d).RefreshFooterButtonState();
+    }
+
+    private void RefreshFooterButtonState()
+    {
+        // Primary: null → default OK + visible; "" → hide; otherwise custom + visible
+        var primaryHidden = PrimaryButtonText == string.Empty;
+        SetValue(IsPrimaryButtonVisiblePropertyKey, !primaryHidden);
+        SetValue(
+            DisplayPrimaryButtonTextPropertyKey,
+            primaryHidden
+                ? string.Empty
+                : (string.IsNullOrEmpty(PrimaryButtonText) ? SH.ButtonOK : PrimaryButtonText));
+
+        // Secondary: only when explicitly set to non-empty
+        var secondaryVisible = !string.IsNullOrEmpty(SecondaryButtonText);
+        SetValue(IsSecondaryButtonVisiblePropertyKey, secondaryVisible);
+        SetValue(DisplaySecondaryButtonTextPropertyKey, secondaryVisible ? SecondaryButtonText! : string.Empty);
+
+        // Close footer: null → default Cancel + visible; "" → hide
+        var closeHidden = CloseButtonText == string.Empty;
+        SetValue(IsCloseFooterButtonVisiblePropertyKey, !closeHidden);
+        SetValue(
+            DisplayCloseButtonTextPropertyKey,
+            closeHidden
+                ? string.Empty
+                : (string.IsNullOrEmpty(CloseButtonText) ? SH.ButtonCancel : CloseButtonText));
     }
 
     private void EnsurePopup()
@@ -350,8 +449,6 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
             return;
         }
 
-        // Do NOT set Content = this: Popup would add the button as a logical child and
-        // create a cycle (button already has a parent in the page tree). Bindings use DataContext.
         _flyoutHost = new ContentControl
         {
             DataContext = this,
@@ -379,16 +476,6 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         _popup.Closed += OnPopupClosed;
     }
 
-    private void RefreshDisplayButtonTexts()
-    {
-        SetValue(
-            DisplayConfirmButtonTextPropertyKey,
-            string.IsNullOrEmpty(ConfirmButtonText) ? SH.ButtonOK : ConfirmButtonText);
-        SetValue(
-            DisplayCancelButtonTextPropertyKey,
-            string.IsNullOrEmpty(CancelButtonText) ? SH.ButtonCancel : CancelButtonText);
-    }
-
     private static void OnIsConfirmOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var owner = (PopConfirmButton)d;
@@ -398,16 +485,14 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         }
 
         owner.EnsurePopup();
-
-        var open = (bool)e.NewValue!;
         if (owner._popup is null)
         {
             return;
         }
 
-        if (open)
+        if ((bool)e.NewValue!)
         {
-            owner.RefreshDisplayButtonTexts();
+            owner.RefreshFooterButtonState();
             owner._popup.Placement = owner.Placement;
             owner._popup.PlacementTarget = owner;
             owner._popup.IsOpen = true;
@@ -452,15 +537,15 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
             _suppressIsOpenCallback = false;
         }
 
-        if (_skipCancelledOnClose)
+        if (_skipCloseOnPopupClosed)
         {
-            _skipCancelledOnClose = false;
+            _skipCloseOnPopupClosed = false;
             return;
         }
 
-        if (!_confirming)
+        if (!_executingFooter)
         {
-            RaiseCancelled();
+            RaiseClose();
         }
     }
 
@@ -495,7 +580,7 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
 
         public void Execute(object? parameter) => _execute();
 
-#pragma warning disable CS0067 // Event never used — required by ICommand.
+#pragma warning disable CS0067
         public event EventHandler? CanExecuteChanged;
 #pragma warning restore CS0067
     }

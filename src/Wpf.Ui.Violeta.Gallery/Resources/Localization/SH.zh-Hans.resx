@@ -6888,13 +6888,13 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>PopConfirmButton</value>
   </data>
   <data name="Sample_a7e3c91f20" xml:space="preserve">
-    <value>点击后先弹出确认浮层，确认后才执行 ConfirmedCommand。</value>
+    <value>对齐 ContentDialog 的 Primary / Secondary / Close；确认后执行 PrimaryButtonCommand。</value>
   </data>
   <data name="Sample_b8f4d02a31" xml:space="preserve">
     <value>基础用法</value>
   </data>
   <data name="Sample_c9e5a13b42" xml:space="preserve">
-    <value>绑定 ConfirmedCommand / CancelledCommand，确认或取消后分别执行。</value>
+    <value>默认 Primary + Close 两按钮；设置 SecondaryButtonText 可显示第三按钮。</value>
   </data>
   <data name="Sample_d0f6b24c53" xml:space="preserve">
     <value>MessageBox 图标</value>
@@ -6930,6 +6930,6 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>等待确认…</value>
   </data>
   <data name="Sample_8b41fd5704" xml:space="preserve">
-    <value>确认浮层后再执行 ConfirmedCommand</value>
+    <value>确认浮层（Primary / Close）</value>
   </data>
 </root>

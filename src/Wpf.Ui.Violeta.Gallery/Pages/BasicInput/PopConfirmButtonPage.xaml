@@ -45,20 +45,20 @@
                         <vio:PopConfirmButton
                             Margin="0,0,12,0"
                             Appearance="Primary"
-                            CancelledCommand="{Binding CancelledCommand}"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
+                            CloseButtonCommand="{Binding CloseCommand}"
                             Content="{I18N {x:Static lang:LangKeys.Sample_36fca802b9}}"
                             Message="{I18N {x:Static lang:LangKeys.Sample_25ebf791a8}}"
                             MessageBoxIcon="Warning"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="{I18N {x:Static lang:LangKeys.Sample_14dae68097}}" />
                         <vio:PopConfirmButton
                             Appearance="Danger"
-                            CancelledCommand="{Binding CancelledCommand}"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
+                            CloseButtonCommand="{Binding CloseCommand}"
                             Content="{I18N {x:Static lang:LangKeys.Sample_470db913c0}}"
                             Icon="{ui:SymbolIcon Delete24}"
                             Message="{I18N {x:Static lang:LangKeys.Sample_25ebf791a8}}"
                             MessageBoxIcon="Error"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="{I18N {x:Static lang:LangKeys.Sample_14dae68097}}" />
                     </StackPanel>
                     <TextBlock
@@ -66,6 +66,38 @@
                         Margin="0,12,0,0"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_7a30ec46f3}}" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Primary / Secondary / Close" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="Set SecondaryButtonText to show a third button (ContentDialog-style)."
+                        TextWrapping="Wrap" />
+                    <vio:PopConfirmButton
+                        Appearance="Primary"
+                        CloseButtonCommand="{Binding CloseCommand}"
+                        Content="{I18N {x:Static lang:LangKeys.Sample_36fca802b9}}"
+                        Message="{I18N {x:Static lang:LangKeys.Sample_25ebf791a8}}"
+                        MessageBoxIcon="Question"
+                        PrimaryButtonCommand="{Binding PrimaryCommand}"
+                        PrimaryButtonText="Save"
+                        SecondaryButtonCommand="{Binding SecondaryCommand}"
+                        SecondaryButtonText="Don't save"
+                        Title="{I18N {x:Static lang:LangKeys.Sample_14dae68097}}" />
                 </StackPanel>
             </Border>
 
@@ -91,36 +123,36 @@
                         <vio:PopConfirmButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
                             Content="Warning"
                             MessageBoxIcon="Warning"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="Warning" />
                         <vio:PopConfirmButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
                             Content="Error"
                             MessageBoxIcon="Error"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="Error" />
                         <vio:PopConfirmButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
                             Content="Information"
                             MessageBoxIcon="Information"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="Information" />
                         <vio:PopConfirmButton
                             Margin="0,0,8,0"
                             Appearance="Secondary"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
                             Content="Success"
                             MessageBoxIcon="Success"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="Success" />
                         <vio:PopConfirmButton
                             Appearance="Secondary"
-                            ConfirmedCommand="{Binding ConfirmedCommand}"
                             Content="Question"
                             MessageBoxIcon="Question"
+                            PrimaryButtonCommand="{Binding PrimaryCommand}"
                             Title="Question" />
                     </StackPanel>
                 </StackPanel>
@@ -152,20 +184,20 @@
                         CornerRadius="6">
                         <vio:ToolBar>
                             <vio:PopConfirmButton
-                                CancelledCommand="{Binding CancelledCommand}"
-                                ConfirmedCommand="{Binding ConfirmedCommand}"
+                                CloseButtonCommand="{Binding CloseCommand}"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_470db913c0}}"
                                 Icon="{ui:SymbolIcon Delete24}"
                                 Message="{I18N {x:Static lang:LangKeys.Sample_25ebf791a8}}"
                                 MessageBoxIcon="Warning"
+                                PrimaryButtonCommand="{Binding PrimaryCommand}"
                                 Style="{StaticResource ToolBarPopConfirmButtonStyle}"
                                 Title="{I18N {x:Static lang:LangKeys.Sample_14dae68097}}" />
                             <vio:PopConfirmButton
-                                CancelledCommand="{Binding CancelledCommand}"
-                                ConfirmedCommand="{Binding ConfirmedCommand}"
+                                CloseButtonCommand="{Binding CloseCommand}"
                                 Content="{I18N {x:Static lang:LangKeys.Sample_36fca802b9}}"
                                 Message="{I18N {x:Static lang:LangKeys.Sample_25ebf791a8}}"
                                 MessageBoxIcon="Information"
+                                PrimaryButtonCommand="{Binding PrimaryCommand}"
                                 Style="{StaticResource ToolBarPopConfirmButtonStyle}"
                                 Title="{I18N {x:Static lang:LangKeys.Sample_14dae68097}}" />
                         </vio:ToolBar>

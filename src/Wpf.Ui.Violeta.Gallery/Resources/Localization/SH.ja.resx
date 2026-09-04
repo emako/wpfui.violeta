@@ -6888,13 +6888,13 @@ OK をクリックして続行してください。</value>
     <value>PopConfirmButton</value>
   </data>
   <data name="Sample_a7e3c91f20" xml:space="preserve">
-    <value>クリック後に確認フライアウトを表示し、確認後にのみ ConfirmedCommand を実行します。</value>
+    <value>ContentDialog と同様の Primary / Secondary / Close。確認後に PrimaryButtonCommand を実行します。</value>
   </data>
   <data name="Sample_b8f4d02a31" xml:space="preserve">
     <value>基本</value>
   </data>
   <data name="Sample_c9e5a13b42" xml:space="preserve">
-    <value>ConfirmedCommand / CancelledCommand をバインドし、確認またはキャンセル後に実行します。</value>
+    <value>既定は Primary + Close。SecondaryButtonText を設定すると 3 ボタンになります。</value>
   </data>
   <data name="Sample_d0f6b24c53" xml:space="preserve">
     <value>MessageBox アイコン</value>
@@ -6930,6 +6930,6 @@ OK をクリックして続行してください。</value>
     <value>確認待ち…</value>
   </data>
   <data name="Sample_8b41fd5704" xml:space="preserve">
-    <value>ConfirmedCommand 実行前の確認フライアウト</value>
+    <value>確認フライアウト（Primary / Close）</value>
   </data>
 </root>

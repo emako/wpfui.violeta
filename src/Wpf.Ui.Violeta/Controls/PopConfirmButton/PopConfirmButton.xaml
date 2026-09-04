@@ -4,7 +4,9 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="clr-namespace:Wpf.Ui.Controls;assembly=Wpf.Ui">
 
-    <Style x:Key="PopConfirmCloseButtonStyle" TargetType="{x:Type Button}">
+    <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+    <Style x:Key="PopConfirmChromeCloseButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Width" Value="28" />
         <Setter Property="Height" Value="28" />
         <Setter Property="Padding" Value="0" />
@@ -118,32 +120,48 @@
                     </StackPanel>
 
                     <Button
-                        x:Name="CloseButton"
+                        x:Name="ChromeCloseButton"
                         Grid.Column="2"
                         Margin="0,-2,-2,0"
                         VerticalAlignment="Top"
-                        Command="{Binding InternalCancelCommand}"
-                        Style="{StaticResource PopConfirmCloseButtonStyle}" />
+                        Command="{Binding InternalCloseCommand}"
+                        Style="{StaticResource PopConfirmChromeCloseButtonStyle}" />
                 </Grid>
 
+                <!--  Footer: Close | Secondary | Primary (Primary = confirm, accent on the right).  -->
                 <StackPanel
                     Grid.Row="1"
                     Margin="0,14,0,0"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
                     <ui:Button
+                        x:Name="CloseFooterButton"
                         MinWidth="72"
                         Margin="0,0,8,0"
                         Padding="12,4"
                         Appearance="Secondary"
-                        Command="{Binding InternalCancelCommand}"
-                        Content="{Binding DisplayCancelButtonText}" />
+                        Command="{Binding InternalCloseCommand}"
+                        Content="{Binding DisplayCloseButtonText}"
+                        Visibility="{Binding IsCloseFooterButtonVisible, Converter={StaticResource BoolToVis}}" />
                     <ui:Button
+                        x:Name="SecondaryButton"
+                        MinWidth="72"
+                        Margin="0,0,8,0"
+                        Padding="12,4"
+                        Appearance="Secondary"
+                        Command="{Binding InternalSecondaryCommand}"
+                        Content="{Binding DisplaySecondaryButtonText}"
+                        IsEnabled="{Binding IsSecondaryButtonEnabled}"
+                        Visibility="{Binding IsSecondaryButtonVisible, Converter={StaticResource BoolToVis}}" />
+                    <ui:Button
+                        x:Name="PrimaryButton"
                         MinWidth="72"
                         Padding="12,4"
                         Appearance="Primary"
-                        Command="{Binding InternalConfirmCommand}"
-                        Content="{Binding DisplayConfirmButtonText}" />
+                        Command="{Binding InternalPrimaryCommand}"
+                        Content="{Binding DisplayPrimaryButtonText}"
+                        IsEnabled="{Binding IsPrimaryButtonEnabled}"
+                        Visibility="{Binding IsPrimaryButtonVisible, Converter={StaticResource BoolToVis}}" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -165,7 +183,17 @@
                 <Setter TargetName="MessageText" Property="Visibility" Value="Collapsed" />
             </DataTrigger>
             <DataTrigger Binding="{Binding IsCloseButtonVisible}" Value="False">
-                <Setter TargetName="CloseButton" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="ChromeCloseButton" Property="Visibility" Value="Collapsed" />
+            </DataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding IsSecondaryButtonVisible}" Value="False" />
+                    <Condition Binding="{Binding IsPrimaryButtonVisible}" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <Setter TargetName="CloseFooterButton" Property="Margin" Value="0" />
+            </MultiDataTrigger>
+            <DataTrigger Binding="{Binding IsPrimaryButtonVisible}" Value="False">
+                <Setter TargetName="SecondaryButton" Property="Margin" Value="0" />
             </DataTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
