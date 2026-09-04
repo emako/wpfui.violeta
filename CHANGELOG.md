@@ -7,6 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.12] - 2026-09-04
+
+* Add PopConfirmButton control
+* Add TabsTitleControl and gallery sample
+* Add FlexPanel control with StretchItems mode and gallery samples
+* Add Growl control and gallery integration
+* Add Descriptions control and gallery page
+* Add Gravatar control and gallery sample
+* Add Shield control inspired by HandyControl shields.io badges
+* Add BorderBeam control and Spin button mode
+* Add ContentWindowDialogControl with BusyMask, button alignment, and gallery sample
+* Add attached drag-and-drop framework and gallery sample
+* Add theme dictionary registration system
+* Add EmptySimpleLogo brush and gallery sample
+* Add vertical orientation support to Segmented and TabStrip
+* Animate Segmented indicator and selection chrome
+* Add configurable tab content transitions
+* Animate tabs scrollbar hover visibility
+* Add slider AutoToolTip hover, prefix/suffix, and RangeSlider fluent styling
+* Add command and shortcut text support to ComboBoxItem
+* Add command support to SegmentedItem selection
+* Support ToggleComboBox in toggle groups (default non-cancelable)
+* Add Width support to SymbolIconExtension and hotfix UTF-32-safe SymbolIcon
+* Make FormItem label/field alignment follow content alignment properties
+* Refine ColorPicker popup/preview UI and ColorView layout
+* Use Segmented for ColorView mode switch
+* Fix ColorPicker flyout closing when switching RGB/HSV (nested ComboBox popup)
+* Modernize emoji module with theme dictionaries and registration
+* Use localized SH resources for MessageBox/PendingBox buttons
+* Register Violeta XAML namespaces
+* Collapse dialog command area when no buttons are shown
+* Keep port binding in sync when cleared
+* Fix IPv4Box/IPv4PortBox showing empty when octet is padded to 0
+* Fix ToggleComboBox selected item display
+* Fix TimePickerPresenter not keeping Time in sync with panels
+* Fix NavigationView pill sync on search select
+* Fix StackPanel measure throwing on collapsed-only children
+* Guard SplitButton/DropDownButton open and release behavior
+* Fix exception window button icon styling
+* Improve TabStrip accent indicator and button animations
+* Refine ToolBar spacing and collapsed layout
+* Move required asterisk left of label and reserve placeholder space
+* Inline ripple adorner into ThemeSwitchEffect
+* Remove ThemeBinding markup extension; refactor theme refresh converter flow
+* Rename language manager to locale manager
+* Merge pivot tab helpers into PivotHelper
+* Make splash settings instance-based options
+
 ## [4.3.0.11] - 2026-08-25
 
 * Revert Grid definition DP init for XAML shorthand syntax (fixes PendingBox dialog layout)
