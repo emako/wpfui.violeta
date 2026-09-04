@@ -280,20 +280,29 @@
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
 
-                                    <ComboBox
-                                        x:Name="ColorModelComboBox"
+                                    <!--
+                                        Segmented (not ComboBox): ColorPicker's outer Popup uses StaysOpen=False,
+                                        so a nested ComboBox drop-down would dismiss the whole flyout on selection.
+                                    -->
+                                    <local:Segmented
+                                        x:Name="PART_ColorModelSegmented"
                                         Grid.Row="0"
                                         Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         Margin="{DynamicResource ColorViewNumericUpDownMargin}"
                                         VerticalAlignment="Center"
+                                        ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
                                         SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                         SelectedValuePath="Tag"
                                         Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
-                                        <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
-                                    </ComboBox>
+                                        <local:Segmented.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Rows="1" />
+                                            </ItemsPanelTemplate>
+                                        </local:Segmented.ItemsPanel>
+                                        <local:SegmentedItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
+                                        <local:SegmentedItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
+                                    </local:Segmented>
                                     <ui:TextBox
                                         x:Name="PART_HexTextBox"
                                         Grid.Row="0"
@@ -607,31 +616,32 @@
                                 Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
                                 Value="{Binding Value, ElementName=ColorSpectrumAlphaSlider, Mode=TwoWay}" />
 
-                            <ComboBox
-                                x:Name="ColorModelComboBox"
+                            <!-- Same nested-Popup issue as the default ColorView ColorModel switcher. -->
+                            <local:Segmented
+                                x:Name="PART_ColorModelSegmented"
                                 Grid.Column="3"
-                                Width="88"
                                 MinHeight="{DynamicResource TextControlThemeMinHeight}"
                                 VerticalAlignment="Stretch"
+                                ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
                                 SelectedIndex="0">
-                                <ComboBoxItem Content="Hex" />
-                                <ComboBoxItem Content="Rgba" />
-                                <ComboBoxItem Content="Hsva" />
-                            </ComboBox>
+                                <local:SegmentedItem Content="Hex" />
+                                <local:SegmentedItem Content="Rgba" />
+                                <local:SegmentedItem Content="Hsva" />
+                            </local:Segmented>
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=ColorModelComboBox}" Value="0">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="0">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=ColorModelComboBox}" Value="1">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="1">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=ColorModelComboBox}" Value="2">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="2">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Visible" />
