@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -211,7 +212,7 @@ public class FlexPanel : Panel
         typeof(FlexPanel),
         new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsArrange));
 
-    #endregion
+    #endregion Dependency Properties
 
     #region Attached Properties
 
@@ -259,10 +260,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static double GetGrow(DependencyObject element)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (double)element.GetValue(GrowProperty);
     }
@@ -272,10 +270,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static void SetGrow(DependencyObject element, double value)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         element.SetValue(GrowProperty, value);
     }
@@ -285,10 +280,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static double GetShrink(DependencyObject element)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (double)element.GetValue(ShrinkProperty);
     }
@@ -298,10 +290,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static void SetShrink(DependencyObject element, double value)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         element.SetValue(ShrinkProperty, value);
     }
@@ -311,10 +300,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static double GetBasis(DependencyObject element)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (double)element.GetValue(BasisProperty);
     }
@@ -324,10 +310,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static void SetBasis(DependencyObject element, double value)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         element.SetValue(BasisProperty, value);
     }
@@ -337,10 +320,7 @@ public class FlexPanel : Panel
     /// </summary>
     public static FlexAlign GetAlignSelf(DependencyObject element)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         return (FlexAlign)element.GetValue(AlignSelfProperty);
     }
@@ -350,15 +330,12 @@ public class FlexPanel : Panel
     /// </summary>
     public static void SetAlignSelf(DependencyObject element, FlexAlign value)
     {
-        if (element == null)
-        {
-            throw new ArgumentNullException(nameof(element));
-        }
+        _ = element ?? throw new ArgumentNullException(nameof(element));
 
         element.SetValue(AlignSelfProperty, value);
     }
 
-    #endregion
+    #endregion Attached Properties
 
     #region Properties
 
@@ -435,7 +412,7 @@ public class FlexPanel : Panel
         set => SetValue(StretchItemsProperty, value);
     }
 
-    #endregion
+    #endregion Properties
 
     #region Validation
 
@@ -448,7 +425,7 @@ public class FlexPanel : Panel
     private static bool IsBasisValid(object value)
         => value is double v && (double.IsNaN(v) || v >= 0);
 
-    #endregion
+    #endregion Validation
 
     #region Layout Helpers
 
@@ -479,6 +456,7 @@ public class FlexPanel : Panel
     private static Size CreateSize(double main, double cross, bool isHorizontal)
         => isHorizontal ? new Size(main, cross) : new Size(cross, main);
 
+    [SuppressMessage("Performance", "CA1822:Mark members as static")]
     private double GetChildBasis(UIElement child, bool isHorizontal)
         => GetChildBasisStatic(child, isHorizontal);
 
@@ -514,7 +492,7 @@ public class FlexPanel : Panel
         return StretchItems ? 1.0 : 0.0;
     }
 
-    #endregion
+    #endregion Layout Helpers
 
     #region FlexLine Helper Class
 
@@ -531,7 +509,7 @@ public class FlexPanel : Panel
         public double CrossSize { get; set; }
     }
 
-    #endregion
+    #endregion FlexLine Helper Class
 
     #region MeasureOverride
 
@@ -621,7 +599,7 @@ public class FlexPanel : Panel
         return lines;
     }
 
-    #endregion
+    #endregion MeasureOverride
 
     #region ArrangeOverride
 
@@ -896,5 +874,5 @@ public class FlexPanel : Panel
             _ => (lineOffset, lineSize),
         };
 
-    #endregion
+    #endregion ArrangeOverride
 }
