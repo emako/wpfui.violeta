@@ -1,15 +1,3 @@
-//
-//  Wpf.Ui.Emoji — Emoji support for WPF
-//
-//  Copyright © 2017–2023 Sam Hocevar <sam@hocevar.net>
-//
-//  This library is free software. It comes without any warranty, to
-//  the extent permitted by applicable law. You can redistribute it
-//  and/or modify it under the terms of the Do What the Fuck You Want
-//  to Public License, Version 2, as published by the WTFPL Task Force.
-//  See http://www.wtfpl.net/ for more details.
-//
-
 using Stfu.Linq;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +13,8 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-
-#if DEBUG
-
 using System.Windows.Markup;
-
-#endif
-
 using System.Windows.Media;
-
 using System.Windows.Controls;
 
 namespace Wpf.Ui.Emoji;
@@ -52,8 +33,8 @@ public sealed class TextSelection : TextRange
         get
         {
             var buf = new StringBuilder();
-
-            for (TextPointer p = Start, next = null;
+            TextPointer next;
+            for (TextPointer p = Start;
                  p != null && p.CompareTo(End) < 0;
                  p = next)
             {
