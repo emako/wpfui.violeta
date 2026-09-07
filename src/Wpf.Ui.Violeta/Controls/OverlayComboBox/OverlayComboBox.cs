@@ -164,6 +164,16 @@ public class OverlayComboBox : Selector
         }
     }
 
+    protected override void OnIsKeyboardFocusWithinChanged(DependencyPropertyChangedEventArgs e)
+    {
+        base.OnIsKeyboardFocusWithinChanged(e);
+
+        // Drop-down lives outside our visual tree (Canvas / Adorner), so losing focus here
+        // often means focus moved into the list — defer and re-check both hosts.
+        if (!(bool)e.NewValue && IsDropDownOpen)
+            Dispatcher.BeginInvoke(DispatcherPriority.Input, CloseIfFocusLeft);
+    }
+
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var combo = (OverlayComboBox)d;
@@ -202,6 +212,12 @@ public class OverlayComboBox : Selector
             else if (Window.GetWindow(this) is { } window)
                 window.PreviewMouseLeftButtonDown += OnOverlayPreviewMouseLeftButtonDown;
 
+            if (Window.GetWindow(this) is { } owner)
+                owner.Deactivated += OnOwnerDeactivated;
+
+            if (_dropDownList is not null)
+                _dropDownList.LostKeyboardFocus += OnDropDownLostKeyboardFocus;
+
             PositionDropDown();
             _dropDownList?.Focus();
         }));
@@ -212,12 +228,18 @@ public class OverlayComboBox : Selector
         if (_overlayLayer is not null)
             _overlayLayer.PreviewMouseLeftButtonDown -= OnOverlayPreviewMouseLeftButtonDown;
         if (Window.GetWindow(this) is { } window)
+        {
             window.PreviewMouseLeftButtonDown -= OnOverlayPreviewMouseLeftButtonDown;
-
-        DetachDropDown();
+            window.Deactivated -= OnOwnerDeactivated;
+        }
 
         if (_dropDownList is not null)
+        {
+            _dropDownList.LostKeyboardFocus -= OnDropDownLostKeyboardFocus;
             _dropDownList.SelectionChanged -= OnDropDownListSelectionChanged;
+        }
+
+        DetachDropDown();
 
         _dropDownBorder = null;
         _dropDownList = null;
@@ -447,6 +469,48 @@ public class OverlayComboBox : Selector
             return;
 
         SetCurrentValue(IsDropDownOpenProperty, false);
+    }
+
+    private void OnOwnerDeactivated(object? sender, EventArgs e) =>
+        SetCurrentValue(IsDropDownOpenProperty, false);
+
+    private void OnDropDownLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) =>
+        Dispatcher.BeginInvoke(DispatcherPriority.Input, CloseIfFocusLeft);
+
+    private void CloseIfFocusLeft()
+    {
+        if (!IsDropDownOpen)
+            return;
+
+        if (IsKeyboardFocusWithin || IsDropDownFocusWithin())
+            return;
+
+        SetCurrentValue(IsDropDownOpenProperty, false);
+    }
+
+    private bool IsDropDownFocusWithin()
+    {
+        if (_dropDownBorder is null && _dropDownList is null)
+            return false;
+
+        if (_dropDownList?.IsKeyboardFocusWithin == true || _dropDownBorder?.IsKeyboardFocusWithin == true)
+            return true;
+
+        return Keyboard.FocusedElement is DependencyObject focused &&
+               ((_dropDownBorder is not null && IsDescendantOf(focused, _dropDownBorder)) ||
+                (_dropDownList is not null && IsDescendantOf(focused, _dropDownList)));
+    }
+
+    private static bool IsDescendantOf(DependencyObject? element, DependencyObject? ancestor)
+    {
+        while (element is not null)
+        {
+            if (element == ancestor)
+                return true;
+            element = VisualTreeHelper.GetParent(element) ?? LogicalTreeHelper.GetParent(element);
+        }
+
+        return false;
     }
 
     private Canvas? FindOverlayLayer()
