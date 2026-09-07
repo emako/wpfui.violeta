@@ -91,10 +91,10 @@ class HVar : TableEntry
     {
         //DeltaSetIndexMap table:
         //Table 2
-        //Type      Name 	        Description
-        //uint16 	entryFormat 	A packed field that describes the compressed representation of delta-set indices. See details below.
-        //uint16 	mapCount    	The number of mapping entries.
-        //uint8 	mapData[variable] 	The delta-set index mapping data. See details below.
+        //Type      Name             Description
+        //uint16     entryFormat     A packed field that describes the compressed representation of delta-set indices. See details below.
+        //uint16     mapCount        The number of mapping entries.
+        //uint8     mapData[variable]     The delta-set index mapping data. See details below.
 
         ushort entryFormat = reader.ReadUInt16();
         ushort mapCount = reader.ReadUInt16();
@@ -112,10 +112,10 @@ class HVar : TableEntry
 
         //EntryFormat Field Masks
         //Table 3
-        //Mask  	Name 	                    Description
-        //0x000F 	INNER_INDEX_BIT_COUNT_MASK 	Mask for the low 4 bits, which give the count of bits minus one that are used in each entry for the inner-level index.
-        //0x0030 	MAP_ENTRY_SIZE_MASK 	    Mask for bits that indicate the size in bytes minus one of each entry.
-        //0xFFC0 	Reserved 	                Reserved for future use — set to 0.
+        //Mask      Name                         Description
+        //0x000F     INNER_INDEX_BIT_COUNT_MASK     Mask for the low 4 bits, which give the count of bits minus one that are used in each entry for the inner-level index.
+        //0x0030     MAP_ENTRY_SIZE_MASK         Mask for bits that indicate the size in bytes minus one of each entry.
+        //0xFFC0     Reserved                     Reserved for future use — set to 0.
 
         //see also: afdko\c\public\lib\source\varread\varread.c (Apache2)
 

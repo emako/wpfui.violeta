@@ -48,12 +48,12 @@ class Glyf : TableEntry
             {
                 //https://www.microsoft.com/typography/OTSPEC/glyf.htm
                 //header,
-                //Type 	    Name 	            Description
-                //SHORT 	numberOfContours 	If the number of contours is greater than or equal to zero, this is a single glyph; if negative, this is a composite glyph.
-                //SHORT 	xMin 	            Minimum x for coordinate data.
-                //SHORT 	yMin 	            Minimum y for coordinate data.
-                //SHORT 	xMax 	            Maximum x for coordinate data.
-                //SHORT 	yMax 	            Maximum y for coordinate data.
+                //Type         Name                 Description
+                //SHORT     numberOfContours     If the number of contours is greater than or equal to zero, this is a single glyph; if negative, this is a composite glyph.
+                //SHORT     xMin                 Minimum x for coordinate data.
+                //SHORT     yMin                 Minimum y for coordinate data.
+                //SHORT     xMax                 Maximum x for coordinate data.
+                //SHORT     yMax                 Maximum y for coordinate data.
                 short contoursCount = reader.ReadInt16();
                 if (contoursCount >= 0)
                 {
@@ -130,10 +130,10 @@ class Glyf : TableEntry
         //The delta-x and delta-y vectors represent these (often small) changes in position.
 
         //Each flag is a single bit. Their meanings are shown below.
-        //Bit	Flags  	        Description
+        //Bit    Flags              Description
         //0     ON_CURVE_POINT  If set, the point is on the curve; otherwise, it is off the curve.
         //1     X_SHORT_VECTOR  If set, the corresponding x-coordinate is 1 byte long. If not set, 2 bytes.
-        //2     Y_SHORT_VECTOR 	If set, the corresponding y-coordinate is 1 byte long. If not set, 2 bytes.
+        //2     Y_SHORT_VECTOR     If set, the corresponding y-coordinate is 1 byte long. If not set, 2 bytes.
         //3     REPEAT_FLAG     If set, the next byte specifies the number of additional times this set of flags is to be repeated.
         //                      In this way, the number of flags listed can be smaller than the number of points in a character.
 
@@ -152,8 +152,8 @@ class Glyf : TableEntry
         //                      If the y-Short Vector bit is not set and this bit is set, then the current y-coordinate is the same as the previous y-coordinate.
         //                      If the y-Short Vector bit is not set and this bit is also not set,
         //                      the current y-coordinate is a signed 16-bit delta vector.
-        //6     OVERLAP_SIMPLE 	This bit is reserved. Set it to zero. (not used in OpenType)
-        //7     Reserved 	 	This bit is reserved. Set it to zero.
+        //6     OVERLAP_SIMPLE     This bit is reserved. Set it to zero. (not used in OpenType)
+        //7     Reserved          This bit is reserved. Set it to zero.
 
         var xs = new short[pointCount];
         int x = 0;
@@ -200,13 +200,13 @@ class Glyf : TableEntry
         //This is the table information needed if numberOfContours is greater than zero,
         //that is, a glyph is not a composite.
 
-        //Type 	    Name 	                                Description
-        //uint16 	endPtsOfContours[numberOfContours] 	    Array of last points of each contour;
-        //uint16 	instructionLength 	                    Total number of bytes for instructions.
-        //uint8 	instructions[instructionLength] 	    Array of instructions for each glyph;
-        //uint8 	flags[variable] 	                    Array of flags for each coordinate in outline; variable is the number of flags.
-        //uint8 or int16 	xCoordinates[variable] 	        First coordinates relative to (0,0); others are relative to previous point.
-        //uint8 or int16 	yCoordinates[variable] 	        First coordinates relative to (0,0); others are relative to previous point.
+        //Type         Name                                     Description
+        //uint16     endPtsOfContours[numberOfContours]         Array of last points of each contour;
+        //uint16     instructionLength                         Total number of bytes for instructions.
+        //uint8     instructions[instructionLength]         Array of instructions for each glyph;
+        //uint8     flags[variable]                         Array of flags for each coordinate in outline; variable is the number of flags.
+        //uint8 or int16     xCoordinates[variable]             First coordinates relative to (0,0); others are relative to previous point.
+        //uint8 or int16     yCoordinates[variable]             First coordinates relative to (0,0); others are relative to previous point.
 
         ushort[] endPoints = Utils.ReadUInt16Array(reader, contourCount);
         //-------------------------------------------------------
@@ -235,20 +235,20 @@ class Glyf : TableEntry
     internal enum CompositeGlyphFlags : ushort
     {
         //These are the constants for the flags field:
-        //Bit   Flags 	 	            Description
-        //0     ARG_1_AND_2_ARE_WORDS  	If this is set, the arguments are words; otherwise, they are bytes.
-        //1     ARGS_ARE_XY_VALUES 	  	If this is set, the arguments are xy values; otherwise, they are points.
-        //2     ROUND_XY_TO_GRID 	  	For the xy values if the preceding is true.
-        //3     WE_HAVE_A_SCALE 	 	This indicates that there is a simple scale for the component. Otherwise, scale = 1.0.
-        //4     RESERVED 	        	This bit is reserved. Set it to 0.
-        //5     MORE_COMPONENTS 	    Indicates at least one more glyph after this one.
-        //6     WE_HAVE_AN_X_AND_Y_SCALE 	The x direction will use a different scale from the y direction.
-        //7     WE_HAVE_A_TWO_BY_TWO 	  	There is a 2 by 2 transformation that will be used to scale the component.
-        //8     WE_HAVE_INSTRUCTIONS 	 	Following the last component are instructions for the composite character.
-        //9     USE_MY_METRICS 	 	        If set, this forces the aw and lsb (and rsb) for the composite to be equal to those from this original glyph. This works for hinted and unhinted characters.
-        //10    OVERLAP_COMPOUND 	 	    If set, the components of the compound glyph overlap. Use of this flag is not required in OpenType — that is, it is valid to have components overlap without having this flag set. It may affect behaviors in some platforms, however. (See Apple’s specification for details regarding behavior in Apple platforms.)
-        //11    SCALED_COMPONENT_OFFSET 	The composite is designed to have the component offset scaled.
-        //12    UNSCALED_COMPONENT_OFFSET 	The composite is designed not to have the component offset scaled.
+        //Bit   Flags                      Description
+        //0     ARG_1_AND_2_ARE_WORDS      If this is set, the arguments are words; otherwise, they are bytes.
+        //1     ARGS_ARE_XY_VALUES           If this is set, the arguments are xy values; otherwise, they are points.
+        //2     ROUND_XY_TO_GRID           For the xy values if the preceding is true.
+        //3     WE_HAVE_A_SCALE          This indicates that there is a simple scale for the component. Otherwise, scale = 1.0.
+        //4     RESERVED                 This bit is reserved. Set it to 0.
+        //5     MORE_COMPONENTS         Indicates at least one more glyph after this one.
+        //6     WE_HAVE_AN_X_AND_Y_SCALE     The x direction will use a different scale from the y direction.
+        //7     WE_HAVE_A_TWO_BY_TWO           There is a 2 by 2 transformation that will be used to scale the component.
+        //8     WE_HAVE_INSTRUCTIONS          Following the last component are instructions for the composite character.
+        //9     USE_MY_METRICS                  If set, this forces the aw and lsb (and rsb) for the composite to be equal to those from this original glyph. This works for hinted and unhinted characters.
+        //10    OVERLAP_COMPOUND              If set, the components of the compound glyph overlap. Use of this flag is not required in OpenType — that is, it is valid to have components overlap without having this flag set. It may affect behaviors in some platforms, however. (See Apple’s specification for details regarding behavior in Apple platforms.)
+        //11    SCALED_COMPONENT_OFFSET     The composite is designed to have the component offset scaled.
+        //12    UNSCALED_COMPONENT_OFFSET     The composite is designed not to have the component offset scaled.
 
         ARG_1_AND_2_ARE_WORDS = 1,
         ARGS_ARE_XY_VALUES = 1 << 1,
@@ -274,11 +274,11 @@ class Glyf : TableEntry
         //This is the table information needed for composite glyphs (numberOfContours is -1).
         //A composite glyph starts with two USHORT values (“flags” and “glyphIndex,” i.e. the index of the first contour in this composite glyph);
         //the data then varies according to “flags”).
-        //Type 	    Name 	    Description
-        //uint16 	flags 	    component flag
-        //uint16 	glyphIndex 	glyph index of component
-        //VARIABLE 	argument1 	x-offset for component or point number; type depends on bits 0 and 1 in component flags
-        //VARIABLE 	argument2 	y-offset for component or point number; type depends on bits 0 and 1 in component flags
+        //Type         Name         Description
+        //uint16     flags         component flag
+        //uint16     glyphIndex     glyph index of component
+        //VARIABLE     argument1     x-offset for component or point number; type depends on bits 0 and 1 in component flags
+        //VARIABLE     argument2     y-offset for component or point number; type depends on bits 0 and 1 in component flags
         //---------
         //note: VARIABLE => may be uint8,int8,uint16 or int16
         //see more at https://fontforge.github.io/assets/old/Composites/index.html
@@ -486,7 +486,7 @@ class Glyf : TableEntry
             byte[] insts = reader.ReadBytes(numInstr);
             finalGlyph.GlyphInstructions = insts;
         }
-        //F2DOT14 	16-bit signed fixed number with the low 14 bits of fraction (2.14).
+        //F2DOT14     16-bit signed fixed number with the low 14 bits of fraction (2.14).
         //Transformation Option
         //
         //The C pseudo-code fragment below shows how the composite glyph information is stored and parsed; definitions for “flags” bits follow this fragment:

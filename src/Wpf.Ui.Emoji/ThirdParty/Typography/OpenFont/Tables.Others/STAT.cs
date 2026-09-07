@@ -229,7 +229,7 @@ class STAT : TableEntry
         public override void ReadContent(BinaryReader reader)
         {
             //at here, assume we have read format,
-            //Fixed =>	32-bit signed fixed-point number (16.16)
+            //Fixed =>    32-bit signed fixed-point number (16.16)
             axisIndex = reader.ReadUInt16();
             flags = reader.ReadUInt16();
             valueNameId = reader.ReadUInt16();

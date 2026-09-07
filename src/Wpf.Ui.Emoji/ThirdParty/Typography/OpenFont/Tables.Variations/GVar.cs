@@ -196,11 +196,11 @@ class GVar : TableEntry
 
             byte controlByte = reader.ReadByte();
 
-            //Mask 	Name 	                Description
-            //0x80 	POINTS_ARE_WORDS 	    Flag indicating the data type used for point numbers in this run.
+            //Mask     Name                     Description
+            //0x80     POINTS_ARE_WORDS         Flag indicating the data type used for point numbers in this run.
             //                              If set, the point numbers are stored as unsigned 16-bit values (uint16);
             //                              if clear, the point numbers are stored as unsigned bytes (uint8).
-            //0x7F 	POINT_RUN_COUNT_MASK 	Mask for the low 7 bits of the control byte to give the number of point number elements, minus 1.
+            //0x7F     POINT_RUN_COUNT_MASK     Mask for the low 7 bits of the control byte to give the number of point number elements, minus 1.
 
             int point_run_count = (controlByte & 0x7F) + 1;
             //In the first point run, the first point number is represented directly (that is, as a difference from zero).
@@ -253,11 +253,11 @@ class GVar : TableEntry
         //logical tuple variation tables — which is also the number of physical tuple variation headers.
         //The format of the tupleVariationCount value is as follows:
         //Table 4
-        //Mask 	    Name 	            Description
-        //0x8000 	SHARED_POINT_NUMBERS 	Flag indicating that some or all tuple variation tables reference a shared set of “point” numbers.
+        //Mask         Name                 Description
+        //0x8000     SHARED_POINT_NUMBERS     Flag indicating that some or all tuple variation tables reference a shared set of “point” numbers.
         //                                  These shared numbers are represented as packed point number data at the start of the serialized data.***
-        //0x7000 	Reserved 	        Reserved for future use — set to 0.
-        //0x0FFF 	COUNT_MASK 	        Mask for the low bits to give the number of tuple variation tables.
+        //0x7000     Reserved             Reserved for future use — set to 0.
+        //0x0FFF     COUNT_MASK             Mask for the low bits to give the number of tuple variation tables.
 
         int tupleCount = tupleVariationCount & 0xFFF;//low 12 bits are the number of tuple variation tables for this glyph
 
@@ -334,10 +334,10 @@ class GVar : TableEntry
             //The control byte is a packed value with flags in the high two bits and a count in the low six bits.
             //The flags specify the data size of the delta values in the run. The format of the control byte is as follows:
             //Packed Deltas
-            //Mask 	Name 	            Description
-            //0x80 	DELTAS_ARE_ZERO 	Flag indicating that this run contains no data (no explicit delta values are stored), and that all of the deltas for this run are zero.
-            //0x40 	DELTAS_ARE_WORDS 	Flag indicating the data type for delta values in the run. If set, the run contains 16-bit signed deltas (int16); if clear, the run contains 8-bit signed deltas (int8).
-            //0x3F 	DELTA_RUN_COUNT_MASK 	Mask for the low 6 bits to provide the number of delta values in the run, minus one.
+            //Mask     Name                 Description
+            //0x80     DELTAS_ARE_ZERO     Flag indicating that this run contains no data (no explicit delta values are stored), and that all of the deltas for this run are zero.
+            //0x40     DELTAS_ARE_WORDS     Flag indicating the data type for delta values in the run. If set, the run contains 16-bit signed deltas (int16); if clear, the run contains 8-bit signed deltas (int8).
+            //0x3F     DELTA_RUN_COUNT_MASK     Mask for the low 6 bits to provide the number of delta values in the run, minus one.
 
             List<short> packedDeltasXY = new List<short>();
             while (reader.BaseStream.Position < expect_endAt)

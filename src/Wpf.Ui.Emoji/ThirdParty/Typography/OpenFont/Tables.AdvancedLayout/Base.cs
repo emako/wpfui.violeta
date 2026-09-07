@@ -163,9 +163,9 @@ public class BASE : TableEntry
         //listed alphabetically, and a count of the total number of baseline Tags in the array (baseTagCount).
 
         //BaseTagList table
-        //Type 	    Name 	                    Description
-        //uint16 	baseTagCount 	            Number of baseline identification tags in this text direction — may be zero (0)
-        //Tag 	    baselineTags[baseTagCount] 	Array of 4-byte baseline identification tags — must be in alphabetical order
+        //Type         Name                         Description
+        //uint16     baseTagCount                 Number of baseline identification tags in this text direction — may be zero (0)
+        //Tag         baselineTags[baseTagCount]     Array of 4-byte baseline identification tags — must be in alphabetical order
 
         //see baseline tag =>  https://docs.microsoft.com/en-us/typography/opentype/spec/baselinetags
 
@@ -226,9 +226,9 @@ public class BASE : TableEntry
         //The baseScriptCount specifies the total number of BaseScriptRecords in the array.
 
         //BaseScriptList table
-        //Type  	        Name 	                            Description
-        //uint16 	        baseScriptCount 	                Number of BaseScriptRecords defined
-        //BaseScriptRecord 	baseScriptRecords[baseScriptCount] 	Array of BaseScriptRecords, in alphabetical order by baseScriptTag
+        //Type              Name                                 Description
+        //uint16             baseScriptCount                     Number of BaseScriptRecords defined
+        //BaseScriptRecord     baseScriptRecords[baseScriptCount]     Array of BaseScriptRecords, in alphabetical order by baseScriptTag
 
         long baseScriptListStartAt = reader.BaseStream.Position;
         ushort baseScriptCount = reader.ReadUInt16();
@@ -243,9 +243,9 @@ public class BASE : TableEntry
             //Each record also must include an offset to a BaseScript table that defines the baseline and min/max extent data for the script.
 
             //BaseScriptRecord
-            //Type 	    Name 	            Description
-            //Tag 	    baseScriptTag 	    4-byte script identification tag
-            //Offset16 	baseScriptOffset 	Offset to BaseScript table, from beginning of BaseScriptList
+            //Type         Name                 Description
+            //Tag         baseScriptTag         4-byte script identification tag
+            //Offset16     baseScriptOffset     Offset to BaseScript table, from beginning of BaseScriptList
             baseScriptRecord_offsets[i] = new BaseScriptRecord(ConvertToTagString(reader.ReadBytes(4)), reader.ReadUInt16());
         }
         BaseScript[] baseScripts = new BaseScript[baseScriptCount];
@@ -320,11 +320,11 @@ public class BASE : TableEntry
         long baseScriptTableStartAt = reader.BaseStream.Position;
 
         //BaseScript Table
-        //Type 	                Name 	                                Description
-        //Offset16 	            baseValuesOffset 	                    Offset to BaseValues table, from beginning of BaseScript table (may be NULL)
-        //Offset16 	            defaultMinMaxOffset 	                Offset to MinMax table, from beginning of BaseScript table (may be NULL)
-        //uint16    	        baseLangSysCount 	                    Number of BaseLangSysRecords defined — may be zero (0)
-        //BaseLangSysRecord 	baseLangSysRecords[baseLangSysCount] 	Array of BaseLangSysRecords, in alphabetical order by BaseLangSysTag
+        //Type                     Name                                     Description
+        //Offset16                 baseValuesOffset                         Offset to BaseValues table, from beginning of BaseScript table (may be NULL)
+        //Offset16                 defaultMinMaxOffset                     Offset to MinMax table, from beginning of BaseScript table (may be NULL)
+        //uint16                baseLangSysCount                         Number of BaseLangSysRecords defined — may be zero (0)
+        //BaseLangSysRecord     baseLangSysRecords[baseLangSysCount]     Array of BaseLangSysRecords, in alphabetical order by BaseLangSysTag
 
         ushort baseValueOffset = reader.ReadUInt16();
         ushort defaultMinMaxOffset = reader.ReadUInt16();
@@ -342,9 +342,9 @@ public class BASE : TableEntry
                 //that defines extent coordinate values for the language system and references feature-specific extent data.
 
                 //BaseLangSysRecord
-                //Type 	        Name 	        Description
-                //Tag 	        baseLangSysTag 	4-byte language system identification tag
-                //Offset16 	    minMaxOffset 	Offset to MinMax table, from beginning of BaseScript table
+                //Type             Name             Description
+                //Tag             baseLangSysTag     4-byte language system identification tag
+                //Offset16         minMaxOffset     Offset to MinMax table, from beginning of BaseScript table
                 baseLangSysRecords[i] = new BaseLangSysRecord(ConvertToTagString(reader.ReadBytes(4)), reader.ReadUInt16());
             }
         }
@@ -374,10 +374,10 @@ public class BASE : TableEntry
         //...
         //
         //BaseValues table
-        //Type 	    Name 	                    Description
-        //uint16 	defaultBaselineIndex 	    Index number of default baseline for this script — equals index position of baseline tag in baselineTags array of the BaseTagList
-        //uint16 	baseCoordCount          	Number of BaseCoord tables defined — should equal baseTagCount in the BaseTagList
-        //Offset16 	baseCoords[baseCoordCount] 	Array of offsets to BaseCoord tables, from beginning of BaseValues table — order matches baselineTags array in the BaseTagList
+        //Type         Name                         Description
+        //uint16     defaultBaselineIndex         Index number of default baseline for this script — equals index position of baseline tag in baselineTags array of the BaseTagList
+        //uint16     baseCoordCount              Number of BaseCoord tables defined — should equal baseTagCount in the BaseTagList
+        //Offset16     baseCoords[baseCoordCount]     Array of offsets to BaseCoord tables, from beginning of BaseValues table — order matches baselineTags array in the BaseTagList
 
         long baseValueTableStartAt = reader.BaseStream.Position;
 
@@ -465,9 +465,9 @@ public class BASE : TableEntry
         //but the BaseCoord value cannot be hinted for fine adjustments at different sizes or device resolutions.
 
         //BaseCoordFormat1 table: Design units only
-        //Type 	    Name 	            Description
-        //uint16 	baseCoordFormat 	Format identifier — format = 1
-        //int16 	coordinate 	        X or Y value, in design units
+        //Type         Name                 Description
+        //uint16     baseCoordFormat     Format identifier — format = 1
+        //int16     coordinate             X or Y value, in design units
         //----------------------
 
         //BaseCoord Format 2
@@ -480,11 +480,11 @@ public class BASE : TableEntry
         //Note: Glyph positioning operations defined in the GPOS table do not affect the point’s final position.
 
         //BaseCoordFormat2 table: Design units plus contour point
-        //Type 	    Name 	            Description
-        //uint16 	baseCoordFormat 	Format identifier — format = 2
-        //int16 	coordinate 	        X or Y value, in design units
-        //uint16 	referenceGlyph 	    Glyph ID of control glyph
-        //uint16 	baseCoordPoint 	    Index of contour point on the reference glyph
+        //Type         Name                 Description
+        //uint16     baseCoordFormat     Format identifier — format = 2
+        //int16     coordinate             X or Y value, in design units
+        //uint16     referenceGlyph         Glyph ID of control glyph
+        //uint16     baseCoordPoint         Index of contour point on the reference glyph
 
         //----------------------
         //BaseCoord Format 3
@@ -504,10 +504,10 @@ public class BASE : TableEntry
         // Note: If no VariationIndex table is used for a particular X or Y value (the offset is zero, or a different BaseCoord format is used), then that value is used for all variation instances.
 
         //BaseCoordFormat3 table: Design units plus Device or VariationIndex table
-        //Type 	    Name 	            Description
-        //uint16 	baseCoordFormat 	Format identifier — format = 3
-        //int16 	coordinate 	        X or Y value, in design units
-        //Offset16 	deviceTable 	    Offset to Device table (non-variable font) / Variation Index table (variable font) for X or Y value, from beginning of BaseCoord table (may be NULL).
+        //Type         Name                 Description
+        //uint16     baseCoordFormat     Format identifier — format = 3
+        //int16     coordinate             X or Y value, in design units
+        //Offset16     deviceTable         Offset to Device table (non-variable font) / Variation Index table (variable font) for X or Y value, from beginning of BaseCoord table (may be NULL).
 
         ushort baseCoordFormat = reader.ReadUInt16();
         switch (baseCoordFormat)
@@ -547,11 +547,11 @@ public class BASE : TableEntry
         //use the default min/max extent values for the script.
 
         //MinMax table
-        //Type 	            Name 	            Description
-        //Offset16 	        minCoord 	        Offset to BaseCoord table that defines the minimum extent value, from the beginning of MinMax table (may be NULL)
-        //Offset16      	maxCoord 	        Offset to BaseCoord table that defines maximum extent value, from the beginning of MinMax table (may be NULL)
-        //uint16 	        featMinMaxCount 	Number of FeatMinMaxRecords — may be zero (0)
-        //FeatMinMaxRecord 	featMinMaxRecords[featMinMaxCount] 	Array of FeatMinMaxRecords, in alphabetical order by featureTableTag
+        //Type                 Name                 Description
+        //Offset16             minCoord             Offset to BaseCoord table that defines the minimum extent value, from the beginning of MinMax table (may be NULL)
+        //Offset16          maxCoord             Offset to BaseCoord table that defines maximum extent value, from the beginning of MinMax table (may be NULL)
+        //uint16             featMinMaxCount     Number of FeatMinMaxRecords — may be zero (0)
+        //FeatMinMaxRecord     featMinMaxRecords[featMinMaxCount]     Array of FeatMinMaxRecords, in alphabetical order by featureTableTag
 
         //FeatMinMaxRecord
         //Type              Name                Description

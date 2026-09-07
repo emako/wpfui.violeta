@@ -301,10 +301,10 @@ public partial class GSUB : GlyphShapingTableEntry
             //---------------------------------
             //SingleSubstFormat1 subtable: Calculated output glyph indices
             //---------------------------------
-            //Type 	    Name 	        Description
-            //uint16 	SubstFormat 	Format identifier-format = 1
-            //Offset16 	Coverage 	    Offset to Coverage table-from beginning of Substitution table
-            //uint16 	DeltaGlyphID 	Add to original GlyphID to get substitute GlyphID
+            //Type         Name             Description
+            //uint16     SubstFormat     Format identifier-format = 1
+            //Offset16     Coverage         Offset to Coverage table-from beginning of Substitution table
+            //uint16     DeltaGlyphID     Add to original GlyphID to get substitute GlyphID
 
             //------------------------------------
             //1.2 Single Substitution Format 2
@@ -319,11 +319,11 @@ public partial class GSUB : GlyphShapingTableEntry
             //---------------------------------
             //SingleSubstFormat2 subtable: Specified output glyph indices
             //---------------------------------
-            //Type 	    Name 	        Description
-            //USHORT 	SubstFormat 	Format identifier-format = 2
-            //Offset 	Coverage 	    Offset to Coverage table-from beginning of Substitution table
-            //USHORT 	GlyphCount 	    Number of GlyphIDs in the Substitute array
-            //GlyphID 	Substitute[GlyphCount] 	Array of substitute GlyphIDs-ordered by Coverage Index
+            //Type         Name             Description
+            //USHORT     SubstFormat     Format identifier-format = 2
+            //Offset     Coverage         Offset to Coverage table-from beginning of Substitution table
+            //USHORT     GlyphCount         Number of GlyphIDs in the Substitute array
+            //GlyphID     Substitute[GlyphCount]     Array of substitute GlyphIDs-ordered by Coverage Index
             //---------------------------------
 
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
@@ -342,7 +342,7 @@ public partial class GSUB : GlyphShapingTableEntry
                 case 2:
                     {
                         ushort glyphCount = reader.ReadUInt16();
-                        ushort[] substituteGlyphs = Utils.ReadUInt16Array(reader, glyphCount); // 	Array of substitute GlyphIDs-ordered by Coverage Index
+                        ushort[] substituteGlyphs = Utils.ReadUInt16Array(reader, glyphCount); //     Array of substitute GlyphIDs-ordered by Coverage Index
                         CoverageTable coverageTable = CoverageTable.CreateFrom(reader, subTableStartAt + coverage);
                         return new LkSubTableT1Fmt2(coverageTable, substituteGlyphs);
                     }
@@ -425,16 +425,16 @@ public partial class GSUB : GlyphShapingTableEntry
             //----------------------
             //MultipleSubstFormat1 subtable: Multiple output glyphs
             //----------------------
-            //Type 	    Name 	                Description
-            //uint16 	SubstFormat 	        Format identifier-format = 1
-            //Offset16 	Coverage    	        Offset to Coverage table-from beginning of Substitution table
-            //uint16 	SequenceCount 	        Number of Sequence table offsets in the Sequence array
-            //Offset16 	Sequence[SequenceCount] Array of offsets to Sequence tables-from beginning of Substitution table-ordered by Coverage Index
+            //Type         Name                     Description
+            //uint16     SubstFormat             Format identifier-format = 1
+            //Offset16     Coverage                Offset to Coverage table-from beginning of Substitution table
+            //uint16     SequenceCount             Number of Sequence table offsets in the Sequence array
+            //Offset16     Sequence[SequenceCount] Array of offsets to Sequence tables-from beginning of Substitution table-ordered by Coverage Index
             ////----------------------
             //Sequence table
-            //Type 	    Name 	                Description
-            //uint16 	GlyphCount 	            Number of glyph IDs  in the Substitute array. This should always be greater than 0.
-            //uint16 	Substitute[GlyphCount]  String of glyph IDs  to substitute
+            //Type         Name                     Description
+            //uint16     GlyphCount                 Number of glyph IDs  in the Substitute array. This should always be greater than 0.
+            //uint16     Substitute[GlyphCount]  String of glyph IDs  to substitute
             //----------------------
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
             ushort format = reader.ReadUInt16();
@@ -630,9 +630,9 @@ public partial class GSUB : GlyphShapingTableEntry
         class LigatureSetTable
         {
             //LigatureSet table: All ligatures beginning with the same glyph
-            //Type 	    Name 	        Description
-            //uint16 	LigatureCount 	Number of Ligature tables
-            //Offset16 	Ligature[LigatureCount] 	Array of offsets to Ligature tables-from beginning of LigatureSet table-ordered by preference
+            //Type         Name             Description
+            //uint16     LigatureCount     Number of Ligature tables
+            //Offset16     Ligature[LigatureCount]     Array of offsets to Ligature tables-from beginning of LigatureSet table-ordered by preference
 
             public LigatureTable[] Ligatures { get; set; }
 
@@ -655,9 +655,9 @@ public partial class GSUB : GlyphShapingTableEntry
 
         readonly struct LigatureTable
         {
-            //uint16 	LigGlyph 	GlyphID of ligature to substitute
-            //uint16 	CompCount 	Number of components in the ligature
-            //uint16 	Component[CompCount - 1] 	Array of component GlyphIDs-start with the second component-ordered in writing direction
+            //uint16     LigGlyph     GlyphID of ligature to substitute
+            //uint16     CompCount     Number of components in the ligature
+            //uint16     Component[CompCount - 1]     Array of component GlyphIDs-start with the second component-ordered in writing direction
             /// <summary>
             /// output glyph
             /// </summary>
@@ -727,11 +727,11 @@ public partial class GSUB : GlyphShapingTableEntry
             //-----------------------------
             //LigatureSubstFormat1 subtable: All ligature substitutions in a script
             //-----------------------------
-            //Type 	    Name 	        Description
-            //uint16 	SubstFormat 	Format identifier-format = 1
-            //Offset16 	Coverage 	    Offset to Coverage table-from beginning of Substitution table
-            //uint16 	LigSetCount 	Number of LigatureSet tables
-            //Offset16 	LigatureSet[LigSetCount] 	Array of offsets to LigatureSet tables-from beginning of Substitution table-ordered by Coverage Index
+            //Type         Name             Description
+            //uint16     SubstFormat     Format identifier-format = 1
+            //Offset16     Coverage         Offset to Coverage table-from beginning of Substitution table
+            //uint16     LigSetCount     Number of LigatureSet tables
+            //Offset16     LigatureSet[LigSetCount]     Array of offsets to LigatureSet tables-from beginning of Substitution table-ordered by Coverage Index
             //-----------------------------
 
             //A LigatureSet table, one for each covered glyph,
@@ -749,9 +749,9 @@ public partial class GSUB : GlyphShapingTableEntry
             //-----------------------------
             //LigatureSet table: All ligatures beginning with the same glyph
             //-----------------------------
-            //Type  	Name 	                Description
-            //uint16 	LigatureCount 	        Number of Ligature tables
-            //Offset16 	Ligature[LigatureCount] Array of offsets to Ligature tables-from beginning of LigatureSet table-ordered by preference
+            //Type      Name                     Description
+            //uint16     LigatureCount             Number of Ligature tables
+            //Offset16     Ligature[LigatureCount] Array of offsets to Ligature tables-from beginning of LigatureSet table-ordered by preference
             //-----------------------------
 
             //For each ligature in the set, a Ligature table specifies the GlyphID of the output ligature glyph (LigGlyph);
@@ -768,10 +768,10 @@ public partial class GSUB : GlyphShapingTableEntry
             //-----------------------------
             //Ligature table: Glyph components for one ligature
             //-----------------------------
-            //Type 	    Name 	    Description
-            //uint16 	LigGlyph 	GlyphID of ligature to substitute
-            //uint16 	CompCount 	Number of components in the ligature
-            //uint16 	Component[CompCount - 1] 	Array of component GlyphIDs-start with the second component-ordered in writing direction
+            //Type         Name         Description
+            //uint16     LigGlyph     GlyphID of ligature to substitute
+            //uint16     CompCount     Number of components in the ligature
+            //uint16     Component[CompCount - 1]     Array of component GlyphIDs-start with the second component-ordered in writing direction
 
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
 
@@ -823,11 +823,11 @@ public partial class GSUB : GlyphShapingTableEntry
                     {
                         //ContextSubstFormat1 Subtable
                         //Table 14
-                        //Type  	Name 	            Description
-                        //uint16 	substFormat 	    Format identifier: format = 1
-                        //Offset16 	coverageOffset 	    Offset to Coverage table, from beginning of substitution subtable
-                        //uint16 	subRuleSetCount 	Number of SubRuleSet tables — must equal glyphCount in Coverage table***
-                        //Offset16 	subRuleSetOffsets[subRuleSetCount] 	Array of offsets to SubRuleSet tables.
+                        //Type      Name                 Description
+                        //uint16     substFormat         Format identifier: format = 1
+                        //Offset16     coverageOffset         Offset to Coverage table, from beginning of substitution subtable
+                        //uint16     subRuleSetCount     Number of SubRuleSet tables — must equal glyphCount in Coverage table***
+                        //Offset16     subRuleSetOffsets[subRuleSetCount]     Array of offsets to SubRuleSet tables.
                         //                              Offsets are from beginning of substitution subtable, ordered by Coverage index
 
                         LkSubTableT5Fmt1 fmt1 = new LkSubTableT5Fmt1();
@@ -849,12 +849,12 @@ public partial class GSUB : GlyphShapingTableEntry
                     {
                         //ContextSubstFormat2 Subtable
                         //Table 17
-                        //Type  	Name 	            Description
-                        //uint16 	substFormat 	    Format identifier: format = 2
-                        //Offset16 	coverageOffset      Offset to Coverage table, from beginning of substitution subtable
-                        //Offset16 	classDefOffset 	    Offset to glyph ClassDef table, from beginning of substitution subtable
-                        //uint16 	subClassSetCount 	Number of SubClassSet tables
-                        //Offset16 	subClassSetOffsets[subClassSetCount] 	Array of offsets to SubClassSet tables. Offsets are from beginning of substitution subtable, ordered by class (may be NULL).
+                        //Type      Name                 Description
+                        //uint16     substFormat         Format identifier: format = 2
+                        //Offset16     coverageOffset      Offset to Coverage table, from beginning of substitution subtable
+                        //Offset16     classDefOffset         Offset to glyph ClassDef table, from beginning of substitution subtable
+                        //uint16     subClassSetCount     Number of SubClassSet tables
+                        //Offset16     subClassSetOffsets[subClassSetCount]     Array of offsets to SubClassSet tables. Offsets are from beginning of substitution subtable, ordered by class (may be NULL).
 
                         LkSubTableT5Fmt2 fmt2 = new LkSubTableT5Fmt2();
                         ushort coverageOffset = reader.ReadUInt16();
@@ -941,11 +941,11 @@ public partial class GSUB : GlyphShapingTableEntry
         {
             //SubRule table: One simple context definition
             //Table 16
-            //Type 	            Name 	                            Description
-            //uint16 	        glyphCount 	                        Total number of glyphs in input glyph sequence — includes the first glyph.
-            //uint16 	        substitutionCount 	                Number of SubstLookupRecords
-            //uint16 	        inputSequence[glyphCount - 1] 	    Array of input glyph IDs — start with second glyph
-            //SubstLookupRecord substLookupRecords[substitutionCount] 	Array of SubstLookupRecords, in design order
+            //Type                 Name                                 Description
+            //uint16             glyphCount                             Total number of glyphs in input glyph sequence — includes the first glyph.
+            //uint16             substitutionCount                     Number of SubstLookupRecords
+            //uint16             inputSequence[glyphCount - 1]         Array of input glyph IDs — start with second glyph
+            //SubstLookupRecord substLookupRecords[substitutionCount]     Array of SubstLookupRecords, in design order
 
             public ushort[] inputSequence;
             public SubstLookupRecord[] substRecords;
@@ -1081,11 +1081,11 @@ public partial class GSUB : GlyphShapingTableEntry
         {
             //SubClassRule table: Context definition for one class
             //Table 19
-            //Type 	    Name 	            Description
-            //uint16 	glyphCount 	        Total number of classes specified for the context in the rule — includes the first class
-            //uint16 	substitutionCount 	Number of SubstLookupRecords
-            //uint16 	inputSequence[glyphCount - 1] 	Array of classes to be matched to the input glyph sequence, beginning with the second glyph position.
-            //SubstLookupRecord 	        substLookupRecords[substitutionCount] 	Array of Substitution lookups, in design order.
+            //Type         Name                 Description
+            //uint16     glyphCount             Total number of classes specified for the context in the rule — includes the first class
+            //uint16     substitutionCount     Number of SubstLookupRecords
+            //uint16     inputSequence[glyphCount - 1]     Array of classes to be matched to the input glyph sequence, beginning with the second glyph position.
+            //SubstLookupRecord             substLookupRecords[substitutionCount]     Array of Substitution lookups, in design order.
 
             public ushort[] inputSequence;
             public SubstLookupRecord[] substRecords;
@@ -1121,10 +1121,10 @@ public partial class GSUB : GlyphShapingTableEntry
         {
             //ChainSubRuleSet table: All contexts beginning with the same glyph
             //-------------------------------------------------------------------------
-            //Type  	Name 	                            Description
+            //Type      Name                                 Description
             //-------------------------------------------------------------------------
-            //uint16 	ChainSubRuleCount 	                Number of ChainSubRule tables
-            //Offset16 	ChainSubRule[ChainSubRuleCount] 	Array of offsets to ChainSubRule tables-from beginning of ChainSubRuleSet table-ordered by preference
+            //uint16     ChainSubRuleCount                     Number of ChainSubRule tables
+            //Offset16     ChainSubRule[ChainSubRuleCount]     Array of offsets to ChainSubRule tables-from beginning of ChainSubRuleSet table-ordered by preference
             //-------------------------------------------------------------------------
             //
             //A ChainSubRule table consists of a count of the glyphs to be matched in the backtrack,
@@ -1159,9 +1159,9 @@ public partial class GSUB : GlyphShapingTableEntry
         //---------------------
         //SubstLookupRecord
         //---------------------
-        //Type 	    Name 	            Description
-        //uint16 	SequenceIndex 	    Index into current glyph sequence-first glyph = 0
-        //uint16 	LookupListIndex 	Lookup to apply to that position-zero-based
+        //Type         Name                 Description
+        //uint16     SequenceIndex         Index into current glyph sequence-first glyph = 0
+        //uint16     LookupListIndex     Lookup to apply to that position-zero-based
         //---------------------
         //The SequenceIndex in a SubstLookupRecord must take into consideration the order
         //in which lookups are applied to the entire glyph sequence.
@@ -1212,15 +1212,15 @@ public partial class GSUB : GlyphShapingTableEntry
             //The array should list records in design order, or the order the lookups should be applied to the entire glyph sequence.
 
             //ChainSubRule subtable
-            //Type 	    Name 	                            Description
-            //uint16 	BacktrackGlyphCount 	            Total number of glyphs in the backtrack sequence (number of glyphs to be matched before the first glyph)
-            //uint16 	Backtrack[BacktrackGlyphCount] 	    Array of backtracking GlyphID's (to be matched before the input sequence)
-            //uint16 	InputGlyphCount 	                Total number of glyphs in the input sequence (includes the first glyph)
-            //uint16 	Input[InputGlyphCount - 1] 	        Array of input GlyphIDs (start with second glyph)
-            //uint16 	LookaheadGlyphCount 	            Total number of glyphs in the look ahead sequence (number of glyphs to be matched after the input sequence)
-            //uint16 	LookAhead[LookAheadGlyphCount]  	Array of lookahead GlyphID's (to be matched after the input sequence)
-            //uint16 	SubstCount 	                        Number of SubstLookupRecords
-            //struct 	SubstLookupRecord[SubstCount] 	    Array of SubstLookupRecords (in design order)
+            //Type         Name                                 Description
+            //uint16     BacktrackGlyphCount                 Total number of glyphs in the backtrack sequence (number of glyphs to be matched before the first glyph)
+            //uint16     Backtrack[BacktrackGlyphCount]         Array of backtracking GlyphID's (to be matched before the input sequence)
+            //uint16     InputGlyphCount                     Total number of glyphs in the input sequence (includes the first glyph)
+            //uint16     Input[InputGlyphCount - 1]             Array of input GlyphIDs (start with second glyph)
+            //uint16     LookaheadGlyphCount                 Total number of glyphs in the look ahead sequence (number of glyphs to be matched after the input sequence)
+            //uint16     LookAhead[LookAheadGlyphCount]      Array of lookahead GlyphID's (to be matched after the input sequence)
+            //uint16     SubstCount                             Number of SubstLookupRecords
+            //struct     SubstLookupRecord[SubstCount]         Array of SubstLookupRecords (in design order)
 
             private ushort[] backTrackingGlyphs;
             private ushort[] inputGlyphs;
@@ -1254,9 +1254,9 @@ public partial class GSUB : GlyphShapingTableEntry
             //----------------------------------
             //ChainSubRuleSet table: All contexts beginning with the same glyph
             //----------------------------------
-            //Type 	    Name 	                Description
-            //uint16 	ChainSubClassRuleCnt 	Number of ChainSubClassRule tables
-            //Offset16 	ChainSubClassRule[ChainSubClassRuleCount] 	Array of offsets to ChainSubClassRule tables-from beginning of ChainSubClassSet-ordered by preference
+            //Type         Name                     Description
+            //uint16     ChainSubClassRuleCnt     Number of ChainSubClassRule tables
+            //Offset16     ChainSubClassRule[ChainSubClassRuleCount]     Array of offsets to ChainSubClassRule tables-from beginning of ChainSubClassSet-ordered by preference
             //----------------------------------
             //For each context, a ChainSubClassRule table contains a count of the glyph classes in the context sequence (GlyphCount),
             //including the first class.
@@ -1292,15 +1292,15 @@ public partial class GSUB : GlyphShapingTableEntry
         class ChainSubClassRuleTable
         {
             //ChainSubClassRule table: Chaining context definition for one class
-            //Type 	    Name 	                        Description
-            //USHORT 	BacktrackGlyphCount 	        Total number of glyphs in the backtrack sequence (number of glyphs to be matched before the first glyph)
-            //USHORT 	Backtrack[BacktrackGlyphCount] 	Array of backtracking classes(to be matched before the input sequence)
-            //USHORT 	InputGlyphCount 	            Total number of classes in the input sequence (includes the first class)
-            //USHORT 	Input[InputGlyphCount - 1] 	    Array of input classes(start with second class; to be matched with the input glyph sequence)
-            //USHORT 	LookaheadGlyphCount 	        Total number of classes in the look ahead sequence (number of classes to be matched after the input sequence)
-            //USHORT 	LookAhead[LookAheadGlyphCount] 	Array of lookahead classes(to be matched after the input sequence)
-            //USHORT 	SubstCount 	                    Number of SubstLookupRecords
-            //struct 	SubstLookupRecord[SubstCount] 	Array of SubstLookupRecords (in design order)
+            //Type         Name                             Description
+            //USHORT     BacktrackGlyphCount             Total number of glyphs in the backtrack sequence (number of glyphs to be matched before the first glyph)
+            //USHORT     Backtrack[BacktrackGlyphCount]     Array of backtracking classes(to be matched before the input sequence)
+            //USHORT     InputGlyphCount                 Total number of classes in the input sequence (includes the first class)
+            //USHORT     Input[InputGlyphCount - 1]         Array of input classes(start with second class; to be matched with the input glyph sequence)
+            //USHORT     LookaheadGlyphCount             Total number of classes in the look ahead sequence (number of classes to be matched after the input sequence)
+            //USHORT     LookAhead[LookAheadGlyphCount]     Array of lookahead classes(to be matched after the input sequence)
+            //USHORT     SubstCount                         Number of SubstLookupRecords
+            //struct     SubstLookupRecord[SubstCount]     Array of SubstLookupRecords (in design order)
 
             private ushort[] backtrakcingClassDefs;
             private ushort[] inputClassDefs;
@@ -1481,11 +1481,11 @@ public partial class GSUB : GlyphShapingTableEntry
                         //-------------------------------
                         //ChainContextSubstFormat1 subtable: Simple context glyph substitution
                         //-------------------------------
-                        //Type  	Name 	                Description
-                        //uint16 	SubstFormat 	        Format identifier-format = 1
-                        //Offset16 	Coverage 	            Offset to Coverage table-from beginning of Substitution table
-                        //uint16 	ChainSubRuleSetCount 	Number of ChainSubRuleSet tables-must equal GlyphCount in Coverage table
-                        //Offset16 	ChainSubRuleSet[ChainSubRuleSetCount] 	Array of offsets to ChainSubRuleSet tables-from beginning of Substitution table-ordered by Coverage Index
+                        //Type      Name                     Description
+                        //uint16     SubstFormat             Format identifier-format = 1
+                        //Offset16     Coverage                 Offset to Coverage table-from beginning of Substitution table
+                        //uint16     ChainSubRuleSetCount     Number of ChainSubRuleSet tables-must equal GlyphCount in Coverage table
+                        //Offset16     ChainSubRuleSet[ChainSubRuleSetCount]     Array of offsets to ChainSubRuleSet tables-from beginning of Substitution table-ordered by Coverage Index
                         //-------------------------------
 
                         var subTable = new LkSubTableT6Fmt1();
@@ -1506,14 +1506,14 @@ public partial class GSUB : GlyphShapingTableEntry
                         //-------------------
                         //ChainContextSubstFormat2 subtable: Class-based chaining context glyph substitution
                         //-------------------
-                        //Type 	    Name 	            Description
-                        //uint16 	SubstFormat 	    Format identifier-format = 2
-                        //Offset16 	Coverage 	        Offset to Coverage table-from beginning of Substitution table
-                        //Offset16 	BacktrackClassDef 	Offset to glyph ClassDef table containing backtrack sequence data-from beginning of Substitution table
-                        //Offset16 	InputClassDef 	    Offset to glyph ClassDef table containing input sequence data-from beginning of Substitution table
-                        //Offset16 	LookaheadClassDef 	Offset to glyph ClassDef table containing lookahead sequence data-from beginning of Substitution table
-                        //uint16 	ChainSubClassSetCnt 	Number of ChainSubClassSet tables
-                        //Offset16 	ChainSubClassSet[ChainSubClassSetCnt] 	Array of offsets to ChainSubClassSet tables-from beginning of Substitution table-ordered by input class-may be NULL
+                        //Type         Name                 Description
+                        //uint16     SubstFormat         Format identifier-format = 2
+                        //Offset16     Coverage             Offset to Coverage table-from beginning of Substitution table
+                        //Offset16     BacktrackClassDef     Offset to glyph ClassDef table containing backtrack sequence data-from beginning of Substitution table
+                        //Offset16     InputClassDef         Offset to glyph ClassDef table containing input sequence data-from beginning of Substitution table
+                        //Offset16     LookaheadClassDef     Offset to glyph ClassDef table containing lookahead sequence data-from beginning of Substitution table
+                        //uint16     ChainSubClassSetCnt     Number of ChainSubClassSet tables
+                        //Offset16     ChainSubClassSet[ChainSubClassSetCnt]     Array of offsets to ChainSubClassSet tables-from beginning of Substitution table-ordered by input class-may be NULL
                         //-------------------
                         var subTable = new LkSubTableT6Fmt2();
                         ushort coverage = reader.ReadUInt16();
@@ -1548,14 +1548,14 @@ public partial class GSUB : GlyphShapingTableEntry
                         //6.3 Chaining Context Substitution Format 3: Coverage-based Chaining Context Glyph Substitution
                         //-------------------
                         //uint16    substFormat                     Format identifier: format = 3
-                        //uint16 	backtrackGlyphCount 	        Number of glyphs in the backtracking sequence
-                        //Offset16 	backtrackCoverageOffsets[backtrackGlyphCount] 	Array of offsets to coverage tables in backtracking sequence, in glyph sequence order
-                        //uint16 	inputGlyphCount 	            Number of glyphs in input sequence
-                        //Offset16 	inputCoverageOffsets[InputGlyphCount] 	    Array of offsets to coverage tables in input sequence, in glyph sequence order
-                        //uint16 	lookaheadGlyphCount 	        Number of glyphs in lookahead sequence
-                        //Offset16 	lookaheadCoverageOffsets[LookaheadGlyphCount] 	Array of offsets to coverage tables in lookahead sequence, in glyph sequence order
-                        //uint16 	substitutionCount 	                    Number of SubstLookupRecords
-                        //struct 	substLookupRecords[SubstCount] 	Array of SubstLookupRecords, in design order
+                        //uint16     backtrackGlyphCount             Number of glyphs in the backtracking sequence
+                        //Offset16     backtrackCoverageOffsets[backtrackGlyphCount]     Array of offsets to coverage tables in backtracking sequence, in glyph sequence order
+                        //uint16     inputGlyphCount                 Number of glyphs in input sequence
+                        //Offset16     inputCoverageOffsets[InputGlyphCount]         Array of offsets to coverage tables in input sequence, in glyph sequence order
+                        //uint16     lookaheadGlyphCount             Number of glyphs in lookahead sequence
+                        //Offset16     lookaheadCoverageOffsets[LookaheadGlyphCount]     Array of offsets to coverage tables in lookahead sequence, in glyph sequence order
+                        //uint16     substitutionCount                         Number of SubstLookupRecords
+                        //struct     substLookupRecords[SubstCount]     Array of SubstLookupRecords, in design order
                         //-------------------
                         LkSubTableT6Fmt3 subTable = new LkSubTableT6Fmt3();
                         ushort backtrackingGlyphCount = reader.ReadUInt16();

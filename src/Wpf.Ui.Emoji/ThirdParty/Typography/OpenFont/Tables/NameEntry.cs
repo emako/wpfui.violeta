@@ -100,10 +100,10 @@ namespace Typography.OpenFont.Tables
         /// </summary>
         public string FontName { get; private set; }
         /// <summary>
-        ///  	Font Subfamily name. The Font Subfamily name distinguishes the fonts in a group with the 
-        ///  	same Font Family name (name ID 1).
-        ///  	This is assumed to address style (italic, oblique) and weight variants only. 
-        ///  	
+        ///      Font Subfamily name. The Font Subfamily name distinguishes the fonts in a group with the 
+        ///      same Font Family name (name ID 1).
+        ///      This is assumed to address style (italic, oblique) and weight variants only. 
+        ///      
         ///      A font with no distinctive weight or style (e.g. medium weight, not italic, and OS/2.fsSelection bit 6 set) 
         ///      should use the string “Regular” as the Font Subfamily name (for English language). 
         /// </summary>

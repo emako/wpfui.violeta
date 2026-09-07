@@ -135,23 +135,23 @@ public class OpenFontReader
     {
         //https://docs.microsoft.com/en-us/typography/opentype/spec/otff#ttc-header
         //TTC Header Version 1.0:
-        //Type 	    Name 	        Description
-        //TAG 	    ttcTag 	        Font Collection ID string: 'ttcf' (used for fonts with CFF or CFF2 outlines as well as TrueType outlines)
-        //uint16 	majorVersion 	Major version of the TTC Header, = 1.
-        //uint16 	minorVersion 	Minor version of the TTC Header, = 0.
-        //uint32 	numFonts 	    Number of fonts in TTC
-        //Offset32 	offsetTable[numFonts] 	Array of offsets to the OffsetTable for each font from the beginning of the file
+        //Type         Name             Description
+        //TAG         ttcTag             Font Collection ID string: 'ttcf' (used for fonts with CFF or CFF2 outlines as well as TrueType outlines)
+        //uint16     majorVersion     Major version of the TTC Header, = 1.
+        //uint16     minorVersion     Minor version of the TTC Header, = 0.
+        //uint32     numFonts         Number of fonts in TTC
+        //Offset32     offsetTable[numFonts]     Array of offsets to the OffsetTable for each font from the beginning of the file
 
         //TTC Header Version 2.0:
-        //Type 	    Name 	        Description
-        //TAG 	    ttcTag 	        Font Collection ID string: 'ttcf'
-        //uint16 	majorVersion 	Major version of the TTC Header, = 2.
-        //uint16 	minorVersion 	Minor version of the TTC Header, = 0.
-        //uint32 	numFonts 	    Number of fonts in TTC
-        //Offset32 	offsetTable[numFonts] 	Array of offsets to the OffsetTable for each font from the beginning of the file
-        //uint32 	dsigTag 	    Tag indicating that a DSIG table exists, 0x44534947 ('DSIG') (null if no signature)
-        //uint32 	dsigLength 	    The length (in bytes) of the DSIG table (null if no signature)
-        //uint32 	dsigOffset 	    The offset (in bytes) of the DSIG table from the beginning of the TTC file (null if no signature)
+        //Type         Name             Description
+        //TAG         ttcTag             Font Collection ID string: 'ttcf'
+        //uint16     majorVersion     Major version of the TTC Header, = 2.
+        //uint16     minorVersion     Minor version of the TTC Header, = 0.
+        //uint32     numFonts         Number of fonts in TTC
+        //Offset32     offsetTable[numFonts]     Array of offsets to the OffsetTable for each font from the beginning of the file
+        //uint32     dsigTag         Tag indicating that a DSIG table exists, 0x44534947 ('DSIG') (null if no signature)
+        //uint32     dsigLength         The length (in bytes) of the DSIG table (null if no signature)
+        //uint32     dsigOffset         The offset (in bytes) of the DSIG table from the beginning of the TTC file (null if no signature)
 
         FontCollectionHeader ttcHeader = new()
         {

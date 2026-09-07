@@ -61,12 +61,12 @@ class Meta : TableEntry
         //The metadata table begins with a header, structured as follows.
 
         //Metadata header:
-        //Type 	    Name 	        Description
-        //uint32 	version 	    Version number of the metadata table — set to 1.
-        //uint32 	flags 	        Flags — currently unused; set to 0.
-        //uint32 	(reserved) 	    Not used; should be set to 0.
-        //uint32 	dataMapsCount 	The number of data maps in the table.
-        //DataMap 	dataMaps[dataMapsCount] 	Array of data map records.
+        //Type         Name             Description
+        //uint32     version         Version number of the metadata table — set to 1.
+        //uint32     flags             Flags — currently unused; set to 0.
+        //uint32     (reserved)         Not used; should be set to 0.
+        //uint32     dataMapsCount     The number of data maps in the table.
+        //DataMap     dataMaps[dataMapsCount]     Array of data map records.
 
         long tableStartsAt = reader.BaseStream.Position;//***
 
@@ -148,13 +148,13 @@ class Meta : TableEntry
 
                         //A list of tags is interpreted to imply that all of the languages or scripts are included.
 
-                        //dlng 	Design languages Text,
+                        //dlng     Design languages Text,
                         //using only Basic Latin (ASCII) characters.
                         //Indicates languages and/or scripts for the user audiences that the font was primarily designed for.
 
                         //Only one instance is used.
 
-                        //dlng 	Design languages Text,
+                        //dlng     Design languages Text,
                         //The 'dlng' value is used to indicate the languages or scripts of the primary user audiences for which the font was designed.
 
                         //This value may be useful for selecting default font formatting based on content language,

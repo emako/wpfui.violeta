@@ -534,7 +534,7 @@ class Type2CharStringParser
     //mt = moveto (i.e.any of the moveto) operators
 
     //subpath = refers to the construction of a subpath(one complete closed contour),
-    // 	        which may include hintmaskoperators where appropriate.
+    //             which may include hintmaskoperators where appropriate.
 
     //-------------
     //

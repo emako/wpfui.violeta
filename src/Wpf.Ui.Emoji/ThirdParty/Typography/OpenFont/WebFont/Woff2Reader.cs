@@ -51,7 +51,7 @@ class Woff2TableDirectory
 {
     //TableDirectoryEntry
     //UInt8         flags           table type and flags
-    //UInt32        tag	            4-byte tag(optional)
+    //UInt32        tag                4-byte tag(optional)
     //UIntBase128   origLength      length of original table
     //UIntBase128   transformLength transformed length(if applicable)
 
@@ -165,7 +165,7 @@ class TransformedGlyf : UnreadTableEntry
         //Vary      compositeStream[]       Stream of bytes representing component flag values and associated composite glyph data
         //UInt8     bboxBitmap[]            Bitmap(a numGlyphs-long bit array) indicating explicit bounding boxes
         //Int16     bboxStream[]            Stream of Int16 values representing glyph bounding box data
-        //UInt8     instructionStream[]	    Stream of UInt8 values representing a set of instructions for each corresponding glyph
+        //UInt8     instructionStream[]        Stream of UInt8 values representing a set of instructions for each corresponding glyph
 
         reader.BaseStream.Position = woff2TableDir.ExpectedStartAt;
 
@@ -1500,7 +1500,7 @@ class Woff2Reader
         {
             //TableDirectoryEntry
             //UInt8         flags           table type and flags
-            //UInt32        tag	            4-byte tag(optional)
+            //UInt32        tag                4-byte tag(optional)
             //UIntBase128   origLength      length of original table
             //UIntBase128   transformLength transformed length(if applicable)
 
@@ -1637,22 +1637,22 @@ class Woff2Reader
     {
          //Known Table Tags
         //Flag  Tag         Flag  Tag       Flag  Tag        Flag    Tag
-        //0	 => cmap,	    16 =>EBLC,	    32 =>CBDT,	     48 =>gvar,
-        //1  => head,	    17 =>gasp,	    33 =>CBLC,	     49 =>hsty,
-        //2	 => hhea,	    18 =>hdmx,	    34 =>COLR,	     50 =>just,
-        //3	 => hmtx,	    19 =>kern,	    35 =>CPAL,	     51 =>lcar,
-        //4	 => maxp,	    20 =>LTSH,	    36 =>SVG ,	     52 =>mort,
-        //5	 => name,	    21 =>PCLT,	    37 =>sbix,	     53 =>morx,
-        //6	 => OS/2,	    22 =>VDMX,	    38 =>acnt,	     54 =>opbd,
-        //7	 => post,	    23 =>vhea,	    39 =>avar,	     55 =>prop,
-        //8	 => cvt ,	    24 =>vmtx,	    40 =>bdat,	     56 =>trak,
-        //9	 => fpgm,	    25 =>BASE,	    41 =>bloc,	     57 =>Zapf,
-        //10 =>	glyf,	    26 =>GDEF,	    42 =>bsln,	     58 =>Silf,
-        //11 =>	loca,	    27 =>GPOS,	    43 =>cvar,	     59 =>Glat,
-        //12 =>	prep,	    28 =>GSUB,	    44 =>fdsc,	     60 =>Gloc,
-        //13 =>	CFF ,	    29 =>EBSC,	    45 =>feat,	     61 =>Feat,
-        //14 =>	VORG,	    30 =>JSTF,	    46 =>fmtx,	     62 =>Sill,
-        //15 =>	EBDT,	    31 =>MATH,	    47 =>fvar,	     63 =>arbitrary tag follows,...
+        //0     => cmap,        16 =>EBLC,        32 =>CBDT,         48 =>gvar,
+        //1  => head,        17 =>gasp,        33 =>CBLC,         49 =>hsty,
+        //2     => hhea,        18 =>hdmx,        34 =>COLR,         50 =>just,
+        //3     => hmtx,        19 =>kern,        35 =>CPAL,         51 =>lcar,
+        //4     => maxp,        20 =>LTSH,        36 =>SVG ,         52 =>mort,
+        //5     => name,        21 =>PCLT,        37 =>sbix,         53 =>morx,
+        //6     => OS/2,        22 =>VDMX,        38 =>acnt,         54 =>opbd,
+        //7     => post,        23 =>vhea,        39 =>avar,         55 =>prop,
+        //8     => cvt ,        24 =>vmtx,        40 =>bdat,         56 =>trak,
+        //9     => fpgm,        25 =>BASE,        41 =>bloc,         57 =>Zapf,
+        //10 =>    glyf,        26 =>GDEF,        42 =>bsln,         58 =>Silf,
+        //11 =>    loca,        27 =>GPOS,        43 =>cvar,         59 =>Glat,
+        //12 =>    prep,        28 =>GSUB,        44 =>fdsc,         60 =>Gloc,
+        //13 =>    CFF ,        29 =>EBSC,        45 =>feat,         61 =>Feat,
+        //14 =>    VORG,        30 =>JSTF,        46 =>fmtx,         62 =>Sill,
+        //15 =>    EBDT,        31 =>MATH,        47 =>fvar,         63 =>arbitrary tag follows,...
         //-------------------------------------------------------------------
 
         //-- TODO:implement missing table too!
@@ -1694,22 +1694,22 @@ class Woff2Reader
 
         //Known Table Tags (copy,same as above)
         //Flag  Tag         Flag  Tag       Flag  Tag        Flag    Tag
-        //0	 => cmap,	    16 =>EBLC,	    32 =>CBDT,	     48 =>gvar,
-        //1  => head,	    17 =>gasp,	    33 =>CBLC,	     49 =>hsty,
-        //2	 => hhea,	    18 =>hdmx,	    34 =>COLR,	     50 =>just,
-        //3	 => hmtx,	    19 =>kern,	    35 =>CPAL,	     51 =>lcar,
-        //4	 => maxp,	    20 =>LTSH,	    36 =>SVG ,	     52 =>mort,
-        //5	 => name,	    21 =>PCLT,	    37 =>sbix,	     53 =>morx,
-        //6	 => OS/2,	    22 =>VDMX,	    38 =>acnt,	     54 =>opbd,
-        //7	 => post,	    23 =>vhea,	    39 =>avar,	     55 =>prop,
-        //8	 => cvt ,	    24 =>vmtx,	    40 =>bdat,	     56 =>trak,
-        //9	 => fpgm,	    25 =>BASE,	    41 =>bloc,	     57 =>Zapf,
-        //10 =>	glyf,	    26 =>GDEF,	    42 =>bsln,	     58 =>Silf,
-        //11 =>	loca,	    27 =>GPOS,	    43 =>cvar,	     59 =>Glat,
-        //12 =>	prep,	    28 =>GSUB,	    44 =>fdsc,	     60 =>Gloc,
-        //13 =>	CFF ,	    29 =>EBSC,	    45 =>feat,	     61 =>Feat,
-        //14 =>	VORG,	    30 =>JSTF,	    46 =>fmtx,	     62 =>Sill,
-        //15 =>	EBDT,	    31 =>MATH,	    47 =>fvar,	     63 =>arbitrary tag follows,...
+        //0     => cmap,        16 =>EBLC,        32 =>CBDT,         48 =>gvar,
+        //1  => head,        17 =>gasp,        33 =>CBLC,         49 =>hsty,
+        //2     => hhea,        18 =>hdmx,        34 =>COLR,         50 =>just,
+        //3     => hmtx,        19 =>kern,        35 =>CPAL,         51 =>lcar,
+        //4     => maxp,        20 =>LTSH,        36 =>SVG ,         52 =>mort,
+        //5     => name,        21 =>PCLT,        37 =>sbix,         53 =>morx,
+        //6     => OS/2,        22 =>VDMX,        38 =>acnt,         54 =>opbd,
+        //7     => post,        23 =>vhea,        39 =>avar,         55 =>prop,
+        //8     => cvt ,        24 =>vmtx,        40 =>bdat,         56 =>trak,
+        //9     => fpgm,        25 =>BASE,        41 =>bloc,         57 =>Zapf,
+        //10 =>    glyf,        26 =>GDEF,        42 =>bsln,         58 =>Silf,
+        //11 =>    loca,        27 =>GPOS,        43 =>cvar,         59 =>Glat,
+        //12 =>    prep,        28 =>GSUB,        44 =>fdsc,         60 =>Gloc,
+        //13 =>    CFF ,        29 =>EBSC,        45 =>feat,         61 =>Feat,
+        //14 =>    VORG,        30 =>JSTF,        46 =>fmtx,         62 =>Sill,
+        //15 =>    EBDT,        31 =>MATH,        47 =>fvar,         63 =>arbitrary tag follows,...
         //-------------------------------------------------------------------
 
         CBDT._N, //32

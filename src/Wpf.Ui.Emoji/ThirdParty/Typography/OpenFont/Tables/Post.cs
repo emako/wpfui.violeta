@@ -16,24 +16,24 @@ namespace Typography.OpenFont.Tables;
 //OpenType fonts with TrueType data may also use Version 3.0. OpenType fonts with CFF data use Version 3.0 only.
 //Header
 
-//Fixed =>	32-bit signed fixed-point number (16.16)
+//Fixed =>    32-bit signed fixed-point number (16.16)
 
 //The table begins as follows:
-//Type 	    Name 	            Description
-//Fixed 	Version 	        0x00010000 for version 1.0
+//Type         Name                 Description
+//Fixed     Version             0x00010000 for version 1.0
 //                              0x00020000 for version 2.0
 //                              0x00025000 for version 2.5 (deprecated)
 //                              0x00030000 for version 3.0
-//Fixed 	italicAngle 	    Italic angle in counter-clockwise degrees from the vertical. Zero for upright text, negative for text that leans to the right (forward).
-//FWord 	underlinePosition 	This is the suggested distance of the top of the underline from the baseline (negative values indicate below baseline).
+//Fixed     italicAngle         Italic angle in counter-clockwise degrees from the vertical. Zero for upright text, negative for text that leans to the right (forward).
+//FWord     underlinePosition     This is the suggested distance of the top of the underline from the baseline (negative values indicate below baseline).
 //                              The PostScript definition of this FontInfo dictionary key (the y coordinate of the center of the stroke) is not used for historical reasons.
 //                              The value of the PostScript key may be calculated by subtracting half the underlineThickness from the value of this field.
-//FWord 	underlineThickness 	Suggested values for the underline thickness.
-//uint32 	isFixedPitch 	    Set to 0 if the font is proportionally spaced, non-zero if the font is not proportionally spaced (i.e. monospaced).
-//uint32 	minMemType42 	    Minimum memory usage when an OpenType font is downloaded.
-//uint32 	maxMemType42 	    Maximum memory usage when an OpenType font is downloaded.
-//uint32 	minMemType1 	    Minimum memory usage when an OpenType font is downloaded as a Type 1 font.
-//uint32 	maxMemType1 	    Maximum memory usage when an OpenType font is downloaded as a Type 1 font.
+//FWord     underlineThickness     Suggested values for the underline thickness.
+//uint32     isFixedPitch         Set to 0 if the font is proportionally spaced, non-zero if the font is not proportionally spaced (i.e. monospaced).
+//uint32     minMemType42         Minimum memory usage when an OpenType font is downloaded.
+//uint32     maxMemType42         Maximum memory usage when an OpenType font is downloaded.
+//uint32     minMemType1         Minimum memory usage when an OpenType font is downloaded as a Type 1 font.
+//uint32     maxMemType1         Maximum memory usage when an OpenType font is downloaded as a Type 1 font.
 //---------
 
 //The last four entries in the table are present because PostScript drivers can do better memory management
@@ -99,10 +99,10 @@ class PostTable : TableEntry
 
                     //This is the version required in order to supply PostScript glyph names for fonts which do not supply them elsewhere.
                     //A version 2.0 'post' table can be used in fonts with TrueType or CFF version 2 outlines.
-                    //Type 	    Name 	                        Description
-                    //uint16 	numberOfGlyphs 	                Number of glyphs (this should be the same as numGlyphs in 'maxp' table).
-                    //uint16 	glyphNameIndex[numGlyphs]. 	    This is not an offset, but is the ordinal number of the glyph in 'post' string tables.
-                    //int8 	    names[numberNewGlyphs] 	        Glyph names with length bytes [variable] (a Pascal string).
+                    //Type         Name                             Description
+                    //uint16     numberOfGlyphs                     Number of glyphs (this should be the same as numGlyphs in 'maxp' table).
+                    //uint16     glyphNameIndex[numGlyphs].         This is not an offset, but is the ordinal number of the glyph in 'post' string tables.
+                    //int8         names[numberNewGlyphs]             Glyph names with length bytes [variable] (a Pascal string).
 
                     //This font file contains glyphs not in the standard Macintosh set,
                     //or the ordering of the glyphs in the font file differs from the standard Macintosh set.
@@ -184,9 +184,9 @@ class PostTable : TableEntry
 //This version of the 'post' table has been deprecated as of OpenType Specification v1.3.
 
 //This version provides a space-saving table for TrueType-based fonts which contain a pure subset of, or a simple reordering of, the standard Macintosh glyph set.
-//Type 	Name 	Description
-//USHORT 	numberOfGlyphs 	Number of glyphs
-//CHAR 	offset[numGlyphs] 	Difference between graphic index and standard order of glyph
+//Type     Name     Description
+//USHORT     numberOfGlyphs     Number of glyphs
+//CHAR     offset[numGlyphs]     Difference between graphic index and standard order of glyph
 
 //This version is useful for TrueType-based font files that contain only glyphs in the standard Macintosh glyph set but which have those glyphs arranged in a non-standard order or which are missing some glyphs. The table contains one byte for each glyph in the font file. The byte is treated as a signed offset that maps the glyph index used in this font into the standard glyph index. In other words, assuming that the font contains the three glyphs A, B, and C which are the 37th, 38th, and 39th glyphs in the standard ordering, the 'post' table would contain the bytes +36, +36, +36. This format has been deprecated by Apple, as of February 2000.
 //Version 3.0
@@ -199,9 +199,9 @@ class PostTable : TableEntry
 //'post' Table and OpenType Font Variations
 
 //In a variable font, various font-metric values within the 'post' table may need to be adjusted for different variation instances. Variation data for 'post' entries can be provided in the metrics variations ('MVAR') table. Different 'post' entries are associated with particular variation data in the 'MVAR' table using value tags, as follows:
-//'post' entry 	Tag
-//underlinePosition 	'undo'
-//underlineThickness 	'unds'
+//'post' entry     Tag
+//underlinePosition     'undo'
+//underlineThickness     'unds'
 
 //    Note: The italicAngle value is not adjusted by variation data since this corresponds to the 'slnt' variation axis that can be used to define a font’s variation space. Appropriate post.italicAngle values for a variation instance can be derived from the 'slnt' user coordinates that are used to select a particular variation instance. See the discussion of the 'slnt' axis in the Variation Axis Tags section of the 'fvar' table chapter for details on the relationship between italicAngle and the 'slnt' axis.
 

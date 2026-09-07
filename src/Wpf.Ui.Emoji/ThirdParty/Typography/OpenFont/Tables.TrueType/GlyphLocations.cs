@@ -48,14 +48,14 @@ class GlyphLocations : TableEntry
     protected override void ReadContentFrom(BinaryReader reader)
     {
         //Short version
-        //Type 	Name 	Description
-        //USHORT 	offsets[n] 	The actual local offset divided by 2 is stored.
+        //Type     Name     Description
+        //USHORT     offsets[n]     The actual local offset divided by 2 is stored.
         //The value of n is numGlyphs + 1.
         //The value for numGlyphs is found in the 'maxp' table.
         //-------------------------
         //Long version
-        //Type 	Name 	Description
-        //ULONG 	offsets[n] 	The actual local offset is stored.
+        //Type     Name     Description
+        //ULONG     offsets[n]     The actual local offset is stored.
         //The value of n is numGlyphs + 1. The value for numGlyphs is found in the 'maxp' table.
 
         //Note that the local offsets should be long-aligned, i.e., multiples of 4. Offsets which are not long-aligned may seriously degrade performance of some processors.

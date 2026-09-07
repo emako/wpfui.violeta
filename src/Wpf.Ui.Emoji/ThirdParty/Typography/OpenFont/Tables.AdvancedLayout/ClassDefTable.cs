@@ -50,11 +50,11 @@ namespace Typography.OpenFont.Tables;
 //----------------------------
 //ClassDefFormat1 table: Class array
 //----------------------------
-//Type 	    Name 	        Description
-//uint16 	ClassFormat 	Format identifier-format = 1
-//uint16 	StartGlyph 	    First glyph ID of the ClassValueArray
-//uint16 	GlyphCount 	    Size of the ClassValueArray
-//uint16 	ClassValueArray[GlyphCount] 	Array of Class Values-one per GlyphID
+//Type         Name             Description
+//uint16     ClassFormat     Format identifier-format = 1
+//uint16     StartGlyph         First glyph ID of the ClassValueArray
+//uint16     GlyphCount         Size of the ClassValueArray
+//uint16     ClassValueArray[GlyphCount]     Array of Class Values-one per GlyphID
 //----------------------------------
 //
 //
@@ -77,18 +77,18 @@ namespace Typography.OpenFont.Tables;
 //---------------------------------------
 //ClassDefFormat2 table: Class ranges
 //---------------------------------------
-//Type 	    Name 	            Description
-//uint16 	ClassFormat 	    Format identifier-format = 2
-//uint16 	ClassRangeCount 	Number of ClassRangeRecords
-//struct 	ClassRangeRecord[ClassRangeCount] 	Array of ClassRangeRecords-ordered by Start GlyphID
+//Type         Name                 Description
+//uint16     ClassFormat         Format identifier-format = 2
+//uint16     ClassRangeCount     Number of ClassRangeRecords
+//struct     ClassRangeRecord[ClassRangeCount]     Array of ClassRangeRecords-ordered by Start GlyphID
 //---------------------------------------
 //
 //ClassRangeRecord
 //---------------------------------------
-//Type 	    Name 	            Descriptionc
-//uint16 	Start 	            First glyph ID in the range
-//uint16 	End 	            Last glyph ID in the range
-//uint16 	Class 	            Applied to all glyphs in the range
+//Type         Name                 Descriptionc
+//uint16     Start                 First glyph ID in the range
+//uint16     End                 Last glyph ID in the range
+//uint16     Class                 Applied to all glyphs in the range
 //---------------------------------------
 class ClassDefTable
 {
@@ -145,10 +145,10 @@ class ClassDefTable
         //
         //ClassRangeRecord
         //---------------------------------------
-        //Type 	    Name 	            Descriptionc
-        //uint16 	Start 	            First glyph ID in the range
-        //uint16 	End 	            Last glyph ID in the range
-        //uint16 	Class 	            Applied to all glyphs in the range
+        //Type         Name                 Descriptionc
+        //uint16     Start                 First glyph ID in the range
+        //uint16     End                 Last glyph ID in the range
+        //uint16     Class                 Applied to all glyphs in the range
         //---------------------------------------
         public readonly ushort startGlyphId;
 

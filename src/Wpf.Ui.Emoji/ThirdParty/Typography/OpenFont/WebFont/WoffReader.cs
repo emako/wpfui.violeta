@@ -44,7 +44,7 @@ namespace Typography.OpenFont.WebFont
     class WoffTableDirectory
     {
         //WOFF TableDirectoryEntry 
-        //UInt32 tag	        4-byte sfnt table identifier.
+        //UInt32 tag            4-byte sfnt table identifier.
         //UInt32 offset         Offset to the data, from beginning of WOFF file.
         //UInt32 compLength     Length of the compressed data, excluding padding.
         //UInt32 origLength     Length of the uncompressed table, excluding padding.
@@ -287,7 +287,7 @@ namespace Typography.OpenFont.WebFont
 
             for (int i = 0; i < tableCount; ++i)
             {
-                //UInt32 tag	        4-byte sfnt table identifier.
+                //UInt32 tag            4-byte sfnt table identifier.
                 //UInt32 offset         Offset to the data, from beginning of WOFF file.
                 //UInt32 compLength     Length of the compressed data, excluding padding.
                 //UInt32 origLength     Length of the uncompressed table, excluding padding.
@@ -318,7 +318,7 @@ namespace Typography.OpenFont.WebFont
         {
             for (int i = 0; i < tables.Length; ++i)
             {
-                //UInt32 tag	        4-byte sfnt table identifier.
+                //UInt32 tag            4-byte sfnt table identifier.
                 //UInt32 offset         Offset to the data, from beginning of WOFF file.
                 //UInt32 compLength     Length of the compressed data, excluding padding.
                 //UInt32 origLength     Length of the uncompressed table, excluding padding.

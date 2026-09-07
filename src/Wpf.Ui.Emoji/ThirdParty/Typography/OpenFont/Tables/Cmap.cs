@@ -179,11 +179,11 @@ partial class Cmap : TableEntry
         ushort length = input.ReadUInt16();
         //Format 0: Byte encoding table
         //This is the Apple standard character to glyph index mapping table.
-        //Type  	Name 	        Description
-        //uint16 	format 	        Format number is set to 0.
-        //uint16 	length 	        This is the length in bytes of the subtable.
-        //uint16 	language 	    Please see “Note on the language field in 'cmap' subtables“ in this document.
-        //uint8 	glyphIdArray[256] 	An array that maps character codes to glyph index values.
+        //Type      Name             Description
+        //uint16     format             Format number is set to 0.
+        //uint16     length             This is the length in bytes of the subtable.
+        //uint16     language         Please see “Note on the language field in 'cmap' subtables“ in this document.
+        //uint8     glyphIdArray[256]     An array that maps character codes to glyph index values.
         //-----------
         //This is a simple 1 to 1 mapping of character codes to glyph indices.
         //The glyph set is limited to 256. Note that if this format is used to index into a larger glyph set,

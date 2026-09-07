@@ -322,10 +322,10 @@ public class Glyph
 //https://docs.microsoft.com/en-us/typography/opentype/spec/gdef
 public enum GlyphClassKind : byte
 {
-    //1 	Base glyph (single character, spacing glyph)
-    //2 	Ligature glyph (multiple character, spacing glyph)
-    //3 	Mark glyph (non-spacing combining glyph)
-    //4 	Component glyph (part of single character, spacing glyph)
+    //1     Base glyph (single character, spacing glyph)
+    //2     Ligature glyph (multiple character, spacing glyph)
+    //3     Mark glyph (non-spacing combining glyph)
+    //4     Component glyph (part of single character, spacing glyph)
     //
     // The font developer does not have to classify every glyph in the font,
     //but any glyph not assigned a class value falls into Class zero (0).

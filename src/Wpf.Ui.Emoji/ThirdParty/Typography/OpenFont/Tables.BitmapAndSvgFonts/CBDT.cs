@@ -17,9 +17,9 @@ namespace Typography.OpenFont.Tables;
 //used for embedded monochrome and grayscale bitmaps.
 
 //The CBDT table begins with a header containing simply the table version number.
-//Type 	    Name 	        Description
-//uint16 	majorVersion 	Major version of the CBDT table, = 3.
-//uint16 	minorVersion 	Minor version of the CBDT table, = 0.
+//Type         Name             Description
+//uint16     majorVersion     Major version of the CBDT table, = 3.
+//uint16     minorVersion     Minor version of the CBDT table, = 0.
 
 //Note that the first version of the CBDT table is 3.0.
 

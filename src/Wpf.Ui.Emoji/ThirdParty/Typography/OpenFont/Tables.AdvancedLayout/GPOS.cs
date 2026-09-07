@@ -369,8 +369,8 @@ public partial class GPOS : GlyphShapingTableEntry
             //One Class2Record must be declared for each class in the ClassDef2 table, including Class 0.
             //--------------------------------
             //Class1Record
-            //Value 	Type 	Description
-            //struct 	Class2Record[Class2Count] 	Array of Class2 records-ordered by Class2
+            //Value     Type     Description
+            //struct     Class2Record[Class2Count]     Array of Class2 records-ordered by Class2
             //--------------------------------
             public readonly Lk2Class2Record[] class2Records;
 
@@ -409,9 +409,9 @@ public partial class GPOS : GlyphShapingTableEntry
 
             //Class2Record
             //--------------------------------
-            //Value 	    Type 	Description
-            //ValueRecord 	Value1 	Positioning for first glyph-empty if ValueFormat1 = 0
-            //ValueRecord 	Value2 	Positioning for second glyph-empty if ValueFormat2 = 0
+            //Value         Type     Description
+            //ValueRecord     Value1     Positioning for first glyph-empty if ValueFormat1 = 0
+            //ValueRecord     Value2     Positioning for second glyph-empty if ValueFormat2 = 0
             //--------------------------------
             public readonly ValueRecord value1;//null= empty
 
@@ -478,47 +478,47 @@ public partial class GPOS : GlyphShapingTableEntry
 
             //-----------------
             //PairPosFormat1 subtable: Adjustments for glyph pairs
-            //uint16 	PosFormat 	    Format identifier-format = 1
-            //Offset16 	Coverage 	    Offset to Coverage table-from beginning of PairPos subtable-only the first glyph in each pair
-            //uint16 	ValueFormat1 	Defines the types of data in ValueRecord1-for the first glyph in the pair -may be zero (0)
-            //uint16 	ValueFormat2 	Defines the types of data in ValueRecord2-for the second glyph in the pair -may be zero (0)
-            //uint16 	PairSetCount 	Number of PairSet tables
-            //Offset16 	PairSetOffset[PairSetCount] Array of offsets to PairSet tables-from beginning of PairPos subtable-ordered by Coverage Index                //
+            //uint16     PosFormat         Format identifier-format = 1
+            //Offset16     Coverage         Offset to Coverage table-from beginning of PairPos subtable-only the first glyph in each pair
+            //uint16     ValueFormat1     Defines the types of data in ValueRecord1-for the first glyph in the pair -may be zero (0)
+            //uint16     ValueFormat2     Defines the types of data in ValueRecord2-for the second glyph in the pair -may be zero (0)
+            //uint16     PairSetCount     Number of PairSet tables
+            //Offset16     PairSetOffset[PairSetCount] Array of offsets to PairSet tables-from beginning of PairPos subtable-ordered by Coverage Index                //
             //-----------------
             //
             //PairSet table
-            //Value 	Type 	            Description
-            //uint16 	PairValueCount 	    Number of PairValueRecords
-            //struct 	PairValueRecord[PairValueCount] 	Array of PairValueRecords-ordered by GlyphID of the second glyph
+            //Value     Type                 Description
+            //uint16     PairValueCount         Number of PairValueRecords
+            //struct     PairValueRecord[PairValueCount]     Array of PairValueRecords-ordered by GlyphID of the second glyph
             //-----------------
             //A PairValueRecord specifies the second glyph in a pair (SecondGlyph) and defines a ValueRecord for each glyph (Value1 and Value2).
             //If ValueFormat1 is set to zero (0) in the PairPos subtable, ValueRecord1 will be empty; similarly, if ValueFormat2 is 0, Value2 will be empty.
 
             //PairValueRecord
-            //Value 	    Type 	        Description
-            //GlyphID 	    SecondGlyph 	GlyphID of second glyph in the pair-first glyph is listed in the Coverage table
-            //ValueRecord 	Value1 	        Positioning data for the first glyph in the pair
-            //ValueRecord 	Value2 	        Positioning data for the second glyph in the pair
+            //Value         Type             Description
+            //GlyphID         SecondGlyph     GlyphID of second glyph in the pair-first glyph is listed in the Coverage table
+            //ValueRecord     Value1             Positioning data for the first glyph in the pair
+            //ValueRecord     Value2             Positioning data for the second glyph in the pair
             //-----------------------------------------------
 
             //PairPosFormat2 subtable: Class pair adjustment
-            //Value 	Type 	            Description
-            //uint16 	PosFormat 	        Format identifier-format = 2
-            //Offset16 	Coverage 	        Offset to Coverage table-from beginning of PairPos subtable-for the first glyph of the pair
-            //uint16 	ValueFormat1 	    ValueRecord definition-for the first glyph of the pair-may be zero (0)
-            //uint16 	ValueFormat2 	    ValueRecord definition-for the second glyph of the pair-may be zero (0)
-            //Offset16 	ClassDef1 	        Offset to ClassDef table-from beginning of PairPos subtable-for the first glyph of the pair
-            //Offset16 	ClassDef2 	        Offset to ClassDef table-from beginning of PairPos subtable-for the second glyph of the pair
-            //uint16 	Class1Count 	    Number of classes in ClassDef1 table-includes Class0
-            //uint16 	Class2Count 	    Number of classes in ClassDef2 table-includes Class0
-            //struct 	Class1Record[Class1Count] 	Array of Class1 records-ordered by Class1
+            //Value     Type                 Description
+            //uint16     PosFormat             Format identifier-format = 2
+            //Offset16     Coverage             Offset to Coverage table-from beginning of PairPos subtable-for the first glyph of the pair
+            //uint16     ValueFormat1         ValueRecord definition-for the first glyph of the pair-may be zero (0)
+            //uint16     ValueFormat2         ValueRecord definition-for the second glyph of the pair-may be zero (0)
+            //Offset16     ClassDef1             Offset to ClassDef table-from beginning of PairPos subtable-for the first glyph of the pair
+            //Offset16     ClassDef2             Offset to ClassDef table-from beginning of PairPos subtable-for the second glyph of the pair
+            //uint16     Class1Count         Number of classes in ClassDef1 table-includes Class0
+            //uint16     Class2Count         Number of classes in ClassDef2 table-includes Class0
+            //struct     Class1Record[Class1Count]     Array of Class1 records-ordered by Class1
 
             //Each Class1Record contains an array of Class2Records (Class2Record), which also are ordered by class value.
             //One Class2Record must be declared for each class in the ClassDef2 table, including Class 0.
             //--------------------------------
             //Class1Record
-            //Value 	Type 	Description
-            //struct 	Class2Record[Class2Count] 	Array of Class2 records-ordered by Class2
+            //Value     Type     Description
+            //struct     Class2Record[Class2Count]     Array of Class2 records-ordered by Class2
             //--------------------------------
 
             //A Class2Record consists of two ValueRecords,
@@ -528,9 +528,9 @@ public partial class GPOS : GlyphShapingTableEntry
 
             //Class2Record
             //--------------------------------
-            //Value 	    Type 	Description
-            //ValueRecord 	Value1 	Positioning for first glyph-empty if ValueFormat1 = 0
-            //ValueRecord 	Value2 	Positioning for second glyph-empty if ValueFormat2 = 0
+            //Value         Type     Description
+            //ValueRecord     Value1     Positioning for first glyph-empty if ValueFormat1 = 0
+            //ValueRecord     Value2     Positioning for second glyph-empty if ValueFormat2 = 0
             //--------------------------------
 
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
@@ -729,13 +729,13 @@ public partial class GPOS : GlyphShapingTableEntry
 
             //MarkBasePosFormat1 subtable: MarkToBase attachment point
             //----------------------------------------------
-            //Value 	Type 	        Description
-            //uint16 	PosFormat 	    Format identifier-format = 1
-            //Offset16 	MarkCoverage 	Offset to MarkCoverage table-from beginning of MarkBasePos subtable ( all the mark glyphs referenced in the subtable)
-            //Offset16 	BaseCoverage 	Offset to BaseCoverage table-from beginning of MarkBasePos subtable (all the base glyphs referenced in the subtable)
-            //uint16 	ClassCount 	    Number of classes defined for marks
-            //Offset16 	MarkArray 	    Offset to MarkArray table-from beginning of MarkBasePos subtable
-            //Offset16 	BaseArray 	    Offset to BaseArray table-from beginning of MarkBasePos subtable
+            //Value     Type             Description
+            //uint16     PosFormat         Format identifier-format = 1
+            //Offset16     MarkCoverage     Offset to MarkCoverage table-from beginning of MarkBasePos subtable ( all the mark glyphs referenced in the subtable)
+            //Offset16     BaseCoverage     Offset to BaseCoverage table-from beginning of MarkBasePos subtable (all the base glyphs referenced in the subtable)
+            //uint16     ClassCount         Number of classes defined for marks
+            //Offset16     MarkArray         Offset to MarkArray table-from beginning of MarkBasePos subtable
+            //Offset16     BaseArray         Offset to BaseArray table-from beginning of MarkBasePos subtable
             //----------------------------------------------
 
             //The BaseArray table consists of an array (BaseRecord) and count (BaseCount) of BaseRecords.
@@ -743,9 +743,9 @@ public partial class GPOS : GlyphShapingTableEntry
             //Each base glyph in the BaseCoverage table has a BaseRecord.
 
             //BaseArray table
-            //Value 	Type 	Description
-            //uint16 	BaseCount 	Number of BaseRecords
-            //struct 	BaseRecord[BaseCount] 	Array of BaseRecords-in order of BaseCoverage Index
+            //Value     Type     Description
+            //uint16     BaseCount     Number of BaseRecords
+            //struct     BaseRecord[BaseCount]     Array of BaseRecords-in order of BaseCoverage Index
 
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
 
@@ -792,12 +792,12 @@ public partial class GPOS : GlyphShapingTableEntry
         /// <param name="reader"></param>
         static LookupSubTable ReadLookupType5(BinaryReader reader, long subTableStartAt)
         {
-            //uint16 	PosFormat 	        Format identifier-format = 1
-            //Offset16 	MarkCoverage 	    Offset to Mark Coverage table-from beginning of MarkLigPos subtable
-            //Offset16 	LigatureCoverage 	Offset to Ligature Coverage table-from beginning of MarkLigPos subtable
-            //uint16 	ClassCount 	        Number of defined mark classes
-            //Offset16 	MarkArray 	        Offset to MarkArray table-from beginning of MarkLigPos subtable
-            //Offset16 	LigatureArray 	    Offset to LigatureArray table-from beginning of MarkLigPos subtable
+            //uint16     PosFormat             Format identifier-format = 1
+            //Offset16     MarkCoverage         Offset to Mark Coverage table-from beginning of MarkLigPos subtable
+            //Offset16     LigatureCoverage     Offset to Ligature Coverage table-from beginning of MarkLigPos subtable
+            //uint16     ClassCount             Number of defined mark classes
+            //Offset16     MarkArray             Offset to MarkArray table-from beginning of MarkLigPos subtable
+            //Offset16     LigatureArray         Offset to LigatureArray table-from beginning of MarkLigPos subtable
 
             reader.BaseStream.Seek(subTableStartAt, SeekOrigin.Begin);
 
@@ -953,11 +953,11 @@ public partial class GPOS : GlyphShapingTableEntry
                     {
                         //Context Positioning Subtable: Format 1
                         //ContextPosFormat1 subtable: Simple context positioning
-                        //Value 	Type 	            Description
-                        //uint16 	PosFormat 	        Format identifier-format = 1
-                        //Offset16 	Coverage 	        Offset to Coverage table-from beginning of ContextPos subtable
-                        //uint16 	PosRuleSetCount 	Number of PosRuleSet tables
-                        //Offset16 	PosRuleSet[PosRuleSetCount]
+                        //Value     Type                 Description
+                        //uint16     PosFormat             Format identifier-format = 1
+                        //Offset16     Coverage             Offset to Coverage table-from beginning of ContextPos subtable
+                        //uint16     PosRuleSetCount     Number of PosRuleSet tables
+                        //Offset16     PosRuleSet[PosRuleSetCount]
                         //
                         ushort coverageOffset = reader.ReadUInt16();
                         ushort posRuleSetCount = reader.ReadUInt16();
@@ -971,11 +971,11 @@ public partial class GPOS : GlyphShapingTableEntry
                 case 2:
                     {
                         //Context Positioning Subtable: Format 2
-                        //uint16 	PosFormat 	        Format identifier-format = 2
-                        //Offset16 	Coverage 	        Offset to Coverage table-from beginning of ContextPos subtable
-                        //Offset16 	ClassDef 	        Offset to ClassDef table-from beginning of ContextPos subtable
-                        //uint16 	PosClassSetCnt      Number of PosClassSet tables
-                        //Offset16 	PosClassSet[PosClassSetCnt] 	Array of offsets to PosClassSet tables-from beginning of ContextPos subtable-ordered by class-may be NULL
+                        //uint16     PosFormat             Format identifier-format = 2
+                        //Offset16     Coverage             Offset to Coverage table-from beginning of ContextPos subtable
+                        //Offset16     ClassDef             Offset to ClassDef table-from beginning of ContextPos subtable
+                        //uint16     PosClassSetCnt      Number of PosClassSet tables
+                        //Offset16     PosClassSet[PosClassSetCnt]     Array of offsets to PosClassSet tables-from beginning of ContextPos subtable-ordered by class-may be NULL
 
                         ushort coverageOffset = reader.ReadUInt16();
                         ushort classDefOffset = reader.ReadUInt16();
@@ -1001,12 +1001,12 @@ public partial class GPOS : GlyphShapingTableEntry
                 case 3:
                     {
                         //ContextPosFormat3 subtable: Coverage-based context glyph positioning
-                        //Value 	Type 	    Description
-                        //uint16 	PosFormat 	Format identifier-format = 3
-                        //uint16 	GlyphCount 	Number of glyphs in the input sequence
-                        //uint16 	PosCount 	Number of PosLookupRecords
-                        //Offset16 	Coverage[GlyphCount] 	Array of offsets to Coverage tables-from beginning of ContextPos subtable
-                        //struct 	PosLookupRecord[PosCount] Array of positioning lookups-in design order
+                        //Value     Type         Description
+                        //uint16     PosFormat     Format identifier-format = 3
+                        //uint16     GlyphCount     Number of glyphs in the input sequence
+                        //uint16     PosCount     Number of PosLookupRecords
+                        //Offset16     Coverage[GlyphCount]     Array of offsets to Coverage tables-from beginning of ContextPos subtable
+                        //struct     PosLookupRecord[PosCount] Array of positioning lookups-in design order
                         var subTable = new LkSubTableType7Fmt3();
                         ushort glyphCount = reader.ReadUInt16();
                         ushort posCount = reader.ReadUInt16();
@@ -1200,10 +1200,10 @@ public partial class GPOS : GlyphShapingTableEntry
                 case 1:
                     {
                         //Chaining Context Positioning  Format 1: Simple Chaining Context Glyph Positioning
-                        //uint16 	PosFormat 	        Format identifier-format = 1
-                        //Offset16 	Coverage 	        Offset to Coverage table-from beginning of ContextPos subtable
-                        //uint16 	ChainPosRuleSetCount 	Number of ChainPosRuleSet tables
-                        //Offset16 	ChainPosRuleSet[ChainPosRuleSetCount] 	Array of offsets to ChainPosRuleSet tables-from beginning of ContextPos subtable-ordered by Coverage Index
+                        //uint16     PosFormat             Format identifier-format = 1
+                        //Offset16     Coverage             Offset to Coverage table-from beginning of ContextPos subtable
+                        //uint16     ChainPosRuleSetCount     Number of ChainPosRuleSet tables
+                        //Offset16     ChainPosRuleSet[ChainPosRuleSetCount]     Array of offsets to ChainPosRuleSet tables-from beginning of ContextPos subtable-ordered by Coverage Index
 
                         ushort coverageOffset = reader.ReadUInt16();
                         ushort chainPosRuleSetCount = reader.ReadUInt16();
@@ -1217,13 +1217,13 @@ public partial class GPOS : GlyphShapingTableEntry
                 case 2:
                     {
                         //Chaining Context Positioning Format 2: Class-based Chaining Context Glyph Positioning
-                        //uint16 	PosFormat 	                Format identifier-format = 2
-                        //Offset16 	Coverage 	                Offset to Coverage table-from beginning of ChainContextPos subtable
-                        //Offset16 	BacktrackClassDef 	        Offset to ClassDef table containing backtrack sequence context-from beginning of ChainContextPos subtable
-                        //Offset16 	InputClassDef 	            Offset to ClassDef table containing input sequence context-from beginning of ChainContextPos subtable
-                        //Offset16 	LookaheadClassDef                   	Offset to ClassDef table containing lookahead sequence context-from beginning of ChainContextPos subtable
-                        //uint16 	ChainPosClassSetCnt 	                Number of ChainPosClassSet tables
-                        //Offset16 	ChainPosClassSet[ChainPosClassSetCnt] 	Array of offsets to ChainPosClassSet tables-from beginning of ChainContextPos subtable-ordered by input class-may be NULL
+                        //uint16     PosFormat                     Format identifier-format = 2
+                        //Offset16     Coverage                     Offset to Coverage table-from beginning of ChainContextPos subtable
+                        //Offset16     BacktrackClassDef             Offset to ClassDef table containing backtrack sequence context-from beginning of ChainContextPos subtable
+                        //Offset16     InputClassDef                 Offset to ClassDef table containing input sequence context-from beginning of ChainContextPos subtable
+                        //Offset16     LookaheadClassDef                       Offset to ClassDef table containing lookahead sequence context-from beginning of ChainContextPos subtable
+                        //uint16     ChainPosClassSetCnt                     Number of ChainPosClassSet tables
+                        //Offset16     ChainPosClassSet[ChainPosClassSetCnt]     Array of offsets to ChainPosClassSet tables-from beginning of ChainContextPos subtable-ordered by input class-may be NULL
 
                         ushort coverageOffset = reader.ReadUInt16();
                         ushort backTrackClassDefOffset = reader.ReadUInt16();
@@ -1255,15 +1255,15 @@ public partial class GPOS : GlyphShapingTableEntry
                 case 3:
                     {
                         //Chaining Context Positioning Format 3: Coverage-based Chaining Context Glyph Positioning
-                        //uint16 	PosFormat 	                    Format identifier-format = 3
-                        //uint16 	BacktrackGlyphCount 	        Number of glyphs in the backtracking sequence
-                        //Offset16 	Coverage[BacktrackGlyphCount] 	Array of offsets to coverage tables in backtracking sequence, in glyph sequence order
-                        //uint16 	InputGlyphCount 	            Number of glyphs in input sequence
-                        //Offset16 	Coverage[InputGlyphCount] 	    Array of offsets to coverage tables in input sequence, in glyph sequence order
-                        //uint16 	LookaheadGlyphCount 	        Number of glyphs in lookahead sequence
-                        //Offset16 	Coverage[LookaheadGlyphCount] 	Array of offsets to coverage tables in lookahead sequence, in glyph sequence order
-                        //uint16 	PosCount 	                    Number of PosLookupRecords
-                        //struct 	PosLookupRecord[PosCount] 	    Array of PosLookupRecords,in design order
+                        //uint16     PosFormat                         Format identifier-format = 3
+                        //uint16     BacktrackGlyphCount             Number of glyphs in the backtracking sequence
+                        //Offset16     Coverage[BacktrackGlyphCount]     Array of offsets to coverage tables in backtracking sequence, in glyph sequence order
+                        //uint16     InputGlyphCount                 Number of glyphs in input sequence
+                        //Offset16     Coverage[InputGlyphCount]         Array of offsets to coverage tables in input sequence, in glyph sequence order
+                        //uint16     LookaheadGlyphCount             Number of glyphs in lookahead sequence
+                        //Offset16     Coverage[LookaheadGlyphCount]     Array of offsets to coverage tables in lookahead sequence, in glyph sequence order
+                        //uint16     PosCount                         Number of PosLookupRecords
+                        //struct     PosLookupRecord[PosCount]         Array of PosLookupRecords,in design order
 
                         var subTable = new LkSubTableType8Fmt3();
 

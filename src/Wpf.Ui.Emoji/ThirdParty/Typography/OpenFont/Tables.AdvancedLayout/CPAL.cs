@@ -26,28 +26,28 @@ public class CPAL : TableEntry
 
         //The CPAL header version 0 is organized as follows:
         //CPAL version 0
-        //Type 	    Name 	                            Description
-        //uint16 	version 	                        Table version number (=0).
-        //uint16 	numPaletteEntries 	                Number of palette entries in each palette.
-        //uint16 	numPalettes 	                    Number of palettes in the table.
-        //uint16 	numColorRecords 	                Total number of color records, combined for all palettes.
-        //Offset32 	offsetFirstColorRecord 	            Offset from the beginning of CPAL table to the first ColorRecord.
-        //uint16 	colorRecordIndices[numPalettes] 	Index of each palette’s first color record in the combined color record array.
+        //Type         Name                                 Description
+        //uint16     version                             Table version number (=0).
+        //uint16     numPaletteEntries                     Number of palette entries in each palette.
+        //uint16     numPalettes                         Number of palettes in the table.
+        //uint16     numColorRecords                     Total number of color records, combined for all palettes.
+        //Offset32     offsetFirstColorRecord                 Offset from the beginning of CPAL table to the first ColorRecord.
+        //uint16     colorRecordIndices[numPalettes]     Index of each palette’s first color record in the combined color record array.
 
         //CPAL version 1
 
         //The CPAL header version 1 adds three additional fields to the end of the table header and is organized as follows:
         //CPAL version 1
-        //Type 	    Name 	                            Description
-        //uint16 	version 	                        Table version number (=1).
-        //uint16 	numPaletteEntries 	                Number of palette entries in each palette.
-        //uint16 	numPalettes 	                    Number of palettes in the table.
-        //uint16 	numColorRecords 	                Total number of color records, combined for all palettes.
-        //Offset32 	offsetFirstColorRecord 	            Offset from the beginning of CPAL table to the first ColorRecord.
-        //uint16 	colorRecordIndices[numPalettes] 	Index of each palette’s first color record in the combined color record array.
-        //Offset32 	offsetPaletteTypeArray 	            Offset from the beginning of CPAL table to the Palette Type Array. Set to 0 if no array is provided.
-        //Offset32 	offsetPaletteLabelArray 	        Offset from the beginning of CPAL table to the Palette Labels Array. Set to 0 if no array is provided.
-        //Offset32 	offsetPaletteEntryLabelArray 	    Offset from the beginning of CPAL table to the Palette Entry Label Array. Set to 0 if no array is provided.
+        //Type         Name                                 Description
+        //uint16     version                             Table version number (=1).
+        //uint16     numPaletteEntries                     Number of palette entries in each palette.
+        //uint16     numPalettes                         Number of palettes in the table.
+        //uint16     numColorRecords                     Total number of color records, combined for all palettes.
+        //Offset32     offsetFirstColorRecord                 Offset from the beginning of CPAL table to the first ColorRecord.
+        //uint16     colorRecordIndices[numPalettes]     Index of each palette’s first color record in the combined color record array.
+        //Offset32     offsetPaletteTypeArray                 Offset from the beginning of CPAL table to the Palette Type Array. Set to 0 if no array is provided.
+        //Offset32     offsetPaletteLabelArray             Offset from the beginning of CPAL table to the Palette Labels Array. Set to 0 if no array is provided.
+        //Offset32     offsetPaletteEntryLabelArray         Offset from the beginning of CPAL table to the Palette Entry Label Array. Set to 0 if no array is provided.
 
         ushort version = reader.ReadUInt16();
         ushort numPaletteEntries = reader.ReadUInt16(); // XXX: unused?
@@ -59,9 +59,9 @@ public class CPAL : TableEntry
 #if DEBUG
         if (version == 1)
         {
-            //Offset32 	offsetPaletteTypeArray 	            Offset from the beginning of CPAL table to the Palette Type Array. Set to 0 if no array is provided.
-            //Offset32 	offsetPaletteLabelArray 	        Offset from the beginning of CPAL table to the Palette Labels Array. Set to 0 if no array is provided.
-            //Offset32 	offsetPaletteEntryLabelArray 	    Offset from the beginning of CPAL table to the Palette Entry Label Array. Set to 0 if no array is provided.
+            //Offset32     offsetPaletteTypeArray                 Offset from the beginning of CPAL table to the Palette Type Array. Set to 0 if no array is provided.
+            //Offset32     offsetPaletteLabelArray             Offset from the beginning of CPAL table to the Palette Labels Array. Set to 0 if no array is provided.
+            //Offset32     offsetPaletteEntryLabelArray         Offset from the beginning of CPAL table to the Palette Entry Label Array. Set to 0 if no array is provided.
         }
 #endif
 

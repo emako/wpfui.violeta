@@ -34,9 +34,9 @@ public partial class JSTF : TableEntry
 
         //----------
         //JstfScriptRecord
-        //Type 	            Name 	            Description
-        //Tag 	            jstfScriptTag 	    4-byte JstfScript identification
-        //Offset16 	        jstfScriptOffset 	Offset to JstfScript table, from beginning of JSTF Header
+        //Type                 Name                 Description
+        //Tag                 jstfScriptTag         4-byte JstfScript identification
+        //Offset16             jstfScriptOffset     Offset to JstfScript table, from beginning of JSTF Header
 
         long tableStartAt = reader.BaseStream.Position;
         //

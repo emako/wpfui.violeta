@@ -28,13 +28,13 @@ class HorizontalHeader : TableEntry
     //FWORD     minRightSideBearing     Minimum right sidebearing value; calculated as Min(aw - lsb - (xMax - xMin)).
     //FWORD     xMaxExtent              Max(lsb + (xMax - xMin)).
     //int16     caretSlopeRise          Used to calculate the slope of the cursor(rise/run); 1 for vertical.
-    //int16     caretSlopeRun 	        0 for vertical.
+    //int16     caretSlopeRun             0 for vertical.
     //int16     caretOffset             The amount by which a slanted highlight on a glyph needs to be shifted to produce the best appearance.Set to 0 for non-slanted fonts
     //int16     (reserved)              set to 0
     //int16     (reserved)              set to 0
     //int16     (reserved)              set to 0
     //int16     (reserved)              set to 0
-    //int16 metricDataFormat 	        0 for current format.
+    //int16 metricDataFormat             0 for current format.
     //uint16  numberOfHMetrics          Number of hMetric entries in 'hmtx' table
 
     public HorizontalHeader()

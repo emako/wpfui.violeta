@@ -553,29 +553,29 @@ class Cff1Parser
 
     //Table 2 CFF Data Types
     //Name       Range          Description
-    //Card8      0 – 255   	    1-byte unsigned number
-    //Card16     0 – 65535 	    2-byte unsigned number
-    //Offset     varies 	  	1, 2, 3, or 4 byte offset(specified by  OffSize field)
-    //OffSize	 1–4			1-byte unsigned number specifies the
+    //Card8      0 – 255           1-byte unsigned number
+    //Card16     0 – 65535         2-byte unsigned number
+    //Offset     varies           1, 2, 3, or 4 byte offset(specified by  OffSize field)
+    //OffSize     1–4            1-byte unsigned number specifies the
     //                          size of an Offset field or fields
-    //SID		0 – 64999       2-byte string identifier
+    //SID        0 – 64999       2-byte string identifier
     //-----------------
 
     //Table 1 CFF Data Layout
     //Entry                     Comments
-    //Header      		        –
-    //Name INDEX  		        –
-    //Top DICT INDEX 		    –
-    //String INDEX		        –
-    //Global Subr INDEX	        –
-    //Encodings			        –
-    //Charsets			        –
+    //Header                      –
+    //Name INDEX                  –
+    //Top DICT INDEX             –
+    //String INDEX                –
+    //Global Subr INDEX            –
+    //Encodings                    –
+    //Charsets                    –
     //FDSelect                  CIDFonts only
     //CharStrings INDEX         per-font
     //Font DICT INDEX           per-font, CIDFonts only
     //Private DICT              per-font
     //Local Subr INDEX          per-font or per-Private DICT for CIDFonts
-    //Copyright and Trademark	-
+    //Copyright and Trademark    -
     // Notices
     //-----------------
 
@@ -1057,9 +1057,9 @@ class Cff1Parser
     void ReadCharsetsFormat0()
     {
         //Table 17: Format 0
-        //Type	    Name		        Description
-        //Card8     format    		    =0
-        //SID       glyph[nGlyphs-1] 	Glyph name array
+        //Type        Name                Description
+        //Card8     format                =0
+        //SID       glyph[nGlyphs-1]     Glyph name array
 
         //Each element of the glyph array represents the name of the
         //corresponding glyph. This format should be used when the SIDs
@@ -1081,9 +1081,9 @@ class Cff1Parser
     void ReadCharsetsFormat1()
     {
         //Table 18 Format 1
-        //Type		Name	            Description
-        //Card8		format		        =1
-        //struct	Range1[<varies>]	Range1 array (see Table  19)
+        //Type        Name                Description
+        //Card8        format                =1
+        //struct    Range1[<varies>]    Range1 array (see Table  19)
 
         //Table 19 Range1 Format (Charset)
         //Type      Name          Description
@@ -1581,8 +1581,8 @@ class Cff1Parser
         //shown in Table 14.
 
         //Table 14 Supplemental Encoding Data
-        //Type 	    Name	    		Description
-        //Card8	    nSups		    	Number of supplementary mappings
+        //Type         Name                Description
+        //Card8        nSups                Number of supplementary mappings
         //struct    Supplement[nSups]   Supplementary encoding array(see Table  15 below)
 
         //Table 15 Supplement Format

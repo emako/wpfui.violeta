@@ -50,10 +50,10 @@ class BitmapSizeTable
 
     //bitDepth
     //Value   Description
-    //1	      black/white
-    //2	      4 levels of gray
-    //4	      16 levels of gray
-    //8	      256 levels of gray
+    //1          black/white
+    //2          4 levels of gray
+    //4          16 levels of gray
+    //8          256 levels of gray
 
     public sbyte flags;
 

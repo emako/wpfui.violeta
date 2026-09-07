@@ -19,16 +19,16 @@ namespace Typography.OpenFont.Tables;
 //If no language-specific script behavior is defined, the LangSysCount is set to zero (0), and no LangSysRecords are allocated.
 //-----------------------
 //Script table
-//Type 	        Name 	                      Description
-//Offset16 	    defaultLangSys 	              Offset to DefaultLangSys table-from beginning of Script table-may be NULL
-//uint16 	    langSysCount 	              Number of LangSysRecords for this script-excluding the DefaultLangSys
+//Type             Name                           Description
+//Offset16         defaultLangSys                   Offset to DefaultLangSys table-from beginning of Script table-may be NULL
+//uint16         langSysCount                   Number of LangSysRecords for this script-excluding the DefaultLangSys
 //LangSysRecord langSysRecords[langSysCount]  Array of LangSysRecords-listed alphabetically by LangSysTag
 
 //-----------------------
 //LangSysRecord
-//Type 	    Name 	    Description
-//Tag 	    langSysTag 	4-byte LangSysTag identifier
-//Offset16 	langSysOffset 	Offset to LangSys table-from beginning of Script table
+//Type         Name         Description
+//Tag         langSysTag     4-byte LangSysTag identifier
+//Offset16     langSysOffset     Offset to LangSys table-from beginning of Script table
 //-----------------------
 //
 //Language System Table
@@ -57,11 +57,11 @@ namespace Typography.OpenFont.Tables;
 
 //---------------------
 //LangSys table
-//Type 	    Name 	                    Description
-//Offset16 	lookupOrder 	            = NULL (reserved for an offset to a reordering table)
-//uint16 	requiredFeatureIndex        Index of a feature required for this language system- if no required features = 0xFFFF
-//uint16 	featureIndexCount 	            Number of FeatureIndex values for this language system-excludes the required feature
-//uint16 	featureIndices[featureIndexCount] 	Array of indices into the FeatureList-in arbitrary order
+//Type         Name                         Description
+//Offset16     lookupOrder                 = NULL (reserved for an offset to a reordering table)
+//uint16     requiredFeatureIndex        Index of a feature required for this language system- if no required features = 0xFFFF
+//uint16     featureIndexCount                 Number of FeatureIndex values for this language system-excludes the required feature
+//uint16     featureIndices[featureIndexCount]     Array of indices into the FeatureList-in arbitrary order
 //---------------------
 public class ScriptTable
 {
@@ -76,9 +76,9 @@ public class ScriptTable
         reader.BaseStream.Seek(beginAt, SeekOrigin.Begin);
         //---------------
         //Script table
-        //Type 	        Name 	                      Description
-        //Offset16 	    defaultLangSys 	              Offset to DefaultLangSys table-from beginning of Script table-may be NULL
-        //uint16 	    langSysCount 	              Number of LangSysRecords for this script-excluding the DefaultLangSys
+        //Type             Name                           Description
+        //Offset16         defaultLangSys                   Offset to DefaultLangSys table-from beginning of Script table-may be NULL
+        //uint16         langSysCount                   Number of LangSysRecords for this script-excluding the DefaultLangSys
         //LangSysRecord langSysRecords[langSysCount]  Array of LangSysRecords-listed alphabetically by LangSysTag
 
         //---------------
@@ -90,13 +90,13 @@ public class ScriptTable
         {
             //-----------------------
             //LangSysRecord
-            //Type 	    Name 	        Description
-            //Tag 	    langSysTag  	4-byte LangSysTag identifier
-            //Offset16 	langSysOffset 	Offset to LangSys table-from beginning of Script table
+            //Type         Name             Description
+            //Tag         langSysTag      4-byte LangSysTag identifier
+            //Offset16     langSysOffset     Offset to LangSys table-from beginning of Script table
             //-----------------------
 
             langSysTables[i] = new LangSysTable(
-                reader.ReadUInt32(),  //	4-byte LangSysTag identifier
+                reader.ReadUInt32(),  //    4-byte LangSysTag identifier
                 reader.ReadUInt16()); //offset
         }
 
@@ -153,11 +153,11 @@ public class ScriptTable
         {
             //---------------------
             //LangSys table
-            //Type 	    Name 	                    Description
-            //Offset16 	lookupOrder 	            = NULL (reserved for an offset to a reordering table)
-            //uint16 	requiredFeatureIndex        Index of a feature required for this language system- if no required features = 0xFFFF
-            //uint16 	featureIndexCount 	            Number of FeatureIndex values for this language system-excludes the required feature
-            //uint16 	featureIndices[featureIndexCount] 	Array of indices into the FeatureList-in arbitrary order
+            //Type         Name                         Description
+            //Offset16     lookupOrder                 = NULL (reserved for an offset to a reordering table)
+            //uint16     requiredFeatureIndex        Index of a feature required for this language system- if no required features = 0xFFFF
+            //uint16     featureIndexCount                 Number of FeatureIndex values for this language system-excludes the required feature
+            //uint16     featureIndices[featureIndexCount]     Array of indices into the FeatureList-in arbitrary order
             //---------------------
 
             ushort lookupOrder = reader.ReadUInt16();//reserve

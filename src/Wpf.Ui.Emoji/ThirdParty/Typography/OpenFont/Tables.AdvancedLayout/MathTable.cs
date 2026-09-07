@@ -70,7 +70,7 @@ public class MathConstants
     public ushort DelimitedSubFormulaMinHeight { get; internal set; }
 
     /// <summary>
-    ///  	Minimum height of n-ary operators (such as integral and summation) for formulas in display mode.
+    ///      Minimum height of n-ary operators (such as integral and summation) for formulas in display mode.
     /// </summary>
     public ushort DisplayOperatorMinHeight { get; internal set; }
 

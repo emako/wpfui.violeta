@@ -13,7 +13,7 @@ namespace Typography.OpenFont.Extensions
 
     public readonly struct OS2FsSelection
     {
-        //Bit # 	macStyle bit 	C definition 	Description
+        //Bit #     macStyle bit     C definition     Description
         //0         bit 1           ITALIC          Font contains italic or oblique characters, otherwise they are upright.
         //1                         UNDERSCORE      Characters are underscored.
         //2                         NEGATIVE        Characters have their foreground and background reversed.
@@ -61,16 +61,16 @@ namespace Typography.OpenFont.Extensions
         //from https://docs.microsoft.com/en-us/typography/opentype/spec/os2#uswidthclass
 
         //
-        //Value 	Description 	C Definition 	        % of normal
-        //1 	Ultra-condensed 	FWIDTH_ULTRA_CONDENSED 	50
-        //2 	Extra-condensed 	FWIDTH_EXTRA_CONDENSED 	62.5
-        //3 	Condensed 	        FWIDTH_CONDENSED 	    75
-        //4 	Semi-condensed 	    FWIDTH_SEMI_CONDENSED 	87.5
-        //5 	Medium (normal) 	FWIDTH_NORMAL 	        100
-        //6 	Semi-expanded 	    FWIDTH_SEMI_EXPANDED 	112.5
-        //7 	Expanded 	        FWIDTH_EXPANDED 	    125
-        //8 	Extra-expanded 	    FWIDTH_EXTRA_EXPANDED 	150
-        //9 	Ultra-expanded      FWIDTH_ULTRA_EXPANDED 	200
+        //Value     Description     C Definition             % of normal
+        //1     Ultra-condensed     FWIDTH_ULTRA_CONDENSED     50
+        //2     Extra-condensed     FWIDTH_EXTRA_CONDENSED     62.5
+        //3     Condensed             FWIDTH_CONDENSED         75
+        //4     Semi-condensed         FWIDTH_SEMI_CONDENSED     87.5
+        //5     Medium (normal)     FWIDTH_NORMAL             100
+        //6     Semi-expanded         FWIDTH_SEMI_EXPANDED     112.5
+        //7     Expanded             FWIDTH_EXPANDED         125
+        //8     Extra-expanded         FWIDTH_EXTRA_EXPANDED     150
+        //9     Ultra-expanded      FWIDTH_ULTRA_EXPANDED     200
 
         Unknown,//@prepare's => my custom
         UltraCondensed,
@@ -113,7 +113,7 @@ namespace Typography.OpenFont.Extensions
             //@prepare's note, please note:=> this is not real value, this is 'translated' value from OS2.fsSelection
 
             //https://www.microsoft.com/typography/otspec/os2.htm
-            //Bit # 	macStyle bit 	C definition 	Description
+            //Bit #     macStyle bit     C definition     Description
             //0         bit 1           ITALIC          Font contains italic or oblique characters, otherwise they are upright.
             //1                         UNDERSCORE      Characters are underscored.
             //2                         NEGATIVE        Characters have their foreground and background reversed.
@@ -278,7 +278,7 @@ namespace Typography.OpenFont.Extensions
         {
             //from https://docs.microsoft.com/en-us/typography/opentype/spec/os2#wa
             //usWinAscent
-            //Format: 	uint16
+            //Format:     uint16
             //Description:
             //The “Windows ascender” metric.
             //This should be used to specify the height above the baseline for a clipping region.
@@ -321,7 +321,7 @@ namespace Typography.OpenFont.Extensions
 
             //-----------------------------------------------------------------------------------
             //usWinDescent
-            //Format: 	uint16
+            //Format:     uint16
             //Description:
             //The “Windows descender” metric.This should be used to specify the vertical extent
             //below the baseline for a clipping region.

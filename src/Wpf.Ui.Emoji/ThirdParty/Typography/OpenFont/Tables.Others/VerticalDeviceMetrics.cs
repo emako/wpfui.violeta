@@ -25,18 +25,18 @@ class VerticalDeviceMetrics : TableEntry
 
     protected override void ReadContentFrom(BinaryReader reader)
     {
-        //uint16 	version 	Version number (0 or 1).
-        //uint16 	numRecs 	Number of VDMX groups present
-        //uint16 	numRatios 	Number of aspect ratio groupings
-        //RatioRange 	ratRange[numRatios] 	Ratio ranges (see below for more info)
-        //Offset16 	offset[numRatios] 	Offset from start of this table to the VDMX group for this ratio range.
+        //uint16     version     Version number (0 or 1).
+        //uint16     numRecs     Number of VDMX groups present
+        //uint16     numRatios     Number of aspect ratio groupings
+        //RatioRange     ratRange[numRatios]     Ratio ranges (see below for more info)
+        //Offset16     offset[numRatios]     Offset from start of this table to the VDMX group for this ratio range.
         //---
         //RatioRange Record:
-        //Type  	Name 	        Description
-        //uint8 	bCharSet 	    Character set (see below).
-        //uint8 	xRatio 	        Value to use for x-Ratio
-        //uint8 	yStartRatio 	Starting y-Ratio value.
-        //uint8 	yEndRatio 	    Ending y-Ratio value.
+        //Type      Name             Description
+        //uint8     bCharSet         Character set (see below).
+        //uint8     xRatio             Value to use for x-Ratio
+        //uint8     yStartRatio     Starting y-Ratio value.
+        //uint8     yEndRatio         Ending y-Ratio value.
         ushort version = reader.ReadUInt16();
         ushort numRecs = reader.ReadUInt16();
         ushort numRatios = reader.ReadUInt16();

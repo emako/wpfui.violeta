@@ -81,10 +81,10 @@ namespace Typography.OpenFont.Tables;
 
 //The tupleVariationCount field contains a packed value that includes flags and the number of logical tuple variation tables — which is also the number of physical tuple variation headers.The format of the tupleVariationCount value is as follows:
 //Mask      Name                    Description
-//0x8000 	SHARED_POINT_NUMBERS    Flag indicating that some or all tuple variation tables reference a shared set of “point” numbers.
+//0x8000     SHARED_POINT_NUMBERS    Flag indicating that some or all tuple variation tables reference a shared set of “point” numbers.
 //                              These shared numbers are represented as packed point number data at the start of the serialized data.
-//0x7000 	Reserved                Reserved for future use — set to 0.
-//0x0FFF 	COUNT_MASK              Mask     for the low bits to give the number of tuple variation tables.
+//0x7000     Reserved                Reserved for future use — set to 0.
+//0x0FFF     COUNT_MASK              Mask     for the low bits to give the number of tuple variation tables.
 
 //If the sharedPointNumbers flag is set,
 //then the serialized data following the header begins with packed “point” number data.
@@ -385,10 +385,10 @@ readonly struct TupleRecord
 //The format of the control byte is as follows:
 
 //Mask  Name                    Description
-//0x80 	POINTS_ARE_WORDS        Flag indicating the data type used for point numbers in this run.
+//0x80     POINTS_ARE_WORDS        Flag indicating the data type used for point numbers in this run.
 //                              If set, the point numbers are stored as unsigned 16-bit values (uint16);
 //                              if clear, the point numbers are stored as unsigned bytes (uint8).
-//0x7F 	POINT_RUN_COUNT_MASK    Mask for the low 7 bits of the control byte to give the number of point number elements, minus 1.
+//0x7F     POINT_RUN_COUNT_MASK    Mask for the low 7 bits of the control byte to give the number of point number elements, minus 1.
 
 //For example, a control byte of 0x02 indicates that the run has three elements represented as uint8 values;
 //a control byte of 0xD4 indicates that the run has 0x54 + 1 = 85 elements represented as uint16 values.
@@ -432,9 +432,9 @@ readonly struct TupleRecord
 //The format of the control byte is as follows:
 
 //Mask  Name                    Description
-//0x80 	DELTAS_ARE_ZERO         Flag indicating that this run contains no data (no explicit delta values are stored), and that all of the deltas for this run are zero.
-//0x40 	DELTAS_ARE_WORDS        Flag indicating the data type for delta values in the run. If set, the run contains 16-bit signed deltas (int16); if clear, the run contains 8-bit signed deltas (int8).
-//0x3F 	DELTA_RUN_COUNT_MASK    Mask for the low 6 bits to provide the number of delta values in the run, minus one.
+//0x80     DELTAS_ARE_ZERO         Flag indicating that this run contains no data (no explicit delta values are stored), and that all of the deltas for this run are zero.
+//0x40     DELTAS_ARE_WORDS        Flag indicating the data type for delta values in the run. If set, the run contains 16-bit signed deltas (int16); if clear, the run contains 8-bit signed deltas (int8).
+//0x3F     DELTA_RUN_COUNT_MASK    Mask for the low 6 bits to provide the number of delta values in the run, minus one.
 
 //...
 //...

@@ -112,10 +112,10 @@ public class Languages
         UnicodeRange2 = os2Tabble.ulUnicodeRange2;
         UnicodeRange3 = os2Tabble.ulUnicodeRange3;
         UnicodeRange4 = os2Tabble.ulUnicodeRange4;
-        //ULONG 	ulUnicodeRange1 	Bits 0-31
-        //ULONG 	ulUnicodeRange2 	Bits 32-63
-        //ULONG 	ulUnicodeRange3 	Bits 64-95
-        //ULONG 	ulUnicodeRange4 	Bits 96-127
+        //ULONG     ulUnicodeRange1     Bits 0-31
+        //ULONG     ulUnicodeRange2     Bits 32-63
+        //ULONG     ulUnicodeRange3     Bits 64-95
+        //ULONG     ulUnicodeRange4     Bits 96-127
 
         //-------
         //IMPORTANT:***
