@@ -2,6 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Wpf.Ui.Appearance;
@@ -14,31 +15,27 @@ namespace Wpf.Ui.Violeta.Controls;
 /// A Fluent Design styled <see cref="Popup"/> with acrylic background, rounded corners,
 /// and slide/fade/scale entrance animations — ported from FluentWpfCore.
 /// </summary>
+/// <remarks>
+/// Backdrop follows FluentWpfCore <c>PopupHelper.SetPopupWindowMaterial</c>.
+/// Do not set <see cref="Popup.AllowsTransparency"/> unless needed (e.g. drop shadows);
+/// layered popups break Win11 acrylic / Mica. Keep child backgrounds transparent.
+/// Use <see cref="Material"/> for Acrylic (tinted blur) or Mica / MicaAlt / SystemAcrylic
+/// (Win11 wallpaper materials — not dependent on the host window's solid fill).
+/// </remarks>
 public class FluentPopup : Popup
 {
-    // ------------------------------------------------------------------
-    // Animation type enum
-    // ------------------------------------------------------------------
-
-    /// <summary>Entrance / exit animation style for <see cref="FluentPopup"/>.</summary>
     public enum FluentPopupAnimation
     {
-        /// <summary>No animation.</summary>
         None,
 
-        /// <summary>Popup slides in/out vertically from the placement edge.</summary>
+        /// <summary>Content slides in from the edge nearest the placement target (HWND stays put).</summary>
         Slide,
 
-        /// <summary>Popup fades in/out.</summary>
         Fade,
 
-        /// <summary>Popup scales up from slightly smaller (ease-out).</summary>
+        /// <summary>Scales up from slightly smaller (ease-out).</summary>
         Scale,
     }
-
-    // ------------------------------------------------------------------
-    // Private fields
-    // ------------------------------------------------------------------
 
     private const System.Reflection.BindingFlags PrivateInstance =
         System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
@@ -49,24 +46,15 @@ public class FluentPopup : Popup
     private const double ScaleFrom = 0.88;
     private static readonly TimeSpan ScaleDuration = TimeSpan.FromMilliseconds(280);
 
-    // ------------------------------------------------------------------
-    // Constructor
-    // ------------------------------------------------------------------
-
     public FluentPopup()
     {
-        AllowsTransparency = true;
+        // Must stay false: WPF sets UsesPerPixelOpacity/WS_EX_LAYERED from AllowsTransparency at
+        // HWND creation; layered popups kill Win11 acrylic blur (FluentWpfCore leaves default false).
+        AllowsTransparency = false;
         Opened += OnPopupOpened;
         Closed += OnPopupClosed;
     }
 
-    // ------------------------------------------------------------------
-    // Dependency Properties
-    // ------------------------------------------------------------------
-
-    /// <summary>
-    /// Whether the popup repositions itself when the host window moves or resizes.
-    /// </summary>
     public bool FollowWindowMoving
     {
         get => (bool)GetValue(FollowWindowMovingProperty);
@@ -78,9 +66,6 @@ public class FluentPopup : Popup
             nameof(FollowWindowMoving), typeof(bool), typeof(FluentPopup),
             new PropertyMetadata(false, OnFollowWindowMovingChanged));
 
-    /// <summary>
-    /// Win32 corner style applied to the popup HWND (requires Windows 11+).
-    /// </summary>
     public WindowCornerPreference WindowCorner
     {
         get => (WindowCornerPreference)GetValue(WindowCornerProperty);
@@ -93,7 +78,9 @@ public class FluentPopup : Popup
             new PropertyMetadata(WindowCornerPreference.Round, OnWindowCornerChanged));
 
     /// <summary>
-    /// Acrylic tint color. Keep transparent (default) to use the pure blur effect.
+    /// Acrylic tint — only for <see cref="FluentPopupMaterial.Acrylic"/>.
+    /// Must stay <see cref="Brushes.Transparent"/> when using Mica / MicaAlt / SystemAcrylic
+    /// (system backdrop requires a fully transparent composition surface).
     /// </summary>
     public SolidColorBrush Background
     {
@@ -107,8 +94,20 @@ public class FluentPopup : Popup
             new PropertyMetadata(Brushes.Transparent, OnBackgroundChanged));
 
     /// <summary>
-    /// Entrance animation type.
+    /// Backdrop material. Default is legacy acrylic (FluentWpfCore).
+    /// Mica / MicaAlt / SystemAcrylic require Win11 and a transparent <see cref="Background"/>.
     /// </summary>
+    public FluentPopupMaterial Material
+    {
+        get => (FluentPopupMaterial)GetValue(MaterialProperty);
+        set => SetValue(MaterialProperty, value);
+    }
+
+    public static readonly DependencyProperty MaterialProperty =
+        DependencyProperty.Register(
+            nameof(Material), typeof(FluentPopupMaterial), typeof(FluentPopup),
+            new PropertyMetadata(FluentPopupMaterial.Acrylic, OnMaterialChanged));
+
     public FluentPopupAnimation ExtPopupAnimation
     {
         get => (FluentPopupAnimation)GetValue(ExtPopupAnimationProperty);
@@ -120,14 +119,7 @@ public class FluentPopup : Popup
             nameof(ExtPopupAnimation), typeof(FluentPopupAnimation), typeof(FluentPopup),
             new PropertyMetadata(FluentPopupAnimation.None));
 
-    /// <summary>
-    /// Number of pixels the popup slides when <see cref="PopupAnimation.Slide"/> is used.
-    /// </summary>
-    public uint SlideAnimationOffset { get; set; } = 30;
-
-    // ------------------------------------------------------------------
-    // DP change callbacks
-    // ------------------------------------------------------------------
+    public uint SlideAnimationOffset { get; set; } = 16;
 
     private static void OnFollowWindowMovingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -149,19 +141,34 @@ public class FluentPopup : Popup
 
     private static void OnWindowCornerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is FluentPopup popup && popup._hwnd != 0)
-            popup.ApplyCurrentThemeMaterial();
+        if (d is FluentPopup { IsOpen: true, _hwnd: not 0 } popup)
+            DwmApi.SetWindowCorner(popup._hwnd, popup.WindowCorner);
     }
 
     private static void OnBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is FluentPopup popup && popup._hwnd != 0)
-            popup.ApplyCurrentThemeMaterial();
+        if (d is FluentPopup popup)
+            popup.ApplyFluentHwnd();
     }
 
-    // ------------------------------------------------------------------
-    // Event handlers
-    // ------------------------------------------------------------------
+    private static void OnMaterialChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not FluentPopup popup) return;
+
+        // System backdrop cannot sit under a tinted/opaque Background — same as Window + Mica.
+        if (e.NewValue is FluentPopupMaterial material && IsSystemBackdrop(material) &&
+            popup.Background is { Color.A: not 0 })
+        {
+            popup.SetCurrentValue(BackgroundProperty, Brushes.Transparent);
+        }
+
+        popup.ApplyFluentHwnd();
+    }
+
+    private static bool IsSystemBackdrop(FluentPopupMaterial material) =>
+        material is FluentPopupMaterial.Mica
+            or FluentPopupMaterial.MicaAlt
+            or FluentPopupMaterial.SystemAcrylic;
 
     private void OnHostWindowMoved(object? sender, EventArgs e) => FollowMove();
 
@@ -169,8 +176,6 @@ public class FluentPopup : Popup
 
     protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
     {
-        // Apply the starting scale before the popup HWND is created/shown so the window
-        // opens already small and then grows — no full-size flash.
         if (e.Property == IsOpenProperty && e.NewValue is true
             && ExtPopupAnimation == FluentPopupAnimation.Scale)
         {
@@ -182,10 +187,13 @@ public class FluentPopup : Popup
 
     private void OnPopupOpened(object? sender, EventArgs e)
     {
+        if (IsSystemBackdrop(Material) && Background is { Color.A: not 0 })
+            SetCurrentValue(BackgroundProperty, Brushes.Transparent);
+
         _hwnd = GetNativeHwnd(this);
-        ApplyCurrentThemeMaterial();
+        ApplyFluentHwnd();
         ThemeManager.Changed += OnApplicationThemeChanged;
-        Dispatcher.InvokeAsync(PlayEntranceAnimation);
+        Dispatcher.Invoke(PlayEntranceAnimation);
     }
 
     private void OnPopupClosed(object? sender, EventArgs e)
@@ -195,21 +203,30 @@ public class FluentPopup : Popup
         _hwnd = 0;
     }
 
-    private void OnApplicationThemeChanged(ApplicationTheme theme, Color systemAccent)
-    {
-        if (_hwnd != 0)
-            ApplyCurrentThemeMaterial();
-    }
+    private void OnApplicationThemeChanged(ApplicationTheme theme, Color systemAccent) =>
+        ApplyFluentHwnd();
 
-    private void ApplyCurrentThemeMaterial()
+    /// <summary>FluentWpfCore <c>ApplyFluentHwnd</c>.</summary>
+    private void ApplyFluentHwnd()
     {
+        if (!IsOpen)
+            return;
+
+        if (_hwnd == 0)
+            _hwnd = GetNativeHwnd(this);
+
         bool isDark = ThemeManager.GetAppTheme() == ApplicationTheme.Dark;
-        DwmApi.ApplyPopupMaterial(_hwnd, Background.Color, WindowCorner, isDark);
+        // System materials: always pass fully transparent tint (never apply GradientColor).
+        Color tint = IsSystemBackdrop(Material) ? Colors.Transparent : Background.Color;
+        int systemBackdrop = Material switch
+        {
+            FluentPopupMaterial.Mica => (int)WindowBackdropPreference.Mica,             // DWMSBT_MAINWINDOW = 2
+            FluentPopupMaterial.SystemAcrylic => (int)WindowBackdropPreference.Acrylic, // DWMSBT_TRANSIENTWINDOW = 3
+            FluentPopupMaterial.MicaAlt => (int)WindowBackdropPreference.Tabbed,        // DWMSBT_TABBEDWINDOW = 4
+            _ => 0, // legacy composition acrylic
+        };
+        DwmApi.ApplyPopupMaterial(_hwnd, tint, WindowCorner, isDark, systemBackdrop);
     }
-
-    // ------------------------------------------------------------------
-    // Animation
-    // ------------------------------------------------------------------
 
     private void EnsureScaleStartTransform()
     {
@@ -233,49 +250,61 @@ public class FluentPopup : Popup
 
     private void PlayEntranceAnimation()
     {
+        if (!IsOpen)
+            return;
+
+        ResetAnimation();
+
         switch (ExtPopupAnimation)
         {
             case FluentPopupAnimation.Slide:
                 {
-                    bool fromBottom = GetAnimateFromBottom(this);
-                    double offset = fromBottom ? SlideAnimationOffset : -(double)SlideAnimationOffset;
-                    _animation = new DoubleAnimation(
-                        VerticalOffset + offset,
-                        VerticalOffset,
-                        TimeSpan.FromMilliseconds(300))
+                    // Content translate inside fixed HWND — do not animate VerticalOffset
+                    // (that sweeps the window across the placement target).
+                    if (Child is null)
+                        break;
+
+                    _animationRoot = Child;
+                    var from = GetSlideFromOffset();
+                    var transform = new TranslateTransform(from.X, from.Y);
+                    Child.RenderTransform = transform;
+
+                    var duration = TimeSpan.FromMilliseconds(280);
+                    var easing = new CubicEase { EasingMode = EasingMode.EaseOut };
+                    if (from.X != 0)
                     {
-                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut },
-                    };
-                    BeginAnimation(VerticalOffsetProperty, _animation);
+                        transform.BeginAnimation(
+                            TranslateTransform.XProperty,
+                            new DoubleAnimation(from.X, 0d, duration) { EasingFunction = easing });
+                    }
+
+                    if (from.Y != 0)
+                    {
+                        transform.BeginAnimation(
+                            TranslateTransform.YProperty,
+                            new DoubleAnimation(from.Y, 0d, duration) { EasingFunction = easing });
+                    }
+
                     break;
                 }
             case FluentPopupAnimation.Fade:
                 {
-                    // Match WPF PopupRoot fade: animate the popup window root, not Child.
-                    _animationRoot = GetPopupRoot();
+                    _animationRoot = Child;
                     _animation = new DoubleAnimation(0d, 1d, TimeSpan.FromMilliseconds(300));
-                    (_animationRoot ?? Child)?.BeginAnimation(OpacityProperty, _animation);
+                    Child?.BeginAnimation(OpacityProperty, _animation);
                     break;
                 }
             case FluentPopupAnimation.Scale:
                 {
-                    // LayoutTransform changes layout size so the popup HWND itself grows.
                     if (Child is not FrameworkElement child)
-                    {
-                        _animation = null;
                         break;
-                    }
 
                     _animationRoot = child;
                     if (child.LayoutTransform is not ScaleTransform scale)
                     {
                         EnsureScaleStartTransform();
                         if (child.LayoutTransform is not ScaleTransform prepared)
-                        {
-                            _animation = null;
                             break;
-                        }
-
                         scale = prepared;
                     }
 
@@ -286,12 +315,8 @@ public class FluentPopup : Popup
                     scale.BeginAnimation(
                         ScaleTransform.ScaleYProperty,
                         new DoubleAnimation(ScaleFrom, 1d, ScaleDuration) { EasingFunction = easing });
-                    _animation = null;
                     break;
                 }
-            default:
-                _animation = null;
-                break;
         }
     }
 
@@ -300,11 +325,17 @@ public class FluentPopup : Popup
         switch (ExtPopupAnimation)
         {
             case FluentPopupAnimation.Slide:
-                BeginAnimation(VerticalOffsetProperty, null);
+                if (Child?.RenderTransform is TranslateTransform translate)
+                {
+                    translate.BeginAnimation(TranslateTransform.XProperty, null);
+                    translate.BeginAnimation(TranslateTransform.YProperty, null);
+                }
+
+                Child?.RenderTransform = null;
                 break;
 
             case FluentPopupAnimation.Fade:
-                (_animationRoot ?? Child)?.BeginAnimation(OpacityProperty, null);
+                Child?.BeginAnimation(OpacityProperty, null);
                 break;
 
             case FluentPopupAnimation.Scale:
@@ -323,13 +354,17 @@ public class FluentPopup : Popup
         _animation = null;
     }
 
-    /// <summary>
-    /// Popup HWND root visual (<c>PopupRoot</c>), i.e. the popup window itself — not <see cref="Popup.Child"/>.
-    /// </summary>
-    private UIElement? GetPopupRoot()
+    private Vector GetSlideFromOffset()
     {
-        if (Child is null) return null;
-        return PresentationSource.FromVisual(Child)?.RootVisual as UIElement;
+        double distance = SlideAnimationOffset;
+        return Placement switch
+        {
+            PlacementMode.Left => new Vector(distance, 0),
+            PlacementMode.Right => new Vector(-distance, 0),
+            PlacementMode.Top => new Vector(0, distance),
+            PlacementMode.Bottom => new Vector(0, -distance),
+            _ => GetAnimateFromBottom(this) ? new Vector(0, -distance) : new Vector(0, distance),
+        };
     }
 
     private static Point GetScaleTransformOrigin(PlacementMode placement) => placement switch
@@ -338,12 +373,8 @@ public class FluentPopup : Popup
         PlacementMode.Left => new Point(1, 0.5),
         PlacementMode.Right => new Point(0, 0.5),
         PlacementMode.Center => new Point(0.5, 0.5),
-        _ => new Point(0.5, 0), // Bottom / Relative / Mouse / Absolute / etc.
+        _ => new Point(0.5, 0),
     };
-
-    // ------------------------------------------------------------------
-    // Native window helpers
-    // ------------------------------------------------------------------
 
     private void FollowMove()
     {
@@ -354,17 +385,27 @@ public class FluentPopup : Popup
     private static Window? GetHostWindow(FluentPopup popup) =>
         Window.GetWindow(popup.PlacementTarget ?? popup.Child);
 
-    /// <summary>
-    /// Retrieves the native HWND of a <see cref="Popup"/>'s internal window via reflection.
-    /// </summary>
+    /// <summary>HWND of the popup window (Child PresentationSource, else FluentWpfCore _secHelper).</summary>
     private static nint GetNativeHwnd(Popup popup)
     {
-        var secHelper = typeof(Popup).GetField("_secHelper", PrivateInstance)?.GetValue(popup);
-        if (secHelper is null) return 0;
+        // PresentationSource is the authoritative HWND after Opened (avoids reflection TFM quirks).
+        if (popup.Child is not null &&
+            PresentationSource.FromVisual(popup.Child) is HwndSource source &&
+            source.Handle != IntPtr.Zero)
+        {
+            return source.Handle;
+        }
 
-        var handleProp = secHelper.GetType().GetProperty("Handle", PrivateInstance);
-        if (handleProp?.GetValue(secHelper) is nint hwnd)
-            return hwnd;
+        var field = typeof(Popup).GetField("_secHelper", PrivateInstance);
+        if (field?.GetValue(popup) is { } secHelper &&
+            secHelper.GetType().GetProperty("Handle", PrivateInstance) is { } prop)
+        {
+            var value = prop.GetValue(secHelper);
+            if (value is IntPtr ptr && ptr != IntPtr.Zero)
+                return ptr;
+            if (value is nint hwnd && hwnd != 0)
+                return hwnd;
+        }
 
         return 0;
     }

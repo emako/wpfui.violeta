@@ -1,4 +1,6 @@
+using System;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
@@ -69,8 +71,8 @@ internal static class DwmApi
     // ------------------------------------------------------------------
 
     /// <summary>Converts a WPF <see cref="Color"/> to Win32 COLORREF (ABGR layout used by GradientColor).</summary>
-    internal static int ToWin32Color(Color c) =>
-        c.R | (c.G << 8) | (c.B << 16) | (c.A << 24);
+    internal static uint ToWin32Color(Color c) =>
+        (uint)(c.R | (c.G << 8) | (c.B << 16) | (c.A << 24));
 
     /// <summary>Enables or disables DWM window transition animations.</summary>
     internal static void SetTransitionsForceDisabled(nint hwnd, bool disabled)
@@ -109,19 +111,21 @@ internal static class DwmApi
         _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE, ref val, Marshal.SizeOf<int>());
     }
 
-    /// <summary>Enables or disables the acrylic blur-behind composition effect.</summary>
+    /// <summary>
+    /// FluentWpfCore <c>MaterialApis.SetWindowComposition</c> — legacy acrylic for popups.
+    /// </summary>
     internal static void SetAcrylicComposition(nint hwnd, bool enable, Color? tintColor = null)
     {
         var accent = new AccentPolicy();
-        if (enable)
+        if (!enable)
         {
-            accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
-            // Use supplied tint, or a near-transparent default so the effect is visible
-            accent.GradientColor = tintColor.HasValue ? (uint)ToWin32Color(tintColor.Value) : 0x01000000;
+            accent.AccentState = AccentState.ACCENT_DISABLED;
         }
         else
         {
-            accent.AccentState = AccentState.ACCENT_DISABLED;
+            accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+            // FluentWpfCore: hexColor ?? 0x00000000
+            accent.GradientColor = tintColor.HasValue ? ToWin32Color(tintColor.Value) : 0u;
         }
 
         int size = Marshal.SizeOf<AccentPolicy>();
@@ -144,31 +148,96 @@ internal static class DwmApi
     }
 
     /// <summary>
-    /// Applies the full Fluent acrylic material to a popup HWND:
-    /// transparent WPF composition target + immersive dark mode + DWM frame extension + acrylic + corner rounding.
-    /// When <paramref name="tintColor"/> is fully transparent the method selects a theme-appropriate default
-    /// (#CC1C1C1C for dark, #CCF3F3F3 for light).
+    /// FluentWpfCore popup material: legacy acrylic by default; Win11 Mica / MicaAlt /
+    /// TransientWindow (system acrylic) via <c>DWMWA_SYSTEMBACKDROP_TYPE</c>.
+    /// System backdrops require a fully transparent composition target (no tint brush).
     /// </summary>
-    internal static void ApplyPopupMaterial(nint hwnd, Color tintColor, WindowCornerPreference corner, bool isDark)
+    /// <param name="systemBackdropType">
+    /// <c>0</c> = legacy composition acrylic; otherwise a <c>DWMSBT_*</c> value
+    /// (2 Mica, 3 TransientWindow, 4 Tabbed/MicaAlt).
+    /// </param>
+    internal static void ApplyPopupMaterial(
+        nint hwnd,
+        Color tintColor,
+        WindowCornerPreference corner,
+        bool isDark,
+        int systemBackdropType = 0)
     {
         if (hwnd == 0) return;
 
-        var source = HwndSource.FromHwnd(hwnd);
-        if (source?.CompositionTarget is not null)
-            source.CompositionTarget.BackgroundColor = Colors.Transparent;
+        bool win11Backdrop = Environment.OSVersion.Version >= new Version(10, 0, 22621);
+        bool useSystemBackdrop = systemBackdropType is 2 or 3 or 4;
 
-        SetImmersiveDarkMode(hwnd, isDark);
-        ExtendFrameIntoClientArea(hwnd);
+        if (useSystemBackdrop && win11Backdrop)
+        {
+            // Match BackdropHelper.EnableDwmBlur / FluentWpfCore SetBackDropType path:
+            // composition must be fully transparent — any opaque/tint fill hides Mica.
+            SetAcrylicComposition(hwnd, enable: false);
 
-        // When the caller has not set a custom tint (fully transparent), choose a sensible default
-        // that matches the current light/dark theme so the acrylic surface looks natural.
-        Color effectiveTint = tintColor.A == 0
-            ? (isDark
-                ? Color.FromArgb(0xCC, 0x1C, 0x1C, 0x1C)   // dark  ≈ Windows 11 dark acrylic
-                : Color.FromArgb(0xCC, 0xF3, 0xF3, 0xF3))  // light ≈ Windows 11 light acrylic
-            : tintColor;
+            var hwndSource = HwndSource.FromHwnd(hwnd);
+            if (hwndSource?.CompositionTarget is not null)
+                hwndSource.CompositionTarget.BackgroundColor = Colors.Transparent;
 
-        SetAcrylicComposition(hwnd, true, effectiveTint);
+            ClearPopupRootFill(hwndSource);
+
+            // Win11 system backdrop: margin must be -1 (FluentWpfCore comment).
+            var margins = new Margins(-1, -1, -1, -1);
+            DwmExtendFrameIntoClientArea(hwnd, ref margins);
+
+            SetImmersiveDarkMode(hwnd, isDark);
+
+            int backdrop = systemBackdropType;
+            _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, ref backdrop, Marshal.SizeOf<int>());
+        }
+        else
+        {
+            var hwndSource = HwndSource.FromHwnd(hwnd);
+            if (hwndSource?.CompositionTarget is not null)
+                hwndSource.CompositionTarget.BackgroundColor = Colors.Transparent;
+
+            SetImmersiveDarkMode(hwnd, isDark);
+
+            if (win11Backdrop)
+            {
+                // DWMSBT_NONE = 1 (do not use WindowBackdropPreference.None == 0 / Auto).
+                int none = 1;
+                _ = DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE.DWMWA_SYSTEMBACKDROP_TYPE, ref none, Marshal.SizeOf<int>());
+            }
+
+            ExtendFrameIntoClientArea(hwnd, margin: 1);
+
+            Color compositionColor = tintColor.A == 0
+                ? (isDark
+                    ? Color.FromArgb(0x99, 0x28, 0x28, 0x28)
+                    : Color.FromArgb(0x6C, 0xFF, 0xFF, 0xFF))
+                : tintColor;
+
+            SetAcrylicComposition(hwnd, enable: true, compositionColor);
+        }
+
         SetWindowCorner(hwnd, corner);
+    }
+
+    /// <summary>
+    /// Ensures PopupRoot does not paint an opaque fill over DWM system backdrop.
+    /// </summary>
+    private static void ClearPopupRootFill(HwndSource? source)
+    {
+        if (source?.RootVisual is not DependencyObject root)
+            return;
+
+        var bg = System.Windows.Controls.Control.BackgroundProperty;
+        if (root is FrameworkElement fe)
+        {
+            try { fe.SetValue(bg, Brushes.Transparent); }
+            catch { /* PopupRoot may not own Background */ }
+        }
+
+        if (System.Windows.Media.VisualTreeHelper.GetChildrenCount(root) > 0 &&
+            System.Windows.Media.VisualTreeHelper.GetChild(root, 0) is FrameworkElement child)
+        {
+            try { child.SetValue(bg, Brushes.Transparent); }
+            catch { /* ignore */ }
+        }
     }
 }

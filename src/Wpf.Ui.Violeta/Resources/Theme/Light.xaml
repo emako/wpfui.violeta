@@ -395,4 +395,8 @@
     <SolidColorBrush x:Key="TabsTitleScrollBarThumbHoverBrush" Color="#99000000" />
     <CornerRadius x:Key="TabsTitleTabCornerRadius">4</CornerRadius>
 
+    <!-- FluentPopup -->
+    <!-- Slightly lighter frost than #6CFFFFFF so blur stays visible over light chrome -->
+    <SolidColorBrush x:Key="FluentPopupBackground" Color="#6CFFFFFF" />
+
 </ResourceDictionary>
