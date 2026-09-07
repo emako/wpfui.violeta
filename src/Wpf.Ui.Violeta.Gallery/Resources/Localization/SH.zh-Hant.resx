@@ -4061,6 +4061,12 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_ProgressRing" xml:space="preserve">
     <value>ProgressRing</value>
   </data>
+  <data name="Gallery_Page_Storage" xml:space="preserve">
+    <value>StorageBar / StorageRing</value>
+  </data>
+  <data name="Sample_Storage_CardDesc" xml:space="preserve">
+    <value>容量條與容量環</value>
+  </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>

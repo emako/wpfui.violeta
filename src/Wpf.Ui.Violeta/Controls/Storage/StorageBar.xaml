@@ -1,0 +1,53 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Style TargetType="{x:Type local:StorageBar}">
+        <Setter Property="MinHeight" Value="12" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="ValueBarHeight" Value="10" />
+        <Setter Property="TrackBarHeight" Value="10" />
+        <Setter Property="GapWidth" Value="0" />
+        <Setter Property="BarShape" Value="Flat" />
+        <Setter Property="PercentCaution" Value="75" />
+        <Setter Property="PercentCritical" Value="90" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Maximum" Value="100" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:StorageBar}">
+                    <Border
+                        x:Name="PART_Root"
+                        Background="Transparent"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Grid MinHeight="{TemplateBinding MinHeight}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="PART_ValueColumn" Width="*" />
+                                <ColumnDefinition x:Name="PART_GapColumn" Width="0" />
+                                <ColumnDefinition x:Name="PART_TrackColumn" Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                x:Name="PART_ValueBar"
+                                Grid.Column="0"
+                                Height="{TemplateBinding ValueBarHeight}"
+                                VerticalAlignment="Center"
+                                CornerRadius="{TemplateBinding ValueCornerRadius}" />
+
+                            <Border
+                                x:Name="PART_TrackBar"
+                                Grid.Column="2"
+                                Height="{TemplateBinding TrackBarHeight}"
+                                VerticalAlignment="Center"
+                                CornerRadius="{TemplateBinding TrackCornerRadius}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

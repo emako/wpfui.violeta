@@ -4061,6 +4061,12 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_ProgressRing" xml:space="preserve">
     <value>ProgressRing</value>
   </data>
+  <data name="Gallery_Page_Storage" xml:space="preserve">
+    <value>StorageBar / StorageRing</value>
+  </data>
+  <data name="Sample_Storage_CardDesc" xml:space="preserve">
+    <value>容量バーとリング</value>
+  </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>

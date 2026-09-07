@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -215,6 +215,7 @@ public partial class MainWindow : ShellWindow
         ["status/info-bar"] = static () => new InfoBarPage(),
         ["status/progress-bar"] = static () => new ProgressBarPage(),
         ["status/progress-ring"] = static () => new ProgressRingPage(),
+        ["status/storage"] = static () => new StoragePage(),
         ["status/badge"] = static () => new BadgePage(),
         ["status/shield"] = static () => new ShieldPage(),
         ["status/volume-view"] = static () => new VolumeViewPage(),
