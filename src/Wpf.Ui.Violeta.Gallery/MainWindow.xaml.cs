@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using LiteObservableLanguages;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Appearance;
@@ -263,6 +264,8 @@ public partial class MainWindow : ShellWindow
     {
         InitializeComponent();
         GalleryNavigator.NavigateRequested = OnNavigateRequested;
+        ContentFrame.Navigating += ContentFrame_OnNavigating;
+        ContentFrame.Navigated += ContentFrame_OnNavigated;
         Loaded += MainWindow_OnLoaded;
         Closing += MainWindow_OnClosing;
         Locale.Default.CultureChanged += OnCultureChanged;
@@ -364,7 +367,6 @@ public partial class MainWindow : ShellWindow
         if (ContentFrame.CanGoBack)
         {
             ContentFrame.GoBack();
-            UpdateBackButtonState();
         }
     }
 
@@ -373,13 +375,77 @@ public partial class MainWindow : ShellWindow
         if (ContentFrame.CanGoBack)
         {
             ContentFrame.GoBack();
-            UpdateBackButtonState();
         }
     }
 
     private void GalleryTitleBar_OnPaneToggleButtonClick(object? sender, EventArgs e)
     {
         GalleryNav.IsPaneOpen = !GalleryNav.IsPaneOpen;
+    }
+
+    /// <summary>
+    /// Sync chrome before Content swaps on journal back, otherwise the pill/title lag the page by a frame.
+    /// </summary>
+    private void ContentFrame_OnNavigating(object sender, NavigatingCancelEventArgs e)
+    {
+        if (e.NavigationMode != NavigationMode.Back)
+        {
+            return;
+        }
+
+        if (e.Content is Wpf.Ui.Violeta.Controls.Page page)
+        {
+            SyncNavigationChromeFromPage(page);
+        }
+    }
+
+    private void ContentFrame_OnNavigated(object sender, NavigationEventArgs e)
+    {
+        UpdateBackButtonState();
+    }
+
+    private void SyncNavigationChromeFromPage(Wpf.Ui.Violeta.Controls.Page page)
+    {
+        string? tag = null;
+        foreach (var (key, cached) in _pageCache)
+        {
+            if (ReferenceEquals(cached, page))
+            {
+                tag = key;
+                break;
+            }
+        }
+
+        if (tag is null)
+        {
+            return;
+        }
+
+        _syncingSelection = true;
+        try
+        {
+            if (string.Equals(tag, "settings", StringComparison.OrdinalIgnoreCase) || page is SettingsPage)
+            {
+                GalleryNav.SelectedItem = GalleryNav.SettingsItem;
+                GalleryNav.Header = LangKeys.Gallery_Settings.Tr();
+                return;
+            }
+
+            var item = FindMenuItemByTag(GalleryNav.MenuItems, tag);
+            if (item is not null)
+            {
+                GalleryNav.SelectedItem = item;
+                GalleryNav.Header = item.Content?.ToString() ?? string.Empty;
+            }
+            else
+            {
+                GalleryNav.Header = tag;
+            }
+        }
+        finally
+        {
+            _syncingSelection = false;
+        }
     }
 
     private void UpdateBackButtonState()
@@ -403,7 +469,6 @@ public partial class MainWindow : ShellWindow
 
         var page = GetOrCreate(tag, factory);
         ContentFrame.Navigate(page, new EntranceNavigationTransitionInfo());
-        UpdateBackButtonState();
     }
 
     private Wpf.Ui.Violeta.Controls.Page GetOrCreate(string key, Func<Wpf.Ui.Violeta.Controls.Page> factory)
