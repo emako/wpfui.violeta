@@ -467,8 +467,8 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
             Placement = Placement,
             PlacementTarget = this,
             VerticalOffset = 4,
-            PopupAnimation = PopupAnimation.Fade,
-            ExtPopupAnimation = FluentPopup.FluentPopupAnimation.Fade,
+            PopupAnimation = PopupAnimation.None,
+            ExtPopupAnimation = FluentPopup.FluentPopupAnimation.Scale,
             Child = _flyoutHost,
         };
 

@@ -12,7 +12,7 @@ namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
 /// A Fluent Design styled <see cref="Popup"/> with acrylic background, rounded corners,
-/// and slide/fade entrance animations — ported from FluentWpfCore.
+/// and slide/fade/scale entrance animations — ported from FluentWpfCore.
 /// </summary>
 public class FluentPopup : Popup
 {
@@ -31,6 +31,9 @@ public class FluentPopup : Popup
 
         /// <summary>Popup fades in/out.</summary>
         Fade,
+
+        /// <summary>Popup scales up from slightly smaller (ease-out).</summary>
+        Scale,
     }
 
     // ------------------------------------------------------------------
@@ -42,6 +45,9 @@ public class FluentPopup : Popup
 
     private nint _hwnd;
     private DoubleAnimation? _animation;
+    private UIElement? _animationRoot;
+    private const double ScaleFrom = 0.88;
+    private static readonly TimeSpan ScaleDuration = TimeSpan.FromMilliseconds(280);
 
     // ------------------------------------------------------------------
     // Constructor
@@ -161,6 +167,19 @@ public class FluentPopup : Popup
 
     private void OnHostWindowSizeChanged(object? sender, SizeChangedEventArgs e) => FollowMove();
 
+    protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+    {
+        // Apply the starting scale before the popup HWND is created/shown so the window
+        // opens already small and then grows — no full-size flash.
+        if (e.Property == IsOpenProperty && e.NewValue is true
+            && ExtPopupAnimation == FluentPopupAnimation.Scale)
+        {
+            EnsureScaleStartTransform();
+        }
+
+        base.OnPropertyChanged(e);
+    }
+
     private void OnPopupOpened(object? sender, EventArgs e)
     {
         _hwnd = GetNativeHwnd(this);
@@ -192,6 +211,26 @@ public class FluentPopup : Popup
     // Animation
     // ------------------------------------------------------------------
 
+    private void EnsureScaleStartTransform()
+    {
+        if (Child is not FrameworkElement child)
+            return;
+
+        child.ApplyTemplate();
+        child.LayoutTransform = null;
+        child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+        var size = child.DesiredSize;
+        if (size.Width <= 0 || size.Height <= 0)
+            return;
+
+        var origin = GetScaleTransformOrigin(Placement);
+        child.LayoutTransform = new ScaleTransform(ScaleFrom, ScaleFrom)
+        {
+            CenterX = size.Width * origin.X,
+            CenterY = size.Height * origin.Y,
+        };
+    }
+
     private void PlayEntranceAnimation()
     {
         switch (ExtPopupAnimation)
@@ -212,8 +251,42 @@ public class FluentPopup : Popup
                 }
             case FluentPopupAnimation.Fade:
                 {
+                    // Match WPF PopupRoot fade: animate the popup window root, not Child.
+                    _animationRoot = GetPopupRoot();
                     _animation = new DoubleAnimation(0d, 1d, TimeSpan.FromMilliseconds(300));
-                    Child?.BeginAnimation(OpacityProperty, _animation);
+                    (_animationRoot ?? Child)?.BeginAnimation(OpacityProperty, _animation);
+                    break;
+                }
+            case FluentPopupAnimation.Scale:
+                {
+                    // LayoutTransform changes layout size so the popup HWND itself grows.
+                    if (Child is not FrameworkElement child)
+                    {
+                        _animation = null;
+                        break;
+                    }
+
+                    _animationRoot = child;
+                    if (child.LayoutTransform is not ScaleTransform scale)
+                    {
+                        EnsureScaleStartTransform();
+                        if (child.LayoutTransform is not ScaleTransform prepared)
+                        {
+                            _animation = null;
+                            break;
+                        }
+
+                        scale = prepared;
+                    }
+
+                    var easing = new CubicEase { EasingMode = EasingMode.EaseOut };
+                    scale.BeginAnimation(
+                        ScaleTransform.ScaleXProperty,
+                        new DoubleAnimation(ScaleFrom, 1d, ScaleDuration) { EasingFunction = easing });
+                    scale.BeginAnimation(
+                        ScaleTransform.ScaleYProperty,
+                        new DoubleAnimation(ScaleFrom, 1d, ScaleDuration) { EasingFunction = easing });
+                    _animation = null;
                     break;
                 }
             default:
@@ -231,11 +304,42 @@ public class FluentPopup : Popup
                 break;
 
             case FluentPopupAnimation.Fade:
-                Child?.BeginAnimation(OpacityProperty, null);
+                (_animationRoot ?? Child)?.BeginAnimation(OpacityProperty, null);
+                break;
+
+            case FluentPopupAnimation.Scale:
+                if (Child is FrameworkElement { LayoutTransform: ScaleTransform scale })
+                {
+                    scale.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+                    scale.BeginAnimation(ScaleTransform.ScaleYProperty, null);
+                }
+
+                if (Child is FrameworkElement fe)
+                    fe.LayoutTransform = null;
                 break;
         }
+
+        _animationRoot = null;
         _animation = null;
     }
+
+    /// <summary>
+    /// Popup HWND root visual (<c>PopupRoot</c>), i.e. the popup window itself — not <see cref="Popup.Child"/>.
+    /// </summary>
+    private UIElement? GetPopupRoot()
+    {
+        if (Child is null) return null;
+        return PresentationSource.FromVisual(Child)?.RootVisual as UIElement;
+    }
+
+    private static Point GetScaleTransformOrigin(PlacementMode placement) => placement switch
+    {
+        PlacementMode.Top => new Point(0.5, 1),
+        PlacementMode.Left => new Point(1, 0.5),
+        PlacementMode.Right => new Point(0, 0.5),
+        PlacementMode.Center => new Point(0.5, 0.5),
+        _ => new Point(0.5, 0), // Bottom / Relative / Mouse / Absolute / etc.
+    };
 
     // ------------------------------------------------------------------
     // Native window helpers
