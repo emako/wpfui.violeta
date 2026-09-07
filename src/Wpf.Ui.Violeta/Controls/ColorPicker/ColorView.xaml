@@ -121,9 +121,11 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{DynamicResource ColorViewContentBorderBrush}"
                         BorderThickness="0,1,0,0"
+                        ClipToBounds="False"
                         CornerRadius="{DynamicResource ControlCornerRadius}"
                         SnapsToDevicePixels="True">
-                        <Grid>
+                        <Grid ClipToBounds="False">
+                            <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
@@ -281,28 +283,23 @@
                                     </Grid.RowDefinitions>
 
                                     <!--
-                                        Segmented (not ComboBox): ColorPicker's outer Popup uses StaysOpen=False,
-                                        so a nested ComboBox drop-down would dismiss the whole flyout on selection.
+                                        OverlayComboBox hosts its list on PART_OverlayLayer (same HWND as ColorPicker's
+                                        Popup) so selecting RGB/HSV does not dismiss the outer flyout.
                                     -->
-                                    <local:Segmented
-                                        x:Name="PART_ColorModelSegmented"
+                                    <local:OverlayComboBox
+                                        x:Name="PART_ColorModelComboBox"
                                         Grid.Row="0"
                                         Grid.Column="0"
+                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
                                         MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
                                         Margin="{DynamicResource ColorViewNumericUpDownMargin}"
                                         VerticalAlignment="Center"
-                                        ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
                                         SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                         SelectedValuePath="Tag"
                                         Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <local:Segmented.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <UniformGrid Rows="1" />
-                                            </ItemsPanelTemplate>
-                                        </local:Segmented.ItemsPanel>
-                                        <local:SegmentedItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
-                                        <local:SegmentedItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
-                                    </local:Segmented>
+                                        <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
+                                        <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
+                                    </local:OverlayComboBox>
                                     <ui:TextBox
                                         x:Name="PART_HexTextBox"
                                         Grid.Row="0"
@@ -458,6 +455,12 @@
                                     </local:ColorSlider>
                                 </Grid>
                             </Grid>
+                            </Grid>
+                            <Canvas
+                                x:Name="PART_OverlayLayer"
+                                Background="Transparent"
+                                ClipToBounds="False"
+                                IsHitTestVisible="False" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -485,7 +488,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ColorView}">
-                    <Grid>
+                    <Grid ClipToBounds="False">
+                        <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" MinHeight="200" />
                             <RowDefinition Height="Auto" />
@@ -616,32 +620,37 @@
                                 Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
                                 Value="{Binding Value, ElementName=ColorSpectrumAlphaSlider, Mode=TwoWay}" />
 
-                            <!-- Same nested-Popup issue as the default ColorView ColorModel switcher. -->
-                            <local:Segmented
-                                x:Name="PART_ColorModelSegmented"
+                            <local:OverlayComboBox
+                                x:Name="PART_ColorModelComboBox"
                                 Grid.Column="3"
+                                Width="88"
                                 MinHeight="{DynamicResource TextControlThemeMinHeight}"
                                 VerticalAlignment="Stretch"
-                                ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
                                 SelectedIndex="0">
-                                <local:SegmentedItem Content="Hex" />
-                                <local:SegmentedItem Content="Rgba" />
-                                <local:SegmentedItem Content="Hsva" />
-                            </local:Segmented>
+                                <ComboBoxItem Content="Hex" />
+                                <ComboBoxItem Content="Rgba" />
+                                <ComboBoxItem Content="Hsva" />
+                            </local:OverlayComboBox>
                         </Grid>
+                        </Grid>
+                        <Canvas
+                            x:Name="PART_OverlayLayer"
+                            Background="Transparent"
+                            ClipToBounds="False"
+                            IsHitTestVisible="False" />
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="0">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelComboBox}" Value="0">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="1">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelComboBox}" Value="1">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Visible" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelSegmented}" Value="2">
+                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=PART_ColorModelComboBox}" Value="2">
                             <Setter TargetName="HexInputPanel" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_RgbaTextBox" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_HsvaTextBox" Property="Visibility" Value="Visible" />

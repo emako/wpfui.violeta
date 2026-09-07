@@ -33,7 +33,7 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Make FormItem label/field alignment follow content alignment properties
 * Refine ColorPicker popup/preview UI and ColorView layout
 * Use Segmented for ColorView mode switch
-* Fix ColorPicker flyout closing when switching RGB/HSV (nested ComboBox popup)
+* Add OverlayComboBox (same-HWND drop-down) for ColorPicker RGB/HSV
 * Modernize emoji module with theme dictionaries and registration
 * Use localized SH resources for MessageBox/PendingBox buttons
 * Register Violeta XAML namespaces
