@@ -88,14 +88,6 @@
                 <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonPressedBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonPressedForeground}" />
             </Trigger>
-            <Trigger Property="IsMouseOverInTitleBar" Value="True">
-                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonHoverBackground}" />
-                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonHoverForeground}" />
-            </Trigger>
-            <Trigger Property="IsPressedInTitleBar" Value="True">
-                <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonPressedBackground}" />
-                <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonPressedForeground}" />
-            </Trigger>
         </Style.Triggers>
     </Style>
 

@@ -394,7 +394,6 @@ public partial class CaptionButtonBar : Control
             return;
         }
 
-        // Ensure template parts exist before wiring HWND hit-testing.
         ApplyTemplate();
 
         _ownerWindow.Activated += OnActivated;
@@ -408,18 +407,17 @@ public partial class CaptionButtonBar : Control
             return;
         }
 
-        _ownerHwndSource = HwndSource.FromHwnd(handle);
-        if (_ownerHwndSource is null)
+        HwndSource? hwndSource = HwndSource.FromHwnd(handle);
+        if (hwndSource is not null)
         {
-            return;
+            _captionButtonHandler?.Dispose();
+            _captionButtonHandler = new CaptionButtonHandler(hwndSource);
+            _captionButtonHandler.Add(MoreButton);
+            _captionButtonHandler.Add(HelpButton);
+            _captionButtonHandler.Add(MinimizeButton);
+            _captionButtonHandler.Add(MaximizeButton);
+            _captionButtonHandler.Add(CloseButton);
         }
-
-        _captionButtonHandler = new CaptionButtonHandler(_ownerHwndSource);
-        _captionButtonHandler.Add(MoreButton);
-        _captionButtonHandler.Add(HelpButton);
-        _captionButtonHandler.Add(MinimizeButton);
-        _captionButtonHandler.Add(MaximizeButton);
-        _captionButtonHandler.Add(CloseButton);
 
         int style = User32.GetWindowLong(handle, User32.GWL_STYLE);
         style &= ~User32.WS_SYSMENU;
@@ -428,6 +426,9 @@ public partial class CaptionButtonBar : Control
 
     private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
+        _captionButtonHandler?.Dispose();
+        _captionButtonHandler = null;
+
         if (_ownerWindow is null)
         {
             return;
@@ -509,6 +510,5 @@ public partial class CaptionButtonBar : Control
     }
 
     private Window _ownerWindow = null!;
-    private HwndSource _ownerHwndSource = null!;
-    private CaptionButtonHandler _captionButtonHandler = null!;
+    private CaptionButtonHandler? _captionButtonHandler;
 }

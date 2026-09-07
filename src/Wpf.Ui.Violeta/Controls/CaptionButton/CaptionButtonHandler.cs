@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
 
-public class CaptionButtonHandler
+/// <summary>
+/// Non-client hit-testing for caption buttons.
+/// Returns HTMIN/HTMAX/HTHELP so Windows Snap Layouts and system caption semantics work.
+/// Close is excluded: it uses <see cref="System.Windows.Shell.WindowChrome.IsHitTestVisibleInChromeProperty"/>
+/// and client <c>IsMouseOver</c> to avoid HTCLOSE hot-track flicker.
+/// </summary>
+public sealed class CaptionButtonHandler : IDisposable
 {
     public CaptionButtonHandler(HwndSource hwndSource)
     {
@@ -23,51 +28,19 @@ public class CaptionButtonHandler
         }
 
         _buttons.Add(button);
-
-        if (!TryCacheButtonChild(button))
-        {
-            button.IsVisibleChanged += OnButtonIsVisibleChanged;
-            button.Loaded += OnButtonLoaded;
-        }
     }
 
-    private void OnButtonIsVisibleChanged(object? sender, DependencyPropertyChangedEventArgs e)
+    public void Dispose()
     {
-        if (sender is CaptionButton button)
-        {
-            TryFinishCache(button);
-        }
-    }
-
-    private void OnButtonLoaded(object sender, RoutedEventArgs e)
-    {
-        if (sender is CaptionButton button)
-        {
-            TryFinishCache(button);
-        }
-    }
-
-    private void TryFinishCache(CaptionButton button)
-    {
-        if (!TryCacheButtonChild(button))
+        if (_disposed)
         {
             return;
         }
 
-        button.IsVisibleChanged -= OnButtonIsVisibleChanged;
-        button.Loaded -= OnButtonLoaded;
-    }
-
-    private bool TryCacheButtonChild(CaptionButton button)
-    {
-        if (!button.IsVisible || VisualTreeHelper.GetChildrenCount(button) <= 0)
-        {
-            return false;
-        }
-
-        DependencyObject child = VisualTreeHelper.GetChild(button, 0);
-        _cacheChildToButton[child] = button;
-        return true;
+        _disposed = true;
+        HoveredButton = null;
+        PressedButton = null;
+        _hwndSource.RemoveHook(OnHwndSourceMessage);
     }
 
     private nint OnHwndSourceMessage(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
@@ -77,41 +50,55 @@ public class CaptionButtonHandler
             case WM_NCHITTEST:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)  // The mouse is not on any title bar button
+                    if (button is null)
                     {
                         HoveredButton = null;
                         break;
                     }
+
+                    // Close uses client hit-testing; returning HTCLOSE fights custom hover and flickers.
+                    if (button.Kind == CaptionButtonKind.Close)
+                    {
+                        HoveredButton = null;
+                        break;
+                    }
+
                     if (button.IsEnabled)
                     {
-                        if (PressedButton is not null && PressedButton != button)  // Other buttons have already been pressed
+                        if (PressedButton is not null && PressedButton != button)
                         {
                             PressedButton.IsMouseOverInTitleBar = false;
                             PressedButton.IsPressedInTitleBar = false;
                             break;
                         }
-                        else if (PressedButton == button)
+
+                        if (PressedButton == button)
                         {
                             PressedButton.IsPressedInTitleBar = true;
                         }
+
                         HoveredButton = button;
                     }
+
                     handled = true;
+                    // HTMAXBUTTON (9) is required for Windows 11 Snap Layouts on the maximize button.
                     return (nint)button.Kind;
                 }
 
             case WM_NCLBUTTONDOWN:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)  // The mouse is not on any title bar button
+                    if (button is null || button.Kind == CaptionButtonKind.Close)
                     {
                         PressedButton = null;
                         break;
                     }
+
                     if (button.IsEnabled)
                     {
                         PressedButton = button;
                     }
+
                     handled = true;
                     break;
                 }
@@ -119,7 +106,7 @@ public class CaptionButtonHandler
             case WM_NCLBUTTONUP:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)
+                    if (button is null || button.Kind == CaptionButtonKind.Close)
                     {
                         PressedButton = null;
                         break;
@@ -129,6 +116,7 @@ public class CaptionButtonHandler
                     {
                         button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
                     }
+
                     PressedButton = null;
                     handled = true;
                     break;
@@ -141,6 +129,7 @@ public class CaptionButtonHandler
                     break;
                 }
         }
+
         return 0;
     }
 
@@ -152,27 +141,42 @@ public class CaptionButtonHandler
         }
 
         Point pointerScreenPosition = new(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
-        Window? ownerWindow = Window.GetWindow(_buttons.First());
-        if (ownerWindow is null)
+
+        foreach (CaptionButton button in _buttons)
         {
-            return null;
+            if (!button.IsVisible || !button.IsLoaded || button.ActualWidth <= 0 || button.ActualHeight <= 0)
+            {
+                continue;
+            }
+
+            Point local;
+            try
+            {
+                local = button.PointFromScreen(pointerScreenPosition);
+            }
+            catch (InvalidOperationException)
+            {
+                continue;
+            }
+
+            if (local.X >= 0 && local.Y >= 0 && local.X < button.ActualWidth && local.Y < button.ActualHeight)
+            {
+                return button;
+            }
         }
 
-        return ownerWindow.InputHitTest(ownerWindow.PointFromScreen(pointerScreenPosition)) is DependencyObject hit
-            && _cacheChildToButton.TryGetValue(hit, out CaptionButton? button)
-            ? button
-            : null;
+        return null;
     }
 
-    private static nint GET_X_LPARAM(nint lParam) => lParam & 0x0000FFFF;
+    private static int GET_X_LPARAM(nint lParam) => unchecked((short)(lParam & 0xFFFF));
 
-    private static nint GET_Y_LPARAM(nint lParam) => (lParam >> 16) & 0x0000FFFF;
+    private static int GET_Y_LPARAM(nint lParam) => unchecked((short)((lParam >> 16) & 0xFFFF));
 
     private readonly HwndSource _hwndSource;
     private readonly HashSet<CaptionButton> _buttons = [];
-    private readonly Dictionary<DependencyObject, CaptionButton> _cacheChildToButton = [];
+    private bool _disposed;
 
-    protected CaptionButton? HoveredButton
+    private CaptionButton? HoveredButton
     {
         get;
         set
@@ -183,7 +187,7 @@ public class CaptionButtonHandler
         }
     }
 
-    protected CaptionButton? PressedButton
+    private CaptionButton? PressedButton
     {
         get;
         set
