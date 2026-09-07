@@ -7,7 +7,7 @@
         <UseWPF>true</UseWPF>
         <LangVersion>preview</LangVersion>
         <AssemblyTitle>Wpf.Ui.Violeta Gallery</AssemblyTitle>
-        <AssemblyVersion>4.3.0.11</AssemblyVersion>
+        <AssemblyVersion>4.3.0.12</AssemblyVersion>
         <ApplicationIcon>Resources\Images\wpfui.ico</ApplicationIcon>
         <NoWarn>$(NoWarn);CS2002</NoWarn>
     </PropertyGroup>

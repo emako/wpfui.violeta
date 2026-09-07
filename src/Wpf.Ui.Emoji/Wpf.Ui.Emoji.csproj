@@ -10,9 +10,9 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <AssemblyVersion>4.3.0.11</AssemblyVersion>
-        <FileVersion>4.3.0.11</FileVersion>
-        <Version>4.3.0.11</Version>
+        <AssemblyVersion>4.3.0.12</AssemblyVersion>
+        <FileVersion>4.3.0.12</FileVersion>
+        <Version>4.3.0.12</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
         <Description>Emoji rendering for WPF (based on emoji.wpf). Color COLR/CPAL emoji via Segoe UI Emoji.</Description>
