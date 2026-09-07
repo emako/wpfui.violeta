@@ -33,6 +33,10 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
     private bool _suppressIsOpenCallback;
     private bool _executingFooter;
     private bool _skipCloseOnPopupClosed;
+    /// <summary>
+    /// True when the current click dismissed an open flyout (StaysOpen=false closes before Click).
+    /// </summary>
+    private bool _suppressOpenFromDismiss;
 
     private readonly ICommand _internalPrimaryCommand;
     private readonly ICommand _internalSecondaryCommand;
@@ -325,6 +329,7 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         _internalPrimaryCommand = new PopConfirmActionCommand(ExecutePrimary);
         _internalSecondaryCommand = new PopConfirmActionCommand(ExecuteSecondary);
         _internalCloseCommand = new PopConfirmActionCommand(ExecuteClose);
+        PreviewMouseLeftButtonDown += OnPreviewMouseLeftButtonDown;
         Unloaded += OnUnloaded;
         RefreshFooterButtonState();
     }
@@ -332,13 +337,25 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
     /// <inheritdoc />
     protected override void OnClick()
     {
-        if (IsConfirmOpen)
+        // StaysOpen=false often closes the popup on MouseDown before Click; don't reopen.
+        if (_suppressOpenFromDismiss)
         {
-            CloseFlyout(raiseClose: true);
+            _suppressOpenFromDismiss = false;
             return;
         }
 
         OpenConfirm();
+    }
+
+    private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        // Prefer closing here (before Button Click) when the flyout is still open.
+        if (IsConfirmOpen || _popup?.IsOpen == true)
+        {
+            _suppressOpenFromDismiss = true;
+            CloseFlyout(raiseClose: true);
+            e.Handled = true;
+        }
     }
 
     public void OpenConfirm()
@@ -536,6 +553,12 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         {
             _suppressIsOpenCallback = false;
         }
+
+        // Same gesture that dismissed StaysOpen=false may still raise Button.Click afterward.
+        _suppressOpenFromDismiss = true;
+        Dispatcher.BeginInvoke(
+            System.Windows.Threading.DispatcherPriority.Input,
+            new Action(() => _suppressOpenFromDismiss = false));
 
         if (_skipCloseOnPopupClosed)
         {
