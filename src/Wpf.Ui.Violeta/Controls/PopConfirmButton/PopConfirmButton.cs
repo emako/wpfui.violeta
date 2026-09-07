@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -33,10 +34,7 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
     private bool _suppressIsOpenCallback;
     private bool _executingFooter;
     private bool _skipCloseOnPopupClosed;
-    /// <summary>
-    /// True when the current click dismissed an open flyout (StaysOpen=false closes before Click).
-    /// </summary>
-    private bool _suppressOpenFromDismiss;
+    private Window? _outsideClickWindow;
 
     private readonly ICommand _internalPrimaryCommand;
     private readonly ICommand _internalSecondaryCommand;
@@ -329,7 +327,6 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         _internalPrimaryCommand = new PopConfirmActionCommand(ExecutePrimary);
         _internalSecondaryCommand = new PopConfirmActionCommand(ExecuteSecondary);
         _internalCloseCommand = new PopConfirmActionCommand(ExecuteClose);
-        PreviewMouseLeftButtonDown += OnPreviewMouseLeftButtonDown;
         Unloaded += OnUnloaded;
         RefreshFooterButtonState();
     }
@@ -337,24 +334,15 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
     /// <inheritdoc />
     protected override void OnClick()
     {
-        // StaysOpen=false often closes the popup on MouseDown before Click; don't reopen.
-        if (_suppressOpenFromDismiss)
-        {
-            _suppressOpenFromDismiss = false;
-            return;
-        }
-
-        OpenConfirm();
-    }
-
-    private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-    {
-        // Prefer closing here (before Button Click) when the flyout is still open.
+        // Explicit toggle: 1st click open, 2nd click close. Do not use StaysOpen=false —
+        // that closes on MouseDown before Click and makes every click look like "open".
         if (IsConfirmOpen || _popup?.IsOpen == true)
         {
-            _suppressOpenFromDismiss = true;
             CloseFlyout(raiseClose: true);
-            e.Handled = true;
+        }
+        else
+        {
+            OpenConfirm();
         }
     }
 
@@ -480,7 +468,9 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         _popup = new FluentPopup
         {
             AllowsTransparency = true,
-            StaysOpen = false,
+            // StaysOpen=true so the button owns open/close via OnClick toggle.
+            // Outside clicks are handled by AttachOutsideClickHandler.
+            StaysOpen = true,
             Placement = Placement,
             PlacementTarget = this,
             VerticalOffset = 4,
@@ -540,10 +530,14 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         {
             _suppressIsOpenCallback = false;
         }
+
+        AttachOutsideClickHandler();
     }
 
     private void OnPopupClosed(object? sender, EventArgs e)
     {
+        DetachOutsideClickHandler();
+
         _suppressIsOpenCallback = true;
         try
         {
@@ -553,12 +547,6 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         {
             _suppressIsOpenCallback = false;
         }
-
-        // Same gesture that dismissed StaysOpen=false may still raise Button.Click afterward.
-        _suppressOpenFromDismiss = true;
-        Dispatcher.BeginInvoke(
-            System.Windows.Threading.DispatcherPriority.Input,
-            new Action(() => _suppressOpenFromDismiss = false));
 
         if (_skipCloseOnPopupClosed)
         {
@@ -572,8 +560,87 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         }
     }
 
+    private void AttachOutsideClickHandler()
+    {
+        DetachOutsideClickHandler();
+        _outsideClickWindow = Window.GetWindow(this);
+        if (_outsideClickWindow is not null)
+        {
+            _outsideClickWindow.PreviewMouseDown += OnOutsidePreviewMouseDown;
+            _outsideClickWindow.Deactivated += OnHostWindowDeactivated;
+        }
+    }
+
+    private void DetachOutsideClickHandler()
+    {
+        if (_outsideClickWindow is null)
+        {
+            return;
+        }
+
+        _outsideClickWindow.PreviewMouseDown -= OnOutsidePreviewMouseDown;
+        _outsideClickWindow.Deactivated -= OnHostWindowDeactivated;
+        _outsideClickWindow = null;
+    }
+
+    private void OnHostWindowDeactivated(object? sender, EventArgs e) =>
+        CloseFlyout(raiseClose: true);
+
+    private void OnOutsidePreviewMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (_popup?.IsOpen != true)
+        {
+            return;
+        }
+
+        if (e.OriginalSource is not DependencyObject source)
+        {
+            CloseFlyout(raiseClose: true);
+            return;
+        }
+
+        // Button click is handled by OnClick toggle — do not close here.
+        if (IsDescendantOf(this, source))
+        {
+            return;
+        }
+
+        // Clicks inside the flyout keep it open.
+        if (_popup.Child is DependencyObject flyout && IsDescendantOf(flyout, source))
+        {
+            return;
+        }
+
+        CloseFlyout(raiseClose: true);
+    }
+
+    private static bool IsDescendantOf(DependencyObject root, DependencyObject? node)
+    {
+        for (var current = node; current is not null; current = GetParent(current))
+        {
+            if (ReferenceEquals(current, root))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static DependencyObject? GetParent(DependencyObject node)
+    {
+        if (node is Visual or System.Windows.Media.Media3D.Visual3D)
+        {
+            return VisualTreeHelper.GetParent(node);
+        }
+
+        return LogicalTreeHelper.GetParent(node);
+    }
+
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
+        DetachOutsideClickHandler();
+
         if (_popup is null)
         {
             return;

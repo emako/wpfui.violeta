@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
-## [4.3.0.12] - 2026-09-04
+## [4.3.0.12] - 2026-09-07
 
 * Add PopConfirmButton control
 * Add TabsTitleControl and gallery sample
@@ -19,6 +19,8 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Add BorderBeam control and Spin button mode
 * Add ContentWindowDialogControl with BusyMask, button alignment, and gallery sample
 * Add attached drag-and-drop framework and gallery sample
+* Add FluentPopup scale animation and Win11 backdrop materials (Mica / MicaAlt / SystemAcrylic)
+* Add OverlayComboBox (same-HWND drop-down) for ColorPicker RGB/HSV
 * Add theme dictionary registration system
 * Add EmptySimpleLogo brush and gallery sample
 * Add vertical orientation support to Segmented and TabStrip
@@ -33,9 +35,10 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Make FormItem label/field alignment follow content alignment properties
 * Refine ColorPicker popup/preview UI and ColorView layout
 * Use Segmented for ColorView mode switch
-* Add OverlayComboBox (same-HWND drop-down) for ColorPicker RGB/HSV
+* Fix ColorView nested popup issue
 * Modernize emoji module with theme dictionaries and registration
 * Use localized SH resources for MessageBox/PendingBox buttons
+* Fix localization wording across ja/zh-Hant/ko
 * Register Violeta XAML namespaces
 * Collapse dialog command area when no buttons are shown
 * Keep port binding in sync when cleared
