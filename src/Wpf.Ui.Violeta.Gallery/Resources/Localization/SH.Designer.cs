@@ -1971,6 +1971,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Svg.
+        /// </summary>
+        public static string Gallery_Page_Svg {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Svg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SwatchPicker.
         /// </summary>
         public static string Gallery_Page_SwatchPicker {
@@ -2516,6 +2525,33 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Gallery_Settings_Title {
             get {
                 return ResourceManager.GetString("Gallery_Settings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Render SVG with SharpVectors.
+        /// </summary>
+        public static string Gallery_Svg_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent color SVG.
+        /// </summary>
+        public static string Gallery_Svg_Sample {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_Sample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SvgViewbox loads an embedded Fluent System Icons color SVG (ic_fluent_shield_checkmark_48_color.svg) via pack URI..
+        /// </summary>
+        public static string Gallery_Svg_Sample_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_Sample_Desc", resourceCulture);
             }
         }
         

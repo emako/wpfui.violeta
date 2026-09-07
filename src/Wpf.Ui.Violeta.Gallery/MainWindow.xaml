@@ -404,6 +404,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BitmapIcon}}" Tag="media/bitmap-icon" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" Tag="media/qr-code" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CachedImage}}" Tag="media/cached-image" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Svg}}" Tag="media/svg" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

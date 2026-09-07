@@ -237,6 +237,7 @@ public partial class MainWindow : ShellWindow
         ["media/bitmap-icon"] = static () => new BitmapIconPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
         ["media/cached-image"] = static () => new CachedImagePage(),
+        ["media/svg"] = static () => new SvgPage(),
 
         ["feedback"] = static () => new FeedbackPage(),
         ["feedback/transitioning-content-control"] = static () => new TransitioningContentControlPage(),

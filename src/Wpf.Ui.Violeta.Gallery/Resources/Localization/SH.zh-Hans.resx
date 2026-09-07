@@ -4193,6 +4193,18 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_CachedImage" xml:space="preserve">
     <value>CachedImage</value>
   </data>
+  <data name="Gallery_Page_Svg" xml:space="preserve">
+    <value>Svg</value>
+  </data>
+  <data name="Gallery_Svg_CardDesc" xml:space="preserve">
+    <value>使用 SharpVectors 渲染 SVG</value>
+  </data>
+  <data name="Gallery_Svg_Sample" xml:space="preserve">
+    <value>Fluent 彩色 SVG</value>
+  </data>
+  <data name="Gallery_Svg_Sample_Desc" xml:space="preserve">
+    <value>通过 pack URI 用 SvgViewbox 加载嵌入的 Fluent System Icons 彩色 SVG（ic_fluent_shield_checkmark_48_color.svg）。</value>
+  </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>
