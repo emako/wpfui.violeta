@@ -133,13 +133,13 @@
     <value>載入中</value>
   </data>
   <data name="ExceptionWindowTitle" xml:space="preserve">
-    <value>出错啦</value>
+    <value>出錯啦</value>
   </data>
   <data name="ButtonCancel" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="ButtonCopy" xml:space="preserve">
-    <value>復制</value>
+    <value>複製</value>
   </data>
   <data name="ButtonOK" xml:space="preserve">
     <value>確定</value>
@@ -160,10 +160,10 @@
     <value>似乎遇到了一些問題</value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>你可以複製信息來跟蹤問題，忽略並嘗試，或者退出程序然後重新啟動。</value>
+    <value>你可以複製資訊來追蹤問題，忽略並嘗試，或者結束程式後重新啟動。</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>加載中</value>
+    <value>載入中</value>
   </data>
   <data name="NavigationButtonClosedName" xml:space="preserve">
     <value>開啟導覽</value>

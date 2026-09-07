@@ -121,7 +121,7 @@
     <value>エラー</value>
   </data>
   <data name="MessageBoxCaptionInformation" xml:space="preserve">
-    <value>ヒント</value>
+    <value>情報</value>
   </data>
   <data name="MessageBoxCaptionQuestion" xml:space="preserve">
     <value>質問</value>
@@ -142,7 +142,7 @@
     <value>コピー</value>
   </data>
   <data name="ButtonOK" xml:space="preserve">
-    <value>OK</value>
+    <value>ＯＫ</value>
   </data>
   <data name="ButtonYes" xml:space="preserve">
     <value>はい</value>
@@ -160,7 +160,7 @@
     <value>例外が発生しました</value>
   </data>
   <data name="ExceptionWindowHint2" xml:space="preserve">
-    <value>問題を追跡するために情報をコピーするか、無視して試すか、プログラムを終了して再起動することができます。</value>
+    <value>問題を追跡するために情報をコピーするか、無視して続行するか、プログラムを終了して再起動することができます。</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>読み込み中</value>
@@ -227,6 +227,9 @@
   <data name="PaginationQuickJumpPrefix" xml:space="preserve">
     <value>移動先</value>
   </data>
+  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
+    <value>ページ</value>
+  </data>
   <data name="DatePickerDayText" xml:space="preserve">
     <value>日</value>
   </data>
@@ -244,9 +247,6 @@
   </data>
   <data name="TimePickerSecondText" xml:space="preserve">
     <value>秒</value>
-  </data>
-  <data name="PaginationQuickJumpSuffix" xml:space="preserve">
-    <value>ページ</value>
   </data>
   <data name="ToggleSwitchOff" xml:space="preserve">
     <value>オフ</value>

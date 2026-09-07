@@ -151,10 +151,10 @@
     <value>아니요</value>
   </data>
   <data name="ButtonIgnore" xml:space="preserve">
-    <value>무시하다</value>
+    <value>무시</value>
   </data>
   <data name="ButtonExit" xml:space="preserve">
-    <value>출구</value>
+    <value>종료</value>
   </data>
   <data name="ExceptionWindowHint1" xml:space="preserve">
     <value>예외 발생</value>

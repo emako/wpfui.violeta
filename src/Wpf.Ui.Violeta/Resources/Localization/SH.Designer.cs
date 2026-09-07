@@ -145,7 +145,7 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error Occured.
+        ///   Looks up a localized string similar to Error Occurred.
         /// </summary>
         internal static string ExceptionWindowTitle {
             get {

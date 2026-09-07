@@ -133,7 +133,7 @@
     <value>Loading</value>
   </data>
   <data name="ExceptionWindowTitle" xml:space="preserve">
-    <value>Error Occured</value>
+    <value>Error Occurred</value>
   </data>
   <data name="ButtonCancel" xml:space="preserve">
     <value>Cancel</value>
