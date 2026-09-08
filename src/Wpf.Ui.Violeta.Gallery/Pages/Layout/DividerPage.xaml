@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Divider}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -41,7 +41,7 @@
                     <StackPanel Height="60" Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_58480236ab}}" />
                         <vio:Divider
-                            Width="1"
+                            Height="20"
                             Margin="12,0"
                             Orientation="Vertical" />
                         <TextBlock VerticalAlignment="Center" Text="{I18N {x:Static lang:LangKeys.Sample_d53bad00d1}}" />
