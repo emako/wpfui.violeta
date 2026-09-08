@@ -1384,7 +1384,16 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FlexPanel", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to FlipClock.
+        /// </summary>
+        public static string Gallery_Page_FlipClock {
+            get {
+                return ResourceManager.GetString("Gallery_Page_FlipClock", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to FlipView.
         /// </summary>
@@ -1393,7 +1402,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_FlipView", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to FluentPopup.
         /// </summary>
@@ -19048,6 +19057,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_f1861aaa47", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Displays the current time with a 3D flip-card animation..
+        /// </summary>
+        public static string Sample_f1a80c3e92 {
+            get {
+                return ResourceManager.GetString("Sample_f1a80c3e92", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Two-state checkbox: checked / unchecked..
@@ -19118,6 +19136,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_f249dc8eab {
             get {
                 return ResourceManager.GetString("Sample_f249dc8eab", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Flip-style clock with animated digits.
+        /// </summary>
+        public static string Sample_f2b91d4f03 {
+            get {
+                return ResourceManager.GetString("Sample_f2b91d4f03", resourceCulture);
             }
         }
         

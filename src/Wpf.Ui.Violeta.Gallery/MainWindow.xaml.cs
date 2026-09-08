@@ -139,6 +139,7 @@ public partial class MainWindow : ShellWindow
         ["date-time/time-box-picker"] = static () => new TimeBoxPickerPage(),
         ["date-time/time-box"] = static () => new TimeBoxPage(),
         ["date-time/calendar"] = static () => new CalendarPage(),
+        ["date-time/flip-clock"] = static () => new FlipClockPage(),
 
         ["dialogs"] = static () => new DialogsPage(),
         ["dialogs/content-dialog"] = static () => new ContentDialogPage(),

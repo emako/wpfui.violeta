@@ -3776,6 +3776,9 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_Calendar" xml:space="preserve">
     <value>Calendar</value>
   </data>
+  <data name="Gallery_Page_FlipClock" xml:space="preserve">
+    <value>FlipClock</value>
+  </data>
   <data name="Gallery_Page_FilePicker" xml:space="preserve">
     <value>FilePicker</value>
   </data>
@@ -6949,5 +6952,11 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_8b41fd5704" xml:space="preserve">
     <value>確認フライアウト（Primary / Close）</value>
+  </data>
+  <data name="Sample_f1a80c3e92" xml:space="preserve">
+    <value>3D めくりアニメーションで現在時刻を表示します。</value>
+  </data>
+  <data name="Sample_f2b91d4f03" xml:space="preserve">
+    <value>めくり式デジタル時計</value>
   </data>
 </root>

@@ -333,6 +333,10 @@
     <SolidColorBrush x:Key="VolumeViewLevel2FillBrush" Color="#EAA300" />
     <SolidColorBrush x:Key="VolumeViewLevel3FillBrush" Color="#00AE9D" />
 
+    <!--  FlipClock / FlipNumber  -->
+    <m:StaticResource x:Key="FlipNumberBackgroundBrush" ResourceKey="AccentFillColorDefaultBrush" />
+    <m:StaticResource x:Key="FlipNumberForegroundBrush" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+
     <!--
         EmptySimpleLogo — colors sampled from light-theme screenshot
         Shadow ellipse #F5F5F5 | Cavity fill #FAFAFA | Stroke #D9D9D9

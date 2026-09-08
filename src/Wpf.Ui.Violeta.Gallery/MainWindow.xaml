@@ -264,6 +264,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBoxPicker}}" Tag="date-time/time-box-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBox}}" Tag="date-time/time-box" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Calendar}}" Tag="date-time/calendar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FlipClock}}" Tag="date-time/flip-clock" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FilePicker}}" Tag="op-system/file-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_OpenFolderDialog}}" Tag="dialogs/open-folder-dialog" />
                     </vio:NavigationViewItem.MenuItems>
