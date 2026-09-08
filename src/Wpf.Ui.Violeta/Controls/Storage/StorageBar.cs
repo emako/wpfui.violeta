@@ -23,6 +23,8 @@ public class StorageBar : RangeBase
     private const string PartValueBar = "PART_ValueBar";
     private const string PartTrackBar = "PART_TrackBar";
 
+    private static readonly CornerRadius AutoCornerRadius = new(-1);
+
     private FrameworkElement? _root;
     private ColumnDefinition? _valueColumn;
     private ColumnDefinition? _gapColumn;
@@ -64,7 +66,7 @@ public class StorageBar : RangeBase
 
     public double Percent => (double)GetValue(PercentProperty);
 
-    #endregion
+    #endregion Percent
 
     #region PercentCaution
 
@@ -81,7 +83,7 @@ public class StorageBar : RangeBase
         set => SetValue(PercentCautionProperty, value);
     }
 
-    #endregion
+    #endregion PercentCaution
 
     #region PercentCritical
 
@@ -98,7 +100,7 @@ public class StorageBar : RangeBase
         set => SetValue(PercentCriticalProperty, value);
     }
 
-    #endregion
+    #endregion PercentCritical
 
     #region ValueBarHeight
 
@@ -115,7 +117,7 @@ public class StorageBar : RangeBase
         set => SetValue(ValueBarHeightProperty, value);
     }
 
-    #endregion
+    #endregion ValueBarHeight
 
     #region TrackBarHeight
 
@@ -132,7 +134,7 @@ public class StorageBar : RangeBase
         set => SetValue(TrackBarHeightProperty, value);
     }
 
-    #endregion
+    #endregion TrackBarHeight
 
     #region GapWidth
 
@@ -149,24 +151,24 @@ public class StorageBar : RangeBase
         set => SetValue(GapWidthProperty, value);
     }
 
-    #endregion
+    #endregion GapWidth
 
-    #region BarShape
+    #region CornerRadius
 
-    public static readonly DependencyProperty BarShapeProperty =
+    public static readonly DependencyProperty CornerRadiusProperty =
         DependencyProperty.Register(
-            nameof(BarShape),
-            typeof(BarShapes),
+            nameof(CornerRadius),
+            typeof(CornerRadius),
             typeof(StorageBar),
-            new PropertyMetadata(BarShapes.Flat, OnLayoutChanged));
+            new PropertyMetadata(AutoCornerRadius, OnLayoutChanged));
 
-    public BarShapes BarShape
+    public CornerRadius CornerRadius
     {
-        get => (BarShapes)GetValue(BarShapeProperty);
-        set => SetValue(BarShapeProperty, value);
+        get => (CornerRadius)GetValue(CornerRadiusProperty);
+        set => SetValue(CornerRadiusProperty, value);
     }
 
-    #endregion
+    #endregion CornerRadius
 
     #region ValueCornerRadius / TrackCornerRadius
 
@@ -175,7 +177,7 @@ public class StorageBar : RangeBase
             nameof(ValueCornerRadius),
             typeof(CornerRadius),
             typeof(StorageBar),
-            new PropertyMetadata(new CornerRadius(3)));
+            new PropertyMetadata(new CornerRadius(5, 0, 0, 5)));
 
     public static readonly DependencyProperty ValueCornerRadiusProperty =
         ValueCornerRadiusPropertyKey.DependencyProperty;
@@ -187,14 +189,14 @@ public class StorageBar : RangeBase
             nameof(TrackCornerRadius),
             typeof(CornerRadius),
             typeof(StorageBar),
-            new PropertyMetadata(new CornerRadius(1.5)));
+            new PropertyMetadata(new CornerRadius(0, 5, 5, 0)));
 
     public static readonly DependencyProperty TrackCornerRadiusProperty =
         TrackCornerRadiusPropertyKey.DependencyProperty;
 
     public CornerRadius TrackCornerRadius => (CornerRadius)GetValue(TrackCornerRadiusProperty);
 
-    #endregion
+    #endregion ValueCornerRadius / TrackCornerRadius
 
     public override void OnApplyTemplate()
     {
@@ -217,6 +219,7 @@ public class StorageBar : RangeBase
     {
         base.OnValueChanged(oldValue, newValue);
         UpdatePercent();
+        UpdateCornerRadii();
         UpdateColumns();
         ApplyAppearance();
     }
@@ -225,6 +228,7 @@ public class StorageBar : RangeBase
     {
         base.OnMinimumChanged(oldMinimum, newMinimum);
         UpdatePercent();
+        UpdateCornerRadii();
         UpdateColumns();
         ApplyAppearance();
     }
@@ -233,6 +237,7 @@ public class StorageBar : RangeBase
     {
         base.OnMaximumChanged(oldMaximum, newMaximum);
         UpdatePercent();
+        UpdateCornerRadii();
         UpdateColumns();
         ApplyAppearance();
     }
@@ -265,19 +270,50 @@ public class StorageBar : RangeBase
 
     private void UpdateCornerRadii()
     {
-        SetValue(ValueCornerRadiusPropertyKey, CreateCornerRadius(ValueBarHeight));
-        SetValue(TrackCornerRadiusPropertyKey, CreateCornerRadius(TrackBarHeight));
+        CornerRadius requested = CornerRadius;
+        double valueHeight = ValueBarHeight;
+        double trackHeight = TrackBarHeight;
+
+        double tl = ResolveRadius(requested.TopLeft, valueHeight);
+        double tr = ResolveRadius(requested.TopRight, valueHeight);
+        double br = ResolveRadius(requested.BottomRight, valueHeight);
+        double bl = ResolveRadius(requested.BottomLeft, valueHeight);
+
+        double trackTl = ResolveRadius(requested.TopLeft, trackHeight);
+        double trackTr = ResolveRadius(requested.TopRight, trackHeight);
+        double trackBr = ResolveRadius(requested.BottomRight, trackHeight);
+        double trackBl = ResolveRadius(requested.BottomLeft, trackHeight);
+
+        double percent = Percent;
+
+        if (percent <= 0.01)
+        {
+            SetValue(ValueCornerRadiusPropertyKey, new CornerRadius(0));
+            SetValue(TrackCornerRadiusPropertyKey, new CornerRadius(trackTl, trackTr, trackBr, trackBl));
+            return;
+        }
+
+        if (percent >= 99.99)
+        {
+            SetValue(ValueCornerRadiusPropertyKey, new CornerRadius(tl, tr, br, bl));
+            SetValue(TrackCornerRadiusPropertyKey, new CornerRadius(0));
+            return;
+        }
+
+        // Outer edges only; junction between value and track stays square.
+        SetValue(ValueCornerRadiusPropertyKey, new CornerRadius(tl, 0, 0, bl));
+        SetValue(TrackCornerRadiusPropertyKey, new CornerRadius(0, trackTr, trackBr, 0));
     }
 
-    private CornerRadius CreateCornerRadius(double height)
+    private static double ResolveRadius(double requested, double height)
     {
-        double radius = BarShape switch
+        double auto = Math.Max(0d, height / 2d);
+        if (double.IsNaN(requested) || requested < 0d)
         {
-            BarShapes.Flat => 0d,
-            BarShapes.Soft => Math.Max(0d, height / 4d),
-            _ => Math.Max(0d, height / 2d),
-        };
-        return new CornerRadius(radius);
+            return auto;
+        }
+
+        return Math.Max(0d, requested);
     }
 
     private void UpdateColumns()
@@ -334,11 +370,11 @@ public class StorageBar : RangeBase
         }
         else
         {
-            valueKey = "SystemAccentColorPrimaryBrush";
+            valueKey = "ProgressBarForeground";
         }
 
         _valueBar.SetResourceReference(Border.BackgroundProperty, valueKey);
-        _trackBar.SetResourceReference(Border.BackgroundProperty, "ControlStrongStrokeColorDefaultBrush");
+        _trackBar.SetResourceReference(Border.BackgroundProperty, "ProgressBarBackground");
     }
 
     private static double Clamp(double value, double min, double max)

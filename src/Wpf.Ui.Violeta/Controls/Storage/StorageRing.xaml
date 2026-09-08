@@ -31,16 +31,16 @@
                                 StartAngle="0"
                                 EndAngle="359.9"
                                 Stretch="None"
-                                StrokeStartLineCap="Flat"
-                                StrokeEndLineCap="Flat"
+                                StrokeStartLineCap="Round"
+                                StrokeEndLineCap="Round"
                                 StrokeThickness="{TemplateBinding TrackRingThickness}" />
                             <ui:Arc
                                 x:Name="PART_ValueRing"
                                 StartAngle="0"
                                 EndAngle="{TemplateBinding ValueAngle}"
                                 Stretch="None"
-                                StrokeStartLineCap="Flat"
-                                StrokeEndLineCap="Flat"
+                                StrokeStartLineCap="Round"
+                                StrokeEndLineCap="Round"
                                 StrokeThickness="{TemplateBinding ValueRingThickness}" />
                             <ContentPresenter
                                 HorizontalAlignment="Center"

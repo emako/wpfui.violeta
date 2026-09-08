@@ -86,31 +86,30 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="BarShape" />
+                        Text="CornerRadius" />
                     <TextBlock
                         Margin="0,0,0,4"
                         FontSize="12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Round" />
+                        Text="Default (height / 2)" />
                     <vio:StorageBar
                         Margin="0,0,0,12"
-                        BarShape="Round"
                         Value="62" />
                     <TextBlock
                         Margin="0,0,0,4"
                         FontSize="12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Soft" />
+                        Text="CornerRadius=2" />
                     <vio:StorageBar
                         Margin="0,0,0,12"
-                        BarShape="Soft"
+                        CornerRadius="2"
                         Value="78" />
                     <TextBlock
                         Margin="0,0,0,4"
                         FontSize="12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Flat" />
-                    <vio:StorageBar BarShape="Flat" Value="92" />
+                        Text="CornerRadius=0" />
+                    <vio:StorageBar CornerRadius="0" Value="92" />
                 </StackPanel>
             </Border>
 

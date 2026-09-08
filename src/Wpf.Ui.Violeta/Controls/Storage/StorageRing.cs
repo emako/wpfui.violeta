@@ -254,11 +254,11 @@ public class StorageRing : RangeBase
         }
         else
         {
-            valueKey = "SystemAccentColorPrimaryBrush";
+            valueKey = "ProgressBarForeground";
         }
 
         _valueRing.SetResourceReference(Shape.StrokeProperty, valueKey);
-        _trackRing.SetResourceReference(Shape.StrokeProperty, "ControlStrongStrokeColorDefaultBrush");
+        _trackRing.SetResourceReference(Shape.StrokeProperty, "ProgressBarBackground");
     }
 
     private static double Clamp(double value, double min, double max)

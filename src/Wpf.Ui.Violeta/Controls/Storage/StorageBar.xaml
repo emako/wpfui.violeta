@@ -11,7 +11,6 @@
         <Setter Property="ValueBarHeight" Value="10" />
         <Setter Property="TrackBarHeight" Value="10" />
         <Setter Property="GapWidth" Value="0" />
-        <Setter Property="BarShape" Value="Flat" />
         <Setter Property="PercentCaution" Value="75" />
         <Setter Property="PercentCritical" Value="90" />
         <Setter Property="Minimum" Value="0" />
