@@ -66,7 +66,7 @@ public class ToolBarPanel : Panel
         // Pass 1: full width (overflow button still Collapsed / not yet reserved).
         // Pass 2: if overflow is needed and the menu is shown, reserve the "..." button
         // width so the first layout pass matches post-resize behavior.
-        double available = double.IsInfinity(constraint.Width) ? double.PositiveInfinity : constraint.Width;
+        double available = ResolveAvailableWidth(toolBar, constraint.Width);
         var pass = MeasureOverflowPass(children, modes, sizes, spacing, available);
         bool hasOverflow = pass.HasAlways || pass.HasAsNeededOverflow;
 
@@ -97,6 +97,42 @@ public class ToolBarPanel : Panel
         double width = double.IsInfinity(constraint.Width) ? pass.PrimaryWidth : Math.Min(pass.PrimaryWidth, constraint.Width);
         double height = double.IsInfinity(constraint.Height) ? maxHeight : Math.Min(maxHeight, constraint.Height);
         return new Size(Math.Max(0, width), Math.Max(0, height));
+    }
+
+    /// <summary>
+    /// When measured under an infinite constraint (e.g. StackPanel), use an ancestor's
+    /// explicit Width so overflow is detected on the first pass — not only after a resize.
+    /// </summary>
+    private static double ResolveAvailableWidth(ToolBar toolBar, double constraintWidth)
+    {
+        if (!double.IsInfinity(constraintWidth))
+        {
+            return constraintWidth;
+        }
+
+        for (DependencyObject? current = toolBar;
+             current is not null;
+             current = current is Visual
+                 ? VisualTreeHelper.GetParent(current)
+                 : LogicalTreeHelper.GetParent(current))
+        {
+            if (current is not FrameworkElement fe)
+            {
+                continue;
+            }
+
+            if (!double.IsNaN(fe.Width) && !double.IsInfinity(fe.Width) && fe.Width > 0)
+            {
+                return fe.Width;
+            }
+
+            if (!double.IsNaN(fe.MaxWidth) && !double.IsInfinity(fe.MaxWidth) && fe.MaxWidth > 0)
+            {
+                return fe.MaxWidth;
+            }
+        }
+
+        return constraintWidth;
     }
 
     private readonly struct OverflowMeasureResult

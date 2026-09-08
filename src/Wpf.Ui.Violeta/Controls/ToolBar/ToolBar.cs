@@ -33,6 +33,7 @@ public class ToolBar : ItemsControl
     private Flyout? _overflowFlyout;
     private bool _isUpdatingOverflowOpen;
     private bool _isRealizingContainers;
+    private bool _overflowLayoutRefreshScheduled;
     private readonly RoutedEventHandler _overflowItemClickHandler;
     private readonly MouseButtonEventHandler _overflowItemMouseUpHandler;
 
@@ -47,6 +48,7 @@ public class ToolBar : ItemsControl
         _overflowItemMouseUpHandler = OnOverflowItemMouseUp;
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
+        SizeChanged += OnSizeChanged;
         ItemContainerGenerator.StatusChanged += OnGeneratorStatusChanged;
     }
 
@@ -77,7 +79,9 @@ public class ToolBar : ItemsControl
                 toolBar.IsOverflowOpen = false;
             }
 
+            toolBar.UpdateOverflowButtonVisibility();
             toolBar._toolBarPanel?.InvalidateMeasure();
+            toolBar.InvalidateMeasure();
         }
     }
 
@@ -129,7 +133,13 @@ public class ToolBar : ItemsControl
         private set => SetValue(HasOverflowItemsPropertyKey, value);
     }
 
-    internal void SetHasOverflowItems(bool value) => HasOverflowItems = value;
+    internal void SetHasOverflowItems(bool value)
+    {
+        HasOverflowItems = value;
+        // Always re-sync: when value is unchanged the DP callback does not run, but the
+        // button may still be Collapsed from the previous layout pass.
+        UpdateOverflowButtonVisibility();
+    }
 
     private static void OnHasOverflowItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -138,26 +148,81 @@ public class ToolBar : ItemsControl
             return;
         }
 
-        // Overflow button Visibility is toggled by a template trigger. That change must
-        // participate in layout; otherwise the "..." button only appears after a later resize.
+        // Drive Visibility in code (not only via template trigger). HasOverflowItems flips during
+        // MeasureOverride — a Collapsed "..." would otherwise stay invisible until a later resize.
+        toolBar.UpdateOverflowButtonVisibility();
         toolBar.InvalidateMeasure();
         toolBar.InvalidateArrange();
+        toolBar.ScheduleOverflowLayoutRefresh();
+    }
+
+    /// <summary>
+    /// Syncs PART_OverflowButton with <see cref="HasOverflowItems"/> / <see cref="ShowOverflowMenu"/>.
+    /// Uses Opacity (not Collapsed) so the first measure pass can already show "..." —
+    /// Collapsed + DockPanel previously left an empty reserved gap until a later resize.
+    /// </summary>
+    private void UpdateOverflowButtonVisibility()
+    {
+        if (_overflowButton is null)
+        {
+            return;
+        }
+
+        if (!ShowOverflowMenu)
+        {
+            _overflowButton.Visibility = Visibility.Collapsed;
+            _overflowButton.Opacity = 0;
+            _overflowButton.IsHitTestVisible = false;
+            _overflowButton.Focusable = false;
+            return;
+        }
+
+        _overflowButton.Visibility = Visibility.Visible;
+        bool show = HasOverflowItems;
+        _overflowButton.Opacity = show ? 1 : 0;
+        _overflowButton.IsHitTestVisible = show;
+        _overflowButton.Focusable = show;
+    }
+
+    /// <summary>
+    /// Queues a post-measure layout pass so the overflow button participates in DockPanel sizing
+    /// after <see cref="HasOverflowItems"/> changes mid-measure.
+    /// </summary>
+    private void ScheduleOverflowLayoutRefresh()
+    {
+        if (_overflowLayoutRefreshScheduled)
+        {
+            return;
+        }
+
+        _overflowLayoutRefreshScheduled = true;
+        Dispatcher.BeginInvoke(
+            new Action(() =>
+            {
+                _overflowLayoutRefreshScheduled = false;
+
+                EnsureContainersRealized();
+                UpdateOverflowButtonVisibility();
+                _toolBarPanel?.InvalidateMeasure();
+                InvalidateMeasure();
+                InvalidateArrange();
+
+                if (IsLoaded)
+                {
+                    UpdateLayout();
+                }
+            }),
+            DispatcherPriority.Loaded);
     }
 
     /// <summary>
     /// Width that <see cref="ToolBarPanel"/> should subtract for the overflow ("...") button
-    /// when the button is not yet participating in layout (Collapsed). Once Visible, DockPanel
-    /// already excludes its width from the panel constraint — do not reserve again.
+    /// once overflow is detected. The button is overlaid (not DockPanel-docked), so this width
+    /// must be reserved regardless of current Visibility.
     /// </summary>
     internal double GetOverflowButtonReserveWidth()
     {
         if (!ShowOverflowMenu || _overflowButton is null)
-        {
-            return 0;
-        }
-
-        // Already laid out by the DockPanel parent — panel constraint already excludes it.
-        if (_overflowButton.Visibility == Visibility.Visible)
         {
             return 0;
         }
@@ -351,8 +416,10 @@ public class ToolBar : ItemsControl
         EnsureOverflowFlyout();
         AttachOverflowButton();
         AttachOverflowPanelHandlers();
+        UpdateOverflowButtonVisibility();
         EnsureContainersRealized();
         UpdateOverflowFlyoutState();
+        ScheduleOverflowLayoutRefresh();
     }
 
     protected override bool IsItemItsOwnContainerOverride(object item) => item is FrameworkElement;
@@ -429,23 +496,25 @@ public class ToolBar : ItemsControl
     {
         EnsureOverflowFlyout();
         EnsureContainersRealized();
+        UpdateOverflowButtonVisibility();
         // Containers / item DesiredSize may only be final after the first arrange.
-        // Force a follow-up measure so overflow is detected without requiring a resize.
+        // Force a follow-up measure so overflow + "..." appear without requiring a resize.
         _toolBarPanel?.InvalidateMeasure();
         InvalidateMeasure();
-        Dispatcher.BeginInvoke(
-            new Action(() =>
-            {
-                if (!IsLoaded)
-                {
-                    return;
-                }
+        ScheduleOverflowLayoutRefresh();
+    }
 
-                EnsureContainersRealized();
-                _toolBarPanel?.InvalidateMeasure();
-                InvalidateMeasure();
-            }),
-            DispatcherPriority.Loaded);
+    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (!e.WidthChanged)
+        {
+            return;
+        }
+
+        // Parent width bindings (e.g. Gallery slider) can settle after the first measure;
+        // re-measure so overflow state and the "..." button stay in sync.
+        _toolBarPanel?.InvalidateMeasure();
+        UpdateOverflowButtonVisibility();
     }
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
