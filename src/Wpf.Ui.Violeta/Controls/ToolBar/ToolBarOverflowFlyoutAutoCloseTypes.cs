@@ -14,8 +14,17 @@ public static class ToolBarOverflowFlyoutAutoCloseTypes
 {
     internal static readonly object SyncRoot = new();
 
-    internal static readonly HashSet<Type> Whitelist = [typeof(ButtonBase)];
+    /// <summary>
+    /// List to auto close
+    /// </summary>
+    internal static readonly HashSet<Type> Whitelist =
+    [
+        typeof(ButtonBase),
+    ];
 
+    /// <summary>
+    /// List to do not auto close
+    /// </summary>
     internal static readonly HashSet<Type> Blacklist =
     [
         // WPF Primitives
@@ -110,18 +119,20 @@ public static class ToolBarOverflowFlyoutAutoCloseTypes
 
             return IsAssignableFromAny(Whitelist, elementType);
         }
-    }
 
-    private static bool IsAssignableFromAny(HashSet<Type> types, Type elementType)
-    {
-        foreach (Type type in types)
+        // Checks whether any type in the collection is assignable from the specified type.
+        static bool IsAssignableFromAny(HashSet<Type> types, Type elementType)
         {
-            if (type.IsAssignableFrom(elementType))
+            foreach (Type type in types)
             {
-                return true;
+                // Checks whether elementType can be assigned to type.
+                if (type.IsAssignableFrom(elementType))
+                {
+                    return true;
+                }
             }
-        }
 
-        return false;
+            return false;
+        }
     }
 }

@@ -554,7 +554,7 @@ public class ToolBar : ItemsControl
             return;
         }
 
-        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, buttonBaseItemOnly: true);
+        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, matchWhitelist: true);
     }
 
     private void OnOverflowItemMouseUp(object sender, MouseButtonEventArgs e)
@@ -564,38 +564,84 @@ public class ToolBar : ItemsControl
             return;
         }
 
-        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, buttonBaseItemOnly: false);
+        TryAutoCloseOverflowFlyout(e.OriginalSource as DependencyObject, matchWhitelist: false);
     }
 
-    private void TryAutoCloseOverflowFlyout(DependencyObject? originalSource, bool buttonBaseItemOnly)
+    private void TryAutoCloseOverflowFlyout(DependencyObject? originalSource, bool matchWhitelist)
     {
         if (!IsOverflowOpen || _overflowPanel is null || originalSource is null)
         {
             return;
         }
 
+        UIElement? toolbarItem = null;
+
         for (DependencyObject? current = originalSource;
              current is not null;
-             current = current is Visual
-                 ? VisualTreeHelper.GetParent(current)
-                 : LogicalTreeHelper.GetParent(current))
+             current = GetVisualOrLogicalParent(current))
         {
             if (ReferenceEquals(current, _overflowPanel))
             {
-                return;
+                break;
             }
 
-            if (current is UIElement element && Items.Contains(element))
+            if (current is UIElement element && IsToolBarItemOrContainer(element))
             {
-                if (!buttonBaseItemOnly || ToolBarOverflowFlyoutAutoCloseTypes.Matches(element))
-                {
-                    IsOverflowOpen = false;
-                }
+                toolbarItem = element;
+                break;
+            }
+        }
 
+        if (toolbarItem is null)
+        {
+            return;
+        }
+
+        if (!matchWhitelist)
+        {
+            IsOverflowOpen = false;
+            return;
+        }
+
+        // Direct item match (e.g. Button in Items).
+        if (ToolBarOverflowFlyoutAutoCloseTypes.Matches(toolbarItem))
+        {
+            IsOverflowOpen = false;
+            return;
+        }
+
+        // Wrapper / DataTemplate: item itself may be StackPanel / ContentPresenter,
+        // but the Click came from a nested control that matches the whitelist.
+        for (DependencyObject? current = originalSource;
+             current is not null
+             && !ReferenceEquals(current, toolbarItem)
+             && !ReferenceEquals(current, _overflowPanel);
+             current = GetVisualOrLogicalParent(current))
+        {
+            if (ToolBarOverflowFlyoutAutoCloseTypes.Matches(current))
+            {
+                IsOverflowOpen = false;
                 return;
             }
         }
     }
+
+    private bool IsToolBarItemOrContainer(UIElement element)
+    {
+        if (Items.Contains(element))
+        {
+            return true;
+        }
+
+        // ItemsSource: generated container is not the item object in Items.
+        object item = ItemContainerGenerator.ItemFromContainer(element);
+        return item is not null && !ReferenceEquals(item, DependencyProperty.UnsetValue);
+    }
+
+    private static DependencyObject? GetVisualOrLogicalParent(DependencyObject current)
+        => current is Visual
+            ? VisualTreeHelper.GetParent(current)
+            : LogicalTreeHelper.GetParent(current);
 
     private void AttachOverflowButton()
     {

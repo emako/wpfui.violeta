@@ -9,7 +9,8 @@ public enum ToolBarOverflowFlyoutAutoCloseMode
     /// Like a ComboBox dropdown: clicking outside closes the flyout.
     /// Clicking an overflow item that matches <see cref="ToolBarOverflowFlyoutAutoCloseTypes"/>
     /// (whitelist, not blacklist; whitelist defaults to <see cref="System.Windows.Controls.Primitives.ButtonBase"/>) also closes it.
-    /// Nested buttons inside ComboBox / other hosts do not dismiss the flyout.
+    /// Nested matching controls inside a non-matching host item (e.g. Button in a wrapper) also dismiss;
+    /// blacklisted hosts (Toggle / DropDown / Split) do not.
     /// </summary>
     Default = 0,
 
