@@ -7049,4 +7049,34 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_GifImage_WithIcon" xml:space="preserve">
     <value>含 GIF 圖示</value>
   </data>
+  <data name="Gallery_Page_ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Sample_ImageSelector_Intro" xml:space="preserve">
+    <value>點擊選擇圖片檔案並預覽，再次點擊可清除。支援圓角、虛線描邊，顏色跟隨 WPF-UI 主題（含深色模式）。</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicTitle" xml:space="preserve">
+    <value>樣式變體（HandyControl 風格）</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicDesc" xml:space="preserve">
+    <value>點擊任意方塊開啟檔案對話框。可透過 CornerRadius、StrokeDashArray、BorderBrush 自訂外觀。再次點擊可清除。</value>
+  </data>
+  <data name="Sample_ImageSelector_CardDesc" xml:space="preserve">
+    <value>帶預覽的圖片選擇器</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsTitle" xml:space="preserve">
+    <value>事件</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsDesc" xml:space="preserve">
+    <value>監聽 ImageSelected / ImageUnselected。選中路徑會顯示在下方。</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusLabel" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusIdle" xml:space="preserve">
+    <value>點擊選擇器以選擇圖片…</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
+    <value>已清除選擇。</value>
+  </data>
 </root>

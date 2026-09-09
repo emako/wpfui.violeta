@@ -238,6 +238,7 @@ public partial class MainWindow : ShellWindow
         ["media/gravatar"] = static () => new GravatarPage(),
         ["media/bitmap-icon"] = static () => new BitmapIconPage(),
         ["media/gif-image"] = static () => new GifImagePage(),
+        ["media/image-selector"] = static () => new ImageSelectorPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
         ["media/cached-image"] = static () => new CachedImagePage(),
         ["media/svg"] = static () => new SvgPage(),

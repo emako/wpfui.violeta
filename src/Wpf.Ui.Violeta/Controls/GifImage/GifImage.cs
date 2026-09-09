@@ -151,8 +151,7 @@ public class GifImage : IconElementEx, IDisposable
     private static void OnStretchChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var control = (GifImage)d;
-        if (control._image != null)
-            control._image.Stretch = (Stretch)e.NewValue;
+        control._image?.Stretch = (Stretch)e.NewValue;
     }
 
     private static void OnVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

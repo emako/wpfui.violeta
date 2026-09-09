@@ -1,0 +1,117 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Geometry x:Key="ImageSelectorAddGeometry">M8,0 C8.5522847,0 9,0.44771525 9,1 L9,7 15,7 C15.552285,7 16,7.4477153 16,8 16,8.5522852 15.552285,9 15,9 L9,9 9,15 C9,15.552285 8.5522847,16 8,16 7.4477153,16 7,15.552285 7,15 L7,9 1,9 C0.44771528,9 0,8.5522852 0,8 0,7.4477153 0.44771528,7 1,7 L7,7 7,1 C7,0.44771525 7.4477153,0 8,0 z</Geometry>
+    <Geometry x:Key="ImageSelectorRemoveGeometry">M10.899495,0 C11.155417,0 11.411339,0.097630501 11.606602,0.29289246 11.997126,0.68341732 11.997126,1.3165817 11.606602,1.7071066 L7.3639612,5.9497471 11.606602,10.192388 C11.997126,10.582912 11.997126,11.216077 11.606602,11.606601 11.216077,11.997126 10.582912,11.997126 10.192388,11.606601 L5.9497476,7.3639607 1.7071068,11.606601 C1.3165827,11.997126 0.68341756,11.997126 0.29289341,11.606601 -0.097630978,11.216077 -0.097630978,10.582912 0.29289341,10.192388 L4.5355338,5.9497471 0.29289341,1.7071066 C-0.097630978,1.3165817 -0.097630978,0.68341732 0.29289341,0.29289246 0.48815536,0.097630501 0.74407768,0 1,0 1.2559223,0 1.5118446,0.097630501 1.7071068,0.29289246 L5.9497476,4.5355334 10.192388,0.29289246 C10.38765,0.097630501 10.643572,0 10.899495,0 z</Geometry>
+
+    <Style TargetType="local:ImageSelector">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Stretch" Value="UniformToFill" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="StrokeDashArray" Value="2,2" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ImageSelector">
+                    <!--  Root Grid fills Width/Height of the control; do not size-to-content.  -->
+                    <Grid SnapsToDevicePixels="True">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            SnapsToDevicePixels="True">
+                            <Grid>
+                                <Border Background="{TemplateBinding PreviewBrush}" CornerRadius="{TemplateBinding CornerRadius}" />
+                                <Rectangle
+                                    Fill="Transparent"
+                                    IsHitTestVisible="False"
+                                    RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                                    RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Stroke="{TemplateBinding BorderBrush}"
+                                    StrokeDashArray="{TemplateBinding StrokeDashArray}"
+                                    StrokeThickness="{TemplateBinding StrokeThickness}" />
+                                <Border
+                                    Width="30"
+                                    Height="30"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    CornerRadius="15"
+                                    IsHitTestVisible="False">
+                                    <Grid>
+                                        <Path
+                                            Width="16"
+                                            Height="16"
+                                            Data="{StaticResource ImageSelectorAddGeometry}"
+                                            Fill="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                            Stretch="Uniform">
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding HasValue, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                        <Path
+                                            Width="12"
+                                            Height="12"
+                                            Data="{StaticResource ImageSelectorRemoveGeometry}"
+                                            Fill="{DynamicResource SystemAccentColorPrimaryBrush}"
+                                            Stretch="Uniform">
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding HasValue, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <!--  Click overlay: fills the whole control  -->
+                        <Button
+                            x:Name="PART_Button"
+                            Padding="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Focusable="False"
+                            IsTabStop="False">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="Transparent" />
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorPrimaryBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -7043,4 +7043,34 @@ Click OK to continue.</value>
   <data name="Sample_GifImage_WithIcon" xml:space="preserve">
     <value>With GIF icon</value>
   </data>
+  <data name="Gallery_Page_ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Sample_ImageSelector_Intro" xml:space="preserve">
+    <value>Pick an image file to preview it. Click again to clear. Supports corner radius, dashed stroke, and theme-aware colors.</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicTitle" xml:space="preserve">
+    <value>Variants (HandyControl-style)</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicDesc" xml:space="preserve">
+    <value>Click any tile to open a file dialog. Customize CornerRadius, StrokeDashArray, and BorderBrush. Click again to clear.</value>
+  </data>
+  <data name="Sample_ImageSelector_CardDesc" xml:space="preserve">
+    <value>Image file picker with preview</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsTitle" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsDesc" xml:space="preserve">
+    <value>Listen to ImageSelected / ImageUnselected. Selected path is shown below.</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusLabel" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusIdle" xml:space="preserve">
+    <value>Click a selector to choose an image…</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
+    <value>Selection cleared.</value>
+  </data>
 </root>

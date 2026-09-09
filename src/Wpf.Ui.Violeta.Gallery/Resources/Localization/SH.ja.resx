@@ -7043,4 +7043,34 @@ OK をクリックして続行してください。</value>
   <data name="Sample_GifImage_WithIcon" xml:space="preserve">
     <value>GIF アイコン付き</value>
   </data>
+  <data name="Gallery_Page_ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Sample_ImageSelector_Intro" xml:space="preserve">
+    <value>クリックで画像ファイルを選択してプレビューし、再度クリックでクリアします。角丸・破線・WPF-UI テーマ色（ダークモード含む）に対応します。</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicTitle" xml:space="preserve">
+    <value>バリエーション（HandyControl 風）</value>
+  </data>
+  <data name="Sample_ImageSelector_BasicDesc" xml:space="preserve">
+    <value>タイルをクリックしてファイルダイアログを開きます。CornerRadius、StrokeDashArray、BorderBrush で見た目を調整できます。再度クリックでクリアします。</value>
+  </data>
+  <data name="Sample_ImageSelector_CardDesc" xml:space="preserve">
+    <value>プレビュー付き画像セレクター</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsTitle" xml:space="preserve">
+    <value>イベント</value>
+  </data>
+  <data name="Sample_ImageSelector_EventsDesc" xml:space="preserve">
+    <value>ImageSelected / ImageUnselected を購読します。選択したパスは下に表示されます。</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusLabel" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusIdle" xml:space="preserve">
+    <value>セレクターをクリックして画像を選択…</value>
+  </data>
+  <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
+    <value>選択をクリアしました。</value>
+  </data>
 </root>

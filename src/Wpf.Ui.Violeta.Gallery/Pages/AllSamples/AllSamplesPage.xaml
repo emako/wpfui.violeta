@@ -2093,6 +2093,20 @@
                     Height="80"
                     Margin="0,0,12,12"
                     Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
+                    CommandParameter="media/image-selector">
+                    <ui:CardAction.Icon>
+                        <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xE91B;" />
+                    </ui:CardAction.Icon>
+                    <StackPanel>
+                        <ui:TextBlock FontTypography="BodyStrong" Text="{I18N {x:Static lang:LangKeys.Gallery_Page_ImageSelector}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                        <ui:TextBlock Appearance="Secondary" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{I18N {x:Static lang:LangKeys.Sample_ImageSelector_CardDesc}}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </ui:CardAction>
+                <ui:CardAction
+                    Width="240"
+                    Height="80"
+                    Margin="0,0,12,12"
+                    Command="{x:Static gallery:GalleryNavigator.NavigateCommand}"
                     CommandParameter="media/qr-code">
                     <ui:CardAction.Icon>
                         <ui:FontIcon FontFamily="{DynamicResource SymbolThemeFontFamily}" FontSize="28" Glyph="&#xED14;" />
