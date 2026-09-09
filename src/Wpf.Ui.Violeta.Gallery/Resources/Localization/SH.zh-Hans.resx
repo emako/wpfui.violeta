@@ -7019,4 +7019,28 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_ConfettiCannon_CustomCanvas" xml:space="preserve">
     <value>在画布上发射</value>
   </data>
+  <data name="Gallery_Page_GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
+  <data name="Sample_GifImage_BasicDesc" xml:space="preserve">
+    <value>将 Uri 绑定到 pack 资源中的 GIF。控件加载后自动播放。</value>
+  </data>
+  <data name="Sample_GifImage_BasicTitle" xml:space="preserve">
+    <value>基础用法</value>
+  </data>
+  <data name="Sample_GifImage_CardDesc" xml:space="preserve">
+    <value>动画 GIF 图标元素</value>
+  </data>
+  <data name="Sample_GifImage_IconDesc" xml:space="preserve">
+    <value>GifImage 继承自 IconElement，可直接赋给 Button.Icon。</value>
+  </data>
+  <data name="Sample_GifImage_IconTitle" xml:space="preserve">
+    <value>作为按钮图标</value>
+  </data>
+  <data name="Sample_GifImage_Intro" xml:space="preserve">
+    <value>将动画 GIF 作为 IconElement 播放，可单独展示，也可作为按钮图标。</value>
+  </data>
+  <data name="Sample_GifImage_WithIcon" xml:space="preserve">
+    <value>带 GIF 图标</value>
+  </data>
 </root>

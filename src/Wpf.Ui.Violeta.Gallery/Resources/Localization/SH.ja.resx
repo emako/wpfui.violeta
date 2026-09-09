@@ -7019,4 +7019,28 @@ OK をクリックして続行してください。</value>
   <data name="Sample_ConfettiCannon_CustomCanvas" xml:space="preserve">
     <value>キャンバスに発射</value>
   </data>
+  <data name="Gallery_Page_GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
+  <data name="Sample_GifImage_BasicDesc" xml:space="preserve">
+    <value>Uri を pack リソースの GIF にバインドします。読み込み後に自動再生されます。</value>
+  </data>
+  <data name="Sample_GifImage_BasicTitle" xml:space="preserve">
+    <value>基本</value>
+  </data>
+  <data name="Sample_GifImage_CardDesc" xml:space="preserve">
+    <value>アニメーション GIF アイコン要素</value>
+  </data>
+  <data name="Sample_GifImage_IconDesc" xml:space="preserve">
+    <value>GifImage は IconElement を継承するため、Button.Icon にそのまま指定できます。</value>
+  </data>
+  <data name="Sample_GifImage_IconTitle" xml:space="preserve">
+    <value>ボタンアイコンとして</value>
+  </data>
+  <data name="Sample_GifImage_Intro" xml:space="preserve">
+    <value>アニメーション GIF を IconElement として再生し、単独表示やボタンアイコンとしても使えます。</value>
+  </data>
+  <data name="Sample_GifImage_WithIcon" xml:space="preserve">
+    <value>GIF アイコン付き</value>
+  </data>
 </root>

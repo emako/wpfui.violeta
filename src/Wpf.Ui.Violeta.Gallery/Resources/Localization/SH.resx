@@ -7019,4 +7019,28 @@ Click OK to continue.</value>
   <data name="Sample_ConfettiCannon_CustomCanvas" xml:space="preserve">
     <value>Fire on canvas</value>
   </data>
+  <data name="Gallery_Page_GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
+  <data name="Sample_GifImage_BasicDesc" xml:space="preserve">
+    <value>Bind Uri to a pack resource GIF. Animation starts when the control is loaded.</value>
+  </data>
+  <data name="Sample_GifImage_BasicTitle" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Sample_GifImage_CardDesc" xml:space="preserve">
+    <value>Animated GIF icon element</value>
+  </data>
+  <data name="Sample_GifImage_IconDesc" xml:space="preserve">
+    <value>GifImage inherits IconElement, so it can be assigned to Button.Icon.</value>
+  </data>
+  <data name="Sample_GifImage_IconTitle" xml:space="preserve">
+    <value>As button icon</value>
+  </data>
+  <data name="Sample_GifImage_Intro" xml:space="preserve">
+    <value>Play animated GIF images as an IconElement that can be used alone or as a button icon.</value>
+  </data>
+  <data name="Sample_GifImage_WithIcon" xml:space="preserve">
+    <value>With GIF icon</value>
+  </data>
 </root>

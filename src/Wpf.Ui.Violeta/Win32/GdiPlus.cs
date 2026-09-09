@@ -9,6 +9,10 @@ internal static class GdiPlus
     private static readonly object _syncRoot = new();
     private static bool _initialized;
 
+    public const int Ok = 0;
+    public const int PropertyTagFrameDelay = 0x5100;
+    public static readonly Guid FrameDimensionTime = new("6aedbd6d-3fb5-418a-83a6-7f45229dc872");
+
     public static void EnsureInitialized()
     {
         if (_initialized)
@@ -38,6 +42,9 @@ internal static class GdiPlus
     [DllImport("gdiplus.dll", ExactSpelling = true)]
     public static extern int GdipCreateBitmapFromStream(IStream stream, out nint bitmap);
 
+    [DllImport("gdiplus.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+    public static extern int GdipCreateBitmapFromFile(string filename, out nint bitmap);
+
     [DllImport("gdiplus.dll", ExactSpelling = true)]
     public static extern int GdipCreateHBITMAPFromBitmap(nint bitmap, out nint hbmReturn, uint background);
 
@@ -55,6 +62,27 @@ internal static class GdiPlus
 
     [DllImport("gdiplus.dll", ExactSpelling = true)]
     public static extern int GdipDisposeImage(nint image);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipImageForceValidation(nint image);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipImageGetFrameDimensionsCount(nint image, out int count);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipImageGetFrameDimensionsList(nint image, nint dimensionIds, int count);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipImageGetFrameCount(nint image, ref Guid dimensionId, out int count);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipImageSelectActiveFrame(nint image, ref Guid dimensionId, int frameIndex);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipGetPropertyItemSize(nint image, int propId, out uint size);
+
+    [DllImport("gdiplus.dll", ExactSpelling = true)]
+    public static extern int GdipGetPropertyItem(nint image, int propId, uint propSize, nint buffer);
 
     [DllImport("gdiplus.dll", ExactSpelling = true)]
     private static extern int GdiplusStartup(out nint token, ref GdiplusStartupInput input, nint output);
@@ -90,6 +118,15 @@ internal static class GdiPlus
         public int PixelFormat;
         public nint Scan0;
         public nint Reserved;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct PropertyItem
+    {
+        public int Id;
+        public int Length;
+        public short Type;
+        public nint Value;
     }
 
     [Flags]

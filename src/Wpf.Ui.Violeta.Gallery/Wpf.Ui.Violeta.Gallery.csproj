@@ -31,6 +31,7 @@
     <ItemGroup>
         <Resource Include="Resources\Images\*.ico" />
         <Resource Include="Resources\Images\*.png" />
+        <Resource Include="Resources\Images\*.gif" />
         <Resource Include="$(NuGetPackageRoot)\FluentUI.HarmonyOS.Assets\1.0.0\assets\HarmonyOS_Sans_SC\HarmonyOS_Sans_SC_Regular.ttf">
             <Link>Resources\Fonts\HarmonyOS_Sans_SC_Regular.ttf</Link>
         </Resource>
