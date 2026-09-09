@@ -6974,4 +6974,49 @@ OK をクリックして続行してください。</value>
   <data name="Sample_8cf3371006" xml:space="preserve">
     <value>システム外観に合わせてダークモードを自動適用</value>
   </data>
+  <data name="Gallery_Page_ConfettiCannon" xml:space="preserve">
+    <value>ConfettiCannon</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CardDesc" xml:space="preserve">
+    <value>紙吹雪パーティクル演出</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Intro" xml:space="preserve">
+    <value>お祝い用のカラフルな紙吹雪オーバーレイ。</value>
+  </data>
+  <data name="Sample_ConfettiCannon_PresetsTitle" xml:space="preserve">
+    <value>プリセット</value>
+  </data>
+  <data name="Sample_ConfettiCannon_PresetsDesc" xml:space="preserve">
+    <value>さまざまなスタイルでウィンドウ全体に発射します。</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Basic" xml:space="preserve">
+    <value>基本キャノン</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Random" xml:space="preserve">
+    <value>ランダム方向</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Realistic" xml:space="preserve">
+    <value>リアル表現</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Fireworks" xml:space="preserve">
+    <value>花火</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Stars" xml:space="preserve">
+    <value>スター</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Snow" xml:space="preserve">
+    <value>雪</value>
+  </data>
+  <data name="Sample_ConfettiCannon_SchoolPride" xml:space="preserve">
+    <value>スクールプライド</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CanvasTitle" xml:space="preserve">
+    <value>カスタムキャンバス</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CanvasDesc" xml:space="preserve">
+    <value>Token を使ってローカルの ConfettiCannonContainer に発射します。</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CustomCanvas" xml:space="preserve">
+    <value>キャンバスに発射</value>
+  </data>
 </root>

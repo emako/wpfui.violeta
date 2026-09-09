@@ -419,6 +419,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AsyncBox}}" Tag="feedback/async-box" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Splash}}" Tag="feedback/splash" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ExceptionReport}}" Tag="feedback/exception-report" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ConfettiCannon}}" Tag="feedback/confetti-cannon" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

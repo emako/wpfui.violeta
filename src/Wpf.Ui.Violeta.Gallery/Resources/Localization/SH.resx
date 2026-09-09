@@ -6974,4 +6974,49 @@ Click OK to continue.</value>
   <data name="Sample_8cf3371006" xml:space="preserve">
     <value>Automatically follow system appearance for dark mode</value>
   </data>
+  <data name="Gallery_Page_ConfettiCannon" xml:space="preserve">
+    <value>ConfettiCannon</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CardDesc" xml:space="preserve">
+    <value>Confetti salute particle effects</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Intro" xml:space="preserve">
+    <value>Launch colorful confetti overlays for celebrations.</value>
+  </data>
+  <data name="Sample_ConfettiCannon_PresetsTitle" xml:space="preserve">
+    <value>Presets</value>
+  </data>
+  <data name="Sample_ConfettiCannon_PresetsDesc" xml:space="preserve">
+    <value>Fire full-window effects with different styles.</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Basic" xml:space="preserve">
+    <value>Basic Cannon</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Random" xml:space="preserve">
+    <value>Random Direction</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Realistic" xml:space="preserve">
+    <value>Realistic Look</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Fireworks" xml:space="preserve">
+    <value>Fireworks</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Stars" xml:space="preserve">
+    <value>Stars</value>
+  </data>
+  <data name="Sample_ConfettiCannon_Snow" xml:space="preserve">
+    <value>Snow</value>
+  </data>
+  <data name="Sample_ConfettiCannon_SchoolPride" xml:space="preserve">
+    <value>School Pride</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CanvasTitle" xml:space="preserve">
+    <value>Custom canvas</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CanvasDesc" xml:space="preserve">
+    <value>Fire into a local ConfettiCannonContainer using Token.</value>
+  </data>
+  <data name="Sample_ConfettiCannon_CustomCanvas" xml:space="preserve">
+    <value>Fire on canvas</value>
+  </data>
 </root>

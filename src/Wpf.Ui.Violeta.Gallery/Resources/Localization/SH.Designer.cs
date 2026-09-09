@@ -1251,6 +1251,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ConfettiCannon.
+        /// </summary>
+        public static string Gallery_Page_ConfettiCannon {
+            get {
+                return ResourceManager.GetString("Gallery_Page_ConfettiCannon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CredentialDialog.
         /// </summary>
         public static string Gallery_Page_CredentialDialog {
@@ -17231,6 +17240,132 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Cannon.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Basic {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Basic", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Confetti salute particle effects.
+        /// </summary>
+        public static string Sample_ConfettiCannon_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fire into a local ConfettiCannonContainer using Token..
+        /// </summary>
+        public static string Sample_ConfettiCannon_CanvasDesc {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_CanvasDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Custom canvas.
+        /// </summary>
+        public static string Sample_ConfettiCannon_CanvasTitle {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_CanvasTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fire on canvas.
+        /// </summary>
+        public static string Sample_ConfettiCannon_CustomCanvas {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_CustomCanvas", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fireworks.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Fireworks {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Fireworks", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Launch colorful confetti overlays for celebrations..
+        /// </summary>
+        public static string Sample_ConfettiCannon_Intro {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Intro", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fire full-window effects with different styles..
+        /// </summary>
+        public static string Sample_ConfettiCannon_PresetsDesc {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_PresetsDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Presets.
+        /// </summary>
+        public static string Sample_ConfettiCannon_PresetsTitle {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_PresetsTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Random Direction.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Random {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Random", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Realistic Look.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Realistic {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Realistic", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to School Pride.
+        /// </summary>
+        public static string Sample_ConfettiCannon_SchoolPride {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_SchoolPride", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Snow.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Snow {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Snow", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Stars.
+        /// </summary>
+        public static string Sample_ConfettiCannon_Stars {
+            get {
+                return ResourceManager.GetString("Sample_ConfettiCannon_Stars", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to When IsEnabled is false (for example, while BusyMask is active), column headers must not show resize gripper bars before the header text..
         /// </summary>

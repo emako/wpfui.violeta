@@ -247,6 +247,7 @@ public partial class MainWindow : ShellWindow
         ["feedback/async-box"] = static () => new AsyncBoxPage(),
         ["feedback/splash"] = static () => new SplashPage(),
         ["feedback/exception-report"] = static () => new ExceptionReportPage(),
+        ["feedback/confetti-cannon"] = static () => new ConfettiCannonPage(),
 
         ["windows"] = static () => new WindowsPage(),
         ["windows/shell-window"] = static () => new ShellWindowPage(),
