@@ -6965,4 +6965,19 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_f2b91d4f03" xml:space="preserve">
     <value>翻頁式數字時鐘</value>
   </data>
+  <data name="Sample_dd7641263a" xml:space="preserve">
+    <value>LabelWidth = *（SharedSizeGroup）</value>
+  </data>
+  <data name="Sample_e1cb31dfc9" xml:space="preserve">
+    <value>短標籤與長標籤透過 SharedSizeGroup 共用同一欄寬。</value>
+  </data>
+  <data name="Sample_4d372ba333" xml:space="preserve">
+    <value>工號</value>
+  </data>
+  <data name="Sample_393f17b810" xml:space="preserve">
+    <value>接收產品更新郵件時的首選通知語言</value>
+  </data>
+  <data name="Sample_8cf3371006" xml:space="preserve">
+    <value>自動跟隨系統外觀的深色模式</value>
+  </data>
 </root>

@@ -1,5 +1,7 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -17,6 +19,17 @@ public class Form : ItemsControl
     static Form()
     {
         DefaultStyleKeyProperty.OverrideMetadata(typeof(Form), new FrameworkPropertyMetadata(typeof(Form)));
+        // Match Descriptions: keep SharedSize scope on the control itself so FormItem
+        // templates (outside this ControlTemplate) still participate in SharedSizeGroup.
+        Grid.IsSharedSizeScopeProperty.OverrideMetadata(
+            typeof(Form),
+            new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+    }
+
+    public Form()
+    {
+        ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
+        UpdateSharedSizeScope();
     }
 
     #region Dependency Properties
@@ -107,12 +120,26 @@ public class Form : ItemsControl
         }
     }
 
+    private void OnItemContainerGeneratorStatusChanged(object? sender, EventArgs e)
+    {
+        if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+        {
+            UpdateSharedSizeScope();
+            PropagateToAllContainers();
+        }
+    }
+
     private void UpdateSharedSizeScope()
     {
-        // Mirror Ursa: Star / Absolute enable shared-size alignment; Auto does not.
+        // Star / Absolute: share label column width; Auto: each row sizes independently.
+        // Scope must be on the Form itself — setting it only on PART_Root (inside the
+        // ControlTemplate) does not reliably cover FormItem templates under ItemsControl.
+        bool enabled = LabelWidth.IsStar || LabelWidth.IsAbsolute;
+        Grid.SetIsSharedSizeScope(this, enabled);
+
         if (_root is not null)
         {
-            Grid.SetIsSharedSizeScope(_root, LabelWidth.IsStar || LabelWidth.IsAbsolute);
+            Grid.SetIsSharedSizeScope(_root, enabled);
         }
     }
 

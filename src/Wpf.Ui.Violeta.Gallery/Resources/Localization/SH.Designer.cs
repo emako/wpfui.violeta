@@ -6563,6 +6563,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to Preferred language for product update email notifications.
+        /// </summary>
+        public static string Sample_393f17b810 {
+            get {
+                return ResourceManager.GetString("Sample_393f17b810", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Archive 2026.
         /// </summary>
@@ -7895,6 +7904,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ID.
+        /// </summary>
+        public static string Sample_4d372ba333 {
+            get {
+                return ResourceManager.GetString("Sample_4d372ba333", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Anchor to a target control; shows an icon and two buttons..
         /// </summary>
@@ -11821,6 +11839,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically follow system appearance for dark mode.
+        /// </summary>
+        public static string Sample_8cf3371006 {
+            get {
+                return ResourceManager.GetString("Sample_8cf3371006", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Critical BG.
         /// </summary>
@@ -17438,6 +17465,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to LabelWidth = * (SharedSizeGroup).
+        /// </summary>
+        public static string Sample_dd7641263a {
+            get {
+                return ResourceManager.GetString("Sample_dd7641263a", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Corner radius ratio.
         /// </summary>
@@ -17960,6 +17996,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         
+
+        /// <summary>
+        ///   Looks up a localized string similar to Short and long labels share one column width via SharedSizeGroup..
+        /// </summary>
+        public static string Sample_e1cb31dfc9 {
+            get {
+                return ResourceManager.GetString("Sample_e1cb31dfc9", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Looks up a localized string similar to Dialog (close only).
         /// </summary>

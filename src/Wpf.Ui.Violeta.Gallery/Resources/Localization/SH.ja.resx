@@ -6959,4 +6959,19 @@ OK をクリックして続行してください。</value>
   <data name="Sample_f2b91d4f03" xml:space="preserve">
     <value>めくり式デジタル時計</value>
   </data>
+  <data name="Sample_dd7641263a" xml:space="preserve">
+    <value>LabelWidth = *（SharedSizeGroup）</value>
+  </data>
+  <data name="Sample_e1cb31dfc9" xml:space="preserve">
+    <value>短いラベルと長いラベルが SharedSizeGroup で同じ列幅を共有します。</value>
+  </data>
+  <data name="Sample_4d372ba333" xml:space="preserve">
+    <value>社員番号</value>
+  </data>
+  <data name="Sample_393f17b810" xml:space="preserve">
+    <value>製品アップデートメール通知の希望言語</value>
+  </data>
+  <data name="Sample_8cf3371006" xml:space="preserve">
+    <value>システム外観に合わせてダークモードを自動適用</value>
+  </data>
 </root>

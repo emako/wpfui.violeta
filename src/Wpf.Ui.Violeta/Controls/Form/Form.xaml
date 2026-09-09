@@ -14,8 +14,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local:Form">
                     <!--
-                        PART_Root hosts Grid.IsSharedSizeScope (toggled in code for Star/Absolute LabelWidth).
-                        This aligns label columns across FormItem / FormGroup descendants.
+                        PART_Root is a secondary SharedSize host; Form.cs also sets
+                        Grid.IsSharedSizeScope on the Form itself (required for ItemsControl + FormItem templates).
                     -->
                     <StackPanel x:Name="PART_Root">
                         <ItemsPresenter />

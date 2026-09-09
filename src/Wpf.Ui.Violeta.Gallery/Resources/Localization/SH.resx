@@ -6959,4 +6959,19 @@ Click OK to continue.</value>
   <data name="Sample_f2b91d4f03" xml:space="preserve">
     <value>Flip-style clock with animated digits</value>
   </data>
+  <data name="Sample_dd7641263a" xml:space="preserve">
+    <value>LabelWidth = * (SharedSizeGroup)</value>
+  </data>
+  <data name="Sample_e1cb31dfc9" xml:space="preserve">
+    <value>Short and long labels share one column width via SharedSizeGroup.</value>
+  </data>
+  <data name="Sample_4d372ba333" xml:space="preserve">
+    <value>Employee ID</value>
+  </data>
+  <data name="Sample_393f17b810" xml:space="preserve">
+    <value>Preferred language for product update email notifications</value>
+  </data>
+  <data name="Sample_8cf3371006" xml:space="preserve">
+    <value>Automatically follow system appearance for dark mode</value>
+  </data>
 </root>
