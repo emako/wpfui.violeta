@@ -7073,4 +7073,28 @@ Click OK to continue.</value>
   <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
     <value>Selection cleared.</value>
   </data>
+  <data name="Gallery_Page_Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="Sample_Watermark_CardDesc" xml:space="preserve">
+    <value>Tiled watermark overlay</value>
+  </data>
+  <data name="Sample_Watermark_BasicTitle" xml:space="preserve">
+    <value>Watermark — basic</value>
+  </data>
+  <data name="Sample_Watermark_BasicDesc" xml:space="preserve">
+    <value>Tile a text mark across content. Adjust FontSize and Angle for density and tilt.</value>
+  </data>
+  <data name="Sample_Watermark_BrushTitle" xml:space="preserve">
+    <value>Watermark — brush &amp; margin</value>
+  </data>
+  <data name="Sample_Watermark_BrushDesc" xml:space="preserve">
+    <value>Customize MarkBrush for color/opacity and MarkMargin for spacing between tiles.</value>
+  </data>
+  <data name="Sample_Watermark_MarkText" xml:space="preserve">
+    <value>Wpf.Ui.Violeta</value>
+  </data>
+  <data name="Sample_Watermark_Confidential" xml:space="preserve">
+    <value>Confidential</value>
+  </data>
 </root>

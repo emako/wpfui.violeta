@@ -219,6 +219,7 @@ public partial class MainWindow : ShellWindow
         ["status/progress-ring"] = static () => new ProgressRingPage(),
         ["status/storage"] = static () => new StoragePage(),
         ["status/badge"] = static () => new BadgePage(),
+        ["status/watermark"] = static () => new WatermarkPage(),
         ["status/shield"] = static () => new ShieldPage(),
         ["status/volume-view"] = static () => new VolumeViewPage(),
         ["status/skeleton"] = static () => new SkeletonPage(),

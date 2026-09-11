@@ -2348,6 +2348,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Watermark.
+        /// </summary>
+        public static string Gallery_Page_Watermark {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Watermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WebBrowser.
         /// </summary>
         public static string Gallery_Page_WebBrowser {
@@ -21113,6 +21122,69 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_8b41fd5704 {
             get {
                 return ResourceManager.GetString("Sample_8b41fd5704", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tile a text mark across content. Adjust FontSize and Angle for density and tilt..
+        /// </summary>
+        public static string Sample_Watermark_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_BasicDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Watermark — basic.
+        /// </summary>
+        public static string Sample_Watermark_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_BasicTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Customize MarkBrush for color/opacity and MarkMargin for spacing between tiles..
+        /// </summary>
+        public static string Sample_Watermark_BrushDesc {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_BrushDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Watermark — brush &amp; margin.
+        /// </summary>
+        public static string Sample_Watermark_BrushTitle {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_BrushTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tiled watermark overlay.
+        /// </summary>
+        public static string Sample_Watermark_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Confidential.
+        /// </summary>
+        public static string Sample_Watermark_Confidential {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_Confidential", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wpf.Ui.Violeta.
+        /// </summary>
+        public static string Sample_Watermark_MarkText {
+            get {
+                return ResourceManager.GetString("Sample_Watermark_MarkText", resourceCulture);
             }
         }
 

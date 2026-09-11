@@ -1,0 +1,145 @@
+<vio:Page
+    x:Class="Wpf.Ui.Violeta.Gallery.Pages.Status.WatermarkPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
+    Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Watermark}}"
+    d:Background="#1C1C1C"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <StackPanel Margin="24,16,24,24">
+            <TextBlock
+                Margin="0,0,0,16"
+                FontSize="20"
+                FontWeight="SemiBold"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Watermark}}" />
+
+            <!--  Basic  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Watermark_BasicTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Watermark_BasicDesc}}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_MarkText}}">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            FontSize="30"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_MarkText}}">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            Angle="45"
+                            FontSize="30"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_MarkText}}">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!--  Brush & margin  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Watermark_BrushTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Watermark_BrushDesc}}"
+                        TextWrapping="Wrap" />
+                    <WrapPanel>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            Angle="45"
+                            FontSize="30"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_MarkText}}"
+                            MarkBrush="#66F85149">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            Angle="45"
+                            FontSize="30"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_MarkText}}"
+                            MarkBrush="#662ea043"
+                            MarkMargin="10">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                        <vio:Watermark
+                            Width="256"
+                            Height="128"
+                            Margin="0,0,12,12"
+                            Angle="30"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Mark="{I18N {x:Static lang:LangKeys.Sample_Watermark_Confidential}}"
+                            MarkBrush="#668957e5"
+                            MarkMargin="20,10">
+                            <Border
+                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="4" />
+                        </vio:Watermark>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</vio:Page>

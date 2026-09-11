@@ -12,6 +12,10 @@
     <!--  Shield  -->
     <SolidColorBrush x:Key="ShieldSubjectBackgroundBrush" Color="#4A4A4A" />
 
+    <!--  Watermark  -->
+    <SolidColorBrush x:Key="WatermarkMarkBrush" Color="#40000000" />
+
+
     <!--  ContentDialog  -->
     <SolidColorBrush x:Key="ContentDialogTopOverlay" Color="{StaticResource LayerFillColorAlt}" />
     <SolidColorBrush x:Key="ContentDialogLightDismissOverlayBackground" Color="{DynamicResource SystemAltMediumColor}" />

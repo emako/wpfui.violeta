@@ -7073,4 +7073,28 @@ OK をクリックして続行してください。</value>
   <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
     <value>選択をクリアしました。</value>
   </data>
+  <data name="Gallery_Page_Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="Sample_Watermark_CardDesc" xml:space="preserve">
+    <value>タイル状ウォーターマーク</value>
+  </data>
+  <data name="Sample_Watermark_BasicTitle" xml:space="preserve">
+    <value>Watermark — 基本</value>
+  </data>
+  <data name="Sample_Watermark_BasicDesc" xml:space="preserve">
+    <value>コンテンツ上に文字ウォーターマークをタイル表示します。FontSize と Angle で密度と傾きを調整できます。</value>
+  </data>
+  <data name="Sample_Watermark_BrushTitle" xml:space="preserve">
+    <value>Watermark — ブラシと余白</value>
+  </data>
+  <data name="Sample_Watermark_BrushDesc" xml:space="preserve">
+    <value>MarkBrush で色/不透明度、MarkMargin でタイル間隔をカスタマイズします。</value>
+  </data>
+  <data name="Sample_Watermark_MarkText" xml:space="preserve">
+    <value>Wpf.Ui.Violeta</value>
+  </data>
+  <data name="Sample_Watermark_Confidential" xml:space="preserve">
+    <value>機密</value>
+  </data>
 </root>

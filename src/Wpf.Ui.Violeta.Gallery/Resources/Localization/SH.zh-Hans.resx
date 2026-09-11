@@ -7073,4 +7073,28 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_ImageSelector_StatusCleared" xml:space="preserve">
     <value>已清除选择。</value>
   </data>
+  <data name="Gallery_Page_Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="Sample_Watermark_CardDesc" xml:space="preserve">
+    <value>平铺水印覆盖层</value>
+  </data>
+  <data name="Sample_Watermark_BasicTitle" xml:space="preserve">
+    <value>Watermark — 基础</value>
+  </data>
+  <data name="Sample_Watermark_BasicDesc" xml:space="preserve">
+    <value>在内容上平铺文字水印。可通过 FontSize、Angle 调整密度与倾斜角度。</value>
+  </data>
+  <data name="Sample_Watermark_BrushTitle" xml:space="preserve">
+    <value>Watermark — 画刷与间距</value>
+  </data>
+  <data name="Sample_Watermark_BrushDesc" xml:space="preserve">
+    <value>使用 MarkBrush 自定义颜色/透明度，使用 MarkMargin 控制水印间距。</value>
+  </data>
+  <data name="Sample_Watermark_MarkText" xml:space="preserve">
+    <value>Wpf.Ui.Violeta</value>
+  </data>
+  <data name="Sample_Watermark_Confidential" xml:space="preserve">
+    <value>机密</value>
+  </data>
 </root>
