@@ -1754,6 +1754,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OutlineTextBlock.
+        /// </summary>
+        public static string Gallery_Page_OutlineTextBlock {
+            get {
+                return ResourceManager.GetString("Gallery_Page_OutlineTextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pagination.
         /// </summary>
         public static string Gallery_Page_Pagination {
@@ -21185,6 +21194,69 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_Watermark_MarkText {
             get {
                 return ResourceManager.GetString("Sample_Watermark_MarkText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Render text with theme-aware fill. Supports wrapping, font size, and italic style without a stroke..
+        /// </summary>
+        public static string Sample_OutlineTextBlock_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_BasicDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to OutlineTextBlock — basic.
+        /// </summary>
+        public static string Sample_OutlineTextBlock_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_BasicTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Text with outline stroke.
+        /// </summary>
+        public static string Sample_OutlineTextBlock_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The quick brown fox jumps over the lazy dog..
+        /// </summary>
+        public static string Sample_OutlineTextBlock_SampleText {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_SampleText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Outline.
+        /// </summary>
+        public static string Sample_OutlineTextBlock_ShortText {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_ShortText", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set StrokeThickness and Stroke for outlined glyphs. StrokePosition can be Center, Outside, or Inside..
+        /// </summary>
+        public static string Sample_OutlineTextBlock_StrokeDesc {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_StrokeDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to OutlineTextBlock — stroke.
+        /// </summary>
+        public static string Sample_OutlineTextBlock_StrokeTitle {
+            get {
+                return ResourceManager.GetString("Sample_OutlineTextBlock_StrokeTitle", resourceCulture);
             }
         }
 

@@ -226,6 +226,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Label}}" Tag="text/label" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TextBlock}}" Tag="text/text-block" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_OutlineTextBlock}}" Tag="text/outline-text-block" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_SelectableTextBlock}}" Tag="text/selectable-text-block" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_NumberDisplayer}}" Tag="text/number-displayer" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" Tag="text/hyperlink" />

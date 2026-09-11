@@ -7103,4 +7103,28 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_Watermark_Confidential" xml:space="preserve">
     <value>機密</value>
   </data>
+  <data name="Gallery_Page_OutlineTextBlock" xml:space="preserve">
+    <value>OutlineTextBlock</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_CardDesc" xml:space="preserve">
+    <value>帶描邊的文字</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicTitle" xml:space="preserve">
+    <value>OutlineTextBlock — 基礎</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicDesc" xml:space="preserve">
+    <value>使用主題色填色繪製文字。支援換行、字級與斜體，無需描邊。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeTitle" xml:space="preserve">
+    <value>OutlineTextBlock — 描邊</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeDesc" xml:space="preserve">
+    <value>透過 StrokeThickness 與 Stroke 繪製描邊文字。StrokePosition 可選 Center、Outside 或 Inside。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_SampleText" xml:space="preserve">
+    <value>敏捷的棕色狐狸跳過了懶狗。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_ShortText" xml:space="preserve">
+    <value>描邊</value>
+  </data>
 </root>

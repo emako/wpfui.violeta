@@ -116,6 +116,7 @@ public partial class MainWindow : ShellWindow
         ["text/rich-text-box"] = static () => new RichTextBoxPage(),
         ["text/label"] = static () => new LabelPage(),
         ["text/text-block"] = static () => new TextBlockPage(),
+        ["text/outline-text-block"] = static () => new OutlineTextBlockPage(),
         ["text/selectable-text-block"] = static () => new SelectableTextBlockPage(),
         ["text/number-displayer"] = static () => new NumberDisplayerPage(),
         ["text/hyperlink"] = static () => new HyperlinkPage(),

@@ -7097,4 +7097,28 @@ OK をクリックして続行してください。</value>
   <data name="Sample_Watermark_Confidential" xml:space="preserve">
     <value>機密</value>
   </data>
+  <data name="Gallery_Page_OutlineTextBlock" xml:space="preserve">
+    <value>OutlineTextBlock</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_CardDesc" xml:space="preserve">
+    <value>アウトライン付きテキスト</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicTitle" xml:space="preserve">
+    <value>OutlineTextBlock — 基本</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicDesc" xml:space="preserve">
+    <value>テーマ色の塗りで文字を描画します。折り返し・フォントサイズ・斜体に対応し、ストロークなしでも使えます。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeTitle" xml:space="preserve">
+    <value>OutlineTextBlock — ストローク</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeDesc" xml:space="preserve">
+    <value>StrokeThickness と Stroke で輪郭付き文字を描画します。StrokePosition は Center / Outside / Inside を選べます。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_SampleText" xml:space="preserve">
+    <value>すばしこい茶色の狐がのんびりした犬を飛び越える。</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_ShortText" xml:space="preserve">
+    <value>輪郭</value>
+  </data>
 </root>

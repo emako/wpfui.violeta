@@ -7097,4 +7097,28 @@ Click OK to continue.</value>
   <data name="Sample_Watermark_Confidential" xml:space="preserve">
     <value>Confidential</value>
   </data>
+  <data name="Gallery_Page_OutlineTextBlock" xml:space="preserve">
+    <value>OutlineTextBlock</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_CardDesc" xml:space="preserve">
+    <value>Text with outline stroke</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicTitle" xml:space="preserve">
+    <value>OutlineTextBlock — basic</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_BasicDesc" xml:space="preserve">
+    <value>Render text with theme-aware fill. Supports wrapping, font size, and italic style without a stroke.</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeTitle" xml:space="preserve">
+    <value>OutlineTextBlock — stroke</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_StrokeDesc" xml:space="preserve">
+    <value>Set StrokeThickness and Stroke for outlined glyphs. StrokePosition can be Center, Outside, or Inside.</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_SampleText" xml:space="preserve">
+    <value>The quick brown fox jumps over the lazy dog.</value>
+  </data>
+  <data name="Sample_OutlineTextBlock_ShortText" xml:space="preserve">
+    <value>Outline</value>
+  </data>
 </root>
