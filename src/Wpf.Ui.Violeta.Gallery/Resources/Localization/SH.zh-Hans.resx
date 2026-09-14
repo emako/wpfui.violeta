@@ -7138,4 +7138,49 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">
     <value>源列表无数据时显示 EmptySimpleLogoNeutralBrush 与本地化 EmptyText。</value>
   </data>
+  <data name="Gallery_Page_StepBar" xml:space="preserve">
+    <value>StepBar</value>
+  </data>
+  <data name="Sample_b9d092dcf5" xml:space="preserve">
+    <value>步骤进度条</value>
+  </data>
+  <data name="Sample_92fb2b0255" xml:space="preserve">
+    <value>基础（顶部）</value>
+  </data>
+  <data name="Sample_0714f07c9c" xml:space="preserve">
+    <value>绑定 StepIndex，使用上一步 / 下一步导航。</value>
+  </data>
+  <data name="Sample_51a5a9cd6d" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="Sample_2da752eef4" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="Sample_1fac3c1795" xml:space="preserve">
+    <value>上传文件</value>
+  </data>
+  <data name="Sample_3b5365276d" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Sample_50af0e23e5" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="Sample_7c707697a4" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="Sample_a2d88998cb" xml:space="preserve">
+    <value>底部（可点击）</value>
+  </data>
+  <data name="Sample_f4b80256c2" xml:space="preserve">
+    <value>Dock=Bottom，并启用 IsMouseSelectable。</value>
+  </data>
+  <data name="Sample_c458efa8d5" xml:space="preserve">
+    <value>垂直（数据源）</value>
+  </data>
+  <data name="Sample_d6e9f0a1b2" xml:space="preserve">
+    <value>Left / Right 停靠，配合 ItemsSource 与 ItemTemplate。</value>
+  </data>
+  <data name="Sample_e8f1a0b2c3" xml:space="preserve">
+    <value>步骤</value>
+  </data>
 </root>

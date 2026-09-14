@@ -176,6 +176,7 @@ public partial class MainWindow : ShellWindow
         ["collections/carousel"] = static () => new CarouselPage(),
         ["collections/card-carousel"] = static () => new CardCarouselPage(),
         ["collections/pagination"] = static () => new PaginationPage(),
+        ["collections/step-bar"] = static () => new StepBarPage(),
         ["collections/timeline"] = static () => new TimelinePage(),
         ["collections/drag-drop"] = static () => new DragDropPage(),
 

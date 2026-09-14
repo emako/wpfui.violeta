@@ -7138,4 +7138,49 @@ OK をクリックして続行してください。</value>
   <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">
     <value>ソースに項目がないとき、EmptySimpleLogoNeutralBrush とローカライズされた EmptyText を表示します。</value>
   </data>
+  <data name="Gallery_Page_StepBar" xml:space="preserve">
+    <value>StepBar</value>
+  </data>
+  <data name="Sample_b9d092dcf5" xml:space="preserve">
+    <value>ステップ進捗インジケーター</value>
+  </data>
+  <data name="Sample_92fb2b0255" xml:space="preserve">
+    <value>基本（上）</value>
+  </data>
+  <data name="Sample_0714f07c9c" xml:space="preserve">
+    <value>StepIndex をバインドし、前へ / 次へで移動します。</value>
+  </data>
+  <data name="Sample_51a5a9cd6d" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="Sample_2da752eef4" xml:space="preserve">
+    <value>基本情報</value>
+  </data>
+  <data name="Sample_1fac3c1795" xml:space="preserve">
+    <value>ファイルアップロード</value>
+  </data>
+  <data name="Sample_3b5365276d" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="Sample_50af0e23e5" xml:space="preserve">
+    <value>前へ</value>
+  </data>
+  <data name="Sample_7c707697a4" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="Sample_a2d88998cb" xml:space="preserve">
+    <value>下（クリック可能）</value>
+  </data>
+  <data name="Sample_f4b80256c2" xml:space="preserve">
+    <value>Dock=Bottom と IsMouseSelectable を有効にします。</value>
+  </data>
+  <data name="Sample_c458efa8d5" xml:space="preserve">
+    <value>縦（ItemsSource）</value>
+  </data>
+  <data name="Sample_d6e9f0a1b2" xml:space="preserve">
+    <value>Left / Right 配置で ItemsSource と ItemTemplate を使用します。</value>
+  </data>
+  <data name="Sample_e8f1a0b2c3" xml:space="preserve">
+    <value>ステップ</value>
+  </data>
 </root>

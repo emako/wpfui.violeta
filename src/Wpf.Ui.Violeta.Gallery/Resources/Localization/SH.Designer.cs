@@ -2015,6 +2015,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to StepBar.
+        /// </summary>
+        public static string Gallery_Page_StepBar {
+            get {
+                return ResourceManager.GetString("Gallery_Page_StepBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Svg.
         /// </summary>
         public static string Gallery_Page_Svg {
@@ -21311,6 +21320,132 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_Transfer_EmptyTitle {
             get {
                 return ResourceManager.GetString("Sample_Transfer_EmptyTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Bind StepIndex and navigate with Prev / Next..
+        /// </summary>
+        public static string Sample_0714f07c9c {
+            get {
+                return ResourceManager.GetString("Sample_0714f07c9c", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Upload File.
+        /// </summary>
+        public static string Sample_1fac3c1795 {
+            get {
+                return ResourceManager.GetString("Sample_1fac3c1795", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic Info.
+        /// </summary>
+        public static string Sample_2da752eef4 {
+            get {
+                return ResourceManager.GetString("Sample_2da752eef4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Complete.
+        /// </summary>
+        public static string Sample_3b5365276d {
+            get {
+                return ResourceManager.GetString("Sample_3b5365276d", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Previous.
+        /// </summary>
+        public static string Sample_50af0e23e5 {
+            get {
+                return ResourceManager.GetString("Sample_50af0e23e5", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Sample_51a5a9cd6d {
+            get {
+                return ResourceManager.GetString("Sample_51a5a9cd6d", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Sample_7c707697a4 {
+            get {
+                return ResourceManager.GetString("Sample_7c707697a4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic (Top).
+        /// </summary>
+        public static string Sample_92fb2b0255 {
+            get {
+                return ResourceManager.GetString("Sample_92fb2b0255", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom (Clickable).
+        /// </summary>
+        public static string Sample_a2d88998cb {
+            get {
+                return ResourceManager.GetString("Sample_a2d88998cb", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Step progress indicator.
+        /// </summary>
+        public static string Sample_b9d092dcf5 {
+            get {
+                return ResourceManager.GetString("Sample_b9d092dcf5", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical (ItemsSource).
+        /// </summary>
+        public static string Sample_c458efa8d5 {
+            get {
+                return ResourceManager.GetString("Sample_c458efa8d5", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Left / Right dock with ItemsSource and ItemTemplate..
+        /// </summary>
+        public static string Sample_d6e9f0a1b2 {
+            get {
+                return ResourceManager.GetString("Sample_d6e9f0a1b2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Step.
+        /// </summary>
+        public static string Sample_e8f1a0b2c3 {
+            get {
+                return ResourceManager.GetString("Sample_e8f1a0b2c3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Dock=Bottom with IsMouseSelectable enabled..
+        /// </summary>
+        public static string Sample_f4b80256c2 {
+            get {
+                return ResourceManager.GetString("Sample_f4b80256c2", resourceCulture);
             }
         }
 
