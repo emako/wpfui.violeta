@@ -4208,6 +4208,27 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Svg_Sample_Desc" xml:space="preserve">
     <value>pack URI 経由で SvgViewbox が埋め込み Fluent System Icons カラー SVG（ic_fluent_shield_checkmark_48_color.svg）を読み込みます。</value>
   </data>
+  <data name="Gallery_Page_AnimationPath" xml:space="preserve">
+    <value>AnimationPath</value>
+  </data>
+  <data name="Gallery_AnimationPath_CardDesc" xml:space="preserve">
+    <value>パス描画アニメーション</value>
+  </data>
+  <data name="Gallery_AnimationPath_Basic" xml:space="preserve">
+    <value>基本（無限ループ）</value>
+  </data>
+  <data name="Gallery_AnimationPath_Basic_Desc" xml:space="preserve">
+    <value>StrokeDashOffset で Geometry のストロークをトレースします。既定の RepeatBehavior は Forever です。IsPlaying で一時停止／再開できます。</value>
+  </data>
+  <data name="Gallery_AnimationPath_HoldEnd" xml:space="preserve">
+    <value>HoldEnd フィル</value>
+  </data>
+  <data name="Gallery_AnimationPath_HoldEnd_Desc" xml:space="preserve">
+    <value>FillBehavior=HoldEnd の場合、各サイクル終了時にストロークが完全に描かれた状態を保持してから繰り返します。</value>
+  </data>
+  <data name="Gallery_AnimationPath_TogglePlay" xml:space="preserve">
+    <value>一時停止 / 再開</value>
+  </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>

@@ -4208,6 +4208,27 @@ Click OK to continue.</value>
   <data name="Gallery_Svg_Sample_Desc" xml:space="preserve">
     <value>SvgViewbox loads an embedded Fluent System Icons color SVG (ic_fluent_shield_checkmark_48_color.svg) via pack URI.</value>
   </data>
+  <data name="Gallery_Page_AnimationPath" xml:space="preserve">
+    <value>AnimationPath</value>
+  </data>
+  <data name="Gallery_AnimationPath_CardDesc" xml:space="preserve">
+    <value>Animated path stroke tracing</value>
+  </data>
+  <data name="Gallery_AnimationPath_Basic" xml:space="preserve">
+    <value>Basic (Forever)</value>
+  </data>
+  <data name="Gallery_AnimationPath_Basic_Desc" xml:space="preserve">
+    <value>Traces a Geometry stroke with StrokeDashOffset. Default RepeatBehavior is Forever. Use IsPlaying to pause or resume.</value>
+  </data>
+  <data name="Gallery_AnimationPath_HoldEnd" xml:space="preserve">
+    <value>HoldEnd fill</value>
+  </data>
+  <data name="Gallery_AnimationPath_HoldEnd_Desc" xml:space="preserve">
+    <value>With FillBehavior=HoldEnd, the stroke remains fully drawn at the end of each cycle before repeating.</value>
+  </data>
+  <data name="Gallery_AnimationPath_TogglePlay" xml:space="preserve">
+    <value>Pause / Resume</value>
+  </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>

@@ -421,7 +421,61 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_AppTitle", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Basic (Forever).
+        /// </summary>
+        public static string Gallery_AnimationPath_Basic {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_Basic", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Traces a Geometry stroke with StrokeDashOffset. Default RepeatBehavior is Forever. Use IsPlaying to pause or resume..
+        /// </summary>
+        public static string Gallery_AnimationPath_Basic_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_Basic_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Animated path stroke tracing.
+        /// </summary>
+        public static string Gallery_AnimationPath_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to HoldEnd fill.
+        /// </summary>
+        public static string Gallery_AnimationPath_HoldEnd {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_HoldEnd", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With FillBehavior=HoldEnd, the stroke remains fully drawn at the end of each cycle before repeating..
+        /// </summary>
+        public static string Gallery_AnimationPath_HoldEnd_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_HoldEnd_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Pause / Resume.
+        /// </summary>
+        public static string Gallery_AnimationPath_TogglePlay {
+            get {
+                return ResourceManager.GetString("Gallery_AnimationPath_TogglePlay", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Identicon avatar from Id.
         /// </summary>
@@ -914,6 +968,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Gallery_Page_AnimatedSymbolButton {
             get {
                 return ResourceManager.GetString("Gallery_Page_AnimatedSymbolButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AnimationPath.
+        /// </summary>
+        public static string Gallery_Page_AnimationPath {
+            get {
+                return ResourceManager.GetString("Gallery_Page_AnimationPath", resourceCulture);
             }
         }
         
