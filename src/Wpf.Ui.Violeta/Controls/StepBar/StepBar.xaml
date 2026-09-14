@@ -48,10 +48,10 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Style.Triggers>
             <Trigger Property="Status" Value="Complete">
-                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentTextFillColorSecondaryBrush}" />
             </Trigger>
             <Trigger Property="Status" Value="UnderWay">
-                <Setter Property="Foreground" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource AccentTextFillColorPrimaryBrush}" />
             </Trigger>
             <Trigger Property="Status" Value="Waiting">
                 <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
