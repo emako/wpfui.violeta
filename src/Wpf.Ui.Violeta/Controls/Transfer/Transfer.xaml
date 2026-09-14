@@ -1,20 +1,20 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
     <!--
-        TransferItem chrome mirrors Wpf.Ui DefaultListBoxItemStyle
-        (src/Wpf.Ui/Controls/ListBox/ListBoxItem.xaml), plus IsTransferred collapse.
+        TransferItem chrome mirrors Hotfix ListViewItem (NullViewItemTemplate):
+        left selection pill + ListViewItemBackgroundPointerOver, plus IsTransferred collapse.
     -->
     <Style x:Key="TransferItemBaseStyle" TargetType="local:TransferItem">
-        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemForeground}" />
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="12" />
-        <Setter Property="Border.CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -25,22 +25,91 @@
                     <Border
                         x:Name="Border"
                         Margin="0"
-                        Padding="{TemplateBinding Padding}"
-                        Background="Transparent"
-                        BorderThickness="1"
+                        Padding="0"
+                        compat:PressHelper.IsEnabled="True"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="0"
                         CornerRadius="{TemplateBinding Border.CornerRadius}">
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Grid>
+                            <ContentPresenter
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <Rectangle
+                                x:Name="ActiveRectangle"
+                                Width="3"
+                                Height="18"
+                                Margin="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Fill="{DynamicResource ListViewItemPillFillBrush}"
+                                Opacity="0"
+                                RadiusX="2"
+                                RadiusY="2"
+                                RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <ScaleTransform x:Name="PillTransform" ScaleY="1" />
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="1,0,0,0"
+                                                KeyTime="{DynamicResource ListViewItemScaleAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0,0,0,1"
+                                                KeyTime="{DynamicResource ListViewItemScaleAnimationDuration}"
+                                                Value="{DynamicResource ListViewItemPillMinScale}" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
+                                            <DiscreteDoubleKeyFrame KeyTime="0" Value="{DynamicResource ListViewItemPillMinScale}" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0,0,0,1"
+                                                KeyTime="{DynamicResource ListViewItemScaleAnimationDuration}"
+                                                Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="SelectedInactive" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
+                        </MultiTrigger>
+                        <Trigger SourceName="Border" Property="compat:PressHelper.IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="ui:ControlHelper.VisualState" Value="Pressed" />
+                        </Trigger>
+                        <Trigger SourceName="Border" Property="compat:PressHelper.IsPressed" Value="False">
+                            <Setter TargetName="Border" Property="ui:ControlHelper.VisualState" Value="Normal" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForegroundThemeBrush}" />
+                            <Setter TargetName="ActiveRectangle" Property="Opacity" Value="1" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
                         </Trigger>
                         <Trigger Property="IsTransferred" Value="True">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -52,12 +121,11 @@
     </Style>
 
     <Style x:Key="TransferItemBaseStyle.CheckBox" TargetType="local:TransferItem">
-        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemForeground}" />
-        <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="12" />
-        <Setter Property="Border.CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -68,24 +136,41 @@
                     <Border
                         x:Name="Border"
                         Margin="0"
-                        Padding="{TemplateBinding Padding}"
-                        Background="Transparent"
-                        BorderThickness="1"
+                        Padding="0"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="0"
                         CornerRadius="{TemplateBinding Border.CornerRadius}">
-                        <CheckBox
-                            VerticalContentAlignment="Center"
-                            FocusVisualStyle="{x:Null}"
-                            Foreground="{TemplateBinding Foreground}"
-                            IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </CheckBox>
+                        <Grid>
+                            <CheckBox
+                                Margin="{TemplateBinding Padding}"
+                                VerticalContentAlignment="Center"
+                                FocusVisualStyle="{x:Null}"
+                                Foreground="{TemplateBinding Foreground}"
+                                IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                <ContentPresenter
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </CheckBox>
+                            <Rectangle
+                                x:Name="ActiveRectangle"
+                                Width="3"
+                                Height="18"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Fill="{DynamicResource ListViewItemPillFillBrush}"
+                                Opacity="0"
+                                RadiusX="2"
+                                RadiusY="2" />
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="ActiveRectangle" Property="Opacity" Value="1" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
                         </Trigger>
                         <Trigger Property="IsTransferred" Value="True">
                             <Setter Property="Visibility" Value="Collapsed" />
@@ -109,8 +194,7 @@
 
     <!--
         Outer Transfer chrome: bordered panels around lists.
-        Inner list behaviour mirrors Wpf.Ui DefaultListBoxStyle
-        (src/Wpf.Ui/Controls/ListBox/ListBox.xaml).
+        Item chrome matches Hotfix ListViewItem; host remains ListBox for TransferItem containers.
     -->
     <Style TargetType="local:Transfer">
         <Setter Property="Focusable" Value="False" />
@@ -204,7 +288,7 @@
                             </ui:Button>
                         </StackPanel>
 
-                        <!--  Target list (DefaultListBoxStyle chrome)  -->
+                        <!--  Target list (ListViewItem chrome via ItemContainerStyle)  -->
                         <Border
                             Grid.Column="2"
                             Background="{TemplateBinding Background}"
@@ -220,13 +304,26 @@
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    OverridesDefaultStyle="True"
                                     ScrollViewer.CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                                     ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                     ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
                                     SelectionMode="{TemplateBinding SelectionMode}"
-                                    Style="{DynamicResource DefaultListBoxStyle}"
                                     VirtualizingPanel.IsVirtualizing="{TemplateBinding VirtualizingPanel.IsVirtualizing}"
-                                    VirtualizingPanel.VirtualizationMode="{TemplateBinding VirtualizingPanel.VirtualizationMode}" />
+                                    VirtualizingPanel.VirtualizationMode="{TemplateBinding VirtualizingPanel.VirtualizationMode}">
+                                    <ListBox.Template>
+                                        <ControlTemplate TargetType="ListBox">
+                                            <ScrollViewer
+                                                Padding="{TemplateBinding Padding}"
+                                                CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                                                Focusable="False"
+                                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                <ItemsPresenter />
+                                            </ScrollViewer>
+                                        </ControlTemplate>
+                                    </ListBox.Template>
+                                </ListBox>
                                 <StackPanel
                                     x:Name="PART_TargetEmptyContent"
                                     HorizontalAlignment="Center"

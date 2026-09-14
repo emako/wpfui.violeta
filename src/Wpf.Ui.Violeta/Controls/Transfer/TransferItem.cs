@@ -4,7 +4,8 @@ using System.Windows.Controls;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// ListBox item used by <see cref="Transfer"/>; transferred items are collapsed on the source side.
+/// Item container for <see cref="Transfer"/> with ListView-style selection chrome;
+/// transferred items are collapsed on the source side.
 /// </summary>
 public class TransferItem : ListBoxItem
 {
