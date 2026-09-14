@@ -7132,14 +7132,7 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_Transfer_BasicDesc" xml:space="preserve">
     <value>Select one or more items on the left, then move them to the right. Use Shift/Ctrl for multi-select.</value>
-  </data>
-  <data name="Sample_Transfer_CheckBoxTitle" xml:space="preserve">
-    <value>Transfer — checkbox</value>
-  </data>
-  <data name="Sample_Transfer_CheckBoxDesc" xml:space="preserve">
-    <value>Use the Transfer.CheckBox style so items are selected via checkboxes. DisplayMemberPath binds the label.</value>
-  </data>
-  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
+  </data>  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
     <value>Transfer — empty</value>
   </data>
   <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">

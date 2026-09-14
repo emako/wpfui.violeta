@@ -21297,24 +21297,6 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Use the Transfer.CheckBox style so items are selected via checkboxes. DisplayMemberPath binds the label..
-        /// </summary>
-        public static string Sample_Transfer_CheckBoxDesc {
-            get {
-                return ResourceManager.GetString("Sample_Transfer_CheckBoxDesc", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Transfer — checkbox.
-        /// </summary>
-        public static string Sample_Transfer_CheckBoxTitle {
-            get {
-                return ResourceManager.GetString("Sample_Transfer_CheckBoxTitle", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to When the source list has no items, EmptySimpleLogoNeutralBrush and localized EmptyText are shown..
         /// </summary>
         public static string Sample_Transfer_EmptyDesc {

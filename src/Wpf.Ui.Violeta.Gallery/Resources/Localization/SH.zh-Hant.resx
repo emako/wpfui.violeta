@@ -7138,14 +7138,7 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_Transfer_BasicDesc" xml:space="preserve">
     <value>在左側選取一項或多項，再移到右側。可用 Shift/Ctrl 多選。</value>
-  </data>
-  <data name="Sample_Transfer_CheckBoxTitle" xml:space="preserve">
-    <value>Transfer — 核取方塊</value>
-  </data>
-  <data name="Sample_Transfer_CheckBoxDesc" xml:space="preserve">
-    <value>使用 Transfer.CheckBox 樣式透過核取方塊選擇。DisplayMemberPath 繫結顯示文字。</value>
-  </data>
-  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
+  </data>  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
     <value>Transfer — 空狀態</value>
   </data>
   <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">

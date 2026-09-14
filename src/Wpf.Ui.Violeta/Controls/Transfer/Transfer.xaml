@@ -120,67 +120,6 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TransferItemBaseStyle.CheckBox" TargetType="local:TransferItem">
-        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="12,8" />
-        <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local:TransferItem">
-                    <Border
-                        x:Name="Border"
-                        Margin="0"
-                        Padding="0"
-                        Background="{TemplateBinding Background}"
-                        BorderThickness="0"
-                        CornerRadius="{TemplateBinding Border.CornerRadius}">
-                        <Grid>
-                            <CheckBox
-                                Margin="{TemplateBinding Padding}"
-                                VerticalContentAlignment="Center"
-                                FocusVisualStyle="{x:Null}"
-                                Foreground="{TemplateBinding Foreground}"
-                                IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
-                                <ContentPresenter
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            </CheckBox>
-                            <Rectangle
-                                x:Name="ActiveRectangle"
-                                Width="3"
-                                Height="18"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Fill="{DynamicResource ListViewItemPillFillBrush}"
-                                Opacity="0"
-                                RadiusX="2"
-                                RadiusY="2" />
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="ActiveRectangle" Property="Opacity" Value="1" />
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListViewItemBackgroundPointerOver}" />
-                        </Trigger>
-                        <Trigger Property="IsTransferred" Value="True">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <Style
         x:Key="TransferMoveButtonStyle"
         BasedOn="{StaticResource DefaultUiButtonStyle}"
@@ -277,15 +216,17 @@
                             Margin="8,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                            <ui:Button Command="{x:Static local:TransferCommands.Cancel}" Style="{StaticResource TransferMoveButtonStyle}">
-                                <ui:SymbolIcon FontSize="16" Symbol="ChevronLeft24" />
-                            </ui:Button>
+                            <ui:Button
+                                Command="{x:Static local:TransferCommands.Cancel}"
+                                Icon="{ui:SymbolIcon Symbol=ChevronLeft24,
+                                                     FontSize=16}"
+                                Style="{StaticResource TransferMoveButtonStyle}" />
                             <ui:Button
                                 Margin="0,8,0,0"
                                 Command="{x:Static local:TransferCommands.Selected}"
-                                Style="{StaticResource TransferMoveButtonStyle}">
-                                <ui:SymbolIcon FontSize="16" Symbol="ChevronRight24" />
-                            </ui:Button>
+                                Icon="{ui:SymbolIcon Symbol=ChevronRight24,
+                                                     FontSize=16}"
+                                Style="{StaticResource TransferMoveButtonStyle}" />
                         </StackPanel>
 
                         <!--  Target list (ListViewItem chrome via ItemContainerStyle)  -->
@@ -359,13 +300,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style
-        x:Key="Transfer.CheckBox"
-        BasedOn="{StaticResource {x:Type local:Transfer}}"
-        TargetType="local:Transfer">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle.CheckBox}" />
     </Style>
 
 </ResourceDictionary>
