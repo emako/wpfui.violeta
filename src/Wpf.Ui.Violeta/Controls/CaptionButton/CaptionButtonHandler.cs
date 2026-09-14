@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
@@ -9,8 +10,10 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// Non-client hit-testing for caption buttons.
 /// Returns HTMIN/HTMAX/HTHELP so Windows Snap Layouts and system caption semantics work.
-/// Close is excluded: it uses <see cref="System.Windows.Shell.WindowChrome.IsHitTestVisibleInChromeProperty"/>
-/// and client <c>IsMouseOver</c> to avoid HTCLOSE hot-track flicker.
+/// Close intentionally does <em>not</em> return HTCLOSE: DWM system close hot-tracking fights
+/// custom <see cref="CaptionButton.IsMouseOverInTitleBar"/> styling and causes flicker.
+/// Hover/press still use the NC path so <c>WM_NCMOUSELEAVE</c> clears state when the pointer
+/// leaves the window quickly.
 /// </summary>
 public sealed class CaptionButtonHandler : IDisposable
 {
@@ -56,13 +59,6 @@ public sealed class CaptionButtonHandler : IDisposable
                         break;
                     }
 
-                    // Close uses client hit-testing; returning HTCLOSE fights custom hover and flickers.
-                    if (button.Kind == CaptionButtonKind.Close)
-                    {
-                        HoveredButton = null;
-                        break;
-                    }
-
                     if (button.IsEnabled)
                     {
                         if (PressedButton is not null && PressedButton != button)
@@ -78,17 +74,37 @@ public sealed class CaptionButtonHandler : IDisposable
                         }
 
                         HoveredButton = button;
+                        EnsureNonClientMouseTracking(hwnd);
                     }
 
                     handled = true;
                     // HTMAXBUTTON (9) is required for Windows 11 Snap Layouts on the maximize button.
-                    return (nint)button.Kind;
+                    // Do not return HTCLOSE (20): DWM hot-tracks the system close glyph and flickers.
+                    return button.Kind == CaptionButtonKind.Close
+                        ? HitTestCustomClose
+                        : (nint)button.Kind;
+                }
+
+            case WM_NCMOUSEMOVE:
+                {
+                    CaptionButton? button = GetPointedButton(lParam);
+                    if (button is { IsEnabled: true })
+                    {
+                        HoveredButton = button;
+                        EnsureNonClientMouseTracking(hwnd);
+                    }
+                    else
+                    {
+                        HoveredButton = null;
+                    }
+
+                    break;
                 }
 
             case WM_NCLBUTTONDOWN:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null || button.Kind == CaptionButtonKind.Close)
+                    if (button is null)
                     {
                         PressedButton = null;
                         break;
@@ -106,7 +122,7 @@ public sealed class CaptionButtonHandler : IDisposable
             case WM_NCLBUTTONUP:
                 {
                     CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null || button.Kind == CaptionButtonKind.Close)
+                    if (button is null)
                     {
                         PressedButton = null;
                         break;
@@ -124,6 +140,7 @@ public sealed class CaptionButtonHandler : IDisposable
 
             case WM_NCMOUSELEAVE:
                 {
+                    _trackingNonClientMouse = false;
                     HoveredButton = null;
                     PressedButton = null;
                     break;
@@ -131,6 +148,27 @@ public sealed class CaptionButtonHandler : IDisposable
         }
 
         return 0;
+    }
+
+    private void EnsureNonClientMouseTracking(nint hwnd)
+    {
+        if (_trackingNonClientMouse)
+        {
+            return;
+        }
+
+        TRACKMOUSEEVENT tme = new()
+        {
+            cbSize = Marshal.SizeOf<TRACKMOUSEEVENT>(),
+            dwFlags = TME_LEAVE | TME_NONCLIENT,
+            hwndTrack = hwnd,
+            dwHoverTime = 0,
+        };
+
+        if (TrackMouseEvent(ref tme))
+        {
+            _trackingNonClientMouse = true;
+        }
     }
 
     private CaptionButton? GetPointedButton(nint lParam)
@@ -175,6 +213,7 @@ public sealed class CaptionButtonHandler : IDisposable
     private readonly HwndSource _hwndSource;
     private readonly HashSet<CaptionButton> _buttons = [];
     private bool _disposed;
+    private bool _trackingNonClientMouse;
 
     private CaptionButton? HoveredButton
     {
@@ -198,8 +237,31 @@ public sealed class CaptionButtonHandler : IDisposable
         }
     }
 
+    /// <summary>
+    /// Unused non-client hit-test code (same numeric range as custom "More").
+    /// Must not be HTCLOSE so DWM does not apply system close hot-tracking.
+    /// </summary>
+    private const int HitTestCustomClose = 22;
+
     private const int WM_NCHITTEST = 0x0084;
+    private const int WM_NCMOUSEMOVE = 0x00A0;
     private const int WM_NCLBUTTONDOWN = 0x00A1;
     private const int WM_NCLBUTTONUP = 0x00A2;
     private const int WM_NCMOUSELEAVE = 0x02A2;
+
+    private const uint TME_LEAVE = 0x00000002;
+    private const uint TME_NONCLIENT = 0x00000010;
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct TRACKMOUSEEVENT
+    {
+        public int cbSize;
+        public uint dwFlags;
+        public nint hwndTrack;
+        public uint dwHoverTime;
+    }
+
+    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool TrackMouseEvent(ref TRACKMOUSEEVENT lpEventTrack);
 }

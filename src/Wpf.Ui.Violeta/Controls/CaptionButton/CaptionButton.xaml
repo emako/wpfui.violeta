@@ -80,11 +80,11 @@
         <Setter Property="Content" Value="{StaticResource CaptionCloseButtonGlyph}" />
         <Setter Property="ContentTemplate" Value="{StaticResource CaptionFontIconButtonContentTemplate}" />
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
+            <Trigger Property="IsMouseOverInTitleBar" Value="True">
                 <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonHoverBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonHoverForeground}" />
             </Trigger>
-            <Trigger Property="IsPressed" Value="True">
+            <Trigger Property="IsPressedInTitleBar" Value="True">
                 <Setter Property="Background" Value="{DynamicResource CaptionCloseButtonPressedBackground}" />
                 <Setter Property="Foreground" Value="{DynamicResource CaptionCloseButtonPressedForeground}" />
             </Trigger>

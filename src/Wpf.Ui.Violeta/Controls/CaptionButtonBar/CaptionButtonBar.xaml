@@ -42,17 +42,12 @@
                                 IsActive="{TemplateBinding IsActive}"
                                 IsEnabled="{TemplateBinding IsMaximizeButtonEnabled}"
                                 Visibility="{TemplateBinding MaximizeButtonVisibility}" />
-                            <!--
-                                Close is client-hit-testable so WindowChrome returns HTCLIENT (stable IsMouseOver).
-                                Other caption buttons stay non-client so HTMAXBUTTON enables Snap Layouts.
-                            -->
                             <local:CaptionCloseButton
                                 x:Name="CloseButton"
                                 Command="{TemplateBinding CloseButtonCommand}"
                                 IsActive="{TemplateBinding IsActive}"
                                 IsEnabled="{TemplateBinding IsCloseButtonEnabled}"
-                                Visibility="{TemplateBinding CloseButtonVisibility}"
-                                WindowChrome.IsHitTestVisibleInChrome="True" />
+                                Visibility="{TemplateBinding CloseButtonVisibility}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
