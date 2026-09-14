@@ -232,6 +232,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Hyperlink}}" Tag="text/hyperlink" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}" Tag="text/bool-state-text-block" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}" Tag="text/emoji" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FlowDocument}}" Tag="text/flow-document" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -380,7 +381,8 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_InfoBar}}" Tag="status/info-bar" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressBar}}" Tag="status/progress-bar" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ProgressRing}}" Tag="status/progress-ring" />
-                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Storage}}" Tag="status/storage" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_StorageBar}}" Tag="status/storage-bar" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_StorageRing}}" Tag="status/storage-ring" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Badge}}" Tag="status/badge" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Watermark}}" Tag="status/watermark" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Shield}}" Tag="status/shield" />

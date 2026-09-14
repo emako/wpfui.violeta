@@ -4064,11 +4064,17 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_ProgressRing" xml:space="preserve">
     <value>ProgressRing</value>
   </data>
-  <data name="Gallery_Page_Storage" xml:space="preserve">
-    <value>StorageBar / StorageRing</value>
+  <data name="Gallery_Page_StorageBar" xml:space="preserve">
+    <value>StorageBar</value>
   </data>
-  <data name="Sample_Storage_CardDesc" xml:space="preserve">
-    <value>容量バーとリング</value>
+  <data name="Gallery_Page_StorageRing" xml:space="preserve">
+    <value>StorageRing</value>
+  </data>
+  <data name="Sample_StorageBar_CardDesc" xml:space="preserve">
+    <value>容量バー</value>
+  </data>
+  <data name="Sample_StorageRing_CardDesc" xml:space="preserve">
+    <value>容量リング</value>
   </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
@@ -4228,6 +4234,72 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Gallery_AnimationPath_TogglePlay" xml:space="preserve">
     <value>一時停止 / 再開</value>
+  </data>
+  <data name="Gallery_Page_FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="Gallery_FlowDocument_CardDesc" xml:space="preserve">
+    <value>スクロール・ページ・リーダー表示</value>
+  </data>
+  <data name="Gallery_FlowDocument_Desc" xml:space="preserve">
+    <value>FlowDocumentScrollViewer、FlowDocumentPageViewer、FlowDocumentReader を、海王星の百科事典サンプル（Paragraph、Figure、Floater、Table、Hyperlink）で示します。</value>
+  </data>
+  <data name="Gallery_FlowDocument_ScrollViewer" xml:space="preserve">
+    <value>フロー文書スクロールビュー</value>
+  </data>
+  <data name="Gallery_FlowDocument_PageViewer" xml:space="preserve">
+    <value>フロー文書ページビュー</value>
+  </data>
+  <data name="Gallery_FlowDocument_Reader" xml:space="preserve">
+    <value>フロー文書リーダー</value>
+  </data>
+  <data name="Gallery_FlowDocument_Title" xml:space="preserve">
+    <value>海王星</value>
+  </data>
+  <data name="Gallery_FlowDocument_Intro" xml:space="preserve">
+    <value>（惑星）は太陽系の主要惑星で、太陽から8番目、直径では4番目に大きい。海王星は太陽からほぼ一定の距離、約44億9000万 km（約27億9000万マイル）を保つ。天王星の軌道の外側を公転し、軌道の大部分では最も外側の惑星である冥王星の楕円軌道の内側を通る（太陽系を参照）。248年ごとに冥王星の楕円軌道が約20年間海王星のほぼ円形の軌道の内側に入り、一時的に海王星が太陽から最も遠い惑星になる。冥王星が海王星軌道の内側に入ったのは前回1979年で、1999年に再び外側へ戻った。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure1" xml:space="preserve">
+    <value>海王星の体積は地球の約72倍……</value>
+  </data>
+  <data name="Gallery_FlowDocument_StatsTitle" xml:space="preserve">
+    <value>海王星の統計</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance" xml:space="preserve">
+    <value>太陽からの平均距離</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance_Value" xml:space="preserve">
+    <value>4,504,000,000 km</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter" xml:space="preserve">
+    <value>平均直径</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter_Value" xml:space="preserve">
+    <value>49,532 km</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass" xml:space="preserve">
+    <value>おおよその質量</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass_Value" xml:space="preserve">
+    <value>1.0247×10²⁶ kg</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourcePrefix" xml:space="preserve">
+    <value>情報提供元：</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceLink" xml:space="preserve">
+    <value>ウィキペディア</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceSuffix" xml:space="preserve">
+    <value>。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Structure" xml:space="preserve">
+    <value>天文学者は、海王星には岩石の内核があり、その周囲を岩石物質の混じった広大な水の海が取り巻いていると考えている。この海は内核から上へ広がり、水素・ヘリウムおよび微量のメタンからなる気体の大気と接する。海王星には4本の環と既知の11個の衛星がある。体積は地球の約72倍だが、質量は地球の約17.15倍にすぎない。その大きさから、科学者は木星・土星・天王星とともに巨大惑星（木星型惑星）に分類する。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure2" xml:space="preserve">
+    <value>海王星の公転周期は約165年……</value>
+  </data>
+  <data name="Gallery_FlowDocument_Discovery" xml:space="preserve">
+    <value>天文学の数学理論が海王星の発見につながった。天王星の軌道の揺れを説明するため、イギリスの天文学者ジョン・クーチ・アダムズとフランスの天文学者ユルバン・ルヴェリエが、それぞれ1845年と1846年に新惑星の存在と位置を独立に計算した。彼らはこの惑星の重力が天王星の軌道の揺れを引き起こしていると考えた。ルヴェリエの情報に基づき、ドイツの天文学者ヨハン・ゴットフリート・ガレが1846年に初めてこの惑星を観測した。</value>
   </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>

@@ -477,6 +477,195 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Scroll, page and reader viewers.
+        /// </summary>
+        public static string Gallery_FlowDocument_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demonstrates FlowDocumentScrollViewer, FlowDocumentPageViewer and FlowDocumentReader with a shared Neptune encyclopedia sample (Paragraph, Figure, Floater, Table, Hyperlink)..
+        /// </summary>
+        public static string Gallery_FlowDocument_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mathematical theories of astronomy led to the discovery of Neptune...
+        /// </summary>
+        public static string Gallery_FlowDocument_Discovery {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Discovery", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Neptune has 72 times Earth&apos;s volume....
+        /// </summary>
+        public static string Gallery_FlowDocument_Figure1 {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Figure1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Neptune has an orbital period of ~20 years....
+        /// </summary>
+        public static string Gallery_FlowDocument_Figure2 {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Figure2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to  (planet), major planet in the solar system....
+        /// </summary>
+        public static string Gallery_FlowDocument_Intro {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Intro", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Approximate Mass.
+        /// </summary>
+        public static string Gallery_FlowDocument_Mass {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Mass", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0247e26 kg.
+        /// </summary>
+        public static string Gallery_FlowDocument_Mass_Value {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Mass_Value", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mean Diameter.
+        /// </summary>
+        public static string Gallery_FlowDocument_MeanDiameter {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_MeanDiameter", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 49,532 km.
+        /// </summary>
+        public static string Gallery_FlowDocument_MeanDiameter_Value {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_MeanDiameter_Value", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Mean Distance from Sun.
+        /// </summary>
+        public static string Gallery_FlowDocument_MeanDistance {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_MeanDistance", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 4,504,000,000 km.
+        /// </summary>
+        public static string Gallery_FlowDocument_MeanDistance_Value {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_MeanDistance_Value", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to FlowDocumentPageViewer.
+        /// </summary>
+        public static string Gallery_FlowDocument_PageViewer {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_PageViewer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to FlowDocumentReader.
+        /// </summary>
+        public static string Gallery_FlowDocument_Reader {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Reader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to FlowDocumentScrollViewer.
+        /// </summary>
+        public static string Gallery_FlowDocument_ScrollViewer {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_ScrollViewer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wikipedia.
+        /// </summary>
+        public static string Gallery_FlowDocument_SourceLink {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_SourceLink", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Information from the .
+        /// </summary>
+        public static string Gallery_FlowDocument_SourcePrefix {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_SourcePrefix", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to  web site..
+        /// </summary>
+        public static string Gallery_FlowDocument_SourceSuffix {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_SourceSuffix", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Neptune Stats.
+        /// </summary>
+        public static string Gallery_FlowDocument_StatsTitle {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_StatsTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Astronomers believe Neptune has an inner rocky core....
+        /// </summary>
+        public static string Gallery_FlowDocument_Structure {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Structure", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Neptune.
+        /// </summary>
+        public static string Gallery_FlowDocument_Title {
+            get {
+                return ResourceManager.GetString("Gallery_FlowDocument_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Identicon avatar from Id.
         /// </summary>
         public static string Gallery_Gravatar_CardDesc {
@@ -1476,6 +1665,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to FlowDocument.
+        /// </summary>
+        public static string Gallery_Page_FlowDocument {
+            get {
+                return ResourceManager.GetString("Gallery_Page_FlowDocument", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to FluentPopup.
         /// </summary>
         public static string Gallery_Page_FluentPopup {
@@ -1907,11 +2105,20 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to StorageBar / StorageRing.
+        ///   Looks up a localized string similar to StorageBar.
         /// </summary>
-        public static string Gallery_Page_Storage {
+        public static string Gallery_Page_StorageBar {
             get {
-                return ResourceManager.GetString("Gallery_Page_Storage", resourceCulture);
+                return ResourceManager.GetString("Gallery_Page_StorageBar", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to StorageRing.
+        /// </summary>
+        public static string Gallery_Page_StorageRing {
+            get {
+                return ResourceManager.GetString("Gallery_Page_StorageRing", resourceCulture);
             }
         }
         
@@ -21055,11 +21262,20 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
         /// <summary>
-        ///   Looks up a localized string similar to Capacity bar and ring.
+        ///   Looks up a localized string similar to Capacity bar.
         /// </summary>
-        public static string Sample_Storage_CardDesc {
+        public static string Sample_StorageBar_CardDesc {
             get {
-                return ResourceManager.GetString("Sample_Storage_CardDesc", resourceCulture);
+                return ResourceManager.GetString("Sample_StorageBar_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Capacity ring.
+        /// </summary>
+        public static string Sample_StorageRing_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_StorageRing_CardDesc", resourceCulture);
             }
         }
         

@@ -3,9 +3,9 @@ using Wpf.Ui.Violeta.Controls;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Status;
 
-public partial class StoragePage : Page
+public partial class StorageBarPage : Page
 {
-    public StoragePage()
+    public StorageBarPage()
     {
         InitializeComponent();
         Loaded += (_, _) => ApplyValue(ValueSlider.Value);
@@ -24,9 +24,6 @@ public partial class StoragePage : Page
     private void ApplyValue(double value)
     {
         DemoStorageBar.Value = value;
-        DemoStorageRing.Value = value;
-        string text = $"{value:F0}%";
-        ValueLabel.Text = text;
-        RingPercentText.Text = text;
+        ValueLabel.Text = $"{value:F0}%";
     }
 }

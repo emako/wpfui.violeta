@@ -122,6 +122,7 @@ public partial class MainWindow : ShellWindow
         ["text/hyperlink"] = static () => new HyperlinkPage(),
         ["text/bool-state-text-block"] = static () => new BoolStateTextBlockPage(),
         ["text/emoji"] = static () => new EmojiPage(),
+        ["text/flow-document"] = static () => new FlowDocumentPage(),
 
         ["selectors/multi-combo-box"] = static () => new MultiComboBoxPage(),
         ["selectors/cascading-combo-box"] = static () => new CascadingComboBoxPage(),
@@ -220,7 +221,8 @@ public partial class MainWindow : ShellWindow
         ["status/info-bar"] = static () => new InfoBarPage(),
         ["status/progress-bar"] = static () => new ProgressBarPage(),
         ["status/progress-ring"] = static () => new ProgressRingPage(),
-        ["status/storage"] = static () => new StoragePage(),
+        ["status/storage-bar"] = static () => new StorageBarPage(),
+        ["status/storage-ring"] = static () => new StorageRingPage(),
         ["status/badge"] = static () => new BadgePage(),
         ["status/watermark"] = static () => new WatermarkPage(),
         ["status/shield"] = static () => new ShieldPage(),

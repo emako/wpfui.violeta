@@ -4064,11 +4064,17 @@ Click OK to continue.</value>
   <data name="Gallery_Page_ProgressRing" xml:space="preserve">
     <value>ProgressRing</value>
   </data>
-  <data name="Gallery_Page_Storage" xml:space="preserve">
-    <value>StorageBar / StorageRing</value>
+  <data name="Gallery_Page_StorageBar" xml:space="preserve">
+    <value>StorageBar</value>
   </data>
-  <data name="Sample_Storage_CardDesc" xml:space="preserve">
-    <value>Capacity bar and ring</value>
+  <data name="Gallery_Page_StorageRing" xml:space="preserve">
+    <value>StorageRing</value>
+  </data>
+  <data name="Sample_StorageBar_CardDesc" xml:space="preserve">
+    <value>Capacity bar</value>
+  </data>
+  <data name="Sample_StorageRing_CardDesc" xml:space="preserve">
+    <value>Capacity ring</value>
   </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
@@ -4228,6 +4234,72 @@ Click OK to continue.</value>
   </data>
   <data name="Gallery_AnimationPath_TogglePlay" xml:space="preserve">
     <value>Pause / Resume</value>
+  </data>
+  <data name="Gallery_Page_FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="Gallery_FlowDocument_CardDesc" xml:space="preserve">
+    <value>Scroll, page and reader viewers</value>
+  </data>
+  <data name="Gallery_FlowDocument_Desc" xml:space="preserve">
+    <value>Demonstrates FlowDocumentScrollViewer, FlowDocumentPageViewer and FlowDocumentReader with a shared Neptune encyclopedia sample (Paragraph, Figure, Floater, Table, Hyperlink).</value>
+  </data>
+  <data name="Gallery_FlowDocument_ScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
+  <data name="Gallery_FlowDocument_PageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
+  <data name="Gallery_FlowDocument_Reader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
+  <data name="Gallery_FlowDocument_Title" xml:space="preserve">
+    <value>Neptune</value>
+  </data>
+  <data name="Gallery_FlowDocument_Intro" xml:space="preserve">
+    <value> (planet), major planet in the solar system, eighth planet from the Sun and fourth largest in diameter. Neptune maintains an almost constant distance, about 4,490 million km (about 2,790 million mi), from the Sun. Neptune revolves outside the orbit of Uranus and for most of its orbit moves inside the elliptical path of the outermost planet Pluto (see Solar System). Every 248 years, Pluto’s elliptical orbit brings the planet inside Neptune’s nearly circular orbit for about 20 years, temporarily making Neptune the farthest planet from the Sun. The last time Pluto’s orbit brought it inside Neptune’s orbit was in 1979. In 1999 Pluto’s orbit carried it back outside Neptune’s orbit.</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure1" xml:space="preserve">
+    <value>Neptune has 72 times Earth's volume...</value>
+  </data>
+  <data name="Gallery_FlowDocument_StatsTitle" xml:space="preserve">
+    <value>Neptune Stats</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance" xml:space="preserve">
+    <value>Mean Distance from Sun</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance_Value" xml:space="preserve">
+    <value>4,504,000,000 km</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter" xml:space="preserve">
+    <value>Mean Diameter</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter_Value" xml:space="preserve">
+    <value>49,532 km</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass" xml:space="preserve">
+    <value>Approximate Mass</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass_Value" xml:space="preserve">
+    <value>1.0247e26 kg</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourcePrefix" xml:space="preserve">
+    <value>Information from the </value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceLink" xml:space="preserve">
+    <value>Wikipedia</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceSuffix" xml:space="preserve">
+    <value> web site.</value>
+  </data>
+  <data name="Gallery_FlowDocument_Structure" xml:space="preserve">
+    <value>Astronomers believe Neptune has an inner rocky core that is surrounded by a vast ocean of water mixed with rocky material. From the inner core, this ocean extends upward until it meets a gaseous atmosphere of hydrogen, helium, and trace amounts of methane. Neptune has four rings and 11 known moons. Even though Neptune's volume is 72 times Earth’s volume, its mass is only 17.15 times Earth’s mass. Because of its size, scientists classify Neptune—along with Jupiter, Saturn, and Uranus—as one of the giant or Jovian planets (so-called because they resemble Jupiter).</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure2" xml:space="preserve">
+    <value>Neptune has an orbital period of ~165 years...</value>
+  </data>
+  <data name="Gallery_FlowDocument_Discovery" xml:space="preserve">
+    <value>Mathematical theories of astronomy led to the discovery of Neptune. To account for wobbles in the orbit of the planet Uranus, British astronomer John Couch Adams and French astronomer Urbain Jean Joseph Leverrier independently calculated the existence and position of a new planet in 1845 and 1846, respectively. They theorized that the gravitational attraction of this planet for Uranus was causing the wobbles in Uranus’s orbit. Using information from Leverrier, German astronomer Johann Gottfried Galle first observed the planet in 1846.</value>
   </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>

@@ -4064,11 +4064,17 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_ProgressRing" xml:space="preserve">
     <value>ProgressRing</value>
   </data>
-  <data name="Gallery_Page_Storage" xml:space="preserve">
-    <value>StorageBar / StorageRing</value>
+  <data name="Gallery_Page_StorageBar" xml:space="preserve">
+    <value>StorageBar</value>
   </data>
-  <data name="Sample_Storage_CardDesc" xml:space="preserve">
-    <value>容量條與容量環</value>
+  <data name="Gallery_Page_StorageRing" xml:space="preserve">
+    <value>StorageRing</value>
+  </data>
+  <data name="Sample_StorageBar_CardDesc" xml:space="preserve">
+    <value>容量條</value>
+  </data>
+  <data name="Sample_StorageRing_CardDesc" xml:space="preserve">
+    <value>容量環</value>
   </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
@@ -4228,6 +4234,72 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_AnimationPath_TogglePlay" xml:space="preserve">
     <value>暫停 / 繼續</value>
+  </data>
+  <data name="Gallery_Page_FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="Gallery_FlowDocument_CardDesc" xml:space="preserve">
+    <value>捲動、分頁與閱讀器檢視</value>
+  </data>
+  <data name="Gallery_FlowDocument_Desc" xml:space="preserve">
+    <value>示範 FlowDocumentScrollViewer、FlowDocumentPageViewer 與 FlowDocumentReader，共用一份海王星百科樣例文件（Paragraph、Figure、Floater、Table、Hyperlink）。</value>
+  </data>
+  <data name="Gallery_FlowDocument_ScrollViewer" xml:space="preserve">
+    <value>流文件捲動檢視</value>
+  </data>
+  <data name="Gallery_FlowDocument_PageViewer" xml:space="preserve">
+    <value>流文件單頁檢視</value>
+  </data>
+  <data name="Gallery_FlowDocument_Reader" xml:space="preserve">
+    <value>流文件閱讀器</value>
+  </data>
+  <data name="Gallery_FlowDocument_Title" xml:space="preserve">
+    <value>海王星</value>
+  </data>
+  <data name="Gallery_FlowDocument_Intro" xml:space="preserve">
+    <value>（行星）是太陽系中的主要行星，距太陽第八遠，直徑第四大。海王星與太陽的距離幾乎恆定，約為 44.9 億公里（約 27.9 億英里）。它在天王星軌道外側運行，在其大部分軌道上位於最外側行星冥王星的橢圓軌道內側（參見太陽系）。每隔 248 年，冥王星的橢圓軌道會使其進入海王星近圓軌道內側約 20 年，此時海王星暫時成為距太陽最遠的行星。冥王星上一次進入海王星軌道內側是在 1979 年，1999 年又回到海王星軌道外側。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure1" xml:space="preserve">
+    <value>海王星的體積約為地球的 72 倍……</value>
+  </data>
+  <data name="Gallery_FlowDocument_StatsTitle" xml:space="preserve">
+    <value>海王星數據</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance" xml:space="preserve">
+    <value>與太陽的平均距離</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDistance_Value" xml:space="preserve">
+    <value>4,504,000,000 公里</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter" xml:space="preserve">
+    <value>平均直徑</value>
+  </data>
+  <data name="Gallery_FlowDocument_MeanDiameter_Value" xml:space="preserve">
+    <value>49,532 公里</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass" xml:space="preserve">
+    <value>近似質量</value>
+  </data>
+  <data name="Gallery_FlowDocument_Mass_Value" xml:space="preserve">
+    <value>1.0247×10²⁶ 千克</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourcePrefix" xml:space="preserve">
+    <value>資訊來自 </value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceLink" xml:space="preserve">
+    <value>維基百科</value>
+  </data>
+  <data name="Gallery_FlowDocument_SourceSuffix" xml:space="preserve">
+    <value> 網站。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Structure" xml:space="preserve">
+    <value>天文學家認為海王星有一個岩石內核，周圍是混有岩石物質的廣闊海洋。這片海洋從內核向上延伸，直至與由氫、氦及微量甲烷組成的氣態大氣相遇。海王星有四道環和 11 顆已知衛星。儘管其體積約為地球的 72 倍，質量卻僅為地球的 17.15 倍。因其體量，科學家將海王星與木星、土星、天王星一同歸類為巨行星或類木行星（因其類似木星而得名）。</value>
+  </data>
+  <data name="Gallery_FlowDocument_Figure2" xml:space="preserve">
+    <value>海王星的軌道週期約為 165 年……</value>
+  </data>
+  <data name="Gallery_FlowDocument_Discovery" xml:space="preserve">
+    <value>天文學的數學理論促成了海王星的發現。為解釋天王星軌道的擾動，英國天文學家約翰·柯西·亞當斯與法國天文學家於爾班·勒威耶分別於 1845 年和 1846 年獨立計算出一顆新行星的存在與位置。他們推測該行星對天王星的引力吸引導致了軌道擺動。德國天文學家約翰·戈特弗里德·加勒根據勒威耶提供的資訊，於 1846 年首次觀測到這顆行星。</value>
   </data>
   <data name="Gallery_Page_TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
