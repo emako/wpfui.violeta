@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>Tekan F6 untuk membuka pemberitahuan baru, {0}.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>Tidak ada data</value>
+  </data>
 </root>

@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>按一下 F6 前往新通知，{0}。</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>暫無資料</value>
+  </data>
 </root>

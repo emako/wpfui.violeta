@@ -2267,6 +2267,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Transfer.
+        /// </summary>
+        public static string Gallery_Page_Transfer {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Transfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TransitioningContentControl.
         /// </summary>
         public static string Gallery_Page_TransitioningContentControl {
@@ -21257,6 +21266,69 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_OutlineTextBlock_StrokeTitle {
             get {
                 return ResourceManager.GetString("Sample_OutlineTextBlock_StrokeTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select one or more items on the left, then move them to the right. Use Shift/Ctrl for multi-select..
+        /// </summary>
+        public static string Sample_Transfer_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_BasicDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer — basic.
+        /// </summary>
+        public static string Sample_Transfer_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_BasicTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Move items between two lists.
+        /// </summary>
+        public static string Sample_Transfer_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use the Transfer.CheckBox style so items are selected via checkboxes. DisplayMemberPath binds the label..
+        /// </summary>
+        public static string Sample_Transfer_CheckBoxDesc {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_CheckBoxDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer — checkbox.
+        /// </summary>
+        public static string Sample_Transfer_CheckBoxTitle {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_CheckBoxTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to When the source list has no items, EmptySimpleLogoNeutralBrush and localized EmptyText are shown..
+        /// </summary>
+        public static string Sample_Transfer_EmptyDesc {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_EmptyDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer — empty.
+        /// </summary>
+        public static string Sample_Transfer_EmptyTitle {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_EmptyTitle", resourceCulture);
             }
         }
 

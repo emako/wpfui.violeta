@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>Nhấn F6 để chuyển đến thông báo mới, {0}.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>Không có dữ liệu</value>
+  </data>
 </root>

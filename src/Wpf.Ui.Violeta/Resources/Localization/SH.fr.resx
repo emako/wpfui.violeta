@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>Appuyez sur F6 pour accéder à la nouvelle notification, {0}.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>Aucuneune donnée</value>
+  </data>
 </root>

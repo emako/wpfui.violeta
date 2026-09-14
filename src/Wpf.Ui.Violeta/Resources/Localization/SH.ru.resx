@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>Нажмите клавишу F6, чтобы перейти к новому уведомлению, {0}.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>Нет данных</value>
+  </data>
 </root>

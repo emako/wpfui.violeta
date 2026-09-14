@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>新しい通知 ({0}) にアクセスするには、F6 キーを押してください。</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>データなし</value>
+  </data>
 </root>

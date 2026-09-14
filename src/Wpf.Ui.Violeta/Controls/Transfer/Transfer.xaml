@@ -1,0 +1,274 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+
+    <!--
+        TransferItem chrome mirrors Wpf.Ui DefaultListBoxItemStyle
+        (src/Wpf.Ui/Controls/ListBox/ListBoxItem.xaml), plus IsTransferred collapse.
+    -->
+    <Style x:Key="TransferItemBaseStyle" TargetType="local:TransferItem">
+        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="Border.CornerRadius" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TransferItem">
+                    <Border
+                        x:Name="Border"
+                        Margin="0"
+                        Padding="{TemplateBinding Padding}"
+                        Background="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForegroundThemeBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsTransferred" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TransferItemBaseStyle.CheckBox" TargetType="local:TransferItem">
+        <Setter Property="Foreground" Value="{DynamicResource ListBoxItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ListBoxItemSelectedBackgroundThemeBrush}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="Border.CornerRadius" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TransferItem">
+                    <Border
+                        x:Name="Border"
+                        Margin="0"
+                        Padding="{TemplateBinding Padding}"
+                        Background="Transparent"
+                        BorderThickness="1"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}">
+                        <CheckBox
+                            VerticalContentAlignment="Center"
+                            FocusVisualStyle="{x:Null}"
+                            Foreground="{TemplateBinding Foreground}"
+                            IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </CheckBox>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource MenuBarItemBackgroundSelected}" />
+                        </Trigger>
+                        <Trigger Property="IsTransferred" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="TransferMoveButtonStyle"
+        BasedOn="{StaticResource DefaultUiButtonStyle}"
+        TargetType="ui:Button">
+        <Setter Property="Width" Value="36" />
+        <Setter Property="Height" Value="36" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="MinWidth" Value="36" />
+        <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <!--
+        Outer Transfer chrome: bordered panels around lists.
+        Inner list behaviour mirrors Wpf.Ui DefaultListBoxStyle
+        (src/Wpf.Ui/Controls/ListBox/ListBox.xaml).
+    -->
+    <Style TargetType="local:Transfer">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="SelectionMode" Value="Extended" />
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True" />
+        <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Standard" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel IsVirtualizing="{TemplateBinding VirtualizingPanel.IsVirtualizing}" VirtualizationMode="{TemplateBinding VirtualizingPanel.VirtualizationMode}" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Transfer">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Source list  -->
+                        <Border
+                            Grid.Column="0"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid>
+                                <ScrollViewer
+                                    x:Name="PART_SourceScrollViewer"
+                                    Padding="{TemplateBinding Padding}"
+                                    CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                                    Focusable="False"
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+                                <StackPanel
+                                    x:Name="PART_EmptyContent"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Opacity="0.6"
+                                    Visibility="Collapsed">
+                                    <Rectangle
+                                        Width="64"
+                                        Height="41"
+                                        Fill="{DynamicResource EmptySimpleLogoNeutralBrush}" />
+                                    <TextBlock
+                                        Margin="0,10,0,0"
+                                        HorizontalAlignment="Center"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="{TemplateBinding EmptyText}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <!--  Move buttons  -->
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="8,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <ui:Button Command="{x:Static local:TransferCommands.Cancel}" Style="{StaticResource TransferMoveButtonStyle}">
+                                <ui:SymbolIcon FontSize="16" Symbol="ChevronLeft24" />
+                            </ui:Button>
+                            <ui:Button
+                                Margin="0,8,0,0"
+                                Command="{x:Static local:TransferCommands.Selected}"
+                                Style="{StaticResource TransferMoveButtonStyle}">
+                                <ui:SymbolIcon FontSize="16" Symbol="ChevronRight24" />
+                            </ui:Button>
+                        </StackPanel>
+
+                        <!--  Target list (DefaultListBoxStyle chrome)  -->
+                        <Border
+                            Grid.Column="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid>
+                                <ListBox
+                                    x:Name="PART_SelectedListBox"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    ScrollViewer.CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
+                                    ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                    SelectionMode="{TemplateBinding SelectionMode}"
+                                    Style="{DynamicResource DefaultListBoxStyle}"
+                                    VirtualizingPanel.IsVirtualizing="{TemplateBinding VirtualizingPanel.IsVirtualizing}"
+                                    VirtualizingPanel.VirtualizationMode="{TemplateBinding VirtualizingPanel.VirtualizationMode}" />
+                                <StackPanel
+                                    x:Name="PART_TargetEmptyContent"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Opacity="0.6"
+                                    Visibility="Collapsed">
+                                    <Rectangle
+                                        Width="64"
+                                        Height="41"
+                                        Fill="{DynamicResource EmptySimpleLogoNeutralBrush}" />
+                                    <TextBlock
+                                        Margin="0,10,0,0"
+                                        HorizontalAlignment="Center"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                        Text="{TemplateBinding EmptyText}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="False">
+                            <Setter TargetName="PART_SourceScrollViewer" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_EmptyContent" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding HasItems, ElementName=PART_SelectedListBox}" Value="False">
+                            <Setter TargetName="PART_TargetEmptyContent" Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                        <Trigger Property="IsGrouping" Value="True">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="Transfer.CheckBox"
+        BasedOn="{StaticResource {x:Type local:Transfer}}"
+        TargetType="local:Transfer">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle.CheckBox}" />
+    </Style>
+
+</ResourceDictionary>

@@ -244,6 +244,15 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to No data.
+        /// </summary>
+        internal static string EmptyNoData {
+            get {
+                return ResourceManager.GetString("EmptyNoData", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Clear selection.
         /// </summary>
         internal static string CascadingComboBoxClearSelection {

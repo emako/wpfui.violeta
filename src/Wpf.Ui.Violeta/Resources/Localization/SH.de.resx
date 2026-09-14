@@ -210,4 +210,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>Drücken Sie F6, um auf die neue Benachrichtigung zu {0} zuzugreifen.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>Keine Daten</value>
+  </data>
 </root>

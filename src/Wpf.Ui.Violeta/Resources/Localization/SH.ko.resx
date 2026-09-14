@@ -269,4 +269,7 @@
   <data name="TeachingTipNotificationWithoutAppName" xml:space="preserve">
     <value>F6 키를 눌러 새 알림, {0}(으)로 이동하세요.</value>
   </data>
+  <data name="EmptyNoData" xml:space="preserve">
+    <value>데이터 없음</value>
+  </data>
 </root>

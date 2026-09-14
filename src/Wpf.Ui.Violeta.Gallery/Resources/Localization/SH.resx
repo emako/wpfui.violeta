@@ -7121,4 +7121,28 @@ Click OK to continue.</value>
   <data name="Sample_OutlineTextBlock_ShortText" xml:space="preserve">
     <value>Outline</value>
   </data>
+  <data name="Gallery_Page_Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="Sample_Transfer_CardDesc" xml:space="preserve">
+    <value>Move items between two lists</value>
+  </data>
+  <data name="Sample_Transfer_BasicTitle" xml:space="preserve">
+    <value>Transfer — basic</value>
+  </data>
+  <data name="Sample_Transfer_BasicDesc" xml:space="preserve">
+    <value>Select one or more items on the left, then move them to the right. Use Shift/Ctrl for multi-select.</value>
+  </data>
+  <data name="Sample_Transfer_CheckBoxTitle" xml:space="preserve">
+    <value>Transfer — checkbox</value>
+  </data>
+  <data name="Sample_Transfer_CheckBoxDesc" xml:space="preserve">
+    <value>Use the Transfer.CheckBox style so items are selected via checkboxes. DisplayMemberPath binds the label.</value>
+  </data>
+  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
+    <value>Transfer — empty</value>
+  </data>
+  <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">
+    <value>When the source list has no items, EmptySimpleLogoNeutralBrush and localized EmptyText are shown.</value>
+  </data>
 </root>

@@ -7121,4 +7121,28 @@ OK をクリックして続行してください。</value>
   <data name="Sample_OutlineTextBlock_ShortText" xml:space="preserve">
     <value>輪郭</value>
   </data>
+  <data name="Gallery_Page_Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="Sample_Transfer_CardDesc" xml:space="preserve">
+    <value>2つのリスト間で項目を移動</value>
+  </data>
+  <data name="Sample_Transfer_BasicTitle" xml:space="preserve">
+    <value>Transfer — 基本</value>
+  </data>
+  <data name="Sample_Transfer_BasicDesc" xml:space="preserve">
+    <value>左側で項目を選択し、右側へ移動します。Shift/Ctrl で複数選択できます。</value>
+  </data>
+  <data name="Sample_Transfer_CheckBoxTitle" xml:space="preserve">
+    <value>Transfer — チェックボックス</value>
+  </data>
+  <data name="Sample_Transfer_CheckBoxDesc" xml:space="preserve">
+    <value>Transfer.CheckBox スタイルでチェックボックス選択にします。DisplayMemberPath で表示をバインドします。</value>
+  </data>
+  <data name="Sample_Transfer_EmptyTitle" xml:space="preserve">
+    <value>Transfer — 空状態</value>
+  </data>
+  <data name="Sample_Transfer_EmptyDesc" xml:space="preserve">
+    <value>ソースに項目がないとき、EmptySimpleLogoNeutralBrush とローカライズされた EmptyText を表示します。</value>
+  </data>
 </root>

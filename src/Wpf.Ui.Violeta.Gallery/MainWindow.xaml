@@ -310,6 +310,7 @@
                     <vio:NavigationViewItem.MenuItems>
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DataGrid}}" Tag="collections/data-grid" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ListBox}}" Tag="collections/list-box" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Transfer}}" Tag="collections/transfer" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ListView}}" Tag="collections/list-view" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GridView}}" Tag="collections/grid-view" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TreeView}}" Tag="collections/tree-view" />
