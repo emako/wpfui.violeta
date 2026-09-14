@@ -110,9 +110,9 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private const int s_itemNotFound = -1;
 
-    private static readonly Size c_infSize = new Size(double.PositiveInfinity, double.PositiveInfinity);
+    private static readonly Size c_infSize = new(double.PositiveInfinity, double.PositiveInfinity);
 
-    internal static readonly ControlStrings ResourceAccessor = new ControlStrings(typeof(NavigationView), ModernControlCategory.Windows);
+    internal static readonly ControlStrings ResourceAccessor = new(typeof(NavigationView), ModernControlCategory.Windows);
 
     /*
     ~NavigationView()
@@ -133,29 +133,18 @@ public partial class NavigationView : ContentControl, IControlProtected
             m_coreTitleBar.LayoutMetricsChanged -= OnTitleBarMetricsChanged;
             m_coreTitleBar.IsVisibleChanged -= OnTitleBarIsVisibleChanged;
         }
-        if (m_paneToggleButton != null)
-        {
-            m_paneToggleButton.Click -= OnPaneToggleButtonClick;
-        }
+        m_paneToggleButton?.Click -= OnPaneToggleButtonClick;
 
         m_settingsItem = null;
-
-        if (m_paneSearchButton != null)
-        {
-            m_paneSearchButton.Click -= OnPaneSearchButtonClick;
-            m_paneSearchButton = null;
-        }
+        m_paneSearchButton?.Click -= OnPaneSearchButtonClick;
+        m_paneSearchButton = null;
 
         m_paneHeaderOnTopPane = null;
         m_paneTitleOnTopPane = null;
 
         m_itemsContainerSizeChangedRevoker?.Revoke();
-
-        if (m_paneTitleHolderFrameworkElement != null)
-        {
-            m_paneTitleHolderFrameworkElement.SizeChanged -= OnPaneTitleHolderSizeChanged;
-            m_paneTitleHolderFrameworkElement = null;
-        }
+        m_paneTitleHolderFrameworkElement?.SizeChanged -= OnPaneTitleHolderSizeChanged;
+        m_paneTitleHolderFrameworkElement = null;
 
         m_paneTitleFrameworkElement = null;
         m_paneTitlePresenter = null;
@@ -229,9 +218,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
         SizeChanged += OnSizeChanged;
 
-        m_selectionModelSource = new List<object>(2);
-        m_selectionModelSource.Add(null);
-        m_selectionModelSource.Add(null);
+        m_selectionModelSource = [null, null];
 
         var items = new ObservableCollection<object>();
         SetValue(MenuItemsProperty, items);
@@ -324,9 +311,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         if (IsTopNavigationView())
         {
             // If selectedIndex does not exist, means item is being deselected through API
-            var isInOverflow = (selectedIndex != null && selectedIndex.GetSize() > 1)
-                ? selectedIndex.GetAt(0) == c_mainMenuBlockIndex && !m_topDataProvider.IsItemInPrimaryList(selectedIndex.GetAt(1))
-                : false;
+            var isInOverflow = (selectedIndex != null && selectedIndex.GetSize() > 1) && selectedIndex.GetAt(0) == c_mainMenuBlockIndex && !m_topDataProvider.IsItemInPrimaryList(selectedIndex.GetAt(1));
             if (isInOverflow)
             {
                 // We only want to close the overflow flyout and move the item on selection if it is a leaf node
@@ -568,8 +553,10 @@ public partial class NavigationView : ContentControl, IControlProtected
             var toolTip = ToolTipService.GetToolTip(topNavOverflowButton);
             if (toolTip is null)
             {
-                var tooltip = new ToolTip();
-                tooltip.Content = ResourceAccessor.GetLocalizedStringResource(SR_NavigationOverflowButtonToolTip);
+                var tooltip = new ToolTip
+                {
+                    Content = ResourceAccessor.GetLocalizedStringResource(SR_NavigationOverflowButtonToolTip)
+                };
                 ToolTipService.SetToolTip(topNavOverflowButton, tooltip);
             }
 
@@ -663,8 +650,10 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             var searchButtonName = ResourceAccessor.GetLocalizedStringResource(SR_NavigationViewSearchButtonName);
             AutomationProperties.SetName(button, searchButtonName);
-            var toolTip = new ToolTip();
-            toolTip.Content = searchButtonName;
+            var toolTip = new ToolTip
+            {
+                Content = searchButtonName
+            };
             ToolTipService.SetToolTip(button, toolTip);
         }
 
@@ -870,10 +859,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     void UpdateItemsRepeaterItemsSource(ItemsRepeater ir,
          object itemsSource)
     {
-        if (ir != null)
-        {
-            ir.ItemsSource = itemsSource;
-        }
+        ir?.ItemsSource = itemsSource;
     }
 
     void UpdateFooterRepeaterItemsSource(bool sourceCollectionReset, bool sourceCollectionChanged)
@@ -911,10 +897,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             if (sourceCollectionReset)
             {
-                if (m_footerItemsSource != null)
-                {
-                    m_footerItemsSource.CollectionChanged -= OnFooterItemsSourceCollectionChanged;
-                }
+                m_footerItemsSource?.CollectionChanged -= OnFooterItemsSourceCollectionChanged;
                 m_footerItemsSource = null;
             }
 
@@ -1199,8 +1182,6 @@ public partial class NavigationView : ContentControl, IControlProtected
     IndexPath GetIndexPathForContainer(NavigationViewItemBase nvib)
     {
         var path = new List<int>();
-        bool isInFooterMenu = false;
-
         DependencyObject child = nvib;
         var parent = VisualTreeHelper.GetParent(child);
         if (parent == null)
@@ -1254,8 +1235,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             path.Insert(0, parentIR.GetElementIndex(child as UIElement));
         }
 
-        isInFooterMenu = parent == m_leftNavFooterMenuRepeater || parent == m_topNavFooterMenuRepeater;
-
+        bool isInFooterMenu = parent == m_leftNavFooterMenuRepeater || parent == m_topNavFooterMenuRepeater;
         path.Insert(0, isInFooterMenu ? c_footerMenuBlockIndex : c_mainMenuBlockIndex);
 
         return IndexPath.CreateFromIndices(path);
@@ -1943,7 +1923,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         {
             if (m_rootSplitView is { } splitView)
             {
-                if (m_leftNavRepeater is { } paneList)
+                if (m_leftNavRepeater is { })
                 {
                     if (splitView.DisplayMode == SplitViewDisplayMode.CompactOverlay || splitView.DisplayMode == SplitViewDisplayMode.CompactInline)
                     {
@@ -2131,8 +2111,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         if (m_paneToggleButton is { } paneToggleButton)
         {
             AutomationProperties.SetName(paneToggleButton, navigationName);
-            var toolTip = new ToolTip();
-            toolTip.Content = navigationName;
+            var toolTip = new ToolTip
+            {
+                Content = navigationName
+            };
             ToolTipService.SetToolTip(paneToggleButton, toolTip);
         }
     }
@@ -2148,8 +2130,10 @@ public partial class NavigationView : ContentControl, IControlProtected
             else
             {
                 var localizedSettingsName = ResourceAccessor.GetLocalizedStringResource(SR_SettingsButtonName);
-                var toolTip = new ToolTip();
-                toolTip.Content = localizedSettingsName;
+                var toolTip = new ToolTip
+                {
+                    Content = localizedSettingsName
+                };
                 ToolTipService.SetToolTip(settingsItem, toolTip);
             }
         }
@@ -2199,10 +2183,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         return null;
     }
 
-    private static readonly Point c_frame1point1 = new Point(0.9, 0.1);
-    private static readonly Point c_frame1point2 = new Point(1.0, 0.2);
-    private static readonly Point c_frame2point1 = new Point(0.1, 0.9);
-    private static readonly Point c_frame2point2 = new Point(0.2, 1.0);
+    private static readonly Point c_frame1point1 = new(0.9, 0.1);
+    private static readonly Point c_frame1point2 = new(1.0, 0.2);
+    private static readonly Point c_frame2point1 = new(0.1, 0.9);
+    private static readonly Point c_frame2point2 = new(0.2, 1.0);
 
     void AnimateSelectionChangedToItem(object selectedItem)
     {
@@ -2277,7 +2261,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                 ResetElementAnimationProperties(nextIndicator, 1.0);
 
                 // get the item positions in the pane
-                Point point = new Point(0, 0);
+                Point point = new(0, 0);
                 double prevPos;
                 double nextPos;
 
@@ -2307,7 +2291,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                     bool isNextBelow = prevPosPoint.Y < nextPosPoint.Y;
                     if (prevIndicator.RenderSize.Height > prevIndicator.RenderSize.Width)
                     {
-                        PlayIndicatorNonSameLevelAnimations(prevIndicator, true, isNextBelow ? false : true, storyboard.Children);
+                        PlayIndicatorNonSameLevelAnimations(prevIndicator, true, !isNextBelow, storyboard.Children);
                     }
                     else
                     {
@@ -2316,7 +2300,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
                     if (nextIndicator.RenderSize.Height > nextIndicator.RenderSize.Width)
                     {
-                        PlayIndicatorNonSameLevelAnimations(nextIndicator, false, isNextBelow ? true : false, storyboard.Children);
+                        PlayIndicatorNonSameLevelAnimations(nextIndicator, false, isNextBelow, storyboard.Children);
                     }
                     else
                     {
@@ -2402,8 +2386,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         Size size = indicator.RenderSize;
         double dimension = IsTopNavigationView() ? size.Width : size.Height;
         double newCenter = fromTop ? 0.0 : dimension;
-        var indicatorCenterPoint = new Point();
-        indicatorCenterPoint.Y = newCenter;
+        var indicatorCenterPoint = new Point
+        {
+            Y = newCenter
+        };
 
         Storyboard.SetTarget(scaleAnim, indicator);
         Storyboard.SetTargetProperty(scaleAnim, s_scaleYPath);
@@ -2429,8 +2415,10 @@ public partial class NavigationView : ContentControl, IControlProtected
         // Determine where the indicator is animating from/to
         Size size = indicator.RenderSize;
         double newCenter = size.Width / 2;
-        var indicatorCenterPoint = new Point();
-        indicatorCenterPoint.Y = newCenter;
+        var indicatorCenterPoint = new Point
+        {
+            Y = newCenter
+        };
 
         Storyboard.SetTarget(scaleAnim, indicator);
         Storyboard.SetTargetProperty(scaleAnim, s_scaleXPath);
@@ -2689,9 +2677,11 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void RaiseSelectionChangedEvent(object nextItem, bool isSettingsItem, NavigationRecommendedTransitionDirection recommendedDirection = NavigationRecommendedTransitionDirection.Default)
     {
-        var eventArgs = new NavigationViewSelectionChangedEventArgs();
-        eventArgs.SelectedItem = nextItem;
-        eventArgs.IsSettingsSelected = isSettingsItem;
+        var eventArgs = new NavigationViewSelectionChangedEventArgs
+        {
+            SelectedItem = nextItem,
+            IsSettingsSelected = isSettingsItem
+        };
         if (NavigationViewItemBaseOrSettingsContentFromData(nextItem) is { } container)
         {
             eventArgs.SelectedItemContainer = container;
@@ -3475,7 +3465,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         return null;
     }
 
-    void OnTopNavDataSourceChanged(NotifyCollectionChangedEventArgs args)
+    void OnTopNavDataSourceChanged(NotifyCollectionChangedEventArgs _)
     {
         CloseTopNavigationViewFlyout();
 
@@ -3554,7 +3544,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             || recommendedTransitionDirection == NavigationRecommendedTransitionDirection.FromRight)
             && SharedHelpers.IsRS5OrHigher())
         {
-            SlideNavigationTransitionInfo sliderNav = new SlideNavigationTransitionInfo();
+            SlideNavigationTransitionInfo sliderNav = new();
             SlideNavigationTransitionEffect effect =
                 recommendedTransitionDirection == NavigationRecommendedTransitionDirection.FromRight ?
                 SlideNavigationTransitionEffect.FromRight :
@@ -3562,7 +3552,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             // PR 1895355: Bug 17724768: Remove Side-to-Side navigation transition velocity key
             // https://microsoft.visualstudio.com/_git/os/commit/7d58531e69bc8ad1761cff938d8db25f6fb6a841
             // We want to use Effect, but it's not in all os of rs5. as a workaround, we only apply effect to the os which is already remove velocity key.
-            if (sliderNav is ISlideNavigationTransitionInfo2 sliderNav2)
+            if (sliderNav is ISlideNavigationTransitionInfo2)
             {
                 sliderNav.Effect = effect;
             }
@@ -3570,8 +3560,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         }
         else
         {
-            EntranceNavigationTransitionInfo defaultInfo = new EntranceNavigationTransitionInfo();
-            return defaultInfo;
+            return new EntranceNavigationTransitionInfo();
         }
     }
 
@@ -3587,20 +3576,12 @@ public partial class NavigationView : ContentControl, IControlProtected
 
             var compare = prevIndexPath.CompareTo(nextIndexPath);
 
-            switch (compare)
+            recommendedTransitionDirection = compare switch
             {
-                case -1:
-                    recommendedTransitionDirection = NavigationRecommendedTransitionDirection.FromRight;
-                    break;
-
-                case 1:
-                    recommendedTransitionDirection = NavigationRecommendedTransitionDirection.FromLeft;
-                    break;
-
-                default:
-                    recommendedTransitionDirection = NavigationRecommendedTransitionDirection.Default;
-                    break;
-            }
+                -1 => NavigationRecommendedTransitionDirection.FromRight,
+                1 => NavigationRecommendedTransitionDirection.FromLeft,
+                _ => NavigationRecommendedTransitionDirection.Default,
+            };
         }
         return recommendedTransitionDirection;
     }
@@ -3802,7 +3783,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         VisualStateManager.GoToState(this, state, false /* useTransitions*/);
     }
 
-    void UpdateLeftNavigationOnlyVisualState(bool useTransitions)
+    void UpdateLeftNavigationOnlyVisualState(bool _)
     {
         bool isToggleButtonVisible = IsPaneToggleButtonVisible;
         VisualStateManager.GoToState(this, isToggleButtonVisible ? "TogglePaneButtonVisible" : "TogglePaneButtonCollapsed", false /*useTransitions*/);
@@ -3891,7 +3872,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             }
             else
             {
-                var movableItems = FindMovableItemsRecoverToPrimaryList(availableSize.Width - desiredWidth, new List<int>()/*includeItems*/);
+                var movableItems = FindMovableItemsRecoverToPrimaryList(availableSize.Width - desiredWidth, []/*includeItems*/);
                 m_topDataProvider.MoveItemsToPrimaryList(movableItems);
             }
         }
@@ -3950,29 +3931,17 @@ public partial class NavigationView : ContentControl, IControlProtected
             var desiredWidth = MeasureTopNavigationViewDesiredWidth(c_infSize);
             Debug.Assert(desiredWidth <= actualWidth);
 
-            // Calculate selected item size
-            var selectedItemIndex = s_itemNotFound;
-            var selectedItemWidth = 0.0;
-            if (SelectedItem is { } selectedItem)
-            {
-                selectedItemIndex = m_topDataProvider.IndexOf(selectedItem);
-                if (selectedItemIndex != s_itemNotFound)
-                {
-                    selectedItemWidth = m_topDataProvider.GetWidthForItem(selectedItemIndex);
-                }
-            }
-
             var widthAtLeastToBeRemoved = desiredWidth + selectedOverflowItemWidth - actualWidth;
 
             // calculate items to be removed from primary because a overflow item is selected.
             // SelectedItem is assumed to be removed from primary first, then added it back if it should not be removed
-            var itemsToBeRemoved = FindMovableItemsToBeRemovedFromPrimaryList(widthAtLeastToBeRemoved, new List<int>() /*excludeItems*/);
+            var itemsToBeRemoved = FindMovableItemsToBeRemovedFromPrimaryList(widthAtLeastToBeRemoved, [] /*excludeItems*/);
 
             // calculate the size to be removed
             var toBeRemovedItemWidth = m_topDataProvider.CalculateWidthForItems(itemsToBeRemoved);
 
             var widthAvailableToRecover = toBeRemovedItemWidth - widthAtLeastToBeRemoved;
-            var itemsToBeAdded = FindMovableItemsRecoverToPrimaryList(widthAvailableToRecover, new List<int> { selectedOverflowItemIndex }/*includeItems*/);
+            var itemsToBeAdded = FindMovableItemsRecoverToPrimaryList(widthAvailableToRecover, [selectedOverflowItemIndex]/*includeItems*/);
 
             CollectionHelper.UniquePushBack(itemsToBeAdded, selectedOverflowItemIndex);
 
@@ -3984,7 +3953,7 @@ public partial class NavigationView : ContentControl, IControlProtected
                 {
                     if (it == ip.GetAt(1))
                     {
-                        if (m_activeIndicator is { } indicator)
+                        if (m_activeIndicator is { })
                         {
                             // If the previously selected item is being moved into overflow, hide its indicator
                             // as we will no longer need to animate from its location.
@@ -4053,8 +4022,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             // in the original.
             if (indexInPrimary > 0)
             {
-                List<int> prevIndexInVector = new List<int>();
-                prevIndexInVector.Add(nextIndexInPrimary - 1);
+                List<int> prevIndexInVector = [nextIndexInPrimary - 1];
                 var prevOriginalIndexOfPrevPrimaryItem = m_topDataProvider.ConvertPrimaryIndexToIndex(prevIndexInVector);
                 if (prevOriginalIndexOfPrevPrimaryItem[0] != prevIndexInOriginal)
                 {
@@ -4065,8 +4033,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             // Check whether items following the selected item are out of order
             while (!needRearrange && nextIndexInPrimary < (int)primaryListSize)
             {
-                List<int> nextIndexInVector = new List<int>();
-                nextIndexInVector.Add(nextIndexInPrimary);
+                List<int> nextIndexInVector = [nextIndexInPrimary];
                 var originalIndex = m_topDataProvider.ConvertPrimaryIndexToIndex(nextIndexInVector);
                 if (nextIndexInOriginal != originalIndex[0])
                 {
@@ -4103,7 +4070,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         var widthAtLeastToBeRemoved = desiredWidth - availableSize.Width;
         if (widthAtLeastToBeRemoved > 0)
         {
-            var itemToBeRemoved = FindMovableItemsToBeRemovedFromPrimaryList(widthAtLeastToBeRemoved, new List<int> { selectedItemIndex });
+            var itemToBeRemoved = FindMovableItemsToBeRemovedFromPrimaryList(widthAtLeastToBeRemoved, [selectedItemIndex]);
 
             // At least one item is kept on primary list
             KeepAtLeastOneItemInPrimaryList(itemToBeRemoved, false/*shouldKeepFirst*/);
@@ -4116,7 +4083,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     List<int> FindMovableItemsRecoverToPrimaryList(double availableWidth, List<int> includeItems)
     {
-        List<int> toBeMoved = new List<int>();
+        List<int> toBeMoved = [];
 
         var size = m_topDataProvider.Size();
 
@@ -4158,7 +4125,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     List<int> FindMovableItemsToBeRemovedFromPrimaryList(double widthAtLeastToBeRemoved, List<int> excludeItems)
     {
-        List<int> toBeMoved = new List<int>();
+        List<int> toBeMoved = [];
 
         int i = m_topDataProvider.Size() - 1;
         while (i >= 0 && widthAtLeastToBeRemoved > 0)
@@ -4180,7 +4147,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     List<int> FindMovableItemsBeyondAvailableWidth(double availableWidth)
     {
-        List<int> toBeMoved = new List<int>();
+        List<int> toBeMoved = [];
         if (m_topNavRepeater is { } ir)
         {
             int selectedItemIndexInPrimary = m_topDataProvider.IndexOf(SelectedItem, NavigationViewSplitVectorID.PrimaryList);
@@ -4464,11 +4431,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void UpdateNavigationViewItemsFactory()
     {
-        object newItemTemplate = MenuItemTemplate;
-        if (newItemTemplate == null)
-        {
-            newItemTemplate = MenuItemTemplateSelector;
-        }
+        object newItemTemplate = (object?)MenuItemTemplate ?? MenuItemTemplateSelector;
         m_navigationViewItemsFactory.UserElementFactory(newItemTemplate);
     }
 
@@ -4867,22 +4830,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         UpdatePaneTitleFrameworkElementParents();
         UpdatePaneOverlayGroup();
 
-        if (SharedHelpers.IsThemeShadowAvailable())
-        {
-            if (m_rootSplitView is { } splitView)
-            {
-                var displayMode = splitView.DisplayMode;
-                var isOverlay = displayMode == SplitViewDisplayMode.Overlay || displayMode == SplitViewDisplayMode.CompactOverlay;
-                if (splitView.Pane is { } paneRoot)
-                {
-                    /*
-                    var currentTranslation = paneRoot.Translation();
-                    var translation = float3{ currentTranslation.x, currentTranslation.y, IsPaneOpen && isOverlay ? c_paneElevationTranslationZ : 0.0f };
-                    paneRoot.Translation(translation);
-                    */
-                }
-            }
-        }
+        // TODO: ThemeShadow pane elevation (WinUI Translation Z) when available.
         UpdatePaneButtonsWidths();
     }
 
@@ -4943,7 +4891,7 @@ public partial class NavigationView : ContentControl, IControlProtected
         UpdateContentBindingsForPaneDisplayMode();
         UpdateRepeaterItemsSource(false /*forceSelectionModelUpdate*/);
         UpdateFooterRepeaterItemsSource(false /*sourceCollectionReset*/, false /*sourceCollectionChanged*/);
-        if (SelectedItem is { } selectedItem)
+        if (SelectedItem is { })
         {
             m_OrientationChangedPendingAnimation = true;
         }
@@ -5024,8 +4972,8 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void UpdateContentBindingsForPaneDisplayMode()
     {
-        UIElement autoSuggestBoxContentControl = null;
-        UIElement notControl = null;
+        UIElement autoSuggestBoxContentControl;
+        UIElement notControl;
         if (!IsTopNavigationView())
         {
             autoSuggestBoxContentControl = m_leftNavPaneAutoSuggestBoxPresenter;
@@ -5039,10 +4987,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
         if (autoSuggestBoxContentControl != null)
         {
-            if (notControl != null)
-            {
-                notControl.ClearValue(ContentControl.ContentProperty);
-            }
+            notControl?.ClearValue(ContentControl.ContentProperty);
 
             SharedHelpers.SetBinding("AutoSuggestBox", autoSuggestBoxContentControl, ContentControl.ContentProperty);
         }
@@ -5113,30 +5058,18 @@ public partial class NavigationView : ContentControl, IControlProtected
                 // not the PaneToggleButtonWidth resource (40). Closed compact needs the full
                 // compact width so Style Padding (4,2) + icon column (Compact-8) stay aligned
                 // with NavigationViewItem icons.
-                double width = GetTemplateSettings().PaneToggleButtonWidth;
-                double togglePaneButtonWidth = width;
-
-                if (ShouldShowBackButton() && splitView.DisplayMode == SplitViewDisplayMode.Overlay)
-                {
-                    double backButtonWidth = c_backButtonWidth;
-                    if (m_backButton is { } backButton)
-                    {
-                        backButtonWidth = backButton.Width;
-                    }
-
-                    width += backButtonWidth;
-                }
+                // Note: WinUI also mutates a local `width` when the back button is shown in Overlay,
+                // but only togglePaneButtonWidth is applied to the button — same as upstream.
+                double togglePaneButtonWidth = GetTemplateSettings().PaneToggleButtonWidth;
 
                 if (!m_isClosedCompact && PaneTitle?.Length > 0)
                 {
                     if (splitView.DisplayMode == SplitViewDisplayMode.Overlay && IsPaneOpen)
                     {
-                        width = OpenPaneLength;
                         togglePaneButtonWidth = OpenPaneLength - ((ShouldShowBackButton() || ShouldShowCloseButton()) ? c_backButtonWidth : 0);
                     }
                     else if (!(splitView.DisplayMode == SplitViewDisplayMode.Overlay && !IsPaneOpen))
                     {
-                        width = OpenPaneLength;
                         togglePaneButtonWidth = OpenPaneLength;
                     }
                 }
@@ -5504,14 +5437,16 @@ public partial class NavigationView : ContentControl, IControlProtected
     void RaiseDisplayModeChanged(NavigationViewDisplayMode displayMode)
     {
         SetValue(DisplayModePropertyKey, displayMode);
-        var eventArgs = new NavigationViewDisplayModeChangedEventArgs();
-        eventArgs.DisplayMode = displayMode;
+        var eventArgs = new NavigationViewDisplayModeChangedEventArgs
+        {
+            DisplayMode = displayMode
+        };
         DisplayModeChanged?.Invoke(this, eventArgs);
     }
 
     // This method attaches the series of animations which are fired off dependent upon the amount
     // of space give and the length of the strings involved. It occurs upon re-rendering.
-    void CreateAndAttachHeaderAnimation(Visual visual)
+    void CreateAndAttachHeaderAnimation(Visual _)
     {
         /*
         var compositor = visual.Compositor();
@@ -5700,7 +5635,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             {
                 if (container is NavigationViewItem nvi)
                 {
-                    var ip = new IndexPath(new List<int> { isFooterRepeater ? c_footerMenuBlockIndex : c_mainMenuBlockIndex, i });
+                    var ip = new IndexPath([isFooterRepeater ? c_footerMenuBlockIndex : c_mainMenuBlockIndex, i]);
                     if (SearchEntireTreeForIndexPath(nvi, data, ip) is { } indexPath)
                     {
                         return indexPath;
@@ -5803,9 +5738,11 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     NavigationViewItemBase ResolveContainerForItem(object item, int index)
     {
-        var args = new ElementFactoryGetArgs();
-        args.Data = item;
-        args.Index = index;
+        var args = new ElementFactoryGetArgs
+        {
+            Data = item,
+            Index = index
+        };
 
         if (m_navigationViewItemsFactory.GetElement(args) is { } container)
         {
@@ -5819,8 +5756,10 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void RecycleContainer(UIElement container)
     {
-        var args = new ElementFactoryRecycleArgs();
-        args.Element = container;
+        var args = new ElementFactoryRecycleArgs
+        {
+            Element = container
+        };
         m_navigationViewItemsFactory.RecycleElement(args);
     }
 
@@ -5925,7 +5864,7 @@ public partial class NavigationView : ContentControl, IControlProtected
             }
         }
 
-        return new IndexPath(new List<int>(0));
+        return new IndexPath([]);
     }
 
     UIElement GetContainerForIndex(int index, bool inFooter)
@@ -6022,12 +5961,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     {
         if (m_selectionModel.SelectedItem is { } selectedItem)
         {
-            var selectedItemContainer = selectedItem as NavigationViewItemBase;
-            if (selectedItemContainer == null)
-            {
-                selectedItemContainer = GetContainerForIndexPath(m_selectionModel.SelectedIndex);
-            }
-
+            var selectedItemContainer = selectedItem as NavigationViewItemBase ?? GetContainerForIndexPath(m_selectionModel.SelectedIndex);
             return selectedItemContainer == nvib;
         }
         return false;
@@ -6298,15 +6232,19 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     void RaiseExpandingEvent(NavigationViewItemBase container)
     {
-        var eventArgs = new NavigationViewItemExpandingEventArgs(this);
-        eventArgs.ExpandingItemContainer = container;
+        var eventArgs = new NavigationViewItemExpandingEventArgs(this)
+        {
+            ExpandingItemContainer = container
+        };
         Expanding?.Invoke(this, eventArgs);
     }
 
     void RaiseCollapsedEvent(NavigationViewItemBase container)
     {
-        var eventArgs = new NavigationViewItemCollapsedEventArgs(this);
-        eventArgs.CollapsedItemContainer = container;
+        var eventArgs = new NavigationViewItemCollapsedEventArgs(this)
+        {
+            CollapsedItemContainer = container
+        };
         Collapsed?.Invoke(this, eventArgs);
     }
 
@@ -6334,7 +6272,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private bool m_InitialNonForcedModeUpdate = true;
 
-    private NavigationViewItemsFactory m_navigationViewItemsFactory;
+    private readonly NavigationViewItemsFactory m_navigationViewItemsFactory;
 
     // Visual components
     private Button m_paneToggleButton;
@@ -6381,7 +6319,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private ContentControl m_leftNavPaneAutoSuggestBoxPresenter;
     private ContentControl m_topNavPaneAutoSuggestBoxPresenter;
-    private readonly List<string> m_autoSuggestBoxItems = new();
+    private readonly List<string> m_autoSuggestBoxItems = [];
 
     private ContentControl m_leftNavPaneHeaderContentBorder;
     private ContentControl m_leftNavPaneCustomContentBorder;
@@ -6414,10 +6352,10 @@ public partial class NavigationView : ContentControl, IControlProtected
     private bool m_blockNextClosingEvent = false;
     private bool m_initialListSizeStateSet = false;
 
-    private TopNavigationViewDataProvider m_topDataProvider = new TopNavigationViewDataProvider();
+    private readonly TopNavigationViewDataProvider m_topDataProvider = new();
 
-    private SelectionModel m_selectionModel = new SelectionModel();
-    private List<object> m_selectionModelSource;
+    private readonly SelectionModel m_selectionModel = new();
+    private readonly List<object> m_selectionModelSource;
 
     private ItemsSourceView m_menuItemsSource = null;
     private ItemsSourceView m_footerItemsSource = null;
@@ -6431,7 +6369,7 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     // Used to disable raising selection change iff settings item gets restored because of displaymode change
 #pragma warning disable CS0414
-    private bool m_shouldIgnoreNextSelectionChangeBecauseSettingsRestore = false;
+    private readonly bool m_shouldIgnoreNextSelectionChangeBecauseSettingsRestore = false;
 #pragma warning restore CS0414
 
     // A flag to track that the selectionchange is caused by selection a item in topnav overflow menu
@@ -6443,7 +6381,7 @@ public partial class NavigationView : ContentControl, IControlProtected
     private TopNavigationViewLayoutState m_topNavigationMode = TopNavigationViewLayoutState.Uninitialized;
 
     // A threshold to stop recovery from overflow to normal happens immediately on resize.
-    private float m_topNavigationRecoveryGracePeriodWidth = 5f;
+    private readonly float m_topNavigationRecoveryGracePeriodWidth = 5f;
 
     // There are three ways to change IsPaneOpen:
     // 1, customer call IsPaneOpen=true/false directly or nav.IsPaneOpen is binding with a variable and the value is changed.
@@ -6467,11 +6405,11 @@ public partial class NavigationView : ContentControl, IControlProtected
 
     private readonly BitmapCache m_bitmapCache;
 
-    private static readonly PropertyPath s_opacityPath = new PropertyPath(OpacityProperty);
-    private static readonly PropertyPath s_centerXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterX)");
-    private static readonly PropertyPath s_centerYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterY)");
-    private static readonly PropertyPath s_scaleXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)");
-    private static readonly PropertyPath s_scaleYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)");
-    private static readonly PropertyPath s_translateXPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)");
-    private static readonly PropertyPath s_translateYPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)");
+    private static readonly PropertyPath s_opacityPath = new(OpacityProperty);
+    private static readonly PropertyPath s_centerXPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterX)");
+    private static readonly PropertyPath s_centerYPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.CenterY)");
+    private static readonly PropertyPath s_scaleXPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)");
+    private static readonly PropertyPath s_scaleYPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)");
+    private static readonly PropertyPath s_translateXPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)");
+    private static readonly PropertyPath s_translateYPath = new("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)");
 }
