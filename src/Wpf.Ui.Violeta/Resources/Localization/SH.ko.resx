@@ -144,6 +144,12 @@
   <data name="ButtonOK" xml:space="preserve">
     <value>확인</value>
   </data>
+  <data name="ButtonConfirm" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>지우기</value>
+  </data>
   <data name="ButtonYes" xml:space="preserve">
     <value>예</value>
   </data>

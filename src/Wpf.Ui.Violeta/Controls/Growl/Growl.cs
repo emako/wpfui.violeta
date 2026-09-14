@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Wpf.Ui.Violeta.Controls.Compat;
+using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
 
@@ -80,10 +81,10 @@ public class Growl : Control
         nameof(Type), typeof(GrowlType), typeof(Growl), new PropertyMetadata(GrowlType.Info));
 
     public static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
-        nameof(CancelStr), typeof(string), typeof(Growl), new PropertyMetadata("Cancel"));
+        nameof(CancelStr), typeof(string), typeof(Growl), new PropertyMetadata(SH.ButtonCancel));
 
     public static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
-        nameof(ConfirmStr), typeof(string), typeof(Growl), new PropertyMetadata("Confirm"));
+        nameof(ConfirmStr), typeof(string), typeof(Growl), new PropertyMetadata(SH.ButtonConfirm));
 
     private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
         "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(false));
@@ -282,7 +283,7 @@ public class Growl : Control
             return;
         }
 
-        var menuItem = new MenuItem { Header = "Clear" };
+        var menuItem = new MenuItem { Header = SH.ButtonClear };
         menuItem.Click += (_, _) => Clear(panel);
         panel.ContextMenu = new ContextMenu { Items = { menuItem } };
     }
@@ -311,8 +312,8 @@ public class Growl : Control
             ActionBeforeClose = growlInfo.ActionBeforeClose,
             _staysOpen = growlInfo.StaysOpen,
             ShowDateTime = growlInfo.ShowDateTime,
-            ConfirmStr = growlInfo.ConfirmStr,
-            CancelStr = growlInfo.CancelStr,
+            ConfirmStr = string.IsNullOrEmpty(growlInfo.ConfirmStr) ? SH.ButtonConfirm : growlInfo.ConfirmStr,
+            CancelStr = string.IsNullOrEmpty(growlInfo.CancelStr) ? SH.ButtonCancel : growlInfo.CancelStr,
             Type = growlInfo.Type,
             _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
         };

@@ -91,6 +91,24 @@ namespace Wpf.Ui.Violeta.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string ButtonConfirm {
+            get {
+                return ResourceManager.GetString("ButtonConfirm", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string ButtonClear {
+            get {
+                return ResourceManager.GetString("ButtonClear", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
         internal static string ButtonYes {

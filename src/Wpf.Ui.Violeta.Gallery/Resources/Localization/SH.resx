@@ -7183,4 +7183,67 @@ Click OK to continue.</value>
   <data name="Sample_e8f1a0b2c3" xml:space="preserve">
     <value>Step</value>
   </data>
+  <data name="Sample_Growl_Overview" xml:space="preserve">
+    <value>Stacked in-window / desktop notifications inspired by HandyControl Growl, themed with WPF-UI colors.</value>
+  </data>
+  <data name="Sample_Growl_DesktopTitle" xml:space="preserve">
+    <value>Desktop (Global)</value>
+  </data>
+  <data name="Sample_Growl_DesktopDesc" xml:space="preserve">
+    <value>Shows on a topmost transparent window over the desktop.</value>
+  </data>
+  <data name="Sample_Growl_TokenTitle" xml:space="preserve">
+    <value>Token panel</value>
+  </data>
+  <data name="Sample_Growl_TokenDesc" xml:space="preserve">
+    <value>Route messages into a dedicated StackPanel via Growl.Token.</value>
+  </data>
+  <data name="Sample_Growl_Fatal" xml:space="preserve">
+    <value>Fatal</value>
+  </data>
+  <data name="Sample_Growl_Ask" xml:space="preserve">
+    <value>Ask</value>
+  </data>
+  <data name="Sample_Growl_MsgInfo" xml:space="preserve">
+    <value>This is an info message.</value>
+  </data>
+  <data name="Sample_Growl_MsgSuccess" xml:space="preserve">
+    <value>Operation completed successfully.</value>
+  </data>
+  <data name="Sample_Growl_MsgWarning" xml:space="preserve">
+    <value>Please check your input.</value>
+  </data>
+  <data name="Sample_Growl_MsgError" xml:space="preserve">
+    <value>Something went wrong.</value>
+  </data>
+  <data name="Sample_Growl_MsgFatal" xml:space="preserve">
+    <value>A fatal error occurred.</value>
+  </data>
+  <data name="Sample_Growl_MsgAsk" xml:space="preserve">
+    <value>Do you want to continue?</value>
+  </data>
+  <data name="Sample_Growl_MsgInfoGlobal" xml:space="preserve">
+    <value>Global info message.</value>
+  </data>
+  <data name="Sample_Growl_MsgSuccessGlobal" xml:space="preserve">
+    <value>Global success message.</value>
+  </data>
+  <data name="Sample_Growl_MsgWarningGlobal" xml:space="preserve">
+    <value>Global warning message.</value>
+  </data>
+  <data name="Sample_Growl_MsgErrorGlobal" xml:space="preserve">
+    <value>Global error message.</value>
+  </data>
+  <data name="Sample_Growl_MsgFatalGlobal" xml:space="preserve">
+    <value>Global fatal error.</value>
+  </data>
+  <data name="Sample_Growl_MsgAskGlobal" xml:space="preserve">
+    <value>Continue on desktop?</value>
+  </data>
+  <data name="Sample_Growl_MsgTokenInfo" xml:space="preserve">
+    <value>Token-routed info.</value>
+  </data>
+  <data name="Sample_Growl_MsgTokenSuccess" xml:space="preserve">
+    <value>Token-routed success.</value>
+  </data>
 </root>

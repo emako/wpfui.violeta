@@ -21,7 +21,7 @@
             <TextBlock
                 Margin="0,0,0,16"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                Text="Stacked in-window / desktop notifications inspired by HandyControl Growl, themed with WPF-UI colors."
+                Text="{I18N {x:Static lang:LangKeys.Sample_Growl_Overview}}"
                 TextWrapping="Wrap" />
 
             <!--  Window  -->
@@ -37,15 +37,15 @@
                         Margin="0,0,0,12"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Window" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_5e68f5916f}}" />
                     <WrapPanel>
-                        <ui:Button Margin="0,0,8,8" Click="Info_Click" Content="Info" />
-                        <ui:Button Margin="0,0,8,8" Click="Success_Click" Content="Success" />
-                        <ui:Button Margin="0,0,8,8" Click="Warning_Click" Content="Warning" />
-                        <ui:Button Margin="0,0,8,8" Click="Error_Click" Content="Error" />
-                        <ui:Button Margin="0,0,8,8" Click="Fatal_Click" Content="Fatal" />
-                        <ui:Button Margin="0,0,8,8" Click="Ask_Click" Content="Ask" />
-                        <ui:Button Margin="0,0,8,8" Click="Clear_Click" Content="Clear" Appearance="Secondary" />
+                        <ui:Button Margin="0,0,8,8" Click="Info_Click" Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Success_Click" Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Warning_Click" Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Error_Click" Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Fatal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_Growl_Fatal}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Ask_Click" Content="{I18N {x:Static lang:LangKeys.Sample_Growl_Ask}}" />
+                        <ui:Button Margin="0,0,8,8" Click="Clear_Click" Content="{I18N {x:Static lang:LangKeys.Sample_288f0c404c}}" Appearance="Secondary" />
                     </WrapPanel>
                 </StackPanel>
             </Border>
@@ -63,20 +63,20 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Desktop (Global)" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Growl_DesktopTitle}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="Shows on a topmost transparent window over the desktop."
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Growl_DesktopDesc}}"
                         TextWrapping="Wrap" />
                     <WrapPanel>
-                        <ui:Button Margin="0,0,8,8" Click="InfoGlobal_Click" Content="Info" />
-                        <ui:Button Margin="0,0,8,8" Click="SuccessGlobal_Click" Content="Success" />
-                        <ui:Button Margin="0,0,8,8" Click="WarningGlobal_Click" Content="Warning" />
-                        <ui:Button Margin="0,0,8,8" Click="ErrorGlobal_Click" Content="Error" />
-                        <ui:Button Margin="0,0,8,8" Click="FatalGlobal_Click" Content="Fatal" />
-                        <ui:Button Margin="0,0,8,8" Click="AskGlobal_Click" Content="Ask" />
-                        <ui:Button Margin="0,0,8,8" Click="ClearGlobal_Click" Content="Clear" Appearance="Secondary" />
+                        <ui:Button Margin="0,0,8,8" Click="InfoGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
+                        <ui:Button Margin="0,0,8,8" Click="SuccessGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                        <ui:Button Margin="0,0,8,8" Click="WarningGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}" />
+                        <ui:Button Margin="0,0,8,8" Click="ErrorGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}" />
+                        <ui:Button Margin="0,0,8,8" Click="FatalGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_Growl_Fatal}}" />
+                        <ui:Button Margin="0,0,8,8" Click="AskGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_Growl_Ask}}" />
+                        <ui:Button Margin="0,0,8,8" Click="ClearGlobal_Click" Content="{I18N {x:Static lang:LangKeys.Sample_288f0c404c}}" Appearance="Secondary" />
                     </WrapPanel>
                 </StackPanel>
             </Border>
@@ -100,16 +100,16 @@
                             Margin="0,0,0,4"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Text="Token panel" />
+                            Text="{I18N {x:Static lang:LangKeys.Sample_Growl_TokenTitle}}" />
                         <TextBlock
                             Margin="0,0,0,12"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                            Text="Route messages into a dedicated StackPanel via Growl.Token."
+                            Text="{I18N {x:Static lang:LangKeys.Sample_Growl_TokenDesc}}"
                             TextWrapping="Wrap" />
                         <WrapPanel>
-                            <ui:Button Margin="0,0,8,8" Click="TokenInfo_Click" Content="Info" />
-                            <ui:Button Margin="0,0,8,8" Click="TokenSuccess_Click" Content="Success" />
-                            <ui:Button Margin="0,0,8,8" Click="TokenClear_Click" Content="Clear" Appearance="Secondary" />
+                            <ui:Button Margin="0,0,8,8" Click="TokenInfo_Click" Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}" />
+                            <ui:Button Margin="0,0,8,8" Click="TokenSuccess_Click" Content="{I18N {x:Static lang:LangKeys.Sample_330363dfc5}}" />
+                            <ui:Button Margin="0,0,8,8" Click="TokenClear_Click" Content="{I18N {x:Static lang:LangKeys.Sample_288f0c404c}}" Appearance="Secondary" />
                         </WrapPanel>
                     </StackPanel>
 

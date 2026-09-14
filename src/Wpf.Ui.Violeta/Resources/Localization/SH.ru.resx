@@ -144,6 +144,12 @@
   <data name="ButtonOK" xml:space="preserve">
     <value>ОК</value>
   </data>
+  <data name="ButtonConfirm" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="ButtonClear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
   <data name="ButtonYes" xml:space="preserve">
     <value>Да</value>
   </data>

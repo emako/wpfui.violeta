@@ -21449,5 +21449,194 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Stacked in-window / desktop notifications inspired by HandyControl Growl, themed with WPF-UI colors..
+        /// </summary>
+        public static string Sample_Growl_Overview {
+            get {
+                return ResourceManager.GetString("Sample_Growl_Overview", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop (Global).
+        /// </summary>
+        public static string Sample_Growl_DesktopTitle {
+            get {
+                return ResourceManager.GetString("Sample_Growl_DesktopTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Shows on a topmost transparent window over the desktop..
+        /// </summary>
+        public static string Sample_Growl_DesktopDesc {
+            get {
+                return ResourceManager.GetString("Sample_Growl_DesktopDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Token panel.
+        /// </summary>
+        public static string Sample_Growl_TokenTitle {
+            get {
+                return ResourceManager.GetString("Sample_Growl_TokenTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Route messages into a dedicated StackPanel via Growl.Token..
+        /// </summary>
+        public static string Sample_Growl_TokenDesc {
+            get {
+                return ResourceManager.GetString("Sample_Growl_TokenDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fatal.
+        /// </summary>
+        public static string Sample_Growl_Fatal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_Fatal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Ask.
+        /// </summary>
+        public static string Sample_Growl_Ask {
+            get {
+                return ResourceManager.GetString("Sample_Growl_Ask", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This is an info message..
+        /// </summary>
+        public static string Sample_Growl_MsgInfo {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgInfo", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully..
+        /// </summary>
+        public static string Sample_Growl_MsgSuccess {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Please check your input..
+        /// </summary>
+        public static string Sample_Growl_MsgWarning {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgWarning", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong..
+        /// </summary>
+        public static string Sample_Growl_MsgError {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A fatal error occurred..
+        /// </summary>
+        public static string Sample_Growl_MsgFatal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgFatal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to continue?.
+        /// </summary>
+        public static string Sample_Growl_MsgAsk {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgAsk", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Global info message..
+        /// </summary>
+        public static string Sample_Growl_MsgInfoGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgInfoGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Global success message..
+        /// </summary>
+        public static string Sample_Growl_MsgSuccessGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgSuccessGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Global warning message..
+        /// </summary>
+        public static string Sample_Growl_MsgWarningGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgWarningGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Global error message..
+        /// </summary>
+        public static string Sample_Growl_MsgErrorGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgErrorGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Global fatal error..
+        /// </summary>
+        public static string Sample_Growl_MsgFatalGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgFatalGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Continue on desktop?.
+        /// </summary>
+        public static string Sample_Growl_MsgAskGlobal {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgAskGlobal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Token-routed info..
+        /// </summary>
+        public static string Sample_Growl_MsgTokenInfo {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgTokenInfo", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Token-routed success..
+        /// </summary>
+        public static string Sample_Growl_MsgTokenSuccess {
+            get {
+                return ResourceManager.GetString("Sample_Growl_MsgTokenSuccess", resourceCulture);
+            }
+        }
+
     }
 }

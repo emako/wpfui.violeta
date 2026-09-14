@@ -7183,4 +7183,67 @@ OK をクリックして続行してください。</value>
   <data name="Sample_e8f1a0b2c3" xml:space="preserve">
     <value>ステップ</value>
   </data>
+  <data name="Sample_Growl_Overview" xml:space="preserve">
+    <value>HandyControl Growl に着想を得たウィンドウ内 / デスクトップ積み上げ通知。WPF-UI のテーマカラーに対応。</value>
+  </data>
+  <data name="Sample_Growl_DesktopTitle" xml:space="preserve">
+    <value>デスクトップ（グローバル）</value>
+  </data>
+  <data name="Sample_Growl_DesktopDesc" xml:space="preserve">
+    <value>デスクトップ上の最前面透明ウィンドウに表示します。</value>
+  </data>
+  <data name="Sample_Growl_TokenTitle" xml:space="preserve">
+    <value>Token パネル</value>
+  </data>
+  <data name="Sample_Growl_TokenDesc" xml:space="preserve">
+    <value>Growl.Token でメッセージを指定の StackPanel にルーティングします。</value>
+  </data>
+  <data name="Sample_Growl_Fatal" xml:space="preserve">
+    <value>致命的</value>
+  </data>
+  <data name="Sample_Growl_Ask" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="Sample_Growl_MsgInfo" xml:space="preserve">
+    <value>これは情報メッセージです。</value>
+  </data>
+  <data name="Sample_Growl_MsgSuccess" xml:space="preserve">
+    <value>操作が正常に完了しました。</value>
+  </data>
+  <data name="Sample_Growl_MsgWarning" xml:space="preserve">
+    <value>入力内容を確認してください。</value>
+  </data>
+  <data name="Sample_Growl_MsgError" xml:space="preserve">
+    <value>問題が発生しました。</value>
+  </data>
+  <data name="Sample_Growl_MsgFatal" xml:space="preserve">
+    <value>致命的なエラーが発生しました。</value>
+  </data>
+  <data name="Sample_Growl_MsgAsk" xml:space="preserve">
+    <value>続行しますか？</value>
+  </data>
+  <data name="Sample_Growl_MsgInfoGlobal" xml:space="preserve">
+    <value>グローバル情報メッセージ。</value>
+  </data>
+  <data name="Sample_Growl_MsgSuccessGlobal" xml:space="preserve">
+    <value>グローバル成功メッセージ。</value>
+  </data>
+  <data name="Sample_Growl_MsgWarningGlobal" xml:space="preserve">
+    <value>グローバル警告メッセージ。</value>
+  </data>
+  <data name="Sample_Growl_MsgErrorGlobal" xml:space="preserve">
+    <value>グローバルエラーメッセージ。</value>
+  </data>
+  <data name="Sample_Growl_MsgFatalGlobal" xml:space="preserve">
+    <value>グローバル致命的エラー。</value>
+  </data>
+  <data name="Sample_Growl_MsgAskGlobal" xml:space="preserve">
+    <value>デスクトップで続行しますか？</value>
+  </data>
+  <data name="Sample_Growl_MsgTokenInfo" xml:space="preserve">
+    <value>Token 経由の情報。</value>
+  </data>
+  <data name="Sample_Growl_MsgTokenSuccess" xml:space="preserve">
+    <value>Token 経由の成功メッセージ。</value>
+  </data>
 </root>

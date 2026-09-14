@@ -16,9 +16,11 @@ public class GrowlInfo
     /// <summary>Auto-close delay in seconds (minimum 2). Ignored when <see cref="StaysOpen"/> is true.</summary>
     public int WaitTime { get; set; } = 6;
 
-    public string CancelStr { get; set; } = "Cancel";
+    /// <summary>Cancel button text. When null or empty, uses the localized library default.</summary>
+    public string? CancelStr { get; set; }
 
-    public string ConfirmStr { get; set; } = "Confirm";
+    /// <summary>Confirm button text. When null or empty, uses the localized library default.</summary>
+    public string? ConfirmStr { get; set; }
 
     /// <summary>
     /// Invoked before close. Parameter is <c>true</c> for Confirm, otherwise Cancel/Close.
