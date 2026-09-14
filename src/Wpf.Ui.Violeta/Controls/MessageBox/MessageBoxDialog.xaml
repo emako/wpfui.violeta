@@ -327,7 +327,11 @@
                                                         FontFamily="{DynamicResource ContentControlThemeFontFamily}"
                                                         Style="{TemplateBinding CancelButtonStyle}" />
                                                 </Grid>
-                                                <!--  Overlay only the close caption button; do not alter the dialog row layout.  -->
+                                                <!--
+                                                    Overlay only the close caption via TitleBar/CaptionButtonBar.
+                                                    Do not set IsHitTestVisibleInChrome: caption hover/press use NC
+                                                    IsMouseOverInTitleBar (same path as ShellWindow TitleBar).
+                                                -->
                                                 <local:TitleBar
                                                     Width="{DynamicResource CaptionButtonWidth}"
                                                     MinHeight="{DynamicResource CaptionStandardHeight}"
@@ -343,8 +347,7 @@
                                                     MaximizeButtonVisibility="Collapsed"
                                                     MinimizeButtonVisibility="Collapsed"
                                                     MoreButtonVisibility="Collapsed"
-                                                    PaneToggleButtonVisibility="Collapsed"
-                                                    WindowChrome.IsHitTestVisibleInChrome="True" />
+                                                    PaneToggleButtonVisibility="Collapsed" />
                                             </Grid>
                                         </Border>
                                     </Border>

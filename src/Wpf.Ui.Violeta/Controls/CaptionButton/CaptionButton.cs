@@ -8,7 +8,11 @@ namespace Wpf.Ui.Violeta.Controls;
 public partial class CaptionButton : TitleBarButton
 {
     static CaptionButton()
-        => DefaultStyleKeyProperty.OverrideMetadata(typeof(CaptionButton), new FrameworkPropertyMetadata(typeof(CaptionButton)));
+    {
+        DefaultStyleKeyProperty.OverrideMetadata(typeof(CaptionButton), new FrameworkPropertyMetadata(typeof(CaptionButton)));
+        FocusableProperty.OverrideMetadata(typeof(CaptionButton), new FrameworkPropertyMetadata(false));
+        IsTabStopProperty.OverrideMetadata(typeof(CaptionButton), new FrameworkPropertyMetadata(false));
+    }
 
     /// <summary>
     /// 用于窗口消息处理时判断，此属性本身并不起作用。

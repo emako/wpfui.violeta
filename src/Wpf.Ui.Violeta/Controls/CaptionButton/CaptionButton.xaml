@@ -26,6 +26,7 @@
         TargetType="{x:Type local:CaptionButton}">
         <Setter Property="Width" Value="{StaticResource CaptionButtonWidth}" />
         <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
         <Style.Triggers>
             <Trigger Property="IsMouseOverInTitleBar" Value="True">
                 <Setter Property="Background" Value="{DynamicResource TitleBarButtonHoverBackground}" />
