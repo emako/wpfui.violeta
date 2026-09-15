@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -171,21 +172,27 @@ public class Growl : Control
     }
 
     public static void SetToken(DependencyObject element, string? value) => element.SetValue(TokenProperty, value);
+
     public static string? GetToken(DependencyObject element) => (string?)element.GetValue(TokenProperty);
 
     public static void SetShowMode(DependencyObject element, GrowlShowMode value) => element.SetValue(ShowModeProperty, value);
+
     public static GrowlShowMode GetShowMode(DependencyObject element) => (GrowlShowMode)element.GetValue(ShowModeProperty);
 
     public static void SetTransitionMode(DependencyObject element, GrowlTransitionMode value) => element.SetValue(TransitionModeProperty, value);
+
     public static GrowlTransitionMode GetTransitionMode(DependencyObject element) => (GrowlTransitionMode)element.GetValue(TransitionModeProperty);
 
     public static void SetTransitionStoryboard(DependencyObject element, Storyboard? value) => element.SetValue(TransitionStoryboardProperty, value);
+
     public static Storyboard? GetTransitionStoryboard(DependencyObject element) => (Storyboard?)element.GetValue(TransitionStoryboardProperty);
 
     public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
+
     public static bool GetGrowlParent(DependencyObject element) => (bool)element.GetValue(GrowlParentProperty);
 
     private static void SetIsCreatedAutomatically(DependencyObject element, bool value) => element.SetValue(IsCreatedAutomaticallyProperty, value);
+
     private static bool GetIsCreatedAutomatically(DependencyObject element) => (bool)element.GetValue(IsCreatedAutomaticallyProperty);
 
     private static void OnGrowlParentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -225,19 +232,13 @@ public class Growl : Control
     protected override void OnMouseEnter(MouseEventArgs e)
     {
         base.OnMouseEnter(e);
-        if (_buttonClose is not null)
-        {
-            _buttonClose.Visibility = _showCloseButton ? Visibility.Visible : Visibility.Collapsed;
-        }
+        _buttonClose?.Visibility = _showCloseButton ? Visibility.Visible : Visibility.Collapsed;
     }
 
     protected override void OnMouseLeave(MouseEventArgs e)
     {
         base.OnMouseLeave(e);
-        if (_buttonClose is not null)
-        {
-            _buttonClose.Visibility = Visibility.Collapsed;
-        }
+        _buttonClose?.Visibility = Visibility.Collapsed;
     }
 
     private void Update()
@@ -312,8 +313,8 @@ public class Growl : Control
             ActionBeforeClose = growlInfo.ActionBeforeClose,
             _staysOpen = growlInfo.StaysOpen,
             ShowDateTime = growlInfo.ShowDateTime,
-            ConfirmStr = string.IsNullOrEmpty(growlInfo.ConfirmStr) ? SH.ButtonConfirm : growlInfo.ConfirmStr,
-            CancelStr = string.IsNullOrEmpty(growlInfo.CancelStr) ? SH.ButtonCancel : growlInfo.CancelStr,
+            ConfirmStr = string.IsNullOrEmpty(growlInfo.ConfirmStr) ? SH.ButtonConfirm : growlInfo.ConfirmStr!,
+            CancelStr = string.IsNullOrEmpty(growlInfo.CancelStr) ? SH.ButtonCancel : growlInfo.CancelStr!,
             Type = growlInfo.Type,
             _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
         };
@@ -371,6 +372,7 @@ public class Growl : Control
         });
     }
 
+    [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
     private static Panel? CreateDefaultPanel()
     {
         var window = SharedHelpers.GetActiveWindow() ?? Application.Current?.MainWindow;
@@ -480,6 +482,8 @@ public class Growl : Control
 
     private static void RemoveDefaultPanel(Panel panel)
     {
+        _ = panel;
+
         if (s_defaultAdorner is null)
         {
             return;
@@ -492,10 +496,7 @@ public class Growl : Control
 
     private static void InitGrowlInfo(GrowlInfo growlInfo, GrowlType infoType)
     {
-        if (growlInfo is null)
-        {
-            throw new ArgumentNullException(nameof(growlInfo));
-        }
+        _ = growlInfo ?? throw new ArgumentNullException(nameof(growlInfo));
 
         growlInfo.Type = infoType;
 
@@ -504,12 +505,15 @@ public class Growl : Control
             case GrowlType.Success:
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Accept, SuccessBrush);
                 break;
+
             case GrowlType.Info:
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Info, InfoBrush);
                 break;
+
             case GrowlType.Warning:
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Warning, WarningBrush);
                 break;
+
             case GrowlType.Error:
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Cancel, ErrorBrush);
                 if (!growlInfo.IsCustom)
@@ -517,6 +521,7 @@ public class Growl : Control
                     growlInfo.StaysOpen = true;
                 }
                 break;
+
             case GrowlType.Fatal:
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Cancel, FatalBrush);
                 if (!growlInfo.IsCustom)
@@ -525,11 +530,13 @@ public class Growl : Control
                     growlInfo.ShowCloseButton = false;
                 }
                 break;
+
             case GrowlType.Ask:
                 growlInfo.StaysOpen = true;
                 growlInfo.ShowCloseButton = false;
                 ApplyIcon(growlInfo, Wpf.Ui.Controls.FontSymbols.Unknown, InfoBrush);
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(infoType), infoType, null);
         }
@@ -550,39 +557,90 @@ public class Growl : Control
     }
 
     public static void Success(string message, string token = "") => Success(new GrowlInfo { Message = message, Token = token });
-    public static void Success(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Success); Show(growlInfo); }
+
+    public static void Success(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Success); Show(growlInfo);
+    }
+
     public static void SuccessGlobal(string message) => SuccessGlobal(new GrowlInfo { Message = message });
-    public static void SuccessGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Success); ShowGlobal(growlInfo); }
+
+    public static void SuccessGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Success); ShowGlobal(growlInfo);
+    }
 
     public static void Info(string message, string token = "") => Info(new GrowlInfo { Message = message, Token = token });
-    public static void Info(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Info); Show(growlInfo); }
+
+    public static void Info(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Info); Show(growlInfo);
+    }
+
     public static void InfoGlobal(string message) => InfoGlobal(new GrowlInfo { Message = message });
-    public static void InfoGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Info); ShowGlobal(growlInfo); }
+
+    public static void InfoGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Info); ShowGlobal(growlInfo);
+    }
 
     public static void Warning(string message, string token = "") => Warning(new GrowlInfo { Message = message, Token = token });
-    public static void Warning(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Warning); Show(growlInfo); }
+
+    public static void Warning(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Warning); Show(growlInfo);
+    }
+
     public static void WarningGlobal(string message) => WarningGlobal(new GrowlInfo { Message = message });
-    public static void WarningGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Warning); ShowGlobal(growlInfo); }
+
+    public static void WarningGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Warning); ShowGlobal(growlInfo);
+    }
 
     public static void Error(string message, string token = "") => Error(new GrowlInfo { Message = message, Token = token });
-    public static void Error(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Error); Show(growlInfo); }
+
+    public static void Error(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Error); Show(growlInfo);
+    }
+
     public static void ErrorGlobal(string message) => ErrorGlobal(new GrowlInfo { Message = message });
-    public static void ErrorGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Error); ShowGlobal(growlInfo); }
+
+    public static void ErrorGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Error); ShowGlobal(growlInfo);
+    }
 
     public static void Fatal(string message, string token = "") => Fatal(new GrowlInfo { Message = message, Token = token });
-    public static void Fatal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Fatal); Show(growlInfo); }
+
+    public static void Fatal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Fatal); Show(growlInfo);
+    }
+
     public static void FatalGlobal(string message) => FatalGlobal(new GrowlInfo { Message = message });
-    public static void FatalGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Fatal); ShowGlobal(growlInfo); }
+
+    public static void FatalGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Fatal); ShowGlobal(growlInfo);
+    }
 
     public static void Ask(string message, Func<bool, bool> actionBeforeClose, string token = "")
         => Ask(new GrowlInfo { Message = message, ActionBeforeClose = actionBeforeClose, Token = token });
 
-    public static void Ask(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Ask); Show(growlInfo); }
+    public static void Ask(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Ask); Show(growlInfo);
+    }
 
     public static void AskGlobal(string message, Func<bool, bool> actionBeforeClose)
         => AskGlobal(new GrowlInfo { Message = message, ActionBeforeClose = actionBeforeClose });
 
-    public static void AskGlobal(GrowlInfo growlInfo) { InitGrowlInfo(growlInfo, GrowlType.Ask); ShowGlobal(growlInfo); }
+    public static void AskGlobal(GrowlInfo growlInfo)
+    {
+        InitGrowlInfo(growlInfo, GrowlType.Ask); ShowGlobal(growlInfo);
+    }
 
     private void Close(bool invokeParam, bool isClear = false)
     {
@@ -748,6 +806,7 @@ public class Growl : Control
         },
     };
 
+    [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance")]
     private static Transform CreateRenderTransform(bool isClose, GrowlTransitionMode transitionMode, double transformLength)
     {
         var transformGroup = CreateOriginalTransform();
@@ -761,6 +820,7 @@ public class Growl : Control
             case Orientation.Horizontal:
                 ((TranslateTransform)transformGroup.Children[TranslateTransformIndex]).X = transformLength;
                 break;
+
             case Orientation.Vertical:
                 ((TranslateTransform)transformGroup.Children[TranslateTransformIndex]).Y = transformLength;
                 break;

@@ -1,4 +1,3 @@
-using Wpf.Ui.Violeta.Controls.Svg.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +15,8 @@ using Shapes;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+
 /// <summary>
 /// This is the class that creates the WPF Drawing object based on the information from the <see cref="SVG"/> class.
 /// </summary>
@@ -27,6 +28,7 @@ public class SVGRender
     {
     }
 
+    [SuppressMessage("Style", "IDE0290:Use primary constructor")]
     public SVGRender(IExternalFileLoader fileLoader)
     {
         ExternalFileLoader = fileLoader ?? FileSystemLoader.Instance;
