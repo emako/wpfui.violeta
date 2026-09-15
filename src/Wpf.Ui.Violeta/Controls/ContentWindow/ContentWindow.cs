@@ -508,6 +508,8 @@ public partial class ContentWindow : ShellWindow
             {
                 window.Title = control.Title;
             }
+
+            ApplyControlPreferredSize(window, control);
         }
         else if (e.OldValue is not null && window.Content == e.OldValue)
         {
@@ -543,6 +545,20 @@ public partial class ContentWindow
         {
             Control = control,
         };
+    }
+
+    private static void ApplyControlPreferredSize(ContentWindow window, ContentWindowControl control)
+    {
+        if (control.ReadLocalValue(WidthProperty) != DependencyProperty.UnsetValue)
+        {
+            window.Width = control.Width;
+        }
+
+        if (control.ReadLocalValue(HeightProperty) != DependencyProperty.UnsetValue)
+        {
+            window.Height = double.NaN;
+            window.SizeToContent = SizeToContent.Height;
+        }
     }
 
     public static ContentWindowResult ShowDialog<T>(DependencyObject d, out T? dialogControl) where T : ContentWindowControl, new()
