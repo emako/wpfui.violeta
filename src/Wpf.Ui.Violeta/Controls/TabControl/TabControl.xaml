@@ -93,11 +93,13 @@
                             KeyboardNavigation.TabIndex="2"
                             KeyboardNavigation.TabNavigation="Local"
                             SnapsToDevicePixels="True">
+                            <!--
+                                Do not set Horizontal/VerticalAlignment here — TabControl.UpdateSelectedContent
+                                copies the selected TabItem's Horizontal/VerticalContentAlignment onto this presenter.
+                            -->
                             <ContentPresenter
                                 x:Name="PART_SelectedContentHost"
                                 Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
                                 ContentSource="SelectedContent"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
                         </Border>
@@ -205,8 +207,12 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="8,6" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <!--
+            TabControl copies these onto PART_SelectedContentHost — keep Stretch so page
+            content is not centered. Header centering is applied on ContentSite below.
+        -->
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="Template">
@@ -221,8 +227,8 @@
                         SnapsToDevicePixels="True">
                         <ContentPresenter
                             x:Name="ContentSite"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
                             ContentSource="Header"
                             RecognizesAccessKey="True"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
@@ -252,12 +258,10 @@
                             <Setter Property="Cursor" Value="Arrow" />
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Left">
-                            <Setter Property="HorizontalContentAlignment" Value="Left" />
                             <Setter TargetName="ContentSite" Property="HorizontalAlignment" Value="Left" />
                             <Setter Property="MinWidth" Value="96" />
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Right">
-                            <Setter Property="HorizontalContentAlignment" Value="Left" />
                             <Setter TargetName="ContentSite" Property="HorizontalAlignment" Value="Left" />
                             <Setter Property="MinWidth" Value="96" />
                         </Trigger>
