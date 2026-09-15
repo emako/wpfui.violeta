@@ -217,7 +217,11 @@ public static class TabControlHelper
         private void OnLoaded(object sender, RoutedEventArgs e) => ApplyTemplateParts();
 
         private void OnPlacementChanged(object? sender, EventArgs e) =>
-            _owner.Dispatcher.BeginInvoke(() => UpdateIndicatorPosition(animate: false));
+            _owner.Dispatcher.BeginInvoke(() =>
+            {
+                ApplyIndicatorOrientationChrome();
+                UpdateIndicatorPosition(animate: false);
+            });
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -284,6 +288,11 @@ public static class TabControlHelper
         private bool IsVerticalPlacement =>
             _owner.TabStripPlacement is Dock.Left or Dock.Right;
 
+        /// <summary>
+        /// Sets alignment and the fixed thickness axis only.
+        /// Never clears the sliding dimension (Width/Height) — that would force
+        /// Fluent animations to restart from 0 and look like a grow-in instead of a slide.
+        /// </summary>
         private void ApplyIndicatorOrientationChrome()
         {
             if (_indicator is null)
@@ -294,7 +303,6 @@ public static class TabControlHelper
             if (IsVerticalPlacement)
             {
                 _indicator.Width = 2;
-                _indicator.Height = 0;
                 _indicator.HorizontalAlignment = _owner.TabStripPlacement == Dock.Left
                     ? HorizontalAlignment.Right
                     : HorizontalAlignment.Left;
@@ -302,7 +310,6 @@ public static class TabControlHelper
             }
             else
             {
-                _indicator.Width = 0;
                 _indicator.Height = 2;
                 _indicator.HorizontalAlignment = HorizontalAlignment.Left;
                 _indicator.VerticalAlignment = _owner.TabStripPlacement == Dock.Bottom
@@ -317,8 +324,6 @@ public static class TabControlHelper
             {
                 return;
             }
-
-            ApplyIndicatorOrientationChrome();
 
             var selectedItem = _owner.SelectedItem;
             if (selectedItem is null)
