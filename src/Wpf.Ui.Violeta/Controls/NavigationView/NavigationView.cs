@@ -4772,17 +4772,20 @@ public partial class NavigationView : ContentControl, IControlProtected
     /// Sets the selection pill without relying on in-flight indicator storyboards.
     /// Template default Opacity is 0; aborted/Stop animations often leave the pill invisible
     /// even though <see cref="NavigationViewItem.IsSelected"/> (background) is correct.
+    /// Interrupting an A→B storyboard leaves both pills at Opacity=1 while
+    /// <c>m_activeIndicator</c> already points at B — nulling <c>m_prevIndicator</c>
+    /// without resetting Opacity would show two pills.
     /// </summary>
     void ForceActiveSelectionIndicator(object item, UIElement indicator)
     {
         StopIndicatorStoryboard();
+
+        HideSelectionIndicatorIfNot(m_prevIndicator, indicator);
+        HideSelectionIndicatorIfNot(m_nextIndicator, indicator);
         m_prevIndicator = null;
         m_nextIndicator = null;
 
-        if (m_activeIndicator is { } previous && !ReferenceEquals(previous, indicator))
-        {
-            ResetElementAnimationProperties(previous, 0.0);
-        }
+        HideSelectionIndicatorIfNot(m_activeIndicator, indicator);
 
         if (indicator is null)
         {
@@ -4796,6 +4799,14 @@ public partial class NavigationView : ContentControl, IControlProtected
         if (item is NavigationViewItem nvi)
         {
             nvi.BringIntoView();
+        }
+    }
+
+    void HideSelectionIndicatorIfNot(UIElement candidate, UIElement keep)
+    {
+        if (candidate != null && !ReferenceEquals(candidate, keep))
+        {
+            ResetElementAnimationProperties(candidate, 0.0);
         }
     }
 
