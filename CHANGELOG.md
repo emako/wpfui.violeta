@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.13] - 2026-09-15
+
+* Add SvgImage control and gallery samples
+* Add AnimationPath control and gallery sample
+* Add StepBar control and gallery samples
+* Add Transfer control and gallery sample
+* Add OutlineTextBlock control and gallery demo
+* Add Watermark control and gallery sample
+* Add ImageSelector control and gallery sample
+* Add GifImage control and gallery sample
+* Add ConfettiCannon control and sample
+* Add FlipClock control and gallery sample
+* Add StorageBar/StorageRing controls and gallery sample
+* Size compact ContentWindow to its content
+* Split storage gallery pages and add FlowDocument
+* Add SVG sample page to media gallery
+* Localize Growl UI and default action labels
+* Align StorageBar/StorageRing with theme colors and simplify corner radius
+* Refresh Transfer item selection styling and spacing
+* Fix caption hit-testing, close hover flicker, and sticky close hover
+* Decouple caption hover from NCHITTEST; disable MessageBox caption focus
+* Fix Form SharedSizeGroup label alignment
+* Fix vertical Divider not stretching to fill parent height
+* Fix toolbar overflow first-pass layout and auto-close matching
+* Sync nav chrome on frame back navigation
+* Clean up redundant compat and NavigationView code
+
 ## [4.3.0.12] - 2026-09-07
 
 * Add PopConfirmButton control

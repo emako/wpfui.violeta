@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <PackageId>WPF-UI.TextEditor</PackageId>
@@ -11,9 +11,9 @@
         <Nullable>enable</Nullable>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <AssemblyVersion>4.3.0.12</AssemblyVersion>
-        <FileVersion>4.3.0.12</FileVersion>
-        <Version>$(VersionPrefix)4.3.0.12</Version>
+        <AssemblyVersion>4.3.0.13</AssemblyVersion>
+        <FileVersion>4.3.0.13</FileVersion>
+        <Version>$(VersionPrefix)4.3.0.13</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
         <Description>WPF UI TextEditor is based on WPF UI, and provides the TextBox-like viewer.</Description>
