@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Svg}}"
@@ -13,10 +14,15 @@
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
             <TextBlock
-                Margin="0,0,0,16"
+                Margin="0,0,0,8"
                 FontSize="20"
                 FontWeight="SemiBold"
                 Text="{I18N {x:Static lang:LangKeys.Gallery_Page_Svg}}" />
+            <TextBlock
+                Margin="0,0,0,16"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_Intro}}"
+                TextWrapping="Wrap" />
 
             <Border
                 Margin="0,0,0,16"
@@ -30,18 +36,114 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_Sample}}" />
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_Compare}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_Sample_Desc}}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_Compare_Desc}}"
                         TextWrapping="Wrap" />
-                    <svgc:SvgViewbox
-                        Width="96"
-                        Height="96"
+                    <UniformGrid Columns="2">
+                        <StackPanel Margin="0,0,16,0">
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                FontWeight="SemiBold"
+                                Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_SvgImage}}" />
+                            <vio:SvgImage
+                                Width="96"
+                                Height="96"
+                                HorizontalAlignment="Left"
+                                Stretch="Uniform"
+                                UriSource="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock
+                                Margin="0,0,0,8"
+                                FontWeight="SemiBold"
+                                Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_SharpVectors}}" />
+                            <svgc:SvgViewbox
+                                Width="96"
+                                Height="96"
+                                HorizontalAlignment="Left"
+                                Source="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg"
+                                Stretch="Uniform" />
+                        </StackPanel>
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_OverrideColor}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_OverrideColor_Desc}}"
+                        TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal">
+                        <vio:SvgImage
+                            Width="48"
+                            Height="48"
+                            Margin="0,0,16,0"
+                            OverrideColor="#FF0078D4"
+                            Stretch="Uniform"
+                            UriSource="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg" />
+                        <vio:SvgImage
+                            Width="48"
+                            Height="48"
+                            Margin="0,0,16,0"
+                            OverrideColor="#FFE81123"
+                            Stretch="Uniform"
+                            UriSource="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg" />
+                        <vio:SvgImage
+                            Width="48"
+                            Height="48"
+                            OverrideColor="#FF107C10"
+                            Stretch="Uniform"
+                            UriSource="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_AsIcon}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Gallery_Svg_AsIcon_Desc}}"
+                        TextWrapping="Wrap" />
+                    <ui:Button
                         HorizontalAlignment="Left"
-                        Source="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg"
-                        Stretch="Uniform" />
+                        Padding="12,8"
+                        Content="{I18N {x:Static lang:LangKeys.Gallery_Svg_AsIcon_Button}}">
+                        <ui:Button.Icon>
+                            <vio:SvgImage
+                                Width="20"
+                                Height="20"
+                                Stretch="Uniform"
+                                UriSource="pack://application:,,,/Wpf.Ui.Violeta.Gallery;component/Resources/Images/ic_fluent_shield_checkmark_48_color.svg" />
+                        </ui:Button.Icon>
+                    </ui:Button>
                 </StackPanel>
             </Border>
         </StackPanel>

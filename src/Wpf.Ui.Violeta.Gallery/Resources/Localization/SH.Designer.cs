@@ -2870,14 +2870,104 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Render SVG with SharpVectors.
+        ///   Looks up a localized string similar to SvgImage vs SharpVectors.
         /// </summary>
         public static string Gallery_Svg_CardDesc {
             get {
                 return ResourceManager.GetString("Gallery_Svg_CardDesc", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Compare the built-in vio:SvgImage (IconElement) with SharpVectors SvgViewbox using the same Fluent color SVG..
+        /// </summary>
+        public static string Gallery_Svg_Intro {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_Intro", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Side-by-side comparison.
+        /// </summary>
+        public static string Gallery_Svg_Compare {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_Compare", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Both controls load ic_fluent_shield_checkmark_48_color.svg via pack URI..
+        /// </summary>
+        public static string Gallery_Svg_Compare_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_Compare_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to SvgImage (Violeta).
+        /// </summary>
+        public static string Gallery_Svg_SvgImage {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_SvgImage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to SvgViewbox (SharpVectors).
+        /// </summary>
+        public static string Gallery_Svg_SharpVectors {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_SharpVectors", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Override color.
+        /// </summary>
+        public static string Gallery_Svg_OverrideColor {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_OverrideColor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to SvgImage can recolor fill and stroke with OverrideColor..
+        /// </summary>
+        public static string Gallery_Svg_OverrideColor_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_OverrideColor_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to As IconElement.
+        /// </summary>
+        public static string Gallery_Svg_AsIcon {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_AsIcon", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to SvgImage inherits IconElement and can be assigned to Button.Icon..
+        /// </summary>
+        public static string Gallery_Svg_AsIcon_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_AsIcon_Desc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With SvgImage icon.
+        /// </summary>
+        public static string Gallery_Svg_AsIcon_Button {
+            get {
+                return ResourceManager.GetString("Gallery_Svg_AsIcon_Button", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Fluent color SVG.
         /// </summary>
@@ -2886,7 +2976,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Svg_Sample", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to SvgViewbox loads an embedded Fluent System Icons color SVG (ic_fluent_shield_checkmark_48_color.svg) via pack URI..
         /// </summary>

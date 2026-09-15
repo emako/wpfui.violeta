@@ -4206,7 +4206,37 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
     <value>Svg</value>
   </data>
   <data name="Gallery_Svg_CardDesc" xml:space="preserve">
-    <value>使用 SharpVectors 渲染 SVG</value>
+    <value>SvgImage 与 SharpVectors 对比</value>
+  </data>
+  <data name="Gallery_Svg_Intro" xml:space="preserve">
+    <value>使用同一张 Fluent 彩色 SVG，对比内置 vio:SvgImage（IconElement）与 SharpVectors SvgViewbox 的渲染效果。</value>
+  </data>
+  <data name="Gallery_Svg_Compare" xml:space="preserve">
+    <value>并排对比</value>
+  </data>
+  <data name="Gallery_Svg_Compare_Desc" xml:space="preserve">
+    <value>两个控件均通过 pack URI 加载 ic_fluent_shield_checkmark_48_color.svg。</value>
+  </data>
+  <data name="Gallery_Svg_SvgImage" xml:space="preserve">
+    <value>SvgImage（Violeta）</value>
+  </data>
+  <data name="Gallery_Svg_SharpVectors" xml:space="preserve">
+    <value>SvgViewbox（SharpVectors）</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor" xml:space="preserve">
+    <value>覆盖颜色</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor_Desc" xml:space="preserve">
+    <value>SvgImage 可通过 OverrideColor 统一替换填充与描边颜色。</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon" xml:space="preserve">
+    <value>作为 IconElement</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Desc" xml:space="preserve">
+    <value>SvgImage 继承 IconElement，可直接赋给 Button.Icon。</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Button" xml:space="preserve">
+    <value>带 SvgImage 图标</value>
   </data>
   <data name="Gallery_Svg_Sample" xml:space="preserve">
     <value>Fluent 彩色 SVG</value>

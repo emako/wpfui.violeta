@@ -4206,7 +4206,37 @@ Click OK to continue.</value>
     <value>Svg</value>
   </data>
   <data name="Gallery_Svg_CardDesc" xml:space="preserve">
-    <value>Render SVG with SharpVectors</value>
+    <value>SvgImage vs SharpVectors</value>
+  </data>
+  <data name="Gallery_Svg_Intro" xml:space="preserve">
+    <value>Compare the built-in vio:SvgImage (IconElement) with SharpVectors SvgViewbox using the same Fluent color SVG.</value>
+  </data>
+  <data name="Gallery_Svg_Compare" xml:space="preserve">
+    <value>Side-by-side comparison</value>
+  </data>
+  <data name="Gallery_Svg_Compare_Desc" xml:space="preserve">
+    <value>Both controls load ic_fluent_shield_checkmark_48_color.svg via pack URI.</value>
+  </data>
+  <data name="Gallery_Svg_SvgImage" xml:space="preserve">
+    <value>SvgImage (Violeta)</value>
+  </data>
+  <data name="Gallery_Svg_SharpVectors" xml:space="preserve">
+    <value>SvgViewbox (SharpVectors)</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor" xml:space="preserve">
+    <value>Override color</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor_Desc" xml:space="preserve">
+    <value>SvgImage can recolor fill and stroke with OverrideColor.</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon" xml:space="preserve">
+    <value>As IconElement</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Desc" xml:space="preserve">
+    <value>SvgImage inherits IconElement and can be assigned to Button.Icon.</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Button" xml:space="preserve">
+    <value>With SvgImage icon</value>
   </data>
   <data name="Gallery_Svg_Sample" xml:space="preserve">
     <value>Fluent color SVG</value>

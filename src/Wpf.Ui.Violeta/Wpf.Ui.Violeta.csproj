@@ -42,6 +42,21 @@
         <TargetFrameworks>net462;net10.0-windows</TargetFrameworks>
     </PropertyGroup>
 
+    <!-- SVG renderer (ported from DotNetProjects.SVGImage) -->
+    <PropertyGroup Condition="$(TargetFramework.StartsWith('net4'))">
+        <DefineConstants>$(DefineConstants);NETFULL;DPI_AWARE</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
+        <DefineConstants>$(DefineConstants);NETCORE;DPI_AWARE;NETNEXT</DefineConstants>
+    </PropertyGroup>
+
+    <!-- Ported SVG engine is pre-nullable C#; suppress noise without changing upstream style. -->
+    <ItemGroup>
+        <Compile Update="Controls\SvgImage\Svg\**\*.cs">
+            <Nullable>disable</Nullable>
+        </Compile>
+    </ItemGroup>
+
     <ItemGroup>
         <None Remove="Resources\Fonts\*.ttf" />
         <None Remove="Resources\Images\*.png" />

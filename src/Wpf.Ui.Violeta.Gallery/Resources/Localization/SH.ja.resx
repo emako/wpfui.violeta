@@ -4206,7 +4206,37 @@ OK をクリックして続行してください。</value>
     <value>Svg</value>
   </data>
   <data name="Gallery_Svg_CardDesc" xml:space="preserve">
-    <value>SharpVectors で SVG を描画</value>
+    <value>SvgImage と SharpVectors の比較</value>
+  </data>
+  <data name="Gallery_Svg_Intro" xml:space="preserve">
+    <value>同じ Fluent カラー SVG で、組み込みの vio:SvgImage（IconElement）と SharpVectors SvgViewbox の描画を比較します。</value>
+  </data>
+  <data name="Gallery_Svg_Compare" xml:space="preserve">
+    <value>並べて比較</value>
+  </data>
+  <data name="Gallery_Svg_Compare_Desc" xml:space="preserve">
+    <value>両方とも pack URI で ic_fluent_shield_checkmark_48_color.svg を読み込みます。</value>
+  </data>
+  <data name="Gallery_Svg_SvgImage" xml:space="preserve">
+    <value>SvgImage（Violeta）</value>
+  </data>
+  <data name="Gallery_Svg_SharpVectors" xml:space="preserve">
+    <value>SvgViewbox（SharpVectors）</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor" xml:space="preserve">
+    <value>色の上書き</value>
+  </data>
+  <data name="Gallery_Svg_OverrideColor_Desc" xml:space="preserve">
+    <value>SvgImage は OverrideColor で塗りと線の色をまとめて置き換えできます。</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon" xml:space="preserve">
+    <value>IconElement として</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Desc" xml:space="preserve">
+    <value>SvgImage は IconElement を継承するため、Button.Icon に直接指定できます。</value>
+  </data>
+  <data name="Gallery_Svg_AsIcon_Button" xml:space="preserve">
+    <value>SvgImage アイコン付き</value>
   </data>
   <data name="Gallery_Svg_Sample" xml:space="preserve">
     <value>Fluent カラー SVG</value>

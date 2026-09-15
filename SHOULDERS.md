@@ -25,3 +25,4 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries:
 | [🔗 ookii-dialogs-wpf](https://github.com/ookii-dialogs/ookii-dialogs-wpf) | [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) |
 | [🔗 sharing-demo](https://github.com/walterlv/sharing-demo)   | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 stfu](https://github.com/samhocevar/stfu)                 | [WTFPL](http://www.wtfpl.net/)                               |
+| [🔗 SVGImage](https://github.com/dotnetprojects/SVGImage)     | [MIT](https://opensource.org/licenses/MIT)                   |
