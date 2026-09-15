@@ -1,0 +1,270 @@
+<!--
+    Default TabControl / TabItem styles — TabStrip line variant
+    (accent underline + Fluent sliding indicator). Also restores TabStripPlacement
+    Left / Right / Bottom layouts (lepoco/wpfui#214).
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <Style TargetType="{x:Type TabControl}">
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="local:TabControlHelper.IsEnabled" Value="True" />
+        <Setter Property="local:TabControlHelper.IndicatorAnimation" Value="Fluent" />
+        <Setter Property="local:TabControlHelper.IsSeparatorVisible" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid KeyboardNavigation.TabNavigation="Local">
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="RowDefinition0" Height="Auto" />
+                            <RowDefinition x:Name="RowDefinition1" Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="ColumnDefinition0" Width="*" />
+                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Header strip: items + shared sliding indicator + separator  -->
+                        <Grid
+                            x:Name="HeaderHost"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Panel.ZIndex="1"
+                            KeyboardNavigation.TabIndex="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="HeaderCol0" Width="*" />
+                                <ColumnDefinition x:Name="HeaderCol1" Width="0" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="HeaderRow0" Height="*" />
+                                <RowDefinition x:Name="SeparatorRow" Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid
+                                x:Name="HeaderItemsHost"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                                <TabPanel
+                                    x:Name="HeaderPanel"
+                                    Margin="0"
+                                    Background="Transparent"
+                                    IsItemsHost="True" />
+                                <Rectangle
+                                    x:Name="PART_Indicator"
+                                    Width="0"
+                                    Height="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    Fill="{DynamicResource AccentFillColorDefaultBrush}"
+                                    IsHitTestVisible="False"
+                                    RadiusX="2"
+                                    RadiusY="2"
+                                    RenderTransformOrigin="0.5,0.5"
+                                    SnapsToDevicePixels="False">
+                                    <Rectangle.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
+                            <Rectangle
+                                x:Name="PART_Separator"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
+                                SnapsToDevicePixels="True" />
+                        </Grid>
+
+                        <Border
+                            x:Name="ContentBorder"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            KeyboardNavigation.DirectionalNavigation="Contained"
+                            KeyboardNavigation.TabIndex="2"
+                            KeyboardNavigation.TabNavigation="Local"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                x:Name="PART_SelectedContentHost"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                ContentSource="SelectedContent"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="local:TabControlHelper.IsSeparatorVisible" Value="False">
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <Setter TargetName="HeaderCol1" Property="Width" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="TabStripPlacement" Value="Bottom">
+                            <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+                            <Setter TargetName="RowDefinition1" Property="Height" Value="Auto" />
+                            <Setter TargetName="HeaderHost" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="ContentBorder" Property="Grid.Row" Value="0" />
+                            <!--  Separator above the header strip (toward content)  -->
+                            <Setter TargetName="HeaderRow0" Property="Height" Value="1" />
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="*" />
+                            <Setter TargetName="HeaderItemsHost" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_Indicator" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
+
+                        <Trigger Property="TabStripPlacement" Value="Left">
+                            <Setter TargetName="ColumnDefinition0" Property="Width" Value="Auto" />
+                            <Setter TargetName="ColumnDefinition1" Property="Width" Value="*" />
+                            <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+                            <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
+                            <Setter TargetName="HeaderHost" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="HeaderHost" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="ContentBorder" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="ContentBorder" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <Setter TargetName="HeaderCol1" Property="Width" Value="1" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="2" />
+                            <Setter TargetName="PART_Indicator" Property="Height" Value="0" />
+                            <Setter TargetName="PART_Indicator" Property="HorizontalAlignment" Value="Right" />
+                            <Setter TargetName="PART_Indicator" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
+
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
+                            <Setter TargetName="ColumnDefinition1" Property="Width" Value="Auto" />
+                            <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
+                            <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
+                            <Setter TargetName="HeaderHost" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="HeaderHost" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="ContentBorder" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="ContentBorder" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="SeparatorRow" Property="Height" Value="0" />
+                            <!--  Separator on the content side (left of items)  -->
+                            <Setter TargetName="HeaderCol0" Property="Width" Value="1" />
+                            <Setter TargetName="HeaderCol1" Property="Width" Value="*" />
+                            <Setter TargetName="HeaderItemsHost" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="PART_Indicator" Property="Width" Value="2" />
+                            <Setter TargetName="PART_Indicator" Property="Height" Value="0" />
+                            <Setter TargetName="PART_Indicator" Property="HorizontalAlignment" Value="Left" />
+                            <Setter TargetName="PART_Indicator" Property="VerticalAlignment" Value="Top" />
+                        </Trigger>
+
+                        <!--  Bottom + separator hidden  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabStripPlacement" Value="Bottom" />
+                                <Condition Property="local:TabControlHelper.IsSeparatorVisible" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="HeaderRow0" Property="Height" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+                        <!--  Left/Right + separator hidden  -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabStripPlacement" Value="Left" />
+                                <Condition Property="local:TabControlHelper.IsSeparatorVisible" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="HeaderCol1" Property="Width" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TabStripPlacement" Value="Right" />
+                                <Condition Property="local:TabControlHelper.IsSeparatorVisible" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="HeaderCol0" Property="Width" Value="0" />
+                            <Setter TargetName="PART_Separator" Property="Visibility" Value="Collapsed" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TabItem}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="8,6" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Border
+                        x:Name="Root"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="ContentSite"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            ContentSource="Header"
+                            RecognizesAccessKey="True"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                                <Condition Binding="{Binding (local:TabControlHelper.IsSelectedItemBold), RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="FontWeight" Value="SemiBold" />
+                        </MultiDataTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsSelected" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                            <Setter TargetName="Root" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorSecondaryBrush}" />
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Left">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter TargetName="ContentSite" Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="MinWidth" Value="96" />
+                        </Trigger>
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter TargetName="ContentSite" Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="MinWidth" Value="96" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
