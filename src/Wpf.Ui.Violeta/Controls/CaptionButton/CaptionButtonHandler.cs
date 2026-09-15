@@ -8,12 +8,12 @@ using System.Windows.Interop;
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Non-client hit-testing for caption buttons.
-/// Returns HTMIN/HTMAX/HTHELP so Windows Snap Layouts and system caption semantics work.
-/// Close intentionally does <em>not</em> return HTCLOSE: DWM system close hot-tracking fights
-/// custom <see cref="CaptionButton.IsMouseOverInTitleBar"/> styling and causes flicker.
-/// Hover/press still use the NC path so <c>WM_NCMOUSELEAVE</c> clears state when the pointer
-/// leaves the window quickly.
+/// Non-client caption-button interaction.
+/// <para>
+/// <see cref="WM_NCHITTEST"/> only reports HT codes to Windows (Snap Layouts, system semantics).
+/// Hover is updated on <see cref="WM_NCMOUSEMOVE"/> and cleared on <see cref="WM_NCMOUSELEAVE"/>,
+/// so DWM close hot-tracking probes that re-enter NCHITTEST cannot clear custom hover.
+/// </para>
 /// </summary>
 public sealed class CaptionButtonHandler : IDisposable
 {
@@ -52,67 +52,38 @@ public sealed class CaptionButtonHandler : IDisposable
         {
             case WM_NCHITTEST:
                 {
-                    CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)
+                    // Hit-test only: answer Windows with HTxxx. Do not touch hover here —
+                    // DWM may re-query NCHITTEST at unrelated points after HTCLOSE.
+                    CaptionButton? hit = HitTestCaptionButton(lParam);
+                    if (hit is null)
                     {
-                        HoveredButton = null;
                         break;
                     }
 
-                    if (button.IsEnabled)
-                    {
-                        if (PressedButton is not null && PressedButton != button)
-                        {
-                            PressedButton.IsMouseOverInTitleBar = false;
-                            PressedButton.IsPressedInTitleBar = false;
-                            break;
-                        }
-
-                        if (PressedButton == button)
-                        {
-                            PressedButton.IsPressedInTitleBar = true;
-                        }
-
-                        HoveredButton = button;
-                        EnsureNonClientMouseTracking(hwnd);
-                    }
-
                     handled = true;
-                    // HTMAXBUTTON (9) is required for Windows 11 Snap Layouts on the maximize button.
-                    // Do not return HTCLOSE (20): DWM hot-tracks the system close glyph and flickers.
-                    return button.Kind == CaptionButtonKind.Close
-                        ? HitTestCustomClose
-                        : (nint)button.Kind;
+                    return (nint)hit.Kind;
                 }
 
             case WM_NCMOUSEMOVE:
                 {
-                    CaptionButton? button = GetPointedButton(lParam);
-                    if (button is { IsEnabled: true })
-                    {
-                        HoveredButton = button;
-                        EnsureNonClientMouseTracking(hwnd);
-                    }
-                    else
-                    {
-                        HoveredButton = null;
-                    }
-
+                    CaptionButton? hit = HitTestCaptionButton(lParam);
+                    HoveredButton = hit is { IsEnabled: true } ? hit : null;
+                    EnsureNonClientMouseTracking(hwnd);
                     break;
                 }
 
             case WM_NCLBUTTONDOWN:
                 {
-                    CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)
+                    CaptionButton? hit = HitTestCaptionButton(lParam);
+                    if (hit is null)
                     {
                         PressedButton = null;
                         break;
                     }
 
-                    if (button.IsEnabled)
+                    if (hit.IsEnabled)
                     {
-                        PressedButton = button;
+                        PressedButton = hit;
                     }
 
                     handled = true;
@@ -121,16 +92,16 @@ public sealed class CaptionButtonHandler : IDisposable
 
             case WM_NCLBUTTONUP:
                 {
-                    CaptionButton? button = GetPointedButton(lParam);
-                    if (button is null)
+                    CaptionButton? hit = HitTestCaptionButton(lParam);
+                    if (hit is null)
                     {
                         PressedButton = null;
                         break;
                     }
 
-                    if (button.IsEnabled && button == PressedButton)
+                    if (hit.IsEnabled && hit == PressedButton)
                     {
-                        button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+                        hit.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
                     }
 
                     PressedButton = null;
@@ -171,7 +142,7 @@ public sealed class CaptionButtonHandler : IDisposable
         }
     }
 
-    private CaptionButton? GetPointedButton(nint lParam)
+    private CaptionButton? HitTestCaptionButton(nint lParam)
     {
         if (_buttons.Count == 0)
         {
@@ -236,12 +207,6 @@ public sealed class CaptionButtonHandler : IDisposable
             field?.IsPressedInTitleBar = true;
         }
     }
-
-    /// <summary>
-    /// Unused non-client hit-test code (same numeric range as custom "More").
-    /// Must not be HTCLOSE so DWM does not apply system close hot-tracking.
-    /// </summary>
-    private const int HitTestCustomClose = 22;
 
     private const int WM_NCHITTEST = 0x0084;
     private const int WM_NCMOUSEMOVE = 0x00A0;
