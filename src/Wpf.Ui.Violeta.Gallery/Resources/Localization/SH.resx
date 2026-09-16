@@ -4049,6 +4049,51 @@ Click OK to continue.</value>
   <data name="Gallery_Page_Expander" xml:space="preserve">
     <value>Expander</value>
   </data>
+  <data name="Gallery_Page_GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="Sample_GroupBox_CardDesc" xml:space="preserve">
+    <value>Grouped content with a header</value>
+  </data>
+  <data name="Sample_GroupBox_BasicTitle" xml:space="preserve">
+    <value>GroupBox — basic</value>
+  </data>
+  <data name="Sample_GroupBox_BasicDesc" xml:space="preserve">
+    <value>Fluent-styled GroupBox wraps related controls under a header.</value>
+  </data>
+  <data name="Sample_GroupBox_SettingsHeader" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Sample_GroupBox_OptionAutoSave" xml:space="preserve">
+    <value>Auto-save</value>
+  </data>
+  <data name="Sample_GroupBox_OptionNotify" xml:space="preserve">
+    <value>Desktop notifications</value>
+  </data>
+  <data name="Sample_GroupBox_OptionTelemetry" xml:space="preserve">
+    <value>Send diagnostic data</value>
+  </data>
+  <data name="Sample_GroupBox_NestedTitle" xml:space="preserve">
+    <value>GroupBox — nested</value>
+  </data>
+  <data name="Sample_GroupBox_NestedDesc" xml:space="preserve">
+    <value>GroupBoxes can nest to organize hierarchical option groups.</value>
+  </data>
+  <data name="Sample_GroupBox_AccountHeader" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Sample_GroupBox_DisplayName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="Sample_GroupBox_PrivacyHeader" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="Sample_GroupBox_OptionPrivateProfile" xml:space="preserve">
+    <value>Private profile</value>
+  </data>
+  <data name="Sample_GroupBox_OptionHideEmail" xml:space="preserve">
+    <value>Hide email address</value>
+  </data>
   <data name="Gallery_Page_FluentScrollViewer" xml:space="preserve">
     <value>FluentScrollViewer</value>
   </data>

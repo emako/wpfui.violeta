@@ -4049,6 +4049,51 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_Expander" xml:space="preserve">
     <value>Expander</value>
   </data>
+  <data name="Gallery_Page_GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="Sample_GroupBox_CardDesc" xml:space="preserve">
+    <value>带标题的内容分组</value>
+  </data>
+  <data name="Sample_GroupBox_BasicTitle" xml:space="preserve">
+    <value>GroupBox — 基础</value>
+  </data>
+  <data name="Sample_GroupBox_BasicDesc" xml:space="preserve">
+    <value>Fluent 风格的 GroupBox，用标题将相关控件归为一组。</value>
+  </data>
+  <data name="Sample_GroupBox_SettingsHeader" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Sample_GroupBox_OptionAutoSave" xml:space="preserve">
+    <value>自动保存</value>
+  </data>
+  <data name="Sample_GroupBox_OptionNotify" xml:space="preserve">
+    <value>桌面通知</value>
+  </data>
+  <data name="Sample_GroupBox_OptionTelemetry" xml:space="preserve">
+    <value>发送诊断数据</value>
+  </data>
+  <data name="Sample_GroupBox_NestedTitle" xml:space="preserve">
+    <value>GroupBox — 嵌套</value>
+  </data>
+  <data name="Sample_GroupBox_NestedDesc" xml:space="preserve">
+    <value>GroupBox 可以嵌套，用于组织分层的选项分组。</value>
+  </data>
+  <data name="Sample_GroupBox_AccountHeader" xml:space="preserve">
+    <value>账户</value>
+  </data>
+  <data name="Sample_GroupBox_DisplayName" xml:space="preserve">
+    <value>显示名称</value>
+  </data>
+  <data name="Sample_GroupBox_PrivacyHeader" xml:space="preserve">
+    <value>隐私</value>
+  </data>
+  <data name="Sample_GroupBox_OptionPrivateProfile" xml:space="preserve">
+    <value>私密资料</value>
+  </data>
+  <data name="Sample_GroupBox_OptionHideEmail" xml:space="preserve">
+    <value>隐藏电子邮箱</value>
+  </data>
   <data name="Gallery_Page_FluentScrollViewer" xml:space="preserve">
     <value>FluentScrollViewer</value>
   </data>

@@ -4049,6 +4049,51 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_Expander" xml:space="preserve">
     <value>Expander</value>
   </data>
+  <data name="Gallery_Page_GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="Sample_GroupBox_CardDesc" xml:space="preserve">
+    <value>帶標題的內容分組</value>
+  </data>
+  <data name="Sample_GroupBox_BasicTitle" xml:space="preserve">
+    <value>GroupBox — 基礎</value>
+  </data>
+  <data name="Sample_GroupBox_BasicDesc" xml:space="preserve">
+    <value>Fluent 風格的 GroupBox，用標題將相關控制項歸為一組。</value>
+  </data>
+  <data name="Sample_GroupBox_SettingsHeader" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Sample_GroupBox_OptionAutoSave" xml:space="preserve">
+    <value>自動儲存</value>
+  </data>
+  <data name="Sample_GroupBox_OptionNotify" xml:space="preserve">
+    <value>桌面通知</value>
+  </data>
+  <data name="Sample_GroupBox_OptionTelemetry" xml:space="preserve">
+    <value>傳送診斷資料</value>
+  </data>
+  <data name="Sample_GroupBox_NestedTitle" xml:space="preserve">
+    <value>GroupBox — 巢狀</value>
+  </data>
+  <data name="Sample_GroupBox_NestedDesc" xml:space="preserve">
+    <value>GroupBox 可以巢狀，用於組織分層的選項分組。</value>
+  </data>
+  <data name="Sample_GroupBox_AccountHeader" xml:space="preserve">
+    <value>帳戶</value>
+  </data>
+  <data name="Sample_GroupBox_DisplayName" xml:space="preserve">
+    <value>顯示名稱</value>
+  </data>
+  <data name="Sample_GroupBox_PrivacyHeader" xml:space="preserve">
+    <value>隱私</value>
+  </data>
+  <data name="Sample_GroupBox_OptionPrivateProfile" xml:space="preserve">
+    <value>私人資料</value>
+  </data>
+  <data name="Sample_GroupBox_OptionHideEmail" xml:space="preserve">
+    <value>隱藏電子郵件</value>
+  </data>
   <data name="Gallery_Page_FluentScrollViewer" xml:space="preserve">
     <value>FluentScrollViewer</value>
   </data>

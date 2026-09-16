@@ -214,6 +214,7 @@ public partial class MainWindow : ShellWindow
         ["layout/divider"] = static () => new DividerPage(),
         ["layout/drawer"] = static () => new DrawerPage(),
         ["layout/expander"] = static () => new ExpanderPage(),
+        ["layout/group-box"] = static () => new GroupBoxPage(),
         ["layout/fluent-scroll-viewer"] = static () => new FluentScrollViewerPage(),
 
         ["status"] = static () => new StatusPage(),

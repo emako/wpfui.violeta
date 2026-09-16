@@ -368,6 +368,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Divider}}" Tag="layout/divider" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Drawer}}" Tag="layout/drawer" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Expander}}" Tag="layout/expander" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GroupBox}}" Tag="layout/group-box" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FluentScrollViewer}}" Tag="layout/fluent-scroll-viewer" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>

@@ -4049,6 +4049,51 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_Expander" xml:space="preserve">
     <value>Expander</value>
   </data>
+  <data name="Gallery_Page_GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="Sample_GroupBox_CardDesc" xml:space="preserve">
+    <value>ヘッダー付きのコンテンツグループ</value>
+  </data>
+  <data name="Sample_GroupBox_BasicTitle" xml:space="preserve">
+    <value>GroupBox — 基本</value>
+  </data>
+  <data name="Sample_GroupBox_BasicDesc" xml:space="preserve">
+    <value>Fluent スタイルの GroupBox で、関連するコントロールをヘッダー付きでまとめます。</value>
+  </data>
+  <data name="Sample_GroupBox_SettingsHeader" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Sample_GroupBox_OptionAutoSave" xml:space="preserve">
+    <value>自動保存</value>
+  </data>
+  <data name="Sample_GroupBox_OptionNotify" xml:space="preserve">
+    <value>デスクトップ通知</value>
+  </data>
+  <data name="Sample_GroupBox_OptionTelemetry" xml:space="preserve">
+    <value>診断データの送信</value>
+  </data>
+  <data name="Sample_GroupBox_NestedTitle" xml:space="preserve">
+    <value>GroupBox — 入れ子</value>
+  </data>
+  <data name="Sample_GroupBox_NestedDesc" xml:space="preserve">
+    <value>GroupBox は入れ子にでき、階層的なオプショングループを整理できます。</value>
+  </data>
+  <data name="Sample_GroupBox_AccountHeader" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="Sample_GroupBox_DisplayName" xml:space="preserve">
+    <value>表示名</value>
+  </data>
+  <data name="Sample_GroupBox_PrivacyHeader" xml:space="preserve">
+    <value>プライバシー</value>
+  </data>
+  <data name="Sample_GroupBox_OptionPrivateProfile" xml:space="preserve">
+    <value>非公開プロフィール</value>
+  </data>
+  <data name="Sample_GroupBox_OptionHideEmail" xml:space="preserve">
+    <value>メールアドレスを非表示</value>
+  </data>
   <data name="Gallery_Page_FluentScrollViewer" xml:space="preserve">
     <value>FluentScrollViewer</value>
   </data>

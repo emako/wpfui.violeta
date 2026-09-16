@@ -1763,6 +1763,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GroupBox.
+        /// </summary>
+        public static string Gallery_Page_GroupBox {
+            get {
+                return ResourceManager.GetString("Gallery_Page_GroupBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Growl.
         /// </summary>
         public static string Gallery_Page_Growl {
@@ -21815,6 +21824,132 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_f4b80256c2 {
             get {
                 return ResourceManager.GetString("Sample_f4b80256c2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Account.
+        /// </summary>
+        public static string Sample_GroupBox_AccountHeader {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_AccountHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent-styled GroupBox wraps related controls under a header..
+        /// </summary>
+        public static string Sample_GroupBox_BasicDesc {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_BasicDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to GroupBox — basic.
+        /// </summary>
+        public static string Sample_GroupBox_BasicTitle {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_BasicTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Grouped content with a header.
+        /// </summary>
+        public static string Sample_GroupBox_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Display name.
+        /// </summary>
+        public static string Sample_GroupBox_DisplayName {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_DisplayName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to GroupBoxes can nest to organize hierarchical option groups..
+        /// </summary>
+        public static string Sample_GroupBox_NestedDesc {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_NestedDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to GroupBox — nested.
+        /// </summary>
+        public static string Sample_GroupBox_NestedTitle {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_NestedTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Auto-save.
+        /// </summary>
+        public static string Sample_GroupBox_OptionAutoSave {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_OptionAutoSave", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hide email address.
+        /// </summary>
+        public static string Sample_GroupBox_OptionHideEmail {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_OptionHideEmail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop notifications.
+        /// </summary>
+        public static string Sample_GroupBox_OptionNotify {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_OptionNotify", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Private profile.
+        /// </summary>
+        public static string Sample_GroupBox_OptionPrivateProfile {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_OptionPrivateProfile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Send diagnostic data.
+        /// </summary>
+        public static string Sample_GroupBox_OptionTelemetry {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_OptionTelemetry", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy.
+        /// </summary>
+        public static string Sample_GroupBox_PrivacyHeader {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_PrivacyHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Sample_GroupBox_SettingsHeader {
+            get {
+                return ResourceManager.GetString("Sample_GroupBox_SettingsHeader", resourceCulture);
             }
         }
 
