@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
+using System.Windows.Media;
 using System.Windows.Shapes;
 using Wpf.Ui.Controls;
 
@@ -60,7 +61,7 @@ public class StorageRing : RangeBase
         set => SetValue(ContentProperty, value);
     }
 
-    #endregion
+    #endregion Content
 
     #region ContentTemplate
 
@@ -77,7 +78,7 @@ public class StorageRing : RangeBase
         set => SetValue(ContentTemplateProperty, value);
     }
 
-    #endregion
+    #endregion ContentTemplate
 
     #region Percent
 
@@ -92,7 +93,7 @@ public class StorageRing : RangeBase
 
     public double Percent => (double)GetValue(PercentProperty);
 
-    #endregion
+    #endregion Percent
 
     #region ValueAngle
 
@@ -107,7 +108,7 @@ public class StorageRing : RangeBase
 
     public double ValueAngle => (double)GetValue(ValueAngleProperty);
 
-    #endregion
+    #endregion ValueAngle
 
     #region PercentCaution / PercentCritical
 
@@ -137,7 +138,7 @@ public class StorageRing : RangeBase
         set => SetValue(PercentCriticalProperty, value);
     }
 
-    #endregion
+    #endregion PercentCaution / PercentCritical
 
     #region Thickness
 
@@ -167,7 +168,50 @@ public class StorageRing : RangeBase
         set => SetValue(TrackRingThicknessProperty, value);
     }
 
-    #endregion
+    #endregion Thickness
+
+    #region Brushes
+
+    public static readonly DependencyProperty ValueBrushProperty =
+        DependencyProperty.Register(
+            nameof(ValueBrush),
+            typeof(Brush),
+            typeof(StorageRing),
+            new PropertyMetadata(null, OnAppearanceChanged));
+
+    public Brush? ValueBrush
+    {
+        get => (Brush?)GetValue(ValueBrushProperty);
+        set => SetValue(ValueBrushProperty, value);
+    }
+
+    public static readonly DependencyProperty CautionBrushProperty =
+        DependencyProperty.Register(
+            nameof(CautionBrush),
+            typeof(Brush),
+            typeof(StorageRing),
+            new PropertyMetadata(null, OnAppearanceChanged));
+
+    public Brush? CautionBrush
+    {
+        get => (Brush?)GetValue(CautionBrushProperty);
+        set => SetValue(CautionBrushProperty, value);
+    }
+
+    public static readonly DependencyProperty CriticalBrushProperty =
+        DependencyProperty.Register(
+            nameof(CriticalBrush),
+            typeof(Brush),
+            typeof(StorageRing),
+            new PropertyMetadata(null, OnAppearanceChanged));
+
+    public Brush? CriticalBrush
+    {
+        get => (Brush?)GetValue(CriticalBrushProperty);
+        set => SetValue(CriticalBrushProperty, value);
+    }
+
+    #endregion Brushes
 
     public override void OnApplyTemplate()
     {
@@ -243,21 +287,37 @@ public class StorageRing : RangeBase
             return;
         }
 
-        string valueKey;
+        Brush? valueBrush;
         if (Percent >= PercentCritical)
         {
-            valueKey = "SystemFillColorCriticalBrush";
+            valueBrush = CriticalBrush;
         }
         else if (Percent >= PercentCaution)
         {
-            valueKey = "SystemFillColorCautionBrush";
+            valueBrush = CautionBrush;
         }
         else
         {
-            valueKey = "ProgressBarForeground";
+            valueBrush = ValueBrush;
         }
 
-        _valueRing.SetResourceReference(Shape.StrokeProperty, valueKey);
+        if (valueBrush is not null)
+        {
+            _valueRing.Stroke = valueBrush;
+        }
+        else if (Percent >= PercentCritical)
+        {
+            _valueRing.SetResourceReference(Shape.StrokeProperty, "SystemFillColorCriticalBrush");
+        }
+        else if (Percent >= PercentCaution)
+        {
+            _valueRing.SetResourceReference(Shape.StrokeProperty, "SystemFillColorCautionBrush");
+        }
+        else
+        {
+            _valueRing.SetResourceReference(Shape.StrokeProperty, "ProgressBarForeground");
+        }
+
         _trackRing.SetResourceReference(Shape.StrokeProperty, "ProgressBarBackground");
     }
 

@@ -16,6 +16,9 @@
         <Setter Property="TrackRingThickness" Value="6" />
         <Setter Property="PercentCaution" Value="75" />
         <Setter Property="PercentCritical" Value="90" />
+        <Setter Property="ValueBrush" Value="{DynamicResource ProgressBarForeground}" />
+        <Setter Property="CautionBrush" Value="{DynamicResource SystemFillColorCautionBrush}" />
+        <Setter Property="CriticalBrush" Value="{DynamicResource SystemFillColorCriticalBrush}" />
         <Setter Property="Minimum" Value="0" />
         <Setter Property="Maximum" Value="100" />
         <Setter Property="Template">
