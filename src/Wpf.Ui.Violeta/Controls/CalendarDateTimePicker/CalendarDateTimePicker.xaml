@@ -198,24 +198,41 @@
                             <Button
                                 x:Name="PART_Button"
                                 Grid.Column="1"
+                                Width="24"
+                                Height="24"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 Content="&#xE252;"
                                 Focusable="False"
+                                FocusVisualStyle="{x:Null}"
                                 FontFamily="{DynamicResource FluentSystemIcons}"
                                 FontSize="12"
-                                Foreground="{DynamicResource CalendarDatePickerCalendarGlyphForeground}">
+                                Foreground="{DynamicResource CalendarDatePickerCalendarGlyphForeground}"
+                                OverridesDefaultStyle="True">
                                 <Button.Template>
                                     <ControlTemplate TargetType="{x:Type Button}">
-                                        <TextBlock
-                                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                            FontFamily="{TemplateBinding FontFamily}"
-                                            FontSize="{TemplateBinding FontSize}"
-                                            Foreground="{TemplateBinding Foreground}"
-                                            Text="{TemplateBinding Content}" />
+                                        <Border
+                                            x:Name="ButtonBackground"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="4">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{TemplateBinding FontFamily}"
+                                                FontSize="{TemplateBinding FontSize}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                Text="{TemplateBinding Content}" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="ButtonBackground" Property="Background" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
