@@ -5201,6 +5201,12 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_3f084e5813" xml:space="preserve">
     <value>ui:CalendarDatePicker</value>
   </data>
+  <data name="Sample_5ba3ad5d54" xml:space="preserve">
+    <value>DatePicker (CalendarDatePicker)</value>
+  </data>
+  <data name="Sample_2a1c7c190b" xml:space="preserve">
+    <value>采用 WinUI CalendarDatePicker 样式的 WPF DatePicker。</value>
+  </data>
   <data name="Sample_2badfa8fae" xml:space="preserve">
     <value>Pick a date</value>
   </data>

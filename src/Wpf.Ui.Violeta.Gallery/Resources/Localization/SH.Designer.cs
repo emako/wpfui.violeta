@@ -6005,6 +6005,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WPF DatePicker styled as WinUI CalendarDatePicker..
+        /// </summary>
+        public static string Sample_2a1c7c190b {
+            get {
+                return ResourceManager.GetString("Sample_2a1c7c190b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no local → 28.
         /// </summary>
         public static string Sample_2a309c7843 {
@@ -9270,6 +9279,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_5b3ebc4802 {
             get {
                 return ResourceManager.GetString("Sample_5b3ebc4802", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DatePicker (CalendarDatePicker).
+        /// </summary>
+        public static string Sample_5ba3ad5d54 {
+            get {
+                return ResourceManager.GetString("Sample_5ba3ad5d54", resourceCulture);
             }
         }
         
