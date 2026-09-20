@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -47,6 +50,21 @@ public class AutoGrid : Grid
 
     public static readonly DependencyProperty RowsProperty =
         DependencyProperty.RegisterAttached(nameof(Rows), typeof(string), typeof(AutoGrid), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsMeasure, new PropertyChangedCallback(RowsChanged)));
+
+    // Base Grid stores sticky logical Column/Row/Span on private attached DPs before remapping
+    // for HorizontalSpacing / VerticalSpacing. AutoGrid reassigns indices every measure, so those
+    // caches must be restored + cleared without modifying Grid.cs.
+    private static readonly DependencyProperty? LogicalColumnProperty =
+        typeof(Grid).GetField("LogicalColumnProperty", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) as DependencyProperty;
+
+    private static readonly DependencyProperty? LogicalRowProperty =
+        typeof(Grid).GetField("LogicalRowProperty", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) as DependencyProperty;
+
+    private static readonly DependencyProperty? LogicalColumnSpanProperty =
+        typeof(Grid).GetField("LogicalColumnSpanProperty", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) as DependencyProperty;
+
+    private static readonly DependencyProperty? LogicalRowSpanProperty =
+        typeof(Grid).GetField("LogicalRowSpanProperty", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) as DependencyProperty;
 
     /// <summary>
     /// Gets or sets the child horizontal alignment.
@@ -179,14 +197,13 @@ public class AutoGrid : Grid
 
         // look for an existing column definition for the height
         var width = GridLength.Auto;
-        if (grid.ColumnDefinitions.Count > 0)
-            width = grid.ColumnDefinitions[0].Width;
+        if (grid.GetLogicalColumnCount() > 0)
+            width = grid.GetLogicalColumnWidth(0);
 
-        // clear and rebuild
-        grid.ColumnDefinitions.Clear();
-        for (int i = 0; i < (int)e.NewValue; i++)
-            grid.ColumnDefinitions.Add(
-                new ColumnDefinition() { Width = width });
+        var widths = new GridLength[(int)e.NewValue];
+        for (int i = 0; i < widths.Length; i++)
+            widths[i] = width;
+        grid.ApplyLogicalColumnDefinitions(widths);
     }
 
     /// <summary>
@@ -198,11 +215,7 @@ public class AutoGrid : Grid
             return;
 
         var grid = d as AutoGrid;
-        grid.ColumnDefinitions.Clear();
-
-        var defs = Parse((string)e.NewValue);
-        foreach (var def in defs)
-            grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = def });
+        grid.ApplyLogicalColumnDefinitions(Parse((string)e.NewValue));
     }
 
     /// <summary>
@@ -211,14 +224,11 @@ public class AutoGrid : Grid
     public static void FixedColumnWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var grid = d as AutoGrid;
-
-        // add a default column if missing
-        if (grid.ColumnDefinitions.Count == 0)
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-        // set all existing columns to this width
-        for (int i = 0; i < grid.ColumnDefinitions.Count; i++)
-            grid.ColumnDefinitions[i].Width = (GridLength)e.NewValue;
+        int count = Math.Max(1, grid.GetLogicalColumnCount());
+        var widths = new GridLength[count];
+        for (int i = 0; i < count; i++)
+            widths[i] = (GridLength)e.NewValue;
+        grid.ApplyLogicalColumnDefinitions(widths);
     }
 
     /// <summary>
@@ -227,14 +237,11 @@ public class AutoGrid : Grid
     public static void FixedRowHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var grid = d as AutoGrid;
-
-        // add a default row if missing
-        if (grid.RowDefinitions.Count == 0)
-            grid.RowDefinitions.Add(new RowDefinition());
-
-        // set all existing rows to this height
-        for (int i = 0; i < grid.RowDefinitions.Count; i++)
-            grid.RowDefinitions[i].Height = (GridLength)e.NewValue;
+        int count = Math.Max(1, grid.GetLogicalRowCount());
+        var heights = new GridLength[count];
+        for (int i = 0; i < count; i++)
+            heights[i] = (GridLength)e.NewValue;
+        grid.ApplyLogicalRowDefinitions(heights);
     }
 
     /// <summary>
@@ -284,14 +291,13 @@ public class AutoGrid : Grid
 
         // look for an existing row to get the height
         var height = GridLength.Auto;
-        if (grid.RowDefinitions.Count > 0)
-            height = grid.RowDefinitions[0].Height;
+        if (grid.GetLogicalRowCount() > 0)
+            height = grid.GetLogicalRowHeight(0);
 
-        // clear and rebuild
-        grid.RowDefinitions.Clear();
-        for (int i = 0; i < (int)e.NewValue; i++)
-            grid.RowDefinitions.Add(
-                new RowDefinition() { Height = height });
+        var heights = new GridLength[(int)e.NewValue];
+        for (int i = 0; i < heights.Length; i++)
+            heights[i] = height;
+        grid.ApplyLogicalRowDefinitions(heights);
     }
 
     /// <summary>
@@ -303,11 +309,7 @@ public class AutoGrid : Grid
             return;
 
         var grid = d as AutoGrid;
-        grid.RowDefinitions.Clear();
-
-        var defs = Parse((string)e.NewValue);
-        foreach (var def in defs)
-            grid.RowDefinitions.Add(new RowDefinition() { Height = def });
+        grid.ApplyLogicalRowDefinitions(Parse((string)e.NewValue));
     }
 
     /// <summary>
@@ -319,6 +321,13 @@ public class AutoGrid : Grid
     /// </returns>
     protected override Size MeasureOverride(Size constraint)
     {
+        // If ColumnDefinitions were mutated via Clear/Add before this type started
+        // routing through ApplyLogical*, re-push through the Grid DP so spacers exist.
+        EnsureSpacingDefinitionsSynced();
+        // Restore logical Column/Row/Span from base Grid's sticky cache (if any) so
+        // PerformLayout reads logical values, then clear the cache so base re-captures
+        // after we reassign indices for this pass.
+        RestoreAndClearBaseLogicalPlacement();
         this.PerformLayout();
         return base.MeasureOverride(constraint);
     }
@@ -394,6 +403,30 @@ public class AutoGrid : Grid
     }
 
     /// <summary>
+    /// Pushes logical column widths through <see cref="Grid.ColumnDefinitions"/> so the base
+    /// <see cref="Grid"/> populates its logical cache and injects <see cref="Grid.HorizontalSpacing"/> spacers.
+    /// </summary>
+    private void ApplyLogicalColumnDefinitions(IReadOnlyList<GridLength> widths)
+    {
+        var temp = new System.Windows.Controls.Grid();
+        foreach (GridLength width in widths)
+            temp.ColumnDefinitions.Add(new ColumnDefinition { Width = width });
+        ColumnDefinitions = temp.ColumnDefinitions;
+    }
+
+    /// <summary>
+    /// Pushes logical row heights through <see cref="Grid.RowDefinitions"/> so the base
+    /// <see cref="Grid"/> populates its logical cache and injects <see cref="Grid.VerticalSpacing"/> spacers.
+    /// </summary>
+    private void ApplyLogicalRowDefinitions(IReadOnlyList<GridLength> heights)
+    {
+        var temp = new System.Windows.Controls.Grid();
+        foreach (GridLength height in heights)
+            temp.RowDefinitions.Add(new RowDefinition { Height = height });
+        RowDefinitions = temp.RowDefinitions;
+    }
+
+    /// <summary>
     /// Clamp a value to its maximum.
     /// </summary>
     private int Clamp(int value, int max)
@@ -402,13 +435,133 @@ public class AutoGrid : Grid
     }
 
     /// <summary>
+    /// Re-sync definitions when spacing is on but spacer columns/rows are missing
+    /// (e.g. definitions were Clear/Add'd without going through <see cref="ApplyLogicalColumnDefinitions"/>).
+    /// </summary>
+    private void EnsureSpacingDefinitionsSynced()
+    {
+        if (HorizontalSpacing > 0 && ColumnDefinitions.Count > 0 && !HasInjectedColumnSpacers())
+        {
+            var widths = new List<GridLength>(ColumnDefinitions.Count);
+            foreach (ColumnDefinition col in ColumnDefinitions)
+                widths.Add(col.Width);
+            ApplyLogicalColumnDefinitions(widths);
+        }
+
+        if (VerticalSpacing > 0 && RowDefinitions.Count > 0 && !HasInjectedRowSpacers())
+        {
+            var heights = new List<GridLength>(RowDefinitions.Count);
+            foreach (RowDefinition row in RowDefinitions)
+                heights.Add(row.Height);
+            ApplyLogicalRowDefinitions(heights);
+        }
+    }
+
+    private GridLength GetLogicalColumnWidth(int logicalIndex)
+    {
+        int actualIndex = HorizontalSpacing > 0 && HasInjectedColumnSpacers()
+            ? logicalIndex * 2
+            : logicalIndex;
+        return ColumnDefinitions[actualIndex].Width;
+    }
+
+    private int GetLogicalColumnCount()
+    {
+        int count = ColumnDefinitions.Count;
+        if (count == 0)
+            return 0;
+        if (HorizontalSpacing > 0 && HasInjectedColumnSpacers())
+            return (count + 1) / 2;
+        return count;
+    }
+
+    private GridLength GetLogicalRowHeight(int logicalIndex)
+    {
+        int actualIndex = VerticalSpacing > 0 && HasInjectedRowSpacers()
+            ? logicalIndex * 2
+            : logicalIndex;
+        return RowDefinitions[actualIndex].Height;
+    }
+
+    private int GetLogicalRowCount()
+    {
+        int count = RowDefinitions.Count;
+        if (count == 0)
+            return 0;
+        if (VerticalSpacing > 0 && HasInjectedRowSpacers())
+            return (count + 1) / 2;
+        return count;
+    }
+
+    private bool HasInjectedColumnSpacers()
+    {
+        int n = ColumnDefinitions.Count;
+        if (HorizontalSpacing <= 0 || n < 3 || n % 2 == 0)
+            return false;
+
+        var spacer = new GridLength(HorizontalSpacing);
+        for (int i = 1; i < n; i += 2)
+        {
+            if (ColumnDefinitions[i].Width != spacer)
+                return false;
+        }
+        return true;
+    }
+
+    private bool HasInjectedRowSpacers()
+    {
+        int n = RowDefinitions.Count;
+        if (VerticalSpacing <= 0 || n < 3 || n % 2 == 0)
+            return false;
+
+        var spacer = new GridLength(VerticalSpacing);
+        for (int i = 1; i < n; i += 2)
+        {
+            if (RowDefinitions[i].Height != spacer)
+                return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// If base <see cref="Grid"/> already remapped children for spacing, restore the cached
+    /// logical placement onto the public attached properties and clear the sticky cache so
+    /// the next base measure pass re-captures whatever <see cref="PerformLayout"/> assigns.
+    /// </summary>
+    private void RestoreAndClearBaseLogicalPlacement()
+    {
+        if (LogicalColumnProperty == null || LogicalRowProperty == null
+            || LogicalColumnSpanProperty == null || LogicalRowSpanProperty == null)
+            return;
+
+        foreach (UIElement child in Children)
+        {
+            int logCol = (int)child.GetValue(LogicalColumnProperty);
+            if (logCol == int.MinValue)
+                continue;
+
+            SetColumn(child, logCol);
+            SetRow(child, (int)child.GetValue(LogicalRowProperty));
+            SetColumnSpan(child, (int)child.GetValue(LogicalColumnSpanProperty));
+            SetRowSpan(child, (int)child.GetValue(LogicalRowSpanProperty));
+
+            child.SetValue(LogicalColumnProperty, int.MinValue);
+            child.SetValue(LogicalRowProperty, int.MinValue);
+            child.SetValue(LogicalColumnSpanProperty, int.MinValue);
+            child.SetValue(LogicalRowSpanProperty, int.MinValue);
+        }
+    }
+
+    /// <summary>
     /// Perform the grid layout of row and column indexes
     /// </summary>
     private void PerformLayout()
     {
         var fillRowFirst = Orientation == Orientation.Horizontal;
-        var rowCount = RowDefinitions.Count;
-        var colCount = ColumnDefinitions.Count;
+        // Use logical counts so injected HorizontalSpacing / VerticalSpacing spacers
+        // are not treated as layout cells.
+        var rowCount = GetLogicalRowCount();
+        var colCount = GetLogicalColumnCount();
 
         if (rowCount == 0 || colCount == 0)
             return;
@@ -431,11 +584,11 @@ public class AutoGrid : Grid
                         col = (position % colCount);
                     }
 
-                    Grid.SetRow(child, row);
-                    Grid.SetColumn(child, col);
-                    position += Grid.GetColumnSpan(child);
+                    SetRow(child, row);
+                    SetColumn(child, col);
+                    position += GetColumnSpan(child);
 
-                    var offset = Grid.GetRowSpan(child) - 1;
+                    var offset = GetRowSpan(child) - 1;
                     while (offset > 0)
                     {
                         skip[row + offset--, col] = true;
@@ -452,11 +605,11 @@ public class AutoGrid : Grid
                         col = position / rowCount;
                     }
 
-                    Grid.SetRow(child, row);
-                    Grid.SetColumn(child, col);
-                    position += Grid.GetRowSpan(child);
+                    SetRow(child, row);
+                    SetColumn(child, col);
+                    position += GetRowSpan(child);
 
-                    var offset = Grid.GetColumnSpan(child) - 1;
+                    var offset = GetColumnSpan(child) - 1;
                     while (offset > 0)
                     {
                         skip[row, col + offset--] = true;

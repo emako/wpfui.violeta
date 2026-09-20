@@ -82,18 +82,20 @@
                         Margin="0,0,0,4"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_c2d3e4f5a6}}" />
+                        Text="{I18N {x:Static lang:LangKeys.Sample_9c3d4e5f6a}}" />
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_d3e4f5a6b7}}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_a4d5e6f7b8}}"
                         TextWrapping="Wrap" />
                     <Border MinHeight="120" Style="{StaticResource DemoSurface}">
                         <ui:AutoGrid
                             Margin="10"
                             HorizontalAlignment="Stretch"
                             Columns="*,*,*"
-                            RowCount="2">
+                            HorizontalSpacing="8"
+                            RowCount="2"
+                            VerticalSpacing="8">
                             <Border Style="{StaticResource DemoCell}" Background="#E74856" />
                             <Border Style="{StaticResource DemoCell}" Background="#10893E" />
                             <Border Style="{StaticResource DemoCell}" Background="#0078D4" />
