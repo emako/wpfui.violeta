@@ -177,10 +177,6 @@
         <PackageReference Include="WPF-UI" Version="4.3.0" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net47' Or '$(TargetFramework)' == 'net471' Or '$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
-        <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    </ItemGroup>
-
     <ItemGroup>
         <None Remove="app.manifest" />
         <EmbeddedResource Include="app.manifest">

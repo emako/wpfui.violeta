@@ -60,6 +60,7 @@ public partial class MainWindow : ShellWindow
         ["design/colors"] = static () => new ColorsPage(),
         ["design/theme-color-approach"] = static () => new ThemeColorApproachPage(),
         ["design/theme-refresh-converter"] = static () => new ThemeRefreshConverterPage(),
+        ["design/theme-brush"] = static () => new ThemeBrushPage(),
 
         // Group overview pages (by control family)
         ["buttons"] = static () => new ButtonsPage(),
@@ -247,7 +248,6 @@ public partial class MainWindow : ShellWindow
         ["media/gif-image"] = static () => new GifImagePage(),
         ["media/image-selector"] = static () => new ImageSelectorPage(),
         ["media/qr-code"] = static () => new QrCodePage(),
-        ["media/cached-image"] = static () => new CachedImagePage(),
         ["media/svg"] = static () => new SvgPage(),
         ["media/animation-path"] = static () => new AnimationPathPage(),
 

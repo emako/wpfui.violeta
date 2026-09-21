@@ -303,9 +303,6 @@
   <data name="Sample_a6d6c786e7" xml:space="preserve">
     <value>BusyMask — busy overlay</value>
   </data>
-  <data name="Sample_7b88f14eae" xml:space="preserve">
-    <value>CachedImage — cached image</value>
-  </data>
   <data name="Sample_9dd3ceb5b3" xml:space="preserve">
     <value>Caption — helper caption text</value>
   </data>
@@ -1294,9 +1291,6 @@ Click OK to continue.</value>
   <data name="Sample_5a6728a2a6" xml:space="preserve">
     <value>Tree list based on ITreeModel; supports dynamic loading and custom data models.</value>
   </data>
-  <data name="Sample_51817fdf50" xml:space="preserve">
-    <value>Wrapper over System.Windows.Controls.Image; loads and caches images via ImageUrl. First load needs network.</value>
-  </data>
   <data name="Sample_9e5ffa068e" xml:space="preserve">
     <value>Basic info</value>
   </data>
@@ -1541,9 +1535,6 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_3d4319582e" xml:space="preserve">
     <value>Toggle with slide animation; supports drag, title, and custom On/Off content.</value>
-  </data>
-  <data name="Sample_19cec4bfa6" xml:space="preserve">
-    <value>Cached network image</value>
   </data>
   <data name="Sample_880490aef6" xml:space="preserve">
     <value>Changzhou</value>
@@ -2507,9 +2498,6 @@ Click OK to continue.</value>
   </data>
   <data name="Sample_c81e7712be" xml:space="preserve">
     <value>Continue current operation</value>
-  </data>
-  <data name="Sample_5f5597503b" xml:space="preserve">
-    <value>Cached image</value>
   </data>
   <data name="Sample_1efa490383" xml:space="preserve">
     <value>Slow (Delay=1000, Interval=400)</value>
@@ -3593,6 +3581,33 @@ Click OK to continue.</value>
   <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
     <value>How to test: 1) Keep toggle ON. 2) Expected / Left / Right should match. 3) Click Toggle theme without flipping the toggle. 4) Expected and Right flip black/white; Left stays on the previous color.</value>
   </data>
+  <data name="Gallery_Page_ThemeBrush" xml:space="preserve">
+    <value>ThemeBrush</value>
+  </data>
+  <data name="Gallery_ThemeBrush_CardDesc" xml:space="preserve">
+    <value>Per-theme Light/Dark brushes</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Desc" xml:space="preserve">
+    <value>Use vio:ThemeBrush with Light and Dark to pick brushes per theme. Values may be color strings (#999999) or nested DynamicResource keys. Click Toggle theme to see the swatches update.</value>
+  </data>
+  <data name="Gallery_ThemeBrush_ColorString" xml:space="preserve">
+    <value>Color strings</value>
+  </data>
+  <data name="Gallery_ThemeBrush_ColorString_Desc" xml:space="preserve">
+    <value>Light=#FFCCE5FF / Dark=#FF1A3A5C with border #999999 / #666666.</value>
+  </data>
+  <data name="Gallery_ThemeBrush_DynamicResource" xml:space="preserve">
+    <value>DynamicResource</value>
+  </data>
+  <data name="Gallery_ThemeBrush_DynamicResource_Desc" xml:space="preserve">
+    <value>Light and Dark both reference theme resource brushes.</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Mixed" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Mixed_Desc" xml:space="preserve">
+    <value>Combine a color string on one side with DynamicResource on the other.</value>
+  </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
   </data>
@@ -4243,9 +4258,6 @@ Click OK to continue.</value>
   </data>
   <data name="Gallery_Page_QrCode" xml:space="preserve">
     <value>QrCode</value>
-  </data>
-  <data name="Gallery_Page_CachedImage" xml:space="preserve">
-    <value>CachedImage</value>
   </data>
   <data name="Gallery_Page_Svg" xml:space="preserve">
     <value>Svg</value>

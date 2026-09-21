@@ -2411,6 +2411,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ThemeBrush.
+        /// </summary>
+        public static string Gallery_Page_ThemeBrush {
+            get {
+                return ResourceManager.GetString("Gallery_Page_ThemeBrush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ThemeColorApproach.
         /// </summary>
         public static string Gallery_Page_ThemeColorApproach {
@@ -3028,6 +3037,78 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Gallery_Theme_System {
             get {
                 return ResourceManager.GetString("Gallery_Theme_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Per-theme Light/Dark brushes.
+        /// </summary>
+        public static string Gallery_ThemeBrush_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color strings.
+        /// </summary>
+        public static string Gallery_ThemeBrush_ColorString {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_ColorString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light=#FFCCE5FF / Dark=#FF1A3A5C with border #999999 / #666666..
+        /// </summary>
+        public static string Gallery_ThemeBrush_ColorString_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_ColorString_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use ThemeBrush Light/Dark to pick brushes per theme..
+        /// </summary>
+        public static string Gallery_ThemeBrush_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DynamicResource.
+        /// </summary>
+        public static string Gallery_ThemeBrush_DynamicResource {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_DynamicResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light and Dark both reference theme resource brushes..
+        /// </summary>
+        public static string Gallery_ThemeBrush_DynamicResource_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_DynamicResource_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mixed.
+        /// </summary>
+        public static string Gallery_ThemeBrush_Mixed {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_Mixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combine a color string on one side with DynamicResource on the other..
+        /// </summary>
+        public static string Gallery_ThemeBrush_Mixed_Desc {
+            get {
+                return ResourceManager.GetString("Gallery_ThemeBrush_Mixed_Desc", resourceCulture);
             }
         }
         

@@ -5,7 +5,6 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries:
 | Name                                                         | License                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [🔗 BusyIndicator](https://github.com/Moh3nGolshani/BusyIndicator) | [MIT](https://opensource.org/licenses/MIT)                   |
-| [🔗 CachedImage](https://github.com/floydpink/CachedImage)    | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 Fischless](https://github.com/GenshinMatrix/Fischless)    | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 FluentWpfCore](https://github.com/TwilightLemon/FluentWpfCore) | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 HandyControl](https://github.com/HandyOrg/HandyControl)   | [MIT](https://opensource.org/licenses/MIT)                   |

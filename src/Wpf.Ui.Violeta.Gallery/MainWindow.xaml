@@ -133,6 +133,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Colors}}" Tag="design/colors" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeColorApproach}}" Tag="design/theme-color-approach" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeRefreshConverter}}" Tag="design/theme-refresh-converter" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ThemeBrush}}" Tag="design/theme-brush" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 
@@ -413,7 +414,6 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_GifImage}}" Tag="media/gif-image" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_ImageSelector}}" Tag="media/image-selector" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_QrCode}}" Tag="media/qr-code" />
-                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CachedImage}}" Tag="media/cached-image" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Svg}}" Tag="media/svg" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_AnimationPath}}" Tag="media/animation-path" />
                     </vio:NavigationViewItem.MenuItems>

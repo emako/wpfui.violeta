@@ -303,9 +303,6 @@
   <data name="Sample_a6d6c786e7" xml:space="preserve">
     <value>BusyMask — 忙碌遮罩</value>
   </data>
-  <data name="Sample_7b88f14eae" xml:space="preserve">
-    <value>CachedImage — 快取圖片</value>
-  </data>
   <data name="Sample_9dd3ceb5b3" xml:space="preserve">
     <value>Caption — 輔助說明文字</value>
   </data>
@@ -1294,9 +1291,6 @@
   <data name="Sample_5a6728a2a6" xml:space="preserve">
     <value>基於 ITreeModel 介面的樹狀清單，支援動態載入與自訂資料模型。</value>
   </data>
-  <data name="Sample_51817fdf50" xml:space="preserve">
-    <value>基於 System.Windows.Controls.Image 的封裝，透過 ImageUrl 載入並快取網路圖片。首次載入需要連線。</value>
-  </data>
   <data name="Sample_9e5ffa068e" xml:space="preserve">
     <value>基本資訊</value>
   </data>
@@ -1541,9 +1535,6 @@
   </data>
   <data name="Sample_3d4319582e" xml:space="preserve">
     <value>帶滑動動畫的切換；支援拖動、標題和自訂 On/Off 內容。</value>
-  </data>
-  <data name="Sample_19cec4bfa6" xml:space="preserve">
-    <value>含快取的網路圖片</value>
   </data>
   <data name="Sample_880490aef6" xml:space="preserve">
     <value>常州</value>
@@ -2507,9 +2498,6 @@
   </data>
   <data name="Sample_c81e7712be" xml:space="preserve">
     <value>繼續當前操作</value>
-  </data>
-  <data name="Sample_5f5597503b" xml:space="preserve">
-    <value>緩存圖片</value>
   </data>
   <data name="Sample_1efa490383" xml:space="preserve">
     <value>慢速（Delay=1000，Interval=400）</value>
@@ -3593,6 +3581,33 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_ThemeRefresh_Steps" xml:space="preserve">
     <value>測試步驟：1）保持開關為 ON。2）期望 / 左 / 右應同色。3）不要撥開關，只點「切換主題」。4）期望與右側黑白對調；左側保持舊色。</value>
   </data>
+  <data name="Gallery_Page_ThemeBrush" xml:space="preserve">
+    <value>ThemeBrush</value>
+  </data>
+  <data name="Gallery_ThemeBrush_CardDesc" xml:space="preserve">
+    <value>依淺色/深色分別指定 Brush</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Desc" xml:space="preserve">
+    <value>使用 vio:ThemeBrush 的 Light / Dark 依主題選擇 Brush。可用顏色字串（#999999）或巢狀 DynamicResource。點「切換主題」查看色塊更新。</value>
+  </data>
+  <data name="Gallery_ThemeBrush_ColorString" xml:space="preserve">
+    <value>顏色字串</value>
+  </data>
+  <data name="Gallery_ThemeBrush_ColorString_Desc" xml:space="preserve">
+    <value>淺色 #FFCCE5FF / 深色 #FF1A3A5C，邊框 #999999 / #666666。</value>
+  </data>
+  <data name="Gallery_ThemeBrush_DynamicResource" xml:space="preserve">
+    <value>DynamicResource</value>
+  </data>
+  <data name="Gallery_ThemeBrush_DynamicResource_Desc" xml:space="preserve">
+    <value>淺色與深色均引用主題資源 Brush。</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Mixed" xml:space="preserve">
+    <value>混用</value>
+  </data>
+  <data name="Gallery_ThemeBrush_Mixed_Desc" xml:space="preserve">
+    <value>一側用顏色字串，另一側用 DynamicResource。</value>
+  </data>
   <data name="Gallery_Page_Button" xml:space="preserve">
     <value>Button</value>
   </data>
@@ -4243,9 +4258,6 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Gallery_Page_QrCode" xml:space="preserve">
     <value>QrCode</value>
-  </data>
-  <data name="Gallery_Page_CachedImage" xml:space="preserve">
-    <value>CachedImage</value>
   </data>
   <data name="Gallery_Page_Svg" xml:space="preserve">
     <value>Svg</value>
