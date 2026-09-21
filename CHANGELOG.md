@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.14] - 2026-09-21
+
+* Add ThemeBrush extension and gallery demo
+* Add Fluent GroupBox style and gallery sample
+* Add DatePicker CalendarDatePicker demo
+* Add configurable value/caution/critical brushes to StorageRing
+* Revamp TabControl default styles
+* Refine calendar/time picker icon button styling
+* Hotfix CalendarDatePicker button styling
+* Refine DataGrid header spacing
+* Fix AutoGrid spacing-aware layout
+* Fix double pill in NavigationView
+* Fix TabControl content stretching
+* Fix tab indicator placement transitions
+* Remove CachedImage control and System.Net.Http dependency
+* Use selectable text on empty logo page
+
 ## [4.3.0.13] - 2026-09-15
 
 * Add SvgImage control and gallery samples
