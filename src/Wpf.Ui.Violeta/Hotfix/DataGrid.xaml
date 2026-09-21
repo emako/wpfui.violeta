@@ -19,7 +19,7 @@
     <!--  Same as WPF-UI ColumnHeaderGripperStyle, but Disabled stays transparent (not TextFillColorDisabledBrush).  -->
     <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="Padding" Value="2,0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Cursor" Value="SizeWE" />
@@ -33,11 +33,11 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <Rectangle
                             x:Name="Thumb"
-                            Width="4"
-                            Height="16"
+                            Width="3"
+                            Height="14"
                             Margin="{TemplateBinding Padding}"
-                            RadiusX="2"
-                            RadiusY="2" />
+                            RadiusX="1.5"
+                            RadiusY="1.5" />
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
@@ -104,7 +104,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
         <Setter Property="Margin" Value="0,0,0,4" />
-        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="Padding" Value="8,4,4,4" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -128,7 +128,7 @@
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 IsSharedSizeScope="True">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition x:Name="FirstColumn" Width="*" />
+                                    <ColumnDefinition x:Name="FirstColumn" Width="Auto" />
                                     <ColumnDefinition x:Name="SecondColumn" Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
@@ -138,7 +138,9 @@
                                 <controls:SymbolIcon
                                     x:Name="SortIcon"
                                     Grid.Column="1"
-                                    Margin="4,0,0,0"
+                                    Margin="2,0,0,0"
+                                    Visibility="Collapsed"
+                                    FontSize="12"
                                     RenderTransformOrigin="0.5, 0.5"
                                     Symbol="ArrowSortUp24">
                                     <controls:SymbolIcon.RenderTransform>
@@ -169,10 +171,11 @@
                             <Setter TargetName="PART_LeftHeaderGripper" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="PART_RightHeaderGripper" Property="Visibility" Value="Collapsed" />
                         </Trigger>
-                        <Trigger Property="SortDirection" Value="{x:Null}">
-                            <Setter TargetName="SortIcon" Property="Visibility" Value="Collapsed" />
+                        <Trigger Property="SortDirection" Value="Ascending">
+                            <Setter TargetName="SortIcon" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <Trigger Property="SortDirection" Value="Descending">
+                            <Setter TargetName="SortIcon" Property="Visibility" Value="Visible" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -199,11 +202,12 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="HorizontalContentAlignment" Value="Right">
-                            <Setter TargetName="FirstColumn" Property="Width" Value="Auto" />
-                            <Setter TargetName="SecondColumn" Property="Width" Value="*" />
                             <Setter TargetName="ContentPresenter" Property="Grid.Column" Value="1" />
                             <Setter TargetName="SortIcon" Property="Grid.Column" Value="0" />
-                            <Setter TargetName="SortIcon" Property="Margin" Value="0,0,4,0" />
+                            <Setter TargetName="SortIcon" Property="Margin" Value="0,0,2,0" />
+                        </Trigger>
+                        <Trigger Property="HorizontalContentAlignment" Value="Stretch">
+                            <Setter TargetName="FirstColumn" Property="Width" Value="*" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -215,7 +219,7 @@
         x:Key="DefaultUiDataGridColumnHeaderStyle"
         BasedOn="{StaticResource DefaultDataGridColumnHeaderStyle}"
         TargetType="{x:Type DataGridColumnHeader}">
-        <Setter Property="Padding" Value="13,0,12,0" />
+        <Setter Property="Padding" Value="8,0,4,0" />
     </Style>
 
     <Style x:Key="DefaultDataGridRowStyle" TargetType="{x:Type DataGridRow}">
