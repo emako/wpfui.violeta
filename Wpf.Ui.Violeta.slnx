@@ -1,7 +1,14 @@
 <Solution>
-  <Project Path="src/Wpf.Ui.DependencyPropertyGenerator/Wpf.Ui.DependencyPropertyGenerator.csproj" />
-  <Project Path="src/Wpf.Ui.Emoji/Wpf.Ui.Emoji.csproj" />
-  <Project Path="src/Wpf.Ui.TextEditor/Wpf.Ui.TextEditor.csproj" />
-  <Project Path="src/Wpf.Ui.Violeta.Gallery/Wpf.Ui.Violeta.Gallery.csproj" />
-  <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
+  <Folder Name="/gallery/">
+    <File Path="makekits.json" />
+    <Project Path="src/Wpf.Ui.Violeta.Gallery/Wpf.Ui.Violeta.Gallery.csproj" />
+  </Folder>
+  <Folder Name="/generator/">
+    <Project Path="src/Wpf.Ui.DependencyPropertyGenerator/Wpf.Ui.DependencyPropertyGenerator.csproj" />
+  </Folder>
+  <Folder Name="/library/">
+    <Project Path="src/Wpf.Ui.Emoji/Wpf.Ui.Emoji.csproj" />
+    <Project Path="src/Wpf.Ui.TextEditor/Wpf.Ui.TextEditor.csproj" />
+    <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
+  </Folder>
 </Solution>
