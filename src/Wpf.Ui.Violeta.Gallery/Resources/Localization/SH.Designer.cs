@@ -3977,6 +3977,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toggle ShowProgressBar to hide or show the bottom progress indicator..
+        /// </summary>
+        public static string Sample_08ad01b06e {
+            get {
+                return ResourceManager.GetString("Sample_08ad01b06e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter username.
         /// </summary>
         public static string Sample_08b1fa1304 {
@@ -4981,6 +4990,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_18325105de {
             get {
                 return ResourceManager.GetString("Sample_18325105de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ShowProgressBar.
+        /// </summary>
+        public static string Sample_184df2ac2b {
+            get {
+                return ResourceManager.GetString("Sample_184df2ac2b", resourceCulture);
             }
         }
         
@@ -10187,6 +10205,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_695ff47157 {
             get {
                 return ResourceManager.GetString("Sample_695ff47157", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle card content.
+        /// </summary>
+        public static string Sample_699f13bccd {
+            get {
+                return ResourceManager.GetString("Sample_699f13bccd", resourceCulture);
             }
         }
         

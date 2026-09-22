@@ -231,6 +231,49 @@
                     </vio:CardProgress>
                 </StackPanel>
             </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,16,0">
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_184df2ac2b}}" />
+                        <TextBlock
+                            Margin="0,0,0,12"
+                            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                            Text="{I18N {x:Static lang:LangKeys.Sample_08ad01b06e}}"
+                            TextWrapping="Wrap" />
+                        <vio:CardProgress
+                            MaxWidth="520"
+                            HorizontalAlignment="Left"
+                            ShowProgressBar="{Binding IsChecked, ElementName=ShowProgressBarToggle, FallbackValue=True, TargetNullValue=True}"
+                            Value="60">
+                            <ui:TextBlock
+                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                                Text="{I18N {x:Static lang:LangKeys.Sample_699f13bccd}}"
+                                TextWrapping="WrapWithOverflow" />
+                        </vio:CardProgress>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" MinWidth="120" VerticalAlignment="Center">
+                        <ui:ToggleSwitch
+                            x:Name="ShowProgressBarToggle"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_184df2ac2b}}"
+                            IsChecked="True" />
+                    </StackPanel>
+                </Grid>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </vio:Page>

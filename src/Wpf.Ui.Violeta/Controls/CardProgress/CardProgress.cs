@@ -176,6 +176,26 @@ public class CardProgress : ContentControl
 
     #endregion ShowPaused
 
+    #region ShowProgressBar
+
+    public static readonly DependencyProperty ShowProgressBarProperty =
+        DependencyProperty.Register(
+            nameof(ShowProgressBar),
+            typeof(bool),
+            typeof(CardProgress),
+            new PropertyMetadata(true));
+
+    /// <summary>
+    /// Gets or sets whether the bottom progress indicator is visible.
+    /// </summary>
+    public bool ShowProgressBar
+    {
+        get => (bool)GetValue(ShowProgressBarProperty);
+        set => SetValue(ShowProgressBarProperty, value);
+    }
+
+    #endregion ShowProgressBar
+
     #region ProgressForeground
 
     public static readonly DependencyProperty ProgressForegroundProperty =

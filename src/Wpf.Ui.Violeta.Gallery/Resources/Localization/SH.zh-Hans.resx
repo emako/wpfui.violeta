@@ -5834,6 +5834,15 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_34b1abfa00" xml:space="preserve">
     <value>SecondaryCardProgressStyle</value>
   </data>
+  <data name="Sample_184df2ac2b" xml:space="preserve">
+    <value>ShowProgressBar</value>
+  </data>
+  <data name="Sample_08ad01b06e" xml:space="preserve">
+    <value>切换 ShowProgressBar 可隐藏或显示底部进度指示条。</value>
+  </data>
+  <data name="Sample_699f13bccd" xml:space="preserve">
+    <value>空闲卡片内容</value>
+  </data>
   <data name="Sample_f8029247b6" xml:space="preserve">
     <value>NavigationViewDefaultPaneBackground</value>
   </data>

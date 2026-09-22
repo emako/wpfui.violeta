@@ -59,6 +59,9 @@
                             Value="{TemplateBinding Value}" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="ShowProgressBar" Value="False">
+                            <Setter TargetName="PART_Indicator" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource CardBackgroundDisabled}" />
