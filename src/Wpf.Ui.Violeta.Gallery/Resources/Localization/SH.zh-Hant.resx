@@ -3779,6 +3779,9 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Gallery_Page_CalendarDatePicker" xml:space="preserve">
     <value>CalendarDatePicker</value>
   </data>
+  <data name="Gallery_Page_CalendarDateRangePicker" xml:space="preserve">
+    <value>CalendarDateRangePicker</value>
+  </data>
   <data name="Gallery_Page_CalendarDateTimePicker" xml:space="preserve">
     <value>CalendarDateTimePicker</value>
   </data>
@@ -7198,6 +7201,36 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   </data>
   <data name="Sample_ConfettiCannon_PresetsDesc" xml:space="preserve">
     <value>以不同樣式在全視窗發射特效。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_CardDesc" xml:space="preserve">
+    <value>兩次點選選擇開始和結束。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DefaultDesc" xml:space="preserve">
+    <value>打開日曆，先點開始日，再點結束日。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DefaultTitle" xml:space="preserve">
+    <value>範圍</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DisabledDesc" xml:space="preserve">
+    <value>範圍可見，但不能修改。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DisabledTitle" xml:space="preserve">
+    <value>停用</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Intro" xml:space="preserve">
+    <value>先點開始日期，再點結束日期，中間的日期會保持選取。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Placeholder" xml:space="preserve">
+    <value>選擇日期範圍</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_PresetDesc" xml:space="preserve">
+    <value>範圍可以在 XAML 裡設定。修改後，旁邊的文字會跟著變。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_PresetTitle" xml:space="preserve">
+    <value>預設範圍</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Result" xml:space="preserve">
+    <value>已選</value>
   </data>
   <data name="Sample_ConfettiCannon_Basic" xml:space="preserve">
     <value>基礎禮炮</value>

@@ -138,6 +138,7 @@ public partial class MainWindow : ShellWindow
         ["date-time/date-picker"] = static () => new DatePickerPage(),
         ["date-time/time-picker"] = static () => new TimePickerPage(),
         ["date-time/calendar-date-picker"] = static () => new CalendarDatePickerPage(),
+        ["date-time/calendar-range"] = static () => new CalendarDateRangePickerPage(),
         ["date-time/calendar-date-time-picker"] = static () => new CalendarDateTimePickerPage(),
         ["date-time/time-box-picker"] = static () => new TimeBoxPickerPage(),
         ["date-time/time-box"] = static () => new TimeBoxPage(),

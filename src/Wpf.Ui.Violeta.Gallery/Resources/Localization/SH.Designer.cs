@@ -1332,6 +1332,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CalendarDateRangePicker.
+        /// </summary>
+        public static string Gallery_Page_CalendarDateRangePicker {
+            get {
+                return ResourceManager.GetString("Gallery_Page_CalendarDateRangePicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CalendarDateTimePicker.
         /// </summary>
         public static string Gallery_Page_CalendarDateTimePicker {
@@ -17803,6 +17812,96 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_dae52b8071 {
             get {
                 return ResourceManager.GetString("Sample_dae52b8071", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two clicks select a start and an end..
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_CardDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open the calendar, click the start day, then click the end day..
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_DefaultDesc {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_DefaultDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Range.
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_DefaultTitle {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_DefaultTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The range is visible and cannot be changed..
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_DisabledDesc {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_DisabledDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_DisabledTitle {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_DisabledTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a start date and an end date. The days between them stay highlighted..
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_Intro {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a date range.
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_Placeholder {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A range can be set in XAML. Changing it updates the text beside the picker..
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_PresetDesc {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_PresetDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preset range.
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_PresetTitle {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_PresetTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected.
+        /// </summary>
+        public static string Sample_CalendarDateRangePicker_Result {
+            get {
+                return ResourceManager.GetString("Sample_CalendarDateRangePicker_Result", resourceCulture);
             }
         }
         
