@@ -263,6 +263,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_DatePicker}}" Tag="date-time/date-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimePicker}}" Tag="date-time/time-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDatePicker}}" Tag="date-time/calendar-date-picker" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDateRangePicker}}" Tag="date-time/calendar-range" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_CalendarDateTimePicker}}" Tag="date-time/calendar-date-time-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBoxPicker}}" Tag="date-time/time-box-picker" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_TimeBox}}" Tag="date-time/time-box" />

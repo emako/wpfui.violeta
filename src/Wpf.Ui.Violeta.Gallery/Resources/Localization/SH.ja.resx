@@ -3779,6 +3779,9 @@ OK をクリックして続行してください。</value>
   <data name="Gallery_Page_CalendarDatePicker" xml:space="preserve">
     <value>CalendarDatePicker</value>
   </data>
+  <data name="Gallery_Page_CalendarDateRangePicker" xml:space="preserve">
+    <value>CalendarDateRangePicker</value>
+  </data>
   <data name="Gallery_Page_CalendarDateTimePicker" xml:space="preserve">
     <value>CalendarDateTimePicker</value>
   </data>
@@ -7174,6 +7177,36 @@ OK をクリックして続行してください。</value>
   </data>
   <data name="Sample_ConfettiCannon_PresetsDesc" xml:space="preserve">
     <value>さまざまなスタイルでウィンドウ全体に発射します。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_CardDesc" xml:space="preserve">
+    <value>2回のクリックで開始と終了を選びます。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DefaultDesc" xml:space="preserve">
+    <value>カレンダーを開き、開始日、続いて終了日をクリックします。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DefaultTitle" xml:space="preserve">
+    <value>範囲</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DisabledDesc" xml:space="preserve">
+    <value>範囲は表示されますが、変更できません。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_DisabledTitle" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Intro" xml:space="preserve">
+    <value>開始日を選んでから終了日を選びます。その間の日付は選択されたままです。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Placeholder" xml:space="preserve">
+    <value>日付の範囲を選択</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_PresetDesc" xml:space="preserve">
+    <value>範囲は XAML から設定できます。変更すると横の文字も更新されます。</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_PresetTitle" xml:space="preserve">
+    <value>指定済みの範囲</value>
+  </data>
+  <data name="Sample_CalendarDateRangePicker_Result" xml:space="preserve">
+    <value>選択</value>
   </data>
   <data name="Sample_ConfettiCannon_Basic" xml:space="preserve">
     <value>基本キャノン</value>
