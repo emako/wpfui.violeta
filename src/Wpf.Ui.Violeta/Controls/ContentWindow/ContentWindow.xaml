@@ -49,6 +49,7 @@
 
                                 <local:TitleBar
                                     x:Name="PART_TitleBar"
+                                    Title="{TemplateBinding Title}"
                                     Grid.Row="0"
                                     BackButtonVisibility="{TemplateBinding BackButtonVisibility}"
                                     CloseButtonVisibility="{TemplateBinding CloseButtonVisibility}"
@@ -73,7 +74,6 @@
                                     MoreButtonContextMenu="{TemplateBinding MoreButtonContextMenu}"
                                     MoreButtonVisibility="{TemplateBinding MoreButtonVisibility}"
                                     PaneToggleButtonVisibility="{TemplateBinding PaneToggleButtonVisibility}"
-                                    Title="{TemplateBinding Title}"
                                     Visibility="{TemplateBinding TitleBarVisibility}" />
 
                                 <ContentPresenter

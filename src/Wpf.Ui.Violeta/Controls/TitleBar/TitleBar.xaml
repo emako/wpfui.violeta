@@ -110,8 +110,8 @@
                                     Margin="12,0,4,0"
                                     VerticalAlignment="Center"
                                     RenderOptions.BitmapScalingMode="HighQuality"
-                                    Source="{TemplateBinding Icon}"
-                                    SnapsToDevicePixels="True">
+                                    SnapsToDevicePixels="True"
+                                    Source="{TemplateBinding Icon}">
                                     <Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Visibility" Value="Visible" />

@@ -4,9 +4,9 @@
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--
-      CarouselNavButton — Fluent fui-CarouselNavButton
-      React uses box-sizing:content-box (indicator 8×8 + padding 8).
-      WPF Width includes padding, so size the indicator in-template and leave the control auto-sized.
+        CarouselNavButton — Fluent fui-CarouselNavButton
+        React uses box-sizing:content-box (indicator 8×8 + padding 8).
+        WPF Width includes padding, so size the indicator in-template and leave the control auto-sized.
     -->
     <Style x:Key="DefaultCarouselNavButtonStyle" TargetType="{x:Type local:CarouselNavButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -27,8 +27,8 @@
                 <ControlTemplate TargetType="{x:Type local:CarouselNavButton}">
                     <Border
                         x:Name="HitArea"
-                        Background="{TemplateBinding Background}"
                         Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
                         SnapsToDevicePixels="True">
                         <!--  Indicator sized explicitly (content-box equivalent)  -->
                         <Border
@@ -108,9 +108,9 @@
                 <ControlTemplate TargetType="{x:Type local:CarouselNav}">
                     <Border
                         MinHeight="{TemplateBinding MinHeight}"
+                        Padding="4,2"
                         Background="{TemplateBinding Background}"
                         CornerRadius="12"
-                        Padding="4,2"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                         <StackPanel
                             x:Name="PART_ItemsHost"
@@ -138,10 +138,10 @@
                 <ControlTemplate TargetType="{x:Type local:CarouselItem}">
                     <Border
                         x:Name="Root"
+                        Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                         <ContentPresenter
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -195,8 +195,8 @@
                             HorizontalScrollBarVisibility="Hidden"
                             VerticalScrollBarVisibility="Disabled">
                             <!--
-                              Horizontal host so a trailing circular clone can sit after the
-                              real slides (WPFDevelopers-style last→first wrap).
+                                Horizontal host so a trailing circular clone can sit after the
+                                real slides (WPFDevelopers-style last→first wrap).
                             -->
                             <StackPanel Orientation="Horizontal">
                                 <ItemsPresenter x:Name="PART_ItemsPresenter" />

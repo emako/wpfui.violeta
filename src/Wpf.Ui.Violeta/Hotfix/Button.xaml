@@ -88,10 +88,10 @@
 
                         <!--  SHARED TRIGGERS  -->
                         <!--
-                          Set Foreground on the Button itself (not only ContentPresenter / ControlIcon TextElement.Foreground).
-                          String Content is generated under ContentPresenter and picks up TextElement.Foreground;
-                          element Content (e.g. StackPanel + SymbolIcon/TextBlock) lives in the logical tree and
-                          inherits Button.Foreground — same approach as ToggleButton hotfix.
+                            Set Foreground on the Button itself (not only ContentPresenter / ControlIcon TextElement.Foreground).
+                            String Content is generated under ContentPresenter and picks up TextElement.Foreground;
+                            element Content (e.g. StackPanel + SymbolIcon/TextBlock) lives in the logical tree and
+                            inherits Button.Foreground — same approach as ToggleButton hotfix.
                         -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

@@ -126,335 +126,327 @@
                         SnapsToDevicePixels="True">
                         <Grid ClipToBounds="False">
                             <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                            <local:ColorPreviewer
-                                Grid.Row="0"
-                                Margin="12,12,12,8"
-                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
-                                Visibility="{Binding IsColorPreviewVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                <local:ColorPreviewer
+                                    Grid.Row="0"
+                                    Margin="12,12,12,8"
+                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    IsAccentColorsVisible="{TemplateBinding IsAccentColorsVisible}"
+                                    Visibility="{Binding IsColorPreviewVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                            <local:Segmented
-                                x:Name="PART_Segmented"
-                                Grid.Row="1"
-                                Margin="12,0,12,8"
-                                HorizontalAlignment="Stretch"
-                                ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
-                                SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}">
-                                <local:Segmented.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Rows="1" />
-                                    </ItemsPanelTemplate>
-                                </local:Segmented.ItemsPanel>
-                                <local:SegmentedItem Visibility="{Binding IsColorSpectrumVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Viewbox Width="16" Height="16">
-                                        <Path
-                                            Data="{StaticResource ColorViewSpectrumIconGlyph}"
-                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
-                                    </Viewbox>
-                                </local:SegmentedItem>
-                                <local:SegmentedItem Visibility="{Binding IsColorPaletteVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Viewbox Width="16" Height="16">
-                                        <Path
-                                            Data="{StaticResource ColorViewPaletteIconGlyph}"
-                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
-                                    </Viewbox>
-                                </local:SegmentedItem>
-                                <local:SegmentedItem Visibility="{Binding IsColorComponentsVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Viewbox Width="16" Height="16">
-                                        <Path
-                                            Data="{StaticResource ColorViewComponentsIconGlyph}"
-                                            Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
-                                    </Viewbox>
-                                </local:SegmentedItem>
-                            </local:Segmented>
-
-                            <Grid Grid.Row="2">
-                                <!--  Spectrum  -->
-                                <Grid
-                                    x:Name="SpectrumPanel"
-                                    Margin="12"
-                                    Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=0}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" MinWidth="32" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" MinWidth="32" />
-                                    </Grid.ColumnDefinitions>
-                                    <local:ColorSlider
-                                        x:Name="ColorSpectrumThirdComponentSlider"
-                                        Grid.Column="0"
-                                        Margin="0,0,12,0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Stretch"
-                                        ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
-                                        ColorModel="Hsva"
-                                        HsvColor="{Binding HsvColor, ElementName=ColorSpectrum, Mode=TwoWay}"
-                                        IsAlphaVisible="False"
-                                        IsPerceptive="True"
-                                        Orientation="Vertical"
-                                        Visibility="{Binding IsColorSpectrumSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                    <local:ColorSpectrum
-                                        x:Name="ColorSpectrum"
-                                        Grid.Column="1"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Components="{TemplateBinding ColorSpectrumComponents}"
-                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        MaxHue="{TemplateBinding MaxHue}"
-                                        MaxSaturation="{TemplateBinding MaxSaturation}"
-                                        MaxValue="{TemplateBinding MaxValue}"
-                                        MinHue="{TemplateBinding MinHue}"
-                                        MinSaturation="{TemplateBinding MinSaturation}"
-                                        MinValue="{TemplateBinding MinValue}"
-                                        Shape="{TemplateBinding ColorSpectrumShape}" />
-                                    <local:ColorSlider
-                                        x:Name="ColorSpectrumAlphaSlider"
-                                        Grid.Column="2"
-                                        Margin="12,0,0,0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Stretch"
-                                        ColorComponent="Alpha"
-                                        ColorModel="Hsva"
-                                        HsvColor="{Binding HsvColor, ElementName=ColorSpectrum, Mode=TwoWay}"
-                                        IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                        Orientation="Vertical"
-                                        Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                                </Grid>
-
-                                <!--  Palette  -->
-                                <ListBox
-                                    x:Name="PART_PalettePanel"
-                                    Margin="12,4,12,12"
-                                    VerticalAlignment="Stretch"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    ItemContainerStyle="{StaticResource ColorViewPaletteListBoxItemStyle}"
-                                    ItemsSource="{TemplateBinding PaletteColors}"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                    SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource DoNothingForNullConverter}}"
-                                    SnapsToDevicePixels="False"
-                                    Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=1}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate DataType="{x:Type media:Color}">
-                                            <Border
-                                                ClipToBounds="True"
-                                                CornerRadius="{DynamicResource ColorPaletteSwatchCornerRadius}"
-                                                HorizontalAlignment="Stretch"
-                                                VerticalAlignment="Stretch"
-                                                ToolTip="{Binding Converter={StaticResource ColorToDisplayNameConverter}}">
-                                                <Border.Background>
-                                                    <SolidColorBrush Color="{Binding}" />
-                                                </Border.Background>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                    <ListBox.ItemsPanel>
+                                <local:Segmented
+                                    x:Name="PART_Segmented"
+                                    Grid.Row="1"
+                                    Margin="12,0,12,8"
+                                    HorizontalAlignment="Stretch"
+                                    ItemContainerStyle="{StaticResource ColorViewSegmentedItemStyle}"
+                                    SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}">
+                                    <local:Segmented.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <UniformGrid
-                                                Columns="{Binding PaletteColumnCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}"
-                                                Rows="{Binding PaletteRowCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}" />
+                                            <UniformGrid Rows="1" />
                                         </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                </ListBox>
+                                    </local:Segmented.ItemsPanel>
+                                    <local:SegmentedItem Visibility="{Binding IsColorSpectrumVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <Viewbox Width="16" Height="16">
+                                            <Path Data="{StaticResource ColorViewSpectrumIconGlyph}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                        </Viewbox>
+                                    </local:SegmentedItem>
+                                    <local:SegmentedItem Visibility="{Binding IsColorPaletteVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <Viewbox Width="16" Height="16">
+                                            <Path Data="{StaticResource ColorViewPaletteIconGlyph}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                        </Viewbox>
+                                    </local:SegmentedItem>
+                                    <local:SegmentedItem Visibility="{Binding IsColorComponentsVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <Viewbox Width="16" Height="16">
+                                            <Path Data="{StaticResource ColorViewComponentsIconGlyph}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type local:SegmentedItem}}}" />
+                                        </Viewbox>
+                                    </local:SegmentedItem>
+                                </local:Segmented>
 
-                                <!--  Components  -->
-                                <Grid
-                                    x:Name="ComponentsPanel"
-                                    Margin="12"
-                                    SnapsToDevicePixels="False"
-                                    Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=2}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="12" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                                <Grid Grid.Row="2">
+                                    <!--  Spectrum  -->
+                                    <Grid
+                                        x:Name="SpectrumPanel"
+                                        Margin="12"
+                                        Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=0}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" MinWidth="32" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" MinWidth="32" />
+                                        </Grid.ColumnDefinitions>
+                                        <local:ColorSlider
+                                            x:Name="ColorSpectrumThirdComponentSlider"
+                                            Grid.Column="0"
+                                            Margin="0,0,12,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Stretch"
+                                            ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
+                                            ColorModel="Hsva"
+                                            HsvColor="{Binding HsvColor, ElementName=ColorSpectrum, Mode=TwoWay}"
+                                            IsAlphaVisible="False"
+                                            IsPerceptive="True"
+                                            Orientation="Vertical"
+                                            Visibility="{Binding IsColorSpectrumSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <local:ColorSpectrum
+                                            x:Name="ColorSpectrum"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Components="{TemplateBinding ColorSpectrumComponents}"
+                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            MaxHue="{TemplateBinding MaxHue}"
+                                            MaxSaturation="{TemplateBinding MaxSaturation}"
+                                            MaxValue="{TemplateBinding MaxValue}"
+                                            MinHue="{TemplateBinding MinHue}"
+                                            MinSaturation="{TemplateBinding MinSaturation}"
+                                            MinValue="{TemplateBinding MinValue}"
+                                            Shape="{TemplateBinding ColorSpectrumShape}" />
+                                        <local:ColorSlider
+                                            x:Name="ColorSpectrumAlphaSlider"
+                                            Grid.Column="2"
+                                            Margin="12,0,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Stretch"
+                                            ColorComponent="Alpha"
+                                            ColorModel="Hsva"
+                                            HsvColor="{Binding HsvColor, ElementName=ColorSpectrum, Mode=TwoWay}"
+                                            IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                            Orientation="Vertical"
+                                            Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    </Grid>
 
-                                    <!--
-                                        OverlayComboBox hosts its list on PART_OverlayLayer (same HWND as ColorPicker's
-                                        Popup) so selecting RGB/HSV does not dismiss the outer flyout.
-                                    -->
-                                    <local:OverlayComboBox
-                                        x:Name="PART_ColorModelComboBox"
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
-                                        VerticalAlignment="Center"
-                                        SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        SelectedValuePath="Tag"
-                                        Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
-                                        <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
-                                    </local:OverlayComboBox>
-                                    <ui:TextBox
-                                        x:Name="PART_HexTextBox"
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        VerticalAlignment="Center"
-                                        MaxLength="8"
-                                        ClearButtonEnabled="False"
-                                        Style="{DynamicResource PrefixTextBoxStyle}"
-                                        VerticalContentAlignment="Center"
-                                        Visibility="{Binding IsHexInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        local:InputAssist.Prefix="#" />
+                                    <!--  Palette  -->
+                                    <ListBox
+                                        x:Name="PART_PalettePanel"
+                                        Margin="12,4,12,12"
+                                        VerticalAlignment="Stretch"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        ItemContainerStyle="{StaticResource ColorViewPaletteListBoxItemStyle}"
+                                        ItemsSource="{TemplateBinding PaletteColors}"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                        SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource DoNothingForNullConverter}}"
+                                        SnapsToDevicePixels="False"
+                                        Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=1}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type media:Color}">
+                                                <Border
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    ClipToBounds="True"
+                                                    CornerRadius="{DynamicResource ColorPaletteSwatchCornerRadius}"
+                                                    ToolTip="{Binding Converter={StaticResource ColorToDisplayNameConverter}}">
+                                                    <Border.Background>
+                                                        <SolidColorBrush Color="{Binding}" />
+                                                    </Border.Background>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Columns="{Binding PaletteColumnCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}" Rows="{Binding PaletteRowCount, RelativeSource={RelativeSource AncestorType={x:Type local:ColorView}}}" />
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+                                    </ListBox>
 
-                                    <local:NumericDoubleUpDown
-                                        x:Name="Component1NumericUpDown"
-                                        Grid.Row="2"
-                                        Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
-                                        Padding="{DynamicResource ColorViewNumericUpDownPadding}"
-                                        VerticalAlignment="Center"
-                                        Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
-                                        InnerLeftContent="R"
-                                        Maximum="{Binding Maximum, ElementName=Component1Slider}"
-                                        Minimum="{Binding Minimum, ElementName=Component1Slider}"
-                                        Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        Value="{Binding Value, ElementName=Component1Slider, Mode=TwoWay}" />
-                                    <local:ColorSlider
-                                        x:Name="Component1Slider"
-                                        Grid.Row="2"
-                                        Grid.Column="1"
-                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Center"
-                                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        ColorComponent="Component1"
-                                        ColorModel="{TemplateBinding ColorModel}"
-                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        IsRoundingEnabled="True"
-                                        IsSnapToTickEnabled="True"
-                                        Orientation="Horizontal"
-                                        TickFrequency="1"
-                                        Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <!--  Components  -->
+                                    <Grid
+                                        x:Name="ComponentsPanel"
+                                        Margin="12"
+                                        SnapsToDevicePixels="False"
+                                        Visibility="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IndexToVisibilityConverter}, ConverterParameter=2}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="12" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                    <local:NumericDoubleUpDown
-                                        x:Name="Component2NumericUpDown"
-                                        Grid.Row="3"
-                                        Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
-                                        Padding="{DynamicResource ColorViewNumericUpDownPadding}"
-                                        VerticalAlignment="Center"
-                                        Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
-                                        InnerLeftContent="G"
-                                        Maximum="{Binding Maximum, ElementName=Component2Slider}"
-                                        Minimum="{Binding Minimum, ElementName=Component2Slider}"
-                                        Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        Value="{Binding Value, ElementName=Component2Slider, Mode=TwoWay}" />
-                                    <local:ColorSlider
-                                        x:Name="Component2Slider"
-                                        Grid.Row="3"
-                                        Grid.Column="1"
-                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Center"
-                                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        ColorComponent="Component2"
-                                        ColorModel="{TemplateBinding ColorModel}"
-                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        IsRoundingEnabled="True"
-                                        IsSnapToTickEnabled="True"
-                                        Orientation="Horizontal"
-                                        TickFrequency="1"
-                                        Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <!--
+                                            OverlayComboBox hosts its list on PART_OverlayLayer (same HWND as ColorPicker's
+                                            Popup) so selecting RGB/HSV does not dismiss the outer flyout.
+                                        -->
+                                        <local:OverlayComboBox
+                                            x:Name="PART_ColorModelComboBox"
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                            VerticalAlignment="Center"
+                                            SelectedValue="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            SelectedValuePath="Tag"
+                                            Visibility="{Binding IsColorModelVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <ComboBoxItem Content="RGB" Tag="{x:Static local:ColorModel.Rgba}" />
+                                            <ComboBoxItem Content="HSV" Tag="{x:Static local:ColorModel.Hsva}" />
+                                        </local:OverlayComboBox>
+                                        <ui:TextBox
+                                            x:Name="PART_HexTextBox"
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            VerticalAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            local:InputAssist.Prefix="#"
+                                            ClearButtonEnabled="False"
+                                            MaxLength="8"
+                                            Style="{DynamicResource PrefixTextBoxStyle}"
+                                            Visibility="{Binding IsHexInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                                    <local:NumericDoubleUpDown
-                                        x:Name="Component3NumericUpDown"
-                                        Grid.Row="4"
-                                        Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewComponentRowMargin}"
-                                        Padding="{DynamicResource ColorViewNumericUpDownPadding}"
-                                        VerticalAlignment="Center"
-                                        Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
-                                        InnerLeftContent="B"
-                                        Maximum="{Binding Maximum, ElementName=Component3Slider}"
-                                        Minimum="{Binding Minimum, ElementName=Component3Slider}"
-                                        Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        Value="{Binding Value, ElementName=Component3Slider, Mode=TwoWay}" />
-                                    <local:ColorSlider
-                                        x:Name="Component3Slider"
-                                        Grid.Row="4"
-                                        Grid.Column="1"
-                                        Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Center"
-                                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        ColorComponent="Component3"
-                                        ColorModel="{TemplateBinding ColorModel}"
-                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        IsRoundingEnabled="True"
-                                        IsSnapToTickEnabled="True"
-                                        Orientation="Horizontal"
-                                        TickFrequency="1"
-                                        Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <local:NumericDoubleUpDown
+                                            x:Name="Component1NumericUpDown"
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            Margin="{DynamicResource ColorViewComponentRowMargin}"
+                                            Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                            VerticalAlignment="Center"
+                                            InnerLeftContent="R"
+                                            Maximum="{Binding Maximum, ElementName=Component1Slider}"
+                                            Minimum="{Binding Minimum, ElementName=Component1Slider}"
+                                            Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
+                                            Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Value="{Binding Value, ElementName=Component1Slider, Mode=TwoWay}" />
+                                        <local:ColorSlider
+                                            x:Name="Component1Slider"
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            ColorComponent="Component1"
+                                            ColorModel="{TemplateBinding ColorModel}"
+                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            IsRoundingEnabled="True"
+                                            IsSnapToTickEnabled="True"
+                                            Orientation="Horizontal"
+                                            TickFrequency="1"
+                                            Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
 
-                                    <local:NumericDoubleUpDown
-                                        x:Name="AlphaComponentNumericUpDown"
-                                        Grid.Row="5"
-                                        Grid.Column="0"
-                                        Width="{DynamicResource ColorViewNumericUpDownWidth}"
-                                        MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
-                                        Margin="{DynamicResource ColorViewNumericUpDownMargin}"
-                                        Padding="{DynamicResource ColorViewNumericUpDownPadding}"
-                                        VerticalAlignment="Center"
-                                        Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
-                                        InnerLeftContent="A"
-                                        IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                        Maximum="{Binding Maximum, ElementName=AlphaComponentSlider}"
-                                        Minimum="{Binding Minimum, ElementName=AlphaComponentSlider}"
-                                        Value="{Binding Value, ElementName=AlphaComponentSlider, Mode=TwoWay}">
-                                        <local:NumericDoubleUpDown.Visibility>
-                                            <MultiBinding Converter="{StaticResource BoolAndToVisibilityConverter}">
-                                                <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                            </MultiBinding>
-                                        </local:NumericDoubleUpDown.Visibility>
-                                    </local:NumericDoubleUpDown>
-                                    <local:ColorSlider
-                                        x:Name="AlphaComponentSlider"
-                                        Grid.Row="5"
-                                        Grid.Column="1"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Center"
-                                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        ColorComponent="Alpha"
-                                        ColorModel="{TemplateBinding ColorModel}"
-                                        HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                        IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                        IsRoundingEnabled="True"
-                                        IsSnapToTickEnabled="True"
-                                        Orientation="Horizontal"
-                                        TickFrequency="1">
-                                        <local:ColorSlider.Visibility>
-                                            <MultiBinding Converter="{StaticResource BoolAndToVisibilityConverter}">
-                                                <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                                <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
-                                            </MultiBinding>
-                                        </local:ColorSlider.Visibility>
-                                    </local:ColorSlider>
+                                        <local:NumericDoubleUpDown
+                                            x:Name="Component2NumericUpDown"
+                                            Grid.Row="3"
+                                            Grid.Column="0"
+                                            Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            Margin="{DynamicResource ColorViewComponentRowMargin}"
+                                            Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                            VerticalAlignment="Center"
+                                            InnerLeftContent="G"
+                                            Maximum="{Binding Maximum, ElementName=Component2Slider}"
+                                            Minimum="{Binding Minimum, ElementName=Component2Slider}"
+                                            Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
+                                            Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Value="{Binding Value, ElementName=Component2Slider, Mode=TwoWay}" />
+                                        <local:ColorSlider
+                                            x:Name="Component2Slider"
+                                            Grid.Row="3"
+                                            Grid.Column="1"
+                                            Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            ColorComponent="Component2"
+                                            ColorModel="{TemplateBinding ColorModel}"
+                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            IsRoundingEnabled="True"
+                                            IsSnapToTickEnabled="True"
+                                            Orientation="Horizontal"
+                                            TickFrequency="1"
+                                            Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+
+                                        <local:NumericDoubleUpDown
+                                            x:Name="Component3NumericUpDown"
+                                            Grid.Row="4"
+                                            Grid.Column="0"
+                                            Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            Margin="{DynamicResource ColorViewComponentRowMargin}"
+                                            Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                            VerticalAlignment="Center"
+                                            InnerLeftContent="B"
+                                            Maximum="{Binding Maximum, ElementName=Component3Slider}"
+                                            Minimum="{Binding Minimum, ElementName=Component3Slider}"
+                                            Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
+                                            Visibility="{Binding IsComponentTextInputVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Value="{Binding Value, ElementName=Component3Slider, Mode=TwoWay}" />
+                                        <local:ColorSlider
+                                            x:Name="Component3Slider"
+                                            Grid.Row="4"
+                                            Grid.Column="1"
+                                            Margin="{DynamicResource ColorViewComponentSliderRowMargin}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            ColorComponent="Component3"
+                                            ColorModel="{TemplateBinding ColorModel}"
+                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            IsRoundingEnabled="True"
+                                            IsSnapToTickEnabled="True"
+                                            Orientation="Horizontal"
+                                            TickFrequency="1"
+                                            Visibility="{Binding IsComponentSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                            Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+
+                                        <local:NumericDoubleUpDown
+                                            x:Name="AlphaComponentNumericUpDown"
+                                            Grid.Row="5"
+                                            Grid.Column="0"
+                                            Width="{DynamicResource ColorViewNumericUpDownWidth}"
+                                            MinHeight="{DynamicResource ColorViewNumericUpDownMinHeight}"
+                                            Margin="{DynamicResource ColorViewNumericUpDownMargin}"
+                                            Padding="{DynamicResource ColorViewNumericUpDownPadding}"
+                                            VerticalAlignment="Center"
+                                            InnerLeftContent="A"
+                                            IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                            Maximum="{Binding Maximum, ElementName=AlphaComponentSlider}"
+                                            Minimum="{Binding Minimum, ElementName=AlphaComponentSlider}"
+                                            Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
+                                            Value="{Binding Value, ElementName=AlphaComponentSlider, Mode=TwoWay}">
+                                            <local:NumericDoubleUpDown.Visibility>
+                                                <MultiBinding Converter="{StaticResource BoolAndToVisibilityConverter}">
+                                                    <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                    <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                </MultiBinding>
+                                            </local:NumericDoubleUpDown.Visibility>
+                                        </local:NumericDoubleUpDown>
+                                        <local:ColorSlider
+                                            x:Name="AlphaComponentSlider"
+                                            Grid.Row="5"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            ColorComponent="Alpha"
+                                            ColorModel="{TemplateBinding ColorModel}"
+                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                            IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                            IsRoundingEnabled="True"
+                                            IsSnapToTickEnabled="True"
+                                            Orientation="Horizontal"
+                                            TickFrequency="1"
+                                            Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                            <local:ColorSlider.Visibility>
+                                                <MultiBinding Converter="{StaticResource BoolAndToVisibilityConverter}">
+                                                    <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                    <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                </MultiBinding>
+                                            </local:ColorSlider.Visibility>
+                                        </local:ColorSlider>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
                             </Grid>
                             <Canvas
                                 x:Name="PART_OverlayLayer"
@@ -490,148 +482,146 @@
                 <ControlTemplate TargetType="{x:Type local:ColorView}">
                     <Grid ClipToBounds="False">
                         <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" MinHeight="200" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Border
-                            Grid.Row="0"
-                            ClipToBounds="True"
-                            CornerRadius="8,8,0,0">
-                            <local:ColorSpectrum
-                                x:Name="ColorSpectrum"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Components="{TemplateBinding ColorSpectrumComponents}"
-                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                MaxHue="{TemplateBinding MaxHue}"
-                                MaxSaturation="{TemplateBinding MaxSaturation}"
-                                MaxValue="{TemplateBinding MaxValue}"
-                                MinHue="{TemplateBinding MinHue}"
-                                MinSaturation="{TemplateBinding MinSaturation}"
-                                MinValue="{TemplateBinding MinValue}"
-                                Shape="{TemplateBinding ColorSpectrumShape}" />
-                        </Border>
-
-                        <local:ColorSlider
-                            x:Name="ColorSpectrumThirdComponentSlider"
-                            Grid.Row="1"
-                            Margin="0,8,0,0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
-                            ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
-                            ColorModel="Hsva"
-                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                            IsAlphaVisible="False"
-                            IsPerceptive="True"
-                            Orientation="Horizontal"
-                            Visibility="{Binding IsColorSpectrumSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
-                        <local:ColorSlider
-                            x:Name="ColorSpectrumAlphaSlider"
-                            Grid.Row="2"
-                            Margin="0,8,0,0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
-                            ColorComponent="Alpha"
-                            ColorModel="Hsva"
-                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                            IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                            IsRoundingEnabled="True"
-                            IsSnapToTickEnabled="True"
-                            Orientation="Horizontal"
-                            TickFrequency="1"
-                            Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
-                        <Grid
-                            Grid.Row="3"
-                            Margin="0,8,0,0"
-                            MinHeight="{DynamicResource TextControlThemeMinHeight}"
-                            HorizontalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" MinHeight="200" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
                             <Border
-                                Grid.Column="0"
-                                Width="20"
-                                Height="20"
-                                Margin="0,0,8,0"
+                                Grid.Row="0"
+                                ClipToBounds="True"
+                                CornerRadius="8,8,0,0">
+                                <local:ColorSpectrum
+                                    x:Name="ColorSpectrum"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Components="{TemplateBinding ColorSpectrumComponents}"
+                                    HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                    MaxHue="{TemplateBinding MaxHue}"
+                                    MaxSaturation="{TemplateBinding MaxSaturation}"
+                                    MaxValue="{TemplateBinding MaxValue}"
+                                    MinHue="{TemplateBinding MinHue}"
+                                    MinSaturation="{TemplateBinding MinSaturation}"
+                                    MinValue="{TemplateBinding MinValue}"
+                                    Shape="{TemplateBinding ColorSpectrumShape}" />
+                            </Border>
+
+                            <local:ColorSlider
+                                x:Name="ColorSpectrumThirdComponentSlider"
+                                Grid.Row="1"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
-                                Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorPickerToBrushConverter}}"
-                                CornerRadius="4" />
+                                ColorComponent="{Binding ThirdComponent, ElementName=ColorSpectrum}"
+                                ColorModel="Hsva"
+                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                IsAlphaVisible="False"
+                                IsPerceptive="True"
+                                Orientation="Horizontal"
+                                Visibility="{Binding IsColorSpectrumSliderVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                            <local:ColorSlider
+                                x:Name="ColorSpectrumAlphaSlider"
+                                Grid.Row="2"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                ColorComponent="Alpha"
+                                ColorModel="Hsva"
+                                HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                IsRoundingEnabled="True"
+                                IsSnapToTickEnabled="True"
+                                Orientation="Horizontal"
+                                TickFrequency="1"
+                                Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
                             <Grid
-                                x:Name="PART_TextBoxPanel"
-                                Grid.Column="1"
-                                Margin="0,0,8,0"
-                                VerticalAlignment="Stretch">
+                                Grid.Row="3"
+                                MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Border
+                                    Grid.Column="0"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,8,0"
+                                    VerticalAlignment="Center"
+                                    Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ColorPickerToBrushConverter}}"
+                                    CornerRadius="4" />
+
                                 <Grid
-                                    x:Name="HexInputPanel"
-                                    Visibility="Visible">
+                                    x:Name="PART_TextBoxPanel"
+                                    Grid.Column="1"
+                                    Margin="0,0,8,0"
+                                    VerticalAlignment="Stretch">
+                                    <Grid x:Name="HexInputPanel" Visibility="Visible">
+                                        <ui:TextBox
+                                            x:Name="PART_HexTextBox"
+                                            MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                            VerticalAlignment="Stretch"
+                                            VerticalContentAlignment="Center"
+                                            local:InputAssist.Prefix="#"
+                                            ClearButtonEnabled="False"
+                                            MaxLength="8"
+                                            Style="{DynamicResource PrefixTextBoxStyle}" />
+                                    </Grid>
                                     <ui:TextBox
-                                        x:Name="PART_HexTextBox"
+                                        x:Name="PART_RgbaTextBox"
                                         MinHeight="{DynamicResource TextControlThemeMinHeight}"
                                         VerticalAlignment="Stretch"
-                                        MaxLength="8"
+                                        VerticalContentAlignment="Center"
                                         ClearButtonEnabled="False"
                                         Style="{DynamicResource PrefixTextBoxStyle}"
+                                        Text="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ColorToTextConverter}, Mode=TwoWay}"
+                                        Visibility="Collapsed" />
+                                    <ui:TextBox
+                                        x:Name="PART_HsvaTextBox"
+                                        MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                        VerticalAlignment="Stretch"
                                         VerticalContentAlignment="Center"
-                                        local:InputAssist.Prefix="#" />
+                                        ClearButtonEnabled="False"
+                                        Style="{DynamicResource PrefixTextBoxStyle}"
+                                        Text="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:HsvColorToTextConverter}, Mode=TwoWay}"
+                                        Visibility="Collapsed" />
                                 </Grid>
-                                <ui:TextBox
-                                    x:Name="PART_RgbaTextBox"
+
+                                <local:NumericDoubleUpDown
+                                    x:Name="AlphaComponentNumericUpDown"
+                                    Grid.Column="2"
+                                    Width="68"
+                                    MinHeight="{DynamicResource TextControlThemeMinHeight}"
+                                    Margin="0,0,8,0"
+                                    VerticalAlignment="Stretch"
+                                    InnerRightContent="%"
+                                    IsEnabled="{TemplateBinding IsAlphaEnabled}"
+                                    Maximum="{Binding Maximum, ElementName=ColorSpectrumAlphaSlider}"
+                                    Minimum="{Binding Minimum, ElementName=ColorSpectrumAlphaSlider}"
+                                    Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
+                                    Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                    Value="{Binding Value, ElementName=ColorSpectrumAlphaSlider, Mode=TwoWay}" />
+
+                                <local:OverlayComboBox
+                                    x:Name="PART_ColorModelComboBox"
+                                    Grid.Column="3"
+                                    Width="88"
                                     MinHeight="{DynamicResource TextControlThemeMinHeight}"
                                     VerticalAlignment="Stretch"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource PrefixTextBoxStyle}"
-                                    ClearButtonEnabled="False"
-                                    Text="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:ColorToTextConverter}, Mode=TwoWay}"
-                                    Visibility="Collapsed" />
-                                <ui:TextBox
-                                    x:Name="PART_HsvaTextBox"
-                                    MinHeight="{DynamicResource TextControlThemeMinHeight}"
-                                    VerticalAlignment="Stretch"
-                                    VerticalContentAlignment="Center"
-                                    Style="{DynamicResource PrefixTextBoxStyle}"
-                                    ClearButtonEnabled="False"
-                                    Text="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={converters:HsvColorToTextConverter}, Mode=TwoWay}"
-                                    Visibility="Collapsed" />
+                                    SelectedIndex="0">
+                                    <ComboBoxItem Content="Hex" />
+                                    <ComboBoxItem Content="Rgba" />
+                                    <ComboBoxItem Content="Hsva" />
+                                </local:OverlayComboBox>
                             </Grid>
-
-                            <local:NumericDoubleUpDown
-                                x:Name="AlphaComponentNumericUpDown"
-                                Grid.Column="2"
-                                Width="68"
-                                MinHeight="{DynamicResource TextControlThemeMinHeight}"
-                                Margin="0,0,8,0"
-                                VerticalAlignment="Stretch"
-                                Style="{DynamicResource PrefixNumericDoubleUpDownStyle}"
-                                InnerRightContent="%"
-                                IsEnabled="{TemplateBinding IsAlphaEnabled}"
-                                Maximum="{Binding Maximum, ElementName=ColorSpectrumAlphaSlider}"
-                                Minimum="{Binding Minimum, ElementName=ColorSpectrumAlphaSlider}"
-                                Visibility="{Binding IsAlphaVisible, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                Value="{Binding Value, ElementName=ColorSpectrumAlphaSlider, Mode=TwoWay}" />
-
-                            <local:OverlayComboBox
-                                x:Name="PART_ColorModelComboBox"
-                                Grid.Column="3"
-                                Width="88"
-                                MinHeight="{DynamicResource TextControlThemeMinHeight}"
-                                VerticalAlignment="Stretch"
-                                SelectedIndex="0">
-                                <ComboBoxItem Content="Hex" />
-                                <ComboBoxItem Content="Rgba" />
-                                <ComboBoxItem Content="Hsva" />
-                            </local:OverlayComboBox>
-                        </Grid>
                         </Grid>
                         <Canvas
                             x:Name="PART_OverlayLayer"

@@ -31,19 +31,19 @@
                         <Grid>
                             <ui:Arc
                                 x:Name="PART_TrackRing"
-                                StartAngle="0"
                                 EndAngle="359.9"
+                                StartAngle="0"
                                 Stretch="None"
-                                StrokeStartLineCap="Round"
                                 StrokeEndLineCap="Round"
+                                StrokeStartLineCap="Round"
                                 StrokeThickness="{TemplateBinding TrackRingThickness}" />
                             <ui:Arc
                                 x:Name="PART_ValueRing"
-                                StartAngle="0"
                                 EndAngle="{TemplateBinding ValueAngle}"
+                                StartAngle="0"
                                 Stretch="None"
-                                StrokeStartLineCap="Round"
                                 StrokeEndLineCap="Round"
+                                StrokeStartLineCap="Round"
                                 StrokeThickness="{TemplateBinding ValueRingThickness}" />
                             <ContentPresenter
                                 HorizontalAlignment="Center"

@@ -9,12 +9,8 @@
         <ResourceDictionary Source="./Indicator/Indicator.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush
-        x:Key="IndicatorForeground"
-        Color="{DynamicResource SystemAccentColorPrimary}" />
-    <SolidColorBrush
-        x:Key="IndicatorBackground"
-        Color="{DynamicResource SystemAccentColorTertiary}" />
+    <SolidColorBrush x:Key="IndicatorForeground" Color="{DynamicResource SystemAccentColorPrimary}" />
+    <SolidColorBrush x:Key="IndicatorBackground" Color="{DynamicResource SystemAccentColorTertiary}" />
 
     <sys:Double x:Key="IndicatorScaleX" fr:Freeze="True">1</sys:Double>
     <sys:Double x:Key="IndicatorScaleY" fr:Freeze="True">1</sys:Double>

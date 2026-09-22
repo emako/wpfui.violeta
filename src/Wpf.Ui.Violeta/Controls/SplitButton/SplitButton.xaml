@@ -71,11 +71,14 @@
                                 x:Name="PART_Content"
                                 Grid.Column="0"
                                 Margin="0"
-                                Padding="{TemplateBinding Padding, Converter={StaticResource LeftSplitThicknessConverter}}"
+                                Padding="{TemplateBinding Padding,
+                                                          Converter={StaticResource LeftSplitThicknessConverter}}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource LeftSplitThicknessConverter}}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftSplitCornerRadiusConverter}}">
+                                BorderThickness="{TemplateBinding BorderThickness,
+                                                                  Converter={StaticResource LeftSplitThicknessConverter}}"
+                                CornerRadius="{TemplateBinding CornerRadius,
+                                                               Converter={StaticResource LeftSplitCornerRadiusConverter}}">
                                 <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -106,8 +109,10 @@
                                 Margin="0"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource RightSplitThicknessConverter}}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource RightSplitCornerRadiusConverter}}">
+                                BorderThickness="{TemplateBinding BorderThickness,
+                                                                  Converter={StaticResource RightSplitThicknessConverter}}"
+                                CornerRadius="{TemplateBinding CornerRadius,
+                                                               Converter={StaticResource RightSplitCornerRadiusConverter}}">
                                 <ToggleButton
                                     x:Name="PART_ToggleButton"
                                     HorizontalAlignment="Stretch"

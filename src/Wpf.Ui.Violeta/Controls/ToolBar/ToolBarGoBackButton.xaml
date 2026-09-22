@@ -27,7 +27,7 @@
         x:Key="ToolBarGoBackButtonStyle"
         BasedOn="{StaticResource SimpleGoBackButtonStyle}"
         TargetType="{x:Type local:GoBackButton}">
-<Setter Property="Template">
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:GoBackButton}">
                     <Border

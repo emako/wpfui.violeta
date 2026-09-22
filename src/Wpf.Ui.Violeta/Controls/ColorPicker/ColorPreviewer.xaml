@@ -42,9 +42,7 @@
                                 Grid.Column="1"
                                 Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource AccentColorConverter}, ConverterParameter=-1}"
                                 Tag="-1" />
-                            <Border
-                                Grid.Column="2"
-                                Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" />
+                            <Border Grid.Column="2" Background="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ToBrushConverter}}" />
                             <Border
                                 x:Name="PART_AccentIncrement1Border"
                                 Grid.Column="3"

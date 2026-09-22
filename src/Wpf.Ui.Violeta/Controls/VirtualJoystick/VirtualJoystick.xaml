@@ -14,34 +14,88 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:VirtualJoystick}">
-                    <Canvas x:Name="PART_Surface" Background="Transparent" Cursor="Hand">
-                        <Path x:Name="PART_ArcUp" Fill="{TemplateBinding ArcPathBrush}" IsHitTestVisible="False" />
-                        <Path x:Name="PART_ArcRight" Fill="{TemplateBinding ArcPathBrush}" IsHitTestVisible="False" />
-                        <Path x:Name="PART_ArcDown" Fill="{TemplateBinding ArcPathBrush}" IsHitTestVisible="False" />
-                        <Path x:Name="PART_ArcLeft" Fill="{TemplateBinding ArcPathBrush}" IsHitTestVisible="False" />
-                        <Viewbox x:Name="PART_ArrowUp" IsHitTestVisible="False" Stretch="Uniform">
+                    <Canvas
+                        x:Name="PART_Surface"
+                        Background="Transparent"
+                        Cursor="Hand">
+                        <Path
+                            x:Name="PART_ArcUp"
+                            Fill="{TemplateBinding ArcPathBrush}"
+                            IsHitTestVisible="False" />
+                        <Path
+                            x:Name="PART_ArcRight"
+                            Fill="{TemplateBinding ArcPathBrush}"
+                            IsHitTestVisible="False" />
+                        <Path
+                            x:Name="PART_ArcDown"
+                            Fill="{TemplateBinding ArcPathBrush}"
+                            IsHitTestVisible="False" />
+                        <Path
+                            x:Name="PART_ArcLeft"
+                            Fill="{TemplateBinding ArcPathBrush}"
+                            IsHitTestVisible="False" />
+                        <Viewbox
+                            x:Name="PART_ArrowUp"
+                            IsHitTestVisible="False"
+                            Stretch="Uniform">
                             <Canvas Width="24" Height="24">
-                                <Polyline x:Name="PART_ArrowUpLine" Fill="Transparent" Points="6,15 12,9 18,15" StrokeLineJoin="Round" StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
+                                <Polyline
+                                    x:Name="PART_ArrowUpLine"
+                                    Fill="Transparent"
+                                    Points="6,15 12,9 18,15"
+                                    StrokeLineJoin="Round"
+                                    StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
                             </Canvas>
                         </Viewbox>
-                        <Viewbox x:Name="PART_ArrowDown" IsHitTestVisible="False" Stretch="Uniform">
+                        <Viewbox
+                            x:Name="PART_ArrowDown"
+                            IsHitTestVisible="False"
+                            Stretch="Uniform">
                             <Canvas Width="24" Height="24">
-                                <Polyline x:Name="PART_ArrowDownLine" Fill="Transparent" Points="6,9 12,15 18,9" StrokeLineJoin="Round" StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
+                                <Polyline
+                                    x:Name="PART_ArrowDownLine"
+                                    Fill="Transparent"
+                                    Points="6,9 12,15 18,9"
+                                    StrokeLineJoin="Round"
+                                    StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
                             </Canvas>
                         </Viewbox>
-                        <Viewbox x:Name="PART_ArrowLeft" IsHitTestVisible="False" Stretch="Uniform">
+                        <Viewbox
+                            x:Name="PART_ArrowLeft"
+                            IsHitTestVisible="False"
+                            Stretch="Uniform">
                             <Canvas Width="24" Height="24">
-                                <Polyline x:Name="PART_ArrowLeftLine" Fill="Transparent" Points="15,6 9,12 15,18" StrokeLineJoin="Round" StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
+                                <Polyline
+                                    x:Name="PART_ArrowLeftLine"
+                                    Fill="Transparent"
+                                    Points="15,6 9,12 15,18"
+                                    StrokeLineJoin="Round"
+                                    StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
                             </Canvas>
                         </Viewbox>
-                        <Viewbox x:Name="PART_ArrowRight" IsHitTestVisible="False" Stretch="Uniform">
+                        <Viewbox
+                            x:Name="PART_ArrowRight"
+                            IsHitTestVisible="False"
+                            Stretch="Uniform">
                             <Canvas Width="24" Height="24">
-                                <Polyline x:Name="PART_ArrowRightLine" Fill="Transparent" Points="9,6 15,12 9,18" StrokeLineJoin="Round" StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
+                                <Polyline
+                                    x:Name="PART_ArrowRightLine"
+                                    Fill="Transparent"
+                                    Points="9,6 15,12 9,18"
+                                    StrokeLineJoin="Round"
+                                    StrokeThickness="{TemplateBinding ArrowStrokeThickness}" />
                             </Canvas>
                         </Viewbox>
-                        <Ellipse x:Name="PART_InnerGuide" Fill="Transparent" IsHitTestVisible="False" />
+                        <Ellipse
+                            x:Name="PART_InnerGuide"
+                            Fill="Transparent"
+                            IsHitTestVisible="False" />
                         <Grid x:Name="PART_Knob" IsHitTestVisible="False">
-                            <Ellipse x:Name="PART_KnobEllipse" Fill="{TemplateBinding KnobBrush}" Stroke="{TemplateBinding KnobBrush}" StrokeThickness="2" />
+                            <Ellipse
+                                x:Name="PART_KnobEllipse"
+                                Fill="{TemplateBinding KnobBrush}"
+                                Stroke="{TemplateBinding KnobBrush}"
+                                StrokeThickness="2" />
                         </Grid>
                     </Canvas>
                 </ControlTemplate>

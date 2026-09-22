@@ -34,9 +34,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                            <ContentPresenter
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
 
                         <local:BorderBeamIndicator
@@ -46,11 +44,11 @@
                             BeamSize="{TemplateBinding BeamSize}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Count="{TemplateBinding Count}"
-                            Duration="{TemplateBinding Duration}"
                             HostBorderThickness="{TemplateBinding BorderThickness}"
                             IsActive="{TemplateBinding IsActive}"
                             LineWidth="{TemplateBinding LineWidth}"
-                            Outset="{TemplateBinding Outset}" />
+                            Outset="{TemplateBinding Outset}"
+                            Duration="{TemplateBinding Duration}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">

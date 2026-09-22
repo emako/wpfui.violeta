@@ -26,10 +26,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:VolumeView}">
                     <Border
+                        Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="{TemplateBinding Padding}"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                         <!--
                             Glyph is authored in a 16×16 square (bars 3×5 / 8.5 / 12, gap 1.5),

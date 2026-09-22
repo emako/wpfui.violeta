@@ -200,11 +200,14 @@
                                     x:Name="PART_Content"
                                     Grid.Column="0"
                                     Margin="0"
-                                    Padding="{TemplateBinding Padding, Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
+                                    Padding="{TemplateBinding Padding,
+                                                              Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
-                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ToggleComboBoxLeftSplitCornerRadiusConverter}}">
+                                    BorderThickness="{TemplateBinding BorderThickness,
+                                                                      Converter={StaticResource ToggleComboBoxLeftSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius,
+                                                                   Converter={StaticResource ToggleComboBoxLeftSplitCornerRadiusConverter}}">
                                     <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -237,8 +240,10 @@
                                     Margin="0"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ToggleComboBoxRightSplitThicknessConverter}}"
-                                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource ToggleComboBoxRightSplitCornerRadiusConverter}}">
+                                    BorderThickness="{TemplateBinding BorderThickness,
+                                                                      Converter={StaticResource ToggleComboBoxRightSplitThicknessConverter}}"
+                                    CornerRadius="{TemplateBinding CornerRadius,
+                                                                   Converter={StaticResource ToggleComboBoxRightSplitCornerRadiusConverter}}">
                                     <ToggleButton
                                         x:Name="PART_ToggleButton"
                                         HorizontalAlignment="Stretch"

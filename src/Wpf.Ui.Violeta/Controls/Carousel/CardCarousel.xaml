@@ -26,8 +26,8 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{DynamicResource ControlCornerRadius}"
                         ClipToBounds="True"
+                        CornerRadius="{DynamicResource ControlCornerRadius}"
                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                         <Border.Effect>
                             <DropShadowEffect
@@ -137,7 +137,10 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <Canvas Width="900" Height="360" ClipToBounds="False" />
+                    <Canvas
+                        Width="900"
+                        Height="360"
+                        ClipToBounds="False" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -156,7 +159,10 @@
 
                         <Grid Grid.Row="0" ClipToBounds="True">
                             <Viewbox Stretch="Uniform">
-                                <ItemsPresenter x:Name="PART_ItemsPresenter" Width="900" Height="360" />
+                                <ItemsPresenter
+                                    x:Name="PART_ItemsPresenter"
+                                    Width="900"
+                                    Height="360" />
                             </Viewbox>
 
                             <Button

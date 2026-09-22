@@ -94,9 +94,9 @@
                             VerticalAlignment="Center"
                             FontFamily="{DynamicResource SymbolThemeFontFamily}"
                             FontSize="18"
+                            Foreground="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}"
                             Text="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconConverter.New}}"
-                            TextAlignment="Center"
-                            Foreground="{Binding MessageBoxIcon, Converter={x:Static local:MessageBoxIconForegroundConverter.New}}" />
+                            TextAlignment="Center" />
                     </Border>
 
                     <StackPanel Grid.Column="1" Margin="0,0,8,0">

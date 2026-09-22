@@ -11,7 +11,7 @@
         <Setter Property="Height" Value="180" />
         <Setter Property="Camera">
             <Setter.Value>
-                <PerspectiveCamera Position="0,0,120" LookDirection="0,0,-1" />
+                <PerspectiveCamera LookDirection="0,0,-1" Position="0,0,120" />
             </Setter.Value>
         </Setter>
     </Style>

@@ -50,9 +50,9 @@
 
     <ControlTemplate x:Key="DescriptionsItemLeftTemplate" TargetType="local:DescriptionsItem">
         <Grid
+            Margin="{StaticResource DescriptionsItemMargin}"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Center"
-            Margin="{StaticResource DescriptionsItemMargin}">
+            VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" SharedSizeGroup="DescriptionsLabel" />
                 <ColumnDefinition Width="Auto" />
@@ -116,7 +116,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="DescriptionsItemTopTemplate" TargetType="local:DescriptionsItem">
-        <StackPanel VerticalAlignment="Top" Margin="{StaticResource DescriptionsItemMargin}">
+        <StackPanel Margin="{StaticResource DescriptionsItemMargin}" VerticalAlignment="Top">
             <ContentPresenter
                 x:Name="PART_Label"
                 Content="{TemplateBinding Label}"

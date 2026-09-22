@@ -27,7 +27,7 @@
         x:Key="ToolBarCopyButtonStyle"
         BasedOn="{StaticResource SimpleCopyButtonStyle}"
         TargetType="{x:Type local:CopyButton}">
-<Setter Property="Template">
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CopyButton}">
                     <Border

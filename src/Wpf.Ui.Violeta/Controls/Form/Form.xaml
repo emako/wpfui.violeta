@@ -108,7 +108,10 @@
         instead of drifting to the far right of a stretched Form.
     -->
     <ControlTemplate x:Key="FormItemTopTemplate" TargetType="local:FormItem">
-        <StackPanel x:Name="Root" HorizontalAlignment="Stretch" Margin="{TemplateBinding Margin}">
+        <StackPanel
+            x:Name="Root"
+            Margin="{TemplateBinding Margin}"
+            HorizontalAlignment="Stretch">
 
             <!--  Label row (hidden when NoLabel = true)  -->
             <Grid x:Name="PART_LabelRow" Margin="0,0,0,4">
@@ -155,8 +158,8 @@
     <ControlTemplate x:Key="FormItemLeftTemplate" TargetType="local:FormItem">
         <Grid
             x:Name="Root"
-            HorizontalAlignment="Stretch"
-            Margin="{TemplateBinding Margin}">
+            Margin="{TemplateBinding Margin}"
+            HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition
                     x:Name="LabelColumn"
@@ -171,8 +174,8 @@
                 Grid.Column="0"
                 Width="{TemplateBinding LabelWidth}"
                 Margin="0,0,12,0"
-                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                HorizontalAlignment="Stretch">
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                 <StackPanel HorizontalAlignment="{TemplateBinding LabelAlignment}" Orientation="Horizontal">
                     <TextBlock
                         x:Name="PART_Asterisk"

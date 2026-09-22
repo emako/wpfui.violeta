@@ -61,9 +61,7 @@
                 SnapsToDevicePixels="True">
                 <Grid>
                     <Border Background="{DynamicResource ColorControlCheckeredBackgroundBrush}" CornerRadius="3" />
-                    <Border
-                        Background="{Binding HsvColor, RelativeSource={RelativeSource AncestorType={x:Type local:ColorPicker}}, Converter={StaticResource ColorPickerFlyoutToBrushConverter}}"
-                        CornerRadius="3" />
+                    <Border Background="{Binding HsvColor, RelativeSource={RelativeSource AncestorType={x:Type local:ColorPicker}}, Converter={StaticResource ColorPickerFlyoutToBrushConverter}}" CornerRadius="3" />
                 </Grid>
             </Border>
             <TextBlock
@@ -80,9 +78,7 @@
 
     <!--  Shared chrome + popup layout for ColorPicker variants  -->
     <ControlTemplate x:Key="DefaultColorPickerTemplate" TargetType="{x:Type local:ColorPicker}">
-        <Grid
-            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
             <Border
                 x:Name="ContentBorder"
                 Width="{TemplateBinding Width}"
@@ -161,7 +157,6 @@
                     <local:ColorView
                         Width="320"
                         Height="380"
-                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorModel="{Binding ColorModel, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorSpectrumComponents="{Binding ColorSpectrumComponents, RelativeSource={RelativeSource TemplatedParent}}"
                         ColorSpectrumShape="{Binding ColorSpectrumShape, RelativeSource={RelativeSource TemplatedParent}}"
@@ -186,7 +181,8 @@
                         MinSaturation="{Binding MinSaturation, RelativeSource={RelativeSource TemplatedParent}}"
                         MinValue="{Binding MinValue, RelativeSource={RelativeSource TemplatedParent}}"
                         Palette="{Binding Palette, RelativeSource={RelativeSource TemplatedParent}}"
-                        SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                        SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
                 </Border>
             </Popup>
         </Grid>
@@ -238,9 +234,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="SimpleColorPickerTemplate" TargetType="{x:Type local:ColorPicker}">
-        <Grid
-            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+        <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
             <Border
                 x:Name="ContentBorder"
                 Width="{TemplateBinding Width}"
@@ -320,7 +314,6 @@
                     <local:ColorView
                         Width="320"
                         MinHeight="280"
-                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                         ColorSpectrumComponents="{Binding ColorSpectrumComponents, RelativeSource={RelativeSource TemplatedParent}}"
                         ColorSpectrumShape="{Binding ColorSpectrumShape, RelativeSource={RelativeSource TemplatedParent}}"
                         HexInputAlphaPosition="{Binding HexInputAlphaPosition, RelativeSource={RelativeSource TemplatedParent}}"
@@ -335,7 +328,8 @@
                         MinHue="{Binding MinHue, RelativeSource={RelativeSource TemplatedParent}}"
                         MinSaturation="{Binding MinSaturation, RelativeSource={RelativeSource TemplatedParent}}"
                         MinValue="{Binding MinValue, RelativeSource={RelativeSource TemplatedParent}}"
-                        Style="{DynamicResource SimpleColorView}" />
+                        Style="{DynamicResource SimpleColorView}"
+                        Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
                 </Border>
             </Popup>
         </Grid>

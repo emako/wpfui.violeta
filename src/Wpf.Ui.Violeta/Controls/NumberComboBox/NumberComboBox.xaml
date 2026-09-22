@@ -29,9 +29,7 @@
                                 <Style TargetType="{x:Type ContentControl}">
                                     <Setter Property="Margin" Value="0,0,6,0" />
                                     <Style.Triggers>
-                                        <DataTrigger
-                                            Binding="{Binding InnerLeftContent, RelativeSource={RelativeSource AncestorType={x:Type local:NumberComboBox}}}"
-                                            Value="{x:Null}">
+                                        <DataTrigger Binding="{Binding InnerLeftContent, RelativeSource={RelativeSource AncestorType={x:Type local:NumberComboBox}}}" Value="{x:Null}">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -47,9 +45,7 @@
                                 <Style TargetType="{x:Type ContentControl}">
                                     <Setter Property="Margin" Value="6,0,0,0" />
                                     <Style.Triggers>
-                                        <DataTrigger
-                                            Binding="{Binding InnerRightContent, RelativeSource={RelativeSource AncestorType={x:Type local:NumberComboBox}}}"
-                                            Value="{x:Null}">
+                                        <DataTrigger Binding="{Binding InnerRightContent, RelativeSource={RelativeSource AncestorType={x:Type local:NumberComboBox}}}" Value="{x:Null}">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
                                     </Style.Triggers>

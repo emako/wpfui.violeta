@@ -2,7 +2,7 @@
     Hotfix: DataGridRow selection pill ScaleY animation (same as ListViewItem / UI.WPF.Modern).
     Overrides DefaultDataGridRowStyle; also redefines DefaultDataGridStyle / DefaultUiDataGridStyle
     because RowStyle is StaticResource in WPF-UI.
-
+    
     Disabled column-header grippers ("||"): WPF-UI 4.3 paints TextFillColorDisabledBrush in the
     Thumb Disabled VisualState. Overriding ColumnHeaderGripperStyle alone does nothing — the
     stock DefaultDataGridColumnHeaderStyle already StaticResource-baked the original gripper
@@ -42,40 +42,64 @@
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Fill"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="Background"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Fill"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource TextFillColorSecondaryBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="Background"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorSecondaryBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Fill"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource TextFillColorTertiaryBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="Background"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTertiaryBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Fill" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Thumb"
+                                            Storyboard.TargetProperty="Fill"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="Background"
+                                            Duration="0">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{DynamicResource SubtleFillColorTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -139,10 +163,10 @@
                                     x:Name="SortIcon"
                                     Grid.Column="1"
                                     Margin="2,0,0,0"
-                                    Visibility="Collapsed"
                                     FontSize="12"
                                     RenderTransformOrigin="0.5, 0.5"
-                                    Symbol="ArrowSortUp24">
+                                    Symbol="ArrowSortUp24"
+                                    Visibility="Collapsed">
                                     <controls:SymbolIcon.RenderTransform>
                                         <RotateTransform Angle="0" />
                                     </controls:SymbolIcon.RenderTransform>
@@ -322,14 +346,20 @@
                                 <VisualState x:Name="PillNormal">
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
-                                            <SplineDoubleKeyFrame KeySpline="1,0,0,0" KeyTime="0:0:0.167" Value="1" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="1,0,0,0"
+                                                KeyTime="0:0:0.167"
+                                                Value="1" />
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="PillPressed">
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
-                                            <SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="0:0:0.167" Value="0.625" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0,0,0,1"
+                                                KeyTime="0:0:0.167"
+                                                Value="0.625" />
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -374,7 +404,10 @@
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PillTransform" Storyboard.TargetProperty="ScaleY">
                                             <DiscreteDoubleKeyFrame KeyTime="0" Value="0.625" />
-                                            <SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="0:0:0.167" Value="1" />
+                                            <SplineDoubleKeyFrame
+                                                KeySpline="0,0,0,1"
+                                                KeyTime="0:0:0.167"
+                                                Value="1" />
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </BeginStoryboard>

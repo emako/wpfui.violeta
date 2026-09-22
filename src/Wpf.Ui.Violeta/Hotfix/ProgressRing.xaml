@@ -7,9 +7,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
 
     <sys:Double x:Key="ProgressRingStrokeThickness">3</sys:Double>
 

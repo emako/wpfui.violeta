@@ -123,9 +123,9 @@
                         <ControlTemplate TargetType="local:Divider">
                             <Rectangle
                                 Width="{TemplateBinding Width}"
-                                Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Stretch"
+                                Fill="{DynamicResource ControlStrokeColorDefaultBrush}"
                                 SnapsToDevicePixels="True" />
                         </ControlTemplate>
                     </Setter.Value>

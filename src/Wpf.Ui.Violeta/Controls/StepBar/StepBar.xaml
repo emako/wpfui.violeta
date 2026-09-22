@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
-    <!-- Flat progress bar used as the StepBar connector line -->
+    <!--  Flat progress bar used as the StepBar connector line  -->
     <Style x:Key="StepBarProgressBarStyle" TargetType="{x:Type ProgressBar}">
         <Setter Property="Height" Value="2" />
         <Setter Property="Background" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
@@ -12,7 +12,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
-                    <Grid x:Name="TemplateRoot" ClipToBounds="True" SnapsToDevicePixels="True">
+                    <Grid
+                        x:Name="TemplateRoot"
+                        ClipToBounds="True"
+                        SnapsToDevicePixels="True">
                         <Rectangle
                             x:Name="PART_Track"
                             Fill="{TemplateBinding Background}"
@@ -40,7 +43,7 @@
         <UniformGrid Columns="1" />
     </ItemsPanelTemplate>
 
-    <!-- StepBarItem base: status-driven foreground -->
+    <!--  StepBarItem base: status-driven foreground  -->
     <Style x:Key="DefaultStepBarItemStyle" TargetType="{x:Type local:StepBarItem}">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorTertiaryBrush}" />
@@ -70,8 +73,8 @@
                     <Border Background="Transparent">
                         <StackPanel>
                             <Border
-                                MinWidth="24"
                                 Height="24"
+                                MinWidth="24"
                                 HorizontalAlignment="Center"
                                 Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"
                                 BorderBrush="{TemplateBinding Foreground}"
@@ -112,8 +115,8 @@
                                 ContentTemplate="{Binding ItemTemplate, RelativeSource={RelativeSource AncestorType=local:StepBar}}"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
                             <Border
-                                MinWidth="24"
                                 Height="24"
+                                MinWidth="24"
                                 HorizontalAlignment="Center"
                                 Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"
                                 BorderBrush="{TemplateBinding Foreground}"
@@ -144,8 +147,8 @@
                     <Border Background="Transparent">
                         <StackPanel Orientation="Horizontal">
                             <Border
-                                MinWidth="24"
                                 Height="24"
+                                MinWidth="24"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
                                 Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"

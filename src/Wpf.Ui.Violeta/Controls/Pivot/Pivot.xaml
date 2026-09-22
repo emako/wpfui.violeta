@@ -34,10 +34,10 @@
                     <Border
                         x:Name="Border"
                         Padding="{TemplateBinding Padding}"
+                        compat:PressHelper.IsEnabled="True"
                         Background="{TemplateBinding Background}"
                         SnapsToDevicePixels="True"
-                        TextElement.Foreground="{DynamicResource PivotHeaderItemForegroundUnselected}"
-                        compat:PressHelper.IsEnabled="True">
+                        TextElement.Foreground="{DynamicResource PivotHeaderItemForegroundUnselected}">
                         <Grid>
                             <compat:SimpleStackPanel
                                 x:Name="SimpleStackPanel_Header"

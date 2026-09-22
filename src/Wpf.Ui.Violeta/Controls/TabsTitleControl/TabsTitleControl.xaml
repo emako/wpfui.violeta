@@ -92,16 +92,16 @@
                 x:Name="PART_HorizontalScrollBar"
                 Maximum="{TemplateBinding ScrollableWidth}"
                 Orientation="Horizontal"
-                Value="{TemplateBinding HorizontalOffset}"
                 ViewportSize="{TemplateBinding ViewportWidth}"
-                Visibility="Collapsed" />
+                Visibility="Collapsed"
+                Value="{TemplateBinding HorizontalOffset}" />
             <ScrollBar
                 x:Name="PART_VerticalScrollBar"
                 Maximum="{TemplateBinding ScrollableHeight}"
                 Orientation="Vertical"
-                Value="{TemplateBinding VerticalOffset}"
                 ViewportSize="{TemplateBinding ViewportHeight}"
-                Visibility="Collapsed" />
+                Visibility="Collapsed"
+                Value="{TemplateBinding VerticalOffset}" />
         </Grid>
     </ControlTemplate>
 
@@ -114,7 +114,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <!-- Arrow on the item so Content (logical child) does not inherit Hand from elsewhere. -->
+        <!--  Arrow on the item so Content (logical child) does not inherit Hand from elsewhere.  -->
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="{Binding TabBackground, RelativeSource={RelativeSource AncestorType={x:Type local:TabsTitleControl}}}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -286,7 +286,7 @@
                                         <ItemsPresenter VerticalAlignment="Stretch" />
                                     </ScrollViewer>
                                 </DockPanel>
-                                <!-- Overlay: visible only while HeaderPanel (tab strip) is hovered. -->
+                                <!--  Overlay: visible only while HeaderPanel (tab strip) is hovered.  -->
                                 <ScrollBar
                                     x:Name="PART_TabsScrollBar"
                                     Margin="6,0,34,1"

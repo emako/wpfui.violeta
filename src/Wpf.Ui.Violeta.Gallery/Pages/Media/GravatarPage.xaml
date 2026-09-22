@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
-    xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Gravatar}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
@@ -77,19 +77,15 @@
                         <vio:Gravatar
                             Width="180"
                             Height="180"
-                            Id="{Binding Text, ElementName=IdTextBox}"
-                            Padding="14" />
+                            Padding="14"
+                            Id="{Binding Text, ElementName=IdTextBox}" />
                         <StackPanel Margin="24,0,0,0" VerticalAlignment="Center">
-                            <TextBlock
-                                Margin="0,0,0,4"
-                                Text="{I18N {x:Static lang:LangKeys.Gallery_Gravatar_IdLabel}}" />
+                            <TextBlock Margin="0,0,0,4" Text="{I18N {x:Static lang:LangKeys.Gallery_Gravatar_IdLabel}}" />
                             <ui:TextBox
                                 x:Name="IdTextBox"
                                 Width="220"
                                 Text="User1" />
-                            <TextBlock
-                                Margin="0,16,0,8"
-                                Text="{I18N {x:Static lang:LangKeys.Gallery_Gravatar_Circle}}" />
+                            <TextBlock Margin="0,16,0,8" Text="{I18N {x:Static lang:LangKeys.Gallery_Gravatar_Circle}}" />
                             <vio:Gravatar
                                 Width="96"
                                 Height="96"

@@ -7,9 +7,7 @@
         Default: transparent rest state; hover / pressed / checked show fill + outer border.
         Icons switch for unchecked / checked / indeterminate (IsThreeState).
     -->
-    <Style
-        x:Key="DefaultIconToggleButtonStyle"
-        TargetType="{x:Type local:IconToggleButton}">
+    <Style x:Key="DefaultIconToggleButtonStyle" TargetType="{x:Type local:IconToggleButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -58,7 +56,7 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- Icon states -->
+                        <!--  Icon states  -->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="UncheckedIcon" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="CheckedIcon" Property="Visibility" Value="Visible" />
@@ -69,7 +67,7 @@
                             <Setter TargetName="CheckedIcon" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="IndeterminateIcon" Property="Visibility" Value="Visible" />
                         </Trigger>
-                        <!-- Indeterminate without IndeterminateIcon → fall back to UncheckedIcon -->
+                        <!--  Indeterminate without IndeterminateIcon → fall back to UncheckedIcon  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="{x:Null}" />
@@ -79,7 +77,7 @@
                             <Setter TargetName="IndeterminateIcon" Property="Visibility" Value="Collapsed" />
                         </MultiTrigger>
 
-                        <!-- Chrome: hover / pressed / checked (same vocabulary as ToolBarToggleButton) -->
+                        <!--  Chrome: hover / pressed / checked (same vocabulary as ToolBarToggleButton)  -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />
@@ -177,7 +175,7 @@
         </Setter>
     </Style>
 
-    <!-- Flat sample: icon swap only — no hover / pressed / checked chrome. -->
+    <!--  Flat sample: icon swap only — no hover / pressed / checked chrome.  -->
     <Style
         x:Key="SampleIconToggleButtonStyle"
         BasedOn="{StaticResource DefaultIconToggleButtonStyle}"
@@ -192,9 +190,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:IconToggleButton}">
                     <Border
+                        Padding="{TemplateBinding Padding}"
                         Background="Transparent"
-                        BorderThickness="0"
-                        Padding="{TemplateBinding Padding}">
+                        BorderThickness="0">
                         <Grid>
                             <ContentPresenter
                                 x:Name="UncheckedIcon"

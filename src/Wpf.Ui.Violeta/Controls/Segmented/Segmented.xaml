@@ -1,8 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls"
-    xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat">
+    xmlns:compat="clr-namespace:Wpf.Ui.Violeta.Controls.Compat"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
 
     <!--
         WinUI Segmented: hover uses an inset pill (Margin=2.5); selected fill spans the segment
@@ -45,8 +45,8 @@
                         <Border
                             x:Name="Root"
                             Padding="{TemplateBinding Padding}"
-                            Background="Transparent"
                             compat:PressHelper.IsEnabled="True"
+                            Background="Transparent"
                             SnapsToDevicePixels="True">
                             <StackPanel
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
