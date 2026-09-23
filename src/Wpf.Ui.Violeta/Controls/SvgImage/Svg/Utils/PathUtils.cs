@@ -17,34 +17,9 @@ internal static class PathUtils
     /// <returns>A string containing the combined path.</returns>
     public static string Combine(Assembly assembly, params string[] paths)
     {
-        return CombineInternal(assembly.Location, paths);
-    }
-
-    /// <summary>
-    /// Gets the full path to the assembly file.
-    /// </summary>
-    /// <param name="assembly">An <see cref="Assembly"/> which is taken as the base path.</param>
-    /// <returns>A string containing the full path to the assembly file.</returns>
-    public static string GetAssemblyPath(Assembly assembly)
-    {
-        return GetAssemblyPathInternal(assembly, assembly.Location);
-    }
-
-    /// <summary>
-    /// Gets the file name if the assembly.
-    /// </summary>
-    /// <param name="assembly">An <see cref="Assembly"/> which is taken as the base path.</param>
-    /// <returns>A string containing the file name of the assembly.</returns>
-    public static string GetAssemblyFileName(Assembly assembly)
-    {
-        return assembly.ManifestModule.ScopeName;
-    }
-
-    /// <summary>
-    /// Exposes <see cref="Combine"/> for unit-testing where it is possible to mock an empty location
-    /// </summary>
-    private static string CombineInternal(string location, string[] paths)
-    {
+#pragma warning disable IL3000 // Location is empty for single-file; fall back to BaseDirectory
+        var location = assembly.Location;
+#pragma warning restore IL3000
         var basePath = string.IsNullOrEmpty(location)
             ? GetBaseDirectory()
             : Path.GetDirectoryName(location);
@@ -60,17 +35,29 @@ internal static class PathUtils
     }
 
     /// <summary>
-    /// Exposes <see cref="GetAssemblyPath"/> for unit-testing where it is possible to mock an empty location
+    /// Gets the full path to the assembly file.
     /// </summary>
-    private static string GetAssemblyPathInternal(Assembly assembly, string location)
+    /// <param name="assembly">An <see cref="Assembly"/> which is taken as the base path.</param>
+    /// <returns>A string containing the full path to the assembly file.</returns>
+    public static string GetAssemblyPath(Assembly assembly)
     {
+#pragma warning disable IL3000 // Location is empty for single-file; fall back to BaseDirectory
+        var location = assembly.Location;
+#pragma warning restore IL3000
         if (!string.IsNullOrEmpty(location))
             return location;
 
-        var baseDirectory = GetBaseDirectory();
-        var assemblyName = GetAssemblyFileName(assembly);
+        return Path.Combine(GetBaseDirectory(), GetAssemblyFileName(assembly));
+    }
 
-        return Path.Combine(baseDirectory, assemblyName);
+    /// <summary>
+    /// Gets the file name if the assembly.
+    /// </summary>
+    /// <param name="assembly">An <see cref="Assembly"/> which is taken as the base path.</param>
+    /// <returns>A string containing the file name of the assembly.</returns>
+    public static string GetAssemblyFileName(Assembly assembly)
+    {
+        return assembly.ManifestModule.ScopeName;
     }
 
     private static string GetBaseDirectory()
