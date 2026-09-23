@@ -10,17 +10,22 @@ namespace Wpf.Ui.Violeta.Controls;
 /// <summary>
 /// Selects a contiguous date range. The first click sets <see cref="Start"/>, the second sets <see cref="End"/>.
 /// </summary>
+[TemplatePart(Name = PartTextBox, Type = typeof(TextBox))]
+[TemplatePart(Name = PartButton, Type = typeof(Button))]
 [TemplatePart(Name = PartCalendar, Type = typeof(Calendar))]
 public class CalendarDateRangePicker : Control
 {
+    private const string PartTextBox = "PART_TextBox";
+    private const string PartButton = "PART_Button";
     private const string PartCalendar = "PART_Calendar";
 
+    private TextBox? _textBox;
+    private Button? _button;
     private Calendar? _calendar;
     private MouseButtonEventHandler? _calendarMouseUp;
     private bool _updatingCalendar;
     private bool _applyingRange;
     private bool _awaitingEnd;
-    private bool _ignoreNextToggle;
 
     /// <summary>Identifies the <see cref="Start"/> dependency property.</summary>
     public static readonly DependencyProperty StartProperty = DependencyProperty.Register(
@@ -114,6 +119,16 @@ public class CalendarDateRangePicker : Control
     /// <inheritdoc />
     public override void OnApplyTemplate()
     {
+        if (_button is not null)
+        {
+            _button.Click -= OnButtonClick;
+        }
+
+        if (_textBox is not null)
+        {
+            _textBox.PreviewKeyDown -= OnTextBoxPreviewKeyDown;
+        }
+
         if (_calendar is not null && _calendarMouseUp is not null)
         {
             _calendar.RemoveHandler(MouseLeftButtonUpEvent, _calendarMouseUp);
@@ -121,9 +136,23 @@ public class CalendarDateRangePicker : Control
 
         base.OnApplyTemplate();
 
+        _textBox = GetTemplateChild(PartTextBox) as TextBox;
+        _button = GetTemplateChild(PartButton) as Button;
         _calendar = GetTemplateChild(PartCalendar) as Calendar;
+
+        if (_button is not null)
+        {
+            _button.Click += OnButtonClick;
+        }
+
+        if (_textBox is not null)
+        {
+            _textBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
+        }
+
         if (_calendar is null)
         {
+            UpdateText();
             return;
         }
 
@@ -136,36 +165,7 @@ public class CalendarDateRangePicker : Control
         _calendarMouseUp = OnCalendarMouseUp;
         _calendar.AddHandler(MouseLeftButtonUpEvent, _calendarMouseUp, handledEventsToo: true);
         SyncCalendar();
-    }
-
-    /// <inheritdoc />
-    protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
-    {
-        base.OnPreviewMouseLeftButtonDown(e);
-        if (IsDropDownOpen)
-        {
-            _ignoreNextToggle = true;
-        }
-    }
-
-    /// <inheritdoc />
-    protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
-    {
-        base.OnMouseLeftButtonUp(e);
-        if (!IsEnabled)
-        {
-            return;
-        }
-
-        if (_ignoreNextToggle)
-        {
-            _ignoreNextToggle = false;
-            return;
-        }
-
-        Focus();
-        SetCurrentValue(IsDropDownOpenProperty, true);
-        e.Handled = true;
+        UpdateText();
     }
 
     /// <inheritdoc />
@@ -179,7 +179,33 @@ public class CalendarDateRangePicker : Control
             return;
         }
 
-        if (e.Key is Key.Enter or Key.Space && !IsDropDownOpen)
+        if ((e.Key is Key.Enter or Key.Space or Key.Down) && !IsDropDownOpen && IsEnabled)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, true);
+            e.Handled = true;
+        }
+    }
+
+    private void OnButtonClick(object sender, RoutedEventArgs e)
+    {
+        if (!IsEnabled)
+        {
+            return;
+        }
+
+        SetCurrentValue(IsDropDownOpenProperty, !IsDropDownOpen);
+    }
+
+    private void OnTextBoxPreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && IsDropDownOpen)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, false);
+            e.Handled = true;
+            return;
+        }
+
+        if ((e.Key is Key.Enter or Key.Down) && !IsDropDownOpen && IsEnabled)
         {
             SetCurrentValue(IsDropDownOpenProperty, true);
             e.Handled = true;
@@ -309,5 +335,9 @@ public class CalendarDateRangePicker : Control
         };
 
         SetValue(TextPropertyKey, text);
+        if (_textBox is not null)
+        {
+            _textBox.Text = text;
+        }
     }
 }
