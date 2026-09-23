@@ -12,20 +12,24 @@ namespace Wpf.Ui.Violeta.Controls;
 /// </summary>
 [TemplatePart(Name = PartTextBox, Type = typeof(TextBox))]
 [TemplatePart(Name = PartButton, Type = typeof(Button))]
+[TemplatePart(Name = PartPopup, Type = typeof(Popup))]
 [TemplatePart(Name = PartCalendar, Type = typeof(Calendar))]
 public class CalendarDateRangePicker : Control
 {
     private const string PartTextBox = "PART_TextBox";
     private const string PartButton = "PART_Button";
+    private const string PartPopup = "PART_Popup";
     private const string PartCalendar = "PART_Calendar";
 
     private TextBox? _textBox;
     private Button? _button;
+    private Popup? _popup;
     private Calendar? _calendar;
     private MouseButtonEventHandler? _calendarMouseUp;
     private bool _updatingCalendar;
     private bool _applyingRange;
     private bool _awaitingEnd;
+    private bool _disablePopupReopen;
 
     /// <summary>Identifies the <see cref="Start"/> dependency property.</summary>
     public static readonly DependencyProperty StartProperty = DependencyProperty.Register(
@@ -122,11 +126,17 @@ public class CalendarDateRangePicker : Control
         if (_button is not null)
         {
             _button.Click -= OnButtonClick;
+            _button.MouseLeave -= OnButtonMouseLeave;
         }
 
         if (_textBox is not null)
         {
             _textBox.PreviewKeyDown -= OnTextBoxPreviewKeyDown;
+        }
+
+        if (_popup is not null)
+        {
+            _popup.PreviewMouseLeftButtonDown -= OnPopupPreviewMouseLeftButtonDown;
         }
 
         if (_calendar is not null && _calendarMouseUp is not null)
@@ -138,16 +148,23 @@ public class CalendarDateRangePicker : Control
 
         _textBox = GetTemplateChild(PartTextBox) as TextBox;
         _button = GetTemplateChild(PartButton) as Button;
+        _popup = GetTemplateChild(PartPopup) as Popup;
         _calendar = GetTemplateChild(PartCalendar) as Calendar;
 
         if (_button is not null)
         {
             _button.Click += OnButtonClick;
+            _button.MouseLeave += OnButtonMouseLeave;
         }
 
         if (_textBox is not null)
         {
             _textBox.PreviewKeyDown += OnTextBoxPreviewKeyDown;
+        }
+
+        if (_popup is not null)
+        {
+            _popup.PreviewMouseLeftButtonDown += OnPopupPreviewMouseLeftButtonDown;
         }
 
         if (_calendar is null)
@@ -193,7 +210,47 @@ public class CalendarDateRangePicker : Control
             return;
         }
 
-        SetCurrentValue(IsDropDownOpenProperty, !IsDropDownOpen);
+        ToggleDropDown();
+    }
+
+    private void OnButtonMouseLeave(object sender, MouseEventArgs e)
+    {
+        _disablePopupReopen = false;
+    }
+
+    /// <summary>
+    /// Same pattern as WPF <see cref="DatePicker"/>: when <see cref="Popup.StaysOpen"/> is
+    /// false, pressing the drop-down button closes the popup first; without this flag the
+    /// subsequent Click would immediately reopen it.
+    /// </summary>
+    private void OnPopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        if (_popup is null || _popup.StaysOpen || _button is null)
+        {
+            return;
+        }
+
+        if (_button.InputHitTest(e.GetPosition(_button)) is not null)
+        {
+            _disablePopupReopen = true;
+        }
+    }
+
+    private void ToggleDropDown()
+    {
+        if (IsDropDownOpen)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, false);
+            return;
+        }
+
+        if (_disablePopupReopen)
+        {
+            _disablePopupReopen = false;
+            return;
+        }
+
+        SetCurrentValue(IsDropDownOpenProperty, true);
     }
 
     private void OnTextBoxPreviewKeyDown(object sender, KeyEventArgs e)
