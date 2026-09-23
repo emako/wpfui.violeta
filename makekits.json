@@ -1,6 +1,6 @@
 {
   "MinimalVersion": "0.0.20",
-  "Version": "4.3.0.14",
+  "Version": "4.3.0.15",
   "Template": "${KitsDir}/template/executable.7z",
   "Package": "./package.zip",
   "PackageDirectory": "./src/Wpf.Ui.Violeta.Gallery/bin/Release/net10.0-windows/win-x64/publish",

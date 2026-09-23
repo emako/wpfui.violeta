@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.15] - 2026-09-23
+
+* Add CalendarDateRangePicker control
+* Add toggleable progress bar in CardProgress
+* Wire ContentStringFormat across ContentControl templates
+* Fix DescriptionsItem ContentStringFormat wiring
+* Fix CalendarDatePicker focus state
+* Prevent popup from reopening on toggle click
+* Refine date range picker input template
+* Fix disabled icon/text button foregrounds
+* Keep FluentScrollViewer hit testing enabled
+* Fix single-file assembly path resolution [IL3000]
+* Rename gallery SVG page to SvgImage
+
 ## [4.3.0.14] - 2026-09-21
 
 * Add ThemeBrush extension and gallery demo
