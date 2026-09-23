@@ -2312,7 +2312,7 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Svg.
+        ///   Looks up a localized string similar to SvgImage.
         /// </summary>
         public static string Gallery_Page_Svg {
             get {

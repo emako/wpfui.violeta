@@ -4263,7 +4263,7 @@ OK をクリックして続行してください。</value>
     <value>QrCode</value>
   </data>
   <data name="Gallery_Page_Svg" xml:space="preserve">
-    <value>Svg</value>
+    <value>SvgImage</value>
   </data>
   <data name="Gallery_Svg_CardDesc" xml:space="preserve">
     <value>SvgImage と SharpVectors の比較</value>
