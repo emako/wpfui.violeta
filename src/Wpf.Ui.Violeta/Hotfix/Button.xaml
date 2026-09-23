@@ -88,10 +88,9 @@
 
                         <!--  SHARED TRIGGERS  -->
                         <!--
-                            Set Foreground on the Button itself (not only ContentPresenter / ControlIcon TextElement.Foreground).
-                            String Content is generated under ContentPresenter and picks up TextElement.Foreground;
-                            element Content (e.g. StackPanel + SymbolIcon/TextBlock) lives in the logical tree and
-                            inherits Button.Foreground — same approach as ToggleButton hotfix.
+                            Set Foreground on the Button itself so element Content (StackPanel + SymbolIcon/TextBlock)
+                            inherits the pressed/disabled brush via the logical tree. Appearance Style triggers that
+                            set Foreground are gated on IsEnabled/IsPressed so they do not outrank these setters.
                         -->
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -136,7 +135,11 @@
             </Setter.Value>
         </Setter>
 
-        <!--  Appearance triggers at Style level so child styles (e.g. LoadingButton) inherit them via BasedOn.  -->
+        <!--
+            Appearance chrome stays on Style.Triggers (BasedOn for LoadingButton, etc.).
+            Foreground is applied only while enabled and not pressed — otherwise Style Trigger
+            outranks the template's disabled/pressed Foreground setters (WPF precedence).
+        -->
         <Style.Triggers>
             <!--  TRANSPARENT  -->
             <Trigger Property="Appearance" Value="Transparent">
@@ -148,12 +151,19 @@
                 <Setter Property="Background" Value="{DynamicResource AccentButtonBackground}" />
                 <Setter Property="MouseOverBackground" Value="{DynamicResource AccentButtonBackgroundPointerOver}" />
                 <Setter Property="PressedBackground" Value="{DynamicResource AccentButtonBackgroundPressed}" />
-                <Setter Property="Foreground" Value="{DynamicResource AccentButtonForeground}" />
                 <Setter Property="PressedForeground" Value="{DynamicResource AccentButtonForegroundPointerOver}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
                 <Setter Property="MouseOverBorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
                 <Setter Property="PressedBorderBrush" Value="{DynamicResource ControlFillColorTransparentBrush}" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Appearance" Value="Primary" />
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Foreground" Value="{DynamicResource AccentButtonForeground}" />
+            </MultiTrigger>
 
             <!--  DARK  -->
             <Trigger Property="Appearance" Value="Dark">
@@ -173,11 +183,18 @@
                     </Setter.Value>
                 </Setter>
                 <Setter Property="PressedBorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource TextFillColorLightPrimaryBrush}" />
                 <Setter Property="PressedForeground" Value="{DynamicResource TextFillColorLightSecondaryBrush}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
                 <Setter Property="MouseOverBorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Appearance" Value="Dark" />
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorLightPrimaryBrush}" />
+            </MultiTrigger>
 
             <!--  LIGHT  -->
             <Trigger Property="Appearance" Value="Light">
@@ -196,9 +213,16 @@
                         <SolidColorBrush Color="#F3FFFFFF" />
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Foreground" Value="{DynamicResource TextFillColorDarkPrimaryBrush}" />
                 <Setter Property="PressedForeground" Value="{DynamicResource TextFillColorDarkSecondaryBrush}" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Appearance" Value="Light" />
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorDarkPrimaryBrush}" />
+            </MultiTrigger>
 
             <!--  INFO  -->
             <Trigger Property="Appearance" Value="Info">
@@ -217,11 +241,18 @@
                         <SolidColorBrush Opacity="0.7" Color="{DynamicResource PaletteLightBlueColor}" />
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Foreground" Value="{DynamicResource TextFillColorLightPrimaryBrush}" />
                 <Setter Property="PressedBorderBrush" Value="Transparent" />
                 <Setter Property="BorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
                 <Setter Property="MouseOverBorderBrush" Value="{DynamicResource AccentControlElevationBorderBrush}" />
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Appearance" Value="Info" />
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorLightPrimaryBrush}" />
+            </MultiTrigger>
 
             <!--  DANGER  -->
             <Trigger Property="Appearance" Value="Danger">

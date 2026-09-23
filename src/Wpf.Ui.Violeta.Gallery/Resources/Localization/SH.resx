@@ -4556,6 +4556,15 @@ Click OK to continue.</value>
   <data name="Sample_bcfaccebf7" xml:space="preserve">
     <value>Disable</value>
   </data>
+  <data name="Sample_a6f22ea092" xml:space="preserve">
+    <value>Icon + text - disabled Foreground</value>
+  </data>
+  <data name="Sample_9b49fcdf1f" xml:space="preserve">
+    <value>When disabled, SymbolIcon and TextBlock must share the same ButtonForegroundDisabled color.</value>
+  </data>
+  <data name="Sample_ea20f2885b" xml:space="preserve">
+    <value>Install plugin</value>
+  </data>
   <data name="Sample_c5e82a2b10" xml:space="preserve">
     <value>Default — buttons right</value>
   </data>

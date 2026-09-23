@@ -4556,6 +4556,15 @@ OK をクリックして続行してください。</value>
   <data name="Sample_bcfaccebf7" xml:space="preserve">
     <value>Disable</value>
   </data>
+  <data name="Sample_a6f22ea092" xml:space="preserve">
+    <value>アイコン + テキスト - 無効時の前景色</value>
+  </data>
+  <data name="Sample_9b49fcdf1f" xml:space="preserve">
+    <value>無効時、SymbolIcon と TextBlock は同じ ButtonForegroundDisabled 色を使う必要があります。</value>
+  </data>
+  <data name="Sample_ea20f2885b" xml:space="preserve">
+    <value>プラグインをインストール</value>
+  </data>
   <data name="Sample_c5e82a2b10" xml:space="preserve">
     <value>デフォルト — ボタン右側</value>
   </data>

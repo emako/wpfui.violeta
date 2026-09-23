@@ -4556,6 +4556,15 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_bcfaccebf7" xml:space="preserve">
     <value>Disable</value>
   </data>
+  <data name="Sample_a6f22ea092" xml:space="preserve">
+    <value>图标 + 文本 - 禁用前景色</value>
+  </data>
+  <data name="Sample_9b49fcdf1f" xml:space="preserve">
+    <value>禁用时，SymbolIcon 与 TextBlock 必须使用相同的 ButtonForegroundDisabled 颜色。</value>
+  </data>
+  <data name="Sample_ea20f2885b" xml:space="preserve">
+    <value>安装插件</value>
+  </data>
   <data name="Sample_c5e82a2b10" xml:space="preserve">
     <value>默认 — 按钮在右侧</value>
   </data>

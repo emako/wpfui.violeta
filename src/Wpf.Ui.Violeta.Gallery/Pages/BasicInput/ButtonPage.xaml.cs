@@ -29,4 +29,20 @@ public partial class ButtonPage : Wpf.Ui.Violeta.Controls.Page
         RichContentPrimaryButton.IsEnabled = true;
         RichContentSuccessButton.IsEnabled = true;
     }
+
+    private void DisableIconTextButton_Checked(object sender, RoutedEventArgs e)
+    {
+        IconTextPrimaryButton.IsEnabled = false;
+        IconTextSecondaryButton.IsEnabled = false;
+        IconTextInfoButton.IsEnabled = false;
+        IconTextSuccessButton.IsEnabled = false;
+    }
+
+    private void DisableIconTextButton_Unchecked(object sender, RoutedEventArgs e)
+    {
+        IconTextPrimaryButton.IsEnabled = true;
+        IconTextSecondaryButton.IsEnabled = true;
+        IconTextInfoButton.IsEnabled = true;
+        IconTextSuccessButton.IsEnabled = true;
+    }
 }

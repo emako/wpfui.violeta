@@ -13286,6 +13286,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Sample_9b1fadbb59", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to When disabled, SymbolIcon and TextBlock must share the same ButtonForegroundDisabled color..
+        /// </summary>
+        public static string Sample_9b49fcdf1f {
+            get {
+                return ResourceManager.GetString("Sample_9b49fcdf1f", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Striped Background.
@@ -14041,6 +14050,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_a6e8671eab {
             get {
                 return ResourceManager.GetString("Sample_a6e8671eab", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Icon + text - disabled Foreground.
+        /// </summary>
+        public static string Sample_a6f22ea092 {
+            get {
+                return ResourceManager.GetString("Sample_a6f22ea092", resourceCulture);
             }
         }
         
@@ -19404,6 +19422,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_ea0a332c59 {
             get {
                 return ResourceManager.GetString("Sample_ea0a332c59", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Install plugin.
+        /// </summary>
+        public static string Sample_ea20f2885b {
+            get {
+                return ResourceManager.GetString("Sample_ea20f2885b", resourceCulture);
             }
         }
         
