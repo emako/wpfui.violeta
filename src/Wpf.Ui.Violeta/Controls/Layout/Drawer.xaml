@@ -16,6 +16,7 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
                             ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </Border>
                 </ControlTemplate>

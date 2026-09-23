@@ -89,6 +89,7 @@
                             Margin="8,4"
                             VerticalAlignment="Top"
                             Content="{TemplateBinding Header}"
+                            ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                             ContentTemplate="{TemplateBinding HeaderTemplate}"
                             TextBlock.FontSize="14"
                             TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
@@ -101,6 +102,7 @@
                             Margin="8,2"
                             VerticalAlignment="Top"
                             Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             TextElement.FontSize="12"
                             TextElement.Foreground="{DynamicResource TextFillColorSecondaryBrush}" />

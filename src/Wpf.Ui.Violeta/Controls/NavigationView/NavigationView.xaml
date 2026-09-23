@@ -60,6 +60,7 @@
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
                         </Border>
@@ -129,6 +130,7 @@
                                 Margin="4,0,0,0"
                                 VerticalAlignment="Center"
                                 Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                 FontSize="{TemplateBinding FontSize}" />
                         </Grid>
                     </Border>
@@ -543,6 +545,7 @@
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Content="{TemplateBinding Content}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                     TextElement.Foreground="{Binding ElementName=IconBox, Path=Foreground}" />
@@ -885,6 +888,7 @@
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Content}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                     TextElement.Foreground="{Binding ElementName=IconBox, Path=Foreground}"
@@ -1115,6 +1119,7 @@
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Content}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                     Foreground="{TemplateBinding Foreground}"
@@ -1710,7 +1715,8 @@
                                             <ContentPresenter
                                                 Grid.Row="2"
                                                 Grid.ColumnSpan="2"
-                                                Content="{TemplateBinding Content}" />
+                                                Content="{TemplateBinding Content}"
+                                                ContentStringFormat="{TemplateBinding ContentStringFormat}" />
                                         </Grid>
                                     </ikw:ClippedContent>
                                 </ui:SplitView.Content>

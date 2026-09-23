@@ -147,6 +147,7 @@
                                 Grid.Column="1"
                                 HorizontalAlignment="Center"
                                 Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
 

@@ -96,6 +96,7 @@
                                     <ContentPresenter
                                         x:Name="PART_Header"
                                         Content="{TemplateBinding Header}"
+                                        ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                                         TextBlock.FontSize="15"
                                         TextBlock.FontWeight="SemiBold"
@@ -104,6 +105,7 @@
                                     <ContentPresenter
                                         Margin="0,2,0,0"
                                         Content="{TemplateBinding Content}"
+                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                         ContentTemplate="{TemplateBinding ContentTemplate}"
                                         TextElement.Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                 </StackPanel>

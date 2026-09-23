@@ -87,6 +87,7 @@
                 Margin="{TemplateBinding Padding}"
                 CanContentScroll="{TemplateBinding CanContentScroll}"
                 Content="{TemplateBinding Content}"
+                ContentStringFormat="{TemplateBinding ContentStringFormat}"
                 ContentTemplate="{TemplateBinding ContentTemplate}" />
             <ScrollBar
                 x:Name="PART_HorizontalScrollBar"

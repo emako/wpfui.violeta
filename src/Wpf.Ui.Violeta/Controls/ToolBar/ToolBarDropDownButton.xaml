@@ -111,6 +111,7 @@
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Content}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                     RecognizesAccessKey="True"
                                     TextElement.Foreground="{TemplateBinding Foreground}" />
 

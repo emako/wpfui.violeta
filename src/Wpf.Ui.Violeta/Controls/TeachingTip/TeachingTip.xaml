@@ -227,6 +227,7 @@
                                                             x:Name="MainContentPresenter"
                                                             Grid.Row="1"
                                                             Content="{TemplateBinding Content}"
+                                                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                                             FontFamily="{TemplateBinding FontFamily}"
                                                             FontSize="{TemplateBinding FontSize}"
                                                             FontStretch="{TemplateBinding FontStretch}"

@@ -33,6 +33,7 @@
                         <ContentPresenter
                             x:Name="PART_ContentHost"
                             Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
                     </Border>
@@ -99,6 +100,7 @@
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
                                         Content="{TemplateBinding Content}"
+                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
                                         ContentTemplate="{TemplateBinding ContentTemplate}"
                                         TextElement.Foreground="{TemplateBinding Foreground}" />
                                 </Grid>
