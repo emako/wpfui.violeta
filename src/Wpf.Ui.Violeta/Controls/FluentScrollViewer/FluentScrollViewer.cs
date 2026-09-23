@@ -350,7 +350,9 @@ public class FluentScrollViewer : ScrollViewer
 
         CompositionTarget.Rendering += OnRendering;
         _isRendering = true;
-        _content!.IsHitTestVisible = false;
+        // Do not disable hit-testing while animating: content stays unclickable until inertia finishes,
+        // and RenderTransform already participates in WPF hit-testing so visual lag still maps clicks correctly.
+        // _content!.IsHitTestVisible = false;
     }
 
     private void StopRendering()
@@ -378,7 +380,8 @@ public class FluentScrollViewer : ScrollViewer
         _logicalOffsetHorizontal = fH;
         _transform!.X = 0;
 
-        _content!.IsHitTestVisible = true;
+        // Paired with the disabled line in StartRendering — see comment there.
+        // _content!.IsHitTestVisible = true;
     }
 
     private void OnRendering(object? sender, EventArgs e)
