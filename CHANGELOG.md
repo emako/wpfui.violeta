@@ -12,7 +12,7 @@ Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpf
 * Add CalendarDateRangePicker control
 * Add toggleable progress bar in CardProgress
 * Wire ContentStringFormat across ContentControl templates
-* Fix DescriptionsItem ContentStringFormat wiring
+* Fix DescriptionsItem ContentStringFormat wiring [#45](https://github.com/emako/wpfui.violeta/issues/45)
 * Fix CalendarDatePicker focus state
 * Prevent popup from reopening on toggle click
 * Refine date range picker input template
