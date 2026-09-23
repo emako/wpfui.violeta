@@ -199,6 +199,16 @@
                             IsHitTestVisible="False" />
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!--
+                            IsDropDownOpen: show focus while the calendar is open (WPF moves keyboard
+                            focus into the popup, so IsSelectionActive alone would look unfocused —
+                            opposite of ui:CalendarDatePicker). Closing clears that via ScrollBlock.
+                        -->
+                        <Trigger Property="IsDropDownOpen" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundFocused}" />
+                        </Trigger>
                         <Trigger SourceName="PART_TextBox" Property="IsSelectionActive" Value="True">
                             <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
                             <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource TextControlFocusedBorderBrush}" />
@@ -209,6 +219,7 @@
                                 <Condition Property="IsEnabled" Value="True" />
                                 <Condition SourceName="PART_Root" Property="IsMouseOver" Value="True" />
                                 <Condition SourceName="PART_TextBox" Property="IsSelectionActive" Value="False" />
+                                <Condition Property="IsDropDownOpen" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource TextControlBackgroundPointerOver}" />
                         </MultiTrigger>

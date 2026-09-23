@@ -5,16 +5,17 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace Wpf.Ui.Violeta.Controls;
 
 /// <summary>
-/// Attached behavior that, while the built-in <see cref="System.Windows.Controls.DatePicker"/>'s drop-down popup
-/// (styled as a CalendarDatePicker) is open, blocks mouse-wheel events that don't occur over
-/// the popup content itself — so the host panel behind the control can't be scrolled,
-/// matching the standard <see cref="ComboBox"/> drop-down behavior (which achieves this via
-/// mouse capture). Enabled from the CalendarDatePicker style since there's no dedicated
-/// control class to hold this logic.
+/// Attached behavior for the built-in <see cref="System.Windows.Controls.DatePicker"/> when styled
+/// as a CalendarDatePicker. While the drop-down is open it (1) blocks mouse-wheel scrolling of
+/// the host behind the popup (ComboBox-like) and (2) after close, clears keyboard focus that
+/// WPF would otherwise restore onto the text box — so toggle via the drop-down button matches
+/// <c>ui:CalendarDatePicker</c> (open → focused, close → unfocused). Enabled from the
+/// CalendarDatePicker style.
 /// </summary>
 public static class CalendarDatePickerScrollBlock
 {
@@ -23,6 +24,7 @@ public static class CalendarDatePickerScrollBlock
         public Popup? Popup;
         public Window? ParentWindow;
         public bool HandlerRegistered;
+        public bool TextBoxFocusedOnOpen;
         public EventHandler? OpenedHandler;
         public EventHandler? ClosedHandler;
         public MouseWheelEventHandler? WheelHandler;
@@ -82,6 +84,10 @@ public static class CalendarDatePickerScrollBlock
 
         state.OpenedHandler = (_, _) =>
         {
+            state.TextBoxFocusedOnOpen =
+                picker.Template?.FindName("PART_TextBox", picker) is UIElement textBox
+                && textBox.IsKeyboardFocusWithin;
+
             state.ParentWindow ??= Window.GetWindow(picker);
             if (state.ParentWindow is not null && !state.HandlerRegistered)
             {
@@ -97,6 +103,27 @@ public static class CalendarDatePickerScrollBlock
                 state.ParentWindow.PreviewMouseWheel -= state.WheelHandler;
                 state.HandlerRegistered = false;
             }
+
+            // DatePicker.PopUp_Closed MoveFocus'es back into PART_TextBox, which makes a second
+            // click on the drop-down button leave the control focused — opposite of Button-based
+            // ui:CalendarDatePicker. Clear that restored focus when the text box was not focused
+            // before the drop-down opened (e.g. opened via the calendar button).
+            if (state.TextBoxFocusedOnOpen)
+                return;
+
+            picker.Dispatcher.BeginInvoke(
+                DispatcherPriority.Input,
+                () =>
+                {
+                    if (picker.IsDropDownOpen)
+                        return;
+
+                    if (Keyboard.FocusedElement is DependencyObject focused
+                        && IsVisualDescendantOf(focused, picker))
+                    {
+                        Keyboard.ClearFocus();
+                    }
+                });
         };
 
         popup.Opened += state.OpenedHandler;
