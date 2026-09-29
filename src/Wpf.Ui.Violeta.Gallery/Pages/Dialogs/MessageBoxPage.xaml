@@ -31,6 +31,10 @@
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                         Text="{I18N {x:Static lang:LangKeys.Sample_18961e7e86}}" />
+                    <TextBlock
+                        Margin="0,0,0,8"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d8e87c0927}}" />
                     <WrapPanel>
                         <ui:Button
                             Margin="0,0,8,8"
@@ -50,6 +54,32 @@
                         <ui:Button
                             Margin="0,0,8,8"
                             Click="ShowMessageBox_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
+                            Tag="Error" />
+                    </WrapPanel>
+                    <TextBlock
+                        Margin="0,4,0,8"
+                        Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_72c5f3496c}}" />
+                    <WrapPanel>
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowMessageBoxAsync_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_d8c7e04c8e}}"
+                            Tag="Information" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowMessageBoxAsync_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_900c70fa5f}}"
+                            Tag="Warning" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowMessageBoxAsync_Click"
+                            Content="{I18N {x:Static lang:LangKeys.Sample_5dc99f6efe}}"
+                            Tag="Question" />
+                        <ui:Button
+                            Margin="0,0,8,8"
+                            Click="ShowMessageBoxAsync_Click"
                             Content="{I18N {x:Static lang:LangKeys.Sample_7030ff6470}}"
                             Tag="Error" />
                     </WrapPanel>
