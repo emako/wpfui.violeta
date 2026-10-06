@@ -241,6 +241,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scroll content column {0}.
+        /// </summary>
+        public static string Format_ScrollContentColumn {
+            get {
+                return ResourceManager.GetString("Format_ScrollContentColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll content line {0}.
+        /// </summary>
+        public static string Format_ScrollContentLine {
+            get {
+                return ResourceManager.GetString("Format_ScrollContentLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selected: {0}.
         /// </summary>
         public static string Format_Selected {
@@ -22391,6 +22409,42 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_Growl_MsgTokenSuccess {
             get {
                 return ResourceManager.GetString("Sample_Growl_MsgTokenSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal physical scrolling.
+        /// </summary>
+        public static string Sample_c41e8a7b02 {
+            get {
+                return ResourceManager.GetString("Sample_c41e8a7b02", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use Shift+wheel, a trackpad horizontal swipe, or the horizontal scrollbar.
+        /// </summary>
+        public static string Sample_d92f6b3c15 {
+            get {
+                return ResourceManager.GetString("Sample_d92f6b3c15", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Both-axis physical scrolling.
+        /// </summary>
+        public static string Sample_e17a4d8f26 {
+            get {
+                return ResourceManager.GetString("Sample_e17a4d8f26", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Scroll vertically, or hold Shift / swipe horizontally to move on the other axis.
+        /// </summary>
+        public static string Sample_f28b5e9a37 {
+            get {
+                return ResourceManager.GetString("Sample_f28b5e9a37", resourceCulture);
             }
         }
 

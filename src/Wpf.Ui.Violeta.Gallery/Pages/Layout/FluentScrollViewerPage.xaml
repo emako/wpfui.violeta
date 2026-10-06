@@ -34,20 +34,76 @@
                     <TextBlock
                         Margin="0,0,0,12"
                         Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        Text="{I18N {x:Static lang:LangKeys.Sample_3d502b523f}}" />
-                    <vio:FluentScrollViewer Height="160" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}" BorderThickness="1">
-                        <StackPanel Margin="12">
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_a6e8671eab}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_0fa99936c9}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_899eaed4fd}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_e970cf7899}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_cd7eb7bcf9}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_44768e6912}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_73709b070d}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_1f7768a40c}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_4d561128b7}}" Margin="0,0,0,8" />
-                            <TextBlock Text="{I18N {x:Static lang:LangKeys.Sample_aa3eb7c441}}" />
-                        </StackPanel>
+                        Text="{I18N {x:Static lang:LangKeys.Sample_3d502b523f}}"
+                        TextWrapping="Wrap" />
+                    <vio:FluentScrollViewer
+                        Height="360"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1">
+                        <StackPanel x:Name="VerticalContent" Margin="12" />
+                    </vio:FluentScrollViewer>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_c41e8a7b02}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_d92f6b3c15}}"
+                        TextWrapping="Wrap" />
+                    <vio:FluentScrollViewer
+                        Height="220"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        HorizontalScrollBarVisibility="Auto"
+                        PanningMode="HorizontalOnly"
+                        PreferredScrollOrientation="Horizontal"
+                        VerticalScrollBarVisibility="Disabled">
+                        <StackPanel
+                            x:Name="HorizontalContent"
+                            Margin="12"
+                            Orientation="Horizontal" />
+                    </vio:FluentScrollViewer>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_e17a4d8f26}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_f28b5e9a37}}"
+                        TextWrapping="Wrap" />
+                    <vio:FluentScrollViewer
+                        Height="360"
+                        BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                        BorderThickness="1"
+                        HorizontalScrollBarVisibility="Auto"
+                        PanningMode="Both"
+                        VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="BothContent" Margin="12" />
                     </vio:FluentScrollViewer>
                 </StackPanel>
             </Border>

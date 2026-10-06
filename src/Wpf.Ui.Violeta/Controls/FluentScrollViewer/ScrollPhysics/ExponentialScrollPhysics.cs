@@ -45,16 +45,23 @@ public class ExponentialScrollPhysics : IScrollPhysics
     }
 
     /// <inheritdoc/>
+    public void Reset()
+    {
+        _remainingDistance = 0;
+        _isStable = true;
+    }
+
+    /// <inheritdoc/>
     public double Update(double currentOffset, double dt)
     {
         if (_isStable) return currentOffset;
 
         if (Math.Abs(_remainingDistance) < StopThreshold)
         {
-            double last = _remainingDistance;
+            double finalOffset = currentOffset + _remainingDistance;
             _remainingDistance = 0;
             _isStable = true;
-            return currentOffset + last;
+            return finalOffset;
         }
 
         // factor = 1 - e^(-k*dt): fraction of remaining distance consumed this frame.

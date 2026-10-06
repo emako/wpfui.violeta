@@ -7483,4 +7483,22 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_Growl_MsgTokenSuccess" xml:space="preserve">
     <value>Token 路由的成功消息。</value>
   </data>
+  <data name="Format_ScrollContentLine" xml:space="preserve">
+    <value>滚动内容行 {0}</value>
+  </data>
+  <data name="Format_ScrollContentColumn" xml:space="preserve">
+    <value>滚动内容列 {0}</value>
+  </data>
+  <data name="Sample_c41e8a7b02" xml:space="preserve">
+    <value>水平物理滚动</value>
+  </data>
+  <data name="Sample_d92f6b3c15" xml:space="preserve">
+    <value>支持 Shift+滚轮、触摸板横向滑动与水平滚动条。</value>
+  </data>
+  <data name="Sample_e17a4d8f26" xml:space="preserve">
+    <value>双向物理滚动</value>
+  </data>
+  <data name="Sample_f28b5e9a37" xml:space="preserve">
+    <value>可纵向滚动，也可按住 Shift 或横向滑动切换轴向。</value>
+  </data>
 </root>

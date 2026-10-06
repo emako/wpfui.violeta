@@ -70,15 +70,25 @@ public class DefaultScrollPhysics : IScrollPhysics
     }
 
     /// <inheritdoc/>
+    public void Reset()
+    {
+        _velocity = 0;
+        _isStable = true;
+    }
+
+    /// <inheritdoc/>
     public double Update(double currentOffset, double dt)
     {
         if (_isStable) return currentOffset;
 
         if (Math.Abs(_velocity) < StopThreshold)
         {
+            // _velocity is also the remaining distance. Snap it in before becoming
+            // stable so precise input neither loses its tail nor keeps rendering forever.
+            double finalOffset = currentOffset + _velocity;
             _velocity = 0;
             _isStable = true;
-            return currentOffset;
+            return finalOffset;
         }
 
         // Frame-rate–independent: scale friction exponent by (dt / referenceFrameTime).

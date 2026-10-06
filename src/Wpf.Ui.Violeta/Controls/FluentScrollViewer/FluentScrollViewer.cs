@@ -3,9 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -34,10 +32,8 @@ public class FluentScrollViewer : ScrollViewer
     // Keeps virtualization panels happy by not spamming ScrollToOffset on every frame.
     private const double LogicalOffsetUpdateDistanceThreshold = 20.0;
 
-    private const int WM_MOUSEHWHEEL = 0x020E;
-
-    // Minimum per-frame visual delta change to bother updating the transform/scrollbar thumb.
-    private const double VisualUpdateStepThreshold = 0.1;
+    // Cap delta time to avoid huge jumps after GC pause / app suspend / window drag.
+    private const double MaxDeltaTime = 0.2;
 
     // --- Vertical state ---
     private double _logicalOffsetVertical;
@@ -45,8 +41,6 @@ public class FluentScrollViewer : ScrollViewer
     private double _currentVisualOffsetVertical;
     private double _visualDeltaVertical;
     private double _logicalOffsetUpdateAccumulatorVertical;
-    private double _lastRenderedOffsetVertical;
-    private double _lastLogicalSyncVertical;
 
     // --- Horizontal state ---
     private double _logicalOffsetHorizontal;
@@ -54,8 +48,6 @@ public class FluentScrollViewer : ScrollViewer
     private double _currentVisualOffsetHorizontal;
     private double _visualDeltaHorizontal;
     private double _logicalOffsetUpdateAccumulatorHorizontal;
-    private double _lastRenderedOffsetHorizontal;
-    private double _lastLogicalSyncHorizontal;
 
     // --- Rendering ---
     private long _lastTimestamp;
@@ -64,29 +56,13 @@ public class FluentScrollViewer : ScrollViewer
 
     // --- Visual / template parts ---
     private TranslateTransform? _transform;
-
-    private UIElement? _content;
     private ScrollBar? _PART_VerticalScrollBar;
     private ScrollBar? _PART_HorizontalScrollBar;
-    private HwndSource? _hwndSource;
 
     // --- Physics ---
     private IScrollPhysics _verticalScrollPhysics = new DefaultScrollPhysics();
 
     private IScrollPhysics _horizontalScrollPhysics = new DefaultScrollPhysics();
-
-    // Cached bindings used to restore ScrollBar.Value binding after animation ends.
-    private static readonly Binding VerticalOffsetBinding = new("VerticalOffset")
-    {
-        RelativeSource = new RelativeSource(RelativeSourceMode.TemplatedParent),
-        Mode = BindingMode.OneWay,
-    };
-
-    private static readonly Binding HorizontalOffsetBinding = new("HorizontalOffset")
-    {
-        RelativeSource = new RelativeSource(RelativeSourceMode.TemplatedParent),
-        Mode = BindingMode.OneWay,
-    };
 
     // ------------------------------------------------------------------
     // Constructor
@@ -96,6 +72,7 @@ public class FluentScrollViewer : ScrollViewer
     {
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
+        HorizontalMouseWheel.AddMouseWheelHandler(this, OnHorizontalMouseWheel);
     }
 
     // ------------------------------------------------------------------
@@ -153,54 +130,34 @@ public class FluentScrollViewer : ScrollViewer
             throw new InvalidOperationException(
                 $"{nameof(FluentScrollViewer)}.{nameof(Content)} must be a UIElement.");
 
-        _content = element;
         _transform = new TranslateTransform();
         element.RenderTransform = _transform;
         element.RenderTransformOrigin = new Point(0, 0);
-
-        // Remove any stale hook before registering a fresh one.
-        _hwndSource?.RemoveHook(WndProc);
-        var window = Window.GetWindow(this);
-        if (window != null)
-        {
-            _hwndSource = PresentationSource.FromVisual(window) as HwndSource;
-            _hwndSource?.AddHook(WndProc);
-        }
     }
 
     private void OnUnloaded(object? sender, RoutedEventArgs e)
     {
         StopRendering();
-        _hwndSource?.RemoveHook(WndProc);
-        _hwndSource = null;
     }
 
     // ------------------------------------------------------------------
-    // WndProc — horizontal touchpad scroll (WM_MOUSEHWHEEL)
+    // Horizontal touchpad scroll (WM_MOUSEHWHEEL via shared window hook)
     // ------------------------------------------------------------------
 
-    private nint WndProc(nint hwnd, int msg, nint wParam, nint lParam, ref bool handled)
+    private void OnHorizontalMouseWheel(object sender, MouseWheelEventArgs e)
     {
-        if (msg != WM_MOUSEHWHEEL) return IntPtr.Zero;
-
-        if (!IsVisible || !IsEnabled || !IsEnableSmoothScrolling || !CanScrollHorizontal)
-            return IntPtr.Zero;
-
-        var mousePos = Mouse.GetPosition(this);
-        if (mousePos.X < 0 || mousePos.X > ActualWidth ||
-            mousePos.Y < 0 || mousePos.Y > ActualHeight)
-            return IntPtr.Zero;
-
-        if (InputHitTest(mousePos) is DependencyObject hitElement &&
-            FindParentFluentScrollViewer(hitElement) == this)
+        if (e.Handled
+            || !IsVisible
+            || !IsEnabled
+            || !IsEnableSmoothScrolling
+            || !CanScrollHorizontal)
         {
-            int delta = (short)((wParam >> 16) & 0xFFFF);
-            bool isPrecise = delta % Mouse.MouseWheelDeltaForOneLine != 0;
-            HandleScroll(0, -delta, isPrecise);
-            handled = true;
+            return;
         }
 
-        return IntPtr.Zero;
+        bool isPrecise = e.Delta % Mouse.MouseWheelDeltaForOneLine != 0;
+        HandleScroll(0, -e.Delta, isPrecise);
+        e.Handled = true;
     }
 
     // ------------------------------------------------------------------
@@ -220,6 +177,10 @@ public class FluentScrollViewer : ScrollViewer
             _logicalOffsetHorizontal = HorizontalOffset;
             _currentVisualOffsetHorizontal = _logicalOffsetHorizontal;
             _visualDeltaHorizontal = 0;
+
+            // Drop residual velocity/distance from a previous boundary hit.
+            _verticalScrollPhysics.Reset();
+            _horizontalScrollPhysics.Reset();
         }
 
         _verticalScrollPhysics.IsPreciseMode = isPreciseMode;
@@ -303,13 +264,17 @@ public class FluentScrollViewer : ScrollViewer
     {
         base.OnScrollChanged(e);
 
-        if (e.VerticalChange != 0)
+        bool hasVerticalChange = e.VerticalChange != 0;
+        bool hasHorizontalChange = e.HorizontalChange != 0;
+        if (!hasVerticalChange && !hasHorizontalChange) return;
+
+        if (hasVerticalChange)
         {
             _logicalOffsetVertical = e.VerticalOffset;
             if (_isRendering)
             {
-                _visualDeltaVertical = _currentVisualOffsetVertical - _logicalOffsetVertical;
-                _transform!.Y = -_visualDeltaVertical;
+                _visualDeltaVertical = _logicalOffsetVertical - _currentVisualOffsetVertical;
+                _transform!.Y = _visualDeltaVertical;
             }
             else
             {
@@ -318,13 +283,13 @@ public class FluentScrollViewer : ScrollViewer
             }
         }
 
-        if (e.HorizontalChange != 0)
+        if (hasHorizontalChange)
         {
             _logicalOffsetHorizontal = e.HorizontalOffset;
             if (_isRendering)
             {
-                _visualDeltaHorizontal = _currentVisualOffsetHorizontal - _logicalOffsetHorizontal;
-                _transform!.X = -_visualDeltaHorizontal;
+                _visualDeltaHorizontal = _logicalOffsetHorizontal - _currentVisualOffsetHorizontal;
+                _transform!.X = _visualDeltaHorizontal;
             }
             else
             {
@@ -345,14 +310,11 @@ public class FluentScrollViewer : ScrollViewer
         _lastTimestamp = Stopwatch.GetTimestamp();
         _logicalOffsetUpdateAccumulatorVertical = 0;
         _logicalOffsetUpdateAccumulatorHorizontal = 0;
-        _lastLogicalSyncVertical = _currentVisualOffsetVertical;
-        _lastLogicalSyncHorizontal = _currentVisualOffsetHorizontal;
 
         CompositionTarget.Rendering += OnRendering;
         _isRendering = true;
         // Do not disable hit-testing while animating: content stays unclickable until inertia finishes,
         // and RenderTransform already participates in WPF hit-testing so visual lag still maps clicks correctly.
-        // _content!.IsHitTestVisible = false;
     }
 
     private void StopRendering()
@@ -365,23 +327,25 @@ public class FluentScrollViewer : ScrollViewer
         double fV = Clamp(_currentVisualOffsetVertical, 0, ScrollableHeight);
         double fH = Clamp(_currentVisualOffsetHorizontal, 0, ScrollableWidth);
 
-        ScrollToVerticalOffset(fV);
-        ScrollToHorizontalOffset(fH);
+        if (VerticalOffset != fV)
+            ScrollToVerticalOffset(fV);
 
-        // Restore the one-way binding so the scrollbar thumb tracks the logical offset again.
-        _PART_VerticalScrollBar?.SetBinding(ScrollBar.ValueProperty, VerticalOffsetBinding);
-        _PART_HorizontalScrollBar?.SetBinding(ScrollBar.ValueProperty, HorizontalOffsetBinding);
+        if (HorizontalOffset != fH)
+            ScrollToHorizontalOffset(fH);
 
-        _visualDeltaVertical = 0;
         _logicalOffsetVertical = fV;
-        _transform!.Y = 0;
+        if (_visualDeltaVertical != 0)
+        {
+            _visualDeltaVertical = 0;
+            _transform!.Y = 0;
+        }
 
-        _visualDeltaHorizontal = 0;
         _logicalOffsetHorizontal = fH;
-        _transform!.X = 0;
-
-        // Paired with the disabled line in StartRendering — see comment there.
-        // _content!.IsHitTestVisible = true;
+        if (_visualDeltaHorizontal != 0)
+        {
+            _visualDeltaHorizontal = 0;
+            _transform!.X = 0;
+        }
     }
 
     private void OnRendering(object? sender, EventArgs e)
@@ -390,50 +354,91 @@ public class FluentScrollViewer : ScrollViewer
         double dt = (double)(now - _lastTimestamp) / Stopwatch.Frequency;
         _lastTimestamp = now;
 
-        _currentVisualOffsetVertical =
-            Clamp(_verticalScrollPhysics.Update(_currentVisualOffsetVertical, dt), 0, ScrollableHeight);
-        _currentVisualOffsetHorizontal =
-            Clamp(_horizontalScrollPhysics.Update(_currentVisualOffsetHorizontal, dt), 0, ScrollableWidth);
+        if (dt > MaxDeltaTime) dt = MaxDeltaTime;
 
-        if (_verticalScrollPhysics.IsStable && _horizontalScrollPhysics.IsStable)
+        double scrollableHeight = ScrollableHeight;
+        double scrollableWidth = ScrollableWidth;
+
+        double previousVerticalOffset = _currentVisualOffsetVertical;
+        double previousHorizontalOffset = _currentVisualOffsetHorizontal;
+
+        // A gesture normally drives only one axis. Skip a stable physics model
+        // on every frame just because that axis is scrollable.
+        bool updateVertical = scrollableHeight > 0 && !_verticalScrollPhysics.IsStable;
+        bool updateHorizontal = scrollableWidth > 0 && !_horizontalScrollPhysics.IsStable;
+
+        if (updateVertical)
+        {
+            _currentVisualOffsetVertical = Clamp(
+                _verticalScrollPhysics.Update(previousVerticalOffset, dt), 0, scrollableHeight);
+        }
+
+        if (updateHorizontal)
+        {
+            _currentVisualOffsetHorizontal = Clamp(
+                _horizontalScrollPhysics.Update(previousHorizontalOffset, dt), 0, scrollableWidth);
+        }
+
+        bool verticalMoved = _currentVisualOffsetVertical != previousVerticalOffset;
+        bool horizontalMoved = _currentVisualOffsetHorizontal != previousHorizontalOffset;
+
+        bool verticalStable = !updateVertical
+            || _verticalScrollPhysics.IsStable
+            || _currentVisualOffsetVertical <= 0
+            || _currentVisualOffsetVertical >= scrollableHeight;
+        bool horizontalStable = !updateHorizontal
+            || _horizontalScrollPhysics.IsStable
+            || _currentVisualOffsetHorizontal <= 0
+            || _currentVisualOffsetHorizontal >= scrollableWidth;
+
+        if (verticalStable && horizontalStable)
         {
             StopRendering();
             return;
         }
 
-        // Accumulate and batch logical offset updates to avoid thrashing virtualization panels.
-        _logicalOffsetUpdateAccumulatorVertical +=
-            Math.Abs(_currentVisualOffsetVertical - _lastLogicalSyncVertical);
-        _logicalOffsetUpdateAccumulatorHorizontal +=
-            Math.Abs(_currentVisualOffsetHorizontal - _lastLogicalSyncHorizontal);
+        var transform = _transform!;
 
-        if (_logicalOffsetUpdateAccumulatorVertical >= LogicalOffsetUpdateDistanceThreshold)
+        if (verticalMoved)
         {
-            _logicalOffsetUpdateAccumulatorVertical = 0;
-            ScrollToVerticalOffset(_currentVisualOffsetVertical);
-            _lastLogicalSyncVertical = _currentVisualOffsetVertical;
+            _logicalOffsetUpdateAccumulatorVertical +=
+                Math.Abs(_currentVisualOffsetVertical - previousVerticalOffset);
+
+            if (_logicalOffsetUpdateAccumulatorVertical >= LogicalOffsetUpdateDistanceThreshold)
+            {
+                _logicalOffsetUpdateAccumulatorVertical = 0;
+                ScrollToVerticalOffset(_currentVisualOffsetVertical);
+            }
+
+            double visualDeltaVertical = _logicalOffsetVertical - _currentVisualOffsetVertical;
+            if (_visualDeltaVertical != visualDeltaVertical)
+            {
+                _visualDeltaVertical = visualDeltaVertical;
+                transform.Y = visualDeltaVertical;
+            }
+
+            _PART_VerticalScrollBar?.SetCurrentValue(RangeBase.ValueProperty, _currentVisualOffsetVertical);
         }
 
-        if (_logicalOffsetUpdateAccumulatorHorizontal >= LogicalOffsetUpdateDistanceThreshold)
+        if (horizontalMoved)
         {
-            _logicalOffsetUpdateAccumulatorHorizontal = 0;
-            ScrollToHorizontalOffset(_currentVisualOffsetHorizontal);
-            _lastLogicalSyncHorizontal = _currentVisualOffsetHorizontal;
-        }
+            _logicalOffsetUpdateAccumulatorHorizontal +=
+                Math.Abs(_currentVisualOffsetHorizontal - previousHorizontalOffset);
 
-        // Update visual transform and scrollbar thumb position.
-        _visualDeltaVertical = _logicalOffsetVertical - _currentVisualOffsetVertical;
-        if (Math.Abs(_visualDeltaVertical - _lastRenderedOffsetVertical) >= VisualUpdateStepThreshold)
-        {
-            _transform!.Y = _lastRenderedOffsetVertical = _visualDeltaVertical;
-            _PART_VerticalScrollBar?.Value = _currentVisualOffsetVertical;
-        }
+            if (_logicalOffsetUpdateAccumulatorHorizontal >= LogicalOffsetUpdateDistanceThreshold)
+            {
+                _logicalOffsetUpdateAccumulatorHorizontal = 0;
+                ScrollToHorizontalOffset(_currentVisualOffsetHorizontal);
+            }
 
-        _visualDeltaHorizontal = _logicalOffsetHorizontal - _currentVisualOffsetHorizontal;
-        if (Math.Abs(_visualDeltaHorizontal - _lastRenderedOffsetHorizontal) >= VisualUpdateStepThreshold)
-        {
-            _transform!.X = _lastRenderedOffsetHorizontal = _visualDeltaHorizontal;
-            _PART_HorizontalScrollBar?.Value = _currentVisualOffsetHorizontal;
+            double visualDeltaHorizontal = _logicalOffsetHorizontal - _currentVisualOffsetHorizontal;
+            if (_visualDeltaHorizontal != visualDeltaHorizontal)
+            {
+                _visualDeltaHorizontal = visualDeltaHorizontal;
+                transform.X = visualDeltaHorizontal;
+            }
+
+            _PART_HorizontalScrollBar?.SetCurrentValue(RangeBase.ValueProperty, _currentVisualOffsetHorizontal);
         }
     }
 
@@ -512,22 +517,40 @@ public class FluentScrollViewer : ScrollViewer
     // ------------------------------------------------------------------
 
     /// <summary>Gets a value indicating whether the viewer has scrollable vertical content.</summary>
-    public bool CanScrollVertical => ExtentHeight > ViewportHeight;
+    public bool CanScrollVertical =>
+        ScrollInfo is IScrollInfo v
+            ? v.ExtentHeight - v.ViewportHeight > 0
+            : ExtentHeight > ViewportHeight;
 
     /// <summary>Gets a value indicating whether the viewer has scrollable horizontal content.</summary>
-    public bool CanScrollHorizontal => ExtentWidth > ViewportWidth;
+    public bool CanScrollHorizontal =>
+        ScrollInfo is IScrollInfo h
+            ? h.ExtentWidth - h.ViewportWidth > 0
+            : ExtentWidth > ViewportWidth;
 
     /// <summary>Gets a value indicating whether the viewer can scroll upward.</summary>
-    public bool CanScrollUp => VerticalOffset > 0.5;
+    public bool CanScrollUp =>
+        ScrollInfo is IScrollInfo v
+            ? v.VerticalOffset > 0.5
+            : VerticalOffset > 0.5;
 
     /// <summary>Gets a value indicating whether the viewer can scroll downward.</summary>
-    public bool CanScrollDown => VerticalOffset + ViewportHeight < ExtentHeight - 0.5;
+    public bool CanScrollDown =>
+        ScrollInfo is IScrollInfo v
+            ? v.VerticalOffset + v.ViewportHeight < v.ExtentHeight - 0.5
+            : VerticalOffset + ViewportHeight < ExtentHeight - 0.5;
 
     /// <summary>Gets a value indicating whether the viewer can scroll left.</summary>
-    public bool CanScrollLeft => HorizontalOffset > 0.5;
+    public bool CanScrollLeft =>
+        ScrollInfo is IScrollInfo h
+            ? h.HorizontalOffset > 0.5
+            : HorizontalOffset > 0.5;
 
     /// <summary>Gets a value indicating whether the viewer can scroll right.</summary>
-    public bool CanScrollRight => HorizontalOffset + ViewportWidth < ExtentWidth - 0.5;
+    public bool CanScrollRight =>
+        ScrollInfo is IScrollInfo h
+            ? h.HorizontalOffset + h.ViewportWidth < h.ExtentWidth - 0.5
+            : HorizontalOffset + ViewportWidth < ExtentWidth - 0.5;
 
     // ------------------------------------------------------------------
     // Private helpers
@@ -535,20 +558,4 @@ public class FluentScrollViewer : ScrollViewer
 
     private static double Clamp(double value, double min, double max)
         => value < min ? min : value > max ? max : value;
-
-    /// <summary>
-    /// Walks the visual tree upward to find the nearest <see cref="FluentScrollViewer"/>
-    /// that supports horizontal scrolling — used to avoid WM_MOUSEHWHEEL mis-routing.
-    /// </summary>
-    private static FluentScrollViewer? FindParentFluentScrollViewer(DependencyObject element)
-    {
-        DependencyObject? current = element;
-        while (current != null)
-        {
-            if (current is FluentScrollViewer fsv && fsv.CanScrollHorizontal && fsv.IsEnableSmoothScrolling)
-                return fsv;
-            current = VisualTreeHelper.GetParent(current);
-        }
-        return null;
-    }
 }

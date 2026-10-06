@@ -7483,4 +7483,22 @@ Click OK to continue.</value>
   <data name="Sample_Growl_MsgTokenSuccess" xml:space="preserve">
     <value>Token-routed success.</value>
   </data>
+  <data name="Format_ScrollContentLine" xml:space="preserve">
+    <value>Scroll content line {0}</value>
+  </data>
+  <data name="Format_ScrollContentColumn" xml:space="preserve">
+    <value>Scroll content column {0}</value>
+  </data>
+  <data name="Sample_c41e8a7b02" xml:space="preserve">
+    <value>Horizontal physical scrolling</value>
+  </data>
+  <data name="Sample_d92f6b3c15" xml:space="preserve">
+    <value>Use Shift+wheel, a trackpad horizontal swipe, or the horizontal scrollbar.</value>
+  </data>
+  <data name="Sample_e17a4d8f26" xml:space="preserve">
+    <value>Both-axis physical scrolling</value>
+  </data>
+  <data name="Sample_f28b5e9a37" xml:space="preserve">
+    <value>Scroll vertically, or hold Shift / swipe horizontally to move on the other axis.</value>
+  </data>
 </root>

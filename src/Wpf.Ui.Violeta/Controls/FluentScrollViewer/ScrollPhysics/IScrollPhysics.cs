@@ -25,6 +25,12 @@ public interface IScrollPhysics
 
     /// <summary>Gets or sets a value indicating whether precise mode is enabled (e.g., for touchpad input).</summary>
     public bool IsPreciseMode { get; set; }
+
+    /// <summary>
+    /// Resets velocity / remaining distance so a new gesture is not corrupted by
+    /// leftover momentum from a previous boundary hit.
+    /// </summary>
+    public void Reset();
 }
 
 internal static class ScrollPhysicsExtensions

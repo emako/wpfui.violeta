@@ -7483,4 +7483,22 @@ OK をクリックして続行してください。</value>
   <data name="Sample_Growl_MsgTokenSuccess" xml:space="preserve">
     <value>Token 経由の成功メッセージ。</value>
   </data>
+  <data name="Format_ScrollContentLine" xml:space="preserve">
+    <value>スクロール内容行 {0}</value>
+  </data>
+  <data name="Format_ScrollContentColumn" xml:space="preserve">
+    <value>スクロール内容列 {0}</value>
+  </data>
+  <data name="Sample_c41e8a7b02" xml:space="preserve">
+    <value>水平方向の物理スクロール</value>
+  </data>
+  <data name="Sample_d92f6b3c15" xml:space="preserve">
+    <value>Shift+ホイール、トラックパッドの横スワイプ、または水平スクロールバーを使用します。</value>
+  </data>
+  <data name="Sample_e17a4d8f26" xml:space="preserve">
+    <value>両軸の物理スクロール</value>
+  </data>
+  <data name="Sample_f28b5e9a37" xml:space="preserve">
+    <value>縦にスクロールするか、Shift を押しながら／横にスワイプして他軸を操作します。</value>
+  </data>
 </root>
