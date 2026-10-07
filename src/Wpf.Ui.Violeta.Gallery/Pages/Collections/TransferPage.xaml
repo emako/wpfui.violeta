@@ -6,10 +6,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta"
+    xmlns:conv="clr-namespace:Wpf.Ui.Violeta.Gallery.Converters"
     xmlns:lang="clr-namespace:Wpf.Ui.Violeta.Gallery.Globalization"
     Title="{I18N {x:Static lang:LangKeys.Gallery_Page_Transfer}}"
     d:Background="#1C1C1C"
     mc:Ignorable="d">
+    <vio:Page.Resources>
+        <conv:FileTypeNameConverter x:Key="FileTypeNameConverter" />
+    </vio:Page.Resources>
     <ScrollViewer>
         <StackPanel Margin="24,16,24,24">
             <TextBlock
@@ -68,6 +72,39 @@
                         MinWidth="420"
                         Height="200"
                         HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+
+            <!--  ItemTemplate / int values  -->
+            <Border
+                Margin="0,0,0,16"
+                Padding="20"
+                Background="{DynamicResource ControlFillColorSecondaryBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,4"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Transfer_TemplateTitle}}" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                        Text="{I18N {x:Static lang:LangKeys.Sample_Transfer_TemplateDesc}}"
+                        TextWrapping="Wrap" />
+                    <vio:Transfer
+                        MinWidth="420"
+                        Height="220"
+                        HorizontalAlignment="Left"
+                        ItemsSource="{Binding FileTypeList}">
+                        <vio:Transfer.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Converter={StaticResource FileTypeNameConverter}}" />
+                            </DataTemplate>
+                        </vio:Transfer.ItemTemplate>
+                    </vio:Transfer>
                 </StackPanel>
             </Border>
         </StackPanel>

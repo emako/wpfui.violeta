@@ -7507,4 +7507,16 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_f28b5e9a37" xml:space="preserve">
     <value>可縱向捲動，也可按住 Shift 或橫向滑動切換軸向。</value>
   </data>
+  <data name="Sample_MultiComboBox_TemplateTitle" xml:space="preserve">
+    <value>ItemTemplate + 整型資料</value>
+  </data>
+  <data name="Sample_MultiComboBox_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource 為 List&lt;int&gt;（0、1、2）。下拉項透過 Converter 顯示為 "Docx File" / "Xlsx File" / "Pdf File"。選取後摘要也應是這些名稱，而不是原始數字。</value>
+  </data>
+  <data name="Sample_Transfer_TemplateTitle" xml:space="preserve">
+    <value>ItemTemplate + 整型資料</value>
+  </data>
+  <data name="Sample_Transfer_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource 為 List&lt;int&gt;。左側候選項與右側已選項都應顯示轉換後的名稱，而不是 0 / 1 / 2。</value>
+  </data>
 </root>

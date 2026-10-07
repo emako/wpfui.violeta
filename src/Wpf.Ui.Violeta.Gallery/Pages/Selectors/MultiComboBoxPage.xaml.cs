@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using LiteObservableLanguages;
@@ -7,8 +8,11 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 
 public partial class MultiComboBoxPage : Wpf.Ui.Violeta.Controls.Page
 {
+    public ObservableCollection<int> FileTypeList { get; } = [0, 1, 2];
+
     public MultiComboBoxPage()
     {
+        DataContext = this;
         InitializeComponent();
         Loaded += OnLoaded;
     }

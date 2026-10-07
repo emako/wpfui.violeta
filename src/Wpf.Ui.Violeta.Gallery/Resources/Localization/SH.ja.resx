@@ -7501,4 +7501,16 @@ OK をクリックして続行してください。</value>
   <data name="Sample_f28b5e9a37" xml:space="preserve">
     <value>縦にスクロールするか、Shift を押しながら／横にスワイプして他軸を操作します。</value>
   </data>
+  <data name="Sample_MultiComboBox_TemplateTitle" xml:space="preserve">
+    <value>int 値の ItemTemplate</value>
+  </data>
+  <data name="Sample_MultiComboBox_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource は List&lt;int&gt;（0, 1, 2）。Converter で "Docx File" / "Xlsx File" / "Pdf File" と表示します。選択後の表示も同じ名前になり、生の整数にはなりません。</value>
+  </data>
+  <data name="Sample_Transfer_TemplateTitle" xml:space="preserve">
+    <value>int 値の ItemTemplate</value>
+  </data>
+  <data name="Sample_Transfer_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource は List&lt;int&gt;。左側と転送後の右側の両方で変換後の名前を表示し、0 / 1 / 2 にはなりません。</value>
+  </data>
 </root>

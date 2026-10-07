@@ -1,9 +1,11 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using Wpf.Ui.Violeta.Resources.Localization;
 
 namespace Wpf.Ui.Violeta.Controls;
@@ -11,11 +13,13 @@ namespace Wpf.Ui.Violeta.Controls;
 [TemplatePart(Name = nameof(PART_SelectAllCheckBox), Type = typeof(CheckBox))]
 [TemplatePart(Name = nameof(PART_ItemsPresenter), Type = typeof(ItemsPresenter))]
 [TemplatePart(Name = nameof(PART_SelectedText), Type = typeof(TextBlock))]
+[TemplatePart(Name = nameof(PART_SelectedItems), Type = typeof(ItemsControl))]
 public class MultiComboBox : ComboBox
 {
     private CheckBox? PART_SelectAllCheckBox;
     private ItemsPresenter? PART_ItemsPresenter;
     private TextBlock? PART_SelectedText;
+    private ItemsControl? PART_SelectedItems;
 
     private bool _suppressSelectAllUpdate = false;
     private bool _suppressItemUpdate = false;
@@ -39,14 +43,14 @@ public class MultiComboBox : ComboBox
             nameof(Separator),
             typeof(string),
             typeof(MultiComboBox),
-            new PropertyMetadata(", "));
+            new PropertyMetadata(", ", OnDisplayPropertyChanged));
 
     public static readonly DependencyProperty PlaceholderTextProperty =
         DependencyProperty.Register(
             nameof(PlaceholderText),
             typeof(string),
             typeof(MultiComboBox),
-            new PropertyMetadata(string.Empty));
+            new PropertyMetadata(string.Empty, OnDisplayPropertyChanged));
 
     public static readonly DependencyProperty SelectAllTextProperty =
         DependencyProperty.Register(
@@ -67,14 +71,21 @@ public class MultiComboBox : ComboBox
             nameof(ShowAllSelectedText),
             typeof(bool),
             typeof(MultiComboBox),
-            new PropertyMetadata(true));
+            new PropertyMetadata(true, OnDisplayPropertyChanged));
 
     public static readonly DependencyProperty AllSelectedTextProperty =
         DependencyProperty.Register(
             nameof(AllSelectedText),
             typeof(string),
             typeof(MultiComboBox),
-            new PropertyMetadata(null));
+            new PropertyMetadata(null, OnDisplayPropertyChanged));
+
+    public static readonly DependencyProperty SelectedItemTemplateProperty =
+        DependencyProperty.Register(
+            nameof(SelectedItemTemplate),
+            typeof(DataTemplate),
+            typeof(MultiComboBox),
+            new PropertyMetadata(null, OnDisplayPropertyChanged));
 
     public ObservableCollection<object> MultiSelectedItems
     {
@@ -113,7 +124,6 @@ public class MultiComboBox : ComboBox
     }
 
     public bool ShowAllSelectedText
-
     {
         get => (bool)GetValue(ShowAllSelectedTextProperty);
         set => SetValue(ShowAllSelectedTextProperty, value);
@@ -123,6 +133,22 @@ public class MultiComboBox : ComboBox
     {
         get => (string?)GetValue(AllSelectedTextProperty);
         set => SetValue(AllSelectedTextProperty, value);
+    }
+
+    /// <summary>
+    /// Template used to display selected items in the closed combo box.
+    /// When null, <see cref="ItemsControl.ItemTemplate"/> is used as a fallback.
+    /// </summary>
+    public DataTemplate? SelectedItemTemplate
+    {
+        get => (DataTemplate?)GetValue(SelectedItemTemplateProperty);
+        set => SetValue(SelectedItemTemplateProperty, value);
+    }
+
+    private static void OnDisplayPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is MultiComboBox box)
+            box.UpdateSelectedDisplay();
     }
 
     static MultiComboBox()
@@ -160,11 +186,20 @@ public class MultiComboBox : ComboBox
         PART_SelectAllCheckBox = GetTemplateChild(nameof(PART_SelectAllCheckBox)) as CheckBox;
         PART_ItemsPresenter = GetTemplateChild(nameof(PART_ItemsPresenter)) as ItemsPresenter;
         PART_SelectedText = GetTemplateChild(nameof(PART_SelectedText)) as TextBlock;
+        PART_SelectedItems = GetTemplateChild(nameof(PART_SelectedItems)) as ItemsControl;
 
         PART_SelectAllCheckBox?.Click += OnSelectAllCheckBoxClick;
 
-        UpdateSelectedText();
+        UpdateSelectedDisplay();
         UpdateSelectAllState();
+    }
+
+    protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+
+        if (e.Property == ItemTemplateProperty || e.Property == DisplayMemberPathProperty)
+            UpdateSelectedDisplay();
     }
 
     protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
@@ -232,7 +267,7 @@ public class MultiComboBox : ComboBox
         }
 
         UpdateSelectAllState();
-        UpdateSelectedText();
+        UpdateSelectedDisplay();
     }
 
     private void OnSelectAllCheckBoxClick(object? sender, RoutedEventArgs e)
@@ -268,7 +303,7 @@ public class MultiComboBox : ComboBox
 
         SelectAllCheckState = shouldSelectAll;
         PART_SelectAllCheckBox?.IsChecked = shouldSelectAll;
-        UpdateSelectedText();
+        UpdateSelectedDisplay();
         UpdateSelectAllState();
     }
 
@@ -285,7 +320,7 @@ public class MultiComboBox : ComboBox
 
     private void OnSelectedItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        UpdateSelectedText();
+        UpdateSelectedDisplay();
         UpdateSelectAllState();
     }
 
@@ -317,36 +352,133 @@ public class MultiComboBox : ComboBox
         }
     }
 
-    private void UpdateSelectedText()
+    private DataTemplate? GetEffectiveSelectedItemTemplate() =>
+        SelectedItemTemplate ?? ItemTemplate;
+
+    private void UpdateSelectedDisplay()
     {
-        if (PART_SelectedText == null)
+        if (PART_SelectedText is null)
             return;
 
         if (MultiSelectedItems.Count == 0)
         {
-            PART_SelectedText.Text = PlaceholderText;
+            ShowSelectedText(PlaceholderText);
             return;
         }
 
         if (ShowAllSelectedText && Items.Count > 0 && MultiSelectedItems.Count == Items.Count)
         {
-            PART_SelectedText.Text = AllSelectedText ?? SH.MultiComboBoxAllSelected;
+            ShowSelectedText(AllSelectedText ?? SH.MultiComboBoxAllSelected);
             return;
         }
 
-        var parts = MultiSelectedItems.Select(item =>
+        var template = GetEffectiveSelectedItemTemplate();
+        if (template is not null && PART_SelectedItems is not null)
         {
-            if (item is MultiComboBoxItem container)
-                return container.Content?.ToString() ?? string.Empty;
+            ShowSelectedItems(template);
+            return;
+        }
 
-            // Try to resolve display text from the item container
-            if (ItemContainerGenerator.ContainerFromItem(item) is MultiComboBoxItem c)
-                return c.Content?.ToString() ?? item?.ToString() ?? string.Empty;
+        var parts = MultiSelectedItems.Select(GetItemDisplayText);
+        ShowSelectedText(string.Join(Separator, parts));
+    }
 
-            return item?.ToString() ?? string.Empty;
-        });
+    private void ShowSelectedText(string text)
+    {
+        PART_SelectedText!.Text = text;
+        PART_SelectedText.Visibility = Visibility.Visible;
 
-        PART_SelectedText.Text = string.Join(Separator, parts);
+        if (PART_SelectedItems is null)
+            return;
+
+        PART_SelectedItems.Visibility = Visibility.Collapsed;
+        PART_SelectedItems.ItemsSource = null;
+        PART_SelectedItems.Items.Clear();
+        PART_SelectedItems.ItemTemplate = null;
+    }
+
+    private void ShowSelectedItems(DataTemplate template)
+    {
+        PART_SelectedText!.Visibility = Visibility.Collapsed;
+
+        PART_SelectedItems!.Visibility = Visibility.Visible;
+        PART_SelectedItems.ItemsSource = null;
+        PART_SelectedItems.ItemTemplate = null;
+        PART_SelectedItems.Items.Clear();
+
+        for (var i = 0; i < MultiSelectedItems.Count; i++)
+        {
+            if (i > 0 && !string.IsNullOrEmpty(Separator))
+            {
+                PART_SelectedItems.Items.Add(new TextBlock
+                {
+                    Text = Separator,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Foreground = Foreground
+                });
+            }
+
+            PART_SelectedItems.Items.Add(new ContentPresenter
+            {
+                Content = ResolveSelectedContent(MultiSelectedItems[i]),
+                ContentTemplate = template,
+                VerticalAlignment = VerticalAlignment.Center
+            });
+        }
+    }
+
+    private static object? ResolveSelectedContent(object item) =>
+        item is MultiComboBoxItem container ? container.Content : item;
+
+    private string GetItemDisplayText(object item)
+    {
+        if (item is MultiComboBoxItem container)
+            return container.Content?.ToString() ?? string.Empty;
+
+        if (!string.IsNullOrEmpty(DisplayMemberPath))
+        {
+            var value = GetDisplayMemberValue(item, DisplayMemberPath);
+            if (value is not null)
+                return value;
+        }
+
+        if (ItemContainerGenerator.ContainerFromItem(item) is MultiComboBoxItem c)
+            return c.Content?.ToString() ?? item.ToString() ?? string.Empty;
+
+        return item.ToString() ?? string.Empty;
+    }
+
+    private static string? GetDisplayMemberValue(object item, string path)
+    {
+        try
+        {
+            var binding = new Binding(path) { Source = item };
+            var evaluator = new BindingEvaluator();
+            BindingOperations.SetBinding(evaluator, BindingEvaluator.ValueProperty, binding);
+            var result = evaluator.Value?.ToString();
+            BindingOperations.ClearBinding(evaluator, BindingEvaluator.ValueProperty);
+            return result;
+        }
+        catch (Exception)
+        {
+            var property = TypeDescriptor.GetProperties(item)[path];
+            return property?.GetValue(item)?.ToString();
+        }
+    }
+
+    private sealed class BindingEvaluator : DependencyObject
+    {
+        public static readonly DependencyProperty ValueProperty =
+            DependencyProperty.Register(
+                nameof(Value),
+                typeof(object),
+                typeof(BindingEvaluator));
+
+        public object? Value
+        {
+            get => GetValue(ValueProperty);
+            set => SetValue(ValueProperty, value);
+        }
     }
 
     protected override void OnDropDownClosed(EventArgs e)

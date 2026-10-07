@@ -7501,4 +7501,16 @@ Click OK to continue.</value>
   <data name="Sample_f28b5e9a37" xml:space="preserve">
     <value>Scroll vertically, or hold Shift / swipe horizontally to move on the other axis.</value>
   </data>
+  <data name="Sample_MultiComboBox_TemplateTitle" xml:space="preserve">
+    <value>ItemTemplate with int values</value>
+  </data>
+  <data name="Sample_MultiComboBox_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource is List&lt;int&gt; (0, 1, 2). ItemTemplate converts them to "Docx File" / "Xlsx File" / "Pdf File". Selected text should use the same names, not the raw integers.</value>
+  </data>
+  <data name="Sample_Transfer_TemplateTitle" xml:space="preserve">
+    <value>ItemTemplate with int values</value>
+  </data>
+  <data name="Sample_Transfer_TemplateDesc" xml:space="preserve">
+    <value>ItemsSource is List&lt;int&gt;. Both the source list and transferred items should show converted names, not 0 / 1 / 2.</value>
+  </data>
 </root>

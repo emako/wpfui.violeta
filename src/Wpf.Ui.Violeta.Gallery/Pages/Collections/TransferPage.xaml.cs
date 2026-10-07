@@ -16,6 +16,8 @@ public partial class TransferPage : Wpf.Ui.Violeta.Controls.Page
         "Honeydew",
     ];
 
+    public ObservableCollection<int> FileTypeList { get; } = [0, 1, 2];
+
     public TransferPage()
     {
         DataContext = this;

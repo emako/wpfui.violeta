@@ -282,7 +282,7 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <!--  Selected items text display  -->
+                                    <!--  Selected items: plain text or templated content  -->
                                     <Grid Grid.Column="0" Margin="{TemplateBinding Padding}">
                                         <TextBlock
                                             x:Name="PART_SelectedText"
@@ -291,6 +291,19 @@
                                             Text="{Binding PlaceholderText, RelativeSource={RelativeSource TemplatedParent}}"
                                             TextTrimming="CharacterEllipsis"
                                             TextWrapping="NoWrap" />
+                                        <ItemsControl
+                                            x:Name="PART_SelectedItems"
+                                            VerticalAlignment="Center"
+                                            Focusable="False"
+                                            Foreground="{TemplateBinding Foreground}"
+                                            IsHitTestVisible="False"
+                                            Visibility="Collapsed">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ItemsControl>
                                     </Grid>
 
                                     <!--  Chevron icon  -->

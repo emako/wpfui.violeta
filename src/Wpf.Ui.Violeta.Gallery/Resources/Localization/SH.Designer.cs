@@ -22448,5 +22448,41 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to ItemTemplate with int values.
+        /// </summary>
+        public static string Sample_MultiComboBox_TemplateTitle {
+            get {
+                return ResourceManager.GetString("Sample_MultiComboBox_TemplateTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ItemsSource is List&lt;int&gt; (0, 1, 2). ItemTemplate converts them to &quot;Docx File&quot; / &quot;Xlsx File&quot; / &quot;Pdf File&quot;. Selected text should use the same names, not the raw integers..
+        /// </summary>
+        public static string Sample_MultiComboBox_TemplateDesc {
+            get {
+                return ResourceManager.GetString("Sample_MultiComboBox_TemplateDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ItemTemplate with int values.
+        /// </summary>
+        public static string Sample_Transfer_TemplateTitle {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_TemplateTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ItemsSource is List&lt;int&gt;. Both the source list and transferred items should show converted names, not 0 / 1 / 2..
+        /// </summary>
+        public static string Sample_Transfer_TemplateDesc {
+            get {
+                return ResourceManager.GetString("Sample_Transfer_TemplateDesc", resourceCulture);
+            }
+        }
+
     }
 }

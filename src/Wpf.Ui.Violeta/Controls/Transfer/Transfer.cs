@@ -110,6 +110,27 @@ public class Transfer : ListBox
 
     #endregion CornerRadius
 
+    #region SelectedItemTemplate
+
+    public static readonly DependencyProperty SelectedItemTemplateProperty =
+        DependencyProperty.Register(
+            nameof(SelectedItemTemplate),
+            typeof(DataTemplate),
+            typeof(Transfer),
+            new PropertyMetadata(null));
+
+    /// <summary>
+    /// Template used to display transferred items on the right list.
+    /// When null, <see cref="ItemsControl.ItemTemplate"/> is used as a fallback.
+    /// </summary>
+    public DataTemplate? SelectedItemTemplate
+    {
+        get => (DataTemplate?)GetValue(SelectedItemTemplateProperty);
+        set => SetValue(SelectedItemTemplateProperty, value);
+    }
+
+    #endregion SelectedItemTemplate
+
     private void OnLoaded(object sender, RoutedEventArgs e) => SelectItems(null!, null!);
 
     public override void OnApplyTemplate()
@@ -124,6 +145,9 @@ public class Transfer : ListBox
 
     protected override DependencyObject GetContainerForItemOverride() => new TransferItem();
 
+    private DataTemplate? GetEffectiveSelectedItemTemplate() =>
+        SelectedItemTemplate ?? ItemTemplate;
+
     private void SelectItems(object sender, ExecutedRoutedEventArgs e)
     {
         if (_selectedListBox is null || SelectedItems.Count == 0)
@@ -137,17 +161,29 @@ public class Transfer : ListBox
             selectedItem.IsTransferred = true;
 
             var transferItem = new TransferItem { Tag = item };
+            var template = GetEffectiveSelectedItemTemplate();
 
             if (ItemsSource is not null)
             {
-                if (string.IsNullOrEmpty(DisplayMemberPath))
+                if (template is not null)
+                {
                     transferItem.Content = item;
+                    transferItem.ContentTemplate = template;
+                }
+                else if (string.IsNullOrEmpty(DisplayMemberPath))
+                {
+                    transferItem.Content = item;
+                }
                 else
+                {
                     transferItem.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
+                }
             }
             else
             {
                 transferItem.Content = item is TransferItem container ? container.Content : item;
+                if (template is not null)
+                    transferItem.ContentTemplate = template;
             }
 
             _selectedListBox.Items.Add(transferItem);
