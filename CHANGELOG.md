@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.16] - 2026-10-09
+
+* Add process DPI awareness context API with query and debug logging
+* Add source generator that emits DisableDpiAwarenessAttribute
+* Improve DPI awareness initialization and enum placement
+* Fix templated display for selected int items [#47](https://github.com/emako/wpfui.violeta/issues/47)
+* Expand FluentScrollViewer gallery and share horizontal wheel routing
+* Add async message box demo actions
+
 ## [4.3.0.15] - 2026-09-23
 
 * Add CalendarDateRangePicker control
