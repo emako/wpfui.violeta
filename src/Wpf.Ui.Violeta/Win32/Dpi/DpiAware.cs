@@ -11,7 +11,7 @@ public static class DpiAware
     public static void DisableDpiAwareness()
     {
         // Stub method for source generators to detect the presence of the DisableDpiAwarenessAttribute.
-        // [assembly: DisableDpiAwareness]
+        // [assembly: System.Windows.Media.DisableDpiAwareness]
     }
 
     /// <summary>

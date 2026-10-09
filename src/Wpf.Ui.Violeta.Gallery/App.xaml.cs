@@ -1,11 +1,12 @@
+using LiteObservableLanguages;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
-using LiteObservableLanguages;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Gallery.Globalization;
@@ -18,6 +19,8 @@ public partial class App : Application
 {
     static App()
     {
+        DpiAware.DisableDpiAwareness();
+
         if (DpiAware.SetProcessDpiAwarenessContext((int)DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2))
         {
             Debug.WriteLine($"[DpiAware] SetProcessDpiAwarenessContext: {DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2} ({(int)DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2})");
