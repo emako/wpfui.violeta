@@ -26,6 +26,13 @@ internal static class User32
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool SetProcessDpiAwarenessContext(nint dpiContext);
 
+    [DllImport("user32.dll")]
+    public static extern nint GetThreadDpiAwarenessContext();
+
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool AreDpiAwarenessContextsEqual(nint dpiContextA, nint dpiContextB);
+
     [SecurityCritical]
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
@@ -9,11 +10,25 @@ using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Appearance;
 using Wpf.Ui.Violeta.Gallery.Globalization;
 using Wpf.Ui.Violeta.Gallery.Resources.Localization;
+using Wpf.Ui.Violeta.Win32;
 
 namespace Wpf.Ui.Violeta.Gallery;
 
 public partial class App : Application
 {
+    static App()
+    {
+        if (DpiAware.GetProcessDpiAwareness(out int awareness))
+        {
+            Debug.WriteLine($"[DpiAware] ProcessDpiAwareness: {(PROCESS_DPI_AWARENESS)awareness} ({awareness})");
+        }
+
+        if (DpiAware.GetProcessDpiAwarenessContext(out int dpiContext))
+        {
+            Debug.WriteLine($"[DpiAware] ProcessDpiAwarenessContext: {(DPI_AWARENESS_CONTEXT)dpiContext} ({dpiContext})");
+        }
+    }
+
     public App()
     {
         SystemMenuThemeManager.Apply();
