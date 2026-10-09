@@ -8,6 +8,15 @@ public static class DpiAware
     /// <summary>
     /// <see cref="DisableDpiAwarenessAttribute"/>
     /// </summary>
+    public static void DisableDpiAwareness()
+    {
+        // Stub method for source generators to detect the presence of the DisableDpiAwarenessAttribute.
+        // [assembly: DisableDpiAwareness]
+    }
+
+    /// <summary>
+    /// <see cref="DisableDpiAwarenessAttribute"/>
+    /// </summary>
     /// <param name="awareness">
     /// <see cref="PROCESS_DPI_AWARENESS.PROCESS_DPI_UNAWARE">0</see>
     /// <see cref="PROCESS_DPI_AWARENESS.PROCESS_SYSTEM_DPI_AWARE">1</see>
@@ -61,6 +70,7 @@ public static class DpiAware
     }
 
     /// <summary>
+    /// <see cref="DisableDpiAwarenessAttribute"/>
     /// Sets the process DPI awareness context. Requires Windows 10 version 1703 (build 15063) or later
     /// for <see cref="SHCore.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2"/>.
     /// Call this before any windows are created.
