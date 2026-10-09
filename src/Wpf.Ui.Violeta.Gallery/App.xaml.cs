@@ -18,14 +18,31 @@ public partial class App : Application
 {
     static App()
     {
+        if (DpiAware.SetProcessDpiAwarenessContext((int)DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2))
+        {
+            Debug.WriteLine($"[DpiAware] SetProcessDpiAwarenessContext: {DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2} ({(int)DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2})");
+        }
+        else
+        {
+            Debug.WriteLine($"[DpiAware] Failed to call SetProcessDpiAwarenessContext");
+        }
+
         if (DpiAware.GetProcessDpiAwareness(out int awareness))
         {
-            Debug.WriteLine($"[DpiAware] ProcessDpiAwareness: {(PROCESS_DPI_AWARENESS)awareness} ({awareness})");
+            Debug.WriteLine($"[DpiAware] GetProcessDpiAwareness: {(PROCESS_DPI_AWARENESS)awareness} ({awareness})");
+        }
+        else
+        {
+            Debug.WriteLine($"[DpiAware] Failed to call GetProcessDpiAwareness");
         }
 
         if (DpiAware.GetProcessDpiAwarenessContext(out int dpiContext))
         {
-            Debug.WriteLine($"[DpiAware] ProcessDpiAwarenessContext: {(DPI_AWARENESS_CONTEXT)dpiContext} ({dpiContext})");
+            Debug.WriteLine($"[DpiAware] GetProcessDpiAwarenessContext: {(DPI_AWARENESS_CONTEXT)dpiContext} ({dpiContext})");
+        }
+        else
+        {
+            Debug.WriteLine($"[DpiAware] Failed to call GetProcessDpiAwarenessContext");
         }
     }
 

@@ -12,12 +12,4 @@ internal static class SHCore
 
     [DllImport("shcore.dll")]
     public static extern int GetDpiForMonitor(nint hMonitor, MONITOR_DPI_TYPE dpiType, out uint dpiX, out uint dpiY);
-
-    public enum MONITOR_DPI_TYPE
-    {
-        MDT_EFFECTIVE_DPI = 0,
-        MDT_ANGULAR_DPI,
-        MDT_RAW_DPI,
-        MDT_DEFAULT = MDT_EFFECTIVE_DPI,
-    }
 }
