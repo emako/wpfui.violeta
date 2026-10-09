@@ -22,6 +22,10 @@ internal static class User32
     [DllImport("user32.dll")]
     public static extern bool PostMessage(nint hWnd, uint Msg, nint wParam, nint lParam);
 
+    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetProcessDpiAwarenessContext(nint dpiContext);
+
     [SecurityCritical]
     [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
     [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
