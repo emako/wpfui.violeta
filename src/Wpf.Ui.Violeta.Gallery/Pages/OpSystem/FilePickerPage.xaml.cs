@@ -1,11 +1,11 @@
+using LiteObservableLanguages;
+using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.Win32;
 using Wpf.Ui.Violeta.Gallery.Globalization;
-using LiteObservableLanguages;
+using OpenFolderDialog = Wpf.Ui.Violeta.Win32.OpenFolderDialog;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.OpSystem;
 
@@ -106,10 +106,9 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
         string fileName = FileToSaveNameTextBox.Text;
         if (!string.IsNullOrEmpty(fileName))
         {
-            char[] invalidChars = Path.GetInvalidFileNameChars()
+            char[] invalidChars = [.. Path.GetInvalidFileNameChars()
                 .Concat(Path.GetInvalidPathChars())
-                .Distinct()
-                .ToArray();
+                .Distinct()];
 
             dialog.FileName = string.Join("_", fileName.Split(invalidChars, StringSplitOptions.RemoveEmptyEntries)).Trim();
         }
@@ -126,7 +125,11 @@ public partial class FilePickerPage : Wpf.Ui.Violeta.Controls.Page
 
         try
         {
+#if NETFRAMEWORK
+            await System.Threading.Tasks.Task.Run(() => File.WriteAllText(dialog.FileName, FileToSaveContentsTextBox.Text));
+#else
             await File.WriteAllTextAsync(dialog.FileName, FileToSaveContentsTextBox.Text);
+#endif
         }
         catch
         {

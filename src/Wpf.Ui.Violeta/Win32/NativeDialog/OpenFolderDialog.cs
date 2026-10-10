@@ -1,19 +1,21 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 
 namespace Wpf.Ui.Violeta.Win32;
 
 /// <summary>
-/// Provides the Windows folder selection dialog.
+/// Displays a dialog that prompts the user to open a folder.
+/// Member names follow <see cref="Microsoft.Win32.OpenFolderDialog"/> from .NET Core.
 /// </summary>
 public sealed class OpenFolderDialog
 {
     private const int ErrorCancelled = unchecked((int)0x800704C7);
 
-    private string? _description;
-    private string? _selectedPath;
-    private string[]? _selectedPaths;
+    private string? _title;
+    private string? _initialDirectory;
+    private string[]? _folderNames;
     private FileOpenDialogOptions _options;
 
     /// <summary>
@@ -21,7 +23,7 @@ public sealed class OpenFolderDialog
     /// </summary>
     public OpenFolderDialog()
     {
-        Reset();
+        Initialize();
     }
 
     /// <summary>
@@ -32,25 +34,68 @@ public sealed class OpenFolderDialog
         && Environment.OSVersion.Version >= new Version(6, 0);
 
     /// <summary>
-    /// Gets or sets descriptive text displayed by the dialog.
+    /// Gets or sets the initial directory displayed by the dialog.
     /// </summary>
-    public string Description
+    public string InitialDirectory
     {
-        get => _description ?? string.Empty;
-        set => _description = value;
+        get => _initialDirectory ?? string.Empty;
+        set => _initialDirectory = value;
     }
 
     /// <summary>
-    /// Gets or sets the folder selected when the dialog opens, or the selected folder after it closes.
+    /// Gets or sets the text that appears in the title bar of the dialog.
     /// </summary>
-    public string SelectedPath
+    public string Title
     {
-        get => _selectedPath ?? (_selectedPaths is { Length: > 0 } ? _selectedPaths[0] : string.Empty);
-        set => _selectedPath = value;
+        get => _title ?? string.Empty;
+        set => _title = value;
     }
 
     /// <summary>
-    /// Gets or sets whether multiple folders can be selected.
+    /// Gets or sets the full path of the folder selected in the dialog.
+    /// </summary>
+    public string FolderName
+    {
+        get => _folderNames is { Length: > 0 } ? _folderNames[0] : string.Empty;
+        set => _folderNames = value is null ? null : [value];
+    }
+
+    /// <summary>
+    /// Gets the folder names of all selected folders in the dialog.
+    /// </summary>
+    public string[] FolderNames => CloneFolderNames();
+
+    /// <summary>
+    /// Gets the folder name component of <see cref="FolderName"/>.
+    /// </summary>
+    public string SafeFolderName
+    {
+        get
+        {
+            string? name = Path.GetFileName(FolderName);
+            return name ?? string.Empty;
+        }
+    }
+
+    /// <summary>
+    /// Gets the folder name component of each selected folder.
+    /// </summary>
+    public string[] SafeFolderNames
+    {
+        get
+        {
+            string[] names = CloneFolderNames();
+            for (int i = 0; i < names.Length; i++)
+            {
+                names[i] = Path.GetFileName(names[i]) ?? string.Empty;
+            }
+
+            return names;
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the dialog allows users to select multiple folders.
     /// </summary>
     public bool Multiselect
     {
@@ -59,51 +104,21 @@ public sealed class OpenFolderDialog
     }
 
     /// <summary>
-    /// Gets the paths of all folders selected in the dialog.
-    /// </summary>
-    public string[] SelectedPaths
-    {
-        get
-        {
-            if (_selectedPaths is not null)
-            {
-                return (string[])_selectedPaths.Clone();
-            }
-
-            return string.IsNullOrWhiteSpace(_selectedPath) ? Array.Empty<string>() : new[] { _selectedPath! };
-        }
-        set => _selectedPaths = value;
-    }
-
-    /// <summary>
-    /// Gets or sets whether <see cref="Description"/> is used as the dialog title.
-    /// </summary>
-    public bool UseDescriptionForTitle { get; set; }
-
-    /// <summary>
-    /// Gets or sets the root folder for legacy folder dialogs.
-    /// </summary>
-    /// <remarks>The Windows common folder dialog does not use this property.</remarks>
-    public Environment.SpecialFolder RootFolder { get; set; }
-
-    /// <summary>
-    /// Gets or sets whether a legacy folder dialog shows its New Folder button.
-    /// </summary>
-    /// <remarks>The Windows common folder dialog always provides folder creation.</remarks>
-    public bool ShowNewFolderButton { get; set; }
-
-    /// <summary>
     /// Resets all properties to their default values.
     /// </summary>
     public void Reset()
     {
-        _description = string.Empty;
-        _selectedPath = string.Empty;
-        _selectedPaths = null;
+        _title = string.Empty;
+        _initialDirectory = string.Empty;
+        _folderNames = null;
         _options = FileOpenDialogOptions.None;
-        UseDescriptionForTitle = false;
-        RootFolder = Environment.SpecialFolder.Desktop;
-        ShowNewFolderButton = true;
+        Initialize();
+    }
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return base.ToString() + ", FolderName: " + FolderName;
     }
 
     /// <summary>
@@ -154,68 +169,81 @@ public sealed class OpenFolderDialog
         }
     }
 
+    private void Initialize()
+    {
+        SetOption(FileOpenDialogOptions.FileMustExist, value: true);
+        SetOption(FileOpenDialogOptions.PickFolders, value: true);
+    }
+
     private void ConfigureDialog(IFileOpenDialog dialog)
     {
-        ThrowIfFailed(dialog.SetOptions(
-            FileOpenDialogOptions.PickFolders
-            | FileOpenDialogOptions.ForceFileSystem
-            | FileOpenDialogOptions.FileMustExist
+        Marshal.ThrowExceptionForHR(dialog.SetOptions(
+            FileOpenDialogOptions.ForceFileSystem
             | _options));
 
-        if (!string.IsNullOrEmpty(_description))
+        if (!string.IsNullOrEmpty(_title))
         {
-            var description = _description;
-            if (UseDescriptionForTitle)
+            Marshal.ThrowExceptionForHR(dialog.SetTitle(_title!));
+        }
+
+        var initialDirectory = InitialDirectory;
+        if (!string.IsNullOrWhiteSpace(initialDirectory) && Directory.Exists(initialDirectory))
+        {
+            var folder = CreateShellItem(initialDirectory);
+            try
             {
-                ThrowIfFailed(dialog.SetTitle(description!));
+                Marshal.ThrowExceptionForHR(dialog.SetFolder(folder));
             }
-            else
+            finally
             {
-                var customize = (IFileDialogCustomize)dialog;
-                ThrowIfFailed(customize.AddText(0, description!));
+                Marshal.FinalReleaseComObject(folder);
             }
         }
 
-        if (string.IsNullOrWhiteSpace(_selectedPath))
+        if (string.IsNullOrWhiteSpace(FolderName))
         {
             return;
         }
 
-        var selectedPath = _selectedPath;
-        var parent = Path.GetDirectoryName(selectedPath);
-        if (string.IsNullOrWhiteSpace(parent) || !Directory.Exists(parent))
+        var selectedPath = FolderName;
+        if (string.IsNullOrWhiteSpace(initialDirectory))
         {
-            ThrowIfFailed(dialog.SetFileName(selectedPath!));
-            return;
+            var parent = Path.GetDirectoryName(selectedPath);
+            if (!string.IsNullOrWhiteSpace(parent) && Directory.Exists(parent))
+            {
+                var folder = CreateShellItem(parent);
+                try
+                {
+                    Marshal.ThrowExceptionForHR(dialog.SetFolder(folder));
+                    Marshal.ThrowExceptionForHR(dialog.SetFileName(Path.GetFileName(selectedPath)));
+                }
+                finally
+                {
+                    Marshal.FinalReleaseComObject(folder);
+                }
+
+                return;
+            }
         }
 
-        var folder = CreateShellItem(parent);
-        try
-        {
-            ThrowIfFailed(dialog.SetFolder(folder));
-            ThrowIfFailed(dialog.SetFileName(Path.GetFileName(selectedPath)));
-        }
-        finally
-        {
-            Marshal.FinalReleaseComObject(folder);
-        }
+        Marshal.ThrowExceptionForHR(dialog.SetFileName(Path.GetFileName(selectedPath)));
     }
 
     private void ReadResult(IFileOpenDialog dialog)
     {
         if (Multiselect)
         {
-            ThrowIfFailed(dialog.GetResults(out var results));
+            Marshal.ThrowExceptionForHR(dialog.GetResults(out var results));
             try
             {
-                ThrowIfFailed(results.GetCount(out var count));
+                Marshal.ThrowExceptionForHR(results.GetCount(out var count));
                 var paths = new string[count];
                 for (uint index = 0; index < count; index++)
                 {
-                    ThrowIfFailed(results.GetItemAt(index, out var item));
+                    Marshal.ThrowExceptionForHR(results.GetItemAt(index, out var item));
                     try
                     {
-                        ThrowIfFailed(item.GetDisplayName(ShellItemDisplayName.FileSystemPath, out paths[index]));
+                        Marshal.ThrowExceptionForHR(item.GetDisplayName(ShellItemDisplayName.FileSystemPath, out paths[index]));
                     }
                     finally
                     {
@@ -223,8 +251,7 @@ public sealed class OpenFolderDialog
                     }
                 }
 
-                _selectedPaths = paths;
-                _selectedPath = paths.Length > 0 ? paths[0] : string.Empty;
+                _folderNames = paths;
             }
             finally
             {
@@ -234,17 +261,26 @@ public sealed class OpenFolderDialog
             return;
         }
 
-        ThrowIfFailed(dialog.GetResult(out var result));
+        Marshal.ThrowExceptionForHR(dialog.GetResult(out var result));
         try
         {
-            ThrowIfFailed(result.GetDisplayName(ShellItemDisplayName.FileSystemPath, out var path));
-            _selectedPath = path;
-            _selectedPaths = null;
+            Marshal.ThrowExceptionForHR(result.GetDisplayName(ShellItemDisplayName.FileSystemPath, out var path));
+            _folderNames = [path];
         }
         finally
         {
             Marshal.FinalReleaseComObject(result);
         }
+    }
+
+    private string[] CloneFolderNames()
+    {
+        if (_folderNames is null)
+        {
+            return [];
+        }
+
+        return (string[])_folderNames.Clone();
     }
 
     private void SetOption(FileOpenDialogOptions option, bool value)
@@ -255,16 +291,8 @@ public sealed class OpenFolderDialog
     private static IShellItem CreateShellItem(string path)
     {
         var interfaceId = typeof(IShellItem).GUID;
-        ThrowIfFailed(SHCreateItemFromParsingName(path, 0, ref interfaceId, out var item));
+        Marshal.ThrowExceptionForHR(SHCreateItemFromParsingName(path, 0, ref interfaceId, out var item));
         return item;
-    }
-
-    private static void ThrowIfFailed(int hResult)
-    {
-        if (hResult < 0)
-        {
-            Marshal.ThrowExceptionForHR(hResult);
-        }
     }
 
     [DllImport("shell32.dll", CharSet = CharSet.Unicode, PreserveSig = true)]
@@ -279,95 +307,112 @@ public sealed class OpenFolderDialog
     private class FileOpenDialogComObject;
 
     [ComImport]
-    [Guid("42F85136-DB7E-439C-85F1-E4075D135FC8")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    private interface IFileDialog
-    {
-        [PreserveSig] int Show(nint parent);
-        [PreserveSig] int SetFileTypes(uint fileTypeCount, nint fileTypes);
-        [PreserveSig] int SetFileTypeIndex(uint fileTypeIndex);
-        [PreserveSig] int GetFileTypeIndex(out uint fileTypeIndex);
-        [PreserveSig] int Advise(nint events, out uint cookie);
-        [PreserveSig] int Unadvise(uint cookie);
-        [PreserveSig] int SetOptions(FileOpenDialogOptions options);
-        [PreserveSig] int GetOptions(out FileOpenDialogOptions options);
-        [PreserveSig] int SetDefaultFolder(IShellItem folder);
-        [PreserveSig] int SetFolder(IShellItem folder);
-        [PreserveSig] int GetFolder(out IShellItem folder);
-        [PreserveSig] int GetCurrentSelection(out IShellItem item);
-        [PreserveSig] int SetFileName([MarshalAs(UnmanagedType.LPWStr)] string name);
-        [PreserveSig] int GetFileName([MarshalAs(UnmanagedType.LPWStr)] out string name);
-        [PreserveSig] int SetTitle([MarshalAs(UnmanagedType.LPWStr)] string title);
-        [PreserveSig] int SetOkButtonLabel([MarshalAs(UnmanagedType.LPWStr)] string text);
-        [PreserveSig] int SetFileNameLabel([MarshalAs(UnmanagedType.LPWStr)] string label);
-        [PreserveSig] int GetResult(out IShellItem item);
-        [PreserveSig] int AddPlace(IShellItem item, int alignment);
-        [PreserveSig] int SetDefaultExtension([MarshalAs(UnmanagedType.LPWStr)] string defaultExtension);
-        [PreserveSig] int Close(int hResult);
-        [PreserveSig] int SetClientGuid(ref Guid clientGuid);
-        [PreserveSig] int ClearClientData();
-        [PreserveSig] int SetFilter(nint filter);
-    }
-
-    [ComImport]
     [Guid("D57C7288-D4AD-4768-BE02-9D969532D960")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    private interface IFileOpenDialog : IFileDialog
+    [SuppressMessage("Interoperability", "SYSLIB1096:Convert to 'GeneratedComInterface'")]
+    private interface IFileOpenDialog
     {
-        [PreserveSig] int GetResults(out IShellItemArray results);
-        [PreserveSig] int GetSelectedItems(out IShellItemArray items);
-    }
+        // ComImport does not append methods inherited from IFileDialog, so the base
+        // slots are listed here. Otherwise GetResults calls the wrong native method.
+        [PreserveSig] public int Show(nint parent);
 
-    [ComImport]
-    [Guid("E6FDD21A-163F-4975-9C8C-A69F1BA37034")]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    private interface IFileDialogCustomize
-    {
-        [PreserveSig] int EnableOpenDropDown(uint controlId);
-        [PreserveSig] int AddMenu(uint controlId, [MarshalAs(UnmanagedType.LPWStr)] string label);
-        [PreserveSig] int AddPushButton(uint controlId, [MarshalAs(UnmanagedType.LPWStr)] string label);
-        [PreserveSig] int AddComboBox(uint controlId);
-        [PreserveSig] int AddRadioButtonList(uint controlId);
-        [PreserveSig] int AddCheckButton(uint controlId, [MarshalAs(UnmanagedType.LPWStr)] string label, [MarshalAs(UnmanagedType.Bool)] bool isChecked);
-        [PreserveSig] int AddEditBox(uint controlId, [MarshalAs(UnmanagedType.LPWStr)] string text);
-        [PreserveSig] int AddSeparator(uint controlId);
-        [PreserveSig] int AddText(uint controlId, [MarshalAs(UnmanagedType.LPWStr)] string text);
+        [PreserveSig] public int SetFileTypes(uint fileTypeCount, nint fileTypes);
+
+        [PreserveSig] public int SetFileTypeIndex(uint fileTypeIndex);
+
+        [PreserveSig] public int GetFileTypeIndex(out uint fileTypeIndex);
+
+        [PreserveSig] public int Advise(nint events, out uint cookie);
+
+        [PreserveSig] public int Unadvise(uint cookie);
+
+        [PreserveSig] public int SetOptions(FileOpenDialogOptions options);
+
+        [PreserveSig] public int GetOptions(out FileOpenDialogOptions options);
+
+        [PreserveSig] public int SetDefaultFolder(IShellItem folder);
+
+        [PreserveSig] public int SetFolder(IShellItem folder);
+
+        [PreserveSig] public int GetFolder(out IShellItem folder);
+
+        [PreserveSig] public int GetCurrentSelection(out IShellItem item);
+
+        [PreserveSig] public int SetFileName([MarshalAs(UnmanagedType.LPWStr)] string name);
+
+        [PreserveSig] public int GetFileName([MarshalAs(UnmanagedType.LPWStr)] out string name);
+
+        [PreserveSig] public int SetTitle([MarshalAs(UnmanagedType.LPWStr)] string title);
+
+        [PreserveSig] public int SetOkButtonLabel([MarshalAs(UnmanagedType.LPWStr)] string text);
+
+        [PreserveSig] public int SetFileNameLabel([MarshalAs(UnmanagedType.LPWStr)] string label);
+
+        [PreserveSig] public int GetResult(out IShellItem item);
+
+        [PreserveSig] public int AddPlace(IShellItem item, int alignment);
+
+        [PreserveSig] public int SetDefaultExtension([MarshalAs(UnmanagedType.LPWStr)] string defaultExtension);
+
+        [PreserveSig] public int Close(int hResult);
+
+        [PreserveSig] public int SetClientGuid(ref Guid clientGuid);
+
+        [PreserveSig] public int ClearClientData();
+
+        [PreserveSig] public int SetFilter(nint filter);
+
+        [PreserveSig] public int GetResults(out IShellItemArray results);
+
+        [PreserveSig] public int GetSelectedItems(out IShellItemArray items);
     }
 
     [ComImport]
     [Guid("43826D1E-E718-42EE-BC55-A1E261C37BFE")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [SuppressMessage("Interoperability", "SYSLIB1096:Convert to 'GeneratedComInterface'")]
     private interface IShellItem
     {
-        [PreserveSig] int BindToHandler(nint bindContext, ref Guid handlerId, ref Guid interfaceId, out nint result);
-        [PreserveSig] int GetParent(out IShellItem parent);
-        [PreserveSig] int GetDisplayName(ShellItemDisplayName displayName, [MarshalAs(UnmanagedType.LPWStr)] out string name);
-        [PreserveSig] int GetAttributes(uint attributes, out uint result);
-        [PreserveSig] int Compare(IShellItem other, uint hint, out int order);
+        [PreserveSig] public int BindToHandler(nint bindContext, ref Guid handlerId, ref Guid interfaceId, out nint result);
+
+        [PreserveSig] public int GetParent(out IShellItem parent);
+
+        [PreserveSig] public int GetDisplayName(ShellItemDisplayName displayName, [MarshalAs(UnmanagedType.LPWStr)] out string name);
+
+        [PreserveSig] public int GetAttributes(uint attributes, out uint result);
+
+        [PreserveSig] public int Compare(IShellItem other, uint hint, out int order);
     }
 
     [ComImport]
     [Guid("B63EA76D-1F85-456F-A19C-48159EFA858B")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [SuppressMessage("Interoperability", "SYSLIB1096:Convert to 'GeneratedComInterface'")]
     private interface IShellItemArray
     {
-        [PreserveSig] int BindToHandler(nint bindContext, ref Guid handlerId, ref Guid interfaceId, out nint result);
-        [PreserveSig] int GetPropertyStore(int flags, ref Guid interfaceId, out nint result);
-        [PreserveSig] int GetPropertyDescriptionList(ref nint keyType, ref Guid interfaceId, out nint result);
-        [PreserveSig] int GetAttributes(uint attributes, uint mask, out uint result);
-        [PreserveSig] int GetCount(out uint count);
-        [PreserveSig] int GetItemAt(uint index, out IShellItem item);
-        [PreserveSig] int EnumItems(out nint enumShellItems);
+        [PreserveSig] public int BindToHandler(nint bindContext, ref Guid handlerId, ref Guid interfaceId, out nint result);
+
+        [PreserveSig] public int GetPropertyStore(int flags, ref Guid interfaceId, out nint result);
+
+        [PreserveSig] public int GetPropertyDescriptionList(ref nint keyType, ref Guid interfaceId, out nint result);
+
+        [PreserveSig] public int GetAttributes(uint attributes, uint mask, out uint result);
+
+        [PreserveSig] public int GetCount(out uint count);
+
+        [PreserveSig] public int GetItemAt(uint index, out IShellItem item);
+
+        [PreserveSig] public int EnumItems(out nint enumShellItems);
     }
 
     [Flags]
     private enum FileOpenDialogOptions : uint
     {
         None = 0,
-        AllowMultiSelect = 0x00000200,
-        ForceFileSystem = 0x00000040,
-        FileMustExist = 0x00001000,
         PickFolders = 0x00000020,
+        ForceFileSystem = 0x00000040,
+        AllowMultiSelect = 0x00000200,
+        FileMustExist = 0x00001000,
     }
 
     private enum ShellItemDisplayName : uint

@@ -33,16 +33,15 @@ public partial class OpenFolderDialogPage : Wpf.Ui.Violeta.Controls.Page
         bool multiselect = button.Tag?.ToString() == "Multiple";
         OpenFolderDialog dialog = new()
         {
-            Description = multiselect ? LangKeys.Sample_509c20e53c.Tr() : LangKeys.Sample_8c19852c92.Tr(),
-            UseDescriptionForTitle = true,
+            Title = multiselect ? LangKeys.Sample_509c20e53c.Tr() : LangKeys.Sample_8c19852c92.Tr(),
             Multiselect = multiselect,
         };
 
         bool? result = dialog.ShowDialog(OwnerHandle);
         OpenFolderDialogResultText.Text = result == true
             ? multiselect
-                ? LangKeys.Format_SelectedFolders.Tr(dialog.SelectedPaths.Length, string.Join("；", dialog.SelectedPaths))
-                : LangKeys.Format_Result.Tr(dialog.SelectedPath)
+                ? LangKeys.Format_SelectedFolders.Tr(dialog.FolderNames.Length, string.Join("；", dialog.FolderNames))
+                : LangKeys.Format_Result.Tr(dialog.FolderName)
             : LangKeys.Sample_b97d90527e.Tr();
     }
 }
