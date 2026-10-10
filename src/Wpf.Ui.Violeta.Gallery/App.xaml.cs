@@ -5,7 +5,6 @@ using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Violeta.Appearance;

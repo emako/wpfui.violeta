@@ -1,9 +1,5 @@
-using System;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
-using Wpf.Ui.Violeta.Controls;
 using LiteObservableLanguages;
+using System.Collections.ObjectModel;
 using Wpf.Ui.Violeta.Gallery.Globalization;
 
 namespace Wpf.Ui.Violeta.Gallery.Pages.Collections;

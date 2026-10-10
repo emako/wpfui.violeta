@@ -329,14 +329,14 @@ public partial class MainWindow : ShellWindow
             return;
         }
 
-        var item = FindMenuItemByTag(GalleryNav.MenuItems, tag);
+        var item = FindMenuItemByTag(GalleryNav.MenuItems, tag!);
         if (item is not null)
         {
             _syncingSelection = true;
             try
             {
                 GalleryNav.SelectedItem = item;
-                GalleryNav.Header = item.Content?.ToString() ?? tag;
+                GalleryNav.Header = item.Content?.ToString() ?? tag!;
             }
             finally
             {
@@ -345,7 +345,7 @@ public partial class MainWindow : ShellWindow
         }
         else
         {
-            GalleryNav.Header = tag;
+            GalleryNav.Header = tag!;
         }
 
         NavigateTo(tag);
@@ -420,6 +420,17 @@ public partial class MainWindow : ShellWindow
     private void SyncNavigationChromeFromPage(Wpf.Ui.Violeta.Controls.Page page)
     {
         string? tag = null;
+
+#if NETFRAMEWORK
+        foreach (KeyValuePair<string, Wpf.Ui.Violeta.Controls.Page> entry in _pageCache)
+        {
+            if (ReferenceEquals(entry.Value, page))
+            {
+                tag = entry.Key;
+                break;
+            }
+        }
+#else
         foreach (var (key, cached) in _pageCache)
         {
             if (ReferenceEquals(cached, page))
@@ -428,6 +439,7 @@ public partial class MainWindow : ShellWindow
                 break;
             }
         }
+#endif
 
         if (tag is null)
         {
@@ -474,13 +486,13 @@ public partial class MainWindow : ShellWindow
             tag = "home";
         }
 
-        if (!PageFactories.TryGetValue(tag, out var factory))
+        if (!PageFactories.TryGetValue(tag!, out var factory))
         {
             tag = "home";
             factory = PageFactories["home"];
         }
 
-        var page = GetOrCreate(tag, factory);
+        var page = GetOrCreate(tag!, factory);
         ContentFrame.Navigate(page, new EntranceNavigationTransitionInfo());
     }
 
