@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Windows;
 using LiteObservableLanguages;
 using Wpf.Ui.Violeta.Gallery.Globalization;
@@ -6,8 +7,11 @@ namespace Wpf.Ui.Violeta.Gallery.Pages.Selectors;
 
 public partial class TagComboBoxPage : Wpf.Ui.Violeta.Controls.Page
 {
+    public ObservableCollection<int> FileTypeList { get; } = [0, 1, 2];
+
     public TagComboBoxPage()
     {
+        DataContext = this;
         InitializeComponent();
         Loaded += OnLoaded;
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ public class MultiComboBox : ComboBox
 
     private bool _suppressSelectAllUpdate = false;
     private bool _suppressItemUpdate = false;
+    private bool _suppressSelectionChanged;
+    private readonly List<object> _publishedSelection = [];
 
     public static readonly DependencyProperty MultiSelectedItemsProperty =
         DependencyProperty.Register(
@@ -278,6 +281,7 @@ public class MultiComboBox : ComboBox
         bool shouldSelectAll = MultiSelectedItems.Count < Items.Count;
 
         _suppressItemUpdate = true;
+        _suppressSelectionChanged = true;
 
         try
         {
@@ -299,12 +303,14 @@ public class MultiComboBox : ComboBox
         finally
         {
             _suppressItemUpdate = false;
+            _suppressSelectionChanged = false;
         }
 
         SelectAllCheckState = shouldSelectAll;
         PART_SelectAllCheckBox?.IsChecked = shouldSelectAll;
         UpdateSelectedDisplay();
         UpdateSelectAllState();
+        PublishSelectionChanged();
     }
 
     private void SetAllItemsChecked(bool isChecked)
@@ -322,6 +328,38 @@ public class MultiComboBox : ComboBox
     {
         UpdateSelectedDisplay();
         UpdateSelectAllState();
+        PublishSelectionChanged();
+    }
+
+    private void PublishSelectionChanged()
+    {
+        if (_suppressSelectionChanged)
+            return;
+
+        var current = MultiSelectedItems.ToList();
+        var previous = _publishedSelection.ToList();
+        _publishedSelection.Clear();
+        _publishedSelection.AddRange(current);
+
+        var removed = new List<object>();
+        var added = new List<object>();
+
+        foreach (var item in previous)
+        {
+            if (!current.Contains(item))
+                removed.Add(item);
+        }
+
+        foreach (var item in current)
+        {
+            if (!previous.Contains(item))
+                added.Add(item);
+        }
+
+        if (removed.Count == 0 && added.Count == 0)
+            return;
+
+        RaiseEvent(new SelectionChangedEventArgs(SelectionChangedEvent, removed, added));
     }
 
     private void UpdateSelectAllState()
@@ -490,6 +528,7 @@ public class MultiComboBox : ComboBox
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
     {
-        // Do not call base — prevents ComboBox from overwriting the display text
+        // ComboBox.OnSelectionChanged rewrites the selection box from SelectedItem.
+        // Multi-select notifications are raised from MultiSelectedItems instead.
     }
 }

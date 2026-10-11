@@ -22484,5 +22484,23 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to ItemTemplate with int values.
+        /// </summary>
+        public static string Sample_TagComboBox_TemplateTitle {
+            get {
+                return ResourceManager.GetString("Sample_TagComboBox_TemplateTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ItemsSource is List&lt;int&gt; (0, 1, 2). ItemTemplate converts them to &quot;Docx File&quot; / &quot;Xlsx File&quot; / &quot;Pdf File&quot;. Selected tags should use the same names, not the raw integers.
+        /// </summary>
+        public static string Sample_TagComboBox_TemplateDesc {
+            get {
+                return ResourceManager.GetString("Sample_TagComboBox_TemplateDesc", resourceCulture);
+            }
+        }
+
     }
 }

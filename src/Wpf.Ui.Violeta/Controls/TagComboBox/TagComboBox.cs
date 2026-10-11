@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
@@ -29,6 +30,7 @@ public class TagComboBox : ComboBox
     private UIElement? _placeholder;
     private ScrollViewer? _headerScrollViewer;
     private readonly ICommand _removeItemCommand;
+    private readonly List<object> _publishedSelection = [];
 
     // -- Dependency Properties ----------------------------------------------
 
@@ -53,6 +55,13 @@ public class TagComboBox : ComboBox
             typeof(TagComboBox),
             new PropertyMetadata(120.0));
 
+    public static readonly DependencyProperty SelectedItemTemplateProperty =
+        DependencyProperty.Register(
+            nameof(SelectedItemTemplate),
+            typeof(DataTemplate),
+            typeof(TagComboBox),
+            new PropertyMetadata(null, OnSelectedItemTemplateChanged));
+
     public ObservableCollection<object>? SelectedItems
     {
         get => (ObservableCollection<object>?)GetValue(SelectedItemsProperty);
@@ -71,6 +80,16 @@ public class TagComboBox : ComboBox
         set => SetValue(MaxSelectionBoxHeightProperty, value);
     }
 
+    /// <summary>
+    /// Template used to display selected items as chips.
+    /// When null, <see cref="ItemsControl.ItemTemplate"/> is used as a fallback.
+    /// </summary>
+    public DataTemplate? SelectedItemTemplate
+    {
+        get => (DataTemplate?)GetValue(SelectedItemTemplateProperty);
+        set => SetValue(SelectedItemTemplateProperty, value);
+    }
+
     // -- Static ctor & ctor ------------------------------------------------
 
     static TagComboBox()
@@ -82,8 +101,8 @@ public class TagComboBox : ComboBox
 
     public TagComboBox()
     {
-        SetCurrentValue(SelectedItemsProperty, new ObservableCollection<object>());
         _removeItemCommand = new RemoveItemCommandImpl(this);
+        SetCurrentValue(SelectedItemsProperty, new ObservableCollection<object>());
 
         if (ReadLocalValue(PlaceholderTextProperty) == DependencyProperty.UnsetValue)
         {
@@ -104,6 +123,13 @@ public class TagComboBox : ComboBox
 
         box.RebuildChips();
         box.CheckPlaceholderVisibility();
+        box.PublishSelectionChanged();
+    }
+
+    private static void OnSelectedItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is TagComboBox box)
+            box.RebuildChips();
     }
 
     private void OnSelectedItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -111,6 +137,7 @@ public class TagComboBox : ComboBox
         RebuildChips();
         CheckPlaceholderVisibility();
         SyncDropDownCheckedStates();
+        PublishSelectionChanged();
     }
 
     // -- Template ----------------------------------------------------------
@@ -123,6 +150,14 @@ public class TagComboBox : ComboBox
         _headerScrollViewer = GetTemplateChild(PART_HeaderScrollViewer) as ScrollViewer;
         RebuildChips();
         CheckPlaceholderVisibility();
+    }
+
+    protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+
+        if (e.Property == ItemTemplateProperty || e.Property == DisplayMemberPathProperty)
+            RebuildChips();
     }
 
     // -- Item container overrides ------------------------------------------
@@ -179,19 +214,34 @@ public class TagComboBox : ComboBox
         _headerPanel.Children.Clear();
         if (SelectedItems is null) return;
 
+        var template = SelectedItemTemplate ?? ItemTemplate;
+
         foreach (object item in SelectedItems)
         {
             var chip = new ClosableTag
             {
-                Content = GetDisplayText(item),
                 Command = _removeItemCommand,
                 CommandParameter = item,
                 Margin = new Thickness(2),
                 VerticalAlignment = VerticalAlignment.Center,
             };
+
+            if (template is not null)
+            {
+                chip.Content = ResolveSelectedContent(item);
+                chip.ContentTemplate = template;
+            }
+            else
+            {
+                chip.Content = GetDisplayText(item);
+            }
+
             _headerPanel.Children.Add(chip);
         }
     }
+
+    private static object? ResolveSelectedContent(object item) =>
+        item is TagComboBoxItem container ? container.Content : item;
 
     private void CheckPlaceholderVisibility()
     {
@@ -223,13 +273,45 @@ public class TagComboBox : ComboBox
 
     private string GetDisplayText(object item)
     {
+        if (item is TagComboBoxItem container)
+            return container.Content?.ToString() ?? string.Empty;
+
         if (!string.IsNullOrEmpty(DisplayMemberPath))
         {
             var prop = item?.GetType().GetProperty(DisplayMemberPath);
             if (prop is not null)
                 return prop.GetValue(item)?.ToString() ?? item?.ToString() ?? string.Empty;
         }
+
         return item?.ToString() ?? string.Empty;
+    }
+
+    private void PublishSelectionChanged()
+    {
+        var current = SelectedItems?.ToList() ?? [];
+        var previous = _publishedSelection.ToList();
+        _publishedSelection.Clear();
+        _publishedSelection.AddRange(current);
+
+        var removed = new List<object>();
+        var added = new List<object>();
+
+        foreach (var item in previous)
+        {
+            if (!current.Contains(item))
+                removed.Add(item);
+        }
+
+        foreach (var item in current)
+        {
+            if (!previous.Contains(item))
+                added.Add(item);
+        }
+
+        if (removed.Count == 0 && added.Count == 0)
+            return;
+
+        RaiseEvent(new SelectionChangedEventArgs(SelectionChangedEvent, removed, added));
     }
 
     // -- ComboBox overrides ------------------------------------------------
@@ -243,7 +325,8 @@ public class TagComboBox : ComboBox
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
     {
-        // Suppress: multi-select is driven by IsItemChecked, not the base single-select mechanism.
+        // ComboBox.OnSelectionChanged rewrites the header from SelectedItem.
+        // Multi-select notifications are raised from SelectedItems instead.
     }
 
     // -- Remove command (inner) --------------------------------------------
