@@ -7519,4 +7519,13 @@ Visit &lt;A HREF=&amp;quot;https://github.com/emako/wpfui.violeta&amp;quot;&gt;W
   <data name="Sample_TagComboBox_TemplateDesc" xml:space="preserve">
     <value>ItemsSource 为 List&lt;int&gt;（0、1、2）。下拉项通过 Converter 显示为 "Docx File" / "Xlsx File" / "Pdf File"。选中后的标签也应是这些名称，而不是原始数字。</value>
   </data>
+  <data name="Gallery_Page_Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Gallery_Markdown_CardDesc" xml:space="preserve">
+    <value>无需 WebView 渲染 Markdown</value>
+  </data>
+  <data name="Sample_Markdown_Intro" xml:space="preserve">
+    <value>WPF-UI.Markdown 的 MarkdownViewer 将 Markdown 渲染为 FlowDocument，支持表格、代码高亮、HTML 标签、YAML Front Matter、SVG 和动画 GIF，配色跟随应用主题。编辑左侧源码即可更新预览。</value>
+  </data>
 </root>

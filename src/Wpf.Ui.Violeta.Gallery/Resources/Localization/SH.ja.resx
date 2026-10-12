@@ -7519,4 +7519,13 @@ OK をクリックして続行してください。</value>
   <data name="Sample_TagComboBox_TemplateDesc" xml:space="preserve">
     <value>ItemsSource は List&lt;int&gt;（0, 1, 2）。Converter で "Docx File" / "Xlsx File" / "Pdf File" と表示します。選択後のタグも同じ名前になり、生の整数にはなりません。</value>
   </data>
+  <data name="Gallery_Page_Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Gallery_Markdown_CardDesc" xml:space="preserve">
+    <value>WebView なしで Markdown を表示</value>
+  </data>
+  <data name="Sample_Markdown_Intro" xml:space="preserve">
+    <value>WPF-UI.Markdown の MarkdownViewer は Markdown を FlowDocument に変換します。表、コードのハイライト、HTML タグ、YAML フロントマター、SVG、アニメーション GIF に対応し、配色はアプリのテーマに従います。左側のソースを編集するとプレビューが更新されます。</value>
+  </data>
 </root>

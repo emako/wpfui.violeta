@@ -4,7 +4,7 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries:
 
 | Name                                                         | License                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [🔗 Ant Design](https://github.com/ant-design/ant-design) | [MIT](https://opensource.org/licenses/MIT)                   |
+| [🔗 Ant Design](https://github.com/ant-design/ant-design)     | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 BusyIndicator](https://github.com/Moh3nGolshani/BusyIndicator) | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 Fischless](https://github.com/GenshinMatrix/Fischless)    | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 FluentWpfCore](https://github.com/TwilightLemon/FluentWpfCore) | [MIT](https://opensource.org/licenses/MIT)                   |
@@ -26,3 +26,5 @@ WPF-UI.Violeta is standing on shoulders of several open-source libraries:
 | [🔗 sharing-demo](https://github.com/walterlv/sharing-demo)   | [MIT](https://opensource.org/licenses/MIT)                   |
 | [🔗 stfu](https://github.com/samhocevar/stfu)                 | [WTFPL](http://www.wtfpl.net/)                               |
 | [🔗 SVGImage](https://github.com/dotnetprojects/SVGImage)     | [MIT](https://opensource.org/licenses/MIT)                   |
+| [🔗 MdXaml](https://github.com/whistyun/MdXaml)               | [MIT](https://opensource.org/licenses/MIT)                   |
+

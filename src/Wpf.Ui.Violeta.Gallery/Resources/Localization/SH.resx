@@ -7519,4 +7519,13 @@ Click OK to continue.</value>
   <data name="Sample_TagComboBox_TemplateDesc" xml:space="preserve">
     <value>ItemsSource is List&lt;int&gt; (0, 1, 2). ItemTemplate converts them to "Docx File" / "Xlsx File" / "Pdf File". Selected tags should use the same names, not the raw integers.</value>
   </data>
+  <data name="Gallery_Page_Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Gallery_Markdown_CardDesc" xml:space="preserve">
+    <value>Render Markdown without WebView</value>
+  </data>
+  <data name="Sample_Markdown_Intro" xml:space="preserve">
+    <value>MarkdownViewer from WPF-UI.Markdown renders Markdown into a FlowDocument. Tables, highlighted code, HTML tags, YAML front matter, SVG and animated GIF are supported, and colors follow the application theme. Edit the source on the left to update the preview.</value>
+  </data>
 </root>

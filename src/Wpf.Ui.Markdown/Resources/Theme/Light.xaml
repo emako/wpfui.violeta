@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="MarkdownCodeBlockBackground" Color="#0D000000" />
+    <SolidColorBrush x:Key="MarkdownCodeBlockBorderBrush" Color="#14000000" />
+    <SolidColorBrush x:Key="MarkdownInlineCodeBackground" Color="#14000000" />
+    <SolidColorBrush x:Key="MarkdownQuoteBlockBorderBrush" Color="#29000000" />
+    <SolidColorBrush x:Key="MarkdownQuoteBlockForeground" Color="#9E000000" />
+    <SolidColorBrush x:Key="MarkdownTableBorderBrush" Color="#29000000" />
+    <SolidColorBrush x:Key="MarkdownTableHeaderBackground" Color="#0D000000" />
+    <SolidColorBrush x:Key="MarkdownTableEvenRowBackground" Color="#06000000" />
+    <SolidColorBrush x:Key="MarkdownNoteBackground" Color="#0D000000" />
+    <SolidColorBrush x:Key="MarkdownNoteBorderBrush" Color="#29000000" />
+
+</ResourceDictionary>

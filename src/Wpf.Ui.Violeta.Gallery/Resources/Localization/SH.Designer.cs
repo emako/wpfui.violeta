@@ -504,6 +504,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Render Markdown without WebView.
+        /// </summary>
+        public static string Gallery_Markdown_CardDesc {
+            get {
+                return ResourceManager.GetString("Gallery_Markdown_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Demonstrates FlowDocumentScrollViewer, FlowDocumentPageViewer and FlowDocumentReader with a shared Neptune encyclopedia sample (Paragraph, Figure, Floater, Table, Hyperlink)..
         /// </summary>
         public static string Gallery_FlowDocument_Desc {
@@ -1948,6 +1957,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Gallery_Page_LoadingButton {
             get {
                 return ResourceManager.GetString("Gallery_Page_LoadingButton", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Markdown.
+        /// </summary>
+        public static string Gallery_Page_Markdown {
+            get {
+                return ResourceManager.GetString("Gallery_Page_Markdown", resourceCulture);
             }
         }
         
@@ -18108,6 +18126,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_GifImage_WithIcon {
             get {
                 return ResourceManager.GetString("Sample_GifImage_WithIcon", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to MarkdownViewer intro.
+        /// </summary>
+        public static string Sample_Markdown_Intro {
+            get {
+                return ResourceManager.GetString("Sample_Markdown_Intro", resourceCulture);
             }
         }
 

@@ -234,6 +234,7 @@
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_BoolStateTextBlock}}" Tag="text/bool-state-text-block" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Emoji}}" Tag="text/emoji" />
                         <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_FlowDocument}}" Tag="text/flow-document" />
+                        <vio:NavigationViewItem Content="{I18N {x:Static lang:LangKeys.Gallery_Page_Markdown}}" Tag="text/markdown" />
                     </vio:NavigationViewItem.MenuItems>
                 </vio:NavigationViewItem>
 

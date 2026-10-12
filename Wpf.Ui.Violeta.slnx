@@ -8,6 +8,7 @@
   </Folder>
   <Folder Name="/library/">
     <Project Path="src/Wpf.Ui.Emoji/Wpf.Ui.Emoji.csproj" />
+    <Project Path="src/Wpf.Ui.Markdown/Wpf.Ui.Markdown.csproj" />
     <Project Path="src/Wpf.Ui.TextEditor/Wpf.Ui.TextEditor.csproj" />
     <Project Path="src/Wpf.Ui.Violeta/Wpf.Ui.Violeta.csproj" />
   </Folder>

@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Net.Cache;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Markup;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Wpf.Ui.Markdown.Plugins;
+
+namespace Wpf.Ui.Markdown;
+
+internal static class SimpleInlineParser
+{
+    private sealed class Parser1 : IInlineParser
+    {
+        private readonly Func<Match, IEnumerable<Inline>> _converter;
+
+        public Regex FirstMatchPattern { get; }
+
+        public Parser1(Regex firstMatch, Func<Match, IEnumerable<Inline>> converter)
+        {
+            FirstMatchPattern = firstMatch;
+            _converter = converter;
+        }
+
+        public IEnumerable<Inline> Parse(string text, Match firstMatch, IMarkdown engine, out int parseTextBegin, out int parseTextEnd)
+        {
+            parseTextBegin = firstMatch.Index;
+            parseTextEnd = firstMatch.Index + firstMatch.Length;
+            return _converter(firstMatch);
+        }
+    }
+
+    private sealed class Parser2 : IInlineParser
+    {
+        private readonly Func<Match, Inline> _converter;
+
+        public Regex FirstMatchPattern { get; }
+
+        public Parser2(Regex firstMatch, Func<Match, Inline> converter)
+        {
+            FirstMatchPattern = firstMatch;
+            _converter = converter;
+        }
+
+        public IEnumerable<Inline> Parse(string text, Match firstMatch, IMarkdown engine, out int parseTextBegin, out int parseTextEnd)
+        {
+            parseTextBegin = firstMatch.Index;
+            parseTextEnd = firstMatch.Index + firstMatch.Length;
+            return new[] { _converter(firstMatch) };
+        }
+    }
+
+    public delegate IEnumerable<Inline> Converter(string text, Match firstMatch, IMarkdown engine, out int parseTextBegin, out int parseTextEnd);
+
+    private sealed class Parser3 : IInlineParser
+    {
+        private readonly Converter _converter;
+
+        public Regex FirstMatchPattern { get; }
+
+        public Parser3(Regex firstMatch, Converter converter)
+        {
+            FirstMatchPattern = firstMatch;
+            _converter = converter;
+        }
+
+        public IEnumerable<Inline> Parse(string text, Match firstMatch, IMarkdown engine, out int parseTextBegin, out int parseTextEnd)
+        {
+            return _converter(text, firstMatch, engine, out parseTextBegin, out parseTextEnd);
+        }
+    }
+
+    public static IInlineParser New(Regex pattern, Func<Match, IEnumerable<Inline>> converter)
+        => new Parser1(pattern, converter);
+
+    public static IInlineParser New(Regex pattern, Func<Match, Inline> converter)
+        => new Parser2(pattern, converter);
+
+    public static IInlineParser New(Regex pattern, Converter converter)
+        => new Parser3(pattern, converter);
+}

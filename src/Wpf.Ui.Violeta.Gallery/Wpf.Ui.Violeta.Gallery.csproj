@@ -15,6 +15,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+        <ProjectReference Include="..\Wpf.Ui.Markdown\Wpf.Ui.Markdown.csproj" />
         <ProjectReference Include="..\Wpf.Ui.SourceGenerator\Wpf.Ui.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\Wpf.Ui.Emoji\Wpf.Ui.Emoji.csproj" />
     </ItemGroup>
@@ -38,6 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Resource Include="Resources\Strings\*.md" />
         <Resource Include="Resources\Images\*.ico" />
         <Resource Include="Resources\Images\*.png" />
         <Resource Include="Resources\Images\*.gif" />

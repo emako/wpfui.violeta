@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>WPF-UI.Markdown</PackageId>
+        <Product>WPF-UI.Markdown</Product>
+        <TargetFrameworks>net462;net47;net471;net472;net48;net481;net8.0-windows;net9.0-windows;net10.0-windows;</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <UseWinUI>false</UseWinUI>
+        <UseWindowsForms>false</UseWindowsForms>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Wpf.Ui.Markdown</RootNamespace>
+        <AssemblyName>Wpf.Ui.Markdown</AssemblyName>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <AssemblyVersion>4.3.0.16</AssemblyVersion>
+        <FileVersion>4.3.0.16</FileVersion>
+        <Version>$(VersionPrefix)4.3.0.16</Version>
+        <Authors>ema</Authors>
+        <Company>ema</Company>
+        <Description>WPF UI Markdown is based on WPF UI, and renders Markdown into FlowDocument without WebView. The engine is ported from MdXaml with syntax highlighting, HTML, YAML front matter, SVG and animated GIF support.</Description>
+        <PackageProjectUrl>https://github.com/emako/wpfui.violeta</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/emako/wpfui.violeta</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>WPF-UI .NET WPF Markdown FlowDocument MdXaml</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>wpfui.png</PackageIcon>
+        <NoWarn>$(NoWarn);CS1701;CS1702;CS8602;CS8604;CS8764;CS8600;CS0649;</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <TargetFrameworks>net462;net10.0-windows</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Engine\EmojiTable.txt" />
+        <None Remove="Html\Core\Parsers\*.tsv" />
+        <EmbeddedResource Include="Engine\EmojiTable.txt" LogicalName="Wpf.Ui.Markdown.EmojiTable.txt" />
+        <EmbeddedResource Include="Html\Core\Parsers\TypicalBlockParser.tsv" LogicalName="Wpf.Ui.Markdown.Html.Core.Parsers.TypicalBlockParser.tsv" />
+        <EmbeddedResource Include="Html\Core\Parsers\TypicalInlineParser.tsv" LogicalName="Wpf.Ui.Markdown.Html.Core.Parsers.TypicalInlineParser.tsv" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
+        <None Include="..\..\branding\wpfui.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="WPF-UI" Version="4.3.0" />
+        <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
+        <PackageReference Include="YamlDotNet" Version="15.1.2" />
+    </ItemGroup>
+
+</Project>

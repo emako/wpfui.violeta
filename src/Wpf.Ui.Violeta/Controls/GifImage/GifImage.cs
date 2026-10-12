@@ -23,6 +23,7 @@ public class GifImage : IconElementEx, IDisposable
     private static readonly TimeSpan MinFrameDelay = TimeSpan.FromMilliseconds(20);
 
     private Image? _image;
+    private byte[]? _sourceBytes;
     private nint _nativeImage;
     private IStream? _nativeStream;
     private int[]? _frameDelays;
@@ -60,8 +61,8 @@ public class GifImage : IconElementEx, IDisposable
         : this()
     {
         _ = stream ?? throw new ArgumentNullException(nameof(stream));
-        LoadFromStream(stream);
-        StartAnimate();
+        _sourceBytes = ReadAllBytes(stream);
+        LoadFromBytes(_sourceBytes);
     }
 
     /// <summary>
@@ -136,6 +137,7 @@ public class GifImage : IconElementEx, IDisposable
         var control = (GifImage)d;
         control.StopAnimate();
         control.DisposeNative();
+        control._sourceBytes = null;
 
         if (e.NewValue is Uri uri)
         {
@@ -180,6 +182,11 @@ public class GifImage : IconElementEx, IDisposable
         if (Uri != null && _nativeImage == IntPtr.Zero)
         {
             LoadFromUri(Uri);
+            StartAnimate();
+        }
+        else if (_sourceBytes != null && _nativeImage == IntPtr.Zero)
+        {
+            LoadFromBytes(_sourceBytes);
             StartAnimate();
         }
         else if (_nativeImage != IntPtr.Zero && !_isAnimating)
@@ -238,13 +245,22 @@ public class GifImage : IconElementEx, IDisposable
 
     private void LoadFromStream(Stream stream)
     {
+        LoadFromBytes(ReadAllBytes(stream));
+    }
+
+    private static byte[] ReadAllBytes(Stream stream)
+    {
+        using var memoryStream = new MemoryStream();
+        stream.CopyTo(memoryStream);
+        return memoryStream.ToArray();
+    }
+
+    private void LoadFromBytes(byte[] bytes)
+    {
         DisposeNative();
 
         GdiPlus.EnsureInitialized();
 
-        using var memoryStream = new MemoryStream();
-        stream.CopyTo(memoryStream);
-        byte[] bytes = memoryStream.ToArray();
         if (bytes.Length == 0)
             return;
 
