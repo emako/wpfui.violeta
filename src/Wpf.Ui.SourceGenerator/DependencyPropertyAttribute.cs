@@ -3,7 +3,7 @@
 #pragma warning disable IDE0079 // Remove unnecessary suppression
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 
-namespace Wpf.Ui.DependencyPropertyGenerator;
+namespace Wpf.Ui.SourceGenerator;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
 public sealed class DependencyPropertyAttribute : Attribute

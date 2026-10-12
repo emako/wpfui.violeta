@@ -165,12 +165,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="..\Wpf.Ui.DependencyPropertyGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.DependencyPropertyGenerator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-        <None Include="..\Wpf.Ui.DependencyPropertyGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.DependencyPropertyGenerator.pdb" Pack="true" PackagePath="analyzers/dotnet/cs" />
+        <None Include="..\Wpf.Ui.SourceGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.SourceGenerator.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+        <None Include="..\Wpf.Ui.SourceGenerator\$(OutputPath)\netstandard2.0\Wpf.Ui.SourceGenerator.pdb" Pack="true" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Wpf.Ui.DependencyPropertyGenerator\Wpf.Ui.DependencyPropertyGenerator.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Wpf.Ui.SourceGenerator\Wpf.Ui.SourceGenerator.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>

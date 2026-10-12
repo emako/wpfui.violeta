@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Wpf.Ui.DependencyPropertyGenerator;
+namespace Wpf.Ui.SourceGenerator;
 
 [Generator]
 internal sealed class DisableDpiAwarenessGenerator : IIncrementalGenerator

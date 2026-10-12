@@ -7,8 +7,8 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-        <RootNamespace>Wpf.Ui.DependencyPropertyGenerator</RootNamespace>
-        <AssemblyName>Wpf.Ui.DependencyPropertyGenerator</AssemblyName>
+        <RootNamespace>Wpf.Ui.SourceGenerator</RootNamespace>
+        <AssemblyName>Wpf.Ui.SourceGenerator</AssemblyName>
         <Version>4.3.0.16</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
