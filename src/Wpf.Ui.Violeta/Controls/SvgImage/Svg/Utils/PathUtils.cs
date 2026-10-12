@@ -65,7 +65,7 @@ internal static class PathUtils
 #if NETCORE
         return AppContext.BaseDirectory;
 #else
-		return AppDomain.CurrentDomain.BaseDirectory;
+        return AppDomain.CurrentDomain.BaseDirectory;
 #endif
     }
 }

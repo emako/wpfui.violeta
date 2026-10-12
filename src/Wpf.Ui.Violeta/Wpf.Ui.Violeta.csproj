@@ -66,6 +66,7 @@
 
     <ItemGroup>
         <Resource Include="Resources\Fonts\*.ttf" />
+        <AdditionalFiles Include="Resources\Fonts\*.ttf" />
         <Resource Include="Resources\Images\*.png" />
         <Resource Include="Resources\Images\*.ico" />
         <Resource Include="Attached\DragDrop\Icons\*.png" />
@@ -175,6 +176,10 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.3.0" />
+        <PackageReference Include="FluentUI.FontGlyphs.SourceGenerator" Version="1.0.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>

@@ -43,37 +43,37 @@ public enum LengthUnit
     ex,
 
     /// <summary>
-    /// pixels	1px = 1/96th of 1in
+    /// pixels    1px = 1/96th of 1in
     /// </summary>
     px,
 
     /// <summary>
-    /// centimeters	1cm = 96px/2.54
+    /// centimeters    1cm = 96px/2.54
     /// </summary>
     cm,
 
     /// <summary>
-    /// millimeters	1mm = 1/10th of 1cm
+    /// millimeters    1mm = 1/10th of 1cm
     /// </summary>
     mm,
 
     /// <summary>
-    /// inches	1in = 2.54cm = 96px
+    /// inches    1in = 2.54cm = 96px
     /// </summary>
     Inches,
 
     /// <summary>
-    /// points	1pt = 1/72nd of 1in
+    /// points    1pt = 1/72nd of 1in
     /// </summary>
     pt,
 
     /// <summary>
-    /// picas	1pc = 1/6th of 1in
+    /// picas    1pc = 1/6th of 1in
     /// </summary>
     pc,
 
     /// <summary>
-    /// quarter-millimeters	1Q = 1/40th of 1cm
+    /// quarter-millimeters    1Q = 1/40th of 1cm
     /// </summary>
     Q,
 

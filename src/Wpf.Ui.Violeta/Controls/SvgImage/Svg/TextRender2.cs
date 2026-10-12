@@ -100,7 +100,7 @@ public class TextRender2 : TextRenderBase
                 char textchar = text[i];
                 int codepoint = textchar;
                 //if (charsToSkip.Any<char>(item => item == codepoint))
-                //	continue;
+                //    continue;
                 if (!glyphFace.CharacterToGlyphMap.TryGetValue(codepoint, out ushort glyphIndex))
                     continue;
                 textChars.Add(textchar);
