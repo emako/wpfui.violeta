@@ -85,10 +85,7 @@ public partial class SplashWindow : Window, INotifyPropertyChanged
         Dispatcher.Invoke(() =>
         {
             Storyboard storyboard = (Storyboard)FindResource("End");
-            Storyboard storyboardHint = (Storyboard)FindResource("EndHint");
-
             storyboard.Begin();
-            storyboardHint.Begin();
         });
     }
 

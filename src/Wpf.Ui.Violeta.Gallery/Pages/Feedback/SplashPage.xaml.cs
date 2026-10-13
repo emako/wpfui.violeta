@@ -22,6 +22,7 @@ public partial class SplashPage : Wpf.Ui.Violeta.Controls.Page
                 splash.Hint = new TextBlock
                 {
                     Text = "Gallery Splash demo...",
+                    Opacity = 0.8d,
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     Foreground = Brushes.White,
