@@ -1,12 +1,12 @@
 ﻿using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Highlighting;
-using Wpf.Ui.Markdown.Highlighting;
-using Wpf.Ui.Markdown.Menus;
-using Wpf.Ui.Markdown.Plugins;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf.Ui.Markdown.Highlighting;
+using Wpf.Ui.Markdown.Plugins;
+using Wpf.Ui.Markdown.SyntaxHigh.Menus;
 
 namespace Wpf.Ui.Markdown.SyntaxHigh;
 
@@ -26,10 +26,7 @@ public class AvalonCodeBlockLoader : ICodeBlockLoader
         if (!String.IsNullOrEmpty(lang))
         {
             var highlight = HighlightManager.Get(lang!);
-            if (highlight == null)
-            {
-                highlight = HighlightingManager.Instance.GetDefinition(lang);
-            }
+            highlight ??= HighlightingManager.Instance.GetDefinition(lang);
             txtEdit.SetCurrentValue(TextEditor.SyntaxHighlightingProperty, highlight);
             txtEdit.Tag = lang;
         }

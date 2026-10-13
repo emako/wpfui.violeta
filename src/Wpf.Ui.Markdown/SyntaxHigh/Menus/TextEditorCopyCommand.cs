@@ -3,13 +3,13 @@ using System;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Wpf.Ui.Markdown.Menus;
+namespace Wpf.Ui.Markdown.SyntaxHigh.Menus;
 
 public class TextEditorCopyCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
 
-    private TextEditor _editor;
+    private readonly TextEditor _editor;
     private bool _isExecutable;
 
     public TextEditorCopyCommand(TextEditor editor)
@@ -29,12 +29,12 @@ public class TextEditorCopyCommand : ICommand
         }
     }
 
-    public bool CanExecute(object parameter)
+    public bool CanExecute(object? parameter)
     {
         return _isExecutable;
     }
 
-    public void Execute(object parameter)
+    public void Execute(object? parameter)
     {
         _editor.Copy();
     }

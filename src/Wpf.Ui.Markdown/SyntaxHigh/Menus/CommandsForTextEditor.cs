@@ -1,19 +1,14 @@
 ﻿using ICSharpCode.AvalonEdit;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Wpf.Ui.Markdown.Menus;
+namespace Wpf.Ui.Markdown.SyntaxHigh.Menus;
 
 public static class CommandsForTextEditor
 {
-
     public static void Setup(TextEditor editor)
     {
         editor.ContextMenuOpening += Editor_ContextMenuOpening;
@@ -35,7 +30,6 @@ public static class CommandsForTextEditor
         });
 
         editor.ContextMenu = menu;
-
     }
 
     private static void Editor_ContextMenuOpening(object sender, ContextMenuEventArgs e)
