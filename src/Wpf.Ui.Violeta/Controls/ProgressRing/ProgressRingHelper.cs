@@ -178,6 +178,8 @@ public static class ProgressRingHelper
             _onTemplateChanged = (_, _) => OnTemplateChanged();
             _onIsVisibleChanged = (_, e) =>
             {
+                // A visibility transition is a fresh opportunity: reset the retry budget before trying again.
+                _visualStateAttempts = 0;
                 if (e.NewValue is true)
                 {
                     ChangeVisualState();
@@ -282,6 +284,12 @@ public static class ProgressRingHelper
         /// </remarks>
         private void ChangeVisualState()
         {
+            if (!_attached)
+            {
+                // Detached while a retry was queued: the helper no longer owns this ring.
+                return;
+            }
+
             if (TryChangeVisualState())
             {
                 _visualStateAttempts = 0;
@@ -295,6 +303,10 @@ public static class ProgressRingHelper
             }
         }
 
+        /// <summary>
+        /// Applies the visual state, or reports that the control template (and therefore the visual state groups)
+        /// is not available yet.
+        /// </summary>
         private bool TryChangeVisualState()
         {
             if (VisualTreeHelper.GetChildrenCount(_owner) == 0 ||
