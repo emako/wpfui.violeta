@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Violeta.Controls.Primitives;
@@ -156,14 +157,18 @@ public static class ProgressRingHelper
 
     private sealed class ProgressRingController
     {
+        private const int MaxVisualStateAttempts = 5;
+
         private readonly ProgressRing _owner;
         private readonly EventHandler _onProgressChanged;
         private readonly EventHandler _onIsIndeterminateChanged;
         private readonly EventHandler _onTemplateChanged;
+        private readonly DependencyPropertyChangedEventHandler _onIsVisibleChanged;
         private readonly DependencyPropertyDescriptor _progressDescriptor;
         private readonly DependencyPropertyDescriptor _isIndeterminateDescriptor;
         private readonly DependencyPropertyDescriptor _templateDescriptor;
         private bool _attached;
+        private int _visualStateAttempts;
 
         public ProgressRingController(ProgressRing owner)
         {
@@ -171,6 +176,13 @@ public static class ProgressRingHelper
             _onProgressChanged = (_, _) => UpdateRange();
             _onIsIndeterminateChanged = (_, _) => ChangeVisualState();
             _onTemplateChanged = (_, _) => OnTemplateChanged();
+            _onIsVisibleChanged = (_, e) =>
+            {
+                if (e.NewValue is true)
+                {
+                    ChangeVisualState();
+                }
+            };
 
             _progressDescriptor = DependencyPropertyDescriptor.FromProperty(
                 ProgressRing.ProgressProperty, typeof(ProgressRing));
@@ -189,6 +201,7 @@ public static class ProgressRingHelper
 
             _attached = true;
             _owner.Loaded += OnLoaded;
+            _owner.IsVisibleChanged += _onIsVisibleChanged;
             _progressDescriptor.AddValueChanged(_owner, _onProgressChanged);
             _isIndeterminateDescriptor.AddValueChanged(_owner, _onIsIndeterminateChanged);
             _templateDescriptor.AddValueChanged(_owner, _onTemplateChanged);
@@ -209,6 +222,7 @@ public static class ProgressRingHelper
 
             _attached = false;
             _owner.Loaded -= OnLoaded;
+            _owner.IsVisibleChanged -= _onIsVisibleChanged;
             _progressDescriptor.RemoveValueChanged(_owner, _onProgressChanged);
             _isIndeterminateDescriptor.RemoveValueChanged(_owner, _onIsIndeterminateChanged);
             _templateDescriptor.RemoveValueChanged(_owner, _onTemplateChanged);
@@ -255,14 +269,48 @@ public static class ProgressRingHelper
             templateSettings.NormalizedRange = progress / 100.0;
         }
 
+        /// <summary>
+        /// Moves the ring to the visual state that matches its current properties.
+        /// </summary>
+        /// <remarks>
+        /// The "ActiveStates" group lives inside the control template, so it only exists once the template has been
+        /// instanced. For rings that are collapsed (or not yet realized) when the state is first requested,
+        /// <see cref="VisualStateManager.GoToState"/> finds no group and fails silently - and because neither
+        /// <c>Template</c> nor <c>IsIndeterminate</c> changes afterwards, nothing ever retries. That is why rings
+        /// created inside a collapsed subtree never started spinning. Retry on the next layout pass, when the
+        /// template is in place.
+        /// </remarks>
         private void ChangeVisualState()
         {
+            if (TryChangeVisualState())
+            {
+                _visualStateAttempts = 0;
+                return;
+            }
+
+            if (_owner.IsVisible && _visualStateAttempts < MaxVisualStateAttempts)
+            {
+                _visualStateAttempts++;
+                _owner.Dispatcher.BeginInvoke((Action)ChangeVisualState, DispatcherPriority.Loaded);
+            }
+        }
+
+        private bool TryChangeVisualState()
+        {
+            if (VisualTreeHelper.GetChildrenCount(_owner) == 0 ||
+                VisualTreeHelper.GetChild(_owner, 0) is not FrameworkElement templateRoot ||
+                VisualStateManager.GetVisualStateGroups(templateRoot) is not { Count: > 0 })
+            {
+                return false;
+            }
+
             bool isActive = GetIsActive(_owner);
             string state = isActive
                 ? (_owner.IsIndeterminate ? ActiveStateName : DeterminateActiveStateName)
                 : InactiveStateName;
 
             VisualStateManager.GoToState(_owner, state, true);
+            return true;
         }
     }
 }
