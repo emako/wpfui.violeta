@@ -232,7 +232,7 @@ public class Transfer : ListBox
 
         if (transferred is null)
         {
-            transferred = new ManualObservableCollection<object>();
+            transferred = [];
             SetValue(TransferredItemsPropertyKey, transferred);
         }
 
