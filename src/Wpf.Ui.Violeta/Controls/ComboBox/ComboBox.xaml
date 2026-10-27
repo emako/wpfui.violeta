@@ -495,4 +495,11 @@
     <Style BasedOn="{StaticResource DefaultComboBoxItemStyle}" TargetType="{x:Type ComboBoxItem}" />
     <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}" />
 
+    <!--  ui:ComboBox — same chrome as DefaultComboBoxStyle. PlaceholderText shares TextBox's DP.  -->
+    <Style
+        x:Key="DefaultUiComboBoxStyle"
+        BasedOn="{StaticResource DefaultComboBoxStyle}"
+        TargetType="{x:Type ui:ComboBox}" />
+    <Style BasedOn="{StaticResource DefaultUiComboBoxStyle}" TargetType="{x:Type ui:ComboBox}" />
+
 </ResourceDictionary>

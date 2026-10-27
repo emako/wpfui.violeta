@@ -162,6 +162,28 @@
                             <ComboBoxItem Content="24" />
                         </ComboBox>
                     </StackPanel>
+                    <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
+                        <ui:ComboBox
+                            MinWidth="200"
+                            HorizontalAlignment="Left"
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_9c9aabab3f}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_d382816a3c}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_ee38e4d5dd}}" />
+                            <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Sample_51e6cd92b6}}" />
+                        </ui:ComboBox>
+                        <ui:ComboBox
+                            MinWidth="200"
+                            Margin="16,0,0,0"
+                            HorizontalAlignment="Left"
+                            IsEditable="True"
+                            PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
+                            <ComboBoxItem Content="8" />
+                            <ComboBoxItem Content="12" />
+                            <ComboBoxItem Content="16" />
+                            <ComboBoxItem Content="24" />
+                        </ui:ComboBox>
+                    </StackPanel>
                 </StackPanel>
             </Border>
 
