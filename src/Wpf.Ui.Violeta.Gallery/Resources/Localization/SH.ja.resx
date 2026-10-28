@@ -4139,6 +4139,15 @@ OK をクリックして続行してください。</value>
   <data name="Sample_StorageRing_CardDesc" xml:space="preserve">
     <value>容量リング</value>
   </data>
+  <data name="Gallery_Page_MeterBar" xml:space="preserve">
+    <value>MeterBar</value>
+  </data>
+  <data name="Sample_MeterBar_CardDesc" xml:space="preserve">
+    <value>区分メーター</value>
+  </data>
+  <data name="Sample_MeterBar_Intro" xml:space="preserve">
+    <value>ディスク、通信量、予算、工数など、合計が複数の区分に占める割合を表示します。</value>
+  </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>

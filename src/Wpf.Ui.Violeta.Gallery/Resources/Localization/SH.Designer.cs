@@ -2175,6 +2175,15 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
                 return ResourceManager.GetString("Gallery_Page_StorageRing", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to MeterBar.
+        /// </summary>
+        public static string Gallery_Page_MeterBar {
+            get {
+                return ResourceManager.GetString("Gallery_Page_MeterBar", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to QrCode.
@@ -21672,6 +21681,24 @@ namespace Wpf.Ui.Violeta.Gallery.Resources.Localization {
         public static string Sample_StorageRing_CardDesc {
             get {
                 return ResourceManager.GetString("Sample_StorageRing_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Segmented meter.
+        /// </summary>
+        public static string Sample_MeterBar_CardDesc {
+            get {
+                return ResourceManager.GetString("Sample_MeterBar_CardDesc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Shows how a total is occupied by several categories, such as disk space, a data plan, a budget, or project hours.
+        /// </summary>
+        public static string Sample_MeterBar_Intro {
+            get {
+                return ResourceManager.GetString("Sample_MeterBar_Intro", resourceCulture);
             }
         }
         

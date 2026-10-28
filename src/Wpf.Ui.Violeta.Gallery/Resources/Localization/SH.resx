@@ -4139,6 +4139,15 @@ Click OK to continue.</value>
   <data name="Sample_StorageRing_CardDesc" xml:space="preserve">
     <value>Capacity ring</value>
   </data>
+  <data name="Gallery_Page_MeterBar" xml:space="preserve">
+    <value>MeterBar</value>
+  </data>
+  <data name="Sample_MeterBar_CardDesc" xml:space="preserve">
+    <value>Segmented meter</value>
+  </data>
+  <data name="Sample_MeterBar_Intro" xml:space="preserve">
+    <value>Shows how a total is occupied by several categories, such as disk space, a data plan, a budget, or project hours.</value>
+  </data>
   <data name="Gallery_Page_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>

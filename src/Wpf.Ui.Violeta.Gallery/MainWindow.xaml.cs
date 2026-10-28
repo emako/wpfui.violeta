@@ -227,6 +227,7 @@ public partial class MainWindow : ShellWindow
         ["status/progress-ring"] = static () => new ProgressRingPage(),
         ["status/storage-bar"] = static () => new StorageBarPage(),
         ["status/storage-ring"] = static () => new StorageRingPage(),
+        ["status/meter-bar"] = static () => new MeterBarPage(),
         ["status/badge"] = static () => new BadgePage(),
         ["status/watermark"] = static () => new WatermarkPage(),
         ["status/shield"] = static () => new ShieldPage(),

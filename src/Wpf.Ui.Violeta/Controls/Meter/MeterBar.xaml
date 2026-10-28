@@ -1,0 +1,117 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Wpf.Ui.Violeta.Controls">
+
+    <SolidColorBrush x:Key="MeterBarPalette1" Color="#FF4CC2FF" />
+    <SolidColorBrush x:Key="MeterBarPalette2" Color="#FF6CCB5F" />
+    <SolidColorBrush x:Key="MeterBarPalette3" Color="#FFF5C518" />
+    <SolidColorBrush x:Key="MeterBarPalette4" Color="#FFC48CFF" />
+    <SolidColorBrush x:Key="MeterBarPalette5" Color="#FFFF8C6A" />
+    <SolidColorBrush x:Key="MeterBarPalette6" Color="#FF4DD0C8" />
+
+    <ItemsPanelTemplate x:Key="MeterBarHorizontalPanel">
+        <WrapPanel />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="MeterBarVerticalPanel">
+        <StackPanel />
+    </ItemsPanelTemplate>
+
+    <DataTemplate x:Key="MeterBarHorizontalItem" DataType="{x:Type local:MeterBarItem}">
+        <StackPanel Margin="0,0,16,6" Orientation="Horizontal">
+            <Border
+                Width="10"
+                Height="10"
+                Margin="0,1,6,0"
+                VerticalAlignment="Center"
+                Background="{Binding ActualBrush}"
+                CornerRadius="2" />
+            <TextBlock
+                Margin="0,0,6,0"
+                VerticalAlignment="Center"
+                Text="{Binding Title}" />
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{Binding ValueText}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="MeterBarVerticalItem" DataType="{x:Type local:MeterBarItem}">
+        <Grid Margin="0,3,0,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Width="10"
+                Height="10"
+                Margin="0,0,8,0"
+                VerticalAlignment="Center"
+                Background="{Binding ActualBrush}"
+                CornerRadius="2" />
+            <TextBlock
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Text="{Binding Title}" />
+            <TextBlock
+                Grid.Column="2"
+                Margin="12,0,0,0"
+                VerticalAlignment="Center"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                Text="{Binding ValueText}" />
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type local:MeterBar}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <local:MeterBarPanel Total="{Binding Total, RelativeSource={RelativeSource AncestorType={x:Type local:MeterBar}}}" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:MeterBar}">
+                    <Border
+                        x:Name="PART_Root"
+                        Background="Transparent"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <StackPanel>
+                            <Grid x:Name="PART_Bar" Height="{TemplateBinding BarHeight}">
+                                <Border Background="{DynamicResource ProgressBarBackground}" />
+                                <ItemsPresenter />
+                            </Grid>
+                            <local:MeterBarLegendList
+                                x:Name="PART_Legend"
+                                Margin="0,8,0,0"
+                                HorizontalContentAlignment="Left"
+                                ItemTemplate="{StaticResource MeterBarHorizontalItem}"
+                                ItemsPanel="{StaticResource MeterBarHorizontalPanel}" />
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Legend" Value="Vertical">
+                            <Setter TargetName="PART_Legend" Property="ItemsPanel" Value="{StaticResource MeterBarVerticalPanel}" />
+                            <Setter TargetName="PART_Legend" Property="ItemTemplate" Value="{StaticResource MeterBarVerticalItem}" />
+                            <Setter TargetName="PART_Legend" Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Trigger>
+                        <Trigger Property="Legend" Value="None">
+                            <Setter TargetName="PART_Legend" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_Root" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
