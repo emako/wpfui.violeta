@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.17] - 2026-11-05
+
+* Add Markdown viewer and gallery sample
+* Add FluentUI glyph source generator package
+* Add MeterBar for category share of a total
+* Add ComboBox placeholder support
+* Align OpenFolderDialog with .NET API [BREAKING-CHANGE]
+* Fix ContentWindow background error on Windows 10
+* Fix TagComboBox chip template and selection event [#47](https://github.com/emako/wpfui.violeta/issues/47)
+* Retarget Gallery app to .NET Framework 4.8
+* Rename dependency property generator project
+* Refactor splash animation to use stage container
+* Refactor syntax-high editor menu commands
+
 ## [4.3.0.16] - 2026-10-09
 
 * Add process DPI awareness context API with query and debug logging

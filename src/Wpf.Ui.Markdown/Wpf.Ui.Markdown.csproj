@@ -13,9 +13,9 @@
         <AssemblyName>Wpf.Ui.Markdown</AssemblyName>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <AssemblyVersion>4.3.0.16</AssemblyVersion>
-        <FileVersion>4.3.0.16</FileVersion>
-        <Version>$(VersionPrefix)4.3.0.16</Version>
+        <AssemblyVersion>4.3.0.17</AssemblyVersion>
+        <FileVersion>4.3.0.17</FileVersion>
+        <Version>$(VersionPrefix)4.3.0.17</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
         <Description>WPF UI Markdown is based on WPF UI, and renders Markdown into FlowDocument without WebView. The engine is ported from MdXaml with syntax highlighting, HTML, YAML front matter, SVG and animated GIF support.</Description>
