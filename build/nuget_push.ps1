@@ -4,6 +4,21 @@
 
 Set-Location $PSScriptRoot
 
+# Avoid mojibake: Windows PowerShell defaults to the system ANSI/OEM code page (e.g. GBK),
+# while Unicode banners and `dotnet` CLI localized output are UTF-8.
+$script:Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+try {
+    [Console]::InputEncoding = $script:Utf8NoBom
+    [Console]::OutputEncoding = $script:Utf8NoBom
+}
+catch {
+    # Host may not expose a real console (redirected I/O).
+}
+$OutputEncoding = $script:Utf8NoBom
+& chcp.com 65001 > $null
+# Keep CLI messages in English so push errors stay readable even if the host encoding drifts.
+$env:DOTNET_CLI_UI_LANGUAGE = 'en'
+
 # Symmetric key for encrypting %USERPROFILE%\.nuget\push.token (do not commit real prod secrets elsewhere)
 $script:TokenCryptoSecret = "vK9mP2xR7nQ4wL8sT6yH1jF5cB0aZ3eD9uI2oG7pA4kM6nX8qW5rY1tU3vS0bN7cF2hJ9gL4mP6xR8wT1yH5jK0aZ3eD"
 

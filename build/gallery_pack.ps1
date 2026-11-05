@@ -1,5 +1,19 @@
 ﻿Set-Location $PSScriptRoot
 
+# Avoid mojibake: Windows PowerShell defaults to the system ANSI/OEM code page (e.g. GBK),
+# while Unicode banners and `dotnet` CLI localized output are UTF-8.
+$script:Utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+try {
+    [Console]::InputEncoding = $script:Utf8NoBom
+    [Console]::OutputEncoding = $script:Utf8NoBom
+}
+catch {
+    # Host may not expose a real console (redirected I/O).
+}
+$OutputEncoding = $script:Utf8NoBom
+& chcp.com 65001 > $null
+$env:DOTNET_CLI_UI_LANGUAGE = 'en'
+
 Write-Host @"
  ██████╗  █████╗ ██╗     ██╗     ███████╗██████╗ ██╗   ██╗
 ██╔════╝ ██╔══██╗██║     ██║     ██╔════╝██╔══██╗╚██╗ ██╔╝
@@ -11,8 +25,12 @@ Write-Host @"
 
 Push-Location ..\src\Wpf.Ui.Violeta.Gallery
 Write-Host "Processing Wpf.Ui.Violeta.Gallery.csproj"
-dotnet restore
-dotnet publish Wpf.Ui.Violeta.Gallery.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true -o ../../build/Wpf.Ui.Violeta.Gallery/
+# net48 does not support PublishSingleFile / SelfContained (NETSDK1125).
+# Always pass the csproj: leftover *_wpftmp.csproj files make bare `dotnet restore` hit MSB1011.
+dotnet restore Wpf.Ui.Violeta.Gallery.csproj
+if ($LASTEXITCODE -ne 0) { Pop-Location; exit $LASTEXITCODE }
+dotnet publish Wpf.Ui.Violeta.Gallery.csproj -c Release -o ../../build/Wpf.Ui.Violeta.Gallery/
+if ($LASTEXITCODE -ne 0) { Pop-Location; exit $LASTEXITCODE }
 Pop-Location
 
 $zipPath = Join-Path $PSScriptRoot "Wpf.Ui.Violeta.Gallery.zip"
