@@ -1,36 +1,121 @@
-name: wpfui.violeta
+name: Release
 
 on:
-  release:
-    types: [created]
   push:
-    branches:
-      - master
+    tags:
+      - '*.*.*.*'
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  release:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
 
-      - name: Install dependencies
-        run: dotnet restore src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj /p:Configuration=Release
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          $tag = '${{ github.ref_name }}'
+          Write-Host "Tag version: $tag"
+          "tag=$tag" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
 
-      - name: Build
-        run: dotnet build src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj --configuration Release --no-restore
+      - name: Pack NuGet
+        shell: pwsh
+        env:
+          DOTNET_CLI_UI_LANGUAGE: en
+        run: |
+          $proj = 'src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj'
+          $version = '${{ steps.version.outputs.tag }}'
+          New-Item -ItemType Directory -Force -Path build | Out-Null
+          dotnet restore $proj /p:Configuration=Release
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet build $proj -c Release --no-restore /p:Version=$version /p:PackageVersion=$version
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet pack $proj -c Release --no-build -o build /p:Version=$version /p:PackageVersion=$version
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Get-ChildItem build\*.nupkg, build\*.snupkg | ForEach-Object { Write-Host $_.Name }
 
-      - name: Pack
-        run: dotnet pack src\Wpf.Ui.Violeta\Wpf.Ui.Violeta.csproj -c Release --no-build -o out
+      - name: Pack Gallery
+        shell: pwsh
+        env:
+          DOTNET_CLI_UI_LANGUAGE: en
+        run: |
+          $proj = 'src\Wpf.Ui.Violeta.Gallery\Wpf.Ui.Violeta.Gallery.csproj'
+          $outDir = 'build\Wpf.Ui.Violeta.Gallery'
+          $zipPath = 'build\Wpf.Ui.Violeta.Gallery.zip'
+          # net48 does not support PublishSingleFile / SelfContained (NETSDK1125).
+          # Always pass the csproj: leftover *_wpftmp.csproj files make bare `dotnet restore` hit MSB1011.
+          dotnet restore $proj
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet publish $proj -c Release -o $outDir
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not (Test-Path $outDir)) {
+            Write-Error "Gallery output directory not found: $outDir"
+            exit 1
+          }
+          if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
+          Add-Type -AssemblyName System.IO.Compression
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::CreateFromDirectory(
+            (Resolve-Path $outDir).Path,
+            (Join-Path (Resolve-Path build).Path 'Wpf.Ui.Violeta.Gallery.zip'),
+            [System.IO.Compression.CompressionLevel]::Optimal,
+            $true)
+          Write-Host "Created $zipPath"
+
+      - name: Prepare release notes
+        shell: pwsh
+        run: |
+          $tag = '${{ steps.version.outputs.tag }}'
+          $changelog = Get-Content -LiteralPath CHANGELOG.md -Raw
+          $pattern = "(?ms)^## \[$([regex]::Escape($tag))\][^\r\n]*\r?\n(?<body>.*?)(?=^## \[|\z)"
+          $match = [regex]::Match($changelog, $pattern)
+          if ($match.Success) {
+            $body = $match.Groups['body'].Value.Trim()
+            $notes = "## [$tag]`n`n$body"
+          } else {
+            $notes = "Release $tag"
+          }
+          $notes | Set-Content -LiteralPath release-notes.md -Encoding utf8
+          Write-Host $notes
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          body_path: release-notes.md
+          files: |
+            build/*.nupkg
+            build/*.snupkg
+            build/Wpf.Ui.Violeta.Gallery.zip
+          fail_on_unmatched_files: true
 
       - name: Push NuGet package
-        # run:  dotnet nuget push "out\*.nupkg" -k ${{secrets.NUGET_AUTH_TOKEN}} --source https://api.nuget.org/v3/index.json
-        uses: actions/upload-artifact@v4
-        with:
-          name: nuget-packages
-          path: out/*.nupkg
+        shell: pwsh
+        env:
+          DOTNET_CLI_UI_LANGUAGE: en
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_AUTH_TOKEN)) {
+            Write-Error 'Secret NUGET_AUTH_TOKEN is not set.'
+            exit 1
+          }
+          Get-ChildItem build\*.nupkg | ForEach-Object {
+            Write-Host "Pushing $($_.Name)"
+            dotnet nuget push $_.FullName `
+              --api-key $env:NUGET_AUTH_TOKEN `
+              --source https://api.nuget.org/v3/index.json `
+              --skip-duplicate
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }

@@ -37,4 +37,8 @@ foreach ($proj in $projects) {
 }
 
 Write-Host "`nPress any key to exit..."
-[void][System.Console]::ReadKey($true)
+try {
+    [void][Console]::ReadKey($true)
+} catch {
+    # Ignore when console input is unavailable (e.g. CI or automated runs).
+}
