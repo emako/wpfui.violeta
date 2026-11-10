@@ -254,18 +254,22 @@ public abstract class NumericUpDownBase<T> : NumericUpDown
                 if (parsedValue is null && EmptyInputValue.HasValue)
                     parsedValue = EmptyInputValue;
 
-                // If parsed value is out of range it will be coerced
+                // Clamp before assigning Value. WPF TwoWay bindings write the raw
+                // set value back to the source before CoerceValue runs, so relying
+                // on coercion alone leaves the bound source out of range while the
+                // control displays the clamped value.
                 var oldValue = Value;
+                var rawParsedValue = parsedValue;
+                if (parsedValue.HasValue)
+                    parsedValue = ClampToRange(parsedValue.Value);
                 Value = parsedValue;
+
+                // If the value was clamped, update the displayed text to match
+                if (!EqualityComparer(rawParsedValue, Value))
+                    forceTextUpdate = true;
 
                 if (!forceTextUpdate && oldValue?.CompareTo(Value ?? default) == 0)
                     return true;
-
-                // If the value was coerced, update the displayed text to reflect the coercion
-                if (!EqualityComparer(parsedValue, Value))
-                {
-                    forceTextUpdate = true;
-                }
             }
 
             if (forceTextUpdate && _textBox != null && !_updateFromTextInput)
