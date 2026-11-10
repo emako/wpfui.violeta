@@ -36,6 +36,9 @@ public class ToolBar : ItemsControl
     private bool _overflowLayoutRefreshScheduled;
     private readonly RoutedEventHandler _overflowItemClickHandler;
     private readonly MouseButtonEventHandler _overflowItemMouseUpHandler;
+    private readonly MouseButtonEventHandler _overflowItemMouseDownHandler;
+    private bool _overflowCloseRequestedDuringUpdate;
+    private ContextMenu? _heldNestedMenu;
 
     static ToolBar()
     {
@@ -46,6 +49,7 @@ public class ToolBar : ItemsControl
     {
         _overflowItemClickHandler = OnOverflowItemClick;
         _overflowItemMouseUpHandler = OnOverflowItemMouseUp;
+        _overflowItemMouseDownHandler = OnOverflowItemMouseDown;
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
         SizeChanged += OnSizeChanged;
@@ -584,6 +588,7 @@ public class ToolBar : ItemsControl
             return;
         }
 
+        ReleaseNestedMenuHold(restoreStaysOpen: false);
         _overflowFlyout.Opened -= OnOverflowFlyoutOpened;
         _overflowFlyout.Closed -= OnOverflowFlyoutClosed;
         if (_overflowFlyout.IsOpen)
@@ -603,6 +608,7 @@ public class ToolBar : ItemsControl
 
         _overflowPanel.AddHandler(ButtonBase.ClickEvent, _overflowItemClickHandler, true);
         _overflowPanel.AddHandler(UIElement.PreviewMouseLeftButtonUpEvent, _overflowItemMouseUpHandler, true);
+        _overflowPanel.AddHandler(UIElement.PreviewMouseLeftButtonDownEvent, _overflowItemMouseDownHandler, true);
     }
 
     private void DetachOverflowPanelHandlers()
@@ -614,6 +620,69 @@ public class ToolBar : ItemsControl
 
         _overflowPanel.RemoveHandler(ButtonBase.ClickEvent, _overflowItemClickHandler);
         _overflowPanel.RemoveHandler(UIElement.PreviewMouseLeftButtonUpEvent, _overflowItemMouseUpHandler);
+        _overflowPanel.RemoveHandler(UIElement.PreviewMouseLeftButtonDownEvent, _overflowItemMouseDownHandler);
+    }
+
+    /// <summary>
+    /// The overflow popup light-dismisses on capture loss. A DropDownButton / SplitButton ContextMenu
+    /// is a separate popup, so opening it would close the overflow (and the menu with it).
+    /// Keep the overflow open from press until that menu closes.
+    /// </summary>
+    private void OnOverflowItemMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (_overflowFlyout?.InternalPopup is not { IsOpen: true } popup)
+        {
+            return;
+        }
+
+        ContextMenu? menu = null;
+        for (DependencyObject? current = e.OriginalSource as DependencyObject;
+             current is not null && !ReferenceEquals(current, _overflowPanel);
+             current = GetVisualOrLogicalParent(current))
+        {
+            menu = current switch
+            {
+                DropDownButton { Flyout: ContextMenu m } => m,
+                SplitButton { Flyout: ContextMenu m } => m,
+                _ => null,
+            };
+
+            if (menu is not null)
+            {
+                break;
+            }
+        }
+
+        if (menu is null || ReferenceEquals(menu, _heldNestedMenu))
+        {
+            return;
+        }
+
+        ReleaseNestedMenuHold(restoreStaysOpen: false);
+        _heldNestedMenu = menu;
+        menu.Closed += OnHeldNestedMenuClosed;
+        popup.StaysOpen = true;
+    }
+
+    private void OnHeldNestedMenuClosed(object sender, RoutedEventArgs e)
+    {
+        ReleaseNestedMenuHold(restoreStaysOpen: true);
+    }
+
+    private void ReleaseNestedMenuHold(bool restoreStaysOpen)
+    {
+        if (_heldNestedMenu is null)
+        {
+            return;
+        }
+
+        _heldNestedMenu.Closed -= OnHeldNestedMenuClosed;
+        _heldNestedMenu = null;
+
+        if (restoreStaysOpen)
+        {
+            ApplyOverflowPopupStaysOpen();
+        }
     }
 
     private void OnOverflowItemClick(object sender, RoutedEventArgs e)
@@ -628,6 +697,20 @@ public class ToolBar : ItemsControl
 
     private void OnOverflowItemMouseUp(object sender, MouseButtonEventArgs e)
     {
+        if (_heldNestedMenu is { } heldMenu)
+        {
+            // The host opens its menu in its own PreviewMouseUp, which runs after this tunnel handler.
+            Dispatcher.BeginInvoke(
+                new Action(() =>
+                {
+                    if (ReferenceEquals(_heldNestedMenu, heldMenu) && !heldMenu.IsOpen)
+                    {
+                        ReleaseNestedMenuHold(restoreStaysOpen: true);
+                    }
+                }),
+                DispatcherPriority.Input);
+        }
+
         if (OverflowFlyoutAutoCloseMode != ToolBarOverflowFlyoutAutoCloseMode.Always)
         {
             return;
@@ -775,8 +858,13 @@ public class ToolBar : ItemsControl
 
     private void OnOverflowFlyoutClosed(object? sender, object e)
     {
+        ReleaseNestedMenuHold(restoreStaysOpen: false);
+
         if (_isUpdatingOverflowOpen)
         {
+            // Show() can be light-dismissed synchronously; leaving IsOverflowOpen true would make
+            // the next overflow click only clear the flag instead of opening.
+            _overflowCloseRequestedDuringUpdate = true;
             return;
         }
 
@@ -807,7 +895,7 @@ public class ToolBar : ItemsControl
 
     private void ApplyOverflowPopupStaysOpen()
     {
-        if (_overflowFlyout?.InternalPopup is not { } popup)
+        if (_heldNestedMenu is not null || _overflowFlyout?.InternalPopup is not { } popup)
         {
             return;
         }
@@ -852,6 +940,15 @@ public class ToolBar : ItemsControl
         finally
         {
             _isUpdatingOverflowOpen = false;
+
+            if (_overflowCloseRequestedDuringUpdate)
+            {
+                _overflowCloseRequestedDuringUpdate = false;
+                if (IsOverflowOpen && _overflowFlyout?.IsOpen != true)
+                {
+                    SetCurrentValue(IsOverflowOpenProperty, false);
+                }
+            }
         }
     }
 }
