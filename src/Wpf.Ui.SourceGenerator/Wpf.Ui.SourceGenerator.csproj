@@ -9,7 +9,7 @@
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <RootNamespace>Wpf.Ui.SourceGenerator</RootNamespace>
         <AssemblyName>Wpf.Ui.SourceGenerator</AssemblyName>
-        <Version>4.3.0.17</Version>
+        <Version>4.3.0.18</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
     </PropertyGroup>
