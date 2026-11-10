@@ -108,8 +108,8 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
         run: |
           if ([string]::IsNullOrWhiteSpace($env:NUGET_AUTH_TOKEN)) {
-            Write-Error 'Secret NUGET_AUTH_TOKEN is not set.'
-            exit 1
+            Write-Host 'Secret NUGET_AUTH_TOKEN is not set; skipping NuGet push.'
+            exit 0
           }
           Get-ChildItem build\*.nupkg | ForEach-Object {
             Write-Host "Pushing $($_.Name)"

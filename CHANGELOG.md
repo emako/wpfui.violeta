@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.18] - 2026-11-10
+
+* Fix ToolBar overflow closing when a nested dropdown menu opens
+* Fix NumericUpDown writing out-of-range values to bindings
+
 ## [4.3.0.17] - 2026-11-05
 
 * Add Markdown viewer and gallery sample
