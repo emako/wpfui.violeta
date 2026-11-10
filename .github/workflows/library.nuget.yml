@@ -77,16 +77,25 @@ jobs:
         shell: pwsh
         run: |
           $tag = '${{ steps.version.outputs.tag }}'
+          $repo = '${{ github.repository }}'
           $changelog = Get-Content -LiteralPath CHANGELOG.md -Raw
-          $pattern = "(?ms)^## \[$([regex]::Escape($tag))\][^\r\n]*\r?\n(?<body>.*?)(?=^## \[|\z)"
+          # Keep the full Keep-a-Changelog section, including "## [x.y.z.w] - YYYY-MM-DD".
+          $pattern = "(?ms)^(?<section>## \[$([regex]::Escape($tag))\].*?)(?=^## \[|\z)"
           $match = [regex]::Match($changelog, $pattern)
-          if ($match.Success) {
-            $body = $match.Groups['body'].Value.Trim()
-            $notes = "## [$tag]`n`n$body"
-          } else {
-            $notes = "Release $tag"
+          if (-not $match.Success) {
+            Write-Error "CHANGELOG.md has no section for [$tag]. Update CHANGELOG before tagging."
+            exit 1
           }
-          $notes | Set-Content -LiteralPath release-notes.md -Encoding utf8
+          $notes = $match.Groups['section'].Value.TrimEnd()
+          # Previous version is the next "## [..]" heading in CHANGELOG (same as manual releases).
+          $rest = $changelog.Substring($match.Index + $match.Length)
+          $prevMatch = [regex]::Match($rest, '(?m)^## \[([^\]]+)\]')
+          if ($prevMatch.Success) {
+            $prev = $prevMatch.Groups[1].Value
+            $notes = "$notes`r`n`r`n**Full Changelog**: https://github.com/$repo/compare/$prev...$tag"
+          }
+          $notesPath = Join-Path (Get-Location) 'release-notes.md'
+          [System.IO.File]::WriteAllText($notesPath, $notes + "`r`n", [System.Text.UTF8Encoding]::new($false))
           Write-Host $notes
 
       - name: Create GitHub Release
