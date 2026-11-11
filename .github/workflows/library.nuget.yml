@@ -54,7 +54,8 @@ jobs:
           DOTNET_CLI_UI_LANGUAGE: en
         run: |
           $proj = 'src\Wpf.Ui.Violeta.Gallery\Wpf.Ui.Violeta.Gallery.csproj'
-          dotnet restore $proj
+          # Same as library/TextEditor: Debug TFM overrides omit net48, so restore must use Release.
+          dotnet restore $proj /p:Configuration=Release
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           dotnet build $proj -c Release --no-restore
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -107,9 +108,10 @@ jobs:
           $zipPath = 'build\Wpf.Ui.Violeta.Gallery.zip'
           # net48 does not support PublishSingleFile / SelfContained (NETSDK1125).
           # Always pass the csproj: leftover *_wpftmp.csproj files make bare `dotnet restore` hit MSB1011.
-          dotnet restore $proj
+          # Debug TFM overrides omit net48, so restore must use Release.
+          dotnet restore $proj /p:Configuration=Release
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          dotnet publish $proj -c Release -o $outDir
+          dotnet publish $proj -c Release --no-restore -o $outDir
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           if (-not (Test-Path $outDir)) {
             Write-Error "Gallery output directory not found: $outDir"
