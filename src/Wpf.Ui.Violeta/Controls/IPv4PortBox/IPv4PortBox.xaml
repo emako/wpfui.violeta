@@ -48,6 +48,7 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
                                     Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
@@ -61,6 +62,7 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
                                     Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
@@ -74,6 +76,7 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
                                     Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
@@ -87,6 +90,7 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
                                     Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
@@ -100,6 +104,7 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="5"
                                     Style="{DynamicResource TransparentTextBoxStyle}" />
                             </StackPanel>
