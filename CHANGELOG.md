@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.19] - 2026-11-11
+
+* Add support for .NET 11
+* Fix IPv4 segment text boxes crashing during IME composition [#50](https://github.com/emako/wpfui.violeta/issues/50)
+
 ## [4.3.0.18] - 2026-11-10
 
 * Fix ToolBar overflow closing when a nested dropdown menu opens
