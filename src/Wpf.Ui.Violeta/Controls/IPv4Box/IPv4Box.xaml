@@ -50,8 +50,9 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
-                                    Style="{DynamicResource IPv4SegmentTextBoxStyle}" />
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
                                     Margin="0,0"
                                     VerticalAlignment="Center"
@@ -63,8 +64,9 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
-                                    Style="{DynamicResource IPv4SegmentTextBoxStyle}" />
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
                                     Margin="0,0"
                                     VerticalAlignment="Center"
@@ -76,8 +78,9 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
-                                    Style="{DynamicResource IPv4SegmentTextBoxStyle}" />
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
                                 <TextBlock
                                     Margin="0,0"
                                     VerticalAlignment="Center"
@@ -89,8 +92,9 @@
                                     Padding="0"
                                     HorizontalContentAlignment="Center"
                                     VerticalContentAlignment="Center"
+                                    InputMethod.IsInputMethodEnabled="False"
                                     MaxLength="3"
-                                    Style="{DynamicResource IPv4SegmentTextBoxStyle}" />
+                                    Style="{DynamicResource TransparentTextBoxStyle}" />
                             </StackPanel>
                         </Border>
 

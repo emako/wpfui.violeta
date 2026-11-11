@@ -13,10 +13,6 @@
         <Setter Property="CaretBrush" Value="{DynamicResource TextFillColorPrimaryBrush}" />
     </Style>
 
-    <Style x:Key="IPv4SegmentTextBoxStyle" BasedOn="{StaticResource TransparentTextBoxStyle}" TargetType="{x:Type TextBox}">
-        <Setter Property="InputMethod.IsInputMethodEnabled" Value="False" />
-    </Style>
-
     <Style x:Key="TransparentUiTextBoxStyle" TargetType="{x:Type ui:TextBox}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
