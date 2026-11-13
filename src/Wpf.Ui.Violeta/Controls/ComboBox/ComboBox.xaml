@@ -242,7 +242,6 @@
         <!--  WPF doesn't like centering, the animation is ugly and the mouse button sometimes clicks right away.  -->
         <Setter Property="Popup.Placement" Value="Bottom" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="local:ComboBoxDropDown.ReflowOnOpen" Value="True" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -353,7 +352,6 @@
                                     PopupAnimation="{TemplateBinding Popup.PopupAnimation}"
                                     VerticalOffset="1">
                                     <controls:EffectThicknessDecorator
-                                        VerticalAlignment="Top"
                                         AnimationDelay="00:00:00.167"
                                         AnimationElement="{Binding ElementName=DropDownBorder}"
                                         Thickness="30,0,30,30">
@@ -367,6 +365,9 @@
                                             BorderThickness="1"
                                             CornerRadius="{DynamicResource PopupCornerRadius}"
                                             SnapsToDevicePixels="True">
+                                            <Border.RenderTransform>
+                                                <TranslateTransform />
+                                            </Border.RenderTransform>
                                             <Border.Effect>
                                                 <DropShadowEffect
                                                     BlurRadius="20"
@@ -376,11 +377,10 @@
                                                     Color="#202020" />
                                             </Border.Effect>
 
-                                            <Grid Grid.IsSharedSizeScope="True" VerticalAlignment="Top">
+                                            <Grid>
                                                 <ScrollViewer
                                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                                     Margin="0"
-                                                    VerticalAlignment="Top"
                                                     CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}"
                                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                                     SnapsToDevicePixels="True"
@@ -389,6 +389,7 @@
                                                     TextElement.Foreground="{TemplateBinding Foreground}"
                                                     VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                                     <ItemsPresenter
+                                                        Grid.IsSharedSizeScope="True"
                                                         KeyboardNavigation.DirectionalNavigation="Contained"
                                                         TextElement.FontSize="{TemplateBinding FontSize}" />
                                                 </ScrollViewer>
@@ -418,6 +419,16 @@
                                             From="0"
                                             To="180"
                                             Duration="00:00:00.167" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="DropDownBorder"
+                                            Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                            From="-90"
+                                            To="0"
+                                            Duration="00:00:00.167">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CircleEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
