@@ -411,4 +411,7 @@
     <!--  Slightly lighter frost than #6C202020 so blur stays visible over dark chrome  -->
     <SolidColorBrush x:Key="FluentPopupBackground" Color="#99282828" />
 
+    <!--  DataGrid column-header band. WinUI 2.6.6-experimental TabularSurfaceHeaderBackgroundBrush.  -->
+    <SolidColorBrush x:Key="DataGridHeaderBackgroundBrush" Color="#26FFFFFF" />
+
 </ResourceDictionary>
