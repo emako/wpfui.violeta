@@ -1,18 +1,18 @@
 ﻿using System;
+using Wpf.Ui.Violeta.Controls;
 
 namespace Wpf.Ui.Controls;
 
 /// <summary>
-/// Violeta Fluent Icons
-/// https://github.com/emako/fluentui-violeta-icons
+/// Violeta Fluent Icons. Values are the glyphs generated from <c>Resources/Icons</c>.
 /// </summary>
 #if DEBUG // Pending the migration to FluentUI.FontGlyphs.SourceGenerator, this class is marked as obsolete and will be removed in a future release.
-[Obsolete("Use FluentUI.FontGlyphs.SourceGenerator instead.")]
+[Obsolete("Use VioletaFontIconSymbols instead.")]
 #endif
 public sealed class CustomFontSymbols
 {
-    public const string Edit = "\xe900";
-    public const string Empty = "\xe901";
-    public const string Extension = "\xe902";
-    public const string File = "\xe903";
+    public const string Edit = VioletaFontIconSymbols.Edit;
+    public const string Empty = VioletaFontIconSymbols.Empty;
+    public const string Extension = VioletaFontIconSymbols.Extension;
+    public const string File = VioletaFontIconSymbols.File;
 }

@@ -176,11 +176,44 @@
 
     <ItemGroup>
         <PackageReference Include="WPF-UI" Version="4.3.0" />
+        <PackageReference Include="FluentUI.Svg2Font.Tools" Version="6.5.3.1" PrivateAssets="all" />
         <PackageReference Include="FluentUI.FontGlyphs.SourceGenerator" Version="1.0.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
     </ItemGroup>
+
+    <!-- Bundled rc starts at U+EA01. Pin U+E900 so Edit/Empty/Extension/File keep their published codepoints. -->
+    <PropertyGroup>
+        <Svg2FontRc>$(MSBuildProjectDirectory)\svg2font.svgtofontrc.json</Svg2FontRc>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Svg2FontIcon Include="Resources\Icons" OutputDir="Resources\Fonts" FontName="Violeta Fluent Icons" />
+        <None Remove=".svgtofontrc.json" />
+        <None Remove="Resources\Fonts\react\**" />
+        <None Remove="Resources\Fonts\vue\**" />
+        <None Remove="Resources\Fonts\*.css" />
+        <None Remove="Resources\Fonts\*.less" />
+        <None Remove="Resources\Fonts\*.scss" />
+        <None Remove="Resources\Fonts\*.styl" />
+        <None Remove="Resources\Fonts\*.eot" />
+        <None Remove="Resources\Fonts\*.woff" />
+        <None Remove="Resources\Fonts\*.woff2" />
+        <None Remove="Resources\Fonts\*.json" />
+        <None Remove="Resources\Fonts\*.svg" />
+        <None Remove="Resources\Fonts\*.html" />
+    </ItemGroup>
+
+    <!-- Package props are not imported on the outer multi-target build, so Svg2FontExe is empty there.
+         Generate once, through an inner net462 call, before the parallel framework builds start. -->
+    <Target Name="GenerateVioletaIconsBeforeInnerBuilds"
+            BeforeTargets="DispatchToInnerBuilds"
+            Condition="'$(IsCrossTargetingBuild)' == 'true'">
+        <MSBuild Projects="$(MSBuildProjectFile)"
+                 Targets="Svg2FontGenerate"
+                 Properties="TargetFramework=net462" />
+    </Target>
 
     <ItemGroup>
         <None Remove="app.manifest" />
