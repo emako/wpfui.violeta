@@ -119,6 +119,35 @@
                             </Grid>
                         </Border>
 
+                        <!--
+                            Body grid lines are painted by the cells panel, which the header row does not use.
+                            Draw the same vertical line on each column's right edge when that grid line is on.
+                        -->
+                        <Rectangle
+                            Width="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Stretch"
+                            Fill="{Binding VerticalGridLinesBrush, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                            IsHitTestVisible="False"
+                            SnapsToDevicePixels="True">
+                            <Rectangle.Style>
+                                <Style TargetType="{x:Type Rectangle}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding GridLinesVisibility, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Value="Vertical">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding GridLinesVisibility, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Value="All">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Column, RelativeSource={RelativeSource AncestorType={x:Type DataGridColumnHeader}}}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Rectangle.Style>
+                        </Rectangle>
+
                         <Thumb
                             x:Name="PART_RightHeaderGripper"
                             HorizontalAlignment="Right"
