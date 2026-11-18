@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.20] - 2026-11-18
+
+* Add MaxLength so editable ComboBox can limit typed text
+* Redesign rounded DataGrid header band and tighten header spacing
+* Generate Violeta Fluent Icons from in-repo SVGs
+
 ## [4.3.0.19] - 2026-11-11
 
 * Add support for .NET 11
