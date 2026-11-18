@@ -337,6 +337,7 @@
                                             FontSize="{TemplateBinding FontSize}"
                                             Foreground="{TemplateBinding Foreground}"
                                             IsReadOnly="{TemplateBinding IsReadOnly}"
+                                            MaxLength="{Binding Path=(TextBox.MaxLength), RelativeSource={RelativeSource TemplatedParent}}"
                                             PlaceholderText="{Binding Path=(ui:ControlHelper.PlaceholderText), RelativeSource={RelativeSource TemplatedParent}}"
                                             Style="{StaticResource DefaultComboBoxTextBoxStyle}" />
                                     </Grid>

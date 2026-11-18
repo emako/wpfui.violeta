@@ -17,6 +17,11 @@ namespace Wpf.Ui.Controls;
 /// <see cref="PlaceholderTextProperty"/> reuses <see cref="TextBox.PlaceholderTextProperty"/> by
 /// calling <see cref="DependencyProperty.AddOwner(System.Type)"/>, so both properties share the
 /// same backing storage.
+/// <see cref="MaxLengthProperty"/> reuses <see cref="System.Windows.Controls.TextBox.MaxLengthProperty"/>
+/// the same way. Set it on an editable <see cref="System.Windows.Controls.ComboBox"/> to limit typed
+/// text. <see cref="ComboBox.MaxLength"/> is the same value. <c>0</c> means no limit.
+/// <c>TextBox.MaxLength</c> cannot be set on a <see cref="System.Windows.Controls.ComboBox"/>:
+/// <see cref="System.Windows.Controls.TextBox.MaxLengthProperty"/> is not an attached property.
 /// <para />
 /// <see cref="IconFontFamilyProperty"/> / <see cref="IconFontSizeProperty"/> /
 /// <see cref="IconWidthProperty"/> style <see cref="MenuItem.Icon"/> glyphs on a
@@ -187,6 +192,30 @@ public static class ControlHelper
             UpdatePlaceholderTextVisibility(control);
         }
     }
+
+    // -- MaxLength -----------------------------------------------------------
+
+    /// <summary>
+    /// Identifies the MaxLength attached property.
+    /// </summary>
+    /// <remarks>
+    /// Parameterless <see cref="DependencyProperty.AddOwner(System.Type)"/>: this helper is not a
+    /// <see cref="DependencyObject"/>, so it cannot call <c>OverrideMetadata</c>.
+    /// </remarks>
+    public static readonly DependencyProperty MaxLengthProperty =
+        System.Windows.Controls.TextBox.MaxLengthProperty.AddOwner(typeof(ControlHelper));
+
+    /// <summary>
+    /// Gets the maximum number of characters for an editable combo box. <c>0</c> means no limit.
+    /// </summary>
+    public static int GetMaxLength(DependencyObject element) =>
+        (int)element.GetValue(MaxLengthProperty);
+
+    /// <summary>
+    /// Sets the maximum number of characters for an editable combo box. <c>0</c> means no limit.
+    /// </summary>
+    public static void SetMaxLength(DependencyObject element, int value) =>
+        element.SetValue(MaxLengthProperty, value);
 
     // -- PlaceholderTextVisibility -------------------------------------------
 

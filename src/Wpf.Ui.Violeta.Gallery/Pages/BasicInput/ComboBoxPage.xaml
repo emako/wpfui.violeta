@@ -177,6 +177,7 @@
                             Margin="16,0,0,0"
                             HorizontalAlignment="Left"
                             IsEditable="True"
+                            MaxLength="5"
                             PlaceholderText="{I18N {x:Static lang:LangKeys.Sample_92a3be5307}}">
                             <ComboBoxItem Content="8" />
                             <ComboBoxItem Content="12" />
