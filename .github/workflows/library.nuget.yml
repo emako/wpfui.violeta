@@ -174,11 +174,18 @@ jobs:
             Write-Host 'Secret NUGET_AUTH_TOKEN is not set; skipping NuGet push.'
             exit 0
           }
-          Get-ChildItem build\*.nupkg | ForEach-Object {
-            Write-Host "Pushing $($_.Name)"
-            dotnet nuget push $_.FullName `
+          $packages = @(Get-ChildItem -Path build -Filter *.nupkg -File -ErrorAction SilentlyContinue)
+          if ($packages.Count -eq 0) {
+            Write-Error 'No .nupkg found under build.'
+            exit 1
+          }
+          foreach ($package in $packages) {
+            Write-Host "Pushing $($package.Name)"
+            dotnet nuget push $package.FullName `
               --api-key $env:NUGET_AUTH_TOKEN `
-              --source https://api.nuget.org/v3/index.json `
-              --skip-duplicate
-            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+              --source https://api.nuget.org/v3/index.json
+            if ($LASTEXITCODE -ne 0) {
+              Write-Error "NuGet push failed for $($package.Name) (exit code $LASTEXITCODE)."
+              exit $LASTEXITCODE
+            }
           }
