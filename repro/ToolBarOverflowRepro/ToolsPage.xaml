@@ -1,0 +1,141 @@
+<UserControl
+    x:Class="ToolBarOverflowRepro.ToolsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vio="http://schemas.lepo.co/wpfui/2022/xaml/violeta">
+    <!--  Keep-alive panel host: child pages are toggled Visible / Collapsed, never removed  -->
+    <Grid x:Name="toolsHost">
+        <UserControl x:Name="toolsHome">
+            <ui:Grid RowDefinitions="Auto,*">
+                <ui:Card
+                    Grid.Row="0"
+                    Margin="10,8,10,0"
+                    Padding="8,0,8,0">
+                    <ui:Grid Height="50" ColumnDefinitions="*,Auto">
+                        <vio:ToolBar x:Name="toolBar" Grid.Column="0">
+                            <ui:Button Content="Refresh" Icon="{ui:SymbolIcon ArrowClockwise24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Search" Icon="{ui:SymbolIcon Search24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Filter" Icon="{ui:SymbolIcon Filter24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Share" Icon="{ui:SymbolIcon Share24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Print" Icon="{ui:SymbolIcon Print24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="History" Icon="{ui:SymbolIcon History24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Sync" Icon="{ui:SymbolIcon ArrowSync24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Upload" Icon="{ui:SymbolIcon ArrowUpload24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+                            <ui:Button Content="Download" Icon="{ui:SymbolIcon ArrowDownload24}" Style="{StaticResource ToolBarUiButtonStyle}" />
+
+                            <!--  Controls under test: each one hosts its own popup and always lives in the overflow flyout  -->
+                            <vio:DropDownButton
+                                x:Name="dropDownButton"
+                                vio:ToolBar.OverflowMode="Always"
+                                Content="Export"
+                                Icon="{ui:SymbolIcon Share24}"
+                                Style="{StaticResource ToolBarDropDownButtonStyle}">
+                                <vio:DropDownButton.Flyout>
+                                    <ContextMenu>
+                                        <ui:MenuItem Header="Export Selected" Icon="{ui:SymbolIcon DocumentArrowRight24}" />
+                                        <ui:MenuItem Header="Export All" Icon="{ui:SymbolIcon DocumentMultiple24}" />
+                                        <ui:MenuItem
+                                            x:Name="menuItemOpenExportPage"
+                                            Header="Open Export Page"
+                                            Icon="{ui:SymbolIcon Open24}" />
+                                    </ContextMenu>
+                                </vio:DropDownButton.Flyout>
+                            </vio:DropDownButton>
+                            <vio:SplitButton
+                                x:Name="splitButton"
+                                vio:ToolBar.OverflowMode="Always"
+                                Content="Archive"
+                                Style="{StaticResource ToolBarSplitButtonStyle}">
+                                <vio:SplitButton.Flyout>
+                                    <ContextMenu>
+                                        <ui:MenuItem Header="Archive Now" />
+                                        <ui:MenuItem Header="Archive Later" />
+                                    </ContextMenu>
+                                </vio:SplitButton.Flyout>
+                            </vio:SplitButton>
+                            <ComboBox
+                                x:Name="comboBox"
+                                Width="120"
+                                Margin="4,0"
+                                vio:ToolBar.OverflowMode="Always"
+                                SelectedIndex="0">
+                                <ComboBoxItem Content="Small" />
+                                <ComboBoxItem Content="Medium" />
+                                <ComboBoxItem Content="Large" />
+                            </ComboBox>
+                            <vio:ToggleComboBox
+                                x:Name="toggleComboBox"
+                                vio:ToolBar.OverflowMode="Always"
+                                Content="Format"
+                                Icon="{ui:SymbolIcon TextBold24}"
+                                Style="{StaticResource ToolBarToggleComboBoxStyle}">
+                                <vio:ToggleComboBox.ItemsSource>
+                                    <x:Array Type="{x:Type sys:String}">
+                                        <sys:String>Bold</sys:String>
+                                        <sys:String>Italic</sys:String>
+                                        <sys:String>Underline</sys:String>
+                                    </x:Array>
+                                </vio:ToggleComboBox.ItemsSource>
+                            </vio:ToggleComboBox>
+                            <vio:PopConfirmButton
+                                x:Name="popConfirmButton"
+                                vio:ToolBar.OverflowMode="Always"
+                                Content="Delete"
+                                Icon="{ui:SymbolIcon Delete24}"
+                                Message="This item will be removed."
+                                MessageBoxIcon="Warning"
+                                Style="{StaticResource ToolBarPopConfirmButtonStyle}"
+                                Title="Delete item?" />
+                            <ui:DropDownButton
+                                x:Name="uiDropDownButton"
+                                vio:ToolBar.OverflowMode="Always"
+                                Content="More (WPF-UI)"
+                                Icon="{ui:SymbolIcon MoreHorizontal24}">
+                                <ui:DropDownButton.Flyout>
+                                    <ContextMenu>
+                                        <ui:MenuItem Header="Option 1" />
+                                        <ui:MenuItem Header="Option 2" />
+                                    </ContextMenu>
+                                </ui:DropDownButton.Flyout>
+                            </ui:DropDownButton>
+                        </vio:ToolBar>
+                    </ui:Grid>
+                </ui:Card>
+                <ui:Card
+                    Grid.Row="1"
+                    Margin="10"
+                    VerticalAlignment="Top">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,8"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Text="Manual steps" />
+                        <TextBlock TextWrapping="Wrap">
+                            1. Open the toolbar overflow (the &quot;...&quot; button) and open any dropdown inside it.<LineBreak />
+                            2. While that dropdown is open, click the Settings tab in the title bar.<LineBreak />
+                            3. Click the Tools tab, open the overflow again and click the same control.<LineBreak />
+                            Expected: the dropdown opens on the first click.<LineBreak />
+                            Variant: Export &gt; Open Export Page navigates inside this tab, then use Back.<LineBreak />
+                            <LineBreak />
+                            Run with --auto to click through every case and write %TEMP%\toolbar-overflow-repro.log.<LineBreak />
+                            Use --case=&lt;name&gt; to run a single case (for example --case=ComboBox).
+                        </TextBlock>
+                    </StackPanel>
+                </ui:Card>
+            </ui:Grid>
+        </UserControl>
+        <Grid x:Name="exportPage" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="20" Text="Export page" />
+                <Button
+                    x:Name="buttonBack"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Center"
+                    Content="Back" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
