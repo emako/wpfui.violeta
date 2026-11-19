@@ -652,6 +652,18 @@ public class PopConfirmButton : Wpf.Ui.Controls.Button
         _popup.Child = null;
         _popup = null;
         _flyoutHost = null;
+
+        // Closed is detached above (and never fires when the hosting popup window is destroyed first),
+        // so OnPopupClosed cannot clear this; a stale true makes the next click only "close".
+        _suppressIsOpenCallback = true;
+        try
+        {
+            SetCurrentValue(IsConfirmOpenProperty, false);
+        }
+        finally
+        {
+            _suppressIsOpenCallback = false;
+        }
     }
 
     private static void TryExecuteCommand(ICommand? command, object? parameter)
