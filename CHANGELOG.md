@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.21] - 2026-11-19
+
+* Fix ToolBar overflow remaining visible after the toolbar is hidden
+
 ## [4.3.0.20] - 2026-11-18
 
 * Add MaxLength so editable ComboBox can limit typed text
