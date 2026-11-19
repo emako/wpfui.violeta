@@ -40,6 +40,7 @@ public class ToolBar : ItemsControl
     private bool _overflowCloseRequestedDuringUpdate;
     private ContextMenu? _heldNestedMenu;
     private DispatcherOperation? _hideOverflowWhenInvisible;
+    private ContextMenu? _closingNestedMenu;
 
     static ToolBar()
     {
@@ -501,6 +502,8 @@ public class ToolBar : ItemsControl
     private void OnLoaded(object sender, RoutedEventArgs e)
     {
         EnsureOverflowFlyout();
+        // Unloaded detaches these, and OnApplyTemplate does not run again when a cached page is reloaded.
+        AttachOverflowPanelHandlers();
         EnsureContainersRealized();
         UpdateOverflowButtonVisibility();
         // Containers / item DesiredSize may only be final after the first arrange.
@@ -527,6 +530,7 @@ public class ToolBar : ItemsControl
     {
         _hideOverflowWhenInvisible?.Abort();
         _hideOverflowWhenInvisible = null;
+        StopWaitingForNestedMenu();
         CloseOverflowFlyout();
         DetachOverflowPanelHandlers();
         DetachFlyout();
@@ -552,6 +556,11 @@ public class ToolBar : ItemsControl
             return;
         }
 
+        ScheduleCloseOverflowIfStillHidden();
+    }
+
+    private void ScheduleCloseOverflowIfStillHidden()
+    {
         _hideOverflowWhenInvisible?.Abort();
         _hideOverflowWhenInvisible = Dispatcher.BeginInvoke(
             CloseOverflowIfStillHidden,
@@ -567,8 +576,79 @@ public class ToolBar : ItemsControl
             return;
         }
 
+        // A nested menu's window is owned by the overflow popup and is destroyed only after its close
+        // animation. Hiding the overflow first destroys it early, so the menu never raises Closed and its
+        // DropDownButton / SplitButton stays "open" and swallows every later click.
+        if (FindLiveNestedMenu() is { } menu)
+        {
+            if (!ReferenceEquals(_closingNestedMenu, menu))
+            {
+                StopWaitingForNestedMenu();
+                _closingNestedMenu = menu;
+                menu.Closed += OnClosingNestedMenuClosed;
+            }
+
+            menu.SetCurrentValue(ContextMenu.IsOpenProperty, false);
+            return;
+        }
+
         CloseOverflowFlyout();
     }
+
+    private void OnClosingNestedMenuClosed(object sender, RoutedEventArgs e)
+    {
+        StopWaitingForNestedMenu();
+
+        if (!IsVisible)
+        {
+            ScheduleCloseOverflowIfStillHidden();
+        }
+    }
+
+    private void StopWaitingForNestedMenu()
+    {
+        _closingNestedMenu?.Closed -= OnClosingNestedMenuClosed;
+        _closingNestedMenu = null;
+    }
+
+    /// <summary>
+    /// Returns a nested menu in the overflow panel that is open or still inside its close animation.
+    /// </summary>
+    private ContextMenu? FindLiveNestedMenu()
+    {
+        if (_overflowPanel is null)
+        {
+            return null;
+        }
+
+        var pending = new Stack<DependencyObject>();
+        pending.Push(_overflowPanel);
+
+        while (pending.Count > 0)
+        {
+            DependencyObject current = pending.Pop();
+
+            if (GetNestedMenu(current) is { } menu
+                && (menu.IsOpen || PresentationSource.FromVisual(menu) is not null))
+            {
+                return menu;
+            }
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+            {
+                pending.Push(VisualTreeHelper.GetChild(current, i));
+            }
+        }
+
+        return null;
+    }
+
+    private static ContextMenu? GetNestedMenu(DependencyObject element) => element switch
+    {
+        DropDownButton { Flyout: ContextMenu menu } => menu,
+        SplitButton { Flyout: ContextMenu menu } => menu,
+        _ => null,
+    };
 
     private void CloseOverflowFlyout()
     {
@@ -663,6 +743,7 @@ public class ToolBar : ItemsControl
             return;
         }
 
+        DetachOverflowPanelHandlers();
         _overflowPanel.AddHandler(ButtonBase.ClickEvent, _overflowItemClickHandler, true);
         _overflowPanel.AddHandler(UIElement.PreviewMouseLeftButtonUpEvent, _overflowItemMouseUpHandler, true);
         _overflowPanel.AddHandler(UIElement.PreviewMouseLeftButtonDownEvent, _overflowItemMouseDownHandler, true);
@@ -697,12 +778,7 @@ public class ToolBar : ItemsControl
              current is not null && !ReferenceEquals(current, _overflowPanel);
              current = GetVisualOrLogicalParent(current))
         {
-            menu = current switch
-            {
-                DropDownButton { Flyout: ContextMenu m } => m,
-                SplitButton { Flyout: ContextMenu m } => m,
-                _ => null,
-            };
+            menu = GetNestedMenu(current);
 
             if (menu is not null)
             {
