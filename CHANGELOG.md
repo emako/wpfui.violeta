@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.22] - 2026-11-19
+
+* Fix DropDownButton stuck open when ToolBar hides during nested menu close
+* Fix PopConfirmButton stuck open when hosting popup is destroyed first
+
 ## [4.3.0.21] - 2026-11-19
 
 * Fix ToolBar overflow remaining visible after the toolbar is hidden
