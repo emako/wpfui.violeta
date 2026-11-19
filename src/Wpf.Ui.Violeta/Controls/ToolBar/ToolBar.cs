@@ -39,6 +39,7 @@ public class ToolBar : ItemsControl
     private readonly MouseButtonEventHandler _overflowItemMouseDownHandler;
     private bool _overflowCloseRequestedDuringUpdate;
     private ContextMenu? _heldNestedMenu;
+    private DispatcherOperation? _hideOverflowWhenInvisible;
 
     static ToolBar()
     {
@@ -52,6 +53,7 @@ public class ToolBar : ItemsControl
         _overflowItemMouseDownHandler = OnOverflowItemMouseDown;
         Loaded += OnLoaded;
         Unloaded += OnUnloaded;
+        IsVisibleChanged += OnIsVisibleChanged;
         SizeChanged += OnSizeChanged;
         ItemContainerGenerator.StatusChanged += OnGeneratorStatusChanged;
     }
@@ -523,9 +525,64 @@ public class ToolBar : ItemsControl
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
-        IsOverflowOpen = false;
+        _hideOverflowWhenInvisible?.Abort();
+        _hideOverflowWhenInvisible = null;
+        CloseOverflowFlyout();
         DetachOverflowPanelHandlers();
         DetachFlyout();
+    }
+
+    /// <summary>
+    /// The overflow flyout is its own popup window, so collapsing this toolbar (or an ancestor)
+    /// does not dismiss it. Close it once this toolbar is still not visible after the current
+    /// input/layout pass. Closing inline would run inside the same click that dismisses a nested
+    /// popup and take the overflow flyout with it.
+    /// </summary>
+    private void OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    {
+        if (IsVisible)
+        {
+            _hideOverflowWhenInvisible?.Abort();
+            _hideOverflowWhenInvisible = null;
+            return;
+        }
+
+        if (!IsOverflowOpen && _overflowFlyout?.IsOpen != true)
+        {
+            return;
+        }
+
+        _hideOverflowWhenInvisible?.Abort();
+        _hideOverflowWhenInvisible = Dispatcher.BeginInvoke(
+            CloseOverflowIfStillHidden,
+            DispatcherPriority.ContextIdle);
+    }
+
+    private void CloseOverflowIfStillHidden()
+    {
+        _hideOverflowWhenInvisible = null;
+
+        if (IsVisible || (!IsOverflowOpen && _overflowFlyout?.IsOpen != true))
+        {
+            return;
+        }
+
+        CloseOverflowFlyout();
+    }
+
+    private void CloseOverflowFlyout()
+    {
+        if (!IsOverflowOpen && _overflowFlyout?.IsOpen != true)
+        {
+            return;
+        }
+
+        IsOverflowOpen = false;
+
+        if (_overflowFlyout is { IsOpen: true })
+        {
+            _overflowFlyout.Hide();
+        }
     }
 
     private void EnsureOverflowFlyout()
@@ -828,7 +885,7 @@ public class ToolBar : ItemsControl
         Dispatcher.BeginInvoke(
             new Action(() =>
             {
-                if (IsLoaded && ShowOverflowMenu && HasOverflowItems)
+                if (IsLoaded && IsVisible && ShowOverflowMenu && HasOverflowItems)
                 {
                     IsOverflowOpen = true;
                 }
@@ -922,7 +979,7 @@ public class ToolBar : ItemsControl
         _isUpdatingOverflowOpen = true;
         try
         {
-            if (IsOverflowOpen && ShowOverflowMenu && HasOverflowItems)
+            if (IsOverflowOpen && IsVisible && ShowOverflowMenu && HasOverflowItems)
             {
                 PrepareOverflowContent();
                 if (!_overflowFlyout.IsOpen)
@@ -935,6 +992,11 @@ public class ToolBar : ItemsControl
             else if (_overflowFlyout.IsOpen)
             {
                 _overflowFlyout.Hide();
+            }
+            else if (IsOverflowOpen && !IsVisible)
+            {
+                // Hidden before the popup opened. Clear the flag or the next "..." click only toggles it off.
+                _overflowCloseRequestedDuringUpdate = true;
             }
         }
         finally
