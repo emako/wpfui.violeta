@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.23] - 2026-11-24
+
+* Fix title-bar system menu missing on ShellWindow / ContentWindow when SizeToContent resizes the HWND after custom chrome clears WS_SYSMENU
+
 ## [4.3.0.22] - 2026-11-19
 
 * Fix DropDownButton stuck open when ToolBar hides during nested menu close

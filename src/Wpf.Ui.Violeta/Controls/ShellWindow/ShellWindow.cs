@@ -74,6 +74,11 @@ public partial class ShellWindow : Window
     {
         SetResourceReference(StyleProperty, typeof(ShellWindow));
         ThemeManager.Changed += OnApplicationThemeChanged;
+
+        // SizeToContent can destroy the native system menu *after* SourceInitialized /
+        // caption chrome have already cleared WS_SYSMENU. Re-check whenever the HWND
+        // size changes for auto-sized windows (cheap no-op when the menu handle is intact).
+        SizeChanged += OnSizeChangedEnsureSystemMenu;
     }
 
     static ShellWindow()
@@ -86,6 +91,7 @@ public partial class ShellWindow : Window
 
     protected override void OnClosed(EventArgs e)
     {
+        SizeChanged -= OnSizeChangedEnsureSystemMenu;
         ThemeManager.Changed -= OnApplicationThemeChanged;
         base.OnClosed(e);
     }
@@ -97,6 +103,17 @@ public partial class ShellWindow : Window
         OnCornerPreferenceChanged(default, WindowCornerPreference);
         OnExtendsContentIntoTitleBarChanged(default, ExtendsContentIntoTitleBar);
         OnBackdropTypeChanged(default, WindowBackdropType);
+    }
+
+    /// <summary>
+    /// First layout/render is complete. This is the earliest reliable point where
+    /// <see cref="SizeToContent"/> has usually finished resizing the HWND, so restore
+    /// the system menu if that resize wiped it while custom chrome had <c>WS_SYSMENU</c> off.
+    /// </summary>
+    protected override void OnContentRendered(EventArgs e)
+    {
+        base.OnContentRendered(e);
+        EnsureSystemMenuAfterLayout();
     }
 
     private void OnApplicationThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
@@ -219,5 +236,66 @@ public partial class ShellWindow : Window
     {
         //SetCurrentValue(WindowStyleProperty, WindowStyle.SingleBorderWindow);
         _ = WindowBackdrop.RemoveWindowTitlebarContents(this);
+    }
+
+    /// <summary>
+    /// Handles size changes that may accompany <see cref="SizeToContent"/> layout passes.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Failure mode this defends against:
+    /// </para>
+    /// <list type="number">
+    /// <item>
+    /// <description>
+    /// Custom chrome clears <c>WS_SYSMENU</c> (<see cref="WindowBackdrop.RemoveWindowTitlebarContents"/> /
+    /// <see cref="CaptionButtonBar"/>) so OS caption buttons do not fight the in-client TitleBar.
+    /// The existing system-menu HMENU normally survives that style change.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <description>
+    /// With <see cref="SizeToContent"/> set to Width, Height, or WidthAndHeight, WPF resizes the
+    /// HWND to fit measured content. That resize can destroy the system-menu object, after which
+    /// <c>GetSystemMenu(hwnd, false)</c> returns null.
+    /// </description>
+    /// </item>
+    /// <item>
+    /// <description>
+    /// Because <c>WS_SYSMENU</c> is already off, Windows will not recreate the menu. Caption
+    /// right-click (WindowChrome <c>WM_NCRBUTTONUP</c> → <c>SystemCommands.ShowSystemMenu</c>)
+    /// then appears to do nothing — while the same ContentWindow / ShellWindow works fine when
+    /// sized manually (Gallery dialogs without SizeToContent).
+    /// </description>
+    /// </item>
+    /// </list>
+    /// <para>
+    /// Fixed-size windows (<see cref="SizeToContent.Manual"/>) skip the check on SizeChanged;
+    /// <see cref="OnContentRendered"/> still runs once as a safety net.
+    /// </para>
+    /// </remarks>
+    private void OnSizeChangedEnsureSystemMenu(object sender, SizeChangedEventArgs e)
+    {
+        if (SizeToContent == SizeToContent.Manual)
+        {
+            return;
+        }
+
+        EnsureSystemMenuAfterLayout();
+    }
+
+    /// <summary>
+    /// Recreates the native system menu when SizeToContent (or equivalent HWND resize) wiped it
+    /// while custom chrome had already removed <c>WS_SYSMENU</c>. See
+    /// <see cref="WindowBackdrop.EnsureSystemMenu(Window)"/> for the Win32 sequence and rationale.
+    /// </summary>
+    private void EnsureSystemMenuAfterLayout()
+    {
+        if (InteropHelper.Handle == IntPtr.Zero)
+        {
+            return;
+        }
+
+        _ = WindowBackdrop.EnsureSystemMenu(this);
     }
 }

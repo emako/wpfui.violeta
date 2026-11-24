@@ -283,6 +283,73 @@ public static class WindowBackdrop
     }
 
     /// <summary>
+    /// Ensures the native system menu still exists for a window that uses custom chrome.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Custom chrome (see <see cref="RemoveWindowTitlebarContents"/>) clears <c>WS_SYSMENU</c>
+    /// so the OS caption buttons do not fight the in-client TitleBar / CaptionButtonBar.
+    /// Clearing the style bit alone usually keeps the already-created system-menu handle,
+    /// which is enough for WPF <see cref="System.Windows.Shell.WindowChrome"/> to show the
+    /// menu on caption right-click via <c>WM_NCRBUTTONUP</c>.
+    /// </para>
+    /// <para>
+    /// However, when <see cref="Window.SizeToContent"/> is not <see cref="SizeToContent.Manual"/>,
+    /// WPF resizes the HWND to fit content. That resize path can destroy the system-menu
+    /// object. With <c>WS_SYSMENU</c> already removed, Windows will not recreate it, so
+    /// <c>GetSystemMenu(hwnd, false)</c> returns null and title-bar right-click does nothing.
+    /// </para>
+    /// <para>
+    /// Recovery: briefly restore <c>WS_SYSMENU</c>, force a fresh menu with
+    /// <c>GetSystemMenu(hwnd, true)</c>, then clear <c>WS_SYSMENU</c> again. The new menu
+    /// handle remains usable even after the style bit is stripped (same end state as a
+    /// fixed-size custom-chrome window that never lost its menu).
+    /// </para>
+    /// </remarks>
+    /// <param name="window">The window whose system menu should be present.</param>
+    /// <returns><see langword="true"/> when a system menu handle is available afterward.</returns>
+    public static bool EnsureSystemMenu(this Window window)
+    {
+        if (window is null)
+        {
+            return false;
+        }
+
+        nint hwnd = new WindowInteropHelper(window).Handle;
+        if (hwnd == 0)
+        {
+            return false;
+        }
+
+        return EnsureSystemMenu(hwnd);
+    }
+
+    /// <inheritdoc cref="EnsureSystemMenu(Window)"/>
+    public static bool EnsureSystemMenu(nint hwnd)
+    {
+        if (hwnd == 0)
+        {
+            return false;
+        }
+
+        // Fast path: menu handle survived chrome setup / layout. Nothing to do.
+        if (User32.GetSystemMenu(hwnd, false) != 0)
+        {
+            return true;
+        }
+
+        // Menu was destroyed (typically by SizeToContent-driven resize) while WS_SYSMENU
+        // is already off, so Windows will not rebuild it unless we temporarily opt back in.
+        int style = User32.GetWindowLong(hwnd, User32.GWL_STYLE);
+        _ = User32.SetWindowLong(hwnd, User32.GWL_STYLE, style | User32.WS_SYSMENU);
+        _ = User32.GetSystemMenu(hwnd, true);
+        // Keep custom chrome: strip the style again, but leave the recreated HMENU in place.
+        _ = User32.SetWindowLong(hwnd, User32.GWL_STYLE, style & ~User32.WS_SYSMENU);
+
+        return User32.GetSystemMenu(hwnd, false) != 0;
+    }
+
+    /// <summary>
     /// Updates <see cref="WindowChrome.GlassFrameThickness"/>, cloning a frozen chrome instance when needed.
     /// </summary>
     public static void SetGlassFrameThickness(this Window window, Thickness thickness)

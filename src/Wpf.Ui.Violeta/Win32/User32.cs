@@ -81,6 +81,9 @@ internal static class User32
     [DllImport("user32.dll", SetLastError = true)]
     public static extern int SetWindowLong(nint hWnd, int nIndex, int dwNewLong);
 
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern nint GetSystemMenu(nint hWnd, [MarshalAs(UnmanagedType.Bool)] bool bRevert);
+
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     public static extern bool EnableWindow(nint hWnd, bool bEnable);
 
