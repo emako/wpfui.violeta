@@ -75,6 +75,7 @@
                         x:Name="ThemeComboBox"
                         MinWidth="100"
                         Margin="8,0,0,0"
+                        vio:ThemeSwitchEffect.IsEnabled="True"
                         SelectionChanged="ThemeComboBox_OnSelectionChanged">
                         <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_System}}" />
                         <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}" IsSelected="True" />

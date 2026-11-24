@@ -99,6 +99,7 @@
                             Grid.Column="1"
                             MinWidth="180"
                             HorizontalAlignment="Left"
+                            vio:ThemeSwitchEffect.IsEnabled="True"
                             SelectionChanged="ThemeComboBox_OnSelectionChanged">
                             <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_System}}" />
                             <ComboBoxItem Content="{I18N {x:Static lang:LangKeys.Gallery_Theme_Dark}}" IsSelected="True" />
