@@ -103,6 +103,13 @@ public partial class ShellWindow : Window
         OnCornerPreferenceChanged(default, WindowCornerPreference);
         OnExtendsContentIntoTitleBarChanged(default, ExtendsContentIntoTitleBar);
         OnBackdropTypeChanged(default, WindowBackdropType);
+
+        // The first SizeToContent pass still counts the system frame that WindowChrome has just removed,
+        // leaving a frame-wide blank on the right and bottom until the window is measured again.
+        if (SizeToContent != SizeToContent.Manual)
+        {
+            InvalidateMeasure();
+        }
     }
 
     /// <summary>
