@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Release notes are aggregated from [GitHub Releases](https://github.com/emako/wpfui.violeta/releases).
 
+## [4.3.0.24] - 2026-11-27
+
+* Fix SizeToContent windows keeping the system frame after WindowChrome is applied
+* Improve theme switch ripple transitions
+
 ## [4.3.0.23] - 2026-11-24
 
 * Fix title-bar system menu missing on ShellWindow / ContentWindow when SizeToContent resizes the HWND after custom chrome clears WS_SYSMENU

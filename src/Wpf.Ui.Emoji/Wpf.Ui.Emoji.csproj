@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <PackageId>WPF-UI.Emoji</PackageId>
@@ -10,9 +10,9 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <AssemblyVersion>4.3.0.23</AssemblyVersion>
-        <FileVersion>4.3.0.23</FileVersion>
-        <Version>4.3.0.23</Version>
+        <AssemblyVersion>4.3.0.24</AssemblyVersion>
+        <FileVersion>4.3.0.24</FileVersion>
+        <Version>4.3.0.24</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
         <Description>Emoji rendering for WPF (based on emoji.wpf). Color COLR/CPAL emoji via Segoe UI Emoji.</Description>

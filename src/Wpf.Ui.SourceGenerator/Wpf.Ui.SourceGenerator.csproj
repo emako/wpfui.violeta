@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,7 +9,7 @@
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <RootNamespace>Wpf.Ui.SourceGenerator</RootNamespace>
         <AssemblyName>Wpf.Ui.SourceGenerator</AssemblyName>
-        <Version>4.3.0.23</Version>
+        <Version>4.3.0.24</Version>
         <Authors>ema</Authors>
         <Company>ema</Company>
     </PropertyGroup>
